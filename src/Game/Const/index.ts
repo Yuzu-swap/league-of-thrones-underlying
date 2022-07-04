@@ -1,10 +1,10 @@
 export enum CityFacility {
 	Center = 0,
-	Wirehouse = 1,
+	Human = 1,
 	Market = 2,
 	Production = 3,
 	Logistics = 4,
-	Store = 5
+	Power = 5
 }
 
 export enum ResouceType {

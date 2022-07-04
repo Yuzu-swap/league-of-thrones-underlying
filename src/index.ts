@@ -1,11 +1,18 @@
 import {
   City,
-  FacilityGdsRow,
-  GdsTable
 } from './Game/Logic/game';
 import { CityFacility } from './Game/Const';
 import { State, IStateChangeWatcher, IState } from './Core/state';
+import {ConfigContainer } from './Core/config';
 import { ICityState } from './Game/State';
+import { FacilityMarketGdsRow, FacilityProductionGdsRow, FacilityHumanGdsRow,FacilityPowerGdsRow,FacilityLogisticsGdsRow} from "./Game/DataConfig"
+
+import marketGDS = require('./league-of-thrones-data-sheets/.jsonoutput/market.json')
+import powerGDS = require('./league-of-thrones-data-sheets/.jsonoutput/power.json')
+import humanGDS = require('./league-of-thrones-data-sheets/.jsonoutput/human.json')
+import logisticsGDS = require('./league-of-thrones-data-sheets/.jsonoutput/logistics.json')
+import productionGDS = require('./league-of-thrones-data-sheets/.jsonoutput/production.json')
+
 export const GameName = 'league of thrones';
 
 
@@ -20,13 +27,21 @@ const cityState:ICityState= (new State<ICityState>({id:"city-testid",facilities:
 },resources:{},troops:0},watcher)).unsderlying()
 
 const city = new City((cityState as any as ICityState),{
-  facilityConfig: new GdsTable<FacilityGdsRow>()
+  facilityConfig: {
+    [CityFacility.Market]: new ConfigContainer<FacilityMarketGdsRow>(marketGDS.Config),
+    [CityFacility.Production]:new ConfigContainer<FacilityProductionGdsRow>(productionGDS.Config),
+    [CityFacility.Human]:new ConfigContainer<FacilityHumanGdsRow>(humanGDS.Config),
+    [CityFacility.Logistics]:new ConfigContainer<FacilityLogisticsGdsRow>(logisticsGDS.Config),
+    [CityFacility.Power]:new ConfigContainer<FacilityPowerGdsRow>(powerGDS.Config),
+  },
 });
 
-city.upgradeFacility(CityFacility.Center);
-city.upgradeFacility(CityFacility.Center);
-city.upgradeFacility(CityFacility.Center);
-city.upgradeFacility(CityFacility.Center);
 city.upgradeFacility(CityFacility.Market);
+city.upgradeFacility(CityFacility.Market);
+city.upgradeFacility(CityFacility.Production);
+city.upgradeFacility(CityFacility.Human);
+city.upgradeFacility(CityFacility.Logistics);
+city.upgradeFacility(CityFacility.Power);
+
 
 city.showAll()

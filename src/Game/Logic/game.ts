@@ -1,18 +1,18 @@
 import { ICityState } from "../State";
 import { CityFacility } from "../Const";
+import { ConfigContainer } from "../../Core/config";
+import { FacilityGdsRow,FacilityMarketGdsRow, FacilityProductionGdsRow, FacilityHumanGdsRow,FacilityPowerGdsRow,FacilityLogisticsGdsRow} from "../DataConfig"
 
-export interface FacilityGdsRow {
-  id: number;
-  lvl: number;
-  need_gold: number;
-}
 
-export class GdsTable<T> {
-  items: T[];
-}
 
 export interface CityConfig {
-  facilityConfig: GdsTable<FacilityGdsRow>;
+  facilityConfig:  {
+    [CityFacility.Market]:  ConfigContainer<FacilityMarketGdsRow>,
+    [CityFacility.Production]:ConfigContainer<FacilityProductionGdsRow>,
+    [CityFacility.Human]:ConfigContainer<FacilityHumanGdsRow>,
+    [CityFacility.Logistics]:ConfigContainer<FacilityLogisticsGdsRow>,
+    [CityFacility.Power]:ConfigContainer<FacilityPowerGdsRow>,
+  }
 }
 
 export class City {
@@ -27,6 +27,8 @@ export class City {
 
   upgradeFacility(typ: CityFacility) {
     const level = this.state.facilities[typ] || 0;
+    const row :FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(level.toString())
+    console.log("upgradeFacility ",typ, " level ", level, " need gold ", row.need_gold)
     this.state.update( { [`facilities.${typ}`] : level + 1 });
   }
 
