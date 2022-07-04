@@ -30,7 +30,9 @@ export class State<UnderlyingStateType extends IStateIdentity> implements IState
 	_watcher : IStateChangeWatcher
 	id : string
 	constructor(initVal: Omit<UnderlyingStateType,'update'|'getId'>, watcher?: IStateChangeWatcher){
-		Object.assign(this,initVal||{})
+		for(var key in initVal){
+			this[key] = initVal[key]
+		}
 		this._watcher = watcher
 	}
 
