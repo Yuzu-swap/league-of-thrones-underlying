@@ -3,12 +3,15 @@ export enum StateName {
 }
 
 export enum CityFacility {
-	Center = 0,
-	Human = 1,
-	Market = 2,
-	Production = 3,
-	Logistics = 4,
-	Power = 5
+	Fortress = 0,
+	MilitaryCenter,
+	Wall,
+	Store,
+	InfantryCamp,
+	CavalryCamp,
+	ArcherCamp,
+	TrainingCenter,
+	Home ,
 }
 
 export enum ResouceType {

@@ -1,17 +1,32 @@
 import { ICityState } from "../State";
 import { CityFacility } from "../Const";
-import { ConfigContainer } from "../../Core/config";
-import { FacilityGdsRow, FacilityMarketGdsRow, FacilityProductionGdsRow, FacilityHumanGdsRow, FacilityPowerGdsRow, FacilityLogisticsGdsRow } from "../DataConfig"
+import { ConfigContainer , FacilityLimit} from "../../Core/config";
+import { FacilityGdsRow, FacilityFortressGdsRow, FacilityMilitaryCenterGdsRow, FacilityWallGdsRow,  FacilityStoreGdsRow, FacilityInfantryCampGdsRow, FacilityCavalryCampGdsRow, FacilityArcherCampGdsRow, FacilityTrainingCenterGdsRow, FacilityHomeGdsRow } from "../DataConfig"
 
 
 
 export interface CityConfig {
   facilityConfig: {
-    [CityFacility.Market]: ConfigContainer<FacilityMarketGdsRow>,
-    [CityFacility.Production]: ConfigContainer<FacilityProductionGdsRow>,
-    [CityFacility.Human]: ConfigContainer<FacilityHumanGdsRow>,
-    [CityFacility.Logistics]: ConfigContainer<FacilityLogisticsGdsRow>,
-    [CityFacility.Power]: ConfigContainer<FacilityPowerGdsRow>,
+    [CityFacility.Fortress]: ConfigContainer<FacilityFortressGdsRow>,
+    [CityFacility.MilitaryCenter]: ConfigContainer<FacilityMilitaryCenterGdsRow>,
+    [CityFacility.Wall]: ConfigContainer<FacilityWallGdsRow>,
+    [CityFacility.Store]: ConfigContainer<FacilityStoreGdsRow>,
+    [CityFacility.InfantryCamp]: ConfigContainer<FacilityInfantryCampGdsRow>,
+    [CityFacility.CavalryCamp]: ConfigContainer<FacilityCavalryCampGdsRow>,
+    [CityFacility.ArcherCamp]: ConfigContainer<FacilityArcherCampGdsRow>,
+    [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>,
+    [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>
+  },
+  limit:{
+    [CityFacility.Fortress]: FacilityLimit,
+    [CityFacility.MilitaryCenter]: FacilityLimit,
+    [CityFacility.Wall]: FacilityLimit,
+    [CityFacility.Store]: FacilityLimit,
+    [CityFacility.InfantryCamp]: FacilityLimit,
+    [CityFacility.CavalryCamp]: FacilityLimit,
+    [CityFacility.ArcherCamp]: FacilityLimit,
+    [CityFacility.TrainingCenter]: FacilityLimit,
+    [CityFacility.Home]: FacilityLimit
   }
 }
 
@@ -19,8 +34,6 @@ export class City {
   state: ICityState
   //cache
   cityConfig: CityConfig;
-
-
 
   constructor(state: ICityState, cityconf: CityConfig) {
     this.state = state

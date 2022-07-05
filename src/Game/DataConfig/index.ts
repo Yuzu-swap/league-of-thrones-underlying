@@ -1,31 +1,46 @@
 export interface FacilityGdsRow {
-	need_human: number;
-	need_gold: number
-	maintain_need_human: number
+	need_troop: number
+	need_silver: number
+	maintain_need_troop: number
 	level: number
 }
 
-export interface FacilityMarketGdsRow  extends FacilityGdsRow{
-	scale_of_human_attack: number;
+export interface FacilityFortressGdsRow extends FacilityGdsRow{
+	employ_count: number
 }
 
-
-export interface FacilityHumanGdsRow extends FacilityGdsRow{
-	get_human: number;
+export interface FacilityMilitaryCenterGdsRow extends FacilityGdsRow{
+	scale_of_troop_attack: number
 }
 
-export interface FacilityProductionGdsRow extends FacilityGdsRow{
-	product: number;
+export interface FacilityWallGdsRow extends FacilityGdsRow{
+	scale_of_troop_defense: number
 }
 
-
-export interface FacilityPowerGdsRow extends FacilityGdsRow{
-	employ_count: number;
+export interface FacilityStoreGdsRow extends FacilityGdsRow{
+	sliver_save: number
 }
 
-
-export interface FacilityLogisticsGdsRow extends FacilityGdsRow{
-	scale_of_human_defense: number;
+export interface FacilityInfantryCampGdsRow extends FacilityGdsRow{
+	infantry_defense: number
+	infantry_attack: number
 }
 
+export interface FacilityCavalryCampGdsRow extends FacilityGdsRow{
+	cavalry_defense: number
+	cavalry_attack: number
+}
+
+export interface FacilityArcherCampGdsRow extends FacilityGdsRow{
+	archer_defense: number
+	archer_attack: number
+}
+
+export interface FacilityTrainingCenterGdsRow extends FacilityGdsRow{
+	get_troop: number
+}
+
+export interface FacilityHomeGdsRow extends FacilityGdsRow{
+	product_silver: number
+}
 

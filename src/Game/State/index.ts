@@ -9,7 +9,7 @@ export interface ResouceInfo {
 
 export interface ICityState  extends IState {
 	id: string
-	facilities: { [key in CityFacility]?: number };
+	facilities: { [key in CityFacility]?: number[] };
 	resources: { [key in ResouceType]?: ResouceInfo };
 	troops: number;
 }
