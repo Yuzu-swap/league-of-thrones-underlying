@@ -1,5 +1,5 @@
 import { CityFacility, ResouceType } from "../Const";
-import {IState} from ".././../Core/state";
+import {IState} from "../../Core/state";
 
 export interface ResouceInfo {
 	lastUpdate: number;

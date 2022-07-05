@@ -1,0 +1,32 @@
+name: ThroneFront Builder
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.CI_TOKEN }}
+        submodules: true
+
+    - uses: leafo/gh-actions-lua@v9
+      with:
+        luaVersion: "5.1.5"
+        
+    - name: Build GDS
+      run: sh ./.github/scripts/build.sh
+
+
+    - name: Git Auto Commit
+      uses: stefanzweifel/git-auto-commit-action@v4.14.1
+      with:
+        commit_message: Automated update json output
+        commit_user_name: GitHub Actions Bot
+

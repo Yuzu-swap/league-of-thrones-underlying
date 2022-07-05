@@ -8,6 +8,8 @@
         "outDir":"dist",     
         "resolveJsonModule": true,
         "watch":false ,
+        "typeRoots": ["src/types/index.d.ts" ],
+        "types":["node"],
         "lib": ["es2015","dom"],
     },
     "include":[
