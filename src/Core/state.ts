@@ -1,6 +1,7 @@
 export interface IState {
 	getId(): string
 	update(obj: {}): void
+	stateObj(): {}
 }
 
 
@@ -29,7 +30,12 @@ function setObjectByPath(obj: {}, path: string, val: any) {
 export class State<UnderlyingStateType extends IStateIdentity> implements IStateIdentity {
 	_watcher: IStateChangeWatcher
 	id: string
-	constructor(initVal: Omit<UnderlyingStateType, 'update' | 'getId'>, watcher?: IStateChangeWatcher) {
+
+	static protectedFields = [
+		"id", "_watcher", "update", "getId", "unsderlying", "stateObj"
+	]
+
+	constructor(initVal: Omit<UnderlyingStateType, 'update' | 'getId' | 'stateObj'>, watcher?: IStateChangeWatcher) {
 		for (var key in initVal) {
 			this[key] = initVal[key]
 		}
@@ -40,8 +46,15 @@ export class State<UnderlyingStateType extends IStateIdentity> implements IState
 	update(obj: {}) {
 		//protect id
 		delete obj['id']
+		delete obj['_watcher']
+		delete obj['update']
+		delete obj['getId']
+		delete obj['unsderlying']
+
 		for (var key in obj) {
-			setObjectByPath(this, key, obj[key])
+			if (State.protectedFields.indexOf(key) == -1) {
+				setObjectByPath(this, key, obj[key])
+			}
 		}
 		if (this._watcher) {
 			this._watcher.onStateChange(obj, this)
@@ -53,6 +66,16 @@ export class State<UnderlyingStateType extends IStateIdentity> implements IState
 
 	unsderlying(): UnderlyingStateType {
 		return this as any as UnderlyingStateType
+	}
+
+	stateObj(): {} {
+		let res = {}
+		for (var key in this) {
+			if (State.protectedFields.indexOf(key) == -1) {
+				setObjectByPath(res, key, this[key])
+			}
+		}
+		return res
 	}
 }
 

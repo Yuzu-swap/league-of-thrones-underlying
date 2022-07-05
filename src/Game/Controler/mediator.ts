@@ -4,9 +4,9 @@ import { IStateIdentity, IState, IStateChangeWatcher } from "../../Core/state";
 import { TransitionHandler } from "./transition";
 
 
-class LocalMediator extends BaseMediator<StateTransition> implements IStateChangeWatcher {
+export class LocalMediator extends BaseMediator<StateTransition> implements IStateChangeWatcher {
 	transitionHandler: TransitionHandler
-	constructor(initState: { [key: string]: IState }) {
+	constructor() {
 		super()
 		this.transitionHandler = new TransitionHandler(this)
 	}

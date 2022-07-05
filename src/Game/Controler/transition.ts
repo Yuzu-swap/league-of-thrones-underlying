@@ -56,7 +56,7 @@ export class TransitionHandler {
 
 		//Do Logic  here
 		//Valdiate resource requirement first
-		city.upgradeFacility(args.typ)
+		city.upgradeFacility(args.typ,args.targetLevel)
 	}
 
 }
