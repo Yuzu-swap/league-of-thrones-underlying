@@ -28,7 +28,6 @@ export class City {
   }
 
   loadState(state: {}) {
-    console.log("load ", state)
     this.state.update(state)
   }
 
@@ -37,6 +36,7 @@ export class City {
     const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(level.toString())
     console.log("upgradeFacility ", typ, " level ", level, " need gold ", row.need_gold)
     this.state.update({ [`facilities.${typ}`]: level + 1 });
+    this.showAll()
   }
 
   showAll() {
@@ -45,6 +45,9 @@ export class City {
     for (var key in this.state.facilities) {
       console.log('facilitie: ', key, ' ', this.state.facilities[key]);
     }
+
+    console.log("allTroops ",this.state.troops)
+
     console.log("@@@Dump all facilities end\n")
   }
 }
