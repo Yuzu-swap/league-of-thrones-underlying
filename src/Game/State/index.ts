@@ -9,14 +9,14 @@ export interface ResouceInfo {
 
 export interface ICityState extends IState {
   id: string;
-  facilities: { [key in CityFacility]?: number };
+  facilities: { [key in CityFacility]?: number[] };
   resources: { [key in ResouceType]?: ResouceInfo };
   troops: number;
 }
 
 export var InitState = {
   [StateName.City]: {
-    facilities: { [CityFacility.Center]: 1 },
+    facilities: { [CityFacility.Fortress]: [1] },
     resources: {},
     troops: 100
   }

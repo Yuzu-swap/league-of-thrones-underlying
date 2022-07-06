@@ -6,11 +6,16 @@ import {
   State
 } from '../../Core/state';
 
-import marketGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/market.json');
-import powerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/power.json');
-import humanGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/human.json');
-import logisticsGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/logistics.json');
-import productionGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/production.json');
+import fortressGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/fortress.json');
+import militaryCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
+import wallGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/wall.json');
+import storeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/store.json');
+import infantryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
+import cavalryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
+import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
+import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
+import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
+import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import {
   CityFacility,
   StateTransition,
@@ -20,24 +25,23 @@ import {
 } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
-  FacilityProductionGdsRow,
-  FacilityHumanGdsRow,
-  FacilityLogisticsGdsRow,
-  FacilityPowerGdsRow,
-  FacilityMarketGdsRow
+  FacilityFortressGdsRow,
+  FacilityMilitaryCenterGdsRow,
+  FacilityWallGdsRow,
+  FacilityStoreGdsRow,
+  FacilityInfantryCampGdsRow,
+  FacilityCavalryCampGdsRow,
+  FacilityArcherCampGdsRow,
+  FacilityTrainingCenterGdsRow,
+  FacilityHomeGdsRow
 } from '../DataConfig';
-import { City } from '../Logic/game';
+import { City, CityConfig, FacilityLimit } from '../Logic/game';
 import { ICityState } from '../State';
-import {
-  LoadStateFunc,
-  BaseStateManager,
-  GenerateMemoryLoadStateFunction
-} from './statemanger';
-import { format } from 'path';
+import { BaseStateManager, LoadStateFunc } from './statemanger';
 
 export class TransitionHandler {
   stateManger: IStateManager;
-  dataConfigs: any;
+  dataConfigs: CityConfig;
 
   constructor(
     stateWatcher: IStateChangeWatcher,
@@ -48,20 +52,53 @@ export class TransitionHandler {
     this.stateManger = new BaseStateManager({}, loadLoadStateFunc);
     this.dataConfigs = {
       facilityConfig: {
-        [CityFacility.Market]: new ConfigContainer<FacilityMarketGdsRow>(
-          marketGDS.Config
+        [CityFacility.Fortress]: new ConfigContainer<FacilityFortressGdsRow>(
+          fortressGDS.Config
         ),
-        [CityFacility.Production]:
-          new ConfigContainer<FacilityProductionGdsRow>(productionGDS.Config),
-        [CityFacility.Human]: new ConfigContainer<FacilityHumanGdsRow>(
-          humanGDS.Config
+        [CityFacility.MilitaryCenter]:
+          new ConfigContainer<FacilityMilitaryCenterGdsRow>(
+            militaryCenterGDS.Config
+          ),
+        [CityFacility.Wall]: new ConfigContainer<FacilityWallGdsRow>(
+          wallGDS.Config
         ),
-        [CityFacility.Logistics]: new ConfigContainer<FacilityLogisticsGdsRow>(
-          logisticsGDS.Config
+        [CityFacility.Store]: new ConfigContainer<FacilityStoreGdsRow>(
+          storeGDS.Config
         ),
-        [CityFacility.Power]: new ConfigContainer<FacilityPowerGdsRow>(
-          powerGDS.Config
+        [CityFacility.InfantryCamp]:
+          new ConfigContainer<FacilityInfantryCampGdsRow>(
+            infantryCampGDS.Config
+          ),
+        [CityFacility.CavalryCamp]:
+          new ConfigContainer<FacilityCavalryCampGdsRow>(cavalryCampGDS.Config),
+        [CityFacility.ArcherCamp]:
+          new ConfigContainer<FacilityArcherCampGdsRow>(archerCampGDS.Config),
+        [CityFacility.TrainingCenter]:
+          new ConfigContainer<FacilityTrainingCenterGdsRow>(
+            trainingCenterGDS.Config
+          ),
+        [CityFacility.Home]: new ConfigContainer<FacilityHomeGdsRow>(
+          homeGDS.Config
         )
+      },
+      limit: {
+        [CityFacility.Fortress]: new FacilityLimit(buildingCount.fortress),
+        [CityFacility.MilitaryCenter]: new FacilityLimit(
+          buildingCount.militarycenter
+        ),
+        [CityFacility.Wall]: new FacilityLimit(buildingCount.wall),
+        [CityFacility.Store]: new FacilityLimit(buildingCount.store),
+        [CityFacility.InfantryCamp]: new FacilityLimit(
+          buildingCount.infantrycamp
+        ),
+        [CityFacility.CavalryCamp]: new FacilityLimit(
+          buildingCount.cavalrycamp
+        ),
+        [CityFacility.ArcherCamp]: new FacilityLimit(buildingCount.archercamp),
+        [CityFacility.TrainingCenter]: new FacilityLimit(
+          buildingCount.trainingcenter
+        ),
+        [CityFacility.Home]: new FacilityLimit(buildingCount.home)
       }
     };
   }
@@ -77,12 +114,10 @@ export class TransitionHandler {
     const stateId = { id: `${StateName.City}:${args.from}` };
     const cityState = this.stateManger.get(stateId);
 
-    const city = new City(cityState as any as ICityState, {
-      facilityConfig: this.dataConfigs.facilityConfig
-    });
+    const city = new City(cityState as any as ICityState, this.dataConfigs);
 
     //Do Logic  here
     //Valdiate resource requirement first
-    city.upgradeFacility(args.typ, args.targetLevel);
+    city.upgradeFacility(args.typ, args.index);
   }
 }

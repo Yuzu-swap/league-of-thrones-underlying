@@ -3,20 +3,49 @@ import { CityFacility } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
   FacilityGdsRow,
-  FacilityMarketGdsRow,
-  FacilityProductionGdsRow,
-  FacilityHumanGdsRow,
-  FacilityPowerGdsRow,
-  FacilityLogisticsGdsRow
+  FacilityFortressGdsRow,
+  FacilityMilitaryCenterGdsRow,
+  FacilityWallGdsRow,
+  FacilityStoreGdsRow,
+  FacilityInfantryCampGdsRow,
+  FacilityCavalryCampGdsRow,
+  FacilityArcherCampGdsRow,
+  FacilityTrainingCenterGdsRow,
+  FacilityHomeGdsRow
 } from '../DataConfig';
+
+export class FacilityLimit {
+  max_count: number;
+  building_name: string;
+
+  constructor(obj: {}) {
+    this.max_count = obj['max_count'] ? obj['max_count'] : 1;
+    this.building_name = obj['building_name'] ? obj['building_name'] : 'error';
+  }
+}
 
 export interface CityConfig {
   facilityConfig: {
-    [CityFacility.Market]: ConfigContainer<FacilityMarketGdsRow>;
-    [CityFacility.Production]: ConfigContainer<FacilityProductionGdsRow>;
-    [CityFacility.Human]: ConfigContainer<FacilityHumanGdsRow>;
-    [CityFacility.Logistics]: ConfigContainer<FacilityLogisticsGdsRow>;
-    [CityFacility.Power]: ConfigContainer<FacilityPowerGdsRow>;
+    [CityFacility.Fortress]: ConfigContainer<FacilityFortressGdsRow>;
+    [CityFacility.MilitaryCenter]: ConfigContainer<FacilityMilitaryCenterGdsRow>;
+    [CityFacility.Wall]: ConfigContainer<FacilityWallGdsRow>;
+    [CityFacility.Store]: ConfigContainer<FacilityStoreGdsRow>;
+    [CityFacility.InfantryCamp]: ConfigContainer<FacilityInfantryCampGdsRow>;
+    [CityFacility.CavalryCamp]: ConfigContainer<FacilityCavalryCampGdsRow>;
+    [CityFacility.ArcherCamp]: ConfigContainer<FacilityArcherCampGdsRow>;
+    [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>;
+    [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>;
+  };
+  limit: {
+    [CityFacility.Fortress]: FacilityLimit;
+    [CityFacility.MilitaryCenter]: FacilityLimit;
+    [CityFacility.Wall]: FacilityLimit;
+    [CityFacility.Store]: FacilityLimit;
+    [CityFacility.InfantryCamp]: FacilityLimit;
+    [CityFacility.CavalryCamp]: FacilityLimit;
+    [CityFacility.ArcherCamp]: FacilityLimit;
+    [CityFacility.TrainingCenter]: FacilityLimit;
+    [CityFacility.Home]: FacilityLimit;
   };
 }
 
@@ -34,20 +63,31 @@ export class City {
     this.state.update(state);
   }
 
-  upgradeFacility(typ: CityFacility, level: number) {
-    const currentlevel = this.state.facilities[typ] || 0;
+  upgradeFacility(typ: CityFacility, index: number = 0) {
+    let levelList = this.state.facilities[typ] || [];
+    const maxCount = this.cityConfig.limit[typ].max_count;
+    if (index >= maxCount) {
+      return;
+    }
+    let tartgetLevel = 1;
+    if (index >= levelList.length) {
+      levelList.push[1];
+    } else {
+      tartgetLevel = levelList[index] + 1;
+      levelList[index] = tartgetLevel;
+    }
     const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(
-      level.toString()
+      tartgetLevel.toString()
     );
     console.log(
       'upgradeFacility ',
       typ,
       ' level ',
-      level,
-      ' need gold ',
-      row.need_gold
+      tartgetLevel,
+      'need troop',
+      row.need_troop
     );
-    this.state.update({ [`facilities.${typ}`]: currentlevel + 1 });
+    this.state.update({ [`facilities.${typ}`]: levelList });
   }
 
   showAll() {

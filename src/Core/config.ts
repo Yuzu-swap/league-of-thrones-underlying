@@ -1,19 +1,18 @@
-
-type ConfigContainerArrayOrMap<ConfigRowType> = ConfigRowType[] | {[key:string]:ConfigRowType}
-
+type ConfigContainerArrayOrMap<ConfigRowType> =
+  | ConfigRowType[]
+  | { [key: string]: ConfigRowType };
 
 export class ConfigContainer<ConfigRowType> {
-	configs : {}
+  configs: {};
 
-	constructor(containers:ConfigContainerArrayOrMap<ConfigRowType>){
-		this.configs = {}
-		//standlize container
-		for(var key in containers){
-			this.configs[key] = containers[key]
-		}
-	}
-	get(key:string):  ConfigRowType|undefined {
-		return  this.configs[key]
-	}
-
+  constructor(containers: ConfigContainerArrayOrMap<ConfigRowType>) {
+    this.configs = {};
+    //standlize container
+    for (var key in containers) {
+      this.configs[key] = containers[key];
+    }
+  }
+  get(key: string): ConfigRowType | undefined {
+    return this.configs[key];
+  }
 }
