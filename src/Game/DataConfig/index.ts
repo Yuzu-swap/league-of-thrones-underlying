@@ -18,7 +18,7 @@ export interface FacilityWallGdsRow extends FacilityGdsRow{
 }
 
 export interface FacilityStoreGdsRow extends FacilityGdsRow{
-	sliver_save: number
+	silver_save: number
 }
 
 export interface FacilityInfantryCampGdsRow extends FacilityGdsRow{

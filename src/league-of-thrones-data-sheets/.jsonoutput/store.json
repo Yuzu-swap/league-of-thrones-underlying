@@ -1,73 +1,73 @@
 {
    "Config" : [
     {
-        "sliver_save": 10,
-        "need_sliver": 2500,
-        "need_human": 25,
-        "maintain_need_human": 0,
+        "silver_save": 10,
+        "need_troop": 25,
+        "need_silver": 2500,
+        "maintain_need_troop": 0,
         "level": 1
     },
     {
-        "sliver_save": 20,
-        "need_sliver": 5000,
-        "need_human": 50,
-        "maintain_need_human": 5,
+        "silver_save": 20,
+        "need_troop": 50,
+        "need_silver": 5000,
+        "maintain_need_troop": 5,
         "level": 2
     },
     {
-        "sliver_save": 30,
-        "need_sliver": 25000,
-        "need_human": 250,
-        "maintain_need_human": 20,
+        "silver_save": 30,
+        "need_troop": 250,
+        "need_silver": 25000,
+        "maintain_need_troop": 20,
         "level": 3
     },
     {
-        "sliver_save": 50,
-        "need_sliver": 50000,
-        "need_human": 500,
-        "maintain_need_human": 50,
+        "silver_save": 50,
+        "need_troop": 500,
+        "need_silver": 50000,
+        "maintain_need_troop": 50,
         "level": 4
     },
     {
-        "sliver_save": 70,
-        "need_sliver": 100000,
-        "need_human": 1000,
-        "maintain_need_human": 100,
+        "silver_save": 70,
+        "need_troop": 1000,
+        "need_silver": 100000,
+        "maintain_need_troop": 100,
         "level": 5
     },
     {
-        "sliver_save": 100,
-        "need_sliver": 150000,
-        "need_human": 1500,
-        "maintain_need_human": 300,
+        "silver_save": 100,
+        "need_troop": 1500,
+        "need_silver": 150000,
+        "maintain_need_troop": 300,
         "level": 6
     },
     {
-        "sliver_save": 140,
-        "need_sliver": 250000,
-        "need_human": 2500,
-        "maintain_need_human": 500,
+        "silver_save": 140,
+        "need_troop": 2500,
+        "need_silver": 250000,
+        "maintain_need_troop": 500,
         "level": 7
     },
     {
-        "sliver_save": 180,
-        "need_sliver": 350000,
-        "need_human": 3500,
-        "maintain_need_human": 1000,
+        "silver_save": 180,
+        "need_troop": 3500,
+        "need_silver": 350000,
+        "maintain_need_troop": 1000,
         "level": 8
     },
     {
-        "sliver_save": 250,
-        "need_sliver": 500000,
-        "need_human": 5000,
-        "maintain_need_human": 1500,
+        "silver_save": 250,
+        "need_troop": 5000,
+        "need_silver": 500000,
+        "maintain_need_troop": 1500,
         "level": 9
     },
     {
-        "sliver_save": 350,
-        "need_sliver": 500000,
-        "need_human": 5000,
-        "maintain_need_human": 2000,
+        "silver_save": 350,
+        "need_troop": 5000,
+        "need_silver": 500000,
+        "maintain_need_troop": 2000,
         "level": 10
     }
     ]

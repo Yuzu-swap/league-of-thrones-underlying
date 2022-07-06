@@ -2,15 +2,20 @@ import {
   City,
 } from './Game/Logic/game';
 import { CityFacility, TestWallet, StateName, StateTransition } from './Game/Const';
-import { ConfigContainer } from './Core/config';
+import { ConfigContainer, FacilityLimit } from './Core/config';
 import { ICityState } from './Game/State';
-import { FacilityMarketGdsRow, FacilityProductionGdsRow, FacilityHumanGdsRow, FacilityPowerGdsRow, FacilityLogisticsGdsRow } from "./Game/DataConfig"
+import { FacilityFortressGdsRow, FacilityMilitaryCenterGdsRow, FacilityWallGdsRow,  FacilityStoreGdsRow, FacilityInfantryCampGdsRow, FacilityCavalryCampGdsRow, FacilityArcherCampGdsRow, FacilityTrainingCenterGdsRow, FacilityHomeGdsRow } from "./Game/DataConfig"
 
-import marketGDS = require('./league-of-thrones-data-sheets/.jsonoutput/market.json')
-import powerGDS = require('./league-of-thrones-data-sheets/.jsonoutput/power.json')
-import humanGDS = require('./league-of-thrones-data-sheets/.jsonoutput/human.json')
-import logisticsGDS = require('./league-of-thrones-data-sheets/.jsonoutput/logistics.json')
-import productionGDS = require('./league-of-thrones-data-sheets/.jsonoutput/production.json')
+import fortressGDS = require('./league-of-thrones-data-sheets/.jsonoutput/fortress.json')
+import militaryCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/militarycenter.json')
+import wallGDS = require('./league-of-thrones-data-sheets/.jsonoutput/wall.json')
+import storeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/store.json')
+import infantryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json')
+import cavalryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json')
+import archerCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/archercamp.json')
+import trainingCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json')
+import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json')
+import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json')
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 
@@ -32,12 +37,27 @@ var run = function () {
   }
   const city: City = new City((new State<ICityState>(defaultState)).unsderlying(), {
     facilityConfig: {
-      [CityFacility.Market]: new ConfigContainer<FacilityMarketGdsRow>(marketGDS.Config),
-      [CityFacility.Production]: new ConfigContainer<FacilityProductionGdsRow>(productionGDS.Config),
-      [CityFacility.Human]: new ConfigContainer<FacilityHumanGdsRow>(humanGDS.Config),
-      [CityFacility.Logistics]: new ConfigContainer<FacilityLogisticsGdsRow>(logisticsGDS.Config),
-      [CityFacility.Power]: new ConfigContainer<FacilityPowerGdsRow>(powerGDS.Config),
+      [CityFacility.Fortress]: new ConfigContainer<FacilityFortressGdsRow>(fortressGDS.Config),
+      [CityFacility.MilitaryCenter]: new ConfigContainer<FacilityMilitaryCenterGdsRow>(militaryCenterGDS.Config),
+      [CityFacility.Wall]: new ConfigContainer<FacilityWallGdsRow>(wallGDS.Config),
+      [CityFacility.Store]: new ConfigContainer<FacilityStoreGdsRow>(storeGDS.Config),
+      [CityFacility.InfantryCamp]: new ConfigContainer<FacilityInfantryCampGdsRow>(infantryCampGDS.Config),
+      [CityFacility.CavalryCamp]: new ConfigContainer<FacilityCavalryCampGdsRow>(cavalryCampGDS.Config),
+      [CityFacility.ArcherCamp]: new ConfigContainer<FacilityArcherCampGdsRow>(archerCampGDS.Config),
+      [CityFacility.TrainingCenter]: new ConfigContainer<FacilityTrainingCenterGdsRow>(trainingCenterGDS.Config),
+      [CityFacility.Home]: new ConfigContainer<FacilityHomeGdsRow>(homeGDS.Config),
     },
+    limit:{
+      [CityFacility.Fortress]: new FacilityLimit(buildingCount.fortress),
+      [CityFacility.MilitaryCenter]: new FacilityLimit(buildingCount.militarycenter),
+      [CityFacility.Wall]: new FacilityLimit(buildingCount.wall),
+      [CityFacility.Store]: new FacilityLimit(buildingCount.store),
+      [CityFacility.InfantryCamp]: new FacilityLimit(buildingCount.infantrycamp),
+      [CityFacility.CavalryCamp]: new FacilityLimit(buildingCount.cavalrycamp),
+      [CityFacility.ArcherCamp]: new FacilityLimit(buildingCount.archercamp),
+      [CityFacility.TrainingCenter]: new FacilityLimit(buildingCount.trainingcenter),
+      [CityFacility.Home]: new FacilityLimit(buildingCount.home),
+    }
   })
   let cityInitd: boolean = false
   mediator.onReceiveState({ id: myCityStateId }, (state: IState) => {
@@ -58,8 +78,8 @@ var run = function () {
   mediator.queryState({ id: myCityStateId })
 
   //trigger upgrade
-  mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Human, index: 0, targetLevel: 1 })
-  mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Human, index: 0, targetLevel: 2 })
+  mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Fortress, index: 0, targetLevel: 1 })
+  mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Fortress, index: 0, targetLevel: 2 })
   // mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Logistics, index: 0, targetLevel: 1 })
 }
 run()

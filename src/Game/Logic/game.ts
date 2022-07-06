@@ -45,11 +45,22 @@ export class City {
     this.state.update(state)
   }
 
-  upgradeFacility(typ: CityFacility, level: number) {
-    const currentlevel = this.state.facilities[typ] || 0;
-    const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(level.toString())
-    console.log("upgradeFacility ", typ, " level ", level, " need gold ", row.need_gold)
-    this.state.update({ [`facilities.${typ}`]: level + 1 });
+  upgradeFacility(typ: CityFacility, index: number = 0) {
+    let levelList = this.state.facilities[typ] || [];
+    const maxCount = this.cityConfig.limit[typ].max_count;
+    if(index >= maxCount -1){
+      return
+    }
+    let tartgetLevel = 1
+    if(index >= levelList.length){
+      levelList.push[1]
+    }else{
+      tartgetLevel = levelList[index] + 1
+      levelList[index] = tartgetLevel
+    }
+    const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(tartgetLevel.toString())
+    console.log("upgradeFacility ", typ, " level ", tartgetLevel, "need troop", row.need_troop)
+    this.state.update({ [`facilities.${typ}`]: levelList });
   }
 
   showAll() {
