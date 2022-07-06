@@ -47,7 +47,7 @@ export class City {
   upgradeFacility(typ: CityFacility, index: number = 0) {
     let levelList = this.state.facilities[typ] || [];
     const maxCount = this.cityConfig.limit[typ].max_count;
-    if(index >= maxCount -1){
+    if(index >= maxCount){
       return
     }
     let tartgetLevel = 1
