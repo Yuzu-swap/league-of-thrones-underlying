@@ -26,6 +26,7 @@ import { IState, State } from './Core/state';
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
 export * from './Game/Controler/transition';
+export * from './Game/State';
 export * from './Core/state';
 
 export var run = function () {
@@ -92,7 +93,12 @@ export var run = function () {
     index: 0,
     targetLevel: 2
   });
-  // mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Logistics, index: 0, targetLevel: 1 })
+  mediator.sendTransaction(StateTransition.UpgradeFacility, {
+    from: TestWallet,
+    typ: CityFacility.Logistics,
+    index: 0,
+    targetLevel: 1
+  });
 };
 
-//run()
+//run();

@@ -28,7 +28,11 @@ import {
 } from '../DataConfig';
 import { City } from '../Logic/game';
 import { ICityState } from '../State';
-import { LoadStateFunc, MemoryStateManager } from './statemanger';
+import {
+  LoadStateFunc,
+  BaseStateManager,
+  GenerateMemoryLoadStateFunction
+} from './statemanger';
 import { format } from 'path';
 
 export class TransitionHandler {
@@ -41,10 +45,7 @@ export class TransitionHandler {
   ) {
     //init state
     const cityStateId = `${StateName.City}:${TestWallet}`;
-    this.stateManger = new MemoryStateManager(
-      {},
-      loadLoadStateFunc
-    );
+    this.stateManger = new BaseStateManager({}, loadLoadStateFunc);
     this.dataConfigs = {
       facilityConfig: {
         [CityFacility.Market]: new ConfigContainer<FacilityMarketGdsRow>(

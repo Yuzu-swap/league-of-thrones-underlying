@@ -1,34 +1,30 @@
 import { StateName, StateTransition, TestWallet } from '../Const';
 import { BaseMediator } from '../../Core/mediator';
-import { IStateIdentity, IState, IStateChangeWatcher, State } from '../../Core/state';
+import {
+  IStateIdentity,
+  IState,
+  IStateChangeWatcher,
+  State
+} from '../../Core/state';
 import { TransitionHandler } from './transition';
-import { ICityState } from '../State';
-
-
+import { ICityState, InitState } from '../State';
+import { GenerateMemoryLoadStateFunction } from './statemanger';
 
 const cityStateId = `${StateName.City}:${TestWallet}`;
 
-
-
-
-
-let _initState = {}
-function initState(wather: IStateChangeWatcher) :void{
-  _initState = {
+function getInitState(wather: IStateChangeWatcher): {
+  [key: string]: IState;
+} {
+  return {
     [cityStateId]: new State<ICityState>(
       {
         id: cityStateId,
-        facilities: {},
-        resources: {},
-        troops: 0
-      },wather
+        ...InitState[StateName.City]
+      },
+      wather
     ).unsderlying()
-  }
+  };
 }
-function loadInitState(sid: IStateIdentity) :IState{
-  return _initState[sid.id]
-}
-
 
 export class LocalMediator
   extends BaseMediator<StateTransition>
@@ -37,8 +33,10 @@ export class LocalMediator
   transitionHandler: TransitionHandler;
   constructor() {
     super();
-    initState(this)
-    this.transitionHandler = new TransitionHandler(this,loadInitState);
+    this.transitionHandler = new TransitionHandler(
+      this,
+      GenerateMemoryLoadStateFunction(getInitState(this))
+    );
   }
   onStateChange(modify: {}, state: IState): void {
     state && this.notifyState({ id: state.getId() }, state);

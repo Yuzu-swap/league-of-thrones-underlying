@@ -31,7 +31,6 @@ export class State<UnderlyingStateType extends IStateIdentity>
   id: string;
 
   static protectedFields = [
-    'id',
     '_watcher',
     'update',
     'getId',
@@ -62,6 +61,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
         setObjectByPath(this, key, obj[key]);
       }
     }
+
     if (this._watcher) {
       this._watcher.onStateChange(obj, this);
     }

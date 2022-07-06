@@ -3,7 +3,17 @@ import { IStateIdentity, IState, IStateManager } from '../../Core/state';
 
 export type LoadStateFunc = (sid: IStateIdentity) => IState;
 
-export class MemoryStateManager implements IStateManager {
+export function GenerateMemoryLoadStateFunction(initStates: {
+  [key: string]: IState;
+}): LoadStateFunc {
+  const states: { [key: string]: IState } = initStates || {};
+
+  return (sid: IStateIdentity) => {
+    return states[sid.id];
+  };
+}
+
+export class BaseStateManager implements IStateManager {
   states: { [key: string]: IState };
   loadStateFunc: LoadStateFunc;
   constructor(
@@ -13,17 +23,9 @@ export class MemoryStateManager implements IStateManager {
     this.states = initStates;
     this.loadStateFunc = loadStateFunc;
   }
- 
 
   get(sid: IStateIdentity): IState {
-    let state = this.states[sid.id];
-    if (!state) {
-      if (this.loadStateFunc) {
-        state = this.loadStateFunc(sid);
-        this.states[sid.id] = state;
-      }
-    }
-    return state;
+    return this.loadStateFunc(sid);
   }
 
   save(sid: IStateIdentity, state: IState): void {}
