@@ -1,6 +1,4 @@
-import {
-  City,
-} from './Game/Logic/game';
+import { City } from './Game/Logic/game';
 import { CityFacility, TestWallet, StateName, StateTransition } from './Game/Const';
 import { ConfigContainer, FacilityLimit } from './Core/config';
 import { ICityState } from './Game/State';
@@ -20,13 +18,14 @@ import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 
 export const GameName = 'league of thrones';
+export * from './Game/Controler/mediator';
+export * from './Game/Controler/transition';
+export * from './Core/state';
 
+export var run = function () {
+  const mediator = new LocalMediator();
 
-var run = function () {
-
-  const mediator = new LocalMediator()
-
-  const myCityStateId = `${StateName.City}:${TestWallet}`
+  const myCityStateId = `${StateName.City}:${TestWallet}`;
 
   //async accuire state
   const defaultState = {
@@ -63,23 +62,24 @@ var run = function () {
   mediator.onReceiveState({ id: myCityStateId }, (state: IState) => {
     //first init
     if (!cityInitd) {
-      cityInitd = true
-      console.log("city initd")
-      city.loadState(state.stateObj())
-      city.showAll()
+      cityInitd = true;
+      console.log('city initd');
+      city.loadState(state.stateObj());
+      city.showAll();
       //city update
     } else {
-      console.log("city updated")
-      city.loadState(state.stateObj())
-      city.showAll()
+      console.log('city updated');
+      city.loadState(state.stateObj());
+      city.showAll();
     }
-  })
+  });
   //trigger aysnc query
-  mediator.queryState({ id: myCityStateId })
+  mediator.queryState({ id: myCityStateId });
 
   //trigger upgrade
   mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Fortress, index: 0, targetLevel: 1 })
   mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Fortress, index: 0, targetLevel: 2 })
   // mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Logistics, index: 0, targetLevel: 1 })
-}
-run()
+};
+
+//run()

@@ -15,23 +15,19 @@ import { ConfigContainer , FacilityLimit} from "../../Core/config";
 import { FacilityFortressGdsRow, FacilityMilitaryCenterGdsRow, FacilityWallGdsRow,  FacilityStoreGdsRow, FacilityInfantryCampGdsRow, FacilityCavalryCampGdsRow, FacilityArcherCampGdsRow, FacilityTrainingCenterGdsRow, FacilityHomeGdsRow  } from "../DataConfig";
 import { City , CityConfig} from "../Logic/game";
 import { ICityState } from "../State";
-import { MemoryStateManager } from "./statemanger";
-
-
+import { MemoryStateManager , LoadStateFunc} from "./statemanger";
 
 export class TransitionHandler {
 	stateManger: IStateManager
 	dataConfigs: CityConfig
 
-	constructor(stateWatcher: IStateChangeWatcher) {
+	constructor(stateWatcher: IStateChangeWatcher, loadLoadStateFunc?: LoadStateFunc) {
 		//init state
 		const cityStateId = `${StateName.City}:${TestWallet}`
-		this.stateManger = new MemoryStateManager({
-			[cityStateId]: (new State<ICityState>({
-				id: cityStateId, facilities: {
-				}, resources: {}, troops: 0
-			}, stateWatcher)).unsderlying(),
-		})
+		this.stateManger = new MemoryStateManager(
+			{},
+			loadLoadStateFunc
+		  );
 		this.dataConfigs = {
 			facilityConfig: {
 				[CityFacility.Fortress]: new ConfigContainer<FacilityFortressGdsRow>(fortressGDS.Config),
@@ -58,23 +54,21 @@ export class TransitionHandler {
 		}
 	}
 
+  onTransition(sid: StateTransition, arg: {}) {
+    switch (sid) {
+      case StateTransition.UpgradeFacility:
+        this.onUpdateFacility(arg as UpgradeFacilityArgs);
+    }
+  }
 
-	onTransition(sid: StateTransition, arg: {}) {
-		switch (sid) {
-			case StateTransition.UpgradeFacility:
-				this.onUpdateFacility(arg as UpgradeFacilityArgs)
-		}
-	}
+  onUpdateFacility(args: UpgradeFacilityArgs) {
+    const stateId = { id: `${StateName.City}:${args.from}` };
+    const cityState = this.stateManger.get(stateId);
 
-	onUpdateFacility(args: UpgradeFacilityArgs) {
-		const stateId = { id: `${StateName.City}:${args.from}` }
-		const cityState = this.stateManger.load(stateId)
+    const city = new City(cityState as any as ICityState, this.dataConfigs);
 
-		const city = new City((cityState as any as ICityState), this.dataConfigs);
-
-		//Do Logic  here
-		//Valdiate resource requirement first
-		city.upgradeFacility(args.typ,args.index)
-	}
-
+    //Do Logic  here
+    //Valdiate resource requirement first
+    city.upgradeFacility(args.typ, args.index);
+  }
 }
