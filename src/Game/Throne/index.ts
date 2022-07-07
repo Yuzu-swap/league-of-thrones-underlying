@@ -1,5 +1,3 @@
-import React = require('react');
-
 interface ActionResponseArgs {
   actId: string;
   context: any;

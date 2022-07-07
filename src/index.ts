@@ -47,8 +47,7 @@ export var run = function () {
   const defaultState = {
     id: myCityStateId,
     facilities: {},
-    resources: {},
-    troops: 0
+    resources: {}
   };
   const city: City = new City(
     new State<ICityState>(defaultState).unsderlying(),

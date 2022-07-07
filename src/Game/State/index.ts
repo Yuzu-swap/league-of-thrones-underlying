@@ -11,13 +11,11 @@ export interface ICityState extends IState {
   id: string;
   facilities: { [key in CityFacility]?: number[] };
   resources: { [key in ResouceType]?: ResouceInfo };
-  troops: number;
 }
 
 export var InitState = {
   [StateName.City]: {
     facilities: { [CityFacility.Fortress]: [1] },
     resources: {},
-    troops: 100
   }
 };

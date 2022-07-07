@@ -15,10 +15,8 @@ export enum CityFacility {
 }
 
 export enum ResouceType {
-	Gold = 0,
-	Silver = 1,
-	Wookd = 2,
-	Stone = 3
+	Silver = 0,
+	Troop = 1
 }
 
 export enum StateTransition {
