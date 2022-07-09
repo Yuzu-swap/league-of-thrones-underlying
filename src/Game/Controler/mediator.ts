@@ -6,7 +6,7 @@ import {
   IStateChangeWatcher,
   State
 } from '../../Core/state';
-import { TransitionHandler } from './transition';
+import { TransitionHandler, TransitionId } from './transition';
 import { ICityState, InitState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 
@@ -47,7 +47,7 @@ export class LocalMediator
     state && this.notifyState(sid, state);
   }
 
-  sendTransaction(tid: StateTransition, args: {}): void {
-    this.transitionHandler.onTransition(tid, args);
+  sendTransaction(tid: StateTransition, args: {}): TransitionId {
+    return this.transitionHandler.onTransition(tid, args);
   }
 }

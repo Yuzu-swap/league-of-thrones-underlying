@@ -13,6 +13,7 @@ import {
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow
 } from '../DataConfig';
+import { TransitionId, TransitionCall, TransitionHandler, TransitionResponseArgs } from '../..';
 
 export class FacilityLimit {
   max_count: number;
@@ -69,8 +70,12 @@ export class City {
       return 0
     }
     const info = this.state.resources[typ]
-    const hour = (time - info.lastUpdate)/ 3600
-    const value = hour * info.production + info.value
+    let value = 0
+    value = info.value
+    if(info.lastUpdate != -1){
+      const hour = (time - info.lastUpdate)/ 3600
+      value = hour * info.production + info.value
+    }
     this.state.update({
       [`resources.${typ}`]: {
           lastUpdate: time,
@@ -89,7 +94,7 @@ export class City {
   }
 
   checkUpgradeFacility(typ: CityFacility, index: number = 0) : boolean{
-    let levelList = this.state.facilities[typ] || [];
+    let levelList = this.state.facilities[typ] ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
       return false
@@ -101,17 +106,23 @@ export class City {
     const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(
       (tartgetLevel -1).toString()
     );
-    if(this.getResource(ResouceType.Silver)>= row.need_silver && this.getResource(ResouceType.Troop)>= row.need_troop){
+    if(this.getResource(ResouceType.Silver)>= row.need_silver /* && this.getResource(ResouceType.Troop)>= row.need_troop*/){
       return true
     }
     return false
   }
 
-  upgradeFacility(typ: CityFacility, index: number = 0) {
+  upgradeFacility(typ: CityFacility, index: number = 0, args: TransitionCall) {
     if(!this.checkUpgradeFacility(typ, index)){
+      let re: TransitionResponseArgs = {
+        transitionId : args.transitionId,
+        context: null,
+        result: false
+      }
+      args.handler.notifyTransitonResponse(this.state, re)
       return
     }
-    let levelList = this.state.facilities[typ] || [];
+    let levelList = this.state.facilities[typ]?.concat() ?? []
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
       return;
@@ -143,12 +154,18 @@ export class City {
         value: info.value - row.need_silver,
         production: info.production
       },
-      [`resources.${ResouceType.Troop}`]: {
+      /*[`resources.${ResouceType.Troop}`]: {
         lastUpdate: info.lastUpdate,
         value: info.value - row.need_troop,
         production: info.production
-      }
+      }*/
     });
+    let re: TransitionResponseArgs = {
+      transitionId : args.transitionId,
+      context: null,
+      result: true
+    }
+    args.handler.notifyTransitonResponse(this.state, re)
   }
 
   showAll() {

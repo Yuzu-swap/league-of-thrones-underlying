@@ -31,6 +31,7 @@ import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json'
 import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
+import {Throne, ICityComponent, ComponentType, CityComponent} from './Game/Throne';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -138,3 +139,33 @@ export var run = function () {
 };
 
 //run();
+function example() {
+  Throne.instance().initComponent<CityComponent>(
+    ComponentType.City,
+    (city: ICityComponent) => {
+      console.log('City init');
+      // bind button with action
+      // button.onClick = () =>{
+      //city.doUpgradeFacility()
+
+      // watch action response
+      city.onActionResponse((args) => {
+        console.log("receive action", args)
+      });
+
+      // watch state update
+      city.onStateUpdate(() => {
+        // regenerate  ui state
+        const facilities = city.getFacilityList();
+        const resource = city.getResource();
+        const uiState = { facilities, resource };
+        console.log("receive state", uiState)
+        // rerender by new state
+      });
+      console.log(city);
+      (city as CityComponent)?.doUpgradeFacility();
+      //update
+    }
+  );
+}
+example()

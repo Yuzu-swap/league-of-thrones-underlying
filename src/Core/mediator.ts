@@ -1,6 +1,6 @@
 import { IStateIdentity, IState } from "./state"
 
-type StateCallback = (state: IState) => void
+export type StateCallback = (state: IState) => void
 
 export interface IStateMediator<TransactionIDType> {
 	queryState(sid: IStateIdentity): void
