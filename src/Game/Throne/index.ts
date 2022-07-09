@@ -24,7 +24,8 @@ import {
   FacilityCavalryCampGdsRow,
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
-  FacilityHomeGdsRow
+  FacilityHomeGdsRow,
+  FacilityGdsRow
 } from '../DataConfig';
 import {
   TransitionResponseArgs, TransitionId
@@ -43,8 +44,10 @@ export interface ICityComponent extends IComponent {
   //TODO: replace any with inteface
   getFacilityList(): any;
   getResource(): any;
-  getFacilityUpgradeRequirement(): any;
-  doUpgradeFacility(): TransitionId;
+  updateResource(inter ?: number): void;
+  checkUpgradeFacility(typ: CityFacility, index: number): boolean;
+  getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
+  doUpgradeFacility(typ: CityFacility, index: number): TransitionId;
 }
 
 
@@ -121,16 +124,42 @@ export class CityComponent implements ICityComponent {
     );
   }
   InitState():void{
+    this.city.state = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
   }
-  getFacilityList(): any{}
-  getResource(): any{}
-  getFacilityUpgradeRequirement(): any{}
 
-  doUpgradeFacility(): TransitionId{
+  updateResource(inter : number = 1000): void{
+    setInterval(
+      ()=>{
+        console.log('begin update', this.city.state.resources)
+        for(let key in this.city.state.resources){
+          console.log(key)
+          this.city.getResource(key as any as ResouceType)
+        }
+      },
+      inter
+    )
+    
+  }
+
+  getFacilityList(): {[key in CityFacility]?: number[] }{
+    return this.city.state.facilities
+  }
+  getResource(): {[key in ResouceType]?: ResouceInfo}{
+    return this.city.state.resources
+  }
+  getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow{
+    return this.city.cityConfig.facilityConfig[typ].get((targetLevel -1).toString())
+  }
+
+  checkUpgradeFacility(typ: CityFacility, index: number): boolean{
+    return this.city.checkUpgradeFacility(typ, index)
+  }
+
+  doUpgradeFacility(typ: CityFacility, index: number): TransitionId{
     return this.mediator.sendTransaction(StateTransition.UpgradeFacility, {
       from: TestWallet,
-      typ: CityFacility.Fortress,
-      index: 0,
+      typ: typ,
+      index: index,
     })
   }
   onStateUpdate(callback: StateCallback): void{

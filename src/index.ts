@@ -162,8 +162,15 @@ function example() {
         console.log("receive state", uiState)
         // rerender by new state
       });
-      console.log(city);
-      (city as CityComponent)?.doUpgradeFacility();
+      city.updateResource();
+      (city as CityComponent)?.doUpgradeFacility(CityFacility.Fortress, 0);
+      setTimeout(
+        ()=>{
+          city.doUpgradeFacility(CityFacility.Home, 0)
+        },
+        3000
+      )
+      
       //update
     }
   );
