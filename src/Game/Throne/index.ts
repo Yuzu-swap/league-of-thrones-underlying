@@ -42,8 +42,8 @@ interface IComponent {
 
 export interface ICityComponent extends IComponent {
   //TODO: replace any with inteface
-  getFacilityList(): any;
-  getResource(): any;
+  getFacilityList(): {[key in CityFacility]?: number[] };
+  getResource(): {[key in ResouceType]?: ResouceInfo};
   updateResource(inter ?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
