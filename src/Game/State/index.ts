@@ -16,6 +16,13 @@ export interface ICityState extends IState {
 export var InitState = {
   [StateName.City]: {
     facilities: { [CityFacility.Fortress]: [1] },
-    resources: {},
+    resources: {
+		[ResouceType.Silver]:
+		{
+			lastUpdate: -1,
+			value: 1000000,
+			production: 100
+		}
+	},
   }
 };

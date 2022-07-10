@@ -35,7 +35,6 @@ interface StateTransitionArgs {
 export interface UpgradeFacilityArgs extends StateTransitionArgs {
 	typ: CityFacility
 	index: number
-	targetLevel: number
 }
 
 

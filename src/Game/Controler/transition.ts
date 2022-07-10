@@ -39,14 +39,32 @@ import { City, CityConfig, FacilityLimit } from '../Logic/game';
 import { ICityState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 
+export type TransitionId = string
+
+export interface TransitionResponseArgs {
+	transitionId: TransitionId
+	context: any;
+	result: any;
+}
+export type TransitionCallBack = (args : TransitionResponseArgs) => void
+
+export interface TransitionCall {
+	handler: TransitionHandler
+	transitionId: TransitionId
+}
+
 export class TransitionHandler {
   stateManger: IStateManager;
   dataConfigs: CityConfig;
+  transitionListener: {[key: string]: TransitionCallBack}
+  transitionId: number;
 
   constructor(
     stateWatcher: IStateChangeWatcher,
     loadLoadStateFunc?: LoadStateFunc
   ) {
+	this.transitionListener = {}
+	this.transitionId = 0
     //init state
     const cityStateId = `${StateName.City}:${TestWallet}`;
     this.stateManger = new BaseStateManager({}, loadLoadStateFunc);
@@ -103,14 +121,25 @@ export class TransitionHandler {
     };
   }
 
-  onTransition(sid: StateTransition, arg: {}) {
+  onTransition(sid: StateTransition, arg: {}) : TransitionId{
     switch (sid) {
       case StateTransition.UpgradeFacility:
-        this.onUpdateFacility(arg as UpgradeFacilityArgs);
+        return this.onUpdateFacility(arg as UpgradeFacilityArgs);
     }
+	return ''
   }
 
-  onUpdateFacility(args: UpgradeFacilityArgs) {
+  onTransitionResponse(sid: IStateIdentity, callback : TransitionCallBack){
+	this.transitionListener[sid.id] = callback
+  }
+
+  notifyTransitonResponse(sid: IStateIdentity, result : TransitionResponseArgs){
+	if(this.transitionListener[sid.id]){
+		this.transitionListener[sid.id](result)
+	}
+  }
+
+  onUpdateFacility(args: UpgradeFacilityArgs) : TransitionId{
     const stateId = { id: `${StateName.City}:${args.from}` };
     const cityState = this.stateManger.get(stateId);
 
@@ -118,6 +147,12 @@ export class TransitionHandler {
 
     //Do Logic  here
     //Valdiate resource requirement first
-    city.upgradeFacility(args.typ, args.index);
+	let id : TransitionId = (++this.transitionId).toString()
+	let call : TransitionCall = {
+		handler: this,
+		transitionId: id
+	}
+    city.upgradeFacility(args.typ, args.index, call);
+	return id
   }
 }
