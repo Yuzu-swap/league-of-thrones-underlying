@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc --declaration -p tsconfig.json",
     "bundle": "npm run build && browserify dist/index.js -o dist/bundle.js",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"

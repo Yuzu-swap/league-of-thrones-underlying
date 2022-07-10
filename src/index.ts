@@ -39,6 +39,7 @@ export * from './Game/Controler/transition';
 export * from './Game/State';
 export * from './Core/state';
 export * from './Game/Throne';
+export * from './Game/Const';
 
 export var run = function () {
   const mediator = new LocalMediator();
