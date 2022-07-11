@@ -149,7 +149,7 @@ function example() {
       // bind button with action
       // button.onClick = () =>{
       //city.doUpgradeFacility()
-
+      console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
       // watch action response
       city.onActionResponse((args) => {
         console.log("receive action", args)

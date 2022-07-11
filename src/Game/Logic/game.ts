@@ -60,6 +60,21 @@ export class City {
     this.cityConfig = cityconf;
   }
 
+  initState(config: {}){
+    let initState = {
+      facilities:{},
+    }
+    for(let key in CityFacility)
+    {
+        let CityAnyType:any = CityFacility[key];
+        let maxCount = config[CityAnyType]['max_count']
+        if(!isNaN(maxCount)){
+          initState.facilities[CityAnyType] = Array(maxCount).fill(1)
+        }
+    }
+    this.state.update(initState)
+  }
+
   loadState(state: {}) {
     this.state.update(state);
   }
@@ -70,8 +85,8 @@ export class City {
     if(!this.state.resources[typ]){
       return 0
     }
-    const info = this.state.resources[typ]
     let value = 0
+    const info = this.state.resources[typ]
     value = info.value
     if(info.lastUpdate != -1){
       const hour = (time - info.lastUpdate)/ 3600
@@ -87,9 +102,9 @@ export class City {
     return value
   }
 
-  getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow{
-    const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(
-      (targetLevel -1).toString()
+  getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow | undefined{
+    const row = this.cityConfig.facilityConfig[typ].get(
+      (targetLevel - 2).toString()
     );
     return row
   }
@@ -104,9 +119,10 @@ export class City {
     if (index < levelList.length) {
       tartgetLevel = levelList[index] + 1;
     }
-    const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(
-      (tartgetLevel -1).toString()
-    );
+    const row = this.getUpgradeInfo(typ, tartgetLevel)
+    if(row == undefined){
+      return false
+    }
     if(this.getResource(ResouceType.Silver)>= row.need_silver /* && this.getResource(ResouceType.Troop)>= row.need_troop*/){
       return true
     }
@@ -116,17 +132,20 @@ export class City {
   calculatePoduction(typ: ResouceType): number{
     let re = 0;
     console.log('enter cal', typ, ResouceType.Silver)
-    if(typ == ResouceType.Silver){
-      if(this.state.facilities[CityFacility.Home]){
-        console.log('enter cal---------2')
-        const list = this.state.facilities[CityFacility.Home]
-        console.log('in cal', list)
-        for(let i = 0; i< list.length; i ++){
-          const level = list[i]
-          const production = this.cityConfig.facilityConfig[CityFacility.Home].get(level - 1 + '').product_silver
-          re += production
+    switch(typ)
+    {
+      case ResouceType.Silver :
+        if(this.state.facilities[CityFacility.Home]){
+          console.log('enter cal---------2')
+          const list = this.state.facilities[CityFacility.Home]
+          console.log('in cal', list)
+          for(let i = 0; i< list.length; i ++){
+            const level = list[i]
+            const production = this.cityConfig.facilityConfig[CityFacility.Home].get(level - 1 + '').product_silver
+            re += production
+          }
         }
-      }
+      break;
     }
     return re
   }

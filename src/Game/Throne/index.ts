@@ -44,6 +44,11 @@ export interface ICityComponent extends IComponent {
   //TODO: replace any with inteface
   getFacilityList(): {[key in CityFacility]?: number[] };
   getResource(): {[key in ResouceType]?: ResouceInfo};
+  /**
+   * Returns the info of facility than it upgrades need , when returns undefined means can't upgrade to this level
+   * @param typ the type of the facility
+  */
+  getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow | undefined;
   updateResource(inter ?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -125,6 +130,11 @@ export class CityComponent implements ICityComponent {
   }
   InitState():void{
     this.city.state = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
+    this.city.initState(buildingCount)
+  }
+
+  getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow{
+    return this.city.getUpgradeInfo(typ, targetLevel)
   }
 
   updateResource(inter : number = 1000): void{
@@ -147,8 +157,8 @@ export class CityComponent implements ICityComponent {
   getResource(): {[key in ResouceType]?: ResouceInfo}{
     return this.city.state.resources
   }
-  getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow{
-    return this.city.cityConfig.facilityConfig[typ].get((targetLevel -1).toString())
+  getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined{
+    return this.city.getUpgradeInfo(typ, targetLevel)
   }
 
   checkUpgradeFacility(typ: CityFacility, index: number): boolean{

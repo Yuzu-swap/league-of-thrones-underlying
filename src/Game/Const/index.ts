@@ -3,20 +3,20 @@ export enum StateName {
 }
 
 export enum CityFacility {
-	Fortress = 0,
-	MilitaryCenter,
-	Wall,
-	Store,
-	InfantryCamp,
-	CavalryCamp,
-	ArcherCamp,
-	TrainingCenter,
-	Home ,
+	Fortress = 'fortress',
+	MilitaryCenter = 'militarycenter',
+	Wall = 'wall',
+	Store = 'store',
+	InfantryCamp = 'infantrycamp',
+	CavalryCamp = 'cavalrycamp',
+	ArcherCamp = 'archercamp',
+	TrainingCenter = 'trainingcenter',
+	Home = 'home',
 }
 
 export enum ResouceType {
-	Silver = 0,
-	Troop = 1
+	Silver = 'silver',
+	Troop = 'troop'
 }
 
 export enum StateTransition {
