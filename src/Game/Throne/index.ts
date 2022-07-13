@@ -54,6 +54,11 @@ export interface ICityComponent extends IComponent {
    * @param typ the type of the facility
   */
   getAllUpgradeInfo(typ: CityFacility ) :FacilityGdsRow[];
+
+  /**
+   * Returns the order of the facility for show
+  */
+  getFacilityOrder(): string[];
   updateResource(inter ?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -144,6 +149,10 @@ export class CityComponent implements ICityComponent {
 
   getAllUpgradeInfo(typ: CityFacility): FacilityGdsRow[]{
     return this.city.getAllUpgradeInfo(typ)
+  }
+
+  getFacilityOrder() : string[]{
+    return this.city.getFacilityOrder()
   }
 
   updateResource(inter : number = 1000): void{

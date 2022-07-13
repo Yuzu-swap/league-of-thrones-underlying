@@ -18,10 +18,12 @@ import { TransitionId, TransitionCall, TransitionHandler, TransitionResponseArgs
 export class FacilityLimit {
   max_count: number;
   building_name: string;
+  order: number
 
   constructor(obj: {}) {
     this.max_count = obj['max_count'] ? obj['max_count'] : 1;
     this.building_name = obj['building_name'] ? obj['building_name'] : 'error';
+    this.order = obj['order']? obj['order']: 1
   }
 }
 
@@ -209,6 +211,15 @@ export class City {
       result: true
     }
     args.handler.notifyTransitonResponse(this.state, re)
+  }
+
+  getFacilityOrder():string[]{
+    let re: string[] = new Array(Object.keys(this.cityConfig.limit).length).fill('')
+    for( let key in this.cityConfig.limit){
+      let index = this.cityConfig.limit[key].order -1
+      re[index] = key
+    }
+    return re
   }
 
   showAll() {
