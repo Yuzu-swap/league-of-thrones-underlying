@@ -49,6 +49,11 @@ export interface ICityComponent extends IComponent {
    * @param typ the type of the facility
   */
   getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow | undefined;
+  /**
+   * Returns the all info of facility than it upgrades need
+   * @param typ the type of the facility
+  */
+  getAllUpgradeInfo(typ: CityFacility ) :FacilityGdsRow[];
   updateResource(inter ?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -137,12 +142,14 @@ export class CityComponent implements ICityComponent {
     return this.city.getUpgradeInfo(typ, targetLevel)
   }
 
+  getAllUpgradeInfo(typ: CityFacility): FacilityGdsRow[]{
+    return this.city.getAllUpgradeInfo(typ)
+  }
+
   updateResource(inter : number = 1000): void{
     setInterval(
       ()=>{
-        console.log('begin update', this.city.state.resources)
         for(let key in this.city.state.resources){
-          console.log(key)
           this.city.getResource(key as any as ResouceType)
         }
       },
@@ -222,7 +229,6 @@ export class Throne implements IThrone {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`)
       let cityCom = this.components[ComponentType.City]  as CityComponent
       cityCom.InitState()
-      console.log(cityCom)
       callback(cityCom as any as T)
     }
   }
@@ -242,6 +248,8 @@ function example() {
       city.onActionResponse((args) => {
         console.log("receive action", args)
       });
+
+      console.log(city.getAllUpgradeInfo(CityFacility.Home))
 
       // watch state update
       city.onStateUpdate((state) => {

@@ -155,6 +155,7 @@ function example() {
         console.log("receive action", args)
       });
 
+      console.log(city.getAllUpgradeInfo(CityFacility.Home))
       // watch state update
       city.onStateUpdate(() => {
         // regenerate  ui state

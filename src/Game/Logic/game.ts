@@ -80,7 +80,6 @@ export class City {
   }
 
   getResource(typ : ResouceType): number{
-    console.log("get resource", typ)
     const time = parseInt(new Date().getTime()/1000 + "")
     if(!this.state.resources[typ]){
       return 0
@@ -109,6 +108,23 @@ export class City {
     return row
   }
 
+  getAllUpgradeInfo(type : CityFacility):FacilityGdsRow[]{
+    let re: FacilityGdsRow[] = []
+    let i = 1
+    while(true){
+      const row = this.cityConfig.facilityConfig[type].get(
+        (i - 1).toString()
+      );
+      if(row){
+        re.push(row)
+      }else{
+        break
+      }
+      i++
+    }
+    return re
+  }
+
   checkUpgradeFacility(typ: CityFacility, index: number = 0) : boolean{
     let levelList = this.state.facilities[typ] ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
@@ -131,14 +147,11 @@ export class City {
 
   calculatePoduction(typ: ResouceType): number{
     let re = 0;
-    console.log('enter cal', typ, ResouceType.Silver)
     switch(typ)
     {
       case ResouceType.Silver :
         if(this.state.facilities[CityFacility.Home]){
-          console.log('enter cal---------2')
           const list = this.state.facilities[CityFacility.Home]
-          console.log('in cal', list)
           for(let i = 0; i< list.length; i ++){
             const level = list[i]
             const production = this.cityConfig.facilityConfig[CityFacility.Home].get(level - 1 + '').product_silver
@@ -177,14 +190,6 @@ export class City {
     );
     const info : ResouceInfo = this.state.resources[ResouceType.Silver]
     
-    console.log(
-      'upgradeFacility ',
-      typ,
-      ' level ',
-      tartgetLevel,
-      'need troop',
-      row.need_troop
-    );
     this.state.update({ 
       [`facilities.${typ}`]: levelList,
       [`resources.${ResouceType.Silver}`]: {
