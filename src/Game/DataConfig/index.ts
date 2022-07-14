@@ -44,3 +44,12 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 	product_silver: number
 }
 
+export interface GeneralGdsRow{
+	qualification_troop_recurit: number
+	qualification_sliver_product: number
+	qualification_load: number
+	qualification_attack: number
+	general_type: number
+	general_skill: number[]
+	general_id: number
+}
