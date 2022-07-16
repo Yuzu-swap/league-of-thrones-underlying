@@ -10,9 +10,7 @@
         "watch":false ,
         "typeRoots": ["src/types/index.d.ts" ],
         "types":["node"],
-        "lib": ["es2015","dom"],
-        "alwaysStrict": false,
-        "noImplicitUseStrict": true
+        "lib": ["es2015","dom"]
     },
     "include":[
         "./src/**/*"
