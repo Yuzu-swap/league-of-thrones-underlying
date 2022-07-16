@@ -25,7 +25,10 @@ export function copyObj(src){
 function setObjectByPath(obj: {}, path: string, val: any) {
   const segIndex = path.indexOf('.');
   if (segIndex == -1) {
-    if (typeof(obj) == "object"){
+    if( val instanceof Array){
+      obj[path] = val
+    }
+    else if (typeof(val) == "object"){
       obj[path] = copyObj(val)
     }else{
       obj[path] = val

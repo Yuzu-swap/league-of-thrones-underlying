@@ -169,7 +169,7 @@ function example() {
       (city as CityComponent)?.doUpgradeFacility(CityFacility.Fortress, 0);
       setTimeout(
         ()=>{
-          city.doUpgradeFacility(CityFacility.Home, 0)
+          city.doUpgradeFacility(CityFacility.Fortress, 0)
         },
         3000
       )
@@ -177,19 +177,5 @@ function example() {
       //update
     }
   );
-  Throne.instance().initComponent(
-    ComponentType.General,
-    ((general: IGeneralComponent)=>{
-      general.onStateUpdate((state)=>{
-        console.log("general",state)
-      })
-      const list = general.getAbleList();
-      console.log("general", list)
-      general.ableGeneral(1)
-      general.upgradeGeneral(1)
-
-      }
-    )
-  )
 }
 //example()
