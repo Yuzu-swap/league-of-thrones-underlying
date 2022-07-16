@@ -189,7 +189,7 @@ export class City {
       levelList[index] = tartgetLevel;
     }
     const row: FacilityGdsRow = this.cityConfig.facilityConfig[typ].get(
-      (tartgetLevel -1).toString()
+      (tartgetLevel -2).toString()
     );
     const info : ResouceInfo = this.state.resources[ResouceType.Silver]
     let sliver = {
