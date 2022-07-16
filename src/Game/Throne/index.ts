@@ -15,7 +15,7 @@ import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.j
 import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
-import {State, IState, IStateIdentity} from '../../Core/state'
+import {State, IState, IStateIdentity, copyObj} from '../../Core/state'
 import {ConfigContainer} from '../../Core/config'
 import {ICityState, IGeneralState, ResouceInfo} from '../State'
 import {
@@ -206,10 +206,10 @@ export class CityComponent implements ICityComponent {
   }
 
   getFacilityList(): {[key in CityFacility]?: number[] }{
-    return this.city.state.facilities
+    return copyObj(this.city.state.facilities)
   }
   getResource(): {[key in ResouceType]?: ResouceInfo}{
-    return this.city.state.resources
+    return copyObj(this.city.state.resources)
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined{
     return this.city.getUpgradeInfo(typ, targetLevel)

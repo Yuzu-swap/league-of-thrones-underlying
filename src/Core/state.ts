@@ -12,10 +12,24 @@ export interface IStateIdentity {
   id: string;
 }
 
+export function copyObj(src){
+  let dest
+  if(Object.assign) {
+    dest = Object.assign({},src)
+  }else{
+    dest = JSON.parse(JSON.stringify(src))
+  }
+  return dest
+}
+
 function setObjectByPath(obj: {}, path: string, val: any) {
   const segIndex = path.indexOf('.');
   if (segIndex == -1) {
-    obj[path] = val;
+    if (typeof(obj) == "object"){
+      obj[path] = copyObj(val)
+    }else{
+      obj[path] = val
+    }
   } else {
     const key = path.substr(0, segIndex);
     if (!obj[key]) {
@@ -43,7 +57,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
     watcher?: IStateChangeWatcher
   ) {
     // deep clone ins ES%
-    let copyVal = JSON.parse(JSON.stringify(initVal))
+    let copyVal = copyObj(initVal)
     for (var key in copyVal) {
       this[key] = copyVal[key];
     }
