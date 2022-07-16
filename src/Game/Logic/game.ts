@@ -222,6 +222,24 @@ export class City {
     return re
   }
 
+  getGeneralMaxAble():number{
+    let fortresslevel = this.state.facilities.fortress[0]
+    return this.cityConfig.facilityConfig[CityFacility.Fortress].get((fortresslevel-1).toString()).employ_count
+  }
+
+  useSilver(amount: number): boolean{
+    const info : ResouceInfo = this.state.resources[ResouceType.Silver]
+    if(amount < this.state.resources.silver.value){
+      this.state.update(
+        {
+          [`resources.${ResouceType.Silver}.value`]: info.value - amount
+        }
+      )
+      return true
+    }
+    return false
+  }
+
   showAll() {
     //facilities
     console.log('@@@Dump all facilities');

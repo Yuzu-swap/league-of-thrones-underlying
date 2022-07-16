@@ -53,3 +53,11 @@ export interface GeneralGdsRow{
 	general_skill: number[]
 	general_id: number
 }
+
+export interface BuffGdsRow{
+	value_type: number
+	buff_value: number
+	buff_type: string
+	buff_target: string[]
+	buff_id: number
+}

@@ -13,6 +13,13 @@ export interface ICityState extends IState {
   resources: { [key in ResouceType]?: ResouceInfo };
 }
 
+export interface IGeneralState extends IState{
+  id: string;
+  levels: number[]
+  able: boolean[]
+  skill_levels: number[][]
+}
+
 export var InitState = {
   [StateName.City]: {
     facilities: { },
@@ -30,5 +37,10 @@ export var InitState = {
 			production: 0
 		}
 	},
+  },
+  [StateName.General]:{
+	levels:[],
+	able:[],
+	skill_levels:[]
   }
 };

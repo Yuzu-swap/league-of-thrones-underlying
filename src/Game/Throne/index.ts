@@ -1,3 +1,4 @@
+import { General } from '../Logic/general'
 import {City, FacilityLimit} from '../Logic/game'
 import {LocalMediator} from '../Controler/mediator'
 import {StateTransition, CityFacility, ResouceType, StateName, TestWallet} from '../Const'
@@ -12,9 +13,11 @@ import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
 import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
 import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
+import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
+import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import {State, IState, IStateIdentity} from '../../Core/state'
 import {ConfigContainer} from '../../Core/config'
-import {ICityState, ResouceInfo} from '../State'
+import {ICityState, IGeneralState, ResouceInfo} from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -25,7 +28,9 @@ import {
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
-  FacilityGdsRow
+  FacilityGdsRow,
+  GeneralGdsRow,
+  BuffGdsRow
 } from '../DataConfig';
 import {
   TransitionResponseArgs, TransitionId
@@ -65,6 +70,33 @@ export interface ICityComponent extends IComponent {
   doUpgradeFacility(typ: CityFacility, index: number): TransitionId;
 }
 
+export interface IGeneralComponent extends IComponent{
+  /**
+   * get the qualification of the general 
+   * @param id the id of the general
+  */
+  getGeneralQualification(id: number):GeneralGdsRow | undefined
+  /**
+   * get the able status of the generals
+  */
+  getAbleList():boolean[]
+  /**
+   * enable the general
+   *  @param id the id of the general
+  */
+  ableGeneral(id: number):boolean
+  /**
+   * disable the general
+   *  @param id the id of the general
+  */
+  disableGeneral(id: number): void
+  /**
+   * upgrade the general
+   *  @param id the id of the general
+  */
+  upgradeGenral(id: number):boolean
+}
+
 
 export class CityComponent implements ICityComponent {
   type: ComponentType;
@@ -72,7 +104,7 @@ export class CityComponent implements ICityComponent {
   mediator : LocalMediator
   cityStateId : IStateIdentity 
 
-  constructor( myStateId : string ){
+  constructor( myStateId : string, mediator: LocalMediator ){
     this.cityStateId = {
       id: myStateId
     }
@@ -82,7 +114,7 @@ export class CityComponent implements ICityComponent {
       resources: {}
     };
     this.type = ComponentType.City
-    this.mediator = new LocalMediator()
+    this.mediator = mediator
     this.city  = new City(
       new State<ICityState>(defaultState).unsderlying(),
       {
@@ -205,6 +237,73 @@ export class CityComponent implements ICityComponent {
   }
 }
 
+export class GeneralComponent implements IGeneralComponent{
+  type: ComponentType;
+  general: General;
+  mediator : LocalMediator
+  generalStateId : IStateIdentity 
+  constructor( myStateId : string, mediator: LocalMediator , city: CityComponent){
+    this.generalStateId = {
+      id: myStateId
+    }
+    const defaultState = {
+      id: myStateId,
+      levels:[],
+      able:[],
+      skill_levels:[]
+    };
+    this.type = ComponentType.General
+    this.mediator = mediator
+    this.general  = new General(
+      new State<IGeneralState>(defaultState).unsderlying(),
+      {
+        qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
+        buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
+      },
+      city.city
+    );
+  }
+
+  InitState():void{
+    this.general.state = this.mediator.transitionHandler.stateManger.get(this.generalStateId) as IGeneralState
+    this.general.initState()
+  }
+  getGeneralQualification(id : number){
+    return this.general.getGeneralQualification(id)
+  }
+  getAbleList(): boolean[] {
+    return this.general.getAbleList()
+  }
+
+  ableGeneral(id: number): boolean {
+    return this.general.ableGeneral(id)
+  }
+
+  disableGeneral(id: number) {
+    this.general.disableGeneral(id)
+  }
+
+  upgradeGenral(id: number): boolean {
+    return this.general.upgradeGeneral(id)
+  }
+
+  onStateUpdate(callback: StateCallback): void{
+    this.mediator.onReceiveState(
+      this.generalStateId
+      ,
+      callback
+    )
+  }
+  //trigger when action is response
+  onActionResponse(callback: (args: TransitionResponseArgs) => void): void{
+    this.mediator.transitionHandler.onTransitionResponse(
+      this.generalStateId
+      ,
+      callback
+    )
+  }
+}
+
 export enum ComponentType {
   City = 1,
   General = 2
@@ -226,19 +325,30 @@ export class Throne implements IThrone {
     }
     return this.throne;
   }
+  mediator: LocalMediator
 
   components: { [key in ComponentType]?: IComponent } = {};
-  constructor() {}
+  constructor() {
+    this.mediator = new LocalMediator()
+  }
 
   initComponent<T extends IComponent>(
     typ: ComponentType,
     callback: (component: T) => void
   ) {
-    if(typ = ComponentType.City){
-      this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`)
+    if(typ == ComponentType.City){
+      this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)
       let cityCom = this.components[ComponentType.City]  as CityComponent
       cityCom.InitState()
       callback(cityCom as any as T)
+    }else if(typ == ComponentType.General){
+      if(!this.components[ComponentType.City]){
+        return false
+      }
+      this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${TestWallet}`, this.mediator, this.components[ComponentType.City] as CityComponent)
+      let generalCom = this.components[ComponentType.General] as GeneralComponent
+      generalCom.InitState()
+      callback(generalCom as any as T)
     }
   }
 }
@@ -272,5 +382,16 @@ function example() {
       //update
     }
   );
+  Throne.instance().initComponent(
+    ComponentType.General,
+    ((general: IGeneralComponent)=>{
+      general.onStateUpdate((state)=>{
+        console.log("general",state)
+      })
+
+
+      }
+    )
+  )
   Throne.instance()[ComponentType.City].doUpgradeFacility()
 }
