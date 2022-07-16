@@ -94,7 +94,13 @@ export interface IGeneralComponent extends IComponent{
    * upgrade the general
    *  @param id the id of the general
   */
-  upgradeGenral(id: number):boolean
+  upgradeGeneral(id: number):boolean
+  /**
+   * get the silver general upgrade need
+   * @param id the id of the general
+   * @param level current level
+  */
+  //getUpgradeGeneralNeed(id: number, level: number): number
 }
 
 
@@ -283,7 +289,7 @@ export class GeneralComponent implements IGeneralComponent{
     this.general.disableGeneral(id)
   }
 
-  upgradeGenral(id: number): boolean {
+  upgradeGeneral(id: number): boolean {
     return this.general.upgradeGeneral(id)
   }
 

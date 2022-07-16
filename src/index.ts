@@ -186,7 +186,7 @@ function example() {
       const list = general.getAbleList();
       console.log("general", list)
       general.ableGeneral(1)
-      general.upgradeGenral(1)
+      general.upgradeGeneral(1)
 
       }
     )

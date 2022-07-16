@@ -93,12 +93,13 @@ export class City {
       const hour = (time - info.lastUpdate)/ 3600
       value = hour * info.production + info.value
     }
+    let obj ={
+      lastUpdate: time,
+      value: value,
+      production: this.calculatePoduction(typ)
+    }
     this.state.update({
-      [`resources.${typ}`]: {
-          lastUpdate: time,
-          value: value,
-          production: this.calculatePoduction(typ)
-        }
+      [`resources.${typ}`]: obj
       })
     return value
   }
@@ -191,14 +192,14 @@ export class City {
       (tartgetLevel -1).toString()
     );
     const info : ResouceInfo = this.state.resources[ResouceType.Silver]
-    
+    let sliver = {
+      lastUpdate: info.lastUpdate,
+      value: info.value - row.need_silver,
+      production: info.production
+    }
     this.state.update({ 
       [`facilities.${typ}`]: levelList,
-      [`resources.${ResouceType.Silver}`]: {
-        lastUpdate: info.lastUpdate,
-        value: info.value - row.need_silver,
-        production: info.production
-      },
+      [`resources.${ResouceType.Silver}`]: sliver,
       /*[`resources.${ResouceType.Troop}`]: {
         lastUpdate: info.lastUpdate,
         value: info.value - row.need_troop,
