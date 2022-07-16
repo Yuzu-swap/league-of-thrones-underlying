@@ -42,8 +42,10 @@ export class State<UnderlyingStateType extends IStateIdentity>
     initVal: Omit<UnderlyingStateType, 'update' | 'getId' | 'stateObj'>,
     watcher?: IStateChangeWatcher
   ) {
-    for (var key in initVal) {
-      this[key] = initVal[key];
+    // deep clone ins ES%
+    let copyVal = JSON.parse(JSON.stringify(initVal))
+    for (var key in copyVal) {
+      this[key] = copyVal[key];
     }
     this._watcher = watcher;
   }
