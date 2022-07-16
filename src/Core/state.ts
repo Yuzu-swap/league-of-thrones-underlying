@@ -12,23 +12,30 @@ export interface IStateIdentity {
   id: string;
 }
 
-export function copyObj(src){
-  let dest
-  if(Object.assign) {
-    dest = Object.assign({},src)
-  }else{
-    dest = JSON.parse(JSON.stringify(src))
+export function copyObj(aObject) {
+  // Prevent undefined objects
+  // if (!aObject) return aObject;
+
+  let bObject = Array.isArray(aObject) ? [] : {};
+
+  let value;
+  for (const key in aObject) {
+
+    // Prevent self-references to parent object
+    // if (Object.is(aObject[key], aObject)) continue;
+    
+    value = aObject[key];
+
+    bObject[key] = (typeof value === "object") ? copyObj(value) : value;
   }
-  return dest
+
+  return bObject;
 }
 
 function setObjectByPath(obj: {}, path: string, val: any) {
   const segIndex = path.indexOf('.');
   if (segIndex == -1) {
-    if( val instanceof Array){
-      obj[path] = val
-    }
-    else if (typeof(val) == "object"){
+    if (typeof(val) == "object"){
       obj[path] = copyObj(val)
     }else{
       obj[path] = val
