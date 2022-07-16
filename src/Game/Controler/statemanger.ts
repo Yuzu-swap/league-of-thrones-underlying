@@ -6,7 +6,7 @@ export type LoadStateFunc = (sid: IStateIdentity) => IState;
 export function GenerateMemoryLoadStateFunction(initStates: {
   [key: string]: IState;
 }): LoadStateFunc {
-  const states: { [key: string]: IState } = initStates || {};
+  var states: { [key: string]: IState } = initStates || {};
 
   return (sid: IStateIdentity) => {
     return states[sid.id];
@@ -25,7 +25,7 @@ export class BaseStateManager implements IStateManager {
   }
 
   get(sid: IStateIdentity): IState {
-    return this.loadStateFunc(sid);
+    return  this.loadStateFunc(sid);
   }
 
   save(sid: IStateIdentity, state: IState): void {}
