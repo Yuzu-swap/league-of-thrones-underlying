@@ -1,4 +1,4 @@
-const log = globalThis.log || console.log
+const log = globalThis.log ||function(){}
 
 export interface IState {
   getId(): string;
