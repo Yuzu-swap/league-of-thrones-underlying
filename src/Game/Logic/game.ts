@@ -50,7 +50,6 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
   };
-  buildingCountConfig:{},
 }
 
 export class City {
@@ -62,15 +61,6 @@ export class City {
   constructor(state: ICityState, cityconf: CityConfig ) {
     this.state = state;
     this.cityConfig = cityconf;
-
-    for(let key in CityFacility)
-    {
-        let CityAnyType:any = CityFacility[key];
-        let maxCount = cityconf.buildingCountConfig[CityAnyType]['max_count']
-        if(!isNaN(maxCount)){
-          state.facilities[CityAnyType] = Array(maxCount).fill(1)
-        }
-    }
   }
 
   loadState(state: {}) {

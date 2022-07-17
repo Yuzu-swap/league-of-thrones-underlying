@@ -106,7 +106,6 @@ export var CityConfigFromGDS = {
     ),
     [CityFacility.Home]: new FacilityLimit(buildingCount.home)
   },
-  buildingCountConfig:buildingCount,
 };
 
 

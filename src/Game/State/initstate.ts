@@ -1,5 +1,5 @@
-import { StateName, ResouceType, CityFacility } from "../../../dist";
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
+import { StateName, ResouceType, CityFacility } from '../Const';
 
 var InitState = {
     [StateName.City]: {
