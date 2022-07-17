@@ -53,7 +53,7 @@ export interface TransitionCall {
 	transitionId: TransitionId
 }
 
-const log = globalThis.log
+const log = globalThis.log || function(){}
 
 
 export var CityConfigFromGDS = {
