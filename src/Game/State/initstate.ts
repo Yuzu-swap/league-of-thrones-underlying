@@ -40,7 +40,7 @@ export function GetInitState(){
                 InitState[StateName.City].facilities[CityAnyType] = Array(maxCount).fill(1)
             }
         }
-
+        _inited = true
     }
     return InitState
 }

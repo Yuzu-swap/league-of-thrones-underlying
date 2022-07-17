@@ -114,18 +114,13 @@ export class CityComponent implements ICityComponent {
     this.cityStateId = {
       id: myStateId
     }
-    const defaultState = {
-      id: myStateId,
-      facilities: {},
-      resources: {}
-    };
     this.type = ComponentType.City
     this.mediator = mediator
    
     const initCityState = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
 
     this.city  = new City(
-      new State<ICityState>(initCityState).unsderlying(), CityConfigFromGDS
+      initCityState, CityConfigFromGDS
     );
   }
   InitState():void{

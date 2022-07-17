@@ -1,4 +1,4 @@
-const log = globalThis.log || function(){}
+const log = globalThis.log || console.log
 
 export interface IState {
   getId(): string;
@@ -69,9 +69,8 @@ export class State<UnderlyingStateType extends IStateIdentity>
     watcher?: IStateChangeWatcher
   ) {
     // deep clone ins ES%
-    let copyVal = copyObj(initVal)
-    for (var key in copyVal) {
-      this[key] = copyVal[key];
+    for (var key in initVal) {
+      this[key] = initVal[key];
     }
     this._watcher = watcher;
   }
