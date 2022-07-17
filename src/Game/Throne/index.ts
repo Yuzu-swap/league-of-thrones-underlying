@@ -1,4 +1,4 @@
-import { General } from '../Logic/general'
+import { General , GeneralAbility} from '../Logic/general'
 import {City, FacilityLimit} from '../Logic/game'
 import {LocalMediator} from '../Controler/mediator'
 import {StateTransition, CityFacility, ResouceType, StateName, TestWallet} from '../Const'
@@ -111,6 +111,13 @@ export interface IGeneralComponent extends IComponent{
    * @param level current level
   */
   getUpgradeGeneralNeed(id: number, level: number): number
+
+  /**
+   * get the qualification value of the general 
+   * @param id the id of the general 
+   * @param level the level of the general
+  */
+   getGeneralQuaValue(id : number, level : number): {}
 }
 
 
@@ -279,6 +286,16 @@ export class GeneralComponent implements IGeneralComponent{
 
   getUpgradeGeneralNeed(id: number, level: number): number {
     return this.general.getGeneralUpgradeNeed(id, level)
+  }
+
+  getGeneralQuaValue(id: number, level: number): {} {
+    let re = {}
+    re['attack'] = this.general.getGeneralAbility(id, level, GeneralAbility.Attack)
+    re['defense'] = this.general.getGeneralAbility(id, level, GeneralAbility.Defense)
+    re['load'] = this.general.getGeneralAbility(id, level, GeneralAbility.Load)
+    re['silver_product'] = this.general.getGeneralAbility(id, level, GeneralAbility.Silver)
+    re['troop_product'] = this.general.getGeneralAbility(id, level, GeneralAbility.Troop)
+    return re
   }
 
   //trigger when action is response

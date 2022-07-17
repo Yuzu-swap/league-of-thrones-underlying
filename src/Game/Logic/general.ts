@@ -8,6 +8,14 @@ export interface GeneralConfig{
     buff: ConfigContainer<BuffGdsRow>
 }
 
+export enum GeneralAbility{
+    Attack = 'qualification_attack',
+    Defense = 'qualification_defense',
+    Load = 'qualification_load',
+    Silver = 'qualification_sliver_product',
+    Troop = 'qualification_troop_recurit'
+}
+
 export class General{
     state: IGeneralState
     config: GeneralConfig
@@ -105,7 +113,7 @@ export class General{
         const row = this.getGeneralQualification(index)
         const sumq = row.qualification_attack + row.qualification_load + row.qualification_sliver_product + row.qualification_troop_recurit
         let re = 0
-        re = Math.round((2* Math.pow(2, currentLevel) * currentLevel + 20) * sumq / 10) * 10
+        re = Math.round((2* Math.pow(currentLevel, 2) * currentLevel + 20) * sumq / 10) * 10
         return re 
     }
 
@@ -136,6 +144,21 @@ export class General{
             return true
         }
         return false
+    }
+
+    getGeneralAbility(index: number, level: number ,typ : GeneralAbility): number{
+        const row = this.getGeneralQualification(index)
+        switch(typ){
+            case GeneralAbility.Attack:
+            case GeneralAbility.Defense:
+                return row[typ] * 100 * level
+            case GeneralAbility.Load:
+                return row[typ] * 250 * level
+            case GeneralAbility.Silver:
+                return parseFloat(((0.0002 * Math.pow(level, 2) + 0.01 * level + 0.1) * row[typ] * 3600).toFixed(2))
+            case GeneralAbility.Troop:
+                return parseFloat(((0.000002 * Math.pow(level, 2) + 0.0001 * level + 0.001) * row[typ] * 3600).toFixed(2))
+        }
     }
 
 }

@@ -132,12 +132,18 @@ function example() {
     ComponentType.General,
     ((general: IGeneralComponent)=>{
       general.onStateUpdate((state)=>{
-        console.log("general",state)
+        console.log("general",general.getGeneralList())
       })
       const list = general.getAbleList();
       console.log("general1", general.getGeneralList()[0].qualification.general_skill)
       console.log("general", general.getGeneralList()[0])
-      general.getGeneralList()
+      general.ableGeneral(1, (result)=>{
+        console.log("general able ", result)
+      })
+      general.upgradeGeneral(1,  (result)=>{
+        console.log("general up ", result)
+      })
+      console.log("value", general.getGeneralQuaValue(1, 1))
 
       }
     )
