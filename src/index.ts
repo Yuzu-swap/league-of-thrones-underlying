@@ -144,5 +144,4 @@ function example() {
     )
   )
 }
-log("start")
 //example()
