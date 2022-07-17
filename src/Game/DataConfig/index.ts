@@ -49,6 +49,7 @@ export interface GeneralGdsRow{
 	qualification_sliver_product: number
 	qualification_load: number
 	qualification_attack: number
+	qualification_defense: number
 	general_type: number
 	general_skill: number[]
 	general_id: number

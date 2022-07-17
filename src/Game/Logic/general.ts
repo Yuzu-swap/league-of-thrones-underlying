@@ -15,6 +15,13 @@ export enum GeneralAbility{
     Silver = 'qualification_sliver_product',
     Troop = 'qualification_troop_recurit'
 }
+export enum SkillType{
+    Attack = 'attack',
+    Defense = 'defense',
+    Load = 'load',
+    Silver = 'product',
+    Troop = 'recurit'
+}
 
 export class General{
     state: IGeneralState
@@ -47,6 +54,10 @@ export class General{
     */
     getGeneralQualification(id: number):GeneralGdsRow | undefined{
         return this.config.qualification.get( (id - 1).toString() )
+    }
+
+    getSkillInfo(id: number): BuffGdsRow| undefined{
+        return this.config.buff.get( (id - 1).toString())
     }
 
     /**
@@ -159,6 +170,67 @@ export class General{
             case GeneralAbility.Troop:
                 return parseFloat(((0.000002 * Math.pow(level, 2) + 0.0001 * level + 0.001) * row[typ] * 3600).toFixed(2))
         }
+    }
+
+    getSkillUpdateNeed( generalId : number, skillIndex : number, level: number): number{
+        const row : GeneralGdsRow = this.getGeneralQualification(generalId)
+        const skillId = row.general_skill[skillIndex]
+        const buff = this.getSkillInfo(skillId)
+        let cost = 0
+        switch(buff.buff_type){
+            case SkillType.Attack:
+                cost = 0.02 * row.qualification_attack * Math.pow(level, 2) + 0.5
+                break
+            case SkillType.Defense:
+                cost = 0.02 * row.qualification_defense * Math.pow(level, 2) + 0.5
+                break
+            case SkillType.Load:
+                cost = 0.02 * row.qualification_load * Math.pow(level, 2) + 0.5
+                break
+            case SkillType.Silver:
+                cost = 0.04 * row.qualification_sliver_product * Math.pow(level, 2) + 1
+                break
+            case SkillType.Troop:
+                cost = 0.04 * row.qualification_troop_recurit * Math.pow(level, 2) + 1
+                break
+        }
+        return cost
+    }
+
+    getSkillValue( generalId : number, skillIndex : number, level: number ) : {}{
+        let re = {
+            'value_type': 0,
+            'value': 0
+        }
+        const row : GeneralGdsRow = this.getGeneralQualification(generalId)
+        const skillId = row.general_skill[skillIndex]
+        const buff = this.getSkillInfo(skillId)
+        re['value_type'] = buff.value_type
+        if(buff.value_type == 1){
+            //percent
+            re['value'] = buff.buff_value * level
+        }
+        else{
+            //value
+            switch(buff.buff_type){
+                case SkillType.Silver:
+                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_sliver_product * 3600).toFixed(2))
+                    break
+                case SkillType.Troop:
+                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_troop_recurit * 3600).toFixed(2))
+                    break
+                case SkillType.Attack:
+                    re['value'] = buff.buff_value * row.qualification_attack * Math.pow(level, 2)
+                    break
+                case SkillType.Defense:
+                    re['value'] = buff.buff_value * row.qualification_defense * Math.pow(level, 2)
+                    break
+                case SkillType.Load:
+                    re['value'] = buff.buff_value * row.qualification_load * Math.pow(level, 2)
+                    break
+            }
+        }
+        return re
     }
 
 }
