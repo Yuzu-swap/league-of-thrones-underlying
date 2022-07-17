@@ -135,9 +135,9 @@ function example() {
         console.log("general",state)
       })
       const list = general.getAbleList();
-      console.log("general", list)
-      general.ableGeneral(1)
-      general.upgradeGeneral(1)
+      console.log("general1", general.getGeneralList()[0].qualification.general_skill)
+      console.log("general", general.getGeneralList()[0])
+      general.getGeneralList()
 
       }
     )

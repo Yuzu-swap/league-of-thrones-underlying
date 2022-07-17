@@ -81,26 +81,36 @@ export interface IGeneralComponent extends IComponent{
   */
   getAbleList():boolean[]
   /**
+   * get all status of general , includes general level , able status and qualification
+  */
+  getGeneralList():any[]
+
+  /**
    * enable the general
    *  @param id the id of the general
   */
-  ableGeneral(id: number):boolean
+  ableGeneral(id: number, callback: (result: any)=>void):void
   /**
    * disable the general
    *  @param id the id of the general
   */
-  disableGeneral(id: number): void
+  disableGeneral(id: number, callback: (result: any)=>void): void
+  /**
+   * check if can upgrade general 
+   *  @param id the id of the general
+  */
+  checkUpgradeGeneral(id: number):boolean
   /**
    * upgrade the general
    *  @param id the id of the general
   */
-  upgradeGeneral(id: number):boolean
+  upgradeGeneral(id: number, callback: (result: any)=>void):void
   /**
    * get the silver general upgrade need
    * @param id the id of the general
    * @param level current level
   */
-  //getUpgradeGeneralNeed(id: number, level: number): number
+  getUpgradeGeneralNeed(id: number, level: number): number
 }
 
 
@@ -138,7 +148,7 @@ export class CityComponent implements ICityComponent {
     return this.city.getFacilityOrder()
   }
 
-  updateResource(inter : number = 1000): void{
+  updateResource(inter : number = 5000): void{
     setInterval(
       ()=>{
         for(let key in this.city.state.resources){
@@ -225,17 +235,34 @@ export class GeneralComponent implements IGeneralComponent{
   getAbleList(): boolean[] {
     return this.general.getAbleList()
   }
-
-  ableGeneral(id: number): boolean {
-    return this.general.ableGeneral(id)
+  getGeneralList():any[]{
+    let len = this.general.state.able.length
+    let re = new Array(len).fill({})
+    for( let i = 0; i< len; i++ ){
+      let temp = {
+        qualification:{},
+        level: 0,
+        able: false,
+        skilllevel:[1, 1, 1]
+      }
+      temp.qualification =JSON.parse(JSON.stringify(this.getGeneralQualification(i + 1)))
+      temp.level = this.general.state.levels[i]
+      temp.able = this.general.state.able[i]
+      re[i] = temp
+    }
+    return re
   }
 
-  disableGeneral(id: number) {
-    this.general.disableGeneral(id)
+  ableGeneral(id: number, callback: (result: any)=>void): void {
+    callback(this.general.ableGeneral(id))
   }
 
-  upgradeGeneral(id: number): boolean {
-    return this.general.upgradeGeneral(id)
+  disableGeneral(id: number, callback: (result: any)=>void): void {
+    callback(this.general.disableGeneral(id))
+  }
+
+  upgradeGeneral(id: number, callback: (result: any)=>void): void {
+    callback(this.general.upgradeGeneral(id))
   }
 
   onStateUpdate(callback: StateCallback): void{
@@ -245,6 +272,15 @@ export class GeneralComponent implements IGeneralComponent{
       callback
     )
   }
+
+  checkUpgradeGeneral(id: number): boolean {
+    return this.general.checkUpgradeGeneral(id)
+  }
+
+  getUpgradeGeneralNeed(id: number, level: number): number {
+    return this.general.getGeneralUpgradeNeed(id, level)
+  }
+
   //trigger when action is response
   onActionResponse(callback: (args: TransitionResponseArgs) => void): void{
     this.mediator.transitionHandler.onTransitionResponse(
