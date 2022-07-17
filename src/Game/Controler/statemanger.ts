@@ -1,4 +1,3 @@
-import { stat } from 'fs';
 import { IStateIdentity, IState, IStateManager } from '../../Core/state';
 
 export type LoadStateFunc = (sid: IStateIdentity) => IState;

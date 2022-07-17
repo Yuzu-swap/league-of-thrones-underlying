@@ -33,7 +33,7 @@ import {
   BuffGdsRow
 } from '../DataConfig';
 import {
-  TransitionResponseArgs, TransitionId
+  TransitionResponseArgs, TransitionId, CityConfigFromGDS
 } from '../Controler/transition'
 
 
@@ -121,64 +121,14 @@ export class CityComponent implements ICityComponent {
     };
     this.type = ComponentType.City
     this.mediator = mediator
+   
+    const initCityState = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
+
     this.city  = new City(
-      new State<ICityState>(defaultState).unsderlying(),
-      {
-        facilityConfig: {
-          [CityFacility.Fortress]: new ConfigContainer<FacilityFortressGdsRow>(
-            fortressGDS.Config
-          ),
-          [CityFacility.MilitaryCenter]:
-            new ConfigContainer<FacilityMilitaryCenterGdsRow>(
-              militaryCenterGDS.Config
-            ),
-          [CityFacility.Wall]: new ConfigContainer<FacilityWallGdsRow>(
-            wallGDS.Config
-          ),
-          [CityFacility.Store]: new ConfigContainer<FacilityStoreGdsRow>(
-            storeGDS.Config
-          ),
-          [CityFacility.InfantryCamp]:
-            new ConfigContainer<FacilityInfantryCampGdsRow>(
-              infantryCampGDS.Config
-            ),
-          [CityFacility.CavalryCamp]:
-            new ConfigContainer<FacilityCavalryCampGdsRow>(cavalryCampGDS.Config),
-          [CityFacility.ArcherCamp]:
-            new ConfigContainer<FacilityArcherCampGdsRow>(archerCampGDS.Config),
-          [CityFacility.TrainingCenter]:
-            new ConfigContainer<FacilityTrainingCenterGdsRow>(
-              trainingCenterGDS.Config
-            ),
-          [CityFacility.Home]: new ConfigContainer<FacilityHomeGdsRow>(
-            homeGDS.Config
-          )
-        },
-        limit: {
-          [CityFacility.Fortress]: new FacilityLimit(buildingCount.fortress),
-          [CityFacility.MilitaryCenter]: new FacilityLimit(
-            buildingCount.militarycenter
-          ),
-          [CityFacility.Wall]: new FacilityLimit(buildingCount.wall),
-          [CityFacility.Store]: new FacilityLimit(buildingCount.store),
-          [CityFacility.InfantryCamp]: new FacilityLimit(
-            buildingCount.infantrycamp
-          ),
-          [CityFacility.CavalryCamp]: new FacilityLimit(
-            buildingCount.cavalrycamp
-          ),
-          [CityFacility.ArcherCamp]: new FacilityLimit(buildingCount.archercamp),
-          [CityFacility.TrainingCenter]: new FacilityLimit(
-            buildingCount.trainingcenter
-          ),
-          [CityFacility.Home]: new FacilityLimit(buildingCount.home)
-        }
-      }
+      new State<ICityState>(initCityState).unsderlying(), CityConfigFromGDS
     );
   }
   InitState():void{
-    this.city.state = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
-    this.city.initState(buildingCount)
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow{
@@ -374,7 +324,7 @@ function example() {
         console.log("receive action", args)
       });
 
-      console.log(city.getAllUpgradeInfo(CityFacility.Home))
+//      console.log(city.getAllUpgradeInfo(CityFacility.Home))
 
       // watch state update
       city.onStateUpdate((state) => {

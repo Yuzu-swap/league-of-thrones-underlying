@@ -1,3 +1,5 @@
+const log = globalThis.log
+
 export interface IState {
   getId(): string;
   update(obj: {}): void;
@@ -87,6 +89,8 @@ export class State<UnderlyingStateType extends IStateIdentity>
         setObjectByPath(this, key, obj[key]);
       }
     }
+
+    log("onStateChange ", obj)
 
     if (this._watcher) {
       this._watcher.onStateChange(obj, this);

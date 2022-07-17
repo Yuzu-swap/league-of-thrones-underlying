@@ -7,7 +7,7 @@ import {
   State
 } from '../../Core/state';
 import { TransitionHandler, TransitionId } from './transition';
-import { ICityState, InitState, IGeneralState } from '../State';
+import { ICityState, GetInitState, IGeneralState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 
 const cityStateId = `${StateName.City}:${TestWallet}`;
@@ -16,6 +16,7 @@ const generalStateId = `${StateName.General}:${TestWallet}`;
 function getInitState(wather: IStateChangeWatcher): {
   [key: string]: IState;
 } {
+  const InitState = GetInitState()
   return {
     [cityStateId]: new State<ICityState>(
       {

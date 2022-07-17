@@ -32,6 +32,7 @@ import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/buil
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
+import { CityConfigFromGDS } from './Game/Controler/transition';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -40,6 +41,8 @@ export * from './Game/State';
 export * from './Core/state';
 export * from './Game/Throne';
 export * from './Game/Const';
+
+const log = globalThis.log || function(){}
 
 export var run = function () {
   const mediator = new LocalMediator();
@@ -53,58 +56,7 @@ export var run = function () {
     resources: {}
   };
   const city: City = new City(
-    new State<ICityState>(defaultState).unsderlying(),
-    {
-      facilityConfig: {
-        [CityFacility.Fortress]: new ConfigContainer<FacilityFortressGdsRow>(
-          fortressGDS.Config
-        ),
-        [CityFacility.MilitaryCenter]:
-          new ConfigContainer<FacilityMilitaryCenterGdsRow>(
-            militaryCenterGDS.Config
-          ),
-        [CityFacility.Wall]: new ConfigContainer<FacilityWallGdsRow>(
-          wallGDS.Config
-        ),
-        [CityFacility.Store]: new ConfigContainer<FacilityStoreGdsRow>(
-          storeGDS.Config
-        ),
-        [CityFacility.InfantryCamp]:
-          new ConfigContainer<FacilityInfantryCampGdsRow>(
-            infantryCampGDS.Config
-          ),
-        [CityFacility.CavalryCamp]:
-          new ConfigContainer<FacilityCavalryCampGdsRow>(cavalryCampGDS.Config),
-        [CityFacility.ArcherCamp]:
-          new ConfigContainer<FacilityArcherCampGdsRow>(archerCampGDS.Config),
-        [CityFacility.TrainingCenter]:
-          new ConfigContainer<FacilityTrainingCenterGdsRow>(
-            trainingCenterGDS.Config
-          ),
-        [CityFacility.Home]: new ConfigContainer<FacilityHomeGdsRow>(
-          homeGDS.Config
-        )
-      },
-      limit: {
-        [CityFacility.Fortress]: new FacilityLimit(buildingCount.fortress),
-        [CityFacility.MilitaryCenter]: new FacilityLimit(
-          buildingCount.militarycenter
-        ),
-        [CityFacility.Wall]: new FacilityLimit(buildingCount.wall),
-        [CityFacility.Store]: new FacilityLimit(buildingCount.store),
-        [CityFacility.InfantryCamp]: new FacilityLimit(
-          buildingCount.infantrycamp
-        ),
-        [CityFacility.CavalryCamp]: new FacilityLimit(
-          buildingCount.cavalrycamp
-        ),
-        [CityFacility.ArcherCamp]: new FacilityLimit(buildingCount.archercamp),
-        [CityFacility.TrainingCenter]: new FacilityLimit(
-          buildingCount.trainingcenter
-        ),
-        [CityFacility.Home]: new FacilityLimit(buildingCount.home)
-      }
-    }
+    new State<ICityState>(defaultState).unsderlying(),CityConfigFromGDS
   );
   let cityInitd: boolean = false;
   mediator.onReceiveState({ id: myCityStateId }, (state: IState) => {
@@ -169,7 +121,7 @@ function example() {
       (city as CityComponent)?.doUpgradeFacility(CityFacility.Fortress, 0);
       setTimeout(
         ()=>{
-          city.doUpgradeFacility(CityFacility.Fortress, 0)
+          city.doUpgradeFacility(CityFacility.Home, 0)
         },
         3000
       )
@@ -177,5 +129,20 @@ function example() {
       //update
     }
   );
+  Throne.instance().initComponent(
+    ComponentType.General,
+    ((general: IGeneralComponent)=>{
+      general.onStateUpdate((state)=>{
+        console.log("general",state)
+      })
+      const list = general.getAbleList();
+      console.log("general", list)
+      general.ableGeneral(1)
+      general.upgradeGeneral(1)
+
+      }
+    )
+  )
 }
+log("start")
 //example()

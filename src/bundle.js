@@ -5,3 +5,4 @@ GameName = indexObj.GameName
 TransitionHandler = indexObj.TransitionHandler
 InitState = indexObj.InitState
 State = indexObj.State
+

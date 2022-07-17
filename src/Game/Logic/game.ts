@@ -50,31 +50,27 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
   };
+  buildingCountConfig:{},
 }
 
 export class City {
-  state: ICityState;
+  readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
 
-  constructor(state: ICityState, cityconf: CityConfig) {
+
+  constructor(state: ICityState, cityconf: CityConfig ) {
     this.state = state;
     this.cityConfig = cityconf;
-  }
 
-  initState(config: {}){
-    let initState = {
-      facilities:{},
-    }
     for(let key in CityFacility)
     {
         let CityAnyType:any = CityFacility[key];
-        let maxCount = config[CityAnyType]['max_count']
+        let maxCount = cityconf.buildingCountConfig[CityAnyType]['max_count']
         if(!isNaN(maxCount)){
-          initState.facilities[CityAnyType] = Array(maxCount).fill(1)
+          state.facilities[CityAnyType] = Array(maxCount).fill(1)
         }
     }
-    this.state.update(initState)
   }
 
   loadState(state: {}) {
@@ -181,6 +177,7 @@ export class City {
     if (index >= maxCount) {
       return;
     }
+
     let tartgetLevel = 1;
     if (index == levelList.length) {
       levelList.push(1);

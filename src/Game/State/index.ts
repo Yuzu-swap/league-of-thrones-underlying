@@ -20,27 +20,7 @@ export interface IGeneralState extends IState{
   skill_levels: number[][]
 }
 
-export var InitState = {
-  [StateName.City]: {
-    facilities: { },
-    resources: {
-		[ResouceType.Silver]:
-		{
-			lastUpdate: -1,
-			value: 1000000,
-			production: 0
-		},
-		[ResouceType.Troop]:
-		{
-			lastUpdate: -1,
-			value: 0,
-			production: 0
-		}
-	},
-  },
-  [StateName.General]:{
-	levels:[],
-	able:[],
-	skill_levels:[]
-  }
-};
+
+export * from  "./initstate"
+
+
