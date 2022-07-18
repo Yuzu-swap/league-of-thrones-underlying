@@ -72,6 +72,10 @@ export interface ICityComponent extends IComponent {
 
 export interface IGeneralComponent extends IComponent{
   /**
+   * get const data
+  */
+  getConstData():{}
+  /**
    * get the qualification of the general 
    * @param id the id of the general
   */
@@ -267,6 +271,13 @@ export class GeneralComponent implements IGeneralComponent{
   InitState():void{
     this.general.state = this.mediator.transitionHandler.stateManger.get(this.generalStateId) as IGeneralState
     this.general.initState()
+  }
+  getConstData(): {} {
+    let re = {
+      general_max_level: 100,
+      skill_max_level: 20
+    }
+    return re
   }
   getGeneralQualification(id : number){
     return this.general.getGeneralQualification(id)

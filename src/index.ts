@@ -149,7 +149,9 @@ function example() {
         }
         )
       console.log("general", general.getGeneralSkillList(1))
+      console.log("const ", general.getConstData())
       })
+      
       
   )
 }
