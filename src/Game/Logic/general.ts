@@ -194,7 +194,7 @@ export class General{
                 cost = 0.04 * row.qualification_troop_recurit * Math.pow(level, 2) + 1
                 break
         }
-        return cost
+        return cost * 10000
     }
 
     getSkillValue( generalId : number, skillIndex : number, level: number ) : {}{
@@ -231,6 +231,32 @@ export class General{
             }
         }
         return re
+    }
+
+    checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
+        const level = this.state.skill_levels[generalId -1][skillIndex]
+        const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
+        if(this.city.state.resources.silver.value >= need){
+            return true
+        }
+        return false
+    }
+
+    upgradeGeneralSkill(generalId : number, skillIndex : number):boolean{
+        if(!this.checkGeneralSkillUpgrade(generalId, skillIndex)){
+            return false
+        }
+        const level = this.state.skill_levels[generalId -1][skillIndex]
+        const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
+        if(this.city.useSilver(need)){
+            let skill_levels = this.state.skill_levels
+            skill_levels[generalId -1 ][skillIndex] = level + 1
+            this.state.update({
+                skill_levels : skill_levels
+            })
+            return true
+        }
+        return false
     }
 
 }

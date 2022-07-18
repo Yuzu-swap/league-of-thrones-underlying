@@ -81,10 +81,15 @@ export interface IGeneralComponent extends IComponent{
   */
   getAbleList():boolean[]
   /**
+   * get able status
+   * @returns able_count: number, max_able_count: number
+  */
+  getAbleStatus():{}
+
+  /**
    * get all status of general , includes general level , able status and qualification
   */
   getGeneralList():any[]
-
   /**
    * enable the general
    *  @param id the id of the general
@@ -117,7 +122,26 @@ export interface IGeneralComponent extends IComponent{
    * @param id the id of the general 
    * @param level the level of the general
   */
-   getGeneralQuaValue(id : number, level : number): {}
+  getGeneralQuaValue(id : number, level : number): {}
+  /**
+   * get the silver that general skill upgrade need
+   * @param generalId the id of the general 
+   * @param skillIndex the index of the skill in general 
+   * @param level the level of the skill
+  */
+  getSkillUpdateNeed( generalId : number, skillIndex : number, level: number): number
+  /**
+   * check if general skill can upgrade 
+   * @param generalId the id of the general 
+   * @param skillIndex the index of the skill in general 
+  */
+  checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean
+  /**
+   * upgrade skill of general
+   * @param generalId the id of the general 
+   * @param skillIndex the index of the skill in general 
+  */
+  upgradeGeneralSkill(generalId : number, skillIndex : number,  callback: (result: any)=>void):void
 }
 
 
@@ -242,6 +266,16 @@ export class GeneralComponent implements IGeneralComponent{
   getAbleList(): boolean[] {
     return this.general.getAbleList()
   }
+
+  getAbleStatus(): {} {
+    let re = {
+      able_count: 0,
+      max_able_count : 0
+    }
+    re.max_able_count = this.general.city.getGeneralMaxAble()
+    re.able_count = this.general.getAbleCount()
+    return re
+  }
   getGeneralList():any[]{
     let len = this.general.state.able.length
     let re = new Array(len).fill({})
@@ -255,6 +289,7 @@ export class GeneralComponent implements IGeneralComponent{
       temp.qualification =JSON.parse(JSON.stringify(this.getGeneralQualification(i + 1)))
       temp.level = this.general.state.levels[i]
       temp.able = this.general.state.able[i]
+      temp.skilllevel = this.general.state.skill_levels[i].concat()
       re[i] = temp
     }
     return re
@@ -296,6 +331,18 @@ export class GeneralComponent implements IGeneralComponent{
     re['silver_product'] = this.general.getGeneralAbility(id, level, GeneralAbility.Silver)
     re['troop_product'] = this.general.getGeneralAbility(id, level, GeneralAbility.Troop)
     return re
+  }
+
+  getSkillUpdateNeed(generalId: number, skillIndex: number, level: number): number {
+    return this.general.getSkillUpdateNeed(generalId, skillIndex, level)
+  }
+
+  checkGeneralSkillUpgrade(generalId: number, skillIndex: number): boolean {
+    return this.general.checkGeneralSkillUpgrade(generalId, skillIndex)
+  }
+
+  upgradeGeneralSkill(generalId: number, skillIndex: number, callback: (result: any) => void): void {
+    callback(this.general.upgradeGeneralSkill(generalId, skillIndex))
   }
 
   //trigger when action is response
