@@ -148,9 +148,9 @@ function example() {
           console.log("upgrade skill", result)
         }
         )
-      console.log("general", general.getGeneralList())
+      console.log("general", general.getGeneralSkillList(1))
       })
       
   )
 }
-example()
+//example()

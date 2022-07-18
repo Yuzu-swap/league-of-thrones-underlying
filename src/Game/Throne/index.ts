@@ -129,13 +129,21 @@ export interface IGeneralComponent extends IComponent{
    * @param skillIndex the index of the skill in general 
    * @param level the level of the skill
   */
-  getSkillUpdateNeed( generalId : number, skillIndex : number, level: number): number
+  getSkillUpgradeNeed( generalId : number, skillIndex : number, level: number): number
   /**
    * check if general skill can upgrade 
    * @param generalId the id of the general 
    * @param skillIndex the index of the skill in general 
   */
   checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean
+
+  /**
+   * get general skill list 
+   * @param generalId the id of the general 
+   * @returns skill_id: number[],  skill_level : number[],  upgrade_need: number[] , value_type: number[], buff_value: number[], check_upgrade: boolean[]
+  */
+  getGeneralSkillList(generalId : number):{}
+
   /**
    * upgrade skill of general
    * @param generalId the id of the general 
@@ -333,12 +341,43 @@ export class GeneralComponent implements IGeneralComponent{
     return re
   }
 
-  getSkillUpdateNeed(generalId: number, skillIndex: number, level: number): number {
+  getSkillUpgradeNeed(generalId: number, skillIndex: number, level: number): number {
     return this.general.getSkillUpdateNeed(generalId, skillIndex, level)
   }
 
   checkGeneralSkillUpgrade(generalId: number, skillIndex: number): boolean {
     return this.general.checkGeneralSkillUpgrade(generalId, skillIndex)
+  }
+
+  getGeneralSkillList(generalId: number): {} {
+    //skill_id: number[],  skill_level : number[],  upgrade_need: number[] , value_type: number[], buff_value: number[], check_upgrade: boolean[]
+    let re ={
+      skill_id : [],
+      skill_level : [],
+      upgrade_need : [],
+      value_type: [],
+      value: [],
+      check_upgrade:[]
+    }
+    let qualification =JSON.parse(JSON.stringify(this.getGeneralQualification(generalId)))
+    re.skill_id = qualification.general_skill.concat()
+    re.skill_level = this.general.state.skill_levels[generalId - 1].concat()
+    let upgrade_need = new Array(re.skill_id.length).fill(0)
+    let value_type = new Array(re.skill_id.length).fill(0)
+    let value = new Array(re.skill_id.length).fill(0)
+    let check_upgrade = new Array(re.skill_id.length).fill(false)
+    for(let i = 0; i < re.skill_id.length; i++){
+      upgrade_need[i] = this.general.getSkillUpdateNeed(generalId, i, re.skill_level[i])
+      let temp = this.general.getSkillValue(generalId, i, re.skill_level[i])
+      value_type[i] = temp['value_type']
+      value[i] = temp['value']
+      check_upgrade[i] = this.general.checkGeneralSkillUpgrade(generalId, i)
+    }
+    re.upgrade_need = upgrade_need
+    re.value_type = value_type
+    re.value = value
+    re.check_upgrade = check_upgrade
+    return re
   }
 
   upgradeGeneralSkill(generalId: number, skillIndex: number, callback: (result: any) => void): void {
