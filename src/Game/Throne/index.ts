@@ -149,6 +149,12 @@ export interface IGeneralComponent extends IComponent{
   getGeneralSkillList(generalId : number):{}
 
   /**
+   * get skill info 
+   * @param skillid the id of the skill 
+  */
+  getSkillInfo( skillId : number ): BuffGdsRow | undefined
+
+  /**
    * upgrade skill of general
    * @param generalId the id of the general 
    * @param skillIndex the index of the skill in general 
@@ -332,6 +338,10 @@ export class GeneralComponent implements IGeneralComponent{
       ,
       callback
     )
+  }
+
+  getSkillInfo(skillId: number): BuffGdsRow {
+    return this.general.getSkillInfo(skillId)
   }
 
   checkUpgradeGeneral(id: number): boolean {

@@ -1,6 +1,7 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow} from '../DataConfig'
 import { IGeneralState , ResouceInfo} from '../State';
+import { ResouceType } from '../Const';
 import { City } from './game';
 
 export interface GeneralConfig{
@@ -257,6 +258,32 @@ export class General{
             return true
         }
         return false
+    }
+
+    getGeneralProduction(typ : ResouceType){
+        const ableList = this.state.able
+        let product = 0
+        for(let index = 0; index < ableList.length; index ++){
+            if(!ableList[index]){
+                continue;
+            }
+            const row = this.getGeneralQualification(index + 1)
+            if(typ == ResouceType.Silver){
+                product += this.getGeneralAbility(index + 1, this.state.levels[index], GeneralAbility.Silver)
+            }else{
+                product += this.getGeneralAbility(index + 1, this.state.levels[index], GeneralAbility.Troop)
+            }
+            for(let bi = 0; bi < row.general_skill.length; bi++){
+                const buff = this.getSkillInfo(row.general_skill[bi])
+                if(typ == ResouceType.Silver && buff.buff_type == SkillType.Silver ){
+                    product += this.getSkillValue(index + 1, bi, this.state.skill_levels[index][bi])['value']
+                }
+                else if (typ == ResouceType.Troop && buff.buff_type == SkillType.Troop){
+                    product += this.getSkillValue(index + 1, bi, this.state.skill_levels[index][bi])['value']
+                }
+            }
+        }
+        return product
     }
 
 }
