@@ -44,6 +44,7 @@ export * from './Game/Const';
 
 
 export var run = function () {
+  /*
   const mediator = new LocalMediator();
 
   const myCityStateId = `${StateName.City}:${TestWallet}`;
@@ -88,6 +89,7 @@ export var run = function () {
     index: 0,
     targetLevel: 2
   });
+  */
   // mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Logistics, index: 0, targetLevel: 1 })
 };
 
@@ -102,10 +104,6 @@ function example() {
       //city.doUpgradeFacility()
       console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
       // watch action response
-      city.onActionResponse((args) => {
-        console.log("receive action", args)
-      });
-
       console.log(city.getFacilityOrder())
       // watch state update
       city.onStateUpdate(() => {
@@ -117,13 +115,6 @@ function example() {
         // rerender by new state
       });
       city.updateResource();
-      (city as CityComponent)?.doUpgradeFacility(CityFacility.Fortress, 0);
-      setTimeout(
-        ()=>{
-          city.doUpgradeFacility(CityFacility.Home, 0)
-        },
-        3000
-      )
       
       //update
     }

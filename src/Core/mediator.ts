@@ -1,36 +1,41 @@
 import { IStateIdentity, IState } from "./state"
 
-export type StateCallback = (state: IState) => void
 
-export interface IStateMediator<TransactionIDType> {
-	queryState(sid: IStateIdentity): void
-	onReceiveState(sid: IStateIdentity, callback: StateCallback): void
-	sendTransaction(tid: TransactionIDType, args: {}): void
+export interface IContextState<ContextType> extends IState{
+	context: ContextType
+}
+
+export type StateCallback<ContextType> = (state: IContextState<ContextType>) => void
+
+export interface IStateMediator<TransactionIDType,ContextType> {
+	queryState(sid: IStateIdentity,args: {},callback:(state:IState)=>void ): void
+	sendTransaction(tid: TransactionIDType, args: {}, callback:(res:any)=>void): ContextType
+	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
 }
 
 
-export class BaseMediator<TransactionIDType> implements IStateMediator<TransactionIDType>{
-	listeners: { [key: string]: StateCallback[] }
+export class BaseMediator<TransactionIDType,ContextType> implements IStateMediator<TransactionIDType,ContextType>{
+	listeners: { [key: string]: StateCallback<ContextType>[] }
 	constructor() {
 		this.listeners = {}
 	}
 
-	onReceiveState(sid: IStateIdentity, callback: StateCallback): void {
+	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void {
 		if (!this.listeners[sid.id]) {
 			this.listeners[sid.id] = []
 		}
 		this.listeners[sid.id].push(callback)
 	}
-	queryState(sid: IStateIdentity): void {
+	queryState(sid: IStateIdentity,args: {},callback:(state:IState)=>void): void{
 		throw "not emplement"
 	}
 
-	sendTransaction(tid: TransactionIDType, args: {}): void {
+	sendTransaction(tid: TransactionIDType, args: {},callback:(res:any)=>void): ContextType {
 		throw "not emplement"
 	}
 
-	notifyState(sid: IStateIdentity, state: IState): void {
-		const listeners: StateCallback[] = this.listeners[sid.id]
+	protected notifyState(sid: IStateIdentity, state: IContextState<ContextType>): void {
+		const listeners: StateCallback<ContextType>[] = this.listeners[sid.id]
 		for (var index in listeners) {
 			listeners[index](state)
 		}

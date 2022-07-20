@@ -13,12 +13,6 @@ import {
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow
 } from '../DataConfig';
-import {
-  TransitionId,
-  TransitionCall,
-  TransitionHandler,
-  TransitionResponseArgs
-} from '../..';
 
 export class FacilityLimit {
   max_count: number;
@@ -161,20 +155,14 @@ export class City {
     return re;
   }
 
-  upgradeFacility(typ: CityFacility, index: number = 0, args: TransitionCall) {
+  upgradeFacility(typ: CityFacility, index: number = 0) {
     if (!this.checkUpgradeFacility(typ, index)) {
-      let re: TransitionResponseArgs = {
-        transitionId: args.transitionId,
-        context: null,
-        result: false
-      };
-      args.handler.notifyTransitonResponse(this.state, re);
-      return;
+      return {result:false,"error":"checkUpgradeFacility-error"};
     }
     let levelList = this.state.facilities[typ]?.concat() ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
-      return;
+      return {result:false,"error":"index-over-max"};
     }
 
     let tartgetLevel = 1;
@@ -202,12 +190,7 @@ export class City {
         production: info.production
       }*/
     });
-    let re: TransitionResponseArgs = {
-      transitionId: args.transitionId,
-      context: null,
-      result: true
-    };
-    args.handler.notifyTransitonResponse(this.state, re);
+    return {result:true}
   }
 
   getFacilityOrder(): string[] {

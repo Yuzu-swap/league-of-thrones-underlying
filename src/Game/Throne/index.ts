@@ -1,8 +1,8 @@
 import { General , GeneralAbility} from '../Logic/general'
 import {City, FacilityLimit} from '../Logic/game'
-import {LocalMediator} from '../Controler/mediator'
+import {ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult} from '../Controler/mediator'
 import {StateTransition, CityFacility, ResouceType, StateName, TestWallet} from '../Const'
-import {BaseMediator , StateCallback}  from '../../Core/mediator'
+import {BaseMediator , IStateMediator, StateCallback}  from '../../Core/mediator'
 import fortressGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/fortress.json');
 import militaryCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
 import wallGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/wall.json');
@@ -33,16 +33,14 @@ import {
   BuffGdsRow
 } from '../DataConfig';
 import {
-  TransitionResponseArgs, TransitionId, CityConfigFromGDS
+  CityConfigFromGDS
 } from '../Controler/transition'
 
 
 
 interface IComponent {
   //trigger when state update
-  onStateUpdate(callback: StateCallback): void;
-  //trigger when action is response
-  onActionResponse(callback: (args: TransitionResponseArgs) => void): void;
+  onStateUpdate(callback: IStatetWithTransContextCallback): void;
 }
 
 export interface ICityComponent extends IComponent {
@@ -67,7 +65,7 @@ export interface ICityComponent extends IComponent {
   updateResource(inter ?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
-  doUpgradeFacility(typ: CityFacility, index: number): TransitionId;
+  doUpgradeFacility(typ: CityFacility, index: number,callback:(res:ITransResult)=>void)  :void;
 }
 
 export interface IGeneralComponent extends IComponent{
@@ -166,23 +164,24 @@ export interface IGeneralComponent extends IComponent{
 export class CityComponent implements ICityComponent {
   type: ComponentType;
   city: City;
-  mediator : LocalMediator
+  mediator : IStateMediator<StateTransition,ITransContext>
   cityStateId : IStateIdentity 
 
-  constructor( myStateId : string, mediator: LocalMediator ){
+  constructor( myStateId : string, mediator: IStateMediator<StateTransition,ITransContext> ){
     this.cityStateId = {
       id: myStateId
     }
     this.type = ComponentType.City
     this.mediator = mediator
-   
-    const initCityState = this.mediator.transitionHandler.stateManger.get(this.cityStateId) as ICityState
-
-    this.city  = new City(
-      initCityState, CityConfigFromGDS
-    );
   }
-  InitState():void{
+
+  InitState(callback:(self:IComponent)=>void):void{
+    this.mediator.queryState(this.cityStateId,{},(initCityState:ICityState)=>{
+      this.city  = new City(
+        initCityState, CityConfigFromGDS
+      );
+      callback && callback(this)
+    })
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number ) :FacilityGdsRow{
@@ -223,23 +222,15 @@ export class CityComponent implements ICityComponent {
     return this.city.checkUpgradeFacility(typ, index)
   }
 
-  doUpgradeFacility(typ: CityFacility, index: number): TransitionId{
-    return this.mediator.sendTransaction(StateTransition.UpgradeFacility, {
+  doUpgradeFacility(typ: CityFacility, index: number,callback:(res:ITransResult)=>void) {
+     this.mediator.sendTransaction(StateTransition.UpgradeFacility, {
       from: TestWallet,
       typ: typ,
       index: index,
-    })
+    },callback)
   }
-  onStateUpdate(callback: StateCallback): void{
+  onStateUpdate(callback: IStatetWithTransContextCallback): void{
     this.mediator.onReceiveState(
-      this.cityStateId
-      ,
-      callback
-    )
-  }
-  //trigger when action is response
-  onActionResponse(callback: (args: TransitionResponseArgs) => void): void{
-    this.mediator.transitionHandler.onTransitionResponse(
       this.cityStateId
       ,
       callback
@@ -250,34 +241,34 @@ export class CityComponent implements ICityComponent {
 export class GeneralComponent implements IGeneralComponent{
   type: ComponentType;
   general: General;
-  mediator : LocalMediator
+  mediator : IStateMediator<StateTransition,ITransContext>
   generalStateId : IStateIdentity 
-  constructor( myStateId : string, mediator: LocalMediator , city: CityComponent){
+  city : City
+  constructor( myStateId : string, mediator: IStateMediator<StateTransition,ITransContext> , city: CityComponent){
     this.generalStateId = {
       id: myStateId
     }
-    const defaultState = {
-      id: myStateId,
-      levels:[],
-      able:[],
-      skill_levels:[]
-    };
     this.type = ComponentType.General
     this.mediator = mediator
-    this.general  = new General(
-      new State<IGeneralState>(defaultState).unsderlying(),
-      {
-        qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
-        buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
-      },
-      city.city
-    );
+    this.city = city.city
+
   }
 
-  InitState():void{
-    this.general.state = this.mediator.transitionHandler.stateManger.get(this.generalStateId) as IGeneralState
-    this.general.initState()
+  InitState(callback:(self:IComponent)=>void):void{
+    this.mediator.queryState(this.generalStateId,{},(initGeneralState:IGeneralState)=>{
+      this.general  = new General(
+        initGeneralState,
+        {
+          qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
+          buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
+        },
+        this.city, 
+      );
+      this.general.initState()
+      callback && callback(this)
+    })
   }
+
   getConstData(): {} {
     let re = {
       general_max_level: 100,
@@ -332,7 +323,7 @@ export class GeneralComponent implements IGeneralComponent{
     callback(this.general.upgradeGeneral(id))
   }
 
-  onStateUpdate(callback: StateCallback): void{
+  onStateUpdate(callback: IStatetWithTransContextCallback): void{
     this.mediator.onReceiveState(
       this.generalStateId
       ,
@@ -405,14 +396,6 @@ export class GeneralComponent implements IGeneralComponent{
     callback(this.general.upgradeGeneralSkill(generalId, skillIndex))
   }
 
-  //trigger when action is response
-  onActionResponse(callback: (args: TransitionResponseArgs) => void): void{
-    this.mediator.transitionHandler.onTransitionResponse(
-      this.generalStateId
-      ,
-      callback
-    )
-  }
 }
 
 export enum ComponentType {
@@ -436,7 +419,7 @@ export class Throne implements IThrone {
     }
     return this.throne;
   }
-  mediator: LocalMediator
+  mediator: IStateMediator<StateTransition,ITransContext>
 
   components: { [key in ComponentType]?: IComponent } = {};
   constructor() {
@@ -450,16 +433,14 @@ export class Throne implements IThrone {
     if(typ == ComponentType.City){
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)
       let cityCom = this.components[ComponentType.City]  as CityComponent
-      cityCom.InitState()
-      callback(cityCom as any as T)
+      cityCom.InitState(callback)
     }else if(typ == ComponentType.General){
       if(!this.components[ComponentType.City]){
         return false
       }
       this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${TestWallet}`, this.mediator, this.components[ComponentType.City] as CityComponent)
       let generalCom = this.components[ComponentType.General] as GeneralComponent
-      generalCom.InitState()
-      callback(generalCom as any as T)
+      generalCom.InitState(callback)
     }
   }
 }
@@ -473,11 +454,6 @@ function example() {
       // bind button with action
       // button.onClick = () =>{
       //city.doUpgradeFacility()
-
-      // watch action response
-      city.onActionResponse((args) => {
-        console.log("receive action", args)
-      });
 
 //      console.log(city.getAllUpgradeInfo(CityFacility.Home))
 
