@@ -8,8 +8,8 @@ import {
 
 var client = new w3cwebsocket('ws://localhost:1323/ws/hello');
 
-client.onerror = function (err, msg) {
-  console.log('Connection Error', err, msg);
+client.onerror = function (err:Error ) {
+  console.log('Connection Error', err)
 };
 
 client.onopen = function () {
@@ -38,7 +38,7 @@ client.onclose = function () {
   console.log('echo-protocol Client Closed');
 };
 
-client.onmessage = function (e) {
+client.onmessage = function (e:any) {
   if (typeof e.data === 'string') {
     console.log("Received: '" + e.data + "'");
   }
