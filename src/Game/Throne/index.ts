@@ -440,10 +440,10 @@ export class Throne implements IThrone {
 
     // init essensial states
     await Promise.all([
-      async () => {
+      async function () {
         states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
-      },
-      async () => {
+      }(),
+      async function () {
         states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
       },
     ])
