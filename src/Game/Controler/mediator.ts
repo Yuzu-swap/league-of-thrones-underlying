@@ -9,8 +9,8 @@ import {
 import { TransitionHandler, } from './transition';
 import { ICityState, GetInitState, IGeneralState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
-import {BaseMessage, MessageType} from './Websocket/protocol';
-import {w3cwebsocket } from 'websocket'
+import { BaseMessage, MessageType } from './Websocket/protocol';
+import { w3cwebsocket } from 'websocket'
 
 
 
@@ -40,21 +40,20 @@ function getInitState(wather: IStateChangeWatcher): {
 }
 
 
-export interface ITransContext extends BaseMessage{}
+export interface ITransContext extends BaseMessage { }
 export type IStatetWithTransContextCallback = (ctx: IContextState<ITransContext>) => void
-export interface ITransResult extends ITransContext{
-  result : any
+export interface ITransResult extends ITransContext {
+  result: any
 }
 
 
 
 export class LocalMediator
-  extends BaseMediator<StateTransition,ITransContext>
-  implements IStateChangeWatcher
-{
+  extends BaseMediator<StateTransition, ITransContext>
+  implements IStateChangeWatcher {
   private transitionHandler: TransitionHandler;
   private ctx: ITransContext;
-  private seqNum : number
+  private seqNum: number
   constructor() {
     super();
     this.transitionHandler = new TransitionHandler(
@@ -66,33 +65,43 @@ export class LocalMediator
 
 
   onStateChange(modify: {}, state: IState): void {
-    state && this.notifyState({ id: state.getId() }, {...state,context:this.ctx});
+    state && this.notifyState({ id: state.getId() }, { ...state, context: this.ctx });
   }
 
- 
-  queryState(sid: IStateIdentity,args: {},callback:(state:IState)=>void) {
+
+  queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void {
     const state = this.transitionHandler.stateManger.get(sid);
-    state && callback && callback(state)
+    if (callback) {
+      callback(state)
+    } else {
+      return new Promise((resolve, reject) => {
+        if (state) {
+          resolve(state)
+        } else {
+          reject({})
+        }
+      })
+    }
   }
 
-  sendTransaction(tid: StateTransition, args: {},callback:(res:ITransResult)=>void): ITransContext   {
-     //set context
-     const ctx = {
-      SeqNum:  this.seqNum++,
+  sendTransaction(tid: StateTransition, args: {}, callback: (res: ITransResult) => void): ITransContext {
+    //set context
+    const ctx = {
+      SeqNum: this.seqNum++,
       Type: MessageType.Transition,
       TransId: tid.toString(),
-     }
-     //record ctx
-     this.ctx = ctx
-     const result = this.transitionHandler.onTransition(tid, args);
-     //clean ctx
-     this.ctx = null
+    }
+    //record ctx
+    this.ctx = ctx
+    const result = this.transitionHandler.onTransition(tid, args);
+    //clean ctx
+    this.ctx = null
 
-     if(callback){
-      callback({...ctx,result})
-     }
+    if (callback) {
+      callback({ ...ctx, result })
+    }
 
-     return ctx
+    return ctx
 
   }
 
@@ -100,27 +109,26 @@ export class LocalMediator
 
 
 export class WebSocketlMediator
-  extends BaseMediator<StateTransition,ITransContext>
-  implements IStateChangeWatcher
-{
+  extends BaseMediator<StateTransition, ITransContext>
+  implements IStateChangeWatcher {
 
   private client: any
 
   transitionHandler: TransitionHandler;
-  constructor(url:string) {
+  constructor(url: string) {
     super();
     this.client = new w3cwebsocket(url)
   }
-  onStateChange(modify: {}, state:IContextState<ITransContext>): void {
+  onStateChange(modify: {}, state: IContextState<ITransContext>): void {
     state && this.notifyState({ id: state.getId() }, state);
   }
 
   queryState(sid: IStateIdentity): void {
     const state = this.transitionHandler.stateManger.get(sid);
-    state && this.notifyState(sid, {...state, context: null});
+    state && this.notifyState(sid, { ...state, context: null });
   }
 
-  sendTransaction(tid: StateTransition, args: {},callback:(res:ITransResult)=>void): ITransContext   {
+  sendTransaction(tid: StateTransition, args: {}, callback: (res: ITransResult) => void): ITransContext {
     return null
   }
 }

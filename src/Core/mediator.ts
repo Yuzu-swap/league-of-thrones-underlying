@@ -1,20 +1,20 @@
 import { IStateIdentity, IState } from "./state"
 
 
-export interface IContextState<ContextType> extends IState{
+export interface IContextState<ContextType> extends IState {
 	context: ContextType
 }
 
 export type StateCallback<ContextType> = (state: IContextState<ContextType>) => void
 
-export interface IStateMediator<TransactionIDType,ContextType> {
-	queryState(sid: IStateIdentity,args: {},callback:(state:IState)=>void ): void
-	sendTransaction(tid: TransactionIDType, args: {}, callback:(res:any)=>void): ContextType
+export interface IStateMediator<TransactionIDType, ContextType> {
+	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void
+	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
 }
 
 
-export class BaseMediator<TransactionIDType,ContextType> implements IStateMediator<TransactionIDType,ContextType>{
+export class BaseMediator<TransactionIDType, ContextType> implements IStateMediator<TransactionIDType, ContextType>{
 	listeners: { [key: string]: StateCallback<ContextType>[] }
 	constructor() {
 		this.listeners = {}
@@ -26,11 +26,11 @@ export class BaseMediator<TransactionIDType,ContextType> implements IStateMediat
 		}
 		this.listeners[sid.id].push(callback)
 	}
-	queryState(sid: IStateIdentity,args: {},callback:(state:IState)=>void): void{
+	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void {
 		throw "not emplement"
 	}
 
-	sendTransaction(tid: TransactionIDType, args: {},callback:(res:any)=>void): ContextType {
+	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType {
 		throw "not emplement"
 	}
 
