@@ -8,7 +8,7 @@ var InitState = {
           [ResouceType.Silver]:
           {
               lastUpdate: -1,
-              value: 1000000,
+              value: 1000000000,
               production: 0
           },
           [ResouceType.Troop]:
@@ -23,7 +23,8 @@ var InitState = {
       levels:[],
       able:[],
       skill_levels:[]
-    }
+    },
+
 };
 
 var _inited = false
