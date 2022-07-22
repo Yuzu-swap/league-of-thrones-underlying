@@ -16,8 +16,9 @@ import {
 } from '../Const';
 
 import { City, CityConfig, FacilityLimit } from '../Logic/game';
-import { ICityState } from '../State';
+import { ICityState, IGeneralState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
+import { StateEssential, createLogicEsential, LogicEssential } from '../Logic/creator';
 
 const log = globalThis.log || function(){}
 
@@ -43,14 +44,22 @@ export class TransitionHandler {
     }
   }
 
+  genLogic( id: string) : LogicEssential{
+    const stateId = { id: `${StateName.City}:${id}` };
+    const cityState = this.stateManger.get(stateId);
+    const generalState = this.stateManger.get({id : `${StateName.General}:${id}`})
+    const states : StateEssential  = {
+      city : cityState as ICityState ,
+      general: generalState as IGeneralState
+    }
+    return createLogicEsential(states)
+  }
 
   onUpdateFacility(args: UpgradeFacilityArgs) : {}{
-    const stateId = { id: `${StateName.City}:${args.from}` };
-    const cityState = this.stateManger.get(stateId);
-
-    log("onUpdateFacility args ",args, " cityState ",cityState)
-
-    const city = new City(cityState as any as ICityState);
+    
+    const logic : LogicEssential = this.genLogic(args.from)
+    const city = logic.city;
+    log("onUpdateFacility args ",args, " cityState ",city.state)
 
     //Do Logic  here
     //Valdiate resource requirement first

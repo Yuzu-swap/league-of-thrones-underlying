@@ -100,7 +100,7 @@ function example() {
       console.log('City init');
       // bind button with action
       // button.onClick = () =>{
-      //city.doUpgradeFacility()
+      city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
       console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
       // watch action response
       console.log(city.getFacilityOrder())
@@ -145,4 +145,4 @@ function example() {
       
   )
 }
-example()
+//example()
