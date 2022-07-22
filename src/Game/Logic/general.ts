@@ -1,8 +1,10 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow} from '../DataConfig'
 import { IGeneralState , ResouceInfo} from '../State';
-import { ResouceType } from '../Const';
+import { ResouceType, StateName } from '../Const';
 import { City } from './game';
+import { GeneralConfigFromGDS } from '../DataConfig';
+import { IBoost } from './boost';
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -28,25 +30,15 @@ export class General{
     state: IGeneralState
     config: GeneralConfig
     city : City
-    constructor(state: IGeneralState, conf: GeneralConfig, city: City) {
+    boost : IBoost
+    constructor(state: IGeneralState, city: City) {
         this.state = state;
-        this.config = conf;
+        this.config = GeneralConfigFromGDS;
         this.city = city
     }
-    initState(){
-        let initState = {
-            levels:[],
-            able:[],
-	        skill_levels:[]
-        }
-        let len = Object.keys(this.config.qualification.configs).length
-        initState.levels = new Array(len).fill(1)
-        initState.able = new Array(len).fill(false)
-        initState.skill_levels = new Array(len).fill([])
-        for(let i = 0; i < len; i++){
-            initState.skill_levels[i] = new Array(3).fill(1)
-        }
-        this.state.update(initState)
+
+    setBoost( boost : IBoost){
+        this.boost = boost
     }
 
     /**
@@ -285,5 +277,10 @@ export class General{
         }
         return product
     }
+
+    updateBoost(){
+        this.boost.setProduction(StateName.General, ResouceType.Silver, this.getGeneralProduction(ResouceType.Silver))
+        this.boost.setProduction(StateName.General, ResouceType.Troop, this.getGeneralProduction(ResouceType.Troop))
+      }
 
 }

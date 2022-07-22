@@ -3,18 +3,6 @@ import { City, FacilityLimit } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName, TestWallet } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
-import fortressGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/fortress.json');
-import militaryCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
-import wallGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/wall.json');
-import storeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/store.json');
-import infantryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
-import cavalryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
-import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
-import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
-import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
-import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
 import { ICityState, IGeneralState, ResouceInfo } from '../State'
@@ -32,9 +20,6 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import {
-  CityConfigFromGDS
-} from '../Controler/transition'
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 
@@ -177,13 +162,15 @@ export class CityComponent implements ICityComponent {
     this.mediator = mediator
   }
 
-  InitState(callback: (self: IComponent) => void): void {
-    this.mediator.queryState(this.cityStateId, {}, (initCityState: ICityState) => {
-      this.city = new City(
-        initCityState, CityConfigFromGDS
-      );
-      callback && callback(this)
-    })
+  setCity(city : City){
+    this.city = city
+    this.mediator.onReceiveState(
+      this.cityStateId
+      ,
+      ()=>{
+        this.city.updateBoost()
+      }
+    )
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number): FacilityGdsRow {
@@ -245,30 +232,23 @@ export class GeneralComponent implements IGeneralComponent {
   general: General;
   mediator: IStateMediator<StateTransition, ITransContext>
   generalStateId: IStateIdentity
-  city: City
-  constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>, city: CityComponent) {
+  constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.generalStateId = {
       id: myStateId
     }
     this.type = ComponentType.General
     this.mediator = mediator
-    this.city = city.city
-
   }
 
-  InitState(callback: (self: IComponent) => void): void {
-    this.mediator.queryState(this.generalStateId, {}, (initGeneralState: IGeneralState) => {
-      this.general = new General(
-        initGeneralState,
-        {
-          qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
-          buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
-        },
-        this.city,
-      );
-      this.general.initState()
-      callback && callback(this)
-    })
+  setGeneral(general : General){
+    this.general = general
+    this.mediator.onReceiveState(
+      this.generalStateId
+      ,
+      ()=>{
+        this.general.updateBoost()
+      }
+    )
   }
 
   getConstData(): {} {
@@ -434,29 +414,21 @@ export class Throne implements IThrone {
 
   }
 
-
   async init() {
     const states: StateEssential = {} as StateEssential;
 
     // init essensial states
-    await Promise.all([
-      async function () {
-        states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
-      }(),
-      async function () {
-        states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
-      },
-    ])
-
-    // init essensial configs
-    const configs: ConfigEssential = {
-      cityConf: CityConfigFromGDS,
-      generalConf: {
-        qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
-        buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
-      },
-    }
-    this.logicEssential = createLogicEsential(states, configs)
+    states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
+    states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
+    // await Promise.all([
+    //   async () => {
+    //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
+    //   },
+    //   async () => {
+    //     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
+    //   },
+    // ])
+    this.logicEssential = createLogicEsential(states)
   }
 
 
@@ -470,14 +442,16 @@ export class Throne implements IThrone {
     if (typ == ComponentType.City) {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)
       let cityCom = this.components[ComponentType.City] as CityComponent
-      cityCom.InitState(callback)
+      cityCom.setCity(this.logicEssential.city)
+      callback(cityCom as any as T)
     } else if (typ == ComponentType.General) {
       if (!this.components[ComponentType.City]) {
         return false
       }
-      this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${TestWallet}`, this.mediator, this.components[ComponentType.City] as CityComponent)
+      this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${TestWallet}`, this.mediator)
       let generalCom = this.components[ComponentType.General] as GeneralComponent
-      generalCom.InitState(callback)
+      generalCom.setGeneral(this.logicEssential.general)
+      callback(generalCom as any as T)
     }
   }
 }

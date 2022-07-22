@@ -1,5 +1,5 @@
 import { ICityState, ResouceInfo } from '../State';
-import { CityFacility, ResouceType } from '../Const';
+import { CityFacility, ResouceType, StateName } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
   FacilityGdsRow,
@@ -11,9 +11,10 @@ import {
   FacilityCavalryCampGdsRow,
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
-  FacilityHomeGdsRow
+  FacilityHomeGdsRow,
+  CityConfigFromGDS
 } from '../DataConfig';
-
+import { IBoost } from './boost';
 export class FacilityLimit {
   max_count: number;
   building_name: string;
@@ -55,14 +56,19 @@ export class City {
   readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
+  boost: IBoost;
 
-  constructor(state: ICityState, cityconf: CityConfig) {
+  constructor(state: ICityState) {
     this.state = state;
-    this.cityConfig = cityconf;
+    this.cityConfig = CityConfigFromGDS;
   }
 
   loadState(state: {}) {
     this.state.update(state);
+  }
+
+  setBoost( boost : IBoost){
+    this.boost = boost
   }
 
   getResource(typ: ResouceType): number {
@@ -80,7 +86,7 @@ export class City {
     let obj = {
       lastUpdate: time,
       value: value,
-      production: this.calculatePoduction(typ)
+      production: this.boost.getProduction(typ)
     };
     this.state.update({
       [`resources.${typ}`]: obj
@@ -220,6 +226,11 @@ export class City {
       return true;
     }
     return false;
+  }
+
+  updateBoost(){
+    this.boost.setProduction(StateName.City, ResouceType.Silver, this.calculatePoduction(ResouceType.Silver))
+    this.boost.setProduction(StateName.City, ResouceType.Troop, this.calculatePoduction(ResouceType.Troop))
   }
 
   showAll() {

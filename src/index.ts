@@ -32,7 +32,6 @@ import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/buil
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
-import { CityConfigFromGDS } from './Game/Controler/transition';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -146,4 +145,4 @@ function example() {
       
   )
 }
-//example()
+example()
