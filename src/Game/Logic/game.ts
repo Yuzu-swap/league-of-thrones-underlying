@@ -307,6 +307,7 @@ export class City {
         'recruit': recruit
       }
     )
+    return true
   }
 
   showAll() {
