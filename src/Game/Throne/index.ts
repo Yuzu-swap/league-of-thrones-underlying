@@ -53,6 +53,10 @@ export interface ICityComponent extends IComponent {
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
   doUpgradeFacility(typ: CityFacility, index: number, callback: (res: ITransResult) => void): void;
+  /**
+   * recruit troop
+  */
+  doRecruit(amount: number, callback: (res: ITransResult) => void): void;
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -218,6 +222,13 @@ export class CityComponent implements ICityComponent {
       index: index,
     }, callback)
   }
+  doRecruit(amount: number, callback: (res: ITransResult) => void) {
+    this.mediator.sendTransaction(StateTransition.Recruit, {
+      from: TestWallet,
+      amount: amount
+    }, callback)
+  }
+
   onStateUpdate(callback: IStatetWithTransContextCallback): void {
     this.mediator.onReceiveState(
       this.cityStateId

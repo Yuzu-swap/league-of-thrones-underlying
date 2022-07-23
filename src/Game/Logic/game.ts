@@ -96,12 +96,41 @@ export class City {
     }
     else{
       let recruit = this.state.recruit
-      for(let i in recruit){
+      let silver = this.state.resources[ResouceType.Silver]
+      let troop = this.state.resources[ResouceType.Troop]
+      let troopAdd = 0
+      let productReduce = 0
+      let reduceCount = 0
+      for(let i = 0; i< recruit.length; i++){
         if(recruit[i].endtime <= time){
-          
+          troopAdd += recruit[i].amount
+          recruit.splice(i - reduceCount, 1)
+          reduceCount++
         }
       }
-      return 0
+      productReduce = troopAdd * 3
+      const nowValue = this.getResource(ResouceType.Silver)
+      if(reduceCount != 0){
+        this.state.update(
+          {
+            'recruit': recruit ,
+            [`resources.${ResouceType.Silver}`]: {
+              lastUpdate: time,
+              value: nowValue,
+              production: silver.production - productReduce
+            },
+            [`resources.${ResouceType.Troop}`]:{
+              lastUpdate: time,
+              value: troop.value + troopAdd,
+              production: troop.production
+            }
+          }
+        )
+      }
+      this.state.update({
+        [`resources.${ResouceType.Troop}.production`]: this.boost.getProduction(typ)
+      })
+      return this.state.resources[ResouceType.Troop].value
     }
   }
 
@@ -167,6 +196,7 @@ export class City {
             re += production;
           }
         }
+        re -= this.state.resources[ResouceType.Troop].value * 3
         break;
       case ResouceType.Troop:
         if (this.state.facilities[CityFacility.TrainingCenter]) {

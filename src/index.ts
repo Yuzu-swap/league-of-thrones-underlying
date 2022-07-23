@@ -114,6 +114,9 @@ function example() {
         // rerender by new state
       });
       city.updateResource();
+      city.doRecruit(5, (re)=>{
+        console.log(re)
+      })
       
       //update
     }

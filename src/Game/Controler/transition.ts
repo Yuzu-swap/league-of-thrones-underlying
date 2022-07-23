@@ -12,7 +12,8 @@ import {
   StateTransition,
   UpgradeFacilityArgs,
   StateName,
-  TestWallet
+  TestWallet,
+  RecruitArgs
 } from '../Const';
 
 import { City, CityConfig, FacilityLimit } from '../Logic/game';
@@ -41,6 +42,8 @@ export class TransitionHandler {
     switch (sid) {
       case StateTransition.UpgradeFacility:
         return this.onUpdateFacility(arg as UpgradeFacilityArgs);
+      case StateTransition.Recruit:
+        return this.onRecruit(arg as RecruitArgs)
     }
   }
 
@@ -65,4 +68,12 @@ export class TransitionHandler {
     //Valdiate resource requirement first
     return city.upgradeFacility(args.typ, args.index)
   }
+
+  onRecruit(args: RecruitArgs):{}{
+    const logic : LogicEssential = this.genLogic(args.from)
+    const city = logic.city;
+
+    return city.recruit(args.amount)
+  }
+
 }
