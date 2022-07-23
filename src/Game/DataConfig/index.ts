@@ -68,7 +68,7 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 
 export interface GeneralGdsRow{
 	qualification_troop_recurit: number
-	qualification_sliver_product: number
+	qualification_silver_product: number
 	qualification_load: number
 	qualification_attack: number
 	qualification_defense: number
@@ -136,7 +136,23 @@ export var CityConfigFromGDS = {
 	  [CityFacility.Home]: new FacilityLimit(buildingCount.home)
 	},
   };
+
+export class BuffTable{
+	config: {}
+	constructor(containers: {}) {
+		this.config = {};
+		//standlize container
+		for (var key in containers) {
+		  const row : BuffGdsRow = containers[key]
+		  this.config[row.buff_id] = row;
+		}
+	}
+	get(id : string){
+		return this.config[id]
+	}
+}
+
 export var GeneralConfigFromGDS = {
 	qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
-	buff: new ConfigContainer<BuffGdsRow>(buffGDS.Config),
+	buff: new BuffTable(buffGDS.Config),
 }

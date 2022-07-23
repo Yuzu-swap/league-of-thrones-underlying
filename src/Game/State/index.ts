@@ -7,10 +7,16 @@ export interface ResouceInfo {
   production: number;
 }
 
+export interface Recruit{
+  amount: number;
+  endtime: number;
+}
+
 export interface ICityState extends IState {
   id: string;
   facilities: { [key in CityFacility]?: number[] };
   resources: { [key in ResouceType]?: ResouceInfo };
+  recruit: Recruit[]
 }
 
 export interface IGeneralState extends IState{

@@ -73,25 +73,36 @@ export class City {
 
   getResource(typ: ResouceType): number {
     const time = parseInt(new Date().getTime() / 1000 + '');
-    if (!this.state.resources[typ]) {
-      return 0;
+    if(typ == ResouceType.Silver){
+      if (!this.state.resources[typ]) {
+        return 0;
+      }
+      let value = 0;
+      const info = this.state.resources[typ];
+      value = info.value;
+      if (info.lastUpdate != -1) {
+        const hour = (time - info.lastUpdate) / 3600;
+        value = hour * info.production + info.value;
+      }
+      let obj = {
+        lastUpdate: time,
+        value: value,
+        production: this.boost.getProduction(typ)
+      };
+      this.state.update({
+        [`resources.${typ}`]: obj
+      });
+      return value;
     }
-    let value = 0;
-    const info = this.state.resources[typ];
-    value = info.value;
-    if (info.lastUpdate != -1) {
-      const hour = (time - info.lastUpdate) / 3600;
-      value = hour * info.production + info.value;
+    else{
+      let recruit = this.state.recruit
+      for(let i in recruit){
+        if(recruit[i].endtime <= time){
+          
+        }
+      }
+      return 0
     }
-    let obj = {
-      lastUpdate: time,
-      value: value,
-      production: this.boost.getProduction(typ)
-    };
-    this.state.update({
-      [`resources.${typ}`]: obj
-    });
-    return value;
   }
 
   getUpgradeInfo(
@@ -157,6 +168,18 @@ export class City {
           }
         }
         break;
+      case ResouceType.Troop:
+        if (this.state.facilities[CityFacility.TrainingCenter]) {
+          const list = this.state.facilities[CityFacility.TrainingCenter];
+          for (let i = 0; i < list.length; i++) {
+            const level = list[i];
+            const production = this.cityConfig.facilityConfig[
+              CityFacility.TrainingCenter
+            ].get(level - 1 + '').get_troop;
+            re += production;
+          }
+        }
+        break;
     }
     return re;
   }
@@ -182,14 +205,14 @@ export class City {
       (tartgetLevel - 2).toString()
     );
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
-    let sliver = {
+    let silver = {
       lastUpdate: info.lastUpdate,
       value: info.value - row.need_silver,
       production: info.production
     };
     this.state.update({
       [`facilities.${typ}`]: levelList,
-      [`resources.${ResouceType.Silver}`]: sliver
+      [`resources.${ResouceType.Silver}`]: silver
       /*[`resources.${ResouceType.Troop}`]: {
         lastUpdate: info.lastUpdate,
         value: info.value - row.need_troop,
@@ -231,6 +254,29 @@ export class City {
   updateBoost(){
     this.boost.setProduction(StateName.City, ResouceType.Silver, this.calculatePoduction(ResouceType.Silver))
     this.boost.setProduction(StateName.City, ResouceType.Troop, this.calculatePoduction(ResouceType.Troop))
+  }
+
+  recruit( amount: number ){
+    const cost = 100 * amount
+    if( amount > this.getResource(ResouceType.Silver)){
+      return false
+    }
+    let recruit = this.state.recruit
+    const product = this.calculatePoduction(ResouceType.Troop)
+    const time = parseInt(new Date().getTime() / 1000 + '');
+    const endtime = Math.floor(amount/product * 3600) + time
+    this.useSilver(cost)
+    recruit.push(
+      {
+        amount: amount,
+        endtime: endtime
+      }
+    )
+    this.state.update(
+      {
+        'recruit': recruit
+      }
+    )
   }
 
   showAll() {
