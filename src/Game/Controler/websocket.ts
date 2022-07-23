@@ -107,7 +107,7 @@ export class WebSocketMediator
       var msg: MessageC2S = {
         SeqNum: seqNum,
         Type: MessageType.Query,
-        TransId: sid.toString(),
+        TransId: sid.id,
         Data: {}
       };
 
