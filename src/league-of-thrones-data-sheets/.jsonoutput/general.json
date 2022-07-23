@@ -2,7 +2,7 @@
    "Config" : [
     {
         "qualification_troop_recurit": 2,
-        "qualification_sliver_product": 2,
+        "qualification_silver_product": 2,
         "qualification_load": 2,
         "qualification_defense": 2,
         "qualification_attack": 2,
@@ -16,7 +16,7 @@
     },
     {
         "qualification_troop_recurit": 2,
-        "qualification_sliver_product": 2,
+        "qualification_silver_product": 2,
         "qualification_load": 2,
         "qualification_defense": 2,
         "qualification_attack": 2,
@@ -30,7 +30,7 @@
     },
     {
         "qualification_troop_recurit": 1,
-        "qualification_sliver_product": 6,
+        "qualification_silver_product": 6,
         "qualification_load": 1,
         "qualification_defense": 1,
         "qualification_attack": 1,
@@ -44,7 +44,7 @@
     },
     {
         "qualification_troop_recurit": 5,
-        "qualification_sliver_product": 2,
+        "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
         "qualification_attack": 1,
@@ -58,7 +58,7 @@
     },
     {
         "qualification_troop_recurit": 1,
-        "qualification_sliver_product": 2,
+        "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
         "qualification_attack": 5,
@@ -72,7 +72,7 @@
     },
     {
         "qualification_troop_recurit": 1,
-        "qualification_sliver_product": 2,
+        "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
         "qualification_attack": 5,

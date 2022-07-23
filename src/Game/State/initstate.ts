@@ -19,6 +19,7 @@ var InitState = {
               production: 0
           }
       },
+      recruit:[]
     },
     [StateName.General]:{
       levels:[],
