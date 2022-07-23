@@ -4,7 +4,6 @@ export enum MessageType {
   Chat = 'chat'
 }
 
-
 export interface BaseMessage {
   SeqNum: number;
   Type: MessageType;
@@ -14,6 +13,7 @@ export interface BaseMessage {
 export interface MessageC2S extends BaseMessage {
   Data: {};
 }
-export interface MessageS2C extends BaseMessage{
-  Data: {};
+export interface MessageS2C extends BaseMessage {
+  States: {};
+  Result: any;
 }
