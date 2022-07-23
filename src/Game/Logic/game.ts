@@ -1,5 +1,5 @@
 import { ICityState, ResouceInfo } from '../State';
-import { CityFacility, ResouceType } from '../Const';
+import { CityFacility, ResouceType, StateName } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
   FacilityGdsRow,
@@ -11,15 +11,10 @@ import {
   FacilityCavalryCampGdsRow,
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
-  FacilityHomeGdsRow
+  FacilityHomeGdsRow,
+  CityConfigFromGDS
 } from '../DataConfig';
-import {
-  TransitionId,
-  TransitionCall,
-  TransitionHandler,
-  TransitionResponseArgs
-} from '../..';
-
+import { IBoost } from './boost';
 export class FacilityLimit {
   max_count: number;
   building_name: string;
@@ -61,14 +56,19 @@ export class City {
   readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
+  boost: IBoost;
 
-  constructor(state: ICityState, cityconf: CityConfig) {
+  constructor(state: ICityState) {
     this.state = state;
-    this.cityConfig = cityconf;
+    this.cityConfig = CityConfigFromGDS;
   }
 
   loadState(state: {}) {
     this.state.update(state);
+  }
+
+  setBoost( boost : IBoost){
+    this.boost = boost
   }
 
   getResource(typ: ResouceType): number {
@@ -86,7 +86,7 @@ export class City {
     let obj = {
       lastUpdate: time,
       value: value,
-      production: this.calculatePoduction(typ)
+      production: this.boost.getProduction(typ)
     };
     this.state.update({
       [`resources.${typ}`]: obj
@@ -161,20 +161,14 @@ export class City {
     return re;
   }
 
-  upgradeFacility(typ: CityFacility, index: number = 0, args: TransitionCall) {
+  upgradeFacility(typ: CityFacility, index: number = 0) {
     if (!this.checkUpgradeFacility(typ, index)) {
-      let re: TransitionResponseArgs = {
-        transitionId: args.transitionId,
-        context: null,
-        result: false
-      };
-      args.handler.notifyTransitonResponse(this.state, re);
-      return;
+      return {result:false,"error":"checkUpgradeFacility-error"};
     }
     let levelList = this.state.facilities[typ]?.concat() ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
-      return;
+      return {result:false,"error":"index-over-max"};
     }
 
     let tartgetLevel = 1;
@@ -202,12 +196,7 @@ export class City {
         production: info.production
       }*/
     });
-    let re: TransitionResponseArgs = {
-      transitionId: args.transitionId,
-      context: null,
-      result: true
-    };
-    args.handler.notifyTransitonResponse(this.state, re);
+    return {result:true}
   }
 
   getFacilityOrder(): string[] {
@@ -237,6 +226,11 @@ export class City {
       return true;
     }
     return false;
+  }
+
+  updateBoost(){
+    this.boost.setProduction(StateName.City, ResouceType.Silver, this.calculatePoduction(ResouceType.Silver))
+    this.boost.setProduction(StateName.City, ResouceType.Troop, this.calculatePoduction(ResouceType.Troop))
   }
 
   showAll() {

@@ -32,7 +32,6 @@ import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/buil
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
-import { CityConfigFromGDS } from './Game/Controler/transition';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -44,6 +43,7 @@ export * from './Game/Const';
 
 
 export var run = function () {
+  /*
   const mediator = new LocalMediator();
 
   const myCityStateId = `${StateName.City}:${TestWallet}`;
@@ -88,6 +88,7 @@ export var run = function () {
     index: 0,
     targetLevel: 2
   });
+  */
   // mediator.sendTransaction(StateTransition.UpgradeFacility, { from: TestWallet, typ: CityFacility.Logistics, index: 0, targetLevel: 1 })
 };
 
@@ -99,13 +100,9 @@ function example() {
       console.log('City init');
       // bind button with action
       // button.onClick = () =>{
-      //city.doUpgradeFacility()
+      city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
       console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
       // watch action response
-      city.onActionResponse((args) => {
-        console.log("receive action", args)
-      });
-
       console.log(city.getFacilityOrder())
       // watch state update
       city.onStateUpdate(() => {
@@ -117,13 +114,6 @@ function example() {
         // rerender by new state
       });
       city.updateResource();
-      (city as CityComponent)?.doUpgradeFacility(CityFacility.Fortress, 0);
-      setTimeout(
-        ()=>{
-          city.doUpgradeFacility(CityFacility.Home, 0)
-        },
-        3000
-      )
       
       //update
     }
