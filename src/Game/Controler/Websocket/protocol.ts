@@ -7,7 +7,7 @@ export enum MessageType {
 export interface BaseMessage {
   SeqNum: number;
   Type: MessageType;
-  TransId: string;
+  TransID: string;
 }
 
 export interface MessageC2S extends BaseMessage {
@@ -15,5 +15,5 @@ export interface MessageC2S extends BaseMessage {
 }
 export interface MessageS2C extends BaseMessage {
   States: {};
-  Result: any;
+  Data: any;
 }

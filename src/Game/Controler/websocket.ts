@@ -43,15 +43,15 @@ export class WebSocketMediator
         this.ctx = msg;
 
         console.log('client receive msg is ', JSON.stringify(msg));
-        if (msg.SeqNum !== 0) {
+        if (msg.SeqNum != undefined) {
           //context call
 
           if (this.respCallbacks[msg.SeqNum]) {
             if (msg.Type === MessageType.Transition) {
-              this.respCallbacks[msg.SeqNum](msg.Result);
+              this.respCallbacks[msg.SeqNum](msg.Data);
               for (var sid in msg.States) {
                 const stateObj = msg.States[sid];
-                this._updateState(sid, stateObj, true);
+                this._updateState(sid, stateObj, false);
               }
             } else if (msg.Type == MessageType.Query) {
               for (var sid in msg.States) {
@@ -107,7 +107,7 @@ export class WebSocketMediator
       var msg: MessageC2S = {
         SeqNum: seqNum,
         Type: MessageType.Query,
-        TransId: sid.id,
+        TransID: sid.id,
         Data: {}
       };
 
@@ -132,7 +132,7 @@ export class WebSocketMediator
     var ctx: ITransContext = {
       SeqNum: seqNum,
       Type: MessageType.Transition,
-      TransId: tid.toString()
+      TransID: tid.toString()
     };
 
     var msg: MessageC2S = {
@@ -147,6 +147,7 @@ export class WebSocketMediator
     return ctx;
   }
   _updateState(sid: string, obj: {}, notify: boolean) {
+    console.log('update state', sid, obj, notify);
     if (this.stateCaches[sid]) {
       this.notifyStateChange = notify;
       this.stateCaches[sid].update(obj);
