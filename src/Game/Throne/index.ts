@@ -430,14 +430,13 @@ export class Throne implements IThrone {
 
   async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
-    this.username = obj['username'] ? obj['username'] : ''
-    this.wsHost = obj["wshost"] ? obj["wshost"] : 'ws://test-ws.leagueofthrones.com/ws/'
-    if(this.wsHost && this.username){
+    this.username = obj['username'] ? obj['username'] : 'test'
+    this.wsHost = obj["wshost"] ? obj["wshost"] : 'test-ws.leagueofthrones.com'
+    if(this.wsHost && this.username!='test'){
       const wsmediator = new WebSocketMediator(`ws://${this.wsHost}:80/ws/${this.username}`)
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
-      this.username = "0xf6a6a8bad2aefae8733b07f48c62e3b8db66276e" //test 
       this.mediator = new LocalMediator(this.username)
     }
     // init essensial states
@@ -453,6 +452,7 @@ export class Throne implements IThrone {
     // ])
     this.logicEssential = createLogicEsential(states)
     this.inited = true
+
   }
 
 
