@@ -416,6 +416,7 @@ export class Throne implements IThrone {
   inited: boolean
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
+  username : string
 
 
 
@@ -425,9 +426,9 @@ export class Throne implements IThrone {
 
   }
 
-  async init() {
+  async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
-
+    this.username = obj['username'] ? obj['username'] : ''
     // init essensial states
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
@@ -440,6 +441,7 @@ export class Throne implements IThrone {
     //   },
     // ])
     this.logicEssential = createLogicEsential(states)
+    this.inited = true
   }
 
 
@@ -448,7 +450,7 @@ export class Throne implements IThrone {
     callback: (component: T) => void
   ) {
     if (!this.inited) {
-      await this.init()
+      await this.init({})
     }
     if (typ == ComponentType.City) {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)

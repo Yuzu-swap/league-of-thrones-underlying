@@ -93,6 +93,7 @@ export var run = function () {
 };
 
 //run();
+let count = 0;
 function example() {
   Throne.instance().initComponent<CityComponent>(
     ComponentType.City,
@@ -111,6 +112,8 @@ function example() {
         const resource = city.getResource();
         const uiState = { facilities, resource };
         console.log("receive state", uiState)
+        count += 1
+        console.log("============", count)
         // rerender by new state
       });
       city.updateResource();
