@@ -41,6 +41,3 @@ export interface UpgradeFacilityArgs extends StateTransitionArgs {
 export interface RecruitArgs extends StateTransitionArgs{
 	amount: number
 }
-
-//Using as test userid
-export const TestWallet: string = "0xf6a6a8bad2aefae8733b07f48c62e3b8db66276e"

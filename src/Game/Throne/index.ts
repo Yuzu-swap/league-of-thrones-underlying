@@ -1,7 +1,7 @@
 import { General, GeneralAbility } from '../Logic/general'
 import { City, FacilityLimit } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
-import { StateTransition, CityFacility, ResouceType, StateName, TestWallet } from '../Const'
+import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
@@ -22,6 +22,7 @@ import {
 } from '../DataConfig';
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
+import { WebSocketMediator } from '../Controler/websocket'
 
 
 
@@ -217,14 +218,14 @@ export class CityComponent implements ICityComponent {
 
   doUpgradeFacility(typ: CityFacility, index: number, callback: (res: ITransResult) => void) {
     this.mediator.sendTransaction(StateTransition.UpgradeFacility, {
-      from: TestWallet,
+      from: Throne.instance().username,
       typ: typ,
       index: index,
     }, callback)
   }
   doRecruit(amount: number, callback: (res: ITransResult) => void) {
     this.mediator.sendTransaction(StateTransition.Recruit, {
-      from: TestWallet,
+      from: Throne.instance().username,
       amount: amount
     }, callback)
   }
@@ -417,21 +418,31 @@ export class Throne implements IThrone {
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
   username : string
+  wsHost : string
 
 
 
   constructor() {
-    this.mediator = new LocalMediator()
     this.inited = false
 
   }
 
+
   async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : ''
+    this.wsHost = obj["wshost"] ? obj["wshost"] : 'ws://test-ws.leagueofthrones.com/ws/'
+    if(this.wsHost && this.username){
+      const wsmediator = new WebSocketMediator(`ws://${this.wsHost}:80/ws/${this.username}`)
+      await wsmediator.init()
+      this.mediator = wsmediator
+    }else{
+      this.username = "0xf6a6a8bad2aefae8733b07f48c62e3b8db66276e" //test 
+      this.mediator = new LocalMediator(this.username)
+    }
     // init essensial states
-    states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
-    states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
+    states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
+    states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
@@ -454,7 +465,7 @@ export class Throne implements IThrone {
       this.inited = true
     }
     if (typ == ComponentType.City) {
-      this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)
+      this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${this.username}`, this.mediator)
       let cityCom = this.components[ComponentType.City] as CityComponent
       cityCom.setCity(this.logicEssential.city)
       callback(cityCom as any as T)
@@ -462,7 +473,7 @@ export class Throne implements IThrone {
       if (!this.components[ComponentType.City]) {
         return false
       }
-      this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${TestWallet}`, this.mediator)
+      this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${this.username}`, this.mediator)
       let generalCom = this.components[ComponentType.General] as GeneralComponent
       generalCom.setGeneral(this.logicEssential.general)
       callback(generalCom as any as T)

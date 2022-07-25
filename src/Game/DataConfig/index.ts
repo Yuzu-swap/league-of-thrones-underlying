@@ -15,7 +15,6 @@ import {
 	StateTransition,
 	UpgradeFacilityArgs,
 	StateName,
-	TestWallet
   } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import { FacilityLimit } from '../Logic/game';

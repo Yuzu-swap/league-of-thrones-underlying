@@ -1,4 +1,4 @@
-import { StateName, StateTransition, TestWallet } from '../Const';
+import { StateName, StateTransition  } from '../Const';
 import {
   BaseMediator,
   IContextState,
@@ -19,15 +19,14 @@ import {
   MessageS2C,
   MessageType
 } from './Websocket/protocol';
-import { w3cwebsocket } from 'websocket';
 
-const cityStateId = `${StateName.City}:${TestWallet}`;
-const generalStateId = `${StateName.General}:${TestWallet}`;
 
-function getInitState(wather: IStateChangeWatcher): {
+function getInitState(username:string,wather: IStateChangeWatcher): {
   [key: string]: IState;
 } {
-  const InitState = GetInitState();
+  const cityStateId = `${StateName.City}:${username}`;
+  const generalStateId = `${StateName.General}:${username}`;
+    const InitState = GetInitState();
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -61,11 +60,12 @@ export class LocalMediator
   private transitionHandler: TransitionHandler;
   private ctx: ITransContext;
   private seqNum: number;
-  constructor() {
+  private username:string
+  constructor(username: string) {
     super();
     this.transitionHandler = new TransitionHandler(
       this,
-      GenerateMemoryLoadStateFunction(getInitState(this))
+      GenerateMemoryLoadStateFunction(getInitState(this.username,this))
     );
     this.seqNum = 0;
   }

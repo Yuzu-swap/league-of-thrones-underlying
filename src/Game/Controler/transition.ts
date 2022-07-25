@@ -11,7 +11,6 @@ import {
   StateTransition,
   UpgradeFacilityArgs,
   StateName,
-  TestWallet,
   RecruitArgs
 } from '../Const';
 

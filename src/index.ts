@@ -1,7 +1,6 @@
 import { City, FacilityLimit } from './Game/Logic/game';
 import {
   CityFacility,
-  TestWallet,
   StateName,
   StateTransition
 } from './Game/Const';
