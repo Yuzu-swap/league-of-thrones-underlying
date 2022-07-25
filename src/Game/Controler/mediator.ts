@@ -65,7 +65,7 @@ export class LocalMediator
     super();
     this.transitionHandler = new TransitionHandler(
       this,
-      GenerateMemoryLoadStateFunction(getInitState(this.username,this))
+      GenerateMemoryLoadStateFunction(getInitState(username,this))
     );
     this.seqNum = 0;
   }
