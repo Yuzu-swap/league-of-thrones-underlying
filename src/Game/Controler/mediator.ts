@@ -103,7 +103,7 @@ export class LocalMediator
     const ctx = {
       SeqNum: this.seqNum++,
       Type: MessageType.Transition,
-      TransId: tid.toString()
+      TransID: tid.toString()
     };
     //record ctx
     this.ctx = ctx;

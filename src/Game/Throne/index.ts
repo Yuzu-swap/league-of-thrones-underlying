@@ -451,6 +451,7 @@ export class Throne implements IThrone {
   ) {
     if (!this.inited) {
       await this.init({})
+      this.inited = true
     }
     if (typ == ComponentType.City) {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${TestWallet}`, this.mediator)
