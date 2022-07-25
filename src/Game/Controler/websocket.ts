@@ -73,6 +73,11 @@ export class WebSocketMediator
       this.client.onerror = function (err: Error) {
         console.log('Connection Error', err);
       };
+
+      setInterval(() => {
+        //ping
+        this.client.send('{}')
+      }, 10000)
     });
   }
 
