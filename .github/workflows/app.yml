@@ -25,3 +25,7 @@ jobs:
     - name: Notify Throne Rebuild
       run: |
             curl -XPOST -u "${{ secrets.CI_TOKEN }}" -H "Accept:application/vnd.github" -H "Content-Type:application/json" https://api.github.com/repos/Yuzu-swap/league-of-thrones-front/actions/workflows/app.yml/dispatches --data '{"ref": "main" }'
+
+    - name: Notify Throne backend Rebuild
+      run: |
+            curl -XPOST -u "${{ secrets.CI_TOKEN }}" -H "Accept:application/vnd.github" -H "Content-Type:application/json" https://api.github.com/repos/Yuzu-swap/league-of-thrones-backend/actions/workflows/app.yml/dispatches --data '{"ref": "main" }'
