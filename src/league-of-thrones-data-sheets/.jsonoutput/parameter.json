@@ -1,0 +1,18 @@
+{
+    "general_troops_coefficient":{
+        "value":"1.2",
+        "name":"general_troops_coefficient"
+    },
+    "general_stamina_recovery":{
+        "value":"7200",
+        "name":"general_stamina_recovery"
+    },
+    "general_skill_max_level":{
+        "value":"20",
+        "name":"general_skill_max_level"
+    },
+    "general_max_level":{
+        "value":"100",
+        "name":"general_max_level"
+    }
+}

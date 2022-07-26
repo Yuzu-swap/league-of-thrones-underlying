@@ -9,6 +9,7 @@ import { IBoost } from './boost';
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
     buff: BuffTable
+    parameter: Parameter
 }
 
 export enum GeneralAbility{
@@ -16,15 +17,29 @@ export enum GeneralAbility{
     Defense = 'qualification_defense',
     Load = 'qualification_load',
     Silver = 'qualification_silver_product',
-    Troop = 'qualification_troop_recurit'
+    Troop = 'qualification_troop_recruit'
 }
 export enum SkillType{
     Attack = 'attack',
     Defense = 'defense',
     Load = 'load',
     Silver = 'product',
-    Troop = 'recurit'
+    Troop = 'recruit'
 }
+
+export class Parameter {
+    general_troops_coefficient: number;
+    general_stamina_recovery: number;
+    general_skill_max_level: number;
+    general_max_level: number;
+  
+    constructor(obj: {}) {
+      this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
+      this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
+      this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
+      this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
+    }
+  }
 
 export class General{
     state: IGeneralState
@@ -116,7 +131,7 @@ export class General{
             return 0
         }
         const row = this.getGeneralQualification(id)
-        const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recurit
+        const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit
         let re = 0
         re = Math.round((2* Math.pow(currentLevel, 2) * currentLevel + 20) * sumq / 10) * 10
         return re 
@@ -185,7 +200,7 @@ export class General{
                 cost = 0.04 * row.qualification_silver_product * Math.pow(level, 2) + 1
                 break
             case SkillType.Troop:
-                cost = 0.04 * row.qualification_troop_recurit * Math.pow(level, 2) + 1
+                cost = 0.04 * row.qualification_troop_recruit * Math.pow(level, 2) + 1
                 break
         }
         return cost * 10000
@@ -211,7 +226,7 @@ export class General{
                     re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_silver_product * 3600).toFixed(2))
                     break
                 case SkillType.Troop:
-                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_troop_recurit * 3600).toFixed(2))
+                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_troop_recruit * 3600).toFixed(2))
                     break
                 case SkillType.Attack:
                     re['value'] = buff.buff_value * row.qualification_attack * Math.pow(level, 2)

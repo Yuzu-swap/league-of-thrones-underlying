@@ -1,7 +1,8 @@
 {
    "Config" : [
     {
-        "qualification_troop_recurit": 2,
+        "stamina": 5,
+        "qualification_troop_recruit": 2,
         "qualification_silver_product": 2,
         "qualification_load": 2,
         "qualification_defense": 2,
@@ -15,7 +16,8 @@
         "general_id": 1
     },
     {
-        "qualification_troop_recurit": 2,
+        "stamina": 5,
+        "qualification_troop_recruit": 2,
         "qualification_silver_product": 2,
         "qualification_load": 2,
         "qualification_defense": 2,
@@ -29,7 +31,8 @@
         "general_id": 2
     },
     {
-        "qualification_troop_recurit": 1,
+        "stamina": 5,
+        "qualification_troop_recruit": 1,
         "qualification_silver_product": 6,
         "qualification_load": 1,
         "qualification_defense": 1,
@@ -43,7 +46,8 @@
         "general_id": 3
     },
     {
-        "qualification_troop_recurit": 5,
+        "stamina": 10,
+        "qualification_troop_recruit": 5,
         "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
@@ -57,7 +61,8 @@
         "general_id": 4
     },
     {
-        "qualification_troop_recurit": 1,
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
         "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
@@ -71,7 +76,8 @@
         "general_id": 5
     },
     {
-        "qualification_troop_recurit": 1,
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
         "qualification_silver_product": 2,
         "qualification_load": 1,
         "qualification_defense": 1,
@@ -83,6 +89,21 @@
             7
         ],
         "general_id": 6
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 5,
+        "general_type": 3,
+        "general_skill":[
+            3,
+            4,
+            7
+        ],
+        "general_id": 999
     }
     ]
 }

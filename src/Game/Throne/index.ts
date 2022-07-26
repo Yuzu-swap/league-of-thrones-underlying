@@ -265,8 +265,8 @@ export class GeneralComponent implements IGeneralComponent {
 
   getConstData(): {} {
     let re = {
-      general_max_level: 100,
-      skill_max_level: 20
+      general_max_level: this.general.config.parameter.general_max_level,
+      skill_max_level: this.general.config.parameter.general_skill_max_level
     }
     return re
   }

@@ -10,6 +10,7 @@ import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.j
 import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
+import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -18,6 +19,7 @@ import {
   } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import { FacilityLimit } from '../Logic/game';
+import { Parameter } from '../Logic/general';
 
 export interface FacilityGdsRow {
 	need_troop: number
@@ -66,7 +68,7 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 }
 
 export interface GeneralGdsRow{
-	qualification_troop_recurit: number
+	qualification_troop_recruit: number
 	qualification_silver_product: number
 	qualification_load: number
 	qualification_attack: number
@@ -74,6 +76,7 @@ export interface GeneralGdsRow{
 	general_type: number
 	general_skill: number[]
 	general_id: number
+	stamina: number
 }
 
 export interface BuffGdsRow{
@@ -154,4 +157,5 @@ export class BuffTable{
 export var GeneralConfigFromGDS = {
 	qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
 	buff: new BuffTable(buffGDS.Config),
+	parameter: new Parameter(parameterGDS)
 }
