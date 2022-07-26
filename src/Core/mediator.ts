@@ -9,6 +9,7 @@ export type StateCallback<ContextType> = (state: IContextState<ContextType>) => 
 
 export interface IStateMediator<TransactionIDType, ContextType> {
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void
+	queryStates( typ: string, args:{}):Promise<any>
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
 }
@@ -27,6 +28,9 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 		this.listeners[sid.id].push(callback)
 	}
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void {
+		throw "not emplement"
+	}
+	queryStates( typ: string, args:{}):Promise<any> {
 		throw "not emplement"
 	}
 

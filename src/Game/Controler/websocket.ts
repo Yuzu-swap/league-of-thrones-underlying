@@ -53,12 +53,14 @@ export class WebSocketMediator
                 const stateObj = msg.States[sid];
                 this._updateState(sid, stateObj, false);
               }
-            } else if (msg.Type == MessageType.Query) {
+            } else if (msg.Type == MessageType.StateQuery) {
               for (var sid in msg.States) {
                 const stateObj = msg.States[sid];
                 this._updateState(sid, stateObj, false);
               }
               this.respCallbacks[msg.SeqNum](this._getState(sid));
+            } else if (msg.Type == MessageType.Query) {
+              this.respCallbacks[msg.SeqNum](msg.Data);
             }
           }
         } else {
@@ -87,6 +89,27 @@ export class WebSocketMediator
       this.notifyState({ id: state.getId() }, { ...state, context: this.ctx });
   }
 
+
+  queryStates(
+    typ: string,
+    args:{}
+  ):Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: MessageType.Query,
+      TransID: typ,
+      Data: args,
+    };
+
+    console.log('send msg is ', JSON.stringify(msg));
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    });
+  }
+
+
   queryState(
     sid: IStateIdentity,
     args: {},
@@ -111,7 +134,7 @@ export class WebSocketMediator
       const seqNum = this.seqNum++;
       var msg: MessageC2S = {
         SeqNum: seqNum,
-        Type: MessageType.Query,
+        Type: MessageType.StateQuery,
         TransID: sid.id,
         Data: {}
       };
