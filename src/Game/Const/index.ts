@@ -28,6 +28,10 @@ export enum StateTransition {
 	EnhanceGeneral = 5,
 	AttackEnemy = 6,
 	MarchToPos = 7,
+	AbleGeneral,
+	DisableGeneral,
+	UpgradeGeneral,
+	UpgradeGeneralSkill
 }
 
 interface StateTransitionArgs {
@@ -40,4 +44,21 @@ export interface UpgradeFacilityArgs extends StateTransitionArgs {
 
 export interface RecruitArgs extends StateTransitionArgs{
 	amount: number
+}
+
+export interface AbleGeneralArgs extends StateTransitionArgs{
+	id: number
+}
+
+export interface DisableGeneralArgs extends StateTransitionArgs{
+	id: number
+}
+
+export interface UpgradeGeneralArgs extends StateTransitionArgs{
+	id: number
+}
+
+export interface UpgradeGeneralSkillArgs extends StateTransitionArgs{
+	generalId: number
+	skillIndex: number
 }

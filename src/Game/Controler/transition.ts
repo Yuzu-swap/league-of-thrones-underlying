@@ -11,7 +11,11 @@ import {
   StateTransition,
   UpgradeFacilityArgs,
   StateName,
-  RecruitArgs
+  RecruitArgs,
+  AbleGeneralArgs,
+  DisableGeneralArgs,
+  UpgradeGeneralArgs,
+  UpgradeGeneralSkillArgs
 } from '../Const';
 
 import { City, CityConfig, FacilityLimit } from '../Logic/game';
@@ -43,6 +47,14 @@ export class TransitionHandler {
         return this.onUpdateFacility(arg as UpgradeFacilityArgs);
       case StateTransition.Recruit:
         return this.onRecruit(arg as RecruitArgs);
+      case StateTransition.AbleGeneral:
+        return this.onAbleGeneral(arg as AbleGeneralArgs);
+      case StateTransition.DisableGeneral:
+        return this.onDisableGeneral(arg as DisableGeneralArgs)
+      case StateTransition.UpgradeGeneral:
+        return this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
+      case StateTransition.UpgradeGeneralSkill:
+        return this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
     }
   }
 
@@ -75,4 +87,29 @@ export class TransitionHandler {
 
     return city.recruit(args.amount);
   }
+
+  onAbleGeneral(args: AbleGeneralArgs): {} {
+    const logic: LogicEssential = this.genLogic(args.from);
+    const general = logic.general;
+    return general.ableGeneral(args.id)
+  }
+
+  onDisableGeneral(args: DisableGeneralArgs): {}{
+    const logic: LogicEssential = this.genLogic(args.from);
+    const general = logic.general;
+    return general.disableGeneral(args.id)
+  }
+
+  onUpgradeGeneral(args: UpgradeGeneralArgs):{}{
+    const logic: LogicEssential = this.genLogic(args.from);
+    const general = logic.general;
+    return general.upgradeGeneral(args.id)
+  }
+
+  onUpgradeGeneralSkill(args: UpgradeGeneralSkillArgs):{}{
+    const logic: LogicEssential = this.genLogic(args.from);
+    const general = logic.general;
+    return general.upgradeGeneralSkill(args.generalId, args.skillIndex)
+  }
+
 }

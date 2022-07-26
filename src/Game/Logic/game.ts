@@ -289,7 +289,7 @@ export class City {
   recruit( amount: number ){
     const cost = 100 * amount
     if( amount > this.getResource(ResouceType.Silver)){
-      return false
+      return {result: false, error: 'silver-not-enough'}
     }
     let recruit = this.state.recruit
     const product = this.calculatePoduction(ResouceType.Troop)
@@ -307,7 +307,7 @@ export class City {
         'recruit': recruit
       }
     )
-    return true
+    return {result: true}
   }
 
   showAll() {

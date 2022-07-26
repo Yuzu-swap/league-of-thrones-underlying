@@ -305,16 +305,25 @@ export class GeneralComponent implements IGeneralComponent {
     return re
   }
 
-  ableGeneral(id: number, callback: (result: any) => void): void {
-    callback(this.general.ableGeneral(id))
+  ableGeneral(id: number, callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.AbleGeneral, {
+      from: Throne.instance().username,
+      id: id
+    }, callback)
   }
 
-  disableGeneral(id: number, callback: (result: any) => void): void {
-    callback(this.general.disableGeneral(id))
+  disableGeneral(id: number, callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.DisableGeneral, {
+      from: Throne.instance().username,
+      id: id
+    }, callback)
   }
 
-  upgradeGeneral(id: number, callback: (result: any) => void): void {
-    callback(this.general.upgradeGeneral(id))
+  upgradeGeneral(id: number, callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.UpgradeGeneral, {
+      from: Throne.instance().username,
+      id: id
+    }, callback)
   }
 
   onStateUpdate(callback: IStatetWithTransContextCallback): void {
@@ -386,8 +395,12 @@ export class GeneralComponent implements IGeneralComponent {
     return re
   }
 
-  upgradeGeneralSkill(generalId: number, skillIndex: number, callback: (result: any) => void): void {
-    callback(this.general.upgradeGeneralSkill(generalId, skillIndex))
+  upgradeGeneralSkill(generalId: number, skillIndex: number, callback: (result: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.UpgradeGeneralSkill, {
+      from: Throne.instance().username,
+      generalId: generalId,
+      skillIndex: skillIndex
+    }, callback)
   }
 
 }

@@ -74,84 +74,85 @@ export class General{
         return this.city.getGeneralMaxAble()
     }
     
-    checkIndexAble(index : number): boolean{
+    checkIndexAble(id : number): boolean{
         let len = Object.keys(this.config.qualification.configs).length
-        if(index > len|| index <= 0){
+        if(id > len|| id <= 0){
             return false
         }
         return true
     }
 
-    ableGeneral(index: number): boolean{
-        if(!this.checkIndexAble(index)){
-            return false
+    ableGeneral(id: number){
+        if(!this.checkIndexAble(id)){
+            return {result : false, error: 'index-error'}
         }
         let count = this.getAbleCount()
         if( count < this.getMaxAbleCount() ){
-            this.state.able[index - 1] = true
+            this.state.able[id - 1] = true
         }
         this.state.update(
             {
                 able : this.state.able 
             }
         )
-        return true
+        return {result : true}
     }
 
-    disableGeneral(index: number){
-        if(!this.checkIndexAble(index)){
-            return 
+    disableGeneral(id: number){
+        if(!this.checkIndexAble(id)){
+            return {result : false, error: 'index-error'} 
         }
-        this.state.able[index - 1] = false
+        this.state.able[id - 1] = false
         this.state.update(
             {
                 able : this.state.able 
             }
         )
+        return {result : true}
     }
 
-    getGeneralUpgradeNeed(index: number, currentLevel: number): number{
-        if(!this.checkIndexAble(index)){
+    getGeneralUpgradeNeed(id: number, currentLevel: number): number{
+        if(!this.checkIndexAble(id)){
             return 0
         }
-        const row = this.getGeneralQualification(index)
+        const row = this.getGeneralQualification(id)
         const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recurit
         let re = 0
         re = Math.round((2* Math.pow(currentLevel, 2) * currentLevel + 20) * sumq / 10) * 10
         return re 
     }
 
-    checkUpgradeGeneral(index: number): boolean{
-        if(!this.checkIndexAble(index)){
+    checkUpgradeGeneral(id: number): boolean{
+        if(!this.checkIndexAble(id)){
             return false
         }
-        const level = this.state.levels[index - 1]
-        const cost = this.getGeneralUpgradeNeed(index, level)
+        const level = this.state.levels[id - 1]
+        const cost = this.getGeneralUpgradeNeed(id, level)
         if(this.city.state.resources.silver.value >= cost){
             return true
         }
         return false
     }
 
-    upgradeGeneral( index: number ): boolean{
-        if(!this.checkIndexAble(index)){
-            return false
+    upgradeGeneral( id: number ){
+        if(!this.checkIndexAble(id)){
+            return {result : false, error: 'index-error'} 
         }
-        const level = this.state.levels[index - 1]
-        const cost = this.getGeneralUpgradeNeed(index, level)
+        const level = this.state.levels[id - 1]
+        const cost = this.getGeneralUpgradeNeed(id, level)
         const levels = this.state.levels.concat()
         if(this.city.useSilver(cost)){
-            levels[index - 1] = level + 1
+            levels[id - 1] = level + 1
             this.state.update({
                 levels : levels
             })
-            return true
+            return {result: true}
         }
-        return false
+        return {result : false, error: 'silver-not-enough-error'} 
     }
 
-    getGeneralAbility(index: number, level: number ,typ : GeneralAbility): number{
-        const row = this.getGeneralQualification(index)
+    getGeneralAbility(id: number, level: number ,typ : GeneralAbility): number{
+        const row = this.getGeneralQualification(id)
         switch(typ){
             case GeneralAbility.Attack:
             case GeneralAbility.Defense:
@@ -235,9 +236,9 @@ export class General{
         return false
     }
 
-    upgradeGeneralSkill(generalId : number, skillIndex : number):boolean{
+    upgradeGeneralSkill(generalId : number, skillIndex : number){
         if(!this.checkGeneralSkillUpgrade(generalId, skillIndex)){
-            return false
+            return {result : false, error: 'silver-not-enough-error'} 
         }
         const level = this.state.skill_levels[generalId -1][skillIndex]
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
@@ -247,9 +248,9 @@ export class General{
             this.state.update({
                 skill_levels : skill_levels
             })
-            return true
+            return {result : true }
         }
-        return false
+        return {result : false, error: 'silver-not-enough-error'} 
     }
 
     getGeneralProduction(typ : ResouceType){
