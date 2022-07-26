@@ -157,5 +157,9 @@ export class BuffTable{
 export var GeneralConfigFromGDS = {
 	qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
 	buff: new BuffTable(buffGDS.Config),
-	parameter: new Parameter(parameterGDS)
+	
+	//console.log(Parameter) null
+	//TODO:fix recyle dependency of Parameter and  GeneralConfigFromGDS
+	//parameter: new Parameter(parameterGDS)
+	parameter: null
 }
