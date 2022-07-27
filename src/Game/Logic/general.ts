@@ -3,7 +3,7 @@ import { GeneralGdsRow ,BuffGdsRow, BuffTable} from '../DataConfig'
 import { IGeneralState , ResouceInfo} from '../State';
 import { ResouceType, StateName } from '../Const';
 import { City } from './game';
-import { GeneralConfigFromGDS } from '../DataConfig';
+import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 
 export interface GeneralConfig{
@@ -27,19 +27,6 @@ export enum SkillType{
     Troop = 'recruit'
 }
 
-export class Parameter {
-    general_troops_coefficient: number;
-    general_stamina_recovery: number;
-    general_skill_max_level: number;
-    general_max_level: number;
-  
-    constructor(obj: {}) {
-      this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
-      this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
-      this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
-      this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
-    }
-  }
 
 export class General{
     state: IGeneralState

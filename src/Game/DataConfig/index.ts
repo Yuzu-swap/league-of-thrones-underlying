@@ -18,8 +18,31 @@ import {
 	StateName,
   } from '../Const';
 import { ConfigContainer } from '../../Core/config';
-import { FacilityLimit } from '../Logic/game';
-import { Parameter } from '../Logic/general';
+export class FacilityLimit {
+	max_count: number;
+	building_name: string;
+	order: number;
+  
+	constructor(obj: {}) {
+	  this.max_count = obj['max_count'] ? obj['max_count'] : 1;
+	  this.building_name = obj['building_name'] ? obj['building_name'] : 'error';
+	  this.order = obj['order'] ? obj['order'] : 1;
+	}
+}
+
+export class Parameter {
+    general_troops_coefficient: number;
+    general_stamina_recovery: number;
+    general_skill_max_level: number;
+    general_max_level: number;
+  
+    constructor(obj: {}) {
+      this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
+      this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
+      this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
+      this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
+    }
+}
 
 export interface FacilityGdsRow {
 	need_troop: number
@@ -160,6 +183,6 @@ export var GeneralConfigFromGDS = {
 	
 	//console.log(Parameter) null
 	//TODO:fix recyle dependency of Parameter and  GeneralConfigFromGDS
-	//parameter: new Parameter(parameterGDS)
-	parameter: null
+	parameter: new Parameter(parameterGDS)
+	//parameter: null
 }

@@ -18,7 +18,7 @@ import {
   UpgradeGeneralSkillArgs
 } from '../Const';
 
-import { City, CityConfig, FacilityLimit } from '../Logic/game';
+import { City, CityConfig } from '../Logic/game';
 import { ICityState, IGeneralState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {

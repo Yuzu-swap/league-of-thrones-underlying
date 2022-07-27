@@ -12,20 +12,11 @@ import {
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
-  CityConfigFromGDS
+  CityConfigFromGDS,
+  FacilityLimit
 } from '../DataConfig';
 import { IBoost } from './boost';
-export class FacilityLimit {
-  max_count: number;
-  building_name: string;
-  order: number;
 
-  constructor(obj: {}) {
-    this.max_count = obj['max_count'] ? obj['max_count'] : 1;
-    this.building_name = obj['building_name'] ? obj['building_name'] : 'error';
-    this.order = obj['order'] ? obj['order'] : 1;
-  }
-}
 
 export interface CityConfig {
   facilityConfig: {

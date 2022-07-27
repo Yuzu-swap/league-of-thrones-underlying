@@ -1,5 +1,5 @@
 import { General, GeneralAbility } from '../Logic/general'
-import { City, FacilityLimit } from '../Logic/game'
+import { City } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
