@@ -43,6 +43,12 @@ export interface CityConfig {
   };
 }
 
+export enum RecruitStatus{
+  None = 'none',
+  Going = 'going',
+  Ready = 'ready'
+}
+
 export class City {
   readonly state: ICityState;
   //cache
@@ -62,7 +68,7 @@ export class City {
     this.boost = boost
   }
 
-  getResource(typ: ResouceType): number {
+  getResource(typ: ResouceType): number{
     const time = parseInt(new Date().getTime() / 1000 + '');
     if(typ == ResouceType.Silver){
       if (!this.state.resources[typ]) {
@@ -73,21 +79,27 @@ export class City {
       value = info.value;
       if (info.lastUpdate != -1) {
         const hour = (time - info.lastUpdate) / 3600;
-        value = hour * info.production + info.value;
+        value = hour * this.boost.getProduction(typ) + info.value;
       }
-      let obj = {
-        lastUpdate: time,
-        value: value,
-        production: this.boost.getProduction(typ)
-      };
-      this.state.update({
-        [`resources.${typ}`]: obj
-      });
       return value;
     }
     else{
+      return this.state.resources[ResouceType.Troop].value
+    }
+  }
+
+  updateResource(typ: ResouceType): void {
+    const time = parseInt(new Date().getTime() / 1000 + '');
+    if(typ == ResouceType.Silver){
+      this.state.update({
+        [`resources.${typ}`]: {
+          lastUpdate: time,
+          value: this.getResource(typ),
+        }
+      });
+    }
+    else{
       let recruit = this.state.recruit
-      let silver = this.state.resources[ResouceType.Silver]
       let troop = this.state.resources[ResouceType.Troop]
       let troopAdd = 0
       let productReduce = 0
@@ -108,20 +120,14 @@ export class City {
             [`resources.${ResouceType.Silver}`]: {
               lastUpdate: time,
               value: nowValue,
-              production: silver.production - productReduce
             },
             [`resources.${ResouceType.Troop}`]:{
               lastUpdate: time,
               value: troop.value + troopAdd,
-              production: troop.production
             }
           }
         )
       }
-      this.state.update({
-        [`resources.${ResouceType.Troop}.production`]: this.boost.getProduction(typ)
-      })
-      return this.state.resources[ResouceType.Troop].value
     }
   }
 
@@ -206,6 +212,7 @@ export class City {
   }
 
   upgradeFacility(typ: CityFacility, index: number = 0) {
+    this.updateResource(ResouceType.Silver)
     if (!this.checkUpgradeFacility(typ, index)) {
       return {result:false,"error":"checkUpgradeFacility-error"};
     }
@@ -228,8 +235,7 @@ export class City {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     let silver = {
       lastUpdate: info.lastUpdate,
-      value: info.value - row.need_silver,
-      production: info.production
+      value: info.value - row.need_silver
     };
     this.state.update({
       [`facilities.${typ}`]: levelList,
@@ -263,13 +269,25 @@ export class City {
 
   useSilver(amount: number): boolean {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
-    if (amount < this.state.resources.silver.value) {
+    if (amount < this.getResource(ResouceType.Silver)) {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: info.value - amount
       });
       return true;
     }
     return false;
+  }
+  useTroop(amount: number): boolean{
+    const info: ResouceInfo = this.state.resources[ResouceType.Troop];
+    if( amount < info.value){
+      this.state.update(
+        {
+          [`resources.${ResouceType.Troop}.value`]: info.value - amount
+        }
+      )
+      return true
+    }
+    return false
   }
 
   updateBoost(){
@@ -299,6 +317,59 @@ export class City {
       }
     )
     return {result: true}
+  }
+
+  //1= infantry ；2=cavalry ；3=archer
+  getBattleStatus(general_type: number){
+    let re = {
+      attack: 0,
+      defense: 0
+    }
+    switch(general_type){
+      case 1:
+        const level1 = this.state.facilities[CityFacility.InfantryCamp][0]
+        const row1 : FacilityInfantryCampGdsRow = this.cityConfig.facilityConfig[CityFacility.InfantryCamp].get((level1 - 1).toString())
+        re.attack = row1.infantry_attack
+        re.defense = row1.infantry_defense
+        break
+      case 2: 
+        const level2 = this.state.facilities[CityFacility.CavalryCamp][0]
+        const row2 : FacilityCavalryCampGdsRow = this.cityConfig.facilityConfig[CityFacility.CavalryCamp].get((level2 - 1).toString())
+        re.attack = row2.cavalry_attack
+        re.defense = row2.cavalry_defense
+        break
+      case 3:
+        const level3 = this.state.facilities[CityFacility.ArcherCamp][0]
+        const row3 : FacilityArcherCampGdsRow = this.cityConfig.facilityConfig[CityFacility.ArcherCamp].get((level3 - 1).toString())
+        re.attack = row3.archer_attack
+        re.defense = row3.archer_defense
+        break
+    }
+    return re
+  }
+
+  robSilver(amount : number): number{
+    let re = 0
+    let saveAmount  = 0;
+    for(let i = 0 ; i < this.state.facilities[CityFacility.Store].length; i++){
+      let level = this.state.facilities[CityFacility.Store][i]
+      saveAmount += this.cityConfig.facilityConfig[CityFacility.Store].get((level -1).toString()).silver_save
+    }
+    if(this.useSilver( Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount))){
+      re = Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount)
+    }
+    return re
+  }
+
+  getMaxDefenseTroop(){
+    const wallLevel = this.state.facilities[CityFacility.Wall][0]
+    const row = this.cityConfig.facilityConfig[CityFacility.Wall].get((wallLevel -1).toString())
+    return row.scale_of_troop_defense
+  }
+  getMaxAttackTroop(){
+    const wallLevel = this.state.facilities[CityFacility.MilitaryCenter][0]
+    const row = this.cityConfig.facilityConfig[CityFacility.MilitaryCenter].get((wallLevel -1).toString())
+    return row.scale_of_troop_attack
   }
 
   showAll() {

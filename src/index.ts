@@ -30,6 +30,7 @@ import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/buil
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
+import { General } from './Game/Logic/general';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -118,6 +119,7 @@ function example() {
       city.doRecruit(5, (re)=>{
         console.log(re)
       })
+      console.log(city.getRecruitState())
       
       //update
     }
@@ -144,7 +146,15 @@ function example() {
         )
       console.log("general", general.getGeneralSkillList(1))
       console.log("const ", general.getConstData())
+      general.setDefenseGeneral(1, (re)=>{
+        console.log(re)
       })
+      console.log('defenseGeneral', general.getGeneralBattleInfo(1))
+      general.battle(1, 'test1', (re)=>{
+        console.log(re)
+      })
+      })
+
       
       
   )

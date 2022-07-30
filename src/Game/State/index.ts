@@ -4,7 +4,6 @@ import { IState } from '../../Core/state';
 export interface ResouceInfo {
   lastUpdate: number;
   value: number;
-  production: number;
 }
 
 export interface Recruit{
@@ -19,11 +18,18 @@ export interface ICityState extends IState {
   recruit: Recruit[]
 }
 
+export interface GeneralStamina{
+  value: number
+  lastUpdate: number
+}
+
 export interface IGeneralState extends IState{
   id: string;
   levels: number[]
   able: boolean[]
   skill_levels: number[][]
+  defense_general: number
+  stamina: GeneralStamina[]
 }
 
 

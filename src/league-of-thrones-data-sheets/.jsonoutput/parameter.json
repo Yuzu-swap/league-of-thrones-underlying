@@ -1,4 +1,8 @@
 {
+    "troops_base_load":{
+        "value":"100",
+        "name":"troops_base_load"
+    },
     "general_troops_coefficient":{
         "value":"1.2",
         "name":"general_troops_coefficient"
@@ -14,5 +18,9 @@
     "general_max_level":{
         "value":"100",
         "name":"general_max_level"
+    },
+    "default_defense_general":{
+        "value":"100|100|100|1",
+        "name":"default_defense_general"
     }
 }

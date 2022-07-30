@@ -27,6 +27,17 @@ export enum SkillType{
     Troop = 'recruit'
 }
 
+export interface DefenseInfo{
+    generalId:number
+    generalLevel: number
+    generalType: number
+    attack: number
+    defense: number
+    troop: number
+    silver: number
+    defenseMaxTroop: number
+}
+
 
 export class General{
     state: IGeneralState
@@ -76,7 +87,7 @@ export class General{
         return this.city.getGeneralMaxAble()
     }
     
-    checkIndexAble(id : number): boolean{
+    checkIdAble(id : number): boolean{
         let len = Object.keys(this.config.qualification.configs).length
         if(id > len|| id <= 0){
             return false
@@ -85,7 +96,8 @@ export class General{
     }
 
     ableGeneral(id: number){
-        if(!this.checkIndexAble(id)){
+        this.city.updateResource(ResouceType.Silver)
+        if(!this.checkIdAble(id)){
             return {result : false, error: 'index-error'}
         }
         let count = this.getAbleCount()
@@ -101,20 +113,46 @@ export class General{
     }
 
     disableGeneral(id: number){
-        if(!this.checkIndexAble(id)){
+        this.city.updateResource(ResouceType.Silver)
+        if(!this.checkIdAble(id)){
             return {result : false, error: 'index-error'} 
         }
         this.state.able[id - 1] = false
+        if(this.state.defense_general == id){
+            this.state.update(
+                {
+                    able : this.state.able,
+                    defense_general : -1
+                }
+            )
+        }
+        else{
+            this.state.update(
+                {
+                    able : this.state.able
+                }
+            )
+        }
+        return {result : true}
+    }
+
+    setDefenseGeneral(id : number){
+        if(!this.checkIdAble(id)){
+            return {result : false, error: 'id-error'} 
+        }
+        if(!this.state.able[id - 1]){
+            return {result : false, error: 'general-not-able'}
+        }
         this.state.update(
             {
-                able : this.state.able 
+                defense_general: id
             }
         )
         return {result : true}
     }
 
     getGeneralUpgradeNeed(id: number, currentLevel: number): number{
-        if(!this.checkIndexAble(id)){
+        if(!this.checkIdAble(id)){
             return 0
         }
         const row = this.getGeneralQualification(id)
@@ -125,19 +163,20 @@ export class General{
     }
 
     checkUpgradeGeneral(id: number): boolean{
-        if(!this.checkIndexAble(id)){
+        if(!this.checkIdAble(id)){
             return false
         }
         const level = this.state.levels[id - 1]
         const cost = this.getGeneralUpgradeNeed(id, level)
-        if(this.city.state.resources.silver.value >= cost){
+        if(this.city.getResource(ResouceType.Silver) >= cost){
             return true
         }
         return false
     }
 
     upgradeGeneral( id: number ){
-        if(!this.checkIndexAble(id)){
+        this.city.updateResource(ResouceType.Silver)
+        if(!this.checkIdAble(id)){
             return {result : false, error: 'index-error'} 
         }
         const level = this.state.levels[id - 1]
@@ -232,13 +271,14 @@ export class General{
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
         const level = this.state.skill_levels[generalId -1][skillIndex]
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.state.resources.silver.value >= need){
+        if(this.city.getResource(ResouceType.Silver) >= need){
             return true
         }
         return false
     }
 
     upgradeGeneralSkill(generalId : number, skillIndex : number){
+        this.city.updateResource(ResouceType.Silver)
         if(!this.checkGeneralSkillUpgrade(generalId, skillIndex)){
             return {result : false, error: 'silver-not-enough-error'} 
         }
@@ -281,9 +321,250 @@ export class General{
         return product
     }
 
+    getGeneralStamina(generalId : number){
+        const time = parseInt(new Date().getTime() / 1000 + '');
+        const stamina = this.state.stamina[generalId - 1]
+        const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
+        const realStamina = Math.floor( (time - stamina.lastUpdate)/ this.config.parameter.general_stamina_recovery) + stamina.value
+        if(realStamina >= maxStamina){
+            return maxStamina
+        }
+        return realStamina
+    }
+
+    updateGeneralStamina(generalId: number){
+        const time = parseInt(new Date().getTime() / 1000 + '');
+        let staminaList = this.state.stamina
+        const stamina = this.state.stamina[generalId - 1]
+        const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
+        const realStamina = Math.floor( (time - stamina.lastUpdate)/ this.config.parameter.general_stamina_recovery) + stamina.value
+        if(realStamina > stamina.value && realStamina < maxStamina){
+            staminaList[generalId - 1] = {
+                lastUpdate: stamina.lastUpdate + (realStamina - stamina.value) * this.config.parameter.general_stamina_recovery,
+                value: realStamina
+            }
+            this.state.update(
+                {
+                    'stamina': staminaList
+                }
+            )
+        }
+        else if(realStamina >= maxStamina){
+            staminaList[generalId - 1] = {
+                lastUpdate: time,
+                value: maxStamina
+            }
+            this.state.update(
+                {
+                    'stamina': staminaList
+                }
+            )
+        }
+    }
+    useGeneralStamina(generalId : number, amount: number): boolean{
+        this.updateGeneralStamina(generalId)
+        let staminaList = this.state.stamina
+        if(this.getGeneralStamina(generalId) > amount){
+            staminaList[generalId - 1].value -= amount
+            this.state.update(
+                {
+                    'stamina' : staminaList
+                }
+            )
+            return true
+        }
+        return false
+    }
+    
+
     updateBoost(){
         this.boost.setProduction(StateName.General, ResouceType.Silver, this.getGeneralProduction(ResouceType.Silver))
         this.boost.setProduction(StateName.General, ResouceType.Troop, this.getGeneralProduction(ResouceType.Troop))
-      }
+    }
 
+    getGeneralBattleStatus(generalId : number){
+        if( generalId == -1 ){
+            let base = {
+                [SkillType.Attack]: this.config.parameter.default_defense_general[0],
+                [SkillType.Defense]: this.config.parameter.default_defense_general[1],
+                [SkillType.Load]: this.config.parameter.default_defense_general[2]
+            }
+            const cityStatus = this.city.getBattleStatus(1)
+            let sum = {
+                [SkillType.Attack]: base[SkillType.Attack] + cityStatus.attack,
+                [SkillType.Defense]:  base[SkillType.Defense] + cityStatus.defense,
+                [SkillType.Load]: base[SkillType.Load]
+            }
+            return{
+                sum: sum,
+                base: base
+            }
+        }
+        const generalLevel = this.state.levels[generalId - 1]
+        let base = {
+            [SkillType.Attack]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Attack),
+            [SkillType.Defense]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Defense),
+            [SkillType.Load]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Load)
+        }
+        let extraValue = {
+            [SkillType.Attack]: 0,
+            [SkillType.Defense]: 0,
+            [SkillType.Load]: 0
+        }
+        let extraPercent = {
+            [SkillType.Attack]: 1,
+            [SkillType.Defense]: 1,
+            [SkillType.Load]: 1
+        }
+      
+        const row = this.getGeneralQualification(generalId)
+        const cityStatus = this.city.getBattleStatus(row.general_type)
+        extraValue[SkillType.Attack] = cityStatus.attack
+        extraValue[SkillType.Defense] = cityStatus.defense
+        for( let i = 0; i < row.general_skill.length; i++){
+            const skillRow = this.getSkillInfo(row.general_skill[i])
+            const skillLevel = this.state.skill_levels[generalId - 1][i]
+            const value = this.getSkillValue(generalId, i, skillLevel)
+            if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
+                if(value['value_type'] == 1){
+                    extraPercent[skillRow.buff_type] += value['value']
+                }
+                else{
+                    extraValue[skillRow.buff_type] += value['value']
+                }
+            }
+        }
+        let sum = {
+            [SkillType.Attack]: 0,
+            [SkillType.Defense]: 0,
+            [SkillType.Load]: 0
+        }
+        for( let type in sum ){
+            sum[type] = (extraValue[type] + base[type]) * extraPercent[type]
+        }
+        return{
+            sum: sum,
+            base: base
+        }
+    }
+
+    getDefenseInfo(): DefenseInfo{
+        let re : DefenseInfo = {
+            generalType: 1,
+            generalId: -1,
+            generalLevel: 1,
+            attack: 0,
+            defense: 0,
+            silver: 0,
+            troop: 0,
+            defenseMaxTroop: 0
+        }
+        re.silver = this.city.getResource(ResouceType.Silver)
+        re.troop = this.city.getResource(ResouceType.Troop)
+        re.defenseMaxTroop = this.city.getMaxDefenseTroop()
+        let defenseGeneralId = -1
+        if(this.state.defense_general != -1){
+            defenseGeneralId = this.state.defense_general
+        }
+        else{
+            let maxValue = 1;
+            for(let i = 0 ; i < this.state.able.length; i++){
+                if(this.state.able[i]){
+                    let generalLevel = this.state.levels[i]
+                    let tempValue = this.getGeneralAbility(i + 1, generalLevel, GeneralAbility.Attack) + this.getGeneralAbility(i + 1, generalLevel, GeneralAbility.Defense)
+                    if(tempValue > maxValue){
+                        maxValue = tempValue
+                        defenseGeneralId = i + 1 
+                    }
+                }
+            }
+        }
+        let status = this.getGeneralBattleStatus(defenseGeneralId)
+            re.attack = status.sum[SkillType.Attack]
+            re.defense = status.sum[SkillType.Defense]
+        if(defenseGeneralId != -1){
+            const row = this.getGeneralQualification(defenseGeneralId)
+            re.generalType = row.general_type
+            re.generalLevel = this.state.levels[defenseGeneralId - 1]
+        }
+        else{
+            re.generalType = this.config.parameter.default_defense_general[3]
+        }
+        re.generalId = defenseGeneralId
+        return re
+    }
+
+     //1= infantry ；2=cavalry ；3=archer
+    getGeneralTypeCoe(generalType1: number , generalType2: number){
+        let re = 1;
+        if(
+            (generalType1 - generalType2 + 3) % 3 == 1
+        ){
+            re = 1.2
+        }
+        return re
+    }
+
+    battle( generalId : number , defenseInfo : DefenseInfo){
+        if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
+            return {
+                result: false,
+                error: 'generalid-error'
+            }
+        }
+        if(!(this.useGeneralStamina(generalId, 1))){
+            return{
+                result: false,
+                error: 'general-stamina-error'
+            }
+        }
+        const status = this.getGeneralBattleStatus(generalId)
+        const generalRow = this.getGeneralQualification(generalId)
+        const generalType = generalRow.general_type
+        let ableTroop = Math.max(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+        let attackInfo ={
+            attack: status.sum[SkillType.Attack],
+            defense: status.sum[SkillType.Defense],
+            load: status.sum[SkillType.Load],
+            generalType: generalType,
+            ableTroop: ableTroop
+        }
+        let remainTroopA = attackInfo.ableTroop
+        let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
+        let randomA = 0.9 + Math.random() * 0.2
+        let remainTroopD = Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) 
+        let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
+        let randomD = 0.9 + Math.random() * 0.2
+        
+        while(true){
+            remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
+            if(remainTroopD <= 0){
+                remainTroopD = 0
+                break
+            }
+            remainTroopA -= (( defenseInfo.attack * randomD / attackInfo.defense / randomA ) * coeD * remainTroopD / 10 )
+            if(remainTroopA <= 0){
+                remainTroopA  = 0
+                break
+            }
+        }
+        let re = {
+            result: true,
+            win: false,
+            attackTroopReduce: 0,
+            defenseTroopReduce: 0,
+            silverGet: 0
+        }
+        re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
+        re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
+        if(remainTroopA > 0 ){
+            re.win = true
+            re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
+        }
+        else{
+            re.win = false
+        }
+        this.city.useTroop(re.attackTroopReduce)
+        return re
+    }
 }

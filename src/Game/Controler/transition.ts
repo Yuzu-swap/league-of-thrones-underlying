@@ -15,7 +15,11 @@ import {
   AbleGeneralArgs,
   DisableGeneralArgs,
   UpgradeGeneralArgs,
-  UpgradeGeneralSkillArgs
+  UpgradeGeneralSkillArgs,
+  SetDefenseGeneralArgs,
+  ResouceType,
+  ReceiveTroopArgs,
+  BattleArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -55,6 +59,12 @@ export class TransitionHandler {
         return this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
       case StateTransition.UpgradeGeneralSkill:
         return this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
+      case StateTransition.SetDefenseGeneral:
+        return this.onSetDefenseGeneral(arg as SetDefenseGeneralArgs)
+      case StateTransition.ReceiveTroop:
+        return this.onReceiveTroop(arg as ReceiveTroopArgs)
+      case StateTransition.Battle:
+        return this.onBattle(arg as BattleArgs)
     }
   }
 
@@ -110,6 +120,31 @@ export class TransitionHandler {
     const logic: LogicEssential = this.genLogic(args.from);
     const general = logic.general;
     return general.upgradeGeneralSkill(args.generalId, args.skillIndex)
+  }
+
+  onSetDefenseGeneral(args: SetDefenseGeneralArgs):{}{
+    const logic: LogicEssential = this.genLogic(args.from);
+    const general = logic.general;
+    return general.setDefenseGeneral(args.generalId)
+  }
+
+  onReceiveTroop(args: ReceiveTroopArgs):{}{
+    const logic: LogicEssential = this.genLogic(args.from);
+    const city = logic.city;
+    city.updateResource(ResouceType.Troop)
+    return {result: true}
+  }
+
+  onBattle(args: BattleArgs):{}{
+    const logic1: LogicEssential = this.genLogic(args.from)
+    const logic2: LogicEssential = this.genLogic(args.name)
+    let defenseInfo = logic2.general.getDefenseInfo()
+    let re = logic1.general.battle(args.generalId, defenseInfo)
+    if(re.result == true){
+      (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
+    }
+    logic1.city.useSilver( - (re as any).silverGet as number)
+    return re
   }
 
 }

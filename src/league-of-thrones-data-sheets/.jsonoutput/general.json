@@ -89,21 +89,6 @@
             7
         ],
         "general_id": 6
-    },
-    {
-        "stamina": 10,
-        "qualification_troop_recruit": 1,
-        "qualification_silver_product": 2,
-        "qualification_load": 1,
-        "qualification_defense": 1,
-        "qualification_attack": 5,
-        "general_type": 3,
-        "general_skill":[
-            3,
-            4,
-            7
-        ],
-        "general_id": 999
     }
     ]
 }

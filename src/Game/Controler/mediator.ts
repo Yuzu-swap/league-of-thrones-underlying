@@ -61,11 +61,15 @@ export class LocalMediator
   private ctx: ITransContext;
   private seqNum: number;
   private username:string
-  constructor(username: string) {
+  constructor(username: string[]) {
     super();
+    let obj = {}
+    for(let name of username){
+      obj = Object.assign(obj, getInitState(name, this))
+    }
     this.transitionHandler = new TransitionHandler(
       this,
-      GenerateMemoryLoadStateFunction(getInitState(username,this))
+      GenerateMemoryLoadStateFunction(obj)
     );
     this.seqNum = 0;
   }

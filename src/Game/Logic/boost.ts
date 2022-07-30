@@ -2,7 +2,7 @@ import { ResouceType } from "../Const"
 import { StateName } from "../Const"
 export interface IBoost {
     setProduction( stateType: StateName, typ: ResouceType ,value: number ): void
-    getProduction( typ: ResouceType ): void
+    getProduction( typ: ResouceType ): number
 }
 
 export class Boost implements IBoost{
@@ -37,7 +37,7 @@ export class Boost implements IBoost{
                 break
         }
     }
-    getProduction(typ: ResouceType): void {
+    getProduction(typ: ResouceType): number {
         return this.city.product[typ] + this.general.product[typ]
     }
 }

@@ -35,12 +35,20 @@ export class Parameter {
     general_stamina_recovery: number;
     general_skill_max_level: number;
     general_max_level: number;
+	troops_base_load: number;
+	default_defense_general: number[]
   
     constructor(obj: {}) {
       this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
       this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
       this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
       this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
+	  this.troops_base_load = obj['troops_base_load']? parseInt(obj['troops_base_load']['value']): 100;
+	  let tempList = (obj['default_defense_general']['value'] as string).split('|')
+	  this.default_defense_general = []
+	  for(let item of tempList){
+		this.default_defense_general.push(parseInt(item))
+	  }
     }
 }
 
@@ -180,9 +188,5 @@ export class BuffTable{
 export var GeneralConfigFromGDS = {
 	qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
 	buff: new BuffTable(buffGDS.Config),
-	
-	//console.log(Parameter) null
-	//TODO:fix recyle dependency of Parameter and  GeneralConfigFromGDS
 	parameter: new Parameter(parameterGDS)
-	//parameter: null
 }

@@ -1,5 +1,5 @@
 import { General, GeneralAbility } from '../Logic/general'
-import { City } from '../Logic/game'
+import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
@@ -23,6 +23,7 @@ import {
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
+import { callbackify } from 'util'
 
 
 
@@ -58,6 +59,17 @@ export interface ICityComponent extends IComponent {
    * recruit troop
   */
   doRecruit(amount: number, callback: (res: ITransResult) => void): void;
+
+   /**
+   * get Recruit state
+  */
+  getRecruitState():{}
+
+  /**
+   * receive troop
+  */
+  receiveTroop(callback:(result: any) => void): void
+  
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -150,6 +162,38 @@ export interface IGeneralComponent extends IComponent {
    * @param skillIndex the index of the skill in general 
   */
   upgradeGeneralSkill(generalId: number, skillIndex: number, callback: (result: any) => void): void
+
+
+  /**
+   * set defense general
+   * @param generalId the id of the general
+  */
+  setDefenseGeneral(generalId: number, callback: (result: any) => void): void
+
+  /**
+   * get defenseGeneral
+  */
+  getDefenseGeneralId(): number
+
+  /**
+   * get battle info of the general
+   * @param generalId the id of the general
+  */
+  getGeneralBattleInfo(generalId: number): {}
+
+  /**
+   * 
+  */
+  getAllBattleStatus():{}
+
+  getBattleStatus( name : string):{}
+
+  /**
+   * battle
+   * @param name name of the player to battle
+   * @param generalId id of the general
+  */
+  battle( generalId: number ,name: string , callback: (result: any) => void): void
 }
 
 
@@ -158,6 +202,7 @@ export class CityComponent implements ICityComponent {
   city: City;
   mediator: IStateMediator<StateTransition, ITransContext>
   cityStateId: IStateIdentity
+  listener: IStatetWithTransContextCallback[]
 
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.cityStateId = {
@@ -165,6 +210,7 @@ export class CityComponent implements ICityComponent {
     }
     this.type = ComponentType.City
     this.mediator = mediator
+    this.listener = []
   }
 
   setCity(city : City){
@@ -193,20 +239,31 @@ export class CityComponent implements ICityComponent {
   updateResource(inter: number = 5000): void {
     setInterval(
       () => {
-        for (let key in this.city.state.resources) {
-          this.city.getResource(key as any as ResouceType)
+        for(let callbak of this.listener){
+          callbak({} as any)
         }
       },
       inter
     )
-
   }
 
   getFacilityList(): { [key in CityFacility]?: number[] } {
     return copyObj(this.city.state.facilities)
   }
-  getResource(): { [key in ResouceType]?: ResouceInfo } {
-    return copyObj(this.city.state.resources)
+  getResource(): { } {
+    let re = {
+      [ResouceType.Silver]:
+      {
+          value: this.city.getResource(ResouceType.Silver),
+          production: this.city.boost.getProduction(ResouceType.Silver)
+      },
+      [ResouceType.Troop]:
+      {
+          value: this.city.getResource(ResouceType.Troop),
+          production: this.city.boost.getProduction(ResouceType.Troop)
+      } 
+    }
+    return re
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined {
     return this.city.getUpgradeInfo(typ, targetLevel)
@@ -230,12 +287,39 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
 
+  getRecruitState(): {} {
+    const time = parseInt(new Date().getTime() / 1000 + '');
+    let re = {
+      status: RecruitStatus.None,
+      endtime: 0,
+      amount: 0
+    }
+    if(this.city.state.recruit.length != 0){
+      re.endtime = this.city.state.recruit[0].endtime
+      re.amount = this.city.state.recruit[0].amount
+      if(re.endtime >= time){
+        re.status = RecruitStatus.Going
+      }
+      else{
+        re.status = RecruitStatus.Ready
+      }
+    }
+    return re
+  }
+
+  receiveTroop(callback: (result: any) => void): void {
+    this.mediator.sendTransaction(StateTransition.ReceiveTroop, {
+      from: Throne.instance().username
+    }, callback)
+  }
+
   onStateUpdate(callback: IStatetWithTransContextCallback): void {
     this.mediator.onReceiveState(
       this.cityStateId
       ,
       callback
     )
+    this.listener.push(callback)
   }
 }
 
@@ -294,12 +378,14 @@ export class GeneralComponent implements IGeneralComponent {
         qualification: {},
         level: 0,
         able: false,
-        skilllevel: [1, 1, 1]
+        skilllevel: [1, 1, 1],
+        stamina: 0
       }
       temp.qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(i + 1)))
       temp.level = this.general.state.levels[i]
       temp.able = this.general.state.able[i]
       temp.skilllevel = this.general.state.skill_levels[i].concat()
+      temp.stamina = this.general.getGeneralStamina(i + 1)
       re[i] = temp
     }
     return re
@@ -403,6 +489,47 @@ export class GeneralComponent implements IGeneralComponent {
     }, callback)
   }
 
+  setDefenseGeneral(generalId: number, callback: (result: any) => void): void {
+    this.mediator.sendTransaction(StateTransition.SetDefenseGeneral,{
+      from: Throne.instance().username,
+      generalId: generalId
+    }, callback)
+  }
+
+  getDefenseGeneralId(): number {
+    return this.general.state.defense_general
+  }
+
+  getGeneralBattleInfo(generalId: number): {} {
+    return this.general.getGeneralBattleStatus(generalId)
+  }
+
+  getAllBattleStatus(): {} {
+    let re = []
+    let state1 = this.general.getDefenseInfo()
+    delete state1['defenseMaxTroop']
+    state1['username'] = 'test'
+    let state2 = Throne.instance().logicETest.general.getDefenseInfo()
+    state2['username'] = 'test1'
+    delete state2['defenseMaxTroop']
+    re = [state1, state2]
+    return re
+  }
+  getBattleStatus(name: string): {} {
+    let state2 = Throne.instance().logicETest.general.getDefenseInfo()
+    state2['username'] = 'test1'
+    delete state2['defenseMaxTroop']
+    return state2
+  }
+
+  battle(generalId: number,name: string, callback: (result: any) => void): void {
+    this.mediator.sendTransaction(StateTransition.Battle,{
+      from: Throne.instance().username,
+      generalId: generalId,
+      name: name
+    }, callback)
+  }
+
 }
 
 export enum ComponentType {
@@ -430,6 +557,7 @@ export class Throne implements IThrone {
   inited: boolean
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
+  logicETest: LogicEssential
   username : string
   wsHost : string
 
@@ -443,6 +571,7 @@ export class Throne implements IThrone {
 
   async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
+    const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
     this.wsHost = obj["wshost"] ? obj["wshost"] : 'test-ws.leagueofthrones.com'
     if(this.wsHost && this.username!='test'){
@@ -450,11 +579,13 @@ export class Throne implements IThrone {
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
-      this.mediator = new LocalMediator(this.username)
+      this.mediator = new LocalMediator([this.username, 'test1'])
     }
     // init essensial states
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
+    statesTest.city = (await this.mediator.queryState({ id: `${StateName.City}:test1` }, {}, null)) as ICityState
+    statesTest.general = (await this.mediator.queryState({ id: `${StateName.General}:test1` }, {}, null)) as IGeneralState
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
@@ -464,6 +595,7 @@ export class Throne implements IThrone {
     //   },
     // ])
     this.logicEssential = createLogicEsential(states)
+    this.logicETest = createLogicEsential(statesTest)
     this.inited = true
 
   }
