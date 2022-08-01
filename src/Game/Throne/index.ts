@@ -1,4 +1,4 @@
-import { General, GeneralAbility } from '../Logic/general'
+import { BattleRecord, BattleType, General, GeneralAbility } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
@@ -24,6 +24,7 @@ import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } 
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
+import { userInfo } from 'os'
 
 
 
@@ -194,6 +195,8 @@ export interface IGeneralComponent extends IComponent {
    * @param generalId id of the general
   */
   battle( generalId: number ,name: string , callback: (result: any) => void): void
+
+  getBattleRecord():BattleRecord[]
 }
 
 
@@ -528,6 +531,84 @@ export class GeneralComponent implements IGeneralComponent {
       generalId: generalId,
       name: name
     }, callback)
+  }
+
+  getBattleRecord(): BattleRecord[] {
+    let re: BattleRecord[] = []
+    let record1:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1000,
+        silverGet: 100
+      },
+      enemyInfo:{
+        generalId: -1,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1500,
+        silverGet: -100
+      },
+      type: BattleType.Attack,
+      result: true,
+    }
+    let record2:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1500,
+        silverGet: 0
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1000,
+        silverGet: 0
+      },
+      type: BattleType.Attack,
+      result: false,
+    }
+    let record3:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1000,
+        silverGet: 0
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1500,
+        silverGet: 0
+      },
+      type: BattleType.Defense,
+      result: true,
+    }
+    let record4:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1500,
+        silverGet: -100
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1000,
+        silverGet: 100
+      },
+      type: BattleType.Defense,
+      result: false,
+    }
+    re = [record1, record2, record3, record4]
+    return re
   }
 
 }

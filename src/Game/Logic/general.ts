@@ -38,6 +38,25 @@ export interface DefenseInfo{
     defenseMaxTroop: number
 }
 
+export enum BattleType{
+    Attack = 'attack',
+    Defense = 'defense'
+}
+
+export interface BattleRecordInfo{
+    username: string
+    generalId: number
+    generalLevel: number
+    troopReduce: number
+    silverGet: number
+}
+
+export interface BattleRecord{
+    myInfo: BattleRecordInfo
+    enemyInfo: BattleRecordInfo
+    type: BattleType
+    result: boolean
+}
 
 export class General{
     state: IGeneralState
@@ -535,7 +554,7 @@ export class General{
         let remainTroopD = Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) 
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
         let randomD = 0.9 + Math.random() * 0.2
-        
+
         while(true){
             remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
             if(remainTroopD <= 0){

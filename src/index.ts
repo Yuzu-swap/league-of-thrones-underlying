@@ -144,7 +144,7 @@ function example() {
           console.log("upgrade skill", result)
         }
         )
-      console.log("general", general.getGeneralSkillList(1))
+      console.log("general", general.getGeneralList())
       console.log("const ", general.getConstData())
       general.setDefenseGeneral(1, (re)=>{
         console.log(re)
@@ -153,6 +153,7 @@ function example() {
       general.battle(1, 'test1', (re)=>{
         console.log(re)
       })
+      console.log(general.getBattleRecord())
       })
 
       
