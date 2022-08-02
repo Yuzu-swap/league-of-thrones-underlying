@@ -1,10 +1,11 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable} from '../DataConfig'
-import { IGeneralState , ResouceInfo} from '../State';
+import { IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { ResouceType, StateName } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
+import { State } from '../../Core/state';
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -585,5 +586,11 @@ export class General{
         }
         this.city.useTroop(re.attackTroopReduce)
         return re
+    }
+
+    //should trigger when defense general change
+    updateDefenseInfo(defenderInfo: IDefenderInfoState){
+        const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)
+        new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 }

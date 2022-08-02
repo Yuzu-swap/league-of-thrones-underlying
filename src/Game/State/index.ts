@@ -32,6 +32,15 @@ export interface IGeneralState extends IState{
   stamina: GeneralStamina[]
 }
 
+export interface IDefenderInfoState extends IState{
+    id: string;
+    generalId:number
+    generalLevel: number
+    generalType: number
+    attack: number
+    defense: number
+    troop: number
+}
 
 export * from  "./initstate"
 

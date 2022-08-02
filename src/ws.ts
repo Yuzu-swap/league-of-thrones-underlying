@@ -29,7 +29,7 @@ async function testws(uname) {
       }
     );
 
-    const cities = (await ws.queryStates(
+    const cities = (await ws.query(
       `${StateName.City}`,
       {},
     ))

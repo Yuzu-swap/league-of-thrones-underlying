@@ -2,6 +2,7 @@ const log = globalThis.log ||function(){}
 
 export interface IState {
   getId(): string;
+  getWatcher() :any
   update(obj: {}): void;
   stateObj(): {};
 }
@@ -61,11 +62,12 @@ export class State<UnderlyingStateType extends IStateIdentity>
     'update',
     'getId',
     'unsderlying',
-    'stateObj'
+    'stateObj',
+    'getWatcher',
   ];
 
   constructor(
-    initVal: Omit<UnderlyingStateType, 'update' | 'getId' | 'stateObj'>,
+    initVal: Omit<UnderlyingStateType, 'update' | 'getId' | 'stateObj' | 'getWatcher'| 'unsderlying'>,
     watcher?: IStateChangeWatcher
   ) {
     // deep clone ins ES%
@@ -82,6 +84,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
     delete obj['update'];
     delete obj['getId'];
     delete obj['unsderlying'];
+    delete obj['getWatcher'];
 
     for (var key in obj) {
       if (State.protectedFields.indexOf(key) == -1) {
@@ -112,7 +115,12 @@ export class State<UnderlyingStateType extends IStateIdentity>
     }
     return res;
   }
+
+  getWatcher(): IStateChangeWatcher {
+    return this._watcher;
+  }
 }
+
 
 export interface IStateManager {
   get(sid: IStateIdentity): IState;

@@ -1,6 +1,7 @@
 export enum StateName {
 	City = "city",
-	General = "general"
+	General = "general" ,
+	DefenderInfo = "defenderinfo"
 }
 
 export enum CityFacility {

@@ -27,6 +27,9 @@ var InitState = {
       defense_general: -1,
       stamina: []
     },
+    //TODO: add default defender info
+    [StateName.DefenderInfo]:{
+    },
 
 };
 

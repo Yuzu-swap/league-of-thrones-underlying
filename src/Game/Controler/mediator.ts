@@ -79,7 +79,7 @@ export class LocalMediator
       this.notifyState({ id: state.getId() }, { ...state, context: this.ctx });
   }
 
-	queryStates( typ: string, args:{}):Promise<any> {
+	query( typ: string, args:{}):Promise<any> {
     //TODO:mock result here
     return new Promise((resolve, reject) => {
       resolve({})

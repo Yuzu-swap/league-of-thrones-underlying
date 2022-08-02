@@ -90,7 +90,7 @@ export class WebSocketMediator
   }
 
 
-  queryStates(
+  query(
     typ: string,
     args:{}
   ):Promise<any> {
