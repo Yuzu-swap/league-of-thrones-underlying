@@ -33,13 +33,24 @@ import {
 
 const log = globalThis.log || function () {};
 
+
+enum TransitionEventType {
+  Battles = "battles",
+}
+
+export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
+
+
+
+
 export class TransitionHandler {
   stateManger: IStateManager;
   dataConfigs: CityConfig;
 
   constructor(
     stateWatcher: IStateChangeWatcher,
-    loadLoadStateFunc?: LoadStateFunc
+    loadLoadStateFunc?: LoadStateFunc,
+    eventRecorderFunc?: EventRecorderFunc,
   ) {
     //init state
     this.stateManger = new BaseStateManager({}, loadLoadStateFunc);

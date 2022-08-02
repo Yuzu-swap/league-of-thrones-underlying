@@ -69,7 +69,10 @@ export class LocalMediator
     }
     this.transitionHandler = new TransitionHandler(
       this,
-      GenerateMemoryLoadStateFunction(obj)
+      GenerateMemoryLoadStateFunction(obj),
+      (typ: string, event: any) => {
+        console.log("TransitionHandler Save event:", typ, event);
+      }
     );
     this.seqNum = 0;
   }
