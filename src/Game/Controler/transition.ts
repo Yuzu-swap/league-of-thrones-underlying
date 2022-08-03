@@ -30,6 +30,7 @@ import {
   createLogicEsential,
   LogicEssential
 } from '../Logic/creator';
+import { BattleRecordInfo } from '../Logic/general';
 
 const log = globalThis.log || function () {};
 
@@ -40,12 +41,18 @@ enum TransitionEventType {
 
 export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 
+export interface BattleTransRecord{
+  attackInfo: BattleRecordInfo
+  defenseInfo: BattleRecordInfo
+  result: boolean
+}
 
 
 
 export class TransitionHandler {
   stateManger: IStateManager;
   dataConfigs: CityConfig;
+  eventRecorderFunc: EventRecorderFunc
 
   constructor(
     stateWatcher: IStateChangeWatcher,
@@ -54,6 +61,7 @@ export class TransitionHandler {
   ) {
     //init state
     this.stateManger = new BaseStateManager({}, loadLoadStateFunc);
+    this.eventRecorderFunc = eventRecorderFunc
   }
 
   onTransition(sid: StateTransition, arg: {}): {} {
@@ -152,7 +160,26 @@ export class TransitionHandler {
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
     if(re.result == true){
+      
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
+      let btr: BattleTransRecord  = {
+        attackInfo :{
+          username: logic1.city.state.getId(),
+          generalId: args.generalId,
+          generalLevel: 1,
+          troopReduce: re['attackTroopReduce'],
+          silverGet: re['silverGet']
+        },
+        defenseInfo:{
+          username: logic2.city.state.getId(),
+          generalId: defenseInfo.generalId,
+          generalLevel: defenseInfo.generalLevel,
+          troopReduce: re['defenseTroopReduce'],
+          silverGet: -re['silverGet']
+        },
+        result: re['win']
+      }
+      this.eventRecorderFunc(TransitionEventType.Battles, btr)
     }
     logic1.city.useSilver( - (re as any).silverGet as number)
     return re
