@@ -65,26 +65,39 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {}): {} {
+    let re = {}
     switch (sid) {
       case StateTransition.UpgradeFacility:
-        return this.onUpdateFacility(arg as UpgradeFacilityArgs);
+        re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
+        break
       case StateTransition.Recruit:
-        return this.onRecruit(arg as RecruitArgs);
+        re = this.onRecruit(arg as RecruitArgs);
+        break
       case StateTransition.AbleGeneral:
-        return this.onAbleGeneral(arg as AbleGeneralArgs);
+        re = this.onAbleGeneral(arg as AbleGeneralArgs);
+        break
       case StateTransition.DisableGeneral:
-        return this.onDisableGeneral(arg as DisableGeneralArgs)
+        re = this.onDisableGeneral(arg as DisableGeneralArgs)
+        break
       case StateTransition.UpgradeGeneral:
-        return this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
+        re = this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
+        break
       case StateTransition.UpgradeGeneralSkill:
-        return this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
+        re = this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
+        break
       case StateTransition.SetDefenseGeneral:
-        return this.onSetDefenseGeneral(arg as SetDefenseGeneralArgs)
+        re = this.onSetDefenseGeneral(arg as SetDefenseGeneralArgs)
+        break
       case StateTransition.ReceiveTroop:
-        return this.onReceiveTroop(arg as ReceiveTroopArgs)
+        re = this.onReceiveTroop(arg as ReceiveTroopArgs)
+        break
       case StateTransition.Battle:
-        return this.onBattle(arg as BattleArgs)
+        re = this.onBattle(arg as BattleArgs)
+        break
     }
+    const logic: LogicEssential = this.genLogic(arg['from']);
+    logic.general.updateDefenseInfo();
+    return re
   }
 
   genLogic(id: string): LogicEssential {

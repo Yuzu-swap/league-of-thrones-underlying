@@ -346,17 +346,6 @@ export class GeneralComponent implements IGeneralComponent {
       ,
       ()=>{
         this.general.updateBoost()
-        this.general.updateDefenseInfo()
-      }
-    )
-    const cityid = this.general.state.id.replace(StateName.General,StateName.City)
-    this.mediator.onReceiveState(
-      {
-        id: cityid
-      }
-      ,
-      ()=>{
-        this.general.updateDefenseInfo()
       }
     )
   }
