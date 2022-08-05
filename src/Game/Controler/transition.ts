@@ -57,15 +57,14 @@ export class TransitionHandler {
   constructor(
     stateWatcher: IStateChangeWatcher,
     loadLoadStateFunc?: LoadStateFunc,
-    eventRecorderFunc?: EventRecorderFunc,
   ) {
     //init state
     this.stateManger = new BaseStateManager({}, loadLoadStateFunc);
-    this.eventRecorderFunc = eventRecorderFunc
   }
 
-  onTransition(sid: StateTransition, arg: {}): {} {
+  onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
     let re = {}
+    this.eventRecorderFunc = eventRecorderFunc
     switch (sid) {
       case StateTransition.UpgradeFacility:
         re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
@@ -192,10 +191,16 @@ export class TransitionHandler {
         },
         result: re['win']
       }
-      this.eventRecorderFunc(TransitionEventType.Battles, btr)
+      this.recordEvent(TransitionEventType.Battles, btr)
     }
     logic1.city.useSilver( - (re as any).silverGet as number)
     return re
+  }
+
+  recordEvent(typ: TransitionEventType,event: any) {
+    if (this.eventRecorderFunc){
+      this.eventRecorderFunc(typ,event)
+    }
   }
 
 }
