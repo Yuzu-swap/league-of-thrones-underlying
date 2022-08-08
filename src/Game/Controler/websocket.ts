@@ -18,6 +18,7 @@ export class WebSocketMediator
   private client: any;
   private seqNum: number;
   private respCallbacks: {};
+  private respContext: {};
   private stateCaches: { [key: string]: IState } = {};
   private ctx: ITransContext;
   private notifyStateChange: boolean;
@@ -28,6 +29,7 @@ export class WebSocketMediator
     this.seqNum = 0;
     this.client = new w3cwebsocket(url);
     this.respCallbacks = {};
+    this.respContext ={}
     this.stateCaches = {};
     this.notifyStateChange = true;
   }
@@ -48,7 +50,7 @@ export class WebSocketMediator
 
           if (this.respCallbacks[msg.SeqNum]) {
             if (msg.Type === MessageType.Transition) {
-              this.respCallbacks[msg.SeqNum](msg.Data);
+              this.respCallbacks[msg.SeqNum]( {...this.respContext[msg.SeqNum],result:msg.Data} );
               for (var sid in msg.States) {
                 const stateObj = msg.States[sid];
                 this._updateState(sid, stateObj, false);
@@ -62,6 +64,8 @@ export class WebSocketMediator
             } else if (msg.Type == MessageType.Query) {
               this.respCallbacks[msg.SeqNum](msg.Data);
             }
+            delete this.respCallbacks[msg.SeqNum];
+            delete this.respContext[msg.SeqNum];
           }
         } else {
           // state notify
@@ -165,11 +169,12 @@ export class WebSocketMediator
 
     var msg: MessageC2S = {
       ...ctx,
-      Data: args
+      Data: {...args,ts:new Date().getTime()},
     };
 
     console.log('send msg is ', JSON.stringify(msg));
     this.client.send(JSON.stringify(msg));
+    this.respContext[seqNum] = ctx;
     this.respCallbacks[seqNum] = callback;
 
     return ctx;
