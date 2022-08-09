@@ -1,7 +1,15 @@
 {
+    "victory_need_occupy_times":{
+        "value":"28800",
+        "name":"victory_need_occupy_times"
+    },
     "troops_base_load":{
         "value":"100",
         "name":"troops_base_load"
+    },
+    "occupy_block_protect_times":{
+        "value":"7200",
+        "name":"occupy_block_protect_times"
     },
     "general_troops_coefficient":{
         "value":"1.2",
@@ -22,5 +30,9 @@
     "default_defense_general":{
         "value":"100|100|100|1",
         "name":"default_defense_general"
+    },
+    "battle_victory_get_glory":{
+        "value":"100",
+        "name":"battle_victory_get_glory"
     }
 }

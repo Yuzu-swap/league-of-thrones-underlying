@@ -23,6 +23,12 @@ export interface GeneralStamina{
   lastUpdate: number
 }
 
+export interface GeneralDefenseBlock{
+  generalId: number
+  x_id: number
+  y_id: number
+}
+
 export interface IGeneralState extends IState{
   id: string;
   levels: number[]
@@ -30,16 +36,51 @@ export interface IGeneralState extends IState{
   skill_levels: number[][]
   defense_general: number
   stamina: GeneralStamina[]
+  defenseBlockList: GeneralDefenseBlock[]
 }
 
 export interface IDefenderInfoState extends IState{
-    id: string;
-    generalId:number
-    generalLevel: number
-    generalType: number
-    attack: number
-    defense: number
-    troop: number
+  id: string;
+  generalId:number
+  generalLevel: number
+  generalType: number
+  attack: number
+  defense: number
+  silver: number
+  troop: number
+}
+
+export interface IMapGlobalState extends IState{
+  id: string
+  campInfo: number[][]
+  campMembers: string[][]
+  updateTime: number[]
+}
+
+export interface BelongInfo{
+  unionId: number,
+  updateTime: number
+}
+
+export interface BlockDefenseInfo{
+  username: string
+  generalId: number
+  generalType: number
+  generalLevel: number
+  attack: number
+  defense: number
+  troops: number
+}
+
+export interface IBlockState extends IState{
+  id: string
+  x_id: number
+  y_id: number
+  belong: BelongInfo
+  durability: number
+  defaultDefense: BlockDefenseInfo[]
+  defenseList: BlockDefenseInfo[]
+  lastAttachTime: number
 }
 
 export * from  "./initstate"

@@ -11,6 +11,7 @@ import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
+import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -18,6 +19,7 @@ import {
 	StateName,
   } from '../Const';
 import { ConfigContainer } from '../../Core/config';
+import { BlockDefenseInfo } from '../State';
 export class FacilityLimit {
 	max_count: number;
 	building_name: string;
@@ -37,6 +39,9 @@ export class Parameter {
     general_max_level: number;
 	troops_base_load: number;
 	default_defense_general: number[]
+	victory_need_occupy_times: number
+	occupy_block_protect_times: number
+	battle_victory_get_glory: number
   
     constructor(obj: {}) {
       this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
@@ -44,12 +49,88 @@ export class Parameter {
       this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
       this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
 	  this.troops_base_load = obj['troops_base_load']? parseInt(obj['troops_base_load']['value']): 100;
+	  this.victory_need_occupy_times = obj['victory_need_occupy_times']? parseInt(obj['victory_need_occupy_times']['value']): 28800
+	  this.occupy_block_protect_times = obj['occupy_block_protect_times']? parseInt(obj['occupy_block_protect_times']['value']): 7200
+	  this.battle_victory_get_glory = obj['battle_victory_get_glory']? parseInt(obj['battle_victory_get_glory']['value']): 100
 	  let tempList = (obj['default_defense_general']['value'] as string).split('|')
 	  this.default_defense_general = []
 	  for(let item of tempList){
 		this.default_defense_general.push(parseInt(item))
 	  }
     }
+
+}
+
+export interface MapOccupyReward{
+	type: number
+	name: string
+	count: number
+}
+
+export interface MapDefenseTroop{
+	type: number
+	defense: number
+	count: number
+	attack: number
+}
+
+export interface MapGDS{
+	x_id: number
+	y_id: number
+	victory_occupy_reward: MapOccupyReward[]
+	type: number
+	troops: MapDefenseTroop[]
+	silver_total_number: number
+	parameter: number
+	gather_silver_speed: number
+	durability: number
+	buff_id: number
+	area: number
+}
+
+export class MapConfig{
+	config: {[key: string]: MapGDS}
+	constructor(obj:{}){
+		this.config = {}
+		for(let key in obj){
+			let row = obj[key]
+			let temp: MapGDS = {
+				x_id: row['x_id'],
+				y_id: row['y_id'],
+				victory_occupy_reward: [],
+				type: row['type'],
+				troops: [],
+				silver_total_number: row['silver_total_number'],
+				parameter: row['parameter'],
+				gather_silver_speed: row['gather_silver_speed'],
+				durability: row['durability'],
+				buff_id: row['buff_id'],
+				area: row['area']
+			}
+			for(let reward of row['victory_occupy_reward']){
+				let rtemp: MapOccupyReward = {
+					type: reward['type'],
+					name: reward['name'],
+					count: reward['count']
+				}
+				temp.victory_occupy_reward.push(rtemp)
+			}
+			for(let troop of row['troops']){
+				let ttemp: MapDefenseTroop = {
+					type: troop['type'],
+					defense: troop['defense'],
+					count: troop['count'],
+					attack: troop['attack']
+				}
+				temp.troops.push(ttemp)
+			}
+			this.config[key] = temp
+		}
+	}
+	get(x_id: number, y_id: number){
+		let key = x_id + '^' + y_id
+		return this.config[key]
+	}
 }
 
 export interface FacilityGdsRow {
@@ -185,8 +266,31 @@ export class BuffTable{
 	}
 }
 
+export var parameterConfig = new Parameter(parameterGDS)
+
 export var GeneralConfigFromGDS = {
 	qualification: new ConfigContainer<GeneralGdsRow>(qualificationGDS.Config),
 	buff: new BuffTable(buffGDS.Config),
-	parameter: new Parameter(parameterGDS)
+	parameter: parameterConfig
+}
+
+export var MapConfigFromGDS = new MapConfig(mapGDS)
+
+export function GenBlockDefenseTroop(x_id: number, y_id: number){
+	let row = MapConfigFromGDS.get(x_id, y_id)
+	let troops = row.troops
+	let re: BlockDefenseInfo[] = []
+	for(let troop of troops){
+		let temp : BlockDefenseInfo = {
+			username: '',
+			generalId: -1,
+			generalLevel: 1,
+			generalType: troop.type,
+			attack: troop.attack,
+			defense: troop.defense,
+			troops: troop.count
+		}
+		re.push(temp)
+	}
+	return re
 }

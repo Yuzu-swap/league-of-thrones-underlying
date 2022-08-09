@@ -11,7 +11,7 @@ import {
   State
 } from '../../Core/state';
 import { TransitionHandler } from './transition';
-import { ICityState, GetInitState, IGeneralState } from '../State';
+import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
   BaseMessage,
@@ -45,6 +45,33 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
   };
 }
 
+function getGlobleState(wather: IStateChangeWatcher):{
+  [key: string]: IState
+}{
+  let re = {}
+  const InitState = GetInitState();
+  re = Object.assign(
+    re, {
+      [StateName.MapGlobalInfo]: new State<IMapGlobalState>(
+        {
+          id: [StateName.MapGlobalInfo],
+          ...InitState[StateName.MapGlobalInfo]
+        },
+        wather
+      ).unsderlying()
+    }
+  )
+  const mapState = GetMapState()
+  for(let id in mapState){
+    re[id] = new State<IBlockState>(
+      mapState[id],
+      wather
+    ).unsderlying()
+     
+  }
+  return re
+}
+
 export interface ITransContext extends BaseMessage {}
 export type IStatetWithTransContextCallback = (
   ctx: IContextState<ITransContext>
@@ -67,6 +94,7 @@ export class LocalMediator
     for(let name of username){
       obj = Object.assign(obj, getInitState(name, this))
     }
+    obj = Object.assign(obj, getGlobleState(this))
     this.transitionHandler = new TransitionHandler(
       this,
       GenerateMemoryLoadStateFunction(obj)

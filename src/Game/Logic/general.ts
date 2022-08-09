@@ -1,6 +1,6 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable} from '../DataConfig'
-import { IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
+import { BlockDefenseInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { ResouceType, StateName } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
@@ -11,6 +11,14 @@ export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
     buff: BuffTable
     parameter: Parameter
+}
+
+export interface BattleResult{
+    result: boolean
+    win: boolean
+    attackTroopReduce: number
+    defenseTroopReduce: number
+    silverGet: number
 }
 
 export enum GeneralAbility{
@@ -192,6 +200,13 @@ export class General{
             return true
         }
         return false
+    }
+
+    getGeneralLevel( id : number): number{
+        if(this.checkIdAble(id)){
+            return this.state.levels[id - 1]
+        }
+        return 1
     }
 
     upgradeGeneral( id: number ){
@@ -525,7 +540,11 @@ export class General{
         return re
     }
 
-    battle( generalId : number , defenseInfo : DefenseInfo){
+    getMaxAttackTroop(){
+        return Math.max(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+    }
+
+    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1){
         if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
             return {
                 result: false,
@@ -541,13 +560,13 @@ export class General{
         const status = this.getGeneralBattleStatus(generalId)
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
-        let ableTroop = Math.max(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+        let ableTroop = this.getMaxAttackTroop()
         let attackInfo ={
             attack: status.sum[SkillType.Attack],
             defense: status.sum[SkillType.Defense],
             load: status.sum[SkillType.Load],
             generalType: generalType,
-            ableTroop: ableTroop
+            ableTroop: remainTroop != -1? remainTroop : ableTroop
         }
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
@@ -568,7 +587,7 @@ export class General{
                 break
             }
         }
-        let re = {
+        let re : BattleResult = {
             result: true,
             win: false,
             attackTroopReduce: 0,
@@ -595,4 +614,89 @@ export class General{
         delete defenderInfo['defenseMaxTroop']
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
+
+    getDefenseBlockInfo(generalId : number) : BlockDefenseInfo
+    {
+        let attackinfo = this.getGeneralBattleStatus(generalId)
+        let row = this.getGeneralQualification(generalId)
+        let re: BlockDefenseInfo = {
+            username: this.state.getId(),
+            generalId: generalId,
+            generalLevel: this.state.levels[generalId - 1],
+            generalType: row.general_type,
+            attack: attackinfo.sum[SkillType.Attack],
+            defense: attackinfo.sum[SkillType.Defense],
+            troops: this.getMaxAttackTroop()
+        }
+        return re
+    }
+
+    checkDefenseBlock(generalId: number, x_id: number, y_id: number){
+        for(let info of this.state.defenseBlockList){
+            if(info.generalId == generalId){
+                return false
+            }
+            if(info.x_id == x_id && info.y_id == y_id){
+                return false
+            }
+        }
+        return true
+    }
+
+    defenseBlock(generalId: number, x_id: number, y_id: number){
+        if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
+            return {
+                result: false,
+                error: 'generalid-error'
+            }
+        }
+        if(!this.checkDefenseBlock(generalId, x_id, y_id)){
+            return {
+                result: false,
+                error: 'one-block-can-only-defense-once'
+            }
+        }
+        if(!(this.useGeneralStamina(generalId, 1))){
+            return{
+                result: false,
+                error: 'general-stamina-error'
+            }
+        }
+        let troop = this.getMaxAttackTroop()
+        this.city.useTroop(troop)
+        let defenseList = this.state.defenseBlockList
+        defenseList.push(
+            {
+                generalId: generalId,
+                x_id: x_id,
+                y_id: y_id
+            }
+        )
+        this.state.update(
+            {
+                'defenseBlockList': defenseList
+            }
+        )
+        return {
+            result: true
+        }
+    }
+
+    cancelDefenseBlock(generalId: number, remainTroop: number){
+        let defenseList = this.state.defenseBlockList
+        for(let i = 0; i< defenseList.length; i++){
+            let info = defenseList[i]
+            if(info.generalId == generalId){
+                defenseList.splice(i, 1)
+                break;
+            }
+        }
+        this.state.update(
+            {
+                'defenseBlockList': defenseList
+            }
+        )
+        this.city.useTroop(-remainTroop)
+    }
+
 }

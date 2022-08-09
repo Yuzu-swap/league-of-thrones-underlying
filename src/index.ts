@@ -32,6 +32,7 @@ import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
 import { General } from './Game/Logic/general';
+import { IMapComponent } from './Game/Throne/map';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -156,14 +157,50 @@ function example() {
       })
       console.log(general.getBattleRecord())
       })
+  )
+  Throne.instance().initComponent(
+    ComponentType.Map,
+    (map: IMapComponent)=>{
+      map.getBlockInfo(1, 1, 
+        (result)=>{
+          console.log('map----getBlockInfo',result)
+        }
+      )
+      // map.getBlocksBelongInfo(
+      //   (result)=>{
+      //     console.log('map----getBlocksBelongInfo',result)
+      //   }
+      // )
 
+      map.attackBlock( 2, 2, 1,
+        (result)=>{
+          console.log('map----attackBlock',result)
+        }
+      )
+
+      map.defenseBlock( 2 , 2, 1, 
+        (result)=>{
+          console.log('map----defenseBlock',result)
+        }
+      )
+      map.getDefenseList(2, 2, 
+        (result)=>{
+          console.log('map----getDefenseList',result)
+        }
+      )
       
+      map.cancelDefenseBlock(2, 2, 1,
+        (result)=>{
+          console.log('map----getDefenseList',result)
+        }
+      )
       
+    }
   )
 }
 
 function test(){
   console.log(mapGDS['9^9'])
 }
-test()
+//test()
 //example()

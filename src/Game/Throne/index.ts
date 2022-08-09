@@ -5,7 +5,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { ICityState, IGeneralState, ResouceInfo } from '../State'
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, ResouceInfo } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -20,15 +20,17 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
+import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
 import { userInfo } from 'os'
+import { MapComponent, IMapComponent } from './map'
 
 
 
-interface IComponent {
+export interface IComponent {
   //trigger when state update
   onStateUpdate(callback: IStatetWithTransContextCallback): void;
 }
@@ -615,7 +617,8 @@ export class GeneralComponent implements IGeneralComponent {
 
 export enum ComponentType {
   City = 1,
-  General = 2
+  General = 2,
+  Map = 3
 }
 
 export interface IThrone {
@@ -649,6 +652,15 @@ export class Throne implements IThrone {
 
   }
 
+  async queryBlockStates( mediator : any){
+    let re :{[key:string]: IBlockState} = {}
+    for( let id in mapGDS ){
+      let stateId = { id : `${StateName.BlockInfo}:${id}`}
+      re[id] = (await mediator.queryState(stateId, {}, null)) as IBlockState
+    }
+    return re
+  }
+
 
   async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
@@ -665,8 +677,12 @@ export class Throne implements IThrone {
     // init essensial states
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
+    states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
+    states.blocks = await this.queryBlockStates(this.mediator)
     statesTest.city = (await this.mediator.queryState({ id: `${StateName.City}:test1` }, {}, null)) as ICityState
     statesTest.general = (await this.mediator.queryState({ id: `${StateName.General}:test1` }, {}, null)) as IGeneralState
+    statesTest.mapGlobal = states.mapGlobal
+    statesTest.blocks = states.blocks
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
@@ -680,6 +696,7 @@ export class Throne implements IThrone {
     this.inited = true
 
   }
+
 
 
   async initComponent<T extends IComponent>(
@@ -703,6 +720,11 @@ export class Throne implements IThrone {
       let generalCom = this.components[ComponentType.General] as GeneralComponent
       generalCom.setGeneral(this.logicEssential.general)
       callback(generalCom as any as T)
+    } else if(typ == ComponentType.Map){
+      this.components[ComponentType.Map] = new MapComponent(this.mediator)
+      let mapCom = this.components[ComponentType.Map] as MapComponent
+      mapCom.setMap(this.logicEssential.map)
+      callback(mapCom as any as T)
     }
   }
 }

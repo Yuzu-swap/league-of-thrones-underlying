@@ -19,18 +19,20 @@ import {
   SetDefenseGeneralArgs,
   ResouceType,
   ReceiveTroopArgs,
-  BattleArgs
+  BattleArgs,
+  AttackBlockArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { ICityState, IGeneralState } from '../State';
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
   createLogicEsential,
   LogicEssential
 } from '../Logic/creator';
-import { BattleRecordInfo } from '../Logic/general';
+import { BattleRecord, BattleRecordInfo } from '../Logic/general';
+import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 
 const log = globalThis.log || function () {};
 
@@ -93,9 +95,27 @@ export class TransitionHandler {
       case StateTransition.Battle:
         re = this.onBattle(arg as BattleArgs)
         break
+      case StateTransition.AttackBlock:
+        re = this.onAttackBlock(arg as AttackBlockArgs)
+        break
+      case StateTransition.DefenseBlock:
+        re = this.onDefenseBlock(arg as AttackBlockArgs)
+        break
+      case StateTransition.CancelDefenseBlock:
+        re = this.onCancelDefenseBlock(arg as AttackBlockArgs)
+        break
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
+    return re
+  }
+
+  getBlockStates(): {[key: string]: IBlockState}{
+    let re = {}
+    for( let id in mapGDS ){
+      let stateId = { id : `${StateName.BlockInfo}:${id}`}
+      re[id] = this.stateManger.get(stateId) as IBlockState
+    }
     return re
   }
 
@@ -105,9 +125,16 @@ export class TransitionHandler {
     const generalState = this.stateManger.get({
       id: `${StateName.General}:${id}`
     });
+    const mapGlobalState = this.stateManger.get(
+      {
+        id: `${StateName.MapGlobalInfo}`
+      }
+    )
     const states: StateEssential = {
       city: cityState as ICityState,
-      general: generalState as IGeneralState
+      general: generalState as IGeneralState,
+      mapGlobal: mapGlobalState as IMapGlobalState,
+      blocks: this.getBlockStates()
     };
     return createLogicEsential(states);
   }
@@ -178,7 +205,7 @@ export class TransitionHandler {
         attackInfo :{
           username: logic1.city.state.getId(),
           generalId: args.generalId,
-          generalLevel: 1,
+          generalLevel: logic1.general.getGeneralLevel( args.generalId ),
           troopReduce: re['attackTroopReduce'],
           silverGet: re['silverGet']
         },
@@ -195,6 +222,49 @@ export class TransitionHandler {
     }
     logic1.city.useSilver( - (re as any).silverGet as number)
     return re
+  }
+
+  onAttackBlock(args: AttackBlockArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
+      return{
+        result: false,
+        error: 'block-is-too-far'
+      }
+    }
+    let re = logic.map.attackBlock(args.x_id, args.y_id, args.generalId, -1)
+    if(re['result'] == undefined){
+      for(let record of re as []){
+        this.recordEvent(TransitionEventType.Battles, record)
+      }
+      let temp = re as BattleRecord[]
+      return{
+        result: true,
+        record: temp[temp.length - 1]
+      }
+    }
+  }
+
+  onDefenseBlock(args: AttackBlockArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    let re = logic.general.defenseBlock( args.generalId ,args.x_id, args.y_id)
+    if(re['result'] == false){
+      return re
+    }
+    let info = logic.general.getDefenseBlockInfo(args.generalId)
+    let re1 = logic.map.defenseBlock(args.x_id, args.y_id, info)
+    return {
+      result: true
+    }
+  }
+
+  onCancelDefenseBlock(args: AttackBlockArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from)
+    logic.general.cancelDefenseBlock(args.generalId, remainTroop)
+    return {
+      result: true
+    }
   }
 
   recordEvent(typ: TransitionEventType,event: any) {

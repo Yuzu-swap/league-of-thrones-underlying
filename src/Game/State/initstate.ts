@@ -1,7 +1,9 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import { StateName, ResouceType, CityFacility } from '../Const';
+import { StateName, ResouceType, CityFacility, MaxSize } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
+import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { copyObj } from '../../Core/state';
+import { GenBlockDefenseTroop } from '../DataConfig';
 
 var InitState = {
     [StateName.City]: {
@@ -25,13 +27,28 @@ var InitState = {
       able:[],
       skill_levels:[],
       defense_general: -1,
-      stamina: []
+      stamina: [],
+      defenseBlockList : []
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
+        generalId: -1,
+        generalLevel: 1,
+        generalType: 1,
+        attack: 100,
+        defense: 100,
+        troop: 0,
+        silver: 0
     },
-
+    [StateName.MapGlobalInfo]:{
+        campInfo:[],
+        campMembers: []
+    }
 };
+
+var gInitState = {
+
+}
 
 var _inited = false
 
@@ -63,7 +80,55 @@ export function GetInitState(){
                 lastUpdate: time
             } as any
         }
+        let maxlen = Math.floor((MaxSize + 1)/ 2)
+        InitState[StateName.MapGlobalInfo].campInfo = []
+        for(let i = 0; i< MaxSize; i++){
+            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(0))
+        }
+        for(let i = 0; i< 4; i++){
+            InitState[StateName.MapGlobalInfo].campMembers.push( [] )
+        }
+        InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         _inited = true
     }
     return  copyObj(InitState)
+}
+
+var _ginit = false
+export function GetMapState(){
+    if(!_ginit){
+        const time = parseInt(new Date().getTime() / 1000 + '');
+        for(let block in mapGDS){
+            let key = `${StateName.BlockInfo}:${block}`
+            let row = mapGDS[block]
+            let list = block.split('^')
+            let unionId = 0
+            if(block == '1^1'){
+                unionId = 1
+            }
+            else if(block == '1^21'){
+                unionId = 2
+            }
+            else if(block == '21^1'){
+                unionId = 3
+            }
+            else if(block == '21^21'){
+                unionId = 4
+            }
+            gInitState[key]= {
+                id: key,
+                x_id: parseInt(list[0]),
+                y_id: parseInt(list[1]),
+                belong: {
+                    unionId: unionId,
+                    updateTime: -1
+                  },
+                defenseList: [],
+                durability: row['durability'],
+                defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
+                lastAttachTime: -1,
+            }
+        }
+    }
+    return copyObj(gInitState)
 }

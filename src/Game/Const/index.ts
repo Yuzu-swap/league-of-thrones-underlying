@@ -1,7 +1,9 @@
 export enum StateName {
 	City = "city",
 	General = "general" ,
-	DefenderInfo = "defenderinfo"
+	DefenderInfo = "defenderinfo",
+	MapGlobalInfo = 'mapglobalinfo',
+	BlockInfo = 'blockinfo'
 }
 
 export enum CityFacility {
@@ -21,6 +23,8 @@ export enum ResouceType {
 	Troop = 'troop'
 }
 
+export const MaxSize = 21;
+
 export enum StateTransition {
 	UpgradeFacility = 1,
 	Recruit = 2,
@@ -35,7 +39,11 @@ export enum StateTransition {
 	UpgradeGeneralSkill,
 	SetDefenseGeneral,
 	ReceiveTroop,
-	Battle
+	Battle,
+	DefenseBlock,
+	AttackBlock,
+	CancelDefenseBlock,
+
 }
 
 interface StateTransitionArgs {
@@ -78,4 +86,10 @@ export interface ReceiveTroopArgs extends StateTransitionArgs{
 export interface BattleArgs extends StateTransitionArgs{
 	generalId: number
 	name: string
+}
+
+export interface AttackBlockArgs extends StateTransitionArgs{
+	x_id: number
+	y_id: number
+	generalId: number
 }
