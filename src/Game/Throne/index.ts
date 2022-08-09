@@ -27,6 +27,7 @@ import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
+import { TransitionEventType } from '../Controler/transition'
 
 
 
@@ -187,9 +188,9 @@ export interface IGeneralComponent extends IComponent {
   /**
    * 
   */
-  getAllBattleStatus():{}
+  getAllBattleStatuses( callback: (result: any) => void ): Promise<void>
 
-  getBattleStatus( name : string):{}
+  getBattleStatus(name : string, callback: (result: any) => void ): Promise<void>
 
   /**
    * battle
@@ -198,7 +199,7 @@ export interface IGeneralComponent extends IComponent {
   */
   battle( generalId: number ,name: string , callback: (result: any) => void): void
 
-  getBattleRecord():BattleRecord[]
+  getBattleRecords( callback: (result: any) => void ): Promise<void>
 }
 
 
@@ -509,22 +510,13 @@ export class GeneralComponent implements IGeneralComponent {
     return this.general.getGeneralBattleStatus(generalId)
   }
 
-  getAllBattleStatus(): {} {
-    let re = []
-    let state1 = this.general.getDefenseInfo()
-    delete state1['defenseMaxTroop']
-    state1['username'] = 'test'
-    let state2 = Throne.instance().logicETest.general.getDefenseInfo()
-    state2['username'] = 'test1'
-    delete state2['defenseMaxTroop']
-    re = [state1, state2]
-    return re
+  async getAllBattleStatuses( callback: (result: any) => void ) {
+    let re = await this.mediator.query( StateName.DefenderInfo, {})
+    callback(re)
   }
-  getBattleStatus(name: string): {} {
-    let state2 = Throne.instance().logicETest.general.getDefenseInfo()
-    state2['username'] = 'test1'
-    delete state2['defenseMaxTroop']
-    return state2
+  async getBattleStatus( username: string, callback: (result: any) => void ) {
+    let re = await this.mediator.query( StateName.DefenderInfo, {username : username})
+    callback(re)
   }
 
   battle(generalId: number,name: string, callback: (result: any) => void): void {
@@ -535,82 +527,9 @@ export class GeneralComponent implements IGeneralComponent {
     }, callback)
   }
 
-  getBattleRecord(): BattleRecord[] {
-    let re: BattleRecord[] = []
-    let record1:BattleRecord = {
-      myInfo:{
-        generalId: 1,
-        generalLevel: 2,
-        username: 'test',
-        troopReduce: 1000,
-        silverGet: 100
-      },
-      enemyInfo:{
-        generalId: -1,
-        generalLevel: 2,
-        username: 'test1',
-        troopReduce: 1500,
-        silverGet: -100
-      },
-      type: BattleType.Attack,
-      result: true,
-    }
-    let record2:BattleRecord = {
-      myInfo:{
-        generalId: 1,
-        generalLevel: 2,
-        username: 'test',
-        troopReduce: 1500,
-        silverGet: 0
-      },
-      enemyInfo:{
-        generalId: 2,
-        generalLevel: 2,
-        username: 'test1',
-        troopReduce: 1000,
-        silverGet: 0
-      },
-      type: BattleType.Attack,
-      result: false,
-    }
-    let record3:BattleRecord = {
-      myInfo:{
-        generalId: 1,
-        generalLevel: 2,
-        username: 'test',
-        troopReduce: 1000,
-        silverGet: 0
-      },
-      enemyInfo:{
-        generalId: 2,
-        generalLevel: 2,
-        username: 'test1',
-        troopReduce: 1500,
-        silverGet: 0
-      },
-      type: BattleType.Defense,
-      result: true,
-    }
-    let record4:BattleRecord = {
-      myInfo:{
-        generalId: 1,
-        generalLevel: 2,
-        username: 'test',
-        troopReduce: 1500,
-        silverGet: -100
-      },
-      enemyInfo:{
-        generalId: 2,
-        generalLevel: 2,
-        username: 'test1',
-        troopReduce: 1000,
-        silverGet: 100
-      },
-      type: BattleType.Defense,
-      result: false,
-    }
-    re = [record1, record2, record3, record4]
-    return re
+  async getBattleRecords( callback: (result: any) => void ) {
+    let re = await this.mediator.query(TransitionEventType.Battles, {username : Throne.instance().username})
+    callback(re)
   }
 
 }
@@ -641,7 +560,6 @@ export class Throne implements IThrone {
   inited: boolean
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
-  logicETest: LogicEssential
   username : string
   wsHost : string
 
@@ -679,10 +597,6 @@ export class Throne implements IThrone {
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
     states.blocks = await this.queryBlockStates(this.mediator)
-    statesTest.city = (await this.mediator.queryState({ id: `${StateName.City}:test1` }, {}, null)) as ICityState
-    statesTest.general = (await this.mediator.queryState({ id: `${StateName.General}:test1` }, {}, null)) as IGeneralState
-    statesTest.mapGlobal = states.mapGlobal
-    statesTest.blocks = states.blocks
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
@@ -692,7 +606,6 @@ export class Throne implements IThrone {
     //   },
     // ])
     this.logicEssential = createLogicEsential(states)
-    this.logicETest = createLogicEsential(statesTest)
     this.inited = true
 
   }

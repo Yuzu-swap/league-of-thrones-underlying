@@ -155,7 +155,11 @@ function example() {
       general.battle(1, 'test1', (re)=>{
         console.log(re)
       })
-      console.log(general.getBattleRecord())
+      general.getBattleRecords(
+        (result)=>{
+          console.log(result)
+        }
+      )
       })
   )
   Throne.instance().initComponent(
@@ -166,11 +170,7 @@ function example() {
           console.log('map----getBlockInfo',result)
         }
       )
-      // map.getBlocksBelongInfo(
-      //   (result)=>{
-      //     console.log('map----getBlocksBelongInfo',result)
-      //   }
-      // )
+      console.log(map.getBlocksBelongInfo())
 
       map.attackBlock( 2, 2, 1,
         (result)=>{

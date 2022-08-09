@@ -37,7 +37,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 const log = globalThis.log || function () {};
 
 
-enum TransitionEventType {
+export enum TransitionEventType {
   Battles = "battles",
 }
 

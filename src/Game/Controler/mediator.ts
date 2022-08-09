@@ -10,7 +10,7 @@ import {
   IStateChangeWatcher,
   State
 } from '../../Core/state';
-import { TransitionHandler } from './transition';
+import { TransitionEventType, TransitionHandler } from './transition';
 import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
@@ -19,6 +19,7 @@ import {
   MessageS2C,
   MessageType
 } from './Websocket/protocol';
+import { BattleRecord, BattleType } from '../Logic/general';
 
 
 function getInitState(username:string,wather: IStateChangeWatcher): {
@@ -108,9 +109,136 @@ export class LocalMediator
   }
 
 	query( typ: string, args:{}):Promise<any> {
+    let re = []
+    let record1:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1000,
+        silverGet: 100
+      },
+      enemyInfo:{
+        generalId: -1,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1500,
+        silverGet: -100
+      },
+      type: BattleType.Attack,
+      result: true,
+    }
+    let record2:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1500,
+        silverGet: 0
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1000,
+        silverGet: 0
+      },
+      type: BattleType.Attack,
+      result: false,
+    }
+    let record3:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1000,
+        silverGet: 0
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1500,
+        silverGet: 0
+      },
+      type: BattleType.Defense,
+      result: true,
+    }
+    let record4:BattleRecord = {
+      myInfo:{
+        generalId: 1,
+        generalLevel: 2,
+        username: 'test',
+        troopReduce: 1500,
+        silverGet: -100
+      },
+      enemyInfo:{
+        generalId: 2,
+        generalLevel: 2,
+        username: 'test1',
+        troopReduce: 1000,
+        silverGet: 100
+      },
+      type: BattleType.Defense,
+      result: false,
+    }
+    if(typ == StateName.DefenderInfo){
+       if(args['username'] == undefined){
+          re = [
+            {
+              id: 'test',
+              generalId: 1,
+              generalLevel: 2,
+              generalType: 3,
+              attack: 1000,
+              defense: 200,
+              silver: 100000,
+              troop: 10000
+            },
+            {
+              id: 'test1',
+              generalId: -1,
+              generalLevel: 1,
+              generalType: 1,
+              attack: 1000,
+              defense: 200,
+              silver: 9899,
+              troop: 10000
+            }
+          ]
+       }
+       else{
+        re = [
+          {
+            id: 'test1',
+            generalId: -1,
+            generalLevel: 1,
+            generalType: 1,
+            attack: 1000,
+            defense: 200,
+            silver: 9899,
+            troop: 10000
+          }
+        ]
+       }
+    }
+    else if(typ == TransitionEventType.Battles){
+      re = [record1, record2, record3, record4]
+    }
+    else if(typ == StateName.BlockInfo){
+      let blocks = args['blocks']
+      for(let key of blocks){
+        let sid = {
+          id : `${StateName.BlockInfo}:${key}`
+        }
+        re.push(
+          this.transitionHandler.stateManger.get(sid)
+        )
+      }
+    }
     //TODO:mock result here
     return new Promise((resolve, reject) => {
-      resolve({})
+      resolve(re)
     })
   }
 

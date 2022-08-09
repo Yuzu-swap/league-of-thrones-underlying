@@ -34,7 +34,7 @@ export interface IMapComponent extends IComponent{
     cancelDefenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     getDefenseList(xId: number, yId: number, callback: (result: any) => void): void
     getBlockInfo(xId: number, yId: number, callback: (result: any) => void): void
-    getBlocksBelongInfo( callback: (result: any) => void ): void
+    getBlocksBelongInfo(): {}
 }
 
 export class MapComponent implements IMapComponent{
@@ -54,8 +54,8 @@ export class MapComponent implements IMapComponent{
         
     }
 
-    getBlocksBelongInfo(callback: (result: any) => void): void {
-        callback(this.map.getBlocksBelongInfo())
+    getBlocksBelongInfo() {
+        return this.map.getBlocksBelongInfo()
     }
 
     getDefenseList(xId: number, yId: number, callback: (result: any) => void): void {
