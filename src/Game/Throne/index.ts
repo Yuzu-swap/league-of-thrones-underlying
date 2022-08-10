@@ -188,9 +188,8 @@ export interface IGeneralComponent extends IComponent {
   /**
    * 
   */
-  getAllBattleStatuses( callback: (result: any) => void ): Promise<void>
 
-  getBattleStatus(name : string, callback: (result: any) => void ): Promise<void>
+  getBattleStatuses(name : string, callback: (result: any) => void ): Promise<void>
 
   /**
    * battle
@@ -200,6 +199,8 @@ export interface IGeneralComponent extends IComponent {
   battle( generalId: number ,name: string , callback: (result: any) => void): void
 
   getBattleRecords( callback: (result: any) => void ): Promise<void>
+
+  getDefenseBlockGenerals():[]
 }
 
 
@@ -514,8 +515,14 @@ export class GeneralComponent implements IGeneralComponent {
     let re = await this.mediator.query( StateName.DefenderInfo, {})
     callback(re)
   }
-  async getBattleStatus( username: string, callback: (result: any) => void ) {
-    let re = await this.mediator.query( StateName.DefenderInfo, {username : username})
+  async getBattleStatuses( username: string, callback: (result: any) => void ) {
+    let re = []
+    if(username == ''){
+      re = await this.mediator.query( StateName.DefenderInfo, {})
+    }
+    else{
+      re = await this.mediator.query( StateName.DefenderInfo, {username : username})
+    }
     callback(re)
   }
 
@@ -530,6 +537,10 @@ export class GeneralComponent implements IGeneralComponent {
   async getBattleRecords( callback: (result: any) => void ) {
     let re = await this.mediator.query(TransitionEventType.Battles, {username : Throne.instance().username})
     callback(re)
+  }
+
+  getDefenseBlockGenerals(): [] {
+    return copyObj(this.general.state.defenseBlockList) as []
   }
 
 }

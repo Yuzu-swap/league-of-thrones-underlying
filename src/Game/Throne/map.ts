@@ -51,7 +51,11 @@ export class MapComponent implements IMapComponent{
     }
 
     onStateUpdate(callback: IStatetWithTransContextCallback): void {
-        
+        this.mediator.onReceiveState(
+            {id : StateName.MapGlobalInfo}
+            ,
+            callback
+        )
     }
 
     getBlocksBelongInfo() {

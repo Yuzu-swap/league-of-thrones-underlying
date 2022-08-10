@@ -619,8 +619,9 @@ export class General{
     {
         let attackinfo = this.getGeneralBattleStatus(generalId)
         let row = this.getGeneralQualification(generalId)
+        let username = (this.state.getId().split(':'))[1]
         let re: BlockDefenseInfo = {
-            username: this.state.getId(),
+            username: username,
             generalId: generalId,
             generalLevel: this.state.levels[generalId - 1],
             generalType: row.general_type,

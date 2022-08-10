@@ -186,7 +186,7 @@ export class LocalMediator
        if(args['username'] == undefined){
           re = [
             {
-              id: 'test',
+              username: 'test',
               generalId: 1,
               generalLevel: 2,
               generalType: 3,
@@ -196,7 +196,7 @@ export class LocalMediator
               troop: 10000
             },
             {
-              id: 'test1',
+              username: 'test1',
               generalId: -1,
               generalLevel: 1,
               generalType: 1,
@@ -210,7 +210,7 @@ export class LocalMediator
        else{
         re = [
           {
-            id: 'test1',
+            username: 'test1',
             generalId: -1,
             generalLevel: 1,
             generalType: 1,

@@ -160,7 +160,21 @@ function example() {
           console.log(result)
         }
       )
+
+      general.getBattleStatuses('',
+        (result)=>{
+          console.log('general-----getbbb',result)
+        }
+      )
+
+      general.getBattleStatuses('test',
+        (result)=>{
+          console.log('general----======-getbbb',result)
+        }
+      )
+
       })
+
   )
   Throne.instance().initComponent(
     ComponentType.Map,
@@ -189,11 +203,6 @@ function example() {
         }
       )
       
-      map.cancelDefenseBlock(2, 2, 1,
-        (result)=>{
-          console.log('map----getDefenseList',result)
-        }
-      )
       
     }
   )
