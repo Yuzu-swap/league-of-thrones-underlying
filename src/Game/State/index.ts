@@ -37,6 +37,7 @@ export interface IGeneralState extends IState{
   defense_general: number
   stamina: GeneralStamina[]
   defenseBlockList: GeneralDefenseBlock[]
+  unionId: number
 }
 
 export interface IDefenderInfoState extends IState{

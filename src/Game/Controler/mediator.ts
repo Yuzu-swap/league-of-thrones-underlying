@@ -231,9 +231,11 @@ export class LocalMediator
         let sid = {
           id : `${StateName.BlockInfo}:${key}`
         }
-        re.push(
-          this.transitionHandler.stateManger.get(sid)
-        )
+        let blockstate = this.transitionHandler.stateManger.get(sid)
+        if(blockstate){
+          re.push( blockstate )
+        }
+        
       }
     }
     //TODO:mock result here

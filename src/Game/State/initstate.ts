@@ -28,7 +28,8 @@ var InitState = {
       skill_levels:[],
       defense_general: -1,
       stamina: [],
-      defenseBlockList : []
+      defenseBlockList : [],
+      unionId: 1
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
@@ -73,6 +74,7 @@ export function GetInitState(){
         InitState[StateName.General].able = new Array(len).fill(false)
         InitState[StateName.General].skill_levels = new Array(len).fill([])
         InitState[StateName.General].stamina = new Array(len).fill({})
+        InitState[StateName.General].unionId = 1
         for(let i = 0; i < len; i++){
             InitState[StateName.General].skill_levels[i] = new Array(3).fill(1)
             InitState[StateName.General].stamina[i] = {
@@ -85,8 +87,12 @@ export function GetInitState(){
         for(let i = 0; i< MaxSize; i++){
             InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(0))
         }
+        InitState[StateName.MapGlobalInfo].campInfo[0][0] = 1
+        InitState[StateName.MapGlobalInfo].campInfo[0][10] = 2
+        InitState[StateName.MapGlobalInfo].campInfo[20][0] = 3
+        InitState[StateName.MapGlobalInfo].campInfo[20][10] = 4
         for(let i = 0; i< 4; i++){
-            InitState[StateName.MapGlobalInfo].campMembers.push( [] )
+            InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         _inited = true

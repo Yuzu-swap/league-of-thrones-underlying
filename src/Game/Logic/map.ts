@@ -13,9 +13,9 @@ export class Map{
     parameter: Parameter
     boost: IBoost
     general: General
-    constructor( gState: IMapGlobalState, blockStates:{[key: string]: IBlockState}){
+    constructor( gState: IMapGlobalState ){
         this.gState = gState
-        this.blockStates = blockStates
+        this.blockStates = {}
         this.mapConfig = MapConfigFromGDS
         this.parameter = parameterConfig
     }
@@ -32,26 +32,44 @@ export class Map{
         return this.mapConfig.get(x_id, y_id)
     }
 
+    loadBlockStates( states : IBlockState[] ){
+        for(let state of states){
+            let x_id = state.x_id
+            let y_id = state.y_id
+            this.blockStates[x_id + "^" + y_id] = state
+        }
+    }
+
     getBlockState( x_id: number, y_id: number){
         return this.blockStates[ x_id + "^" + y_id ]
     }
 
     getBelongInfo(x_id: number, y_id: number){
-        // let xIndex = x_id - 1;
-        // let yIndex = Math.floor((y_id - 1) / 2)
-        // if( 
-        //     this.gState.campInfo.length > xIndex &&
-        //     this.gState.campInfo[xIndex].length > yIndex 
-        // ){
-        //     return this.gState.campInfo[xIndex][yIndex]
-        // }
-        // return 0
-        
-        let blockState = this.getBlockState(x_id, y_id)
-        if(!blockState){
+        let xIndex = x_id - 1;
+        let yIndex = Math.floor((y_id - 1) / 2)
+        if(xIndex < 0 || yIndex < 0){
             return 0
         }
-        return blockState.belong.unionId
+        if( 
+            this.gState.campInfo.length > xIndex &&
+            this.gState.campInfo[xIndex].length > yIndex 
+        ){
+            return this.gState.campInfo[xIndex][yIndex]
+        }
+        return 0
+    }
+
+    changeBelongInfo(x_id: number, y_id: number, unionId: number){
+        let xIndex = x_id - 1;
+        let yIndex = Math.floor((y_id - 1) / 2)
+        let infoMap = this.gState.campInfo
+        infoMap[xIndex][yIndex] = unionId
+        this.gState.update(
+            {
+                'campInfo': infoMap
+            }
+        )
+
     }
 
     checkBetween(unionId : number, x_id: number, y_id: number){
@@ -137,6 +155,43 @@ export class Map{
         return false
     }
 
+    attackBlocksAround(x_id: number, y_id: number, generalId: number){
+        const xOffset = [ 2, 1, -1, -2, -1, 1]
+        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        let centerBlockState = this.getBlockState(x_id, y_id)
+        const unionId = centerBlockState.belong.unionId
+        let records = []
+        let remainTroop = -1
+        let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
+        if(re['error']){
+            return re
+        }
+        records = records.concat(re['records'])
+        remainTroop = re['remainTroop']
+        if(unionId != 0){
+            for(let i = 0; i < 6; i++){
+                if(remainTroop <=0 ){
+                    break
+                }
+                let tempX = x_id + xOffset[i]
+                let tempY = y_id + yOffset[i]
+                let tempBlockState = this.getBlockState(tempX, tempY)
+                if(tempBlockState && tempBlockState.belong.unionId == unionId){
+                    let tempRe = this.attackBlock(tempX, tempY, generalId, remainTroop)
+                    if(tempRe['error']){
+                        return tempRe
+                    }
+                    records = records.concat(tempRe['records'])
+                    remainTroop = tempRe['remainTroop']
+                }
+            }
+        }
+        if(remainTroop > 0){
+            this.reduceDurability(x_id, y_id, remainTroop, unionId)
+        }
+        return records
+    }
+
     attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
@@ -150,7 +205,8 @@ export class Map{
         if(firstBlock){
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
-                let bre = this.general.battle(generalId, info, remainTroop)
+                let bre = this.general.battle(generalId, info, remainTroop, firstBlock)
+                firstBlock = false
                 if(!bre['result']){
                     return bre
                 }
@@ -195,7 +251,10 @@ export class Map{
             )
         }
         if(remainTroop <= 0 ){
-            return list 
+            return {
+                records: list,
+                remainTroop : remainTroop
+            }
         }
         let defenseInfos = this.getDefenseList(x_id, y_id, false)
         for(let i = 0; i < defenseInfos.length; i++){
@@ -242,7 +301,10 @@ export class Map{
                 'defenseList': defenseInfos
             }
         )
-        return list
+        return {
+            records: list,
+            remainTroop : remainTroop
+        }
     }
 
     getDurability( x_id: number, y_id: number){
@@ -274,6 +336,7 @@ export class Map{
                     'belong': newBelong
                 }
             )
+            this.changeBelongInfo(x_id, y_id, unionId)
             update = true
         }
         else{
@@ -295,6 +358,19 @@ export class Map{
             }
         }
         return re
+    }
+
+    getBuffList(unionId : number){
+        let list = []
+        for( let id in this.mapConfig.config){
+            let row : MapGDS = this.mapConfig.config[id]
+            if(unionId == this.getBelongInfo(row.x_id, row.y_id)){
+                if(row.buff_id != 0){
+                    list.push(row.buff_id)
+                }
+            }
+        }
+        return list
     }
     
 }

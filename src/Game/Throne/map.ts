@@ -32,8 +32,8 @@ export interface IMapComponent extends IComponent{
     attackBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     defenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     cancelDefenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
-    getDefenseList(xId: number, yId: number, callback: (result: any) => void): void
-    getBlockInfo(xId: number, yId: number, callback: (result: any) => void): void
+    getDefenseList(xId: number, yId: number, callback: (result: any) => void): Promise<void>
+    getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlocksBelongInfo(): {}
 }
 
@@ -58,11 +58,31 @@ export class MapComponent implements IMapComponent{
         )
     }
 
+    genBlockIds(x_id: number, y_id: number):string[]{
+        const xOffset = [ 2, 1, -1, -2, -1, 1]
+        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        let re = []
+        re.push(x_id + "^" + y_id)
+        for(let i = 0; i < 6; i++){
+            let tempX = x_id + xOffset[i]
+            let tempY = y_id + yOffset[i]
+            re.push(tempX + "^" + tempY)
+        }
+        return re
+    }
+
+    async queryBlockStates(x_id : number , y_id : number){
+        let idLists = this.genBlockIds(x_id, y_id)
+        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'blocks' : idLists })
+        this.map.loadBlockStates(blockStats)
+    }
+
     getBlocksBelongInfo() {
         return this.map.getBlocksBelongInfo()
     }
 
-    getDefenseList(xId: number, yId: number, callback: (result: any) => void): void {
+    async getDefenseList(xId: number, yId: number, callback: (result: any) => void): Promise<void> {
+        await this.queryBlockStates(xId, yId)
         let re = this.map.getDefenseList(xId, yId, true)
         let re1 = this.map.getDefenseList(xId, yId, false)
         let re2 = re.concat(re1)
@@ -96,7 +116,8 @@ export class MapComponent implements IMapComponent{
         }, callback)
     }
 
-    getBlockInfo(xId: number, yId: number, callback: (result: any) => void): void {
+    async getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void> {
+        await this.queryBlockStates(xId, yId)
         let row = this.map.mapConfig.get(xId, yId)
         row['now_durability'] = this.map.getDurability(xId, yId)
         callback(row)

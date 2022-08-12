@@ -110,16 +110,28 @@ export class TransitionHandler {
     return re
   }
 
-  getBlockStates(): {[key: string]: IBlockState}{
-    let re = {}
-    for( let id in mapGDS ){
-      let stateId = { id : `${StateName.BlockInfo}:${id}`}
-      re[id] = this.stateManger.get(stateId) as IBlockState
+  getBlockStates(x_id : number , y_id : number): IBlockState[]{
+    let re = []
+    const xOffset = [ 2, 1, -1, -2, -1, 1]
+    const yOffset = [ 0, 1, 1, 0, -1, -1]
+    let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
+    if(!center){
+      return re
+    }
+    re.push(center)
+    for( let i = 0; i < 6; i++ ){
+      let newX = x_id + xOffset[i]
+      let newY = y_id + yOffset[i]
+      let stateId = { id : `${StateName.BlockInfo}:${newX}^${newY}`}
+      let newState =  this.stateManger.get(stateId) as IBlockState
+      if(newState){
+        re.push(newState)
+      }
     }
     return re
   }
 
-  genLogic(id: string): LogicEssential {
+  genLogic(id: string, x_id: number = 0, y_id: number = 0): LogicEssential {
     const stateId = { id: `${StateName.City}:${id}` };
     const cityState = this.stateManger.get(stateId);
     const generalState = this.stateManger.get({
@@ -134,7 +146,7 @@ export class TransitionHandler {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
       mapGlobal: mapGlobalState as IMapGlobalState,
-      blocks: this.getBlockStates()
+      blocks: this.getBlockStates(x_id, y_id)
     };
     return createLogicEsential(states);
   }
@@ -225,14 +237,14 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    const logic : LogicEssential = this.genLogic(args.from)
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
     if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
       return{
         result: false,
         error: 'block-is-too-far'
       }
     }
-    let re = logic.map.attackBlock(args.x_id, args.y_id, args.generalId, -1)
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
       for(let record of re as []){
         this.recordEvent(TransitionEventType.Battles, record)
@@ -243,10 +255,19 @@ export class TransitionHandler {
         record: temp[temp.length - 1]
       }
     }
+    else{
+      return re
+    }
   }
 
   onDefenseBlock(args: AttackBlockArgs){
-    const logic : LogicEssential = this.genLogic(args.from)
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
+      return {
+        result: false,
+        error: 'unionId-error'
+      }
+    }
     let re = logic.general.defenseBlock( args.generalId ,args.x_id, args.y_id)
     if(re['result'] == false){
       return re
@@ -259,7 +280,7 @@ export class TransitionHandler {
   }
 
   onCancelDefenseBlock(args: AttackBlockArgs){
-    const logic : LogicEssential = this.genLogic(args.from)
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
     const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from)
     logic.general.cancelDefenseBlock(args.generalId, remainTroop)
     return {

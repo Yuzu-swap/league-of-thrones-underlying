@@ -15,7 +15,7 @@ export interface StateEssential {
 	city: ICityState
 	general: IGeneralState
 	mapGlobal: IMapGlobalState
-	blocks: {[key: string]: IBlockState}
+	blocks: IBlockState[]
 }
 export interface ConfigEssential {
 	cityConf: CityConfig
@@ -27,14 +27,16 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
 	var general: General = new General(states.general, city)
-	var map: Map = new Map(states.mapGlobal, states.blocks)
+	var map: Map = new Map(states.mapGlobal)
 	city.setBoost(boost)
 	general.setBoost(boost)
 	map.setGeneral(general)
+	map.loadBlockStates(states.blocks)
 	boost.setProduction(StateName.City, ResouceType.Silver, city.calculatePoduction(ResouceType.Silver))
 	boost.setProduction(StateName.City, ResouceType.Troop, city.calculatePoduction(ResouceType.Troop))
 	boost.setProduction(StateName.General, ResouceType.Silver, general.getGeneralProduction(ResouceType.Silver))
 	boost.setProduction(StateName.General, ResouceType.Troop, general.getGeneralProduction(ResouceType.Troop))
+	boost.setMapBuff(map.getBuffList(states.general.unionId))
 	//city.SetBoost(boost)
 	//general.SetBoost(boost)
 	//boost.recalulate() 

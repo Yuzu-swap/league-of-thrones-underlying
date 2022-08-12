@@ -267,6 +267,42 @@ export class General{
         return cost * 10000
     }
 
+    getMapSkillValue( generalId : number, skillId: number ){
+        let re = {
+            'value_type': 0,
+            'value': 0
+        }
+        const level = 1
+        const row : GeneralGdsRow = this.getGeneralQualification(generalId)
+        const buff = this.getSkillInfo(skillId)
+        re['value_type'] = buff.value_type
+        if(buff.value_type == 1){
+            //percent
+            re['value'] = buff.buff_value * level
+        }
+        else{
+            //value
+            switch(buff.buff_type){
+                case SkillType.Silver:
+                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_silver_product * 3600).toFixed(2))
+                    break
+                case SkillType.Troop:
+                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_troop_recruit * 3600).toFixed(2))
+                    break
+                case SkillType.Attack:
+                    re['value'] = buff.buff_value * row.qualification_attack * Math.pow(level, 2)
+                    break
+                case SkillType.Defense:
+                    re['value'] = buff.buff_value * row.qualification_defense * Math.pow(level, 2)
+                    break
+                case SkillType.Load:
+                    re['value'] = buff.buff_value * row.qualification_load * Math.pow(level, 2)
+                    break
+            }
+        }
+        return re
+    }
+
     getSkillValue( generalId : number, skillIndex : number, level: number ) : {}{
         let re = {
             'value_type': 0,
@@ -469,6 +505,23 @@ export class General{
                 }
             }
         }
+
+        //  buff table miss
+
+        // let mapBuffList = this.boost.getMapBuff()
+        // for( let mapBuff of mapBuffList){
+        //     const skillRow = this.getSkillInfo(mapBuff)
+        //     const value = this.getMapSkillValue(generalId, mapBuff)
+        //     if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
+        //         if(value['value_type'] == 1){
+        //             extraPercent[skillRow.buff_type] += value['value']
+        //         }
+        //         else{
+        //             extraValue[skillRow.buff_type] += value['value']
+        //         }
+        //     }
+        // }
+
         let sum = {
             [SkillType.Attack]: 0,
             [SkillType.Defense]: 0,
@@ -544,17 +597,19 @@ export class General{
         return Math.max(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
     }
 
-    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1){
+    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
         if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
             return {
                 result: false,
                 error: 'generalid-error'
             }
         }
-        if(!(this.useGeneralStamina(generalId, 1))){
-            return{
-                result: false,
-                error: 'general-stamina-error'
+        if(useStamina){
+            if(!(this.useGeneralStamina(generalId, 1))){
+                return{
+                    result: false,
+                    error: 'general-stamina-error'
+                }
             }
         }
         const status = this.getGeneralBattleStatus(generalId)

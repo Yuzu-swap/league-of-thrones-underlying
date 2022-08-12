@@ -581,15 +581,6 @@ export class Throne implements IThrone {
 
   }
 
-  async queryBlockStates( mediator : any){
-    let re :{[key:string]: IBlockState} = {}
-    for( let id in mapGDS ){
-      let stateId = { id : `${StateName.BlockInfo}:${id}`}
-      re[id] = (await mediator.queryState(stateId, {}, null)) as IBlockState
-    }
-    return re
-  }
-
 
   async init( obj : {}) {
     const states: StateEssential = {} as StateEssential;
@@ -607,7 +598,7 @@ export class Throne implements IThrone {
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
-    states.blocks = await this.queryBlockStates(this.mediator)
+    states.blocks = []
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState

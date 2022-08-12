@@ -1,8 +1,11 @@
+import { copyObj } from "../../Core/state"
 import { ResouceType } from "../Const"
 import { StateName } from "../Const"
 export interface IBoost {
     setProduction( stateType: StateName, typ: ResouceType ,value: number ): void
     getProduction( typ: ResouceType ): number
+    setMapBuff(list : number[]): void
+    getMapBuff(): number[]
 }
 
 export class Boost implements IBoost{
@@ -11,6 +14,9 @@ export class Boost implements IBoost{
     }
     private general:{
         product : {}
+    }
+    private map:{
+        buff : number[]
     }
     constructor(){
         this.city = {
@@ -24,6 +30,9 @@ export class Boost implements IBoost{
                 [ResouceType.Silver] : 0,
                 [ResouceType.Troop] : 0
             }
+        }
+        this.map ={
+            buff : []
         }
     }
     
@@ -39,5 +48,13 @@ export class Boost implements IBoost{
     }
     getProduction(typ: ResouceType): number {
         return this.city.product[typ] + this.general.product[typ]
+    }
+
+    setMapBuff( list : number[]){
+        this.map.buff = list.concat()
+    }
+
+    getMapBuff(){
+        return this.map.buff.concat()
     }
 }
