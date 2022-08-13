@@ -1,5 +1,5 @@
 import { IComponent , ComponentType, Throne} from ".";
-import { BattleRecord, BattleType, General, GeneralAbility } from '../Logic/general'
+import { BattleType, General, GeneralAbility } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { Map } from "../Logic/map";
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'

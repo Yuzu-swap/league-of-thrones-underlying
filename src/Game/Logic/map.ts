@@ -1,7 +1,9 @@
+import { BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState } from "../State";
+import { parseStateId } from "../Utils";
 import { IBoost } from "./boost";
-import { BattleRecord, BattleResult, BattleType, DefenseInfo, General } from "./general";
+import { BattleResult, BattleType, DefenseInfo, General } from "./general";
 
 const DefaultTroopRecoverTime = 60 * 30
 const DurabilityRecoverTime = 60 * 30
@@ -197,7 +199,7 @@ export class Map{
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
         let firstBlock = false
-        let list : BattleRecord[] = []
+        let list : BattleTransRecord[] = []
         if(remainTroop == -1){
             remainTroop = this.general.getMaxAttackTroop()
             firstBlock = true
@@ -212,15 +214,15 @@ export class Map{
                 }
                 else{
                     bre = bre as BattleResult
-                    let battleRecord : BattleRecord= {
-                        myInfo : {
-                            username: this.general.state.getId(),
+                    let battleRecord : BattleTransRecord= {
+                        attackInfo : {
+                            username: parseStateId(this.general.state.getId()).username ,
                             generalId: generalId,
                             generalLevel: this.general.getGeneralLevel(generalId),
                             troopReduce: bre.attackTroopReduce,
                             silverGet: 0,
                         },
-                        enemyInfo: 
+                        defenseInfo: 
                         {
                             username: '',
                             generalId: info.generalId,
@@ -228,7 +230,10 @@ export class Map{
                             troopReduce: bre.defenseTroopReduce,
                             silverGet: 0,
                         },
-                        type: BattleType.Attack,
+                        blockInfo:{
+                            x_id: x_id,
+                            y_id: y_id
+                        },
                         result: bre.win
                     }
                     list.push(battleRecord)
@@ -265,15 +270,15 @@ export class Map{
             }
             else{
                 bre = bre as BattleResult
-                let battleRecord : BattleRecord= {
-                    myInfo : {
-                        username: this.general.state.getId(),
+                let battleRecord : BattleTransRecord= {
+                    attackInfo : {
+                        username:  parseStateId(this.general.state.getId()).username,
                         generalId: generalId,
                         generalLevel: this.general.getGeneralLevel(generalId),
                         troopReduce: bre.attackTroopReduce,
                         silverGet: 0,
                     },
-                    enemyInfo: 
+                    defenseInfo: 
                     {
                         username:  defenseInfos[i].username,
                         generalId: info.generalId,
@@ -281,7 +286,10 @@ export class Map{
                         troopReduce: bre.defenseTroopReduce,
                         silverGet: 0,
                     },
-                    type: BattleType.Attack,
+                    blockInfo:{
+                        x_id: x_id,
+                        y_id: y_id
+                    },
                     result: bre.win
                 }
                 list.push(battleRecord)

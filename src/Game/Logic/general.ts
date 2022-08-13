@@ -6,6 +6,7 @@ import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { State } from '../../Core/state';
+import { parseStateId } from '../Utils';
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -58,13 +59,6 @@ export interface BattleRecordInfo{
     generalLevel: number
     troopReduce: number
     silverGet: number
-}
-
-export interface BattleRecord{
-    myInfo: BattleRecordInfo
-    enemyInfo: BattleRecordInfo
-    type: BattleType
-    result: boolean
 }
 
 export class General{
@@ -674,7 +668,7 @@ export class General{
     {
         let attackinfo = this.getGeneralBattleStatus(generalId)
         let row = this.getGeneralQualification(generalId)
-        let username = (this.state.getId().split(':'))[1]
+        let username =  parseStateId(this.state.getId()).username
         let re: BlockDefenseInfo = {
             username: username,
             generalId: generalId,

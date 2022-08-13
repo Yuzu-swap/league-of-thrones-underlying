@@ -1,4 +1,4 @@
-import { BattleRecord, BattleType, General, GeneralAbility } from '../Logic/general'
+import { BattleType, General, GeneralAbility } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'

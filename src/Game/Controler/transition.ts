@@ -31,8 +31,9 @@ import {
   createLogicEsential,
   LogicEssential
 } from '../Logic/creator';
-import { BattleRecord, BattleRecordInfo } from '../Logic/general';
+import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import { parseStateId } from '../Utils';
 
 const log = globalThis.log || function () {};
 
@@ -46,6 +47,10 @@ export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 export interface BattleTransRecord{
   attackInfo: BattleRecordInfo
   defenseInfo: BattleRecordInfo
+  blockInfo: {
+    x_id: number
+    y_id: number
+  }
   result: boolean
 }
 
@@ -215,18 +220,22 @@ export class TransitionHandler {
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
       let btr: BattleTransRecord  = {
         attackInfo :{
-          username: logic1.city.state.getId(),
+          username: parseStateId(logic1.city.state.getId()).username,
           generalId: args.generalId,
           generalLevel: logic1.general.getGeneralLevel( args.generalId ),
           troopReduce: re['attackTroopReduce'],
           silverGet: re['silverGet']
         },
         defenseInfo:{
-          username: logic2.city.state.getId(),
+          username: parseStateId(logic2.city.state.getId()).username,
           generalId: defenseInfo.generalId,
           generalLevel: defenseInfo.generalLevel,
           troopReduce: re['defenseTroopReduce'],
           silverGet: -re['silverGet']
+        },
+        blockInfo:{
+          x_id: -1,
+          y_id: -1
         },
         result: re['win']
       }
@@ -249,7 +258,7 @@ export class TransitionHandler {
       for(let record of re as []){
         this.recordEvent(TransitionEventType.Battles, record)
       }
-      let temp = re as BattleRecord[]
+      let temp = re as BattleTransRecord[]
       return{
         result: true,
         record: temp[temp.length - 1]

@@ -10,7 +10,7 @@ import {
   IStateChangeWatcher,
   State
 } from '../../Core/state';
-import { TransitionEventType, TransitionHandler } from './transition';
+import { BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
 import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
@@ -19,7 +19,7 @@ import {
   MessageS2C,
   MessageType
 } from './Websocket/protocol';
-import { BattleRecord, BattleType } from '../Logic/general';
+import { BattleType } from '../Logic/general';
 
 
 function getInitState(username:string,wather: IStateChangeWatcher): {
@@ -110,76 +110,88 @@ export class LocalMediator
 
 	query( typ: string, args:{}):Promise<any> {
     let re = []
-    let record1:BattleRecord = {
-      myInfo:{
+    let record1:BattleTransRecord = {
+      attackInfo:{
         generalId: 1,
         generalLevel: 2,
         username: 'test',
         troopReduce: 1000,
         silverGet: 100
       },
-      enemyInfo:{
+      defenseInfo:{
         generalId: -1,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1500,
         silverGet: -100
       },
-      type: BattleType.Attack,
+      blockInfo :{
+        x_id: 2,
+        y_id: 2
+      },
       result: true,
     }
-    let record2:BattleRecord = {
-      myInfo:{
+    let record2: BattleTransRecord = {
+      attackInfo:{
         generalId: 1,
         generalLevel: 2,
         username: 'test',
         troopReduce: 1500,
         silverGet: 0
       },
-      enemyInfo:{
+      defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1000,
         silverGet: 0
       },
-      type: BattleType.Attack,
+      blockInfo :{
+        x_id: 2,
+        y_id: 2
+      },
       result: false,
     }
-    let record3:BattleRecord = {
-      myInfo:{
+    let record3: BattleTransRecord = {
+      attackInfo: {
         generalId: 1,
         generalLevel: 2,
         username: 'test',
         troopReduce: 1000,
         silverGet: 0
       },
-      enemyInfo:{
+      defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1500,
         silverGet: 0
       },
-      type: BattleType.Defense,
+      blockInfo :{
+        x_id: -1,
+        y_id: -1
+      },
       result: true,
     }
-    let record4:BattleRecord = {
-      myInfo:{
+    let record4: BattleTransRecord = {
+      attackInfo:{
         generalId: 1,
         generalLevel: 2,
         username: 'test',
         troopReduce: 1500,
         silverGet: -100
       },
-      enemyInfo:{
+      defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1000,
         silverGet: 100
       },
-      type: BattleType.Defense,
+      blockInfo :{
+        x_id: -1,
+        y_id: -1
+      },
       result: false,
     }
     if(typ == StateName.DefenderInfo){
