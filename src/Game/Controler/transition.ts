@@ -207,7 +207,7 @@ export class TransitionHandler {
 
   onBattle(args: BattleArgs):{}{
     const logic1: LogicEssential = this.genLogic(args.from)
-    const logic2: LogicEssential = this.genLogic(args.name)
+    const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""))
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
     if(re.result == true){
