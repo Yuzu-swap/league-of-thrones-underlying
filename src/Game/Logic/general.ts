@@ -7,6 +7,7 @@ import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { State } from '../../Core/state';
 import { parseStateId } from '../Utils';
+import { BattleTransRecord } from '../Controler/transition';
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -52,6 +53,17 @@ export enum BattleType{
     Attack = 'attack',
     Defense = 'defense'
 }
+
+export interface BattleRecord{
+    myInfo: BattleRecordInfo
+    enemyInfo: BattleRecordInfo
+    blockInfo: {
+      x_id: number
+      y_id: number
+    }
+    type: BattleType
+    result: boolean
+  }
 
 export interface BattleRecordInfo{
     username: string
@@ -747,6 +759,34 @@ export class General{
             }
         )
         this.city.useTroop(-remainTroop)
+    }
+
+    transferTransRecord(record: BattleTransRecord): BattleRecord{
+        let username = parseStateId(this.state.getId()).username
+        let type = BattleType.Attack
+        let result = true
+        let myInfo: BattleRecordInfo
+        let enemyInfo: BattleRecordInfo
+        if(record.attackInfo.username == username){
+            type = BattleType.Attack
+            result = record.result
+            myInfo = record.attackInfo
+            enemyInfo = record.defenseInfo
+        }
+        else{
+            type = BattleType.Defense
+            result = !record.result
+            myInfo = record.defenseInfo
+            enemyInfo = record.attackInfo
+        }
+        let re :BattleRecord = {
+            myInfo: myInfo,
+            enemyInfo: enemyInfo,
+            blockInfo: record.blockInfo,
+            result : result,
+            type: type
+        }
+        return re
     }
 
 }

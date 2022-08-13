@@ -1,4 +1,4 @@
-import { BattleType, General, GeneralAbility } from '../Logic/general'
+import { BattleRecord, BattleResult, BattleType, General, GeneralAbility } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
@@ -27,7 +27,7 @@ import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
-import { TransitionEventType } from '../Controler/transition'
+import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
 
 
 
@@ -535,8 +535,12 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   async getBattleRecords( callback: (result: any) => void ) {
-    let re = await this.mediator.query(TransitionEventType.Battles, {username : Throne.instance().username})
-    callback(re)
+    let re = (await this.mediator.query(TransitionEventType.Battles, {username : Throne.instance().username})) as BattleTransRecord[]
+    let trans = []
+    for(let record of re){
+      trans.push(this.general.transferTransRecord(record))
+    }
+    callback(trans)
   }
 
   getDefenseBlockGenerals(): [] {
