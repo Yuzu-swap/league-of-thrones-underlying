@@ -33,6 +33,7 @@ import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
 import { General } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
+import { getTimeStamp } from './Game/Utils';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -112,9 +113,9 @@ function example() {
         const facilities = city.getFacilityList();
         const resource = city.getResource();
         const uiState = { facilities, resource };
-        console.log("receive state", uiState)
+        //console.log("receive state", uiState)
         count += 1
-        console.log("============", count)
+        //console.log("============", count)
         // rerender by new state
       });
       city.updateResource();
@@ -130,7 +131,7 @@ function example() {
     ComponentType.General,
     ((general: IGeneralComponent)=>{
       general.onStateUpdate((state)=>{
-        console.log("general",state)
+        //console.log("general",state)
       })
       const list = general.getAbleList();
       general.ableGeneral(1, (result)=>{
@@ -139,33 +140,33 @@ function example() {
       general.upgradeGeneral(1,  (result)=>{
         console.log("general up ", result)
       })
-      console.log("value", general.getGeneralQuaValue(1, 1))
-      console.log("general status ", general.getAbleStatus())
-      general.upgradeGeneralSkill(1 , 0, 
-        (result)=>{
-          console.log("upgrade skill", result)
-        }
-        )
-      console.log("general", general.getGeneralList())
-      console.log("const ", general.getConstData())
-      general.setDefenseGeneral(1, (re)=>{
-        console.log(re)
-      })
-      console.log('defenseGeneral', general.getGeneralBattleInfo(1))
-      general.battle(1, 'test1', (re)=>{
-        console.log(re)
-      })
-      general.getBattleRecords(
-        (result)=>{
-          console.log('+++++++++++++++++++++++++',result)
-        }
-      )
+      // console.log("value", general.getGeneralQuaValue(1, 1))
+      // console.log("general status ", general.getAbleStatus())
+      // general.upgradeGeneralSkill(1 , 0, 
+      //   (result)=>{
+      //     console.log("upgrade skill", result)
+      //   }
+      //   )
+      // console.log("general", general.getGeneralList())
+      // console.log("const ", general.getConstData())
+      // general.setDefenseGeneral(1, (re)=>{
+      //   console.log(re)
+      // })
+      // console.log('defenseGeneral', general.getGeneralBattleInfo(1))
+      // general.battle(1, 'test1', (re)=>{
+      //   console.log(re)
+      // })
+      // general.getBattleRecords(
+      //   (result)=>{
+      //     console.log('+++++++++++++++++++++++++',result)
+      //   }
+      // )
 
-      general.getBattleStatuses('',
-        (result)=>{
-          console.log('general-----getbbb',result)
-        }
-      )
+      // general.getBattleStatuses('',
+      //   (result)=>{
+      //     console.log('general-----getbbb',result)
+      //   }
+      // )
 
       general.getBattleStatuses('test',
         (result)=>{
@@ -179,6 +180,7 @@ function example() {
   Throne.instance().initComponent(
     ComponentType.Map,
     (map: IMapComponent)=>{
+      console.log(' in map com')
       map.getBlockInfo(1, 1, 
         (result)=>{
           console.log('map----getBlockInfo',result)
@@ -205,7 +207,7 @@ function example() {
         }
       )
       
-      
+      getTimeStamp()
     }
   )
 }
@@ -214,4 +216,4 @@ function test(){
   console.log(mapGDS['9^9'])
 }
 //test()
-//example()
+example()

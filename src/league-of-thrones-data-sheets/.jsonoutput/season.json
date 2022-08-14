@@ -1,0 +1,386 @@
+{
+   "Config" : [
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 50000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 100000
+            }
+        ],
+        "show_occupy_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 100000
+            }
+        ],
+        "season_reservation":"2022_8_14_22",
+        "season_ready":"2022_8_15_9",
+        "season_open":"2022_8_15_10",
+        "season_end":"2022_8_30_10",
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 1,
+                "end": 1,
+                "count": 50000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 2,
+                "end": 2,
+                "count": 30000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 3,
+                "end": 3,
+                "count": 20000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 4,
+                "end": 4,
+                "count": 10000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 5,
+                "end": 5,
+                "count": 6000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 6,
+                "end": 6,
+                "count": 4000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 7,
+                "end": 7,
+                "count": 3000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 8,
+                "end": 8,
+                "count": 2500
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 9,
+                "end": 9,
+                "count": 2200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 10,
+                "end": 10,
+                "count": 2000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 11,
+                "end": 11,
+                "count": 1800
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 12,
+                "end": 12,
+                "count": 1600
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 13,
+                "end": 13,
+                "count": 1400
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 14,
+                "end": 14,
+                "count": 1200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 15,
+                "end": 15,
+                "count": 1000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 16,
+                "end": 16,
+                "count": 900
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 17,
+                "end": 17,
+                "count": 800
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 18,
+                "end": 18,
+                "count": 700
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 19,
+                "end": 19,
+                "count": 600
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 20,
+                "end": 20,
+                "count": 500
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 21,
+                "end": 30,
+                "count": 300
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 31,
+                "end": 40,
+                "count": 200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 41,
+                "end": 50,
+                "count": 100
+            }
+        ],
+        "id": 1
+    },
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 50000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 100000
+            }
+        ],
+        "show_occupy_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "count": 100000
+            }
+        ],
+        "season_reservation":"2022_8_31_22",
+        "season_ready":"2022_9_1_9",
+        "season_open":"2022_9_1_10",
+        "season_end":"2022_9_15_10",
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 1,
+                "end": 1,
+                "count": 50000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 2,
+                "end": 2,
+                "count": 30000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 3,
+                "end": 3,
+                "count": 20000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 4,
+                "end": 4,
+                "count": 10000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 5,
+                "end": 5,
+                "count": 6000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 6,
+                "end": 6,
+                "count": 4000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 7,
+                "end": 7,
+                "count": 3000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 8,
+                "end": 8,
+                "count": 2500
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 9,
+                "end": 9,
+                "count": 2200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 10,
+                "end": 10,
+                "count": 2000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 11,
+                "end": 11,
+                "count": 1800
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 12,
+                "end": 12,
+                "count": 1600
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 13,
+                "end": 13,
+                "count": 1400
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 14,
+                "end": 14,
+                "count": 1200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 15,
+                "end": 15,
+                "count": 1000
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 16,
+                "end": 16,
+                "count": 900
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 17,
+                "end": 17,
+                "count": 800
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 18,
+                "end": 18,
+                "count": 700
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 19,
+                "end": 19,
+                "count": 600
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 20,
+                "end": 20,
+                "count": 500
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 21,
+                "end": 30,
+                "count": 300
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 31,
+                "end": 40,
+                "count": 200
+            },
+            {
+                "type": 1,
+                "name":"gold",
+                "from": 41,
+                "end": 50,
+                "count": 100
+            }
+        ],
+        "id": 2
+    }
+    ]
+}

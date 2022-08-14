@@ -12,6 +12,7 @@ import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutp
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -20,6 +21,8 @@ import {
   } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import { BlockDefenseInfo } from '../State';
+import { transDateToTimeStamp } from '../Utils';
+import { copyObj } from '../../Core/state';
 export class FacilityLimit {
 	max_count: number;
 	building_name: string;
@@ -294,3 +297,68 @@ export function GenBlockDefenseTroop(x_id: number, y_id: number){
 	}
 	return re
 }
+
+export interface Season{
+	show_season_victory_reward: SeasonReward[]
+	show_rank_reward: SeasonReward[]
+	show_occupy_reward: SeasonReward[]
+	season_reservation: number
+	season_ready: number
+	season_open: number
+	season_end: number
+	rank_reward: RankReward[]
+	id: number
+}
+
+export interface SeasonReward{
+	type: number
+	name: string
+	count: number
+}
+
+export interface RankReward{
+	type: number
+	name: string
+	from: number
+	end: number
+	count: number
+}
+
+export class SeasonConfig{
+	config : Season[]
+	constructor(obj : {}){
+		let list = obj['Config'] as []
+		this.config = []
+		for(let seasonConf of list){
+			let season: Season = {
+				show_season_victory_reward : [],
+				show_rank_reward: [],
+				show_occupy_reward: [],
+				season_reservation : transDateToTimeStamp(seasonConf['season_reservation']),
+				season_ready: transDateToTimeStamp(seasonConf['season_ready']),
+				season_open: transDateToTimeStamp(seasonConf['season_open']),
+				season_end: transDateToTimeStamp(seasonConf['season_end']),
+				rank_reward: [],
+				id: seasonConf['id']
+			}
+			for(let item of seasonConf['show_season_victory_reward'] as []){
+				season.show_season_victory_reward.push( item as SeasonReward)
+			}
+			for(let item of seasonConf['show_rank_reward'] as []){
+				season.show_rank_reward.push(item as SeasonReward)
+			}
+			for(let item of seasonConf['show_occupy_reward'] as []){
+				season.show_occupy_reward.push(item as SeasonReward)
+			}
+			for(let item of seasonConf['rank_reward'] as []){
+				season.rank_reward.push(item as RankReward)
+			}
+			this.config.push(season)
+		}
+	}
+	get(id : number){
+		return this.config[id - 1]
+	}
+}
+
+export var SeasonConfigFromGDS = new SeasonConfig(seasonGDS)

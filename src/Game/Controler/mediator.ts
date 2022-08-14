@@ -20,6 +20,7 @@ import {
   MessageType
 } from './Websocket/protocol';
 import { BattleType } from '../Logic/general';
+import { getTimeStamp } from '../Utils';
 
 
 function getInitState(username:string,wather: IStateChangeWatcher): {
@@ -110,6 +111,7 @@ export class LocalMediator
 
 	query( typ: string, args:{}):Promise<any> {
     let re = []
+    console.log("in query")
     let record1:BattleTransRecord = {
       attackInfo:{
         generalId: 1,
@@ -250,7 +252,13 @@ export class LocalMediator
         
       }
     }
+    else if(typ == TransitionEventType.TimeStamp ){
+      return new Promise((resolve, reject) => {
+        resolve(getTimeStamp(3))
+      })
+    }
     //TODO:mock result here
+    console.log("out query")
     return new Promise((resolve, reject) => {
       resolve(re)
     })

@@ -28,6 +28,7 @@ import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
+import { getTimeStamp, setTimeOffset } from '../Utils'
 
 
 
@@ -582,7 +583,6 @@ export class Throne implements IThrone {
 
   constructor() {
     this.inited = false
-
   }
 
 
@@ -598,6 +598,8 @@ export class Throne implements IThrone {
     }else{
       this.mediator = new LocalMediator([this.username, 'test1'])
     }
+    let serverTimeStamp = ( await this.mediator.query(TransitionEventType.TimeStamp, {})) as number
+    setTimeOffset(serverTimeStamp - getTimeStamp())
     // init essensial states
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
@@ -640,6 +642,7 @@ export class Throne implements IThrone {
       generalCom.setGeneral(this.logicEssential.general)
       callback(generalCom as any as T)
     } else if(typ == ComponentType.Map){
+      console.error('init test')
       this.components[ComponentType.Map] = new MapComponent(this.mediator)
       let mapCom = this.components[ComponentType.Map] as MapComponent
       mapCom.setMap(this.logicEssential.map)

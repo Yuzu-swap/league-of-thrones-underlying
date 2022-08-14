@@ -74,6 +74,7 @@ export class MapComponent implements IMapComponent{
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
         let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'blocks' : idLists })
+        console.log("after query")
         this.map.loadBlockStates(blockStats)
     }
 

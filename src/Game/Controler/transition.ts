@@ -40,6 +40,7 @@ const log = globalThis.log || function () {};
 
 export enum TransitionEventType {
   Battles = "battles",
+  TimeStamp = "timeStamp"
 }
 
 export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
