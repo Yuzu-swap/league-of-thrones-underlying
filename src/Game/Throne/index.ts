@@ -5,7 +5,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, ResouceInfo } from '../State'
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, ResouceInfo } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -519,7 +519,7 @@ export class GeneralComponent implements IGeneralComponent {
   async getBattleStatuses( username: string, callback: (result: any) => void ) {
     let re = []
     if(username == ''){
-      re = await this.mediator.query( StateName.DefenderInfo, {})
+      re = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'silver'})
     }
     else{
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
@@ -597,9 +597,12 @@ export class Throne implements IThrone {
       this.mediator = wsmediator
     }else{
       this.mediator = new LocalMediator([this.username, 'test1'])
+      if(obj['unionId']){
+        InitState[StateName.General].unionId = obj['unionId']
+      }
     }
     let serverTimeStamp = ( await this.mediator.query(TransitionEventType.TimeStamp, {})) as number
-    setTimeOffset(serverTimeStamp - getTimeStamp())
+    setTimeOffset(serverTimeStamp - getTimeStamp(0))
     // init essensial states
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
@@ -642,7 +645,6 @@ export class Throne implements IThrone {
       generalCom.setGeneral(this.logicEssential.general)
       callback(generalCom as any as T)
     } else if(typ == ComponentType.Map){
-      console.error('init test')
       this.components[ComponentType.Map] = new MapComponent(this.mediator)
       let mapCom = this.components[ComponentType.Map] as MapComponent
       mapCom.setMap(this.logicEssential.map)

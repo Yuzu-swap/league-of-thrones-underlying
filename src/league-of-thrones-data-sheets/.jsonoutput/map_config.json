@@ -12,8 +12,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -38,18 +39,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -74,8 +78,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -100,18 +105,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -136,8 +144,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -162,18 +171,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -198,8 +210,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -224,18 +237,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -260,8 +276,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -286,18 +303,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -321,8 +341,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -347,8 +368,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -373,8 +395,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -399,8 +422,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -425,8 +449,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -451,8 +476,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -477,8 +503,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -503,8 +530,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -529,8 +557,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -555,8 +584,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -581,8 +611,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -607,18 +638,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -643,8 +677,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -669,8 +704,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -695,8 +731,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -721,18 +758,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -757,8 +797,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -783,8 +824,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -809,8 +851,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -835,18 +878,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -871,8 +917,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -896,18 +943,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -932,8 +982,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -958,8 +1009,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -984,8 +1036,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1010,8 +1063,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1036,8 +1090,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1062,8 +1117,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1088,8 +1144,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1114,8 +1171,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1140,8 +1198,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1166,8 +1225,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1192,8 +1252,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1218,18 +1279,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -1254,8 +1318,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1280,8 +1345,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1306,8 +1372,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1332,8 +1399,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1358,8 +1426,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1384,18 +1453,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -1420,8 +1492,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1446,18 +1519,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             }
         ],
@@ -1482,8 +1558,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -1508,8 +1585,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1534,8 +1612,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1560,18 +1639,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -1596,18 +1678,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1632,18 +1717,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1668,18 +1756,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -1704,8 +1795,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1730,8 +1822,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1756,18 +1849,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -1792,18 +1888,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -1828,8 +1927,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1854,8 +1954,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1880,8 +1981,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -1906,8 +2008,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -1932,8 +2035,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -1958,8 +2062,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -1984,8 +2089,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2010,8 +2116,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2036,8 +2143,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2062,8 +2170,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -2087,8 +2196,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2113,18 +2223,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2149,8 +2262,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2175,8 +2289,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2201,8 +2316,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2227,8 +2343,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2253,8 +2370,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2279,8 +2397,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2305,18 +2424,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2341,8 +2463,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2367,8 +2490,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2393,8 +2517,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2419,8 +2544,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2445,18 +2571,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2481,8 +2610,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2507,8 +2637,9 @@
         "type": 3,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -2533,8 +2664,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2559,18 +2691,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2595,8 +2730,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2621,8 +2757,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2647,8 +2784,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -2673,8 +2811,9 @@
         "type": 3,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -2699,18 +2838,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2735,8 +2877,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2761,8 +2904,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2787,8 +2931,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2813,8 +2958,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2839,8 +2985,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -2865,8 +3012,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2891,18 +3039,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2927,8 +3078,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2953,8 +3105,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -2979,8 +3132,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3005,8 +3159,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3031,18 +3186,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3067,8 +3225,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3093,8 +3252,9 @@
         "type": 3,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -3119,8 +3279,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3145,18 +3306,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3181,8 +3345,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3207,8 +3372,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3233,8 +3399,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -3259,8 +3426,9 @@
         "type": 3,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -3285,8 +3453,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3311,8 +3480,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3337,8 +3507,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3363,8 +3534,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3389,8 +3561,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3415,8 +3588,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3441,8 +3615,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3467,8 +3642,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3493,8 +3669,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3519,8 +3696,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -3544,8 +3722,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 100,
+                "type": 1,
                 "defense": 11000,
+                "count": 100,
                 "attack": 11000
             }
         ],
@@ -3570,8 +3749,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3596,8 +3776,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3622,18 +3803,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -3658,18 +3842,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3694,18 +3881,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3730,18 +3920,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -3766,8 +3959,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3792,8 +3986,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3818,18 +4013,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -3854,18 +4052,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -3890,8 +4091,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -3916,18 +4118,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -3952,8 +4157,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -3978,8 +4184,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4004,8 +4211,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4030,8 +4238,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4056,8 +4265,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4082,18 +4292,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -4118,8 +4331,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4144,18 +4358,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             }
         ],
@@ -4180,8 +4397,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4206,8 +4424,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4232,8 +4451,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4258,8 +4478,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4284,8 +4505,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4310,8 +4532,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4336,8 +4559,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4362,8 +4586,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 200,
+                "type": 1,
                 "defense": 24000,
+                "count": 200,
                 "attack": 24000
             }
         ],
@@ -4388,8 +4613,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4414,8 +4640,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4440,8 +4667,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4466,18 +4694,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -4502,8 +4733,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4528,8 +4760,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4554,8 +4787,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4580,18 +4814,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4616,8 +4853,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4642,8 +4880,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4668,8 +4907,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4694,18 +4934,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -4730,8 +4973,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -4755,18 +4999,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             },
             {
-                "type": 400,
+                "type": 2,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4791,8 +5038,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4817,8 +5065,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4843,8 +5092,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4869,8 +5119,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4895,8 +5146,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4921,8 +5173,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4947,8 +5200,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4973,8 +5227,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -4999,8 +5254,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5025,8 +5281,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5051,8 +5308,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5077,18 +5335,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -5113,8 +5374,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5139,18 +5401,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -5175,8 +5440,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5201,18 +5467,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             },
             {
-                "type": 2500,
+                "type": 2,
                 "defense": 138000,
+                "count": 2500,
                 "attack": 138000
             }
         ],
@@ -5237,8 +5506,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5263,18 +5533,21 @@
         "type": 4,
         "troops":[
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             },
             {
-                "type": 10000,
+                "type": 2,
                 "defense": 250000,
+                "count": 10000,
                 "attack": 250000
             }
         ],
@@ -5299,8 +5572,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5325,18 +5599,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -5360,8 +5637,9 @@
         "type": 1,
         "troops":[
             {
-                "type": 400,
+                "type": 1,
                 "defense": 54000,
+                "count": 400,
                 "attack": 54000
             }
         ],
@@ -5386,8 +5664,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5411,8 +5690,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5437,8 +5717,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5462,8 +5743,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5487,8 +5769,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5512,8 +5795,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5537,8 +5821,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5563,8 +5848,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5588,18 +5874,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -5623,18 +5912,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -5658,8 +5950,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5683,8 +5976,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5708,18 +6002,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             }
         ],
@@ -5744,8 +6041,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5770,8 +6068,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5796,8 +6095,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5821,18 +6121,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             },
             {
-                "type": 50000,
+                "type": 3,
                 "defense": 472000,
+                "count": 50000,
                 "attack": 472000
             }
         ],
@@ -5857,8 +6160,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5882,8 +6186,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5908,18 +6213,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -5943,8 +6251,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5968,8 +6277,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -5994,8 +6304,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6019,8 +6330,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6044,8 +6356,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6069,8 +6382,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6094,8 +6408,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6120,8 +6435,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6145,8 +6461,9 @@
         "type": 6,
         "troops":[
             {
-                "type": 0,
+                "type": 1,
                 "defense": 0,
+                "count": 0,
                 "attack": 0
             }
         ],
@@ -6170,18 +6487,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],
@@ -6205,18 +6525,21 @@
         "type": 2,
         "troops":[
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             },
             {
-                "type": 5000,
+                "type": 3,
                 "defense": 190000,
+                "count": 5000,
                 "attack": 190000
             }
         ],

@@ -671,7 +671,9 @@ export class General{
     //should trigger when defense general change
     updateDefenseInfo(){
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)
-        let defenderInfo = this.getDefenseInfo()
+        let defenderInfo = this.getDefenseInfo() as any
+        defenderInfo['unionId'] = this.state.unionId
+        defenderInfo['glory'] = this.state.glory
         delete defenderInfo['defenseMaxTroop']
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }

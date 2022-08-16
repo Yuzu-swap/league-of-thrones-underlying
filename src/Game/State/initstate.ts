@@ -5,7 +5,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop } from '../DataConfig';
 
-var InitState = {
+export var InitState = {
     [StateName.City]: {
       facilities: { },
       resources: {
@@ -29,7 +29,8 @@ var InitState = {
       defense_general: -1,
       stamina: [],
       defenseBlockList : [],
-      unionId: 1
+      unionId: 1,
+      glory: 0
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
@@ -39,7 +40,9 @@ var InitState = {
         attack: 100,
         defense: 100,
         troop: 0,
-        silver: 0
+        silver: 0,
+        glory: 0,
+        unionId: 1
     },
     [StateName.MapGlobalInfo]:{
         campInfo:[],

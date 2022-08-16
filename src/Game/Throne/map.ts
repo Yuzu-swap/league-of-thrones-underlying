@@ -27,6 +27,8 @@ import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } 
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
 import { userInfo } from 'os'
+import { TransitionEventType } from "../Controler/transition";
+import { getTimeStamp, setTimeOffset } from "../Utils";
 
 export interface IMapComponent extends IComponent{
     attackBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
@@ -35,6 +37,15 @@ export interface IMapComponent extends IComponent{
     getDefenseList(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlocksBelongInfo(): {}
+    getSeasonStatus(callback: (result: any) => void) : Promise<void>
+    getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
+}
+
+export enum SeasonStatus{
+    Reservation = 'reservation',
+    Ready = 'ready',
+    Open = 'open',
+    End = 'end'
 }
 
 export class MapComponent implements IMapComponent{
@@ -74,7 +85,6 @@ export class MapComponent implements IMapComponent{
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
         let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'blocks' : idLists })
-        console.log("after query")
         this.map.loadBlockStates(blockStats)
     }
 
@@ -122,5 +132,66 @@ export class MapComponent implements IMapComponent{
         let row = this.map.mapConfig.get(xId, yId)
         row['now_durability'] = this.map.getDurability(xId, yId)
         callback(row)
+    }
+
+    async getSeasonRankResult(callback: (result: any) => void): Promise<void> {
+        let defenseList = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'glory'})
+        let re = []
+        const rankReward = this.map.seasonConfig.get(1).rank_reward
+        let rewardIndex = 0
+        let reward = rankReward[rewardIndex]
+        for(let i in defenseList){
+            if( parseInt(i)  > reward.end){
+                rewardIndex++
+                if(rewardIndex > rankReward.length){
+                    break
+                }
+                reward = rankReward[rewardIndex]
+            }
+            let temp = {
+                username : defenseList[i]['username'],
+                unionId : defenseList[i]['unionId'],
+                reward: {
+                    type: reward.type,
+                    name: reward.name,
+                    count: reward.count
+                }
+            }
+            re.push(temp)
+        }
+        callback(re)
+    }
+
+    async getSeasonStatus(callback: (result: any) => void): Promise<void> {
+        let serverTimeStamp = ( await this.mediator.query(TransitionEventType.TimeStamp, {})) as number
+        setTimeOffset(serverTimeStamp - getTimeStamp(0))
+        let time = getTimeStamp()
+        const config = this.map.seasonConfig.get(1)
+        let re = {
+            status: SeasonStatus.Reservation,
+            remaintime: config.season_reservation - time
+        }
+        if( time < config.season_reservation ){
+            re = {
+                status: SeasonStatus.Reservation,
+                remaintime: config.season_reservation - time
+            }
+        }else if( time < config.season_ready ){
+            re = {
+                status: SeasonStatus.Ready,
+                remaintime: config.season_ready - time
+            }
+        }else if( time < config.season_open ){
+            re = {
+                status: SeasonStatus.Open,
+                remaintime: config.season_open - time
+            }
+        }else{
+            re = {
+                status: SeasonStatus.End,
+                remaintime: config.season_end - time
+            }
+        }
+        callback(re)
     }
 }

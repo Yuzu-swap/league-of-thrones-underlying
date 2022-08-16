@@ -111,7 +111,6 @@ export class LocalMediator
 
 	query( typ: string, args:{}):Promise<any> {
     let re = []
-    console.log("in query")
     let record1:BattleTransRecord = {
       attackInfo:{
         generalId: 1,
@@ -207,7 +206,9 @@ export class LocalMediator
               attack: 1000,
               defense: 200,
               silver: 100000,
-              troop: 10000
+              troop: 10000,
+              unionId : 1,
+              glory: 500
             },
             {
               username: 'test1',
@@ -217,7 +218,9 @@ export class LocalMediator
               attack: 1000,
               defense: 200,
               silver: 9899,
-              troop: 10000
+              troop: 10000,
+              unionId : 1,
+              glory: 500
             }
           ]
        }
@@ -258,7 +261,6 @@ export class LocalMediator
       })
     }
     //TODO:mock result here
-    console.log("out query")
     return new Promise((resolve, reject) => {
       resolve(re)
     })

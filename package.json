@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@types/websocket": "^1.0.5",
+    "ts-node": "^10.9.1",
     "websocket": "^1.0.34"
   }
 }

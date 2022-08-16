@@ -140,33 +140,33 @@ function example() {
       general.upgradeGeneral(1,  (result)=>{
         console.log("general up ", result)
       })
-      // console.log("value", general.getGeneralQuaValue(1, 1))
-      // console.log("general status ", general.getAbleStatus())
-      // general.upgradeGeneralSkill(1 , 0, 
-      //   (result)=>{
-      //     console.log("upgrade skill", result)
-      //   }
-      //   )
-      // console.log("general", general.getGeneralList())
-      // console.log("const ", general.getConstData())
-      // general.setDefenseGeneral(1, (re)=>{
-      //   console.log(re)
-      // })
-      // console.log('defenseGeneral', general.getGeneralBattleInfo(1))
-      // general.battle(1, 'test1', (re)=>{
-      //   console.log(re)
-      // })
-      // general.getBattleRecords(
-      //   (result)=>{
-      //     console.log('+++++++++++++++++++++++++',result)
-      //   }
-      // )
+      console.log("value", general.getGeneralQuaValue(1, 1))
+      console.log("general status ", general.getAbleStatus())
+      general.upgradeGeneralSkill(1 , 0, 
+        (result)=>{
+          console.log("upgrade skill", result)
+        }
+        )
+      console.log("general", general.getGeneralList())
+      console.log("const ", general.getConstData())
+      general.setDefenseGeneral(1, (re)=>{
+        console.log(re)
+      })
+      console.log('defenseGeneral', general.getGeneralBattleInfo(1))
+      general.battle(1, 'test1', (re)=>{
+        console.log(re)
+      })
+      general.getBattleRecords(
+        (result)=>{
+          console.log('+++++++++++++++++++++++++',result)
+        }
+      )
 
-      // general.getBattleStatuses('',
-      //   (result)=>{
-      //     console.log('general-----getbbb',result)
-      //   }
-      // )
+      general.getBattleStatuses('',
+        (result)=>{
+          console.log('general-----getbbb',result)
+        }
+      )
 
       general.getBattleStatuses('test',
         (result)=>{
@@ -180,7 +180,6 @@ function example() {
   Throne.instance().initComponent(
     ComponentType.Map,
     (map: IMapComponent)=>{
-      console.log(' in map com')
       map.getBlockInfo(1, 1, 
         (result)=>{
           console.log('map----getBlockInfo',result)
@@ -207,7 +206,18 @@ function example() {
         }
       )
       
-      getTimeStamp()
+      map.getSeasonStatus(
+        (result)=>{
+          console.log('map----getSeasonStatus',result)
+        }
+      )
+
+      map.getSeasonRankResult(
+        (result)=>{
+          console.log('map----getSeasonRankResult',result)
+        }
+      )
+      
     }
   )
 }
@@ -216,4 +226,4 @@ function test(){
   console.log(mapGDS['9^9'])
 }
 //test()
-example()
+//example()
