@@ -191,7 +191,9 @@ export class Map{
             }
         }
         if(remainTroop > 0){
-            this.reduceDurability(x_id, y_id, remainTroop, unionId)
+            let count = this.reduceDurability(x_id, y_id, remainTroop, unionId)
+            let lastRecord = records[records.length - 1] as BattleTransRecord
+            lastRecord.attackInfo.gloryGet += count 
         }
         return records
     }
@@ -223,6 +225,7 @@ export class Map{
                             generalLevel: this.general.getGeneralLevel(generalId),
                             troopReduce: bre.attackTroopReduce,
                             silverGet: 0,
+                            gloryGet: bre.attackGloryGet
                         },
                         defenseInfo: 
                         {
@@ -231,6 +234,7 @@ export class Map{
                             generalLevel: info.generalLevel,
                             troopReduce: bre.defenseTroopReduce,
                             silverGet: 0,
+                            gloryGet: bre.defenseGloryGet
                         },
                         blockInfo:{
                             x_id: x_id,
@@ -279,6 +283,7 @@ export class Map{
                         generalLevel: this.general.getGeneralLevel(generalId),
                         troopReduce: bre.attackTroopReduce,
                         silverGet: 0,
+                        gloryGet: bre.attackGloryGet
                     },
                     defenseInfo: 
                     {
@@ -287,6 +292,7 @@ export class Map{
                         generalLevel: info.generalLevel,
                         troopReduce: bre.defenseTroopReduce,
                         silverGet: 0,
+                        gloryGet: bre.defenseGloryGet
                     },
                     blockInfo:{
                         x_id: x_id,
@@ -334,7 +340,7 @@ export class Map{
         let blockState = this.getBlockState(x_id, y_id)
         let row = this.getMapGDS(x_id, y_id)
         let durability = this.getDurability(x_id, y_id)
-        let update = false
+        let update = 0
         if(durability - remainTroop <= 0){
             let newBelong : BelongInfo ={
                 unionId : unionId,
@@ -347,7 +353,7 @@ export class Map{
                 }
             )
             this.changeBelongInfo(x_id, y_id, unionId)
-            update = true
+            update = durability
         }
         else{
             blockState.update(
@@ -355,6 +361,7 @@ export class Map{
                     'durability': durability - remainTroop
                 }
             )
+            update = remainTroop
         }
         return update
     }

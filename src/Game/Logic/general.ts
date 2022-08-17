@@ -21,6 +21,8 @@ export interface BattleResult{
     attackTroopReduce: number
     defenseTroopReduce: number
     silverGet: number
+    attackGloryGet: number
+    defenseGloryGet: number
 }
 
 export enum GeneralAbility{
@@ -71,6 +73,7 @@ export interface BattleRecordInfo{
     generalLevel: number
     troopReduce: number
     silverGet: number
+    gloryGet: number
 }
 
 export class General{
@@ -653,16 +656,26 @@ export class General{
             win: false,
             attackTroopReduce: 0,
             defenseTroopReduce: 0,
-            silverGet: 0
+            silverGet: 0,
+            attackGloryGet: 0,
+            defenseGloryGet: 0
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
+        re.attackGloryGet = Math.floor((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 )
+        re.defenseGloryGet = Math.floor((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 )
         if(remainTroopA > 0 ){
             re.win = true
             re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
         }
         else{
             re.win = false
+        }
+        if(re.win){
+            re.attackGloryGet += this.config.parameter.battle_victory_get_glory
+        }
+        else{
+            re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
         }
         this.city.useTroop(re.attackTroopReduce)
         return re
@@ -789,6 +802,15 @@ export class General{
             type: type
         }
         return re
+    }
+
+    addGlory(count : number){
+        let nowCount = this.state.glory
+        this.state.update(
+            {
+                'glory' : nowCount + count
+            }
+        )       
     }
 
 }

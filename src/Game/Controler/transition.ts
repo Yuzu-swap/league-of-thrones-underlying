@@ -217,7 +217,6 @@ export class TransitionHandler {
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
     if(re.result == true){
-      
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
       let btr: BattleTransRecord  = {
         attackInfo :{
@@ -225,14 +224,16 @@ export class TransitionHandler {
           generalId: args.generalId,
           generalLevel: logic1.general.getGeneralLevel( args.generalId ),
           troopReduce: re['attackTroopReduce'],
-          silverGet: re['silverGet']
+          silverGet: re['silverGet'],
+          gloryGet: re['attackGloryGet']
         },
         defenseInfo:{
           username: parseStateId(logic2.city.state.getId()).username,
           generalId: defenseInfo.generalId,
           generalLevel: defenseInfo.generalLevel,
           troopReduce: re['defenseTroopReduce'],
-          silverGet: -re['silverGet']
+          silverGet: -re['silverGet'],
+          gloryGet: re['defenseGloryGet']
         },
         blockInfo:{
           x_id: -1,
@@ -240,6 +241,8 @@ export class TransitionHandler {
         },
         result: re['win']
       }
+      logic1.general.addGlory(btr.attackInfo.gloryGet)
+      logic2.general.addGlory(btr.defenseInfo.gloryGet)
       this.recordEvent(TransitionEventType.Battles, btr)
     }
     logic1.city.useSilver( - (re as any).silverGet as number)
@@ -256,7 +259,14 @@ export class TransitionHandler {
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
-      for(let record of re as []){
+      for(let record of re as BattleTransRecord[]){
+        logic.general.addGlory(record.attackInfo.gloryGet)
+        if(record.defenseInfo.username != ''){
+          let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username)
+          if(tempLogic){
+            tempLogic.general.addGlory(record.defenseInfo.gloryGet)
+          }
+        }
         this.recordEvent(TransitionEventType.Battles, record)
       }
       let temp = re as BattleTransRecord[]

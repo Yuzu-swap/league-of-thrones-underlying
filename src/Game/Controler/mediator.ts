@@ -117,14 +117,16 @@ export class LocalMediator
         generalLevel: 2,
         username: 'test',
         troopReduce: 1000,
-        silverGet: 100
+        silverGet: 100,
+        gloryGet: 100
       },
       defenseInfo:{
         generalId: -1,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1500,
-        silverGet: -100
+        silverGet: -100,
+        gloryGet: 100
       },
       blockInfo :{
         x_id: 2,
@@ -138,14 +140,16 @@ export class LocalMediator
         generalLevel: 2,
         username: 'test',
         troopReduce: 1500,
-        silverGet: 0
+        silverGet: 0,
+        gloryGet: 100
       },
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1000,
-        silverGet: 0
+        silverGet: 0,
+        gloryGet: 100
       },
       blockInfo :{
         x_id: 2,
@@ -159,14 +163,16 @@ export class LocalMediator
         generalLevel: 2,
         username: 'test',
         troopReduce: 1000,
-        silverGet: 0
+        silverGet: 0,
+        gloryGet: 100
       },
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1500,
-        silverGet: 0
+        silverGet: 0,
+        gloryGet: 100
       },
       blockInfo :{
         x_id: -1,
@@ -180,14 +186,16 @@ export class LocalMediator
         generalLevel: 2,
         username: 'test',
         troopReduce: 1500,
-        silverGet: -100
+        silverGet: -100,
+        gloryGet: 100
       },
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
         username: 'test1',
         troopReduce: 1000,
-        silverGet: 100
+        silverGet: 100,
+        gloryGet: 100
       },
       blockInfo :{
         x_id: -1,
