@@ -513,7 +513,7 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   async getAllBattleStatuses( callback: (result: any) => void ) {
-    let re = await this.mediator.query( StateName.DefenderInfo, {})
+    let re = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'silver'})
     callback(re)
   }
   async getBattleStatuses( username: string, callback: (result: any) => void ) {
