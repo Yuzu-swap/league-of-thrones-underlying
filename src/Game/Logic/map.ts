@@ -1,7 +1,7 @@
 import { BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState } from "../State";
-import { parseStateId } from "../Utils";
+import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { BattleResult, BattleType, DefenseInfo, General } from "./general";
 
@@ -121,8 +121,11 @@ export class Map{
     }
 
     getDefenseList( x_id: number, y_id: number, defaultDefense : boolean){
-        let time = parseInt(new Date().getTime() / 1000 + '');
+        let time = getTimeStamp()
         let blockState = this.getBlockState(x_id, y_id)
+        if(!blockState){
+            return []
+        }
         if(defaultDefense){
             if(time - blockState.lastAttachTime > DefaultTroopRecoverTime){
                 return GenBlockDefenseTroop(x_id, y_id)
@@ -152,14 +155,29 @@ export class Map{
 
     checkIfCanAttack( x_id: number, y_id: number ){
         let blockState = this.getBlockState(x_id, y_id)
-        let time = parseInt(new Date().getTime() / 1000 + '');
+        let time = getTimeStamp();
         if(blockState.belong.updateTime == -1 || time - blockState.belong.updateTime > this.parameter.occupy_block_protect_times){
             return true
         }
         return false
     }
 
+    getProtectRemainTime(x_id: number, y_id: number){
+        let blockState = this.getBlockState(x_id, y_id)
+        let time = getTimeStamp();
+        if(blockState.belong.updateTime == -1 || time - blockState.belong.updateTime > this.parameter.occupy_block_protect_times){
+            return 0
+        }
+        return blockState.belong.updateTime + this.parameter.occupy_block_protect_times - time
+    }
+
     attackBlocksAround(x_id: number, y_id: number, generalId: number){
+        if(!this.checkIfCanAttack(x_id, y_id)){
+            return {
+                result: false,
+                error: 'block-is-be-protected'
+            }
+        }
         const xOffset = [ 2, 1, -1, -2, -1, 1]
         const yOffset = [ 0, 1, 1, 0, -1, -1]
         let centerBlockState = this.getBlockState(x_id, y_id)
