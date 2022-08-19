@@ -251,7 +251,7 @@ export class LocalMediator
       re = [record1, record2, record3, record4]
     }
     else if(typ == StateName.BlockInfo){
-      let blocks = args['blocks']
+      let blocks = args['blocks']['$in']
       for(let key of blocks){
         let sid = {
           id : `${StateName.BlockInfo}:${key}`

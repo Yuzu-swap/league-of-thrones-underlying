@@ -193,36 +193,36 @@ function example() {
       )
       //console.log(map.getBlocksBelongInfo())
 
-      map.attackBlock( 2, 2, 1,
-        (result)=>{
-          console.log('map----attackBlock',result)
-        }
-      )
+      // map.attackBlock( 2, 2, 1,
+      //   (result)=>{
+      //     console.log('map----attackBlock',result)
+      //   }
+      // )
 
-      console.log(map.getBlocksBelongInfo())
+      // console.log(map.getBlocksBelongInfo())
 
-      map.defenseBlock( 2 , 2, 1, 
-        (result)=>{
-          console.log('map----defenseBlock',result)
-        }
-      )
-      map.getDefenseList(2, 2, 
-        (result)=>{
-          console.log('map----getDefenseList',result)
-        }
-      )
+      // map.defenseBlock( 2 , 2, 1, 
+      //   (result)=>{
+      //     console.log('map----defenseBlock',result)
+      //   }
+      // )
+      // map.getDefenseList(2, 2, 
+      //   (result)=>{
+      //     console.log('map----getDefenseList',result)
+      //   }
+      // )
       
-      map.getSeasonStatus(
-        (result)=>{
-          console.log('map----getSeasonStatus',result)
-        }
-      )
+      // map.getSeasonStatus(
+      //   (result)=>{
+      //     console.log('map----getSeasonStatus',result)
+      //   }
+      // )
 
-      map.getSeasonRankResult(
-        (result)=>{
-          console.log('map----getSeasonRankResult',result)
-        }
-      )
+      // map.getSeasonRankResult(
+      //   (result)=>{
+      //     console.log('map----getSeasonRankResult',result)
+      //   }
+      // )
       
     }
   )
