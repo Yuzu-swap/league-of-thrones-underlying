@@ -73,11 +73,13 @@ export class MapComponent implements IMapComponent{
         const xOffset = [ 2, 1, -1, -2, -1, 1]
         const yOffset = [ 0, 1, 1, 0, -1, -1]
         let re = []
-        re.push(x_id + "^" + y_id)
+        re.push(`${StateName.BlockInfo}:${x_id}^${y_id}`)
         for(let i = 0; i < 6; i++){
             let tempX = x_id + xOffset[i]
             let tempY = y_id + yOffset[i]
-            re.push(tempX + "^" + tempY)
+            let id = tempX + "^" + tempY
+            let stateId = `${StateName.BlockInfo}:${id}`
+            re.push( stateId)
         }
         return re
     }

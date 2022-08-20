@@ -254,7 +254,7 @@ export class LocalMediator
       let blocks = args['id']['$in']
       for(let key of blocks){
         let sid = {
-          id : `${StateName.BlockInfo}:${key}`
+          id : key
         }
         let blockstate = this.transitionHandler.stateManger.get(sid)
         if(blockstate){
