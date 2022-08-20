@@ -232,4 +232,4 @@ function test(){
   console.log(mapGDS['9^9'])
 }
 //test()
-example()
+//example()
