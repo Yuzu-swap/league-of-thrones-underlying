@@ -30,7 +30,7 @@ export class BaseStateManager implements IStateManager {
     if(this.loadStateFunc(sid)){
       this.save(sid, this.loadStateFunc(sid))
     }
-    return this.loadStateFunc(sid)
+    return this.states[sid.id]
   }
 
   save(sid: IStateIdentity, state: IState): void {
