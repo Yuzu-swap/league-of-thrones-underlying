@@ -131,7 +131,7 @@ export class MapComponent implements IMapComponent{
 
     async getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void> {
         await this.queryBlockStates(xId, yId)
-        let row = this.map.mapConfig.get(xId, yId)
+        let row = copyObj(this.map.mapConfig.get(xId, yId))
         row['now_durability'] = this.map.getDurability(xId, yId)
         const xOffset = [ 2, 1, -1, -2, -1, 1]
         const yOffset = [ 0, 1, 1, 0, -1, -1]
