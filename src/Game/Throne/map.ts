@@ -131,6 +131,18 @@ export class MapComponent implements IMapComponent{
         await this.queryBlockStates(xId, yId)
         let row = this.map.mapConfig.get(xId, yId)
         row['now_durability'] = this.map.getDurability(xId, yId)
+        const xOffset = [ 2, 1, -1, -2, -1, 1]
+        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        let defenseListLength = 0
+        defenseListLength += this.map.getDefenseList(xId, yId, true).length
+        defenseListLength += this.map.getDefenseList(xId, yId, false).length
+        for(let i = 0; i < 6; i++){
+            let tempX = xId + xOffset[i]
+            let tempY = yId + yOffset[i]
+            defenseListLength += this.map.getDefenseList(tempX, tempY, false).length
+        }
+        row['defense_list_len'] = defenseListLength
+        row['protect_time'] = this.map.getProtectRemainTime(xId, yId)
         callback(row)
     }
 
@@ -163,8 +175,6 @@ export class MapComponent implements IMapComponent{
     }
 
     async getSeasonStatus(callback: (result: any) => void): Promise<void> {
-        let serverTimeStamp = ( await this.mediator.query(TransitionEventType.TimeStamp, {})) as number
-        setTimeOffset(serverTimeStamp - getTimeStamp(0))
         let time = getTimeStamp()
         const config = this.map.seasonConfig.get(1)
         let re = {
