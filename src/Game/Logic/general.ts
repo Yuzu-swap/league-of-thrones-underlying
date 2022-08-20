@@ -650,6 +650,7 @@ export class General{
         let defenderInfo = this.getDefenseInfo() as any
         defenderInfo['unionId'] = this.state.unionId
         defenderInfo['glory'] = this.state.glory
+        defenderInfo['uesrname'] = parseStateId(defenseInfoId).username
         delete defenderInfo['defenseMaxTroop']
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }

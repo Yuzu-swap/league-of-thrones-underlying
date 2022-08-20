@@ -28,7 +28,7 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
 } {
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
-    const InitState = GetInitState();
+  const InitState = GetInitState();
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -251,7 +251,7 @@ export class LocalMediator
       re = [record1, record2, record3, record4]
     }
     else if(typ == StateName.BlockInfo){
-      let blocks = args['blocks']['$in']
+      let blocks = args['id']['$in']
       for(let key of blocks){
         let sid = {
           id : `${StateName.BlockInfo}:${key}`

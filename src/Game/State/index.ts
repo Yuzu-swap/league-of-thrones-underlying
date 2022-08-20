@@ -43,6 +43,7 @@ export interface IGeneralState extends IState{
 
 export interface IDefenderInfoState extends IState{
   id: string;
+  username: string;
   generalId:number
   generalLevel: number
   generalType: number

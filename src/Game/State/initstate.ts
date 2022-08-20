@@ -98,6 +98,7 @@ export function GetInitState(){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
+        InitState = Object.assign(InitState, GetMapState())
         _inited = true
     }
     return  copyObj(InitState)
