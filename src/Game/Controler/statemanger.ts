@@ -24,8 +24,16 @@ export class BaseStateManager implements IStateManager {
   }
 
   get(sid: IStateIdentity): IState {
-    return  this.loadStateFunc(sid);
+    if( this.states[sid.id]){
+      return this.states[sid.id]
+    }
+    if(this.loadStateFunc(sid)){
+      this.save(sid, this.loadStateFunc(sid))
+    }
+    return this.loadStateFunc(sid)
   }
 
-  save(sid: IStateIdentity, state: IState): void {}
+  save(sid: IStateIdentity, state: IState): void {
+    this.states[sid.id] = state
+  }
 }
