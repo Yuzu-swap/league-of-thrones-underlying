@@ -331,5 +331,4 @@ export class TransitionHandler {
       this.eventRecorderFunc(typ,event)
     }
   }
-
 }

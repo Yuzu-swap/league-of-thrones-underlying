@@ -667,9 +667,6 @@ export class Throne implements IThrone {
       cityCom.setCity(this.logicEssential.city)
       callback(cityCom as any as T)
     } else if (typ == ComponentType.General) {
-      if (!this.components[ComponentType.City]) {
-        return false
-      }
       this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${this.username}`, this.mediator)
       let generalCom = this.components[ComponentType.General] as GeneralComponent
       generalCom.setGeneral(this.logicEssential.general)
