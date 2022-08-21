@@ -563,6 +563,12 @@ export interface IThrone {
   ): void;
 }
 
+export enum InstanceStatus{
+  Null,
+  Loading,
+  Ready
+}
+
 export class Throne implements IThrone {
   //singleton
   static throne: Throne;
@@ -574,6 +580,7 @@ export class Throne implements IThrone {
   }
   mediator: IStateMediator<StateTransition, ITransContext>
   inited: boolean
+  instanceState: InstanceStatus
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
   username : string
@@ -583,10 +590,25 @@ export class Throne implements IThrone {
 
   constructor() {
     this.inited = false
+    this.instanceState = InstanceStatus.Null
   }
 
 
   async init( obj : {}) {
+    if(this.instanceState == InstanceStatus.Null){
+      this.instanceState = InstanceStatus.Loading
+    }
+    else if(this.instanceState  == InstanceStatus.Loading){
+      return {
+        result: false,
+        error: "throne-have-not-finish-init"
+      }
+    }
+    else{
+      return{
+        result: true
+      }
+    }
     const states: StateEssential = {} as StateEssential;
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
@@ -618,18 +640,20 @@ export class Throne implements IThrone {
     // ])
     this.logicEssential = createLogicEsential(states)
     this.inited = true
-
+    this.instanceState = InstanceStatus.Ready
   }
 
 
 
   async initComponent<T extends IComponent>(
     typ: ComponentType,
-    callback: (component: T) => void
+    callback: (component: T ) => void
   ) {
-    if (!this.inited) {
-      await this.init({})
-      this.inited = true
+    let initRe =  await this.init({})
+    this.inited = true
+    if(!initRe['result'])
+    {
+      throw initRe['error']
     }
     if (typ == ComponentType.City) {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${this.username}`, this.mediator)
