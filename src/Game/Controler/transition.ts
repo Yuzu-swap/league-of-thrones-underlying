@@ -20,7 +20,8 @@ import {
   ResouceType,
   ReceiveTroopArgs,
   BattleArgs,
-  AttackBlockArgs
+  AttackBlockArgs,
+  SetUnionIdArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -305,6 +306,20 @@ export class TransitionHandler {
     logic.general.cancelDefenseBlock(args.generalId, remainTroop)
     return {
       result: true
+    }
+  }
+
+  onSetUnionId(args: SetUnionIdArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    logic.general.state.update(
+      {
+        'unionId' : args.unionId
+      }
+    )
+    return {
+      result: true,
+      username: args.from,
+      unionId: args.unionId
     }
   }
 

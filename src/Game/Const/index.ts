@@ -43,7 +43,7 @@ export enum StateTransition {
 	DefenseBlock,
 	AttackBlock,
 	CancelDefenseBlock,
-
+	SetUnionId
 }
 
 interface StateTransitionArgs {
@@ -92,4 +92,8 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 	x_id: number
 	y_id: number
 	generalId: number
+}
+
+export interface SetUnionIdArgs extends StateTransitionArgs{
+	unionId: number
 }

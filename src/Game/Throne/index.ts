@@ -584,6 +584,7 @@ export class Throne implements IThrone {
   components: { [key in ComponentType]?: IComponent } = {};
   logicEssential: LogicEssential
   username : string
+  unionId: number
   wsHost : string
 
 
@@ -594,7 +595,7 @@ export class Throne implements IThrone {
   }
 
 
-  async init( obj : {}) {
+  async init( obj : {}, callback: (result: any) => void = ()=>{}) {
     if(this.instanceState == InstanceStatus.Null){
       this.instanceState = InstanceStatus.Loading
     }
@@ -612,6 +613,7 @@ export class Throne implements IThrone {
     const states: StateEssential = {} as StateEssential;
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
+    this.unionId = obj['unionId'] ?  obj['unionId'] : 1
     this.wsHost = obj["wshost"] ? obj["wshost"] : 'test-ws.leagueofthrones.com'
     if(this.wsHost && this.username!='test'){
       const wsmediator = new WebSocketMediator(`ws://${this.wsHost}:80/ws/${this.username}`)
@@ -641,6 +643,10 @@ export class Throne implements IThrone {
     this.logicEssential = createLogicEsential(states)
     this.inited = true
     this.instanceState = InstanceStatus.Ready
+    this.mediator.sendTransaction(StateTransition.SetUnionId,{
+      from: this.username,
+      unionId: this.unionId
+    }, callback)
   }
 
 
