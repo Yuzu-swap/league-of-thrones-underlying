@@ -114,16 +114,16 @@ export function GetMapState(){
             let list = block.split('^')
             let unionId = 0
             if(block == '1^1'){
-                unionId = 1
-            }
-            else if(block == '1^21'){
-                unionId = 2
-            }
-            else if(block == '21^1'){
                 unionId = 3
             }
-            else if(block == '21^21'){
+            else if(block == '1^21'){
                 unionId = 4
+            }
+            else if(block == '21^1'){
+                unionId = 2
+            }
+            else if(block == '21^21'){
+                unionId = 1
             }
             gInitState[key]= {
                 id: key,

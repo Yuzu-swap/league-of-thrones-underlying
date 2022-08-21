@@ -97,135 +97,157 @@ export var run = function () {
 //run();
 let count = 0;
 function example() {
-  Throne.instance().initComponent<CityComponent>(
-    ComponentType.City,
-    (city: ICityComponent) => {
-      console.log('City init');
-      // bind button with action
-      // button.onClick = () =>{
-      city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
-      console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
-      // watch action response
-      console.log(city.getFacilityOrder())
-      // watch state update
-      city.onStateUpdate(() => {
-        // regenerate  ui state
-        const facilities = city.getFacilityList();
-        const resource = city.getResource();
-        const uiState = { facilities, resource };
-        //console.log("receive state", uiState)
-        count += 1
-        //console.log("============", count)
-        // rerender by new state
-      });
-      city.updateResource();
-      city.doRecruit(5, (re)=>{
-        console.log(re)
-      })
-      console.log(city.getRecruitState())
-      
-      //update
+  Throne.instance().init(
+    {
+      username: "test",
+      unionId: 4
+    },
+    (result)=>{
+      console.log("set union", result)
     }
-  );
-  Throne.instance().initComponent(
-    ComponentType.General,
-    ((general: IGeneralComponent)=>{
-      general.onStateUpdate((state)=>{
-        //console.log("general",state)
-      })
-      const list = general.getAbleList();
-      general.ableGeneral(1, (result)=>{
-        console.log("general able ", result)
-      })
-      general.upgradeGeneral(1,  (result)=>{
-        console.log("general up ", result)
-      })
-      console.log("value", general.getGeneralQuaValue(1, 1))
-      console.log("general status ", general.getAbleStatus())
-      general.upgradeGeneralSkill(1 , 0, 
-        (result)=>{
-          console.log("upgrade skill", result)
-        }
+  )
+  setTimeout(() => {
+    Throne.instance().initComponent<CityComponent>(
+      ComponentType.City,
+      (city: ICityComponent) => {
+        console.log('City init');
+        // bind button with action
+        // button.onClick = () =>{
+        city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
+        console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
+        // watch action response
+        console.log(city.getFacilityOrder())
+        // watch state update
+        city.onStateUpdate(() => {
+          // regenerate  ui state
+          const facilities = city.getFacilityList();
+          const resource = city.getResource();
+          const uiState = { facilities, resource };
+          //console.log("receive state", uiState)
+          count += 1
+          //console.log("============", count)
+          // rerender by new state
+        });
+        city.updateResource();
+        city.doRecruit(5, (re)=>{
+          console.log(re)
+        })
+        console.log(city.getRecruitState())
+        
+        //update
+      }
+    );
+  }, 1000);
+  
+  setTimeout(()=>{
+    Throne.instance().initComponent(
+      ComponentType.General,
+      ((general: IGeneralComponent)=>{
+        general.onStateUpdate((state)=>{
+          //console.log("general",state)
+        })
+        const list = general.getAbleList();
+        general.ableGeneral(1, (result)=>{
+          console.log("general able ", result)
+        })
+        general.upgradeGeneral(1,  (result)=>{
+          console.log("general up ", result)
+        })
+        console.log("value", general.getGeneralQuaValue(1, 1))
+        console.log("general status ", general.getAbleStatus())
+        general.upgradeGeneralSkill(1 , 0, 
+          (result)=>{
+            console.log("upgrade skill", result)
+          }
+          )
+        console.log("general", general.getGeneralList())
+        console.log("const ", general.getConstData())
+        general.setDefenseGeneral(1, (re)=>{
+          console.log(re)
+        })
+        console.log('defenseGeneral', general.getGeneralBattleInfo(1))
+        general.battle(1, 'test1', (re)=>{
+          console.log(re)
+        })
+        general.getBattleRecords(
+          (result)=>{
+            console.log('+++++++++++++++++++++++++',result)
+          }
         )
-      console.log("general", general.getGeneralList())
-      console.log("const ", general.getConstData())
-      general.setDefenseGeneral(1, (re)=>{
-        console.log(re)
-      })
-      console.log('defenseGeneral', general.getGeneralBattleInfo(1))
-      general.battle(1, 'test1', (re)=>{
-        console.log(re)
-      })
-      general.getBattleRecords(
-        (result)=>{
-          console.log('+++++++++++++++++++++++++',result)
+  
+        general.battle(1, 'test1',
+          (re)=>{
+            console.log("general-----battle",re)
+          }
+        )
+  
+        general.getBattleStatuses('',
+          (result)=>{
+            console.log('general-----getbbb',result)
+          }
+        )
+  
+        general.getBattleStatuses('test',
+          (result)=>{
+            console.log('general----======-getbbb',result)
+          }
+        )
+  
+        })
+  
+    )
+  }, 1500)
+  
+  setTimeout(
+    ()=>{
+      Throne.instance().initComponent(
+        ComponentType.Map,
+        (map: IMapComponent)=>{
+          map.getBlockInfo(1, 1, 
+            (result)=>{
+              console.log('map----getBlockInfo',result)
+            }
+          )
+          //console.log(map.getBlocksBelongInfo())
+    
+          map.attackBlock( 2, 2, 1,
+            (result)=>{
+              console.log('map----attackBlock',result)
+            }
+          )
+    
+          // console.log(map.getBlocksBelongInfo())
+    
+          map.defenseBlock( 2 , 2, 1, 
+            (result)=>{
+              console.log('map----defenseBlock',result)
+            }
+          )
+          map.getDefenseList(2, 2, 
+            (result)=>{
+              console.log('map----getDefenseList',result)
+            }
+          )
+          
+          map.getSeasonStatus(
+            (result)=>{
+              console.log('map----getSeasonStatus',result)
+            }
+          )
+    
+          map.getSeasonRankResult(
+            (result)=>{
+              console.log('map----getSeasonRankResult',result)
+            }
+          )
+          
         }
       )
-
-      general.battle(1, 'test1',
-        (re)=>{
-          console.log("general-----battle",re)
-        }
-      )
-
-      general.getBattleStatuses('',
-        (result)=>{
-          console.log('general-----getbbb',result)
-        }
-      )
-
-      general.getBattleStatuses('test',
-        (result)=>{
-          console.log('general----======-getbbb',result)
-        }
-      )
-
-      })
-
-  )
-  Throne.instance().initComponent(
-    ComponentType.Map,
-    (map: IMapComponent)=>{
-      map.getBlockInfo(1, 1, 
-        (result)=>{
-          console.log('map----getBlockInfo',result)
-        }
-      )
-      //console.log(map.getBlocksBelongInfo())
-
-      map.attackBlock( 2, 2, 1,
-        (result)=>{
-          console.log('map----attackBlock',result)
-        }
-      )
-
-      // console.log(map.getBlocksBelongInfo())
-
-      map.defenseBlock( 2 , 2, 1, 
-        (result)=>{
-          console.log('map----defenseBlock',result)
-        }
-      )
-      map.getDefenseList(2, 2, 
-        (result)=>{
-          console.log('map----getDefenseList',result)
-        }
-      )
-      
-      map.getSeasonStatus(
-        (result)=>{
-          console.log('map----getSeasonStatus',result)
-        }
-      )
-
-      map.getSeasonRankResult(
-        (result)=>{
-          console.log('map----getSeasonRankResult',result)
-        }
-      )
-      
     }
+    ,2000
   )
+
+  
 }
 
 function test(){

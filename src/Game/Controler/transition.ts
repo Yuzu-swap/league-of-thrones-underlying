@@ -111,6 +111,9 @@ export class TransitionHandler {
       case StateTransition.CancelDefenseBlock:
         re = this.onCancelDefenseBlock(arg as AttackBlockArgs)
         break
+      case StateTransition.SetUnionId:
+        re = this.onSetUnionId(arg as SetUnionIdArgs)
+        break
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
