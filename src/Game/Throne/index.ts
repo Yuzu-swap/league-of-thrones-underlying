@@ -587,6 +587,7 @@ export class Throne implements IThrone {
 
 
   async init( obj : {}) {
+    console.log("start in init")
     const states: StateEssential = {} as StateEssential;
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
