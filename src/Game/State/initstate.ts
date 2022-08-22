@@ -54,6 +54,8 @@ var gInitState = {
 
 }
 
+export var validBlockIds = []
+
 var _inited = false
 
 
@@ -138,6 +140,9 @@ export function GetMapState(){
                 defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
                 lastAttachTime: -1,
             }
+        }
+        for(let key in gInitState){
+            validBlockIds.push(key)
         }
     }
     return copyObj(gInitState)
