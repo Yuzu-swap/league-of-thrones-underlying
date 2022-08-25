@@ -21,7 +21,8 @@ import {
   ReceiveTroopArgs,
   BattleArgs,
   AttackBlockArgs,
-  SetUnionIdArgs
+  SetUnionIdArgs,
+  StateTransitionArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -34,7 +35,7 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import { parseStateId } from '../Utils';
+import { getTimeStamp, parseStateId } from '../Utils';
 
 const log = globalThis.log || function () {};
 
@@ -324,6 +325,23 @@ export class TransitionHandler {
       username: args.from,
       unionId: args.unionId
     }
+  }
+
+  onCheckSeasonFinish(args : StateTransitionArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    let time = getTimeStamp()
+    const config = logic.map.seasonConfig.get(1)
+    if(time > config.season_end){
+      return {
+        result: false,
+        error: 'season-end'
+      }
+    }
+  }
+
+  onCheckUnionWin(args : StateTransitionArgs){
+    const logic : LogicEssential = this.genLogic(args.from, 11, 11)
+    let re = logic.map.checkUnionWin()
   }
 
   recordEvent(typ: TransitionEventType,event: any) {

@@ -407,5 +407,63 @@ export class Map{
         }
         return list
     }
+
+    checkUnionWin(){
+        let time = getTimeStamp()
+        if(this.gState.unionWinId != 0){
+            return {
+                unionWin: true,
+                unionId: this.gState.unionWinId
+            }
+        }
+        const xOffset = [ 2, 1, -1, -2, -1, 1]
+        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        let xList = []
+        let yList = []
+        const centerX = 11 
+        const centerY = 11
+        xList.push(centerX)
+        yList.push(centerY)
+        for(let i = 0; i < 6; i++){
+            xList.push(centerX + xOffset[i])
+            yList.push(centerY + yOffset[i])
+        }
+        let unionWin = true
+        let winId = 0
+        for(let i = 0; i < 7; i++){
+            let blockState = this.getBlockState(xList[i], yList[i])
+            if(!blockState){
+                throw "error when check unionWin"
+            }
+            if( blockState.belong.unionId == 0){
+                unionWin = false
+                break
+            }
+            if( winId == 0 || blockState.belong.unionId == winId){
+                winId = blockState.belong.unionId
+                if(time - blockState.belong.updateTime < this.parameter.victory_need_occupy_times){
+                    unionWin = false
+                    break
+                }
+            }
+        }
+        if(!unionWin){
+            return {
+                unionWin : unionWin,
+                unionId : 0
+            }
+        }
+        else{
+            this.gState.update(
+                {
+                    'unionWinId' : winId
+                }
+            )
+            return {
+                unionWin : unionWin,
+                unionId : winId
+            }
+        }
+    }
     
 }

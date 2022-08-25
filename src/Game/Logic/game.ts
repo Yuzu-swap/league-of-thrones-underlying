@@ -273,6 +273,7 @@ export class City {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: info.value - amount
       });
+      this.updateResource(ResouceType.Silver)
       return true;
     }
     return false;
@@ -291,6 +292,7 @@ export class City {
   }
 
   updateBoost(){
+    this.boost.setTroop(this.getResource(ResouceType.Troop), this.getMaintainNeedTroop())
     this.boost.setProduction(StateName.City, ResouceType.Silver, this.calculatePoduction(ResouceType.Silver))
     this.boost.setProduction(StateName.City, ResouceType.Troop, this.calculatePoduction(ResouceType.Troop))
   }
@@ -370,6 +372,20 @@ export class City {
     const wallLevel = this.state.facilities[CityFacility.MilitaryCenter][0]
     const row = this.cityConfig.facilityConfig[CityFacility.MilitaryCenter].get((wallLevel -1).toString())
     return row.scale_of_troop_attack
+  }
+
+  getMaintainNeedTroop(){
+    let troop = 0
+    for(let key in CityFacility)
+    {
+      let type: CityFacility = CityFacility[key];
+      const levelList = this.state.facilities[type]
+      for(let level of levelList){
+        const row = this.cityConfig.facilityConfig[type].get((level -1).toString())
+        troop+= row.maintain_need_troop
+      }
+    } 
+    return troop
   }
 
   showAll() {

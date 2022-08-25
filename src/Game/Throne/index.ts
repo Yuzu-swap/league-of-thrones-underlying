@@ -40,7 +40,7 @@ export interface IComponent {
 export interface ICityComponent extends IComponent {
   //TODO: replace any with inteface
   getFacilityList(): { [key in CityFacility]?: number[] };
-  getResource(): { [key in ResouceType]?: ResouceInfo };
+  getResource(): { [key in ResouceType]?: {} };
   /**
    * Returns the info of facility than it upgrades need , when returns undefined means can't upgrade to this level
    * @param typ the type of the facility
@@ -259,16 +259,22 @@ export class CityComponent implements ICityComponent {
     return copyObj(this.city.state.facilities)
   }
   getResource(): { } {
+    let silverStatus = this.city.boost.getProductionStatus(ResouceType.Silver)
+    let troopStatus = this.city.boost.getProductionStatus(ResouceType.Troop)
     let re = {
       [ResouceType.Silver]:
       {
           value: this.city.getResource(ResouceType.Silver),
-          production: this.city.boost.getProduction(ResouceType.Silver)
+          production: this.city.boost.getProduction(ResouceType.Silver),
+          maintain: silverStatus.maintain,
+          normal: silverStatus.normalProduction
       },
       [ResouceType.Troop]:
       {
           value: this.city.getResource(ResouceType.Troop),
-          production: this.city.boost.getProduction(ResouceType.Troop)
+          production: this.city.boost.getProduction(ResouceType.Troop),
+          maintain: troopStatus.maintain,
+          normal: troopStatus.normalProduction
       } 
     }
     return re

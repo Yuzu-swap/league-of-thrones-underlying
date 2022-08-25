@@ -123,7 +123,7 @@ function example() {
           const facilities = city.getFacilityList();
           const resource = city.getResource();
           const uiState = { facilities, resource };
-          //console.log("receive state", uiState)
+          console.log("receive state", uiState)
           count += 1
           //console.log("============", count)
           // rerender by new state

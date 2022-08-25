@@ -46,7 +46,7 @@ export enum StateTransition {
 	SetUnionId
 }
 
-interface StateTransitionArgs {
+export interface StateTransitionArgs {
 	from: string
 }
 export interface UpgradeFacilityArgs extends StateTransitionArgs {

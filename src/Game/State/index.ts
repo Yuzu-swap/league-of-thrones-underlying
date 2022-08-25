@@ -60,6 +60,7 @@ export interface IMapGlobalState extends IState{
   campInfo: number[][]
   campMembers: string[][]
   updateTime: number[]
+  unionWinId: number
 }
 
 export interface BelongInfo{
