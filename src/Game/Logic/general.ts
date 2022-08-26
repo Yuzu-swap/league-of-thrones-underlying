@@ -224,6 +224,9 @@ export class General{
             return {result : false, error: 'index-error'} 
         }
         const level = this.state.levels[id - 1]
+        if(level == this.config.parameter.general_max_level){
+            return {result : false, error: 'general-level-is-max'} 
+        }
         const cost = this.getGeneralUpgradeNeed(id, level)
         const levels = this.state.levels.concat()
         if(this.city.useSilver(cost)){
@@ -327,6 +330,9 @@ export class General{
             return {result : false, error: 'silver-not-enough-error'} 
         }
         const level = this.state.skill_levels[generalId -1][skillIndex]
+        if( level == this.config.parameter.general_skill_max_level ){
+            return {result : false, error: 'skill-is-max-level'} 
+        }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.useSilver(need)){
             let skill_levels = this.state.skill_levels
