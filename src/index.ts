@@ -150,9 +150,11 @@ function example() {
         general.ableGeneral(1, (result)=>{
           console.log("general able ", result)
         })
-        general.upgradeGeneral(1,  (result)=>{
-          console.log("general up ", result)
-        })
+        for(let i = 0; i < 100 ; i ++){
+          general.upgradeGeneral(1,  (result)=>{
+            console.log("general up ", result)
+          })
+        }
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
         general.upgradeGeneralSkill(1 , 0, 
@@ -213,6 +215,7 @@ function example() {
           map.attackBlock( 2, 2, 1,
             (result)=>{
               console.log('map----attackBlock',result)
+              console.log(map.getBlocksBelongInfo())
             }
           )
     

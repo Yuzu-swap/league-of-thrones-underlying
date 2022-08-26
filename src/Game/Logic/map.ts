@@ -209,7 +209,7 @@ export class Map{
             }
         }
         if(remainTroop > 0){
-            let count = this.reduceDurability(x_id, y_id, remainTroop, unionId)
+            let count = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)
             let lastRecord = records[records.length - 1] as BattleTransRecord
             lastRecord.attackInfo.gloryGet += count 
         }
