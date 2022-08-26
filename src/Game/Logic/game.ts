@@ -79,7 +79,7 @@ export class City {
       value = info.value;
       if (info.lastUpdate != -1) {
         const hour = (time - info.lastUpdate) / 3600;
-        value = hour * this.boost.getProduction(typ) + info.value;
+        value = hour * this.boost.getProduction(typ) + info.value - hour * this.state.resources[ResouceType.Troop].value * 3;
       }
       return value;
     }
@@ -273,7 +273,6 @@ export class City {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: info.value - amount
       });
-      this.updateResource(ResouceType.Silver)
       return true;
     }
     return false;
@@ -286,6 +285,7 @@ export class City {
           [`resources.${ResouceType.Troop}.value`]: info.value - amount
         }
       )
+      this.updateResource(ResouceType.Silver)
       return true
     }
     return false
@@ -350,13 +350,18 @@ export class City {
     return re
   }
 
-  robSilver(amount : number): number{
-    let re = 0
+  getSaveSilverAmount(): number{
     let saveAmount  = 0;
     for(let i = 0 ; i < this.state.facilities[CityFacility.Store].length; i++){
       let level = this.state.facilities[CityFacility.Store][i]
       saveAmount += this.cityConfig.facilityConfig[CityFacility.Store].get((level -1).toString()).silver_save
     }
+    return saveAmount
+  }
+
+  robSilver(amount : number): number{
+    let re = 0
+    let saveAmount  = this.getSaveSilverAmount();
     if(this.useSilver( Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount))){
       re = Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount)
     }

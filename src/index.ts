@@ -216,7 +216,7 @@ function example() {
             }
           )
     
-          // console.log(map.getBlocksBelongInfo())
+          console.log(map.getBlocksBelongInfo())
     
           map.defenseBlock( 2 , 2, 1, 
             (result)=>{

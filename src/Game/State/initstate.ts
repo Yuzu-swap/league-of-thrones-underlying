@@ -93,16 +93,12 @@ export function GetInitState(){
         for(let i = 0; i< MaxSize; i++){
             InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(0))
         }
-        InitState[StateName.MapGlobalInfo].campInfo[0][0] = 1
-        InitState[StateName.MapGlobalInfo].campInfo[0][10] = 2
-        InitState[StateName.MapGlobalInfo].campInfo[20][0] = 3
-        InitState[StateName.MapGlobalInfo].campInfo[20][10] = 4
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         InitState[StateName.MapGlobalInfo].unionWinId = 0
-        InitState = Object.assign(InitState, GetMapState())
+        InitState = Object.assign(InitState, GetMapState())        
         _inited = true
     }
     return  copyObj(InitState)
@@ -117,17 +113,11 @@ export function GetMapState(){
             let row = mapGDS[block]
             let list = block.split('^')
             let unionId = 0
-            if(block == '1^1'){
-                unionId = 3
-            }
-            else if(block == '1^21'){
-                unionId = 4
-            }
-            else if(block == '21^1'){
-                unionId = 2
-            }
-            else if(block == '21^21'){
-                unionId = 1
+            if( row['type'] == 3 ){
+                unionId = row['parameter']
+                let xIndex = parseInt(list[0]) - 1;
+                let yIndex = Math.floor((parseInt(list[1]) - 1) / 2)
+                InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex] = unionId
             }
             gInitState[key]= {
                 id: key,

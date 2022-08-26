@@ -40,7 +40,7 @@ export interface IComponent {
 export interface ICityComponent extends IComponent {
   //TODO: replace any with inteface
   getFacilityList(): { [key in CityFacility]?: number[] };
-  getResource(): { [key in ResouceType]?: {} };
+  getResource(): { [key : string]: {} };
   /**
    * Returns the info of facility than it upgrades need , when returns undefined means can't upgrade to this level
    * @param typ the type of the facility
@@ -277,6 +277,9 @@ export class CityComponent implements ICityComponent {
           normal: troopStatus.normalProduction
       } 
     }
+    re['maintainNeedTroop'] = this.city.getMaintainNeedTroop()
+    re['protectSilver'] = this.city.getSaveSilverAmount()
+    re['troopUseSilver'] = re[ResouceType.Troop].value * 3
     return re
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined {
