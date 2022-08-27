@@ -313,7 +313,7 @@ export class City {
         'recruit': recruit
       }
     )
-    return {result: true}
+    return {result: true, endtime: endtime}
   }
 
   //1= infantry ；2=cavalry ；3=archer
