@@ -242,7 +242,9 @@ export class LocalMediator
             attack: 1000,
             defense: 200,
             silver: 9899,
-            troop: 10000
+            troop: 10000,
+            unionId : 1,
+            glory: 500
           }
         ]
        }

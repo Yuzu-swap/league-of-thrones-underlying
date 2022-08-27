@@ -219,6 +219,12 @@ export class TransitionHandler {
   onBattle(args: BattleArgs):{}{
     const logic1: LogicEssential = this.genLogic(args.from)
     const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""))
+    if(logic1.city.state.id == logic2.city.state.id){
+      return{
+        result: false,
+        error: 'cant-battle-self'
+      }
+    }
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
     if(re.result == true){

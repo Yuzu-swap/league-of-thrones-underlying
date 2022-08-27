@@ -155,6 +155,8 @@ function example() {
             console.log("general up ", result)
           })
         }
+        let num = general.getUpgradeGeneralNeed(1, 1);
+        let num1= general.getUpgradeGeneralNeed(1, 2);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
         general.upgradeGeneralSkill(1 , 0, 
@@ -168,7 +170,7 @@ function example() {
           console.log(re)
         })
         console.log('defenseGeneral', general.getGeneralBattleInfo(1))
-        general.battle(1, 'test1', (re)=>{
+        general.battle(1, 'test', (re)=>{
           console.log(re)
         })
         general.getBattleRecords(
@@ -243,7 +245,7 @@ function example() {
               console.log('map----getSeasonRankResult',result)
             }
           )
-          
+          console.log(map.getSeasonConfig())
         }
       )
     }

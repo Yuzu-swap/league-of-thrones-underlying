@@ -171,8 +171,7 @@ export class City {
       return false;
     }
     if (
-      this.getResource(ResouceType.Silver) >=
-      row.need_silver /* && this.getResource(ResouceType.Troop)>= row.need_troop*/
+      this.getResource(ResouceType.Silver) >= row.need_silver  && this.getResource(ResouceType.Troop)>= row.need_troop
     ) {
       return true;
     }
@@ -240,12 +239,8 @@ export class City {
     this.state.update({
       [`facilities.${typ}`]: levelList,
       [`resources.${ResouceType.Silver}`]: silver
-      /*[`resources.${ResouceType.Troop}`]: {
-        lastUpdate: info.lastUpdate,
-        value: info.value - row.need_troop,
-        production: info.production
-      }*/
     });
+    this.useTroop(row.need_troop)
     return {result:true}
   }
 

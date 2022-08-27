@@ -38,6 +38,7 @@ export interface IMapComponent extends IComponent{
     getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlocksBelongInfo(): {}
     getSeasonStatus(callback: (result: any) => void) : Promise<void>
+    getSeasonConfig():{}
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
 }
 
@@ -186,29 +187,33 @@ export class MapComponent implements IMapComponent{
         const config = this.map.seasonConfig.get(1)
         let re = {
             status: SeasonStatus.Reservation,
-            remaintime: config.season_reservation - time
+            remaintime: config.season_ready - time
         }
-        if( time < config.season_reservation ){
+        if( time < config.season_ready ){
             re = {
                 status: SeasonStatus.Reservation,
-                remaintime: config.season_reservation - time
-            }
-        }else if( time < config.season_ready ){
-            re = {
-                status: SeasonStatus.Ready,
                 remaintime: config.season_ready - time
             }
         }else if( time < config.season_open ){
             re = {
-                status: SeasonStatus.Open,
+                status: SeasonStatus.Ready,
                 remaintime: config.season_open - time
+            }
+        }else if( time < config.season_end ){
+            re = {
+                status: SeasonStatus.Open,
+                remaintime: config.season_end - time
             }
         }else{
             re = {
                 status: SeasonStatus.End,
-                remaintime: config.season_end - time
+                remaintime: -1
             }
         }
         callback(re)
     }
+    getSeasonConfig(): {} {
+        let config = this.map.seasonConfig.get(1)
+        return copyObj(config)
+    }   
 }
