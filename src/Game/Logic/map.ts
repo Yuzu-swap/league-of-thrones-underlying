@@ -1,6 +1,7 @@
 import { BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState } from "../State";
+import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { BattleResult, BattleType, DefenseInfo, General } from "./general";
@@ -454,16 +455,65 @@ export class Map{
             }
         }
         else{
-            this.gState.update(
-                {
-                    'unionWinId' : winId
-                }
-            )
             return {
                 unionWin : unionWin,
                 unionId : winId
             }
         }
+    }
+    getSeasonStatus(){
+        let time = getTimeStamp()
+        const config = this.seasonConfig.get(1)
+        let re = {
+            status: SeasonStatus.Reservation,
+            remaintime: config.season_ready - time
+        }
+        if( time < config.season_ready ){
+            re = {
+                status: SeasonStatus.Reservation,
+                remaintime: config.season_ready - time
+            }
+        }else if( time < config.season_open ){
+            re = {
+                status: SeasonStatus.Ready,
+                remaintime: config.season_open - time
+            }
+        }else if( time < config.season_end ){
+            re = {
+                status: SeasonStatus.Open,
+                remaintime: config.season_end - time
+            }
+        }else{
+            re = {
+                status: SeasonStatus.End,
+                remaintime: -1
+            }
+        }
+        return re
+    }
+    setUnionWin(unionId : number){
+        if(!(this.checkUnionWin().unionId == unionId)){
+            return {
+                result: false,
+                error: "this-union-do-not-win"
+            }
+        }
+        this.gState.update(
+            {
+                'unionWinId': unionId
+            }
+        )
+        return{
+            result: true
+        }
+    }
+
+    setSeasonEnd(end: boolean){
+        this.gState.update(
+            {
+                'seasonEnd': end
+            }
+        )
     }
     
 }

@@ -22,7 +22,8 @@ import {
   BattleArgs,
   AttackBlockArgs,
   SetUnionIdArgs,
-  StateTransitionArgs
+  StateTransitionArgs,
+  SetSeasonEndArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -114,6 +115,12 @@ export class TransitionHandler {
         break
       case StateTransition.SetUnionId:
         re = this.onSetUnionId(arg as SetUnionIdArgs)
+        break
+      case StateTransition.SetUnionWin:
+        re = this.onSetUnionWin(arg as SetUnionIdArgs)
+        break
+      case StateTransition.SetSeasonEnd:
+        re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
         break
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
@@ -345,9 +352,18 @@ export class TransitionHandler {
     }
   }
 
-  onCheckUnionWin(args : StateTransitionArgs){
+  onSetUnionWin(args : SetUnionIdArgs){
     const logic : LogicEssential = this.genLogic(args.from, 11, 11)
-    let re = logic.map.checkUnionWin()
+    let re = logic.map.setUnionWin(args.unionId)
+    return re
+  }
+
+  onSetSeasonEnd(args: SetSeasonEndArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    logic.map.setSeasonEnd(args.end)
+    return {
+      result: true
+    }
   }
 
   recordEvent(typ: TransitionEventType,event: any) {

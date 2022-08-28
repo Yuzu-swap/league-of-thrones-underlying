@@ -151,6 +151,7 @@ export class MapComponent implements IMapComponent{
         }
         row['defense_list_len'] = defenseListLength
         row['protect_time'] = this.map.getProtectRemainTime(xId, yId)
+        row['belong'] = copyObj(this.map.getBlockState(xId, yId).belong)
         callback(row)
     }
 
@@ -183,33 +184,7 @@ export class MapComponent implements IMapComponent{
     }
 
     async getSeasonStatus(callback: (result: any) => void): Promise<void> {
-        let time = getTimeStamp()
-        const config = this.map.seasonConfig.get(1)
-        let re = {
-            status: SeasonStatus.Reservation,
-            remaintime: config.season_ready - time
-        }
-        if( time < config.season_ready ){
-            re = {
-                status: SeasonStatus.Reservation,
-                remaintime: config.season_ready - time
-            }
-        }else if( time < config.season_open ){
-            re = {
-                status: SeasonStatus.Ready,
-                remaintime: config.season_open - time
-            }
-        }else if( time < config.season_end ){
-            re = {
-                status: SeasonStatus.Open,
-                remaintime: config.season_end - time
-            }
-        }else{
-            re = {
-                status: SeasonStatus.End,
-                remaintime: -1
-            }
-        }
+        let re = this.map.getSeasonStatus()
         callback(re)
     }
     getSeasonConfig(): {} {

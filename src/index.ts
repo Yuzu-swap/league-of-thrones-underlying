@@ -100,7 +100,7 @@ function example() {
   Throne.instance().init(
     {
       username: "test",
-      unionId: 4
+      unionId: 1
     },
     (result)=>{
       console.log("set union", result)
@@ -207,6 +207,11 @@ function example() {
       Throne.instance().initComponent(
         ComponentType.Map,
         (map: IMapComponent)=>{
+          map.onStateUpdate(
+            ()=>{
+              console.log(map.getBlocksBelongInfo())
+            }
+          )
           map.getBlockInfo(1, 1, 
             (result)=>{
               console.log('map----getBlockInfo',result)
@@ -214,7 +219,7 @@ function example() {
           )
           //console.log(map.getBlocksBelongInfo())
     
-          map.attackBlock( 2, 2, 1,
+          map.attackBlock( 20, 20, 1,
             (result)=>{
               console.log('map----attackBlock',result)
               console.log(map.getBlocksBelongInfo())

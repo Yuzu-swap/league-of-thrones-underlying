@@ -43,7 +43,9 @@ export enum StateTransition {
 	DefenseBlock,
 	AttackBlock,
 	CancelDefenseBlock,
-	SetUnionId
+	SetUnionId,
+	SetUnionWin,
+	SetSeasonEnd
 }
 
 export interface StateTransitionArgs {
@@ -96,4 +98,8 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 
 export interface SetUnionIdArgs extends StateTransitionArgs{
 	unionId: number
+}
+
+export interface SetSeasonEndArgs extends StateTransitionArgs{
+	end: boolean
 }

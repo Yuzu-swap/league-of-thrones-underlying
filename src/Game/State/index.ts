@@ -61,6 +61,7 @@ export interface IMapGlobalState extends IState{
   campMembers: string[][]
   updateTime: number[]
   unionWinId: number
+  seasonEnd: boolean
 }
 
 export interface BelongInfo{

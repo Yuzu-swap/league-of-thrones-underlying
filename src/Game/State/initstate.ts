@@ -47,7 +47,8 @@ export var InitState = {
     [StateName.MapGlobalInfo]:{
         campInfo:[],
         campMembers: [],
-        unionWinId: 0
+        unionWinId: 0,
+        seasonEnd: false
     }
 };
 
@@ -98,6 +99,7 @@ export function GetInitState(){
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         InitState[StateName.MapGlobalInfo].unionWinId = 0
+
         InitState = Object.assign(InitState, GetMapState())        
         _inited = true
     }
