@@ -103,6 +103,8 @@ function example() {
       unionId: 1
     },
     (result)=>{
+      console.log( (Throne.instance().mediator as LocalMediator).getTransaction().checkUnionWin())
+      console.log( (Throne.instance().mediator as LocalMediator).getTransaction().getSeasonStatus())
       console.log("set union", result)
     }
   )

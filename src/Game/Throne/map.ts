@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
+import { GetMapState, IBlockState, ICityState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -75,6 +75,9 @@ export class MapComponent implements IMapComponent{
         const yOffset = [ 0, 1, 1, 0, -1, -1]
         let re = []
         let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
+        if(validBlockIds.length == 0){
+            GetMapState()
+        }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)
         }

@@ -318,4 +318,8 @@ export class LocalMediator
 
     return ctx;
   }
+
+  getTransaction(){
+    return this.transitionHandler
+  }
 }

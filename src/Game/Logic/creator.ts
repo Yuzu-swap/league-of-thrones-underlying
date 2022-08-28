@@ -11,6 +11,9 @@ export interface LogicEssential {
 	map: Map
 	boost: IBoost
 }
+export interface GlobalLogicEssential{
+	map: Map
+}
 export interface StateEssential {
 	city: ICityState
 	general: IGeneralState
@@ -20,6 +23,11 @@ export interface StateEssential {
 export interface ConfigEssential {
 	cityConf: CityConfig
 	generalConf: GeneralConfig
+}
+
+export interface GlobalStateEssential{
+	mapGlobal: IMapGlobalState
+	blocks: IBlockState[]
 }
 
 
@@ -42,4 +50,10 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	//boost.recalulate() 
 
 	return { city, general, map, boost }
+}
+
+export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
+	var map: Map = new Map(gStates.mapGlobal)
+	map.loadBlockStates(gStates.blocks)
+	return { map }
 }

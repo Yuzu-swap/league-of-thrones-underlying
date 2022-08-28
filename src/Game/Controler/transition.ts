@@ -32,7 +32,10 @@ import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
   createLogicEsential,
-  LogicEssential
+  LogicEssential,
+  GlobalLogicEssential,
+  GlobalStateEssential,
+  createGlobalEsential
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
@@ -167,6 +170,19 @@ export class TransitionHandler {
       blocks: this.getBlockStates(x_id, y_id)
     };
     return createLogicEsential(states);
+  }
+
+  genGlobalLogic(x_id: number = 0, y_id:number = 0): GlobalLogicEssential{
+    const mapGlobalState = this.stateManger.get(
+      {
+        id: `${StateName.MapGlobalInfo}`
+      }
+    )
+    const gStates : GlobalStateEssential = {
+      mapGlobal: mapGlobalState as IMapGlobalState,
+      blocks: this.getBlockStates(x_id, y_id)
+    };
+    return createGlobalEsential(gStates)
   }
 
   onUpdateFacility(args: UpgradeFacilityArgs): {} {
@@ -364,6 +380,16 @@ export class TransitionHandler {
     return {
       result: true
     }
+  }
+
+  checkUnionWin(){
+    const logic : GlobalLogicEssential = this.genGlobalLogic(11, 11)
+    return logic.map.checkUnionWin()
+  }
+
+  getSeasonStatus(){
+    const logic : GlobalLogicEssential = this.genGlobalLogic()
+    return logic.map.getSeasonStatus()
   }
 
   recordEvent(typ: TransitionEventType,event: any) {
