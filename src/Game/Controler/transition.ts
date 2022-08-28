@@ -384,12 +384,16 @@ export class TransitionHandler {
 
   checkUnionWin(){
     const logic : GlobalLogicEssential = this.genGlobalLogic(11, 11)
-    return logic.map.checkUnionWin()
+    let re = logic.map.checkUnionWin()
+    re['unionHaveSet'] = logic.map.gState.unionWinId != 0
+    return re
   }
 
   getSeasonStatus(){
     const logic : GlobalLogicEssential = this.genGlobalLogic()
-    return logic.map.getSeasonStatus()
+    let re = logic.map.getSeasonStatus()
+    re['endHaveSet'] = logic.map.gState.seasonEnd
+    return re
   }
 
   recordEvent(typ: TransitionEventType,event: any) {
