@@ -121,10 +121,10 @@ export class TransitionHandler {
         break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
-        break
+        return re
       case StateTransition.SetSeasonEnd:
         re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
-        break
+        return re
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
