@@ -492,10 +492,10 @@ export class General{
             const skillRow = this.getSkillInfo(mapBuff)
             if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
                 if(skillRow['value_type'] == 1){
-                    extraPercent[skillRow.buff_type] += skillRow['value']
+                    extraPercent[skillRow.buff_type] += skillRow.buff_value
                 }
                 else{
-                    extraValue[skillRow.buff_type] += skillRow['value']
+                    extraValue[skillRow.buff_type] += skillRow.buff_value
                 }
             }
         }
@@ -607,8 +607,12 @@ export class General{
         let remainTroopD = Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) 
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
         let randomD = 0.9 + Math.random() * 0.2
-
+        let loopTime = 0
         while(true){
+            loopTime++
+            if(loopTime > 10000){
+                throw "battle data error"
+            }
             remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
             if(remainTroopD <= 0){
                 remainTroopD = 0

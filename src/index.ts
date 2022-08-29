@@ -225,6 +225,11 @@ function example() {
             (result)=>{
               console.log('map----attackBlock',result)
               console.log(map.getBlocksBelongInfo())
+              map.attackBlock( 21, 19, 1,
+                (result)=>{
+                  console.log('map----attackBlock',result)
+                }
+              )
             }
           )
     
