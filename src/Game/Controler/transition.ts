@@ -369,21 +369,21 @@ export class TransitionHandler {
   }
 
   onSetUnionWin(args : SetUnionIdArgs){
-    const logic : LogicEssential = this.genLogic(args.from, 11, 11)
+    const logic : LogicEssential = this.genLogic(args.from, 0, 0)
     let re = logic.map.setUnionWin(args.unionId)
     return re
   }
 
   onSetSeasonEnd(args: SetSeasonEndArgs){
     const logic : LogicEssential = this.genLogic(args.from)
-    logic.map.setSeasonEnd(args.end)
+    logic.map.setSeasonEnd()
     return {
       result: true
     }
   }
 
   checkUnionWin(){
-    const logic : GlobalLogicEssential = this.genGlobalLogic(11, 11)
+    const logic : GlobalLogicEssential = this.genGlobalLogic( 0, 0)
     let re = logic.map.checkUnionWin()
     re['unionHaveSet'] = logic.map.gState.unionWinId != 0
     return re

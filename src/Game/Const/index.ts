@@ -24,6 +24,7 @@ export enum ResouceType {
 }
 
 export const MaxSize = 21;
+export const mapIdOffset = 10;
 
 export enum StateTransition {
 	UpgradeFacility = 1,
@@ -101,5 +102,4 @@ export interface SetUnionIdArgs extends StateTransitionArgs{
 }
 
 export interface SetSeasonEndArgs extends StateTransitionArgs{
-	end: boolean
 }

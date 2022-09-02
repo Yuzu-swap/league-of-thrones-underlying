@@ -221,13 +221,14 @@ function example() {
           )
           //console.log(map.getBlocksBelongInfo())
     
-          map.attackBlock( 20, 20, 1,
+          map.attackBlock( 9, 9, 1,
             (result)=>{
               console.log('map----attackBlock',result)
               console.log(map.getBlocksBelongInfo())
-              map.attackBlock( 21, 19, 1,
+              map.attackBlock( 8, 10, 1,
                 (result)=>{
                   console.log('map----attackBlock',result)
+                  console.log(map.getBlocksBelongInfo())
                 }
               )
             }
@@ -235,12 +236,12 @@ function example() {
     
           console.log(map.getBlocksBelongInfo())
     
-          map.defenseBlock( 2 , 2, 1, 
+          map.defenseBlock( 9 , 9, 1, 
             (result)=>{
               console.log('map----defenseBlock',result)
             }
           )
-          map.getDefenseList(2, 2, 
+          map.getDefenseList(9, 9, 
             (result)=>{
               console.log('map----getDefenseList',result)
             }

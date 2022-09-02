@@ -1,3 +1,4 @@
+import { mapIdOffset } from "../Const";
 import { BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState } from "../State";
@@ -50,8 +51,8 @@ export class Map{
     }
 
     getBelongInfo(x_id: number, y_id: number){
-        let xIndex = x_id - 1;
-        let yIndex = Math.floor((y_id - 1) / 2)
+        let xIndex = x_id + mapIdOffset;
+        let yIndex = Math.floor((y_id + mapIdOffset) / 2)
         if(xIndex < 0 || yIndex < 0){
             return 0
         }
@@ -65,8 +66,8 @@ export class Map{
     }
 
     changeBelongInfo(x_id: number, y_id: number, unionId: number){
-        let xIndex = x_id - 1;
-        let yIndex = Math.floor((y_id - 1) / 2)
+        let xIndex = x_id  + mapIdOffset;
+        let yIndex = Math.floor((y_id  + mapIdOffset) / 2)
         let infoMap = this.gState.campInfo
         infoMap[xIndex][yIndex] = unionId
         this.gState.update(
@@ -421,8 +422,8 @@ export class Map{
         const yOffset = [ 0, 1, 1, 0, -1, -1]
         let xList = []
         let yList = []
-        const centerX = 11 
-        const centerY = 11
+        const centerX = 0
+        const centerY = 0
         xList.push(centerX)
         yList.push(centerY)
         for(let i = 0; i < 6; i++){
@@ -508,12 +509,23 @@ export class Map{
         }
     }
 
-    setSeasonEnd(end: boolean){
-        this.gState.update(
-            {
-                'seasonEnd': end
+    setSeasonEnd(){
+        if(this.getSeasonStatus().status = SeasonStatus.End){
+            this.gState.update(
+                {
+                    'seasonEnd': true
+                }
+            )
+            return {
+                result: true
             }
-        )
+        }
+        else{
+            return{
+                result: false,
+                error: 'it-is-not-time-to-end'
+            }
+        }
     }
     
 }

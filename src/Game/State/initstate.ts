@@ -1,5 +1,5 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import { StateName, ResouceType, CityFacility, MaxSize } from '../Const';
+import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { copyObj } from '../../Core/state';
@@ -107,6 +107,7 @@ export function GetInitState(){
 }
 
 var _ginit = false
+
 export function GetMapState(){
     if(!_ginit){
         const time = parseInt(new Date().getTime() / 1000 + '');
@@ -117,8 +118,8 @@ export function GetMapState(){
             let unionId = 0
             if( row['type'] == 3 ){
                 unionId = row['parameter']
-                let xIndex = parseInt(list[0]) - 1;
-                let yIndex = Math.floor((parseInt(list[1]) - 1) / 2)
+                let xIndex = parseInt(list[0]) + mapIdOffset;
+                let yIndex = Math.floor((parseInt(list[1]) + mapIdOffset) / 2)
                 InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex] = unionId
             }
             gInitState[key]= {
