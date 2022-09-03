@@ -139,11 +139,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "9^-9":{
         "y_id": -9,
@@ -285,11 +286,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "8^8":{
         "y_id": 8,
@@ -458,11 +460,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "8^-8":{
         "y_id": -8,
@@ -751,11 +754,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "7^-9":{
         "y_id": -9,
@@ -897,12 +901,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 2,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "6^8":{
         "y_id": 8,
@@ -1088,7 +1092,7 @@
         "durability": 250000,
         "buff_id": 1009,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "6^-8":{
         "y_id": -8,
@@ -1365,12 +1369,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 2,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "5^-9":{
         "y_id": -9,
@@ -1500,11 +1504,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "4^8":{
         "y_id": 8,
@@ -1685,11 +1690,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "4^-8":{
         "y_id": -8,
@@ -1990,11 +1996,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 1012,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "3^-9":{
         "y_id": -9,
@@ -2136,11 +2143,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "2^8":{
         "y_id": 8,
@@ -2314,7 +2322,7 @@
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "2^-8":{
         "y_id": -8,
@@ -2619,7 +2627,7 @@
         "durability": 25000,
         "buff_id": 1011,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "1^-9":{
         "y_id": -9,
@@ -2946,12 +2954,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 1,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "10^-8":{
         "y_id": -8,
@@ -3120,11 +3128,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 1
     },
     "0^6":{
         "y_id": 6,
@@ -3185,11 +3194,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 1
     },
     "0^2":{
         "y_id": 2,
@@ -3249,12 +3259,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 2,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 1
     },
     "0^0":{
         "y_id": 0,
@@ -3292,7 +3302,7 @@
         "durability": 25000,
         "buff_id": 1012,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "0^-8":{
         "y_id": -8,
@@ -3314,11 +3324,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 3
     },
     "0^-6":{
         "y_id": -6,
@@ -3379,11 +3390,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 3
     },
     "0^-2":{
         "y_id": -2,
@@ -3443,12 +3455,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 2,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 1004,
         "area_block": 1,
-        "area": 0
+        "area": 3
     },
     "-9^9":{
         "y_id": 9,
@@ -3590,11 +3602,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-9^-9":{
         "y_id": -9,
@@ -3736,11 +3749,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-8^8":{
         "y_id": 8,
@@ -3909,12 +3923,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 1,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-8^-8":{
         "y_id": -8,
@@ -4203,11 +4217,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-7^-9":{
         "y_id": -9,
@@ -4349,11 +4364,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3001,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-6^8":{
         "y_id": 8,
@@ -4539,7 +4555,7 @@
         "durability": 250000,
         "buff_id": 1010,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "-6^-8":{
         "y_id": -8,
@@ -4821,7 +4837,7 @@
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-5^-9":{
         "y_id": -9,
@@ -4951,11 +4967,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-4^8":{
         "y_id": 8,
@@ -5136,11 +5153,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3002,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-4^-8":{
         "y_id": -8,
@@ -5441,11 +5459,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-3^-9":{
         "y_id": -9,
@@ -5587,12 +5606,12 @@
             }
         ],
         "silver_total_number": 0,
-        "parameter": 2,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-2^8":{
         "y_id": 8,
@@ -5761,11 +5780,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3003,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-2^-8":{
         "y_id": -8,
@@ -6070,7 +6090,7 @@
         "durability": 25000,
         "buff_id": 1010,
         "area_block": 1,
-        "area": 0
+        "area": 4
     },
     "-1^-9":{
         "y_id": -9,
@@ -6397,11 +6417,12 @@
             }
         ],
         "silver_total_number": 0,
+        "parameter": 3,
         "gather_silver_speed": 0,
         "durability": 0,
         "buff_id": 3004,
         "area_block": 1,
-        "area": 0
+        "area": 2
     },
     "-10^-8":{
         "y_id": -8,
