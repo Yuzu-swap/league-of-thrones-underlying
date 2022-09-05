@@ -1,7 +1,7 @@
 {
    "Config" : [
     {
-        "stamina": 5,
+        "stamina": 999,
         "qualification_troop_recruit": 2,
         "qualification_silver_product": 2,
         "qualification_load": 2,
@@ -13,10 +13,11 @@
             5,
             7
         ],
-        "general_id": 1
+        "general_id": 1,
+        "general_from": 1
     },
     {
-        "stamina": 5,
+        "stamina": 999,
         "qualification_troop_recruit": 2,
         "qualification_silver_product": 2,
         "qualification_load": 2,
@@ -28,7 +29,8 @@
             6,
             8
         ],
-        "general_id": 2
+        "general_id": 2,
+        "general_from": 1
     },
     {
         "stamina": 5,
@@ -43,7 +45,8 @@
             2,
             5
         ],
-        "general_id": 3
+        "general_id": 3,
+        "general_from": 1
     },
     {
         "stamina": 10,
@@ -58,7 +61,8 @@
             4,
             7
         ],
-        "general_id": 4
+        "general_id": 4,
+        "general_from": 1
     },
     {
         "stamina": 10,
@@ -73,7 +77,8 @@
             5,
             9
         ],
-        "general_id": 5
+        "general_id": 5,
+        "general_from": 1
     },
     {
         "stamina": 10,
@@ -88,7 +93,136 @@
             4,
             7
         ],
-        "general_id": 6
+        "general_id": 6,
+        "general_from": 1
+    },
+    {
+        "stamina": 5,
+        "qualification_troop_recruit": 2,
+        "qualification_silver_product": 2,
+        "qualification_load": 2,
+        "qualification_defense": 2,
+        "qualification_attack": 2,
+        "general_type": 1,
+        "general_skill":[
+            1,
+            5,
+            7
+        ],
+        "general_id": 7,
+        "general_from": 2
+    },
+    {
+        "stamina": 5,
+        "qualification_troop_recruit": 2,
+        "qualification_silver_product": 2,
+        "qualification_load": 2,
+        "qualification_defense": 2,
+        "qualification_attack": 2,
+        "general_type": 2,
+        "general_skill":[
+            2,
+            6,
+            8
+        ],
+        "general_id": 8,
+        "general_from": 2
+    },
+    {
+        "stamina": 5,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 6,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 1,
+        "general_type": 3,
+        "general_skill":[
+            1,
+            2,
+            5
+        ],
+        "general_id": 9,
+        "general_from": 2
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 5,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 1,
+        "general_type": 1,
+        "general_skill":[
+            3,
+            4,
+            7
+        ],
+        "general_id": 10,
+        "general_from": 2
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 5,
+        "general_type": 2,
+        "general_skill":[
+            1,
+            5,
+            9
+        ],
+        "general_id": 11,
+        "general_from": 3
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 5,
+        "general_type": 3,
+        "general_skill":[
+            3,
+            4,
+            7
+        ],
+        "general_id": 12,
+        "general_from": 3
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 5,
+        "general_type": 2,
+        "general_skill":[
+            1,
+            5,
+            9
+        ],
+        "general_id": 13,
+        "general_from": 3
+    },
+    {
+        "stamina": 10,
+        "qualification_troop_recruit": 1,
+        "qualification_silver_product": 2,
+        "qualification_load": 1,
+        "qualification_defense": 1,
+        "qualification_attack": 5,
+        "general_type": 3,
+        "general_skill":[
+            3,
+            4,
+            7
+        ],
+        "general_id": 14,
+        "general_from": 3
     }
     ]
 }
