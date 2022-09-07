@@ -71,6 +71,7 @@ export interface BattleRecordInfo{
     username: string
     generalId: number
     generalLevel: number
+    generalType: number
     troopReduce: number
     silverGet: number
     gloryGet: number

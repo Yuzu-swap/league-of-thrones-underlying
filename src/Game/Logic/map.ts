@@ -224,6 +224,7 @@ export class Map{
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
         let firstBlock = false
         let list : BattleTransRecord[] = []
+        let generalRow = this.general.getGeneralQualification(generalId)
         if(remainTroop == -1){
             remainTroop = this.general.getMaxAttackTroop()
             firstBlock = true
@@ -243,6 +244,7 @@ export class Map{
                             username: parseStateId(this.general.state.getId()).username ,
                             generalId: generalId,
                             generalLevel: this.general.getGeneralLevel(generalId),
+                            generalType: generalRow.general_type,
                             troopReduce: bre.attackTroopReduce,
                             silverGet: 0,
                             gloryGet: bre.attackGloryGet
@@ -252,6 +254,7 @@ export class Map{
                             username: '',
                             generalId: info.generalId,
                             generalLevel: info.generalLevel,
+                            generalType: info.generalType,
                             troopReduce: bre.defenseTroopReduce,
                             silverGet: 0,
                             gloryGet: bre.defenseGloryGet
@@ -301,6 +304,7 @@ export class Map{
                         username:  parseStateId(this.general.state.getId()).username,
                         generalId: generalId,
                         generalLevel: this.general.getGeneralLevel(generalId),
+                        generalType: generalRow.general_type,
                         troopReduce: bre.attackTroopReduce,
                         silverGet: 0,
                         gloryGet: bre.attackGloryGet
@@ -310,6 +314,7 @@ export class Map{
                         username:  defenseInfos[i].username,
                         generalId: info.generalId,
                         generalLevel: info.generalLevel,
+                        generalType: info.generalType,
                         troopReduce: bre.defenseTroopReduce,
                         silverGet: 0,
                         gloryGet: bre.defenseGloryGet

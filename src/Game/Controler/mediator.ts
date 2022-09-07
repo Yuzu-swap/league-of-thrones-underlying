@@ -115,6 +115,7 @@ export class LocalMediator
       attackInfo:{
         generalId: 1,
         generalLevel: 2,
+        generalType: 1,
         username: 'test',
         troopReduce: 1000,
         silverGet: 100,
@@ -123,6 +124,7 @@ export class LocalMediator
       defenseInfo:{
         generalId: -1,
         generalLevel: 2,
+        generalType: 1,
         username: 'test1',
         troopReduce: 1500,
         silverGet: -100,
@@ -138,6 +140,7 @@ export class LocalMediator
       attackInfo:{
         generalId: 1,
         generalLevel: 2,
+        generalType: 1,
         username: 'test',
         troopReduce: 1500,
         silverGet: 0,
@@ -146,6 +149,7 @@ export class LocalMediator
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
+        generalType: 2,
         username: 'test1',
         troopReduce: 1000,
         silverGet: 0,
@@ -161,6 +165,7 @@ export class LocalMediator
       attackInfo: {
         generalId: 1,
         generalLevel: 2,
+        generalType: 1,
         username: 'test',
         troopReduce: 1000,
         silverGet: 0,
@@ -169,6 +174,7 @@ export class LocalMediator
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
+        generalType: 2,
         username: 'test1',
         troopReduce: 1500,
         silverGet: 0,
@@ -184,6 +190,7 @@ export class LocalMediator
       attackInfo:{
         generalId: 1,
         generalLevel: 2,
+        generalType: 1,
         username: 'test',
         troopReduce: 1500,
         silverGet: -100,
@@ -192,6 +199,7 @@ export class LocalMediator
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
+        generalType: 2,
         username: 'test1',
         troopReduce: 1000,
         silverGet: 100,
