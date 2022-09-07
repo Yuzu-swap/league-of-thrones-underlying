@@ -4,6 +4,7 @@ import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutp
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop } from '../DataConfig';
+import { GeneralInfo } from '.';
 
 export var InitState = {
     [StateName.City]: {
@@ -23,14 +24,11 @@ export var InitState = {
       recruit:[]
     },
     [StateName.General]:{
-      levels:[],
-      able:[],
-      skill_levels:[],
-      defense_general: -1,
-      stamina: [],
-      defenseBlockList : [],
-      unionId: 1,
-      glory: 0
+        generalList: {},
+        defense_general: -1,
+        defenseBlockList : [],
+        unionId: 1,
+        glory: 0
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
@@ -77,17 +75,22 @@ export function GetInitState(){
         InitState[StateName.City].resources[ResouceType.Troop].lastUpdate = time
         //general state
         let len = qualificationGDS.Config.length
-        InitState[StateName.General].levels = new Array(len).fill(1)
-        InitState[StateName.General].able = new Array(len).fill(false)
-        InitState[StateName.General].skill_levels = new Array(len).fill([])
-        InitState[StateName.General].stamina = new Array(len).fill({})
         InitState[StateName.General].unionId = 1
         for(let i = 0; i < len; i++){
-            InitState[StateName.General].skill_levels[i] = new Array(3).fill(1)
-            InitState[StateName.General].stamina[i] = {
-                value: qualificationGDS.Config[i].stamina,
-                lastUpdate: time
-            } as any
+            if(qualificationGDS.Config[i].general_from == 1){
+                const row = qualificationGDS.Config[i]
+                let generalInfo : GeneralInfo = {
+                    id: row.general_id,
+                    level: 1,
+                    able: false,
+                    skill_levels: new Array(3).fill(1),
+                    stamina: {
+                        value: row.stamina,
+                        lastUpdate: time
+                    }
+                }
+                InitState[StateName.General].generalList[row.general_id + ""] = generalInfo
+            }
         }
         let maxlen = Math.floor((MaxSize + 1)/ 2)
         InitState[StateName.MapGlobalInfo].campInfo = []

@@ -29,14 +29,19 @@ export interface GeneralDefenseBlock{
   y_id: number
 }
 
+export interface GeneralInfo{
+  id: number
+  level: number
+  able: boolean
+  skill_levels: number[]
+  stamina: GeneralStamina
+}
+
 export interface IGeneralState extends IState{
   id: string;
-  levels: number[]
-  able: boolean[]
-  skill_levels: number[][]
   defense_general: number
-  stamina: GeneralStamina[]
   defenseBlockList: GeneralDefenseBlock[]
+  generalList: {[key : string ]: GeneralInfo}
   unionId: number
   glory: number
 }

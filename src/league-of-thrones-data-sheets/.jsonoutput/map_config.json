@@ -2627,7 +2627,7 @@
         "durability": 25000,
         "buff_id": 1011,
         "area_block": 1,
-        "area": 4
+        "area": 0
     },
     "1^-9":{
         "y_id": -9,
@@ -3172,7 +3172,7 @@
         "durability": 250000,
         "buff_id": 1010,
         "area_block": 1,
-        "area": 0
+        "area": 1
     },
     "0^4":{
         "y_id": 4,
@@ -3302,7 +3302,7 @@
         "durability": 25000,
         "buff_id": 1012,
         "area_block": 1,
-        "area": 4
+        "area": 0
     },
     "0^-8":{
         "y_id": -8,
@@ -3368,7 +3368,7 @@
         "durability": 250000,
         "buff_id": 1009,
         "area_block": 1,
-        "area": 0
+        "area": 3
     },
     "0^-4":{
         "y_id": -4,
@@ -4555,7 +4555,7 @@
         "durability": 250000,
         "buff_id": 1010,
         "area_block": 1,
-        "area": 4
+        "area": 2
     },
     "-6^-8":{
         "y_id": -8,
@@ -6090,7 +6090,7 @@
         "durability": 25000,
         "buff_id": 1010,
         "area_block": 1,
-        "area": 4
+        "area": 0
     },
     "-1^-9":{
         "y_id": -9,

@@ -88,10 +88,6 @@ export interface IGeneralComponent extends IComponent {
   */
   getGeneralQualification(id: number): GeneralGdsRow | undefined
   /**
-   * get the able status of the generals
-  */
-  getAbleList(): boolean[]
-  /**
    * get able status
    * @returns able_count: number, max_able_count: number
   */
@@ -100,7 +96,7 @@ export interface IGeneralComponent extends IComponent {
   /**
    * get all status of general , includes general level , able status and qualification
   */
-  getGeneralList(): any[]
+  getGeneralList(): {}
   /**
    * enable the general
    *  @param id the id of the general
@@ -374,9 +370,6 @@ export class GeneralComponent implements IGeneralComponent {
   getGeneralQualification(id: number) {
     return this.general.getGeneralQualification(id)
   }
-  getAbleList(): boolean[] {
-    return this.general.getAbleList()
-  }
 
   getAbleStatus(): {} {
     let re = {
@@ -387,23 +380,25 @@ export class GeneralComponent implements IGeneralComponent {
     re.able_count = this.general.getAbleCount()
     return re
   }
-  getGeneralList(): any[] {
-    let len = this.general.state.able.length
-    let re = new Array(len).fill({})
-    for (let i = 0; i < len; i++) {
+  getGeneralList(): {} {
+    let re = {}
+    for (let idstring in this.general.state.generalList) {
+      const generalInfo = this.general.state.generalList[idstring]
+      const id = parseInt(idstring)
       let temp = {
+        id: id,
         qualification: {},
         level: 0,
         able: false,
         skilllevel: [1, 1, 1],
         stamina: 0
       }
-      temp.qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(i + 1)))
-      temp.level = this.general.state.levels[i]
-      temp.able = this.general.state.able[i]
-      temp.skilllevel = this.general.state.skill_levels[i].concat()
-      temp.stamina = this.general.getGeneralStamina(i + 1)
-      re[i] = temp
+      temp.qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(id)))
+      temp.level = generalInfo.level
+      temp.able = generalInfo.able
+      temp.skilllevel = generalInfo.skill_levels.concat()
+      temp.stamina = this.general.getGeneralStamina(id)
+      re[idstring] = temp
     }
     return re
   }
@@ -477,9 +472,10 @@ export class GeneralComponent implements IGeneralComponent {
       value: [],
       check_upgrade: []
     }
+    const generalInfo = this.general.getGeneralState(generalId)
     let qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(generalId)))
     re.skill_id = qualification.general_skill.concat()
-    re.skill_level = this.general.state.skill_levels[generalId - 1].concat()
+    re.skill_level = generalInfo.skill_levels.concat()
     let upgrade_need = new Array(re.skill_id.length).fill(0)
     let value_type = new Array(re.skill_id.length).fill(0)
     let value = new Array(re.skill_id.length).fill(0)

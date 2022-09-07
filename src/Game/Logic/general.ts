@@ -1,11 +1,11 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable} from '../DataConfig'
-import { BlockDefenseInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
+import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { ResouceType, StateName } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
-import { State } from '../../Core/state';
+import { copyObj, State } from '../../Core/state';
 import { parseStateId } from '../Utils';
 import { BattleTransRecord } from '../Controler/transition';
 
@@ -103,17 +103,14 @@ export class General{
         return this.config.buff.get(id.toString())
     }
 
-    /**
-     * get the able status of the generals
-    */
-    getAbleList():boolean[]{
-        return this.state.able
+    getGeneralState(id: number): GeneralInfo{
+        return copyObj(this.state.generalList[id + ""]) as GeneralInfo
     }
 
     getAbleCount():number{
         let count = 0
-        for( let state of this.state.able ){
-            if(state){
+        for( let id in this.state.generalList ){
+            if(this.state.generalList[id].able){
                 count++
             }
         }
@@ -138,12 +135,13 @@ export class General{
             return {result : false, error: 'index-error'}
         }
         let count = this.getAbleCount()
+        let generalInfo = this.getGeneralState(id)
         if( count < this.getMaxAbleCount() ){
-            this.state.able[id - 1] = true
+            generalInfo.able = true
         }
         this.state.update(
             {
-                able : this.state.able 
+                [`generalList.${id}`] : generalInfo
             }
         )
         return {result : true}
@@ -154,11 +152,12 @@ export class General{
         if(!this.checkIdAble(id)){
             return {result : false, error: 'index-error'} 
         }
-        this.state.able[id - 1] = false
+        let generalInfo = this.getGeneralState(id)
+        generalInfo.able = false
         if(this.state.defense_general == id){
             this.state.update(
                 {
-                    able : this.state.able,
+                    [`generalList.${id}`] : generalInfo,
                     defense_general : -1
                 }
             )
@@ -166,7 +165,7 @@ export class General{
         else{
             this.state.update(
                 {
-                    able : this.state.able
+                    [`generalList.${id}`] : generalInfo
                 }
             )
         }
@@ -177,7 +176,8 @@ export class General{
         if(!this.checkIdAble(id)){
             return {result : false, error: 'id-error'} 
         }
-        if(!this.state.able[id - 1]){
+        const generalInfo = this.getGeneralState(id)
+        if(!generalInfo.able){
             return {result : false, error: 'general-not-able'}
         }
         this.state.update(
@@ -203,7 +203,8 @@ export class General{
         if(!this.checkIdAble(id)){
             return false
         }
-        const level = this.state.levels[id - 1]
+        const generalInfo = this.getGeneralState(id)
+        const level = generalInfo.level
         const cost = this.getGeneralUpgradeNeed(id, level)
         if(this.city.getResource(ResouceType.Silver) >= cost){
             return true
@@ -213,7 +214,9 @@ export class General{
 
     getGeneralLevel( id : number): number{
         if(this.checkIdAble(id)){
-            return this.state.levels[id - 1]
+            const generalInfo = this.getGeneralState(id)
+            const level = generalInfo.level
+            return level
         }
         return 1
     }
@@ -223,16 +226,16 @@ export class General{
         if(!this.checkIdAble(id)){
             return {result : false, error: 'index-error'} 
         }
-        const level = this.state.levels[id - 1]
+        let generalInfo = this.getGeneralState(id)
+        const level = generalInfo.level
         if(level == this.config.parameter.general_max_level){
             return {result : false, error: 'general-level-is-max'} 
         }
         const cost = this.getGeneralUpgradeNeed(id, level)
-        const levels = this.state.levels.concat()
+        generalInfo.level = level + 1
         if(this.city.useSilver(cost)){
-            levels[id - 1] = level + 1
             this.state.update({
-                levels : levels
+                [`generalList.${id}`] : generalInfo,
             })
             return {result: true}
         }
@@ -316,7 +319,8 @@ export class General{
     }
 
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
-        const level = this.state.skill_levels[generalId -1][skillIndex]
+        const generalInfo = this.getGeneralState(generalId)
+        const level = generalInfo.skill_levels[skillIndex]
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.getResource(ResouceType.Silver) >= need){
             return true
@@ -329,16 +333,17 @@ export class General{
         if(!this.checkGeneralSkillUpgrade(generalId, skillIndex)){
             return {result : false, error: 'silver-not-enough-error'} 
         }
-        const level = this.state.skill_levels[generalId -1][skillIndex]
+        let generalInfo = this.getGeneralState(generalId)
+        const level = generalInfo.skill_levels[skillIndex]
         if( level == this.config.parameter.general_skill_max_level ){
             return {result : false, error: 'skill-is-max-level'} 
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.useSilver(need)){
-            let skill_levels = this.state.skill_levels
-            skill_levels[generalId -1 ][skillIndex] = level + 1
+            
+            generalInfo[skillIndex] = level + 1
             this.state.update({
-                skill_levels : skill_levels
+                [`generalList.${generalId}`] : generalInfo,
             })
             return {result : true }
         }
@@ -346,25 +351,26 @@ export class General{
     }
 
     getGeneralProduction(typ : ResouceType){
-        const ableList = this.state.able
         let product = 0
-        for(let index = 0; index < ableList.length; index ++){
-            if(!ableList[index]){
+        for(let idstring in this.state.generalList){
+            const generalInfo = this.state.generalList[idstring]
+            const id = parseInt(idstring)
+            if(!generalInfo.able){
                 continue;
             }
-            const row = this.getGeneralQualification(index + 1)
+            const row = this.getGeneralQualification(id)
             if(typ == ResouceType.Silver){
-                product += this.getGeneralAbility(index + 1, this.state.levels[index], GeneralAbility.Silver)
+                product += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Silver)
             }else{
-                product += this.getGeneralAbility(index + 1, this.state.levels[index], GeneralAbility.Troop)
+                product += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Troop)
             }
             for(let bi = 0; bi < row.general_skill.length; bi++){
                 const buff = this.getSkillInfo(row.general_skill[bi])
                 if(typ == ResouceType.Silver && buff.buff_type == SkillType.Silver ){
-                    product += this.getSkillValue(index + 1, bi, this.state.skill_levels[index][bi])['value']
+                    product += this.getSkillValue(id, bi, generalInfo.skill_levels[bi])['value']
                 }
                 else if (typ == ResouceType.Troop && buff.buff_type == SkillType.Troop){
-                    product += this.getSkillValue(index + 1, bi, this.state.skill_levels[index][bi])['value']
+                    product += this.getSkillValue(id, bi, generalInfo.skill_levels[bi])['value']
                 }
             }
         }
@@ -373,7 +379,8 @@ export class General{
 
     getGeneralStamina(generalId : number){
         const time = parseInt(new Date().getTime() / 1000 + '');
-        const stamina = this.state.stamina[generalId - 1]
+        const generalInfo = this.getGeneralState(generalId)
+        const stamina = generalInfo.stamina
         const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
         const realStamina = Math.floor( (time - stamina.lastUpdate)/ this.config.parameter.general_stamina_recovery) + stamina.value
         if(realStamina >= maxStamina){
@@ -384,41 +391,41 @@ export class General{
 
     updateGeneralStamina(generalId: number){
         const time = parseInt(new Date().getTime() / 1000 + '');
-        let staminaList = this.state.stamina
-        const stamina = this.state.stamina[generalId - 1]
+        let generalInfo = this.getGeneralState(generalId)
+        const stamina = generalInfo.stamina
         const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
         const realStamina = Math.floor( (time - stamina.lastUpdate)/ this.config.parameter.general_stamina_recovery) + stamina.value
         if(realStamina > stamina.value && realStamina < maxStamina){
-            staminaList[generalId - 1] = {
+            generalInfo.stamina = {
                 lastUpdate: stamina.lastUpdate + (realStamina - stamina.value) * this.config.parameter.general_stamina_recovery,
                 value: realStamina
             }
             this.state.update(
                 {
-                    'stamina': staminaList
+                    [`generalList.${generalId}`] : generalInfo,
                 }
             )
         }
         else if(realStamina >= maxStamina){
-            staminaList[generalId - 1] = {
+            generalInfo.stamina = {
                 lastUpdate: time,
                 value: maxStamina
             }
             this.state.update(
                 {
-                    'stamina': staminaList
+                    [`generalList.${generalId}`] : generalInfo,
                 }
             )
         }
     }
     useGeneralStamina(generalId : number, amount: number): boolean{
         this.updateGeneralStamina(generalId)
-        let staminaList = this.state.stamina
+        let generalInfo = this.getGeneralState(generalId)
         if(this.getGeneralStamina(generalId) > amount){
-            staminaList[generalId - 1].value -= amount
+            generalInfo.stamina.value -= amount
             this.state.update(
                 {
-                    'stamina' : staminaList
+                    [`generalList.${generalId}`] : generalInfo,
                 }
             )
             return true
@@ -433,6 +440,7 @@ export class General{
     }
 
     getGeneralBattleStatus(generalId : number){
+        const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {
                 [SkillType.Attack]: this.config.parameter.default_defense_general[0],
@@ -450,7 +458,7 @@ export class General{
                 base: base
             }
         }
-        const generalLevel = this.state.levels[generalId - 1]
+        const generalLevel = generalInfo.level
         let base = {
             [SkillType.Attack]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Attack),
             [SkillType.Defense]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Defense),
@@ -473,7 +481,7 @@ export class General{
         extraValue[SkillType.Defense] = cityStatus.defense
         for( let i = 0; i < row.general_skill.length; i++){
             const skillRow = this.getSkillInfo(row.general_skill[i])
-            const skillLevel = this.state.skill_levels[generalId - 1][i]
+            const skillLevel = generalInfo.skill_levels[i]
             const value = this.getSkillValue(generalId, i, skillLevel)
             if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
                 if(value['value_type'] == 1){
@@ -534,13 +542,15 @@ export class General{
         }
         else{
             let maxValue = 1;
-            for(let i = 0 ; i < this.state.able.length; i++){
-                if(this.state.able[i]){
-                    let generalLevel = this.state.levels[i]
-                    let tempValue = this.getGeneralAbility(i + 1, generalLevel, GeneralAbility.Attack) + this.getGeneralAbility(i + 1, generalLevel, GeneralAbility.Defense)
+            for(let idstring in this.state.generalList ){
+                const id = parseInt(idstring)
+                const generalInfo = this.state.generalList[idstring]
+                if(generalInfo.able){
+                    let generalLevel = generalInfo.level
+                    let tempValue = this.getGeneralAbility( id, generalLevel, GeneralAbility.Attack) + this.getGeneralAbility( id, generalLevel, GeneralAbility.Defense)
                     if(tempValue > maxValue){
                         maxValue = tempValue
-                        defenseGeneralId = i + 1 
+                        defenseGeneralId = id
                     }
                 }
             }
@@ -551,7 +561,7 @@ export class General{
         if(defenseGeneralId != -1){
             const row = this.getGeneralQualification(defenseGeneralId)
             re.generalType = row.general_type
-            re.generalLevel = this.state.levels[defenseGeneralId - 1]
+            re.generalLevel = this.getGeneralLevel(defenseGeneralId)
         }
         else{
             re.generalType = this.config.parameter.default_defense_general[3]
@@ -576,7 +586,8 @@ export class General{
     }
 
     battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
-        if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
                 error: 'generalid-error'
@@ -673,7 +684,7 @@ export class General{
         let re: BlockDefenseInfo = {
             username: username,
             generalId: generalId,
-            generalLevel: this.state.levels[generalId - 1],
+            generalLevel: this.getGeneralLevel(generalId),
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
@@ -695,7 +706,8 @@ export class General{
     }
 
     defenseBlock(generalId: number, x_id: number, y_id: number){
-        if(!(this.checkIdAble(generalId) && this.state.able[generalId - 1])){
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
                 error: 'generalid-error'

@@ -148,7 +148,6 @@ function example() {
         general.onStateUpdate((state)=>{
           //console.log("general",state)
         })
-        const list = general.getAbleList();
         general.ableGeneral(1, (result)=>{
           console.log("general able ", result)
         })
@@ -262,7 +261,7 @@ function example() {
         }
       )
     }
-    ,2000
+    ,2000000
   )
 
   
