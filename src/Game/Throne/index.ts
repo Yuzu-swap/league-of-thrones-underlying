@@ -519,7 +519,7 @@ export class GeneralComponent implements IGeneralComponent {
 
   async getAllBattleStatuses( callback: (result: any) => void ) {
     let re = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'silver'})
-    callback(re)
+    callback(re ?? [])
   }
   async getBattleStatuses( username: string, callback: (result: any) => void ) {
     let re = []
@@ -529,7 +529,7 @@ export class GeneralComponent implements IGeneralComponent {
     else{
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
     }
-    callback(re)
+    callback(re ?? [])
   }
 
   battle(generalId: number,name: string, callback: (result: any) => void): void {
@@ -543,7 +543,7 @@ export class GeneralComponent implements IGeneralComponent {
   async getBattleRecords( callback: (result: any) => void ) {
     let re = (await this.mediator.query(TransitionEventType.Battles,{"$or":[ {"attackInfo.username" : Throne.instance().username},{"defenseInfo.username" : Throne.instance().username} ]})) as BattleTransRecord[]
     let trans = []
-    for(let record of re){
+    for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
     }
     callback(trans)
