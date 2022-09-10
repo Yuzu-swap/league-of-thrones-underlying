@@ -115,7 +115,9 @@ function example() {
         console.log('City init');
         // bind button with action
         // button.onClick = () =>{
-        city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
+        for(let i = 0; i < 12; i++){
+          city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
+        }
         console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
         // watch action response
         console.log(city.getFacilityOrder())

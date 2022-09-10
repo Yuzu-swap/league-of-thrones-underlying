@@ -167,7 +167,8 @@ export class City {
       tartgetLevel = levelList[index] + 1;
     }
     const row = this.getUpgradeInfo(typ, tartgetLevel);
-    if (row == undefined) {
+    const nextRow = this.getUpgradeInfo(typ, tartgetLevel + 1);
+    if (row == undefined || nextRow == undefined) {
       return false;
     }
     if (
