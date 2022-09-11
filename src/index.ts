@@ -153,7 +153,7 @@ function example() {
         general.ableGeneral(1, (result)=>{
           console.log("general able ", result)
         })
-        for(let i = 0; i < 100 ; i ++){
+        for(let i = 0; i < 110 ; i ++){
           general.upgradeGeneral(1,  (result)=>{
             console.log("general up ", result)
           })
@@ -162,11 +162,14 @@ function example() {
         let num1= general.getUpgradeGeneralNeed(1, 2);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
-        general.upgradeGeneralSkill(1 , 0, 
-          (result)=>{
-            console.log("upgrade skill", result)
-          }
-          )
+        for(let i = 0; i < 30 ; i ++){
+          general.upgradeGeneralSkill(1 , 0, 
+            (result)=>{
+              console.log("upgrade skill", result)
+            }
+            )
+        }
+       
         console.log("general", general.getGeneralList())
         console.log("const ", general.getConstData())
         general.setDefenseGeneral(1, (re)=>{

@@ -206,6 +206,9 @@ export class General{
         }
         const generalInfo = this.getGeneralState(id)
         const level = generalInfo.level
+        if(level == this.config.parameter.general_max_level){
+            return false
+        }
         const cost = this.getGeneralUpgradeNeed(id, level)
         if(this.city.getResource(ResouceType.Silver) >= cost){
             return true
@@ -322,6 +325,9 @@ export class General{
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
         const generalInfo = this.getGeneralState(generalId)
         const level = generalInfo.skill_levels[skillIndex]
+        if(level == this.config.parameter.general_skill_max_level){
+            return false
+        }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.getResource(ResouceType.Silver) >= need){
             return true
@@ -342,7 +348,7 @@ export class General{
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.useSilver(need)){
             
-            generalInfo[skillIndex] = level + 1
+            generalInfo.skill_levels[skillIndex] = level + 1
             this.state.update({
                 [`generalList.${generalId}`] : generalInfo,
             })
