@@ -2623,6 +2623,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1011,
@@ -2781,6 +2782,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1011,
@@ -3233,6 +3235,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1011,
@@ -3298,6 +3301,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1012,
@@ -3429,6 +3433,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1009,
@@ -6086,6 +6091,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1010,
@@ -6244,6 +6250,7 @@
             }
         ],
         "silver_total_number": 17280000,
+        "parameter": 0,
         "gather_silver_speed": 240000,
         "durability": 25000,
         "buff_id": 1010,

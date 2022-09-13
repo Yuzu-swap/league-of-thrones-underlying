@@ -23,11 +23,13 @@ import {
   AttackBlockArgs,
   SetUnionIdArgs,
   StateTransitionArgs,
-  SetSeasonEndArgs
+  SetSeasonEndArgs,
+  StartSeasonArgs,
+  SetSeasonRewardConfigArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState } from '../State';
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, ISeasonConfigState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -125,6 +127,12 @@ export class TransitionHandler {
       case StateTransition.SetSeasonEnd:
         re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
         return re
+      case StateTransition.StartSeason:
+        re = this.onStartSeason(arg as StartSeasonArgs)
+        return re
+      case StateTransition.SetSeasonRewardConfig:
+        re = this.onSetSeasonRewardConfig(arg as SetSeasonRewardConfigArgs)
+        return re
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
@@ -163,10 +171,16 @@ export class TransitionHandler {
         id: `${StateName.MapGlobalInfo}`
       }
     )
+    const seasonState = this.stateManger.get(
+      {
+        id: `${StateName.SeasonConfig}`
+      }
+    )
     const states: StateEssential = {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
       mapGlobal: mapGlobalState as IMapGlobalState,
+      seasonState: seasonState as ISeasonConfigState,
       blocks: this.getBlockStates(x_id, y_id)
     };
     return createLogicEsential(states);
@@ -178,8 +192,14 @@ export class TransitionHandler {
         id: `${StateName.MapGlobalInfo}`
       }
     )
+    const seasonState = this.stateManger.get(
+      {
+        id: `${StateName.SeasonConfig}`
+      }
+    )
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
+      seasonState : seasonState as ISeasonConfigState,
       blocks: this.getBlockStates(x_id, y_id)
     };
     return createGlobalEsential(gStates)
@@ -397,6 +417,49 @@ export class TransitionHandler {
     re['endHaveSet'] = logic.map.gState.seasonEnd
     return re
   }
+
+  onStartSeason(args: StartSeasonArgs){
+    for(let unionIdString in args.applies){
+      const unionId = parseInt(unionIdString)
+      if(unionId < 1 || unionId >4){
+        continue
+      }
+      let userInfos = args.applies[unionIdString]
+      for(let username in userInfos){
+        const logic : LogicEssential = this.genLogic(username)
+        logic.general.state.update(
+          {
+            'unionId' : unionId
+          }
+        )
+        logic.general.addextraGeneral(userInfos[username])
+      }
+    }
+    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
+    gLogic.map.seasonState.update(
+      {
+        'season_reservation': args.season.season_reservation,
+        'season_ready' : args.season.season_ready,
+        'season_open' : args.season.season_open,
+        'season_end' : args.season.season_open,
+        'unionRewardValue': args.season.reward1Amount,
+        'rankRewardValue': args.season.reward2Amount
+      }
+    )
+    return true
+  }
+
+  onSetSeasonRewardConfig( args : SetSeasonRewardConfigArgs ){
+    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
+    gLogic.map.seasonState.update(
+      {
+        'rankConfigFromTo': args.rankConfigFromTo,
+        'rankConfigValue' : args.rankConfigValue,
+      }
+    )
+    return true
+  }
+
 
   recordEvent(typ: TransitionEventType,event: any) {
     if (this.eventRecorderFunc){

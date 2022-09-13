@@ -3,7 +3,8 @@ export enum StateName {
 	General = "general" ,
 	DefenderInfo = "defenderinfo",
 	MapGlobalInfo = 'mapglobalinfo',
-	BlockInfo = 'blockinfo'
+	BlockInfo = 'blockinfo',
+	SeasonConfig = 'seasonconfig'
 }
 
 export enum CityFacility {
@@ -46,7 +47,9 @@ export enum StateTransition {
 	CancelDefenseBlock,
 	SetUnionId,
 	SetUnionWin,
-	SetSeasonEnd
+	SetSeasonEnd,
+	StartSeason,
+	SetSeasonRewardConfig
 }
 
 export interface StateTransitionArgs {
@@ -102,4 +105,22 @@ export interface SetUnionIdArgs extends StateTransitionArgs{
 }
 
 export interface SetSeasonEndArgs extends StateTransitionArgs{
+
+}
+
+export interface StartSeasonArgs extends StateTransitionArgs{
+	applies:{}
+	season:{
+		season_reservation: number,
+		season_ready : number,
+		season_open : number,
+		season_end : number,
+		reward1Amount: number
+        reward2Amount: number
+	}
+}
+
+export interface SetSeasonRewardConfigArgs extends StateTransitionArgs{
+	rankConfigFromTo: number[]
+	rankConfigValue: number[]
 }

@@ -58,7 +58,9 @@ export interface IDefenderInfoState extends IState{
   troop: number
   unionId: number
   glory: number
+  fortressLevel: number
 }
+
 
 export interface IMapGlobalState extends IState{
   id: string
@@ -67,6 +69,18 @@ export interface IMapGlobalState extends IState{
   updateTime: number[]
   unionWinId: number
   seasonEnd: boolean
+}
+
+export interface ISeasonConfigState extends IState{
+  id: string
+  season_reservation: number,
+  season_ready : number,
+  season_open : number,
+  season_end : number,
+  rankConfigFromTo: number[],
+  rankConfigValue: number[],
+  unionRewardValue: number,
+  rankRewardValue: number
 }
 
 export interface BelongInfo{

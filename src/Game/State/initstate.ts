@@ -47,6 +47,16 @@ export var InitState = {
         campMembers: [],
         unionWinId: 0,
         seasonEnd: false
+    },
+    [StateName.SeasonConfig]:{
+        season_reservation: 0,
+        season_ready : 0,
+        season_open : 0,
+        season_end : 0,
+        rankConfigFromTo: [],
+        rankConfigValue: [],
+        unionRewardValue: 0,
+        rankRewardValue: 0
     }
 };
 

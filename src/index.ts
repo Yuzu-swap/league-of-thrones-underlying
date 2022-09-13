@@ -106,6 +106,22 @@ function example() {
       console.log( (Throne.instance().mediator as LocalMediator).getTransaction().checkUnionWin())
       console.log( (Throne.instance().mediator as LocalMediator).getTransaction().getSeasonStatus())
       console.log("set union", result)
+      Throne.instance().mediator.sendTransaction(StateTransition.StartSeason,{
+        from: Throne.instance().username,
+        applies:{
+          "1" :{
+            "test1" : [ 12, 13 ]
+          }
+        },
+        season:{
+          season_reservation: 0,
+          season_ready : 0,
+          season_open : 0,
+          season_end : 0,
+          reward1Amount: 0,
+          reward2Amount: 0
+        }
+      }, ()=>{})
     }
   )
   setTimeout(() => {

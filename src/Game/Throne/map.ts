@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
+import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -159,7 +159,7 @@ export class MapComponent implements IMapComponent{
     }
 
     async getSeasonRankResult(callback: (result: any) => void): Promise<void> {
-        let defenseList = (await this.mediator.query( StateName.DefenderInfo, {orderBy: 'glory'})) ?? []
+        let defenseList = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'glory'})) ?? []
         let re = []
         const rankReward = this.map.seasonConfig.get(1).rank_reward
         let rewardIndex = 0
@@ -194,4 +194,33 @@ export class MapComponent implements IMapComponent{
         let config = this.map.seasonConfig.get(1)
         return copyObj(config)
     }   
+
+    async getEndSeasonParameters(winUnion: number ): Promise<any>{
+        let defenseList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'glory', "$limit": 20}))
+        let unionList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": winUnion, '$orderBy': 'glory' } ))
+        let addressList = []
+        let gloryList = []
+        let unionSumGlory = 0 
+        for( let item  of defenseList ){
+            addressList.push(item.username)
+            gloryList.push(item.glory)
+        }
+        for( let item of unionList ){
+            unionSumGlory += item.glory
+            if(addressList.indexOf(item.username) == -1){
+                addressList.push(item.username)
+                gloryList.push(item.glory)
+            }
+        }
+        let re = {
+            addressList : addressList,
+            gloryList : gloryList,
+            unionSumGlory : unionSumGlory
+        }
+        return new Promise(
+            (resolve, reject) =>{
+                resolve(re)
+            }
+        )
+    }
 }

@@ -1,6 +1,6 @@
 import { General, GeneralConfig } from "./general";
 import { City, CityConfig } from "./game";
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState } from "../State";
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, ISeasonConfigState } from "../State";
 import { Boost, IBoost } from "./boost";
 import { ResouceType, StateName } from "../Const";
 import { Map } from "./map";
@@ -18,6 +18,7 @@ export interface StateEssential {
 	city: ICityState
 	general: IGeneralState
 	mapGlobal: IMapGlobalState
+	seasonState: ISeasonConfigState
 	blocks: IBlockState[]
 }
 export interface ConfigEssential {
@@ -27,6 +28,7 @@ export interface ConfigEssential {
 
 export interface GlobalStateEssential{
 	mapGlobal: IMapGlobalState
+	seasonState: ISeasonConfigState
 	blocks: IBlockState[]
 }
 
@@ -35,7 +37,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
 	var general: General = new General(states.general, city)
-	var map: Map = new Map(states.mapGlobal)
+	var map: Map = new Map(states.mapGlobal, states.seasonState)
 	city.setBoost(boost)
 	general.setBoost(boost)
 	map.setGeneral(general)
@@ -53,7 +55,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 }
 
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
-	var map: Map = new Map(gStates.mapGlobal)
+	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState)
 	map.loadBlockStates(gStates.blocks)
 	return { map }
 }

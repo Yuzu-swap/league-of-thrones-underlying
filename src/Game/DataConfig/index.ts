@@ -347,9 +347,6 @@ export class SeasonConfig{
 			for(let item of seasonConf['show_rank_reward'] as []){
 				season.show_rank_reward.push(item as SeasonReward)
 			}
-			for(let item of seasonConf['show_occupy_reward'] as []){
-				season.show_occupy_reward.push(item as SeasonReward)
-			}
 			for(let item of seasonConf['rank_reward'] as []){
 				season.rank_reward.push(item as RankReward)
 			}

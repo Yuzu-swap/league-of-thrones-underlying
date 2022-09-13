@@ -1,7 +1,7 @@
 import { mapIdOffset } from "../Const";
 import { BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState } from "../State";
+import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, ISeasonConfigState } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -14,16 +14,18 @@ export class Map{
     gState: IMapGlobalState
     blockStates:{[key: string]: IBlockState} 
     mapConfig: MapConfig
+    seasonState: ISeasonConfigState
     seasonConfig: SeasonConfig
     parameter: Parameter
     boost: IBoost
     general: General
-    constructor( gState: IMapGlobalState ){
+    constructor( gState: IMapGlobalState, seasonState: ISeasonConfigState ){
         this.gState = gState
         this.blockStates = {}
         this.mapConfig = MapConfigFromGDS
         this.parameter = parameterConfig
         this.seasonConfig = SeasonConfigFromGDS
+        this.seasonState = seasonState
     }
     setBoost(boost:IBoost, general: General){
         this.boost = boost

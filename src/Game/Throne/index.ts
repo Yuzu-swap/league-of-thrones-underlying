@@ -5,7 +5,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, ResouceInfo } from '../State'
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, ISeasonConfigState, ResouceInfo } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -518,13 +518,13 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   async getAllBattleStatuses( callback: (result: any) => void ) {
-    let re = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'silver'})
+    let re = await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'silver'})
     callback(re ?? [])
   }
   async getBattleStatuses( username: string, callback: (result: any) => void ) {
     let re = []
     if(username == ''){
-      re = await this.mediator.query( StateName.DefenderInfo, {orderBy: 'silver'})
+      re = await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'silver'})
     }
     else{
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
@@ -636,6 +636,7 @@ export class Throne implements IThrone {
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
+    states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.blocks = []
     // await Promise.all([
     //   async () => {

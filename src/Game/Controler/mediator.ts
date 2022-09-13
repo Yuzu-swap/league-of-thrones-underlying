@@ -11,7 +11,7 @@ import {
   State
 } from '../../Core/state';
 import { BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
-import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState } from '../State';
+import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
   BaseMessage,
@@ -58,6 +58,13 @@ function getGlobleState(wather: IStateChangeWatcher):{
         {
           id: [StateName.MapGlobalInfo],
           ...InitState[StateName.MapGlobalInfo]
+        },
+        wather
+      ).unsderlying(),
+      [StateName.SeasonConfig]: new State<ISeasonConfigState>(
+        {
+          id: [StateName.SeasonConfig],
+          ...InitState[StateName.SeasonConfig]
         },
         wather
       ).unsderlying()
@@ -224,7 +231,8 @@ export class LocalMediator
               silver: 100000,
               troop: 10000,
               unionId : 1,
-              glory: 500
+              glory: 500,
+              fortressLevel: 1 
             },
             {
               username: 'test1',
@@ -236,7 +244,8 @@ export class LocalMediator
               silver: 9899,
               troop: 10000,
               unionId : 1,
-              glory: 500
+              glory: 500,
+              fortressLevel: 1
             }
           ]
        }
@@ -252,7 +261,8 @@ export class LocalMediator
             silver: 9899,
             troop: 10000,
             unionId : 1,
-            glory: 500
+            glory: 500,
+            fortressLevel: 1
           }
         ]
        }

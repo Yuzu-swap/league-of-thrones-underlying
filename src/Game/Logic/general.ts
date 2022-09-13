@@ -1,12 +1,12 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable} from '../DataConfig'
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
-import { ResouceType, StateName } from '../Const';
+import { CityFacility, ResouceType, StateName } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
-import { parseStateId } from '../Utils';
+import { getTimeStamp, parseStateId } from '../Utils';
 import { BattleTransRecord } from '../Controler/transition';
 
 export interface GeneralConfig{
@@ -679,6 +679,7 @@ export class General{
         defenderInfo['unionId'] = this.state.unionId
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
+        defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
         delete defenderInfo['defenseMaxTroop']
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
@@ -804,6 +805,34 @@ export class General{
                 'glory' : nowCount + count
             }
         )       
+    }
+
+    addextraGeneral( ids: number[] ){
+        let generalInfos = this.state.generalList;
+        const time = getTimeStamp()
+        for(let id of ids){
+            if(generalInfos[id+''] != undefined){
+                continue;
+            }
+            const row = this.getGeneralQualification(id)
+            if(row == undefined){
+                continue;
+            }
+            let generalInfo : GeneralInfo = {
+                id: row.general_id,
+                level: 1,
+                able: false,
+                skill_levels: new Array(3).fill(1),
+                stamina: {
+                    value: row.stamina,
+                    lastUpdate: time
+                }
+            }
+            generalInfos[id + ""] = generalInfo
+        }
+        this.state.update(
+            {'generalList' : generalInfos}
+        )
     }
 
 }
