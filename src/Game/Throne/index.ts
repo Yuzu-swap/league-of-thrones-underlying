@@ -590,7 +590,7 @@ export class Throne implements IThrone {
   logicEssential: LogicEssential
   username : string
   unionId: number
-  wsHost : string
+  wsUrl : string
 
 
 
@@ -619,9 +619,9 @@ export class Throne implements IThrone {
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
     this.unionId = obj['unionId'] ?  obj['unionId'] : 1
-    this.wsHost = obj["wshost"] ? obj["wshost"] : 'ws://test-ws.leagueofthrones.com'
-    if(this.wsHost && this.username!='test'){
-      const wsmediator = new WebSocketMediator(`${this.wsHost}/ws/${this.username}`)
+    this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
+    if(this.wsUrl && this.username!='test'){
+      const wsmediator = new WebSocketMediator(this.wsUrl)
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
