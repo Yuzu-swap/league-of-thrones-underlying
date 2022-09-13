@@ -619,9 +619,9 @@ export class Throne implements IThrone {
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test'
     this.unionId = obj['unionId'] ?  obj['unionId'] : 1
-    this.wsHost = obj["wshost"] ? obj["wshost"] : 'test-ws.leagueofthrones.com'
+    this.wsHost = obj["wshost"] ? obj["wshost"] : 'ws://test-ws.leagueofthrones.com'
     if(this.wsHost && this.username!='test'){
-      const wsmediator = new WebSocketMediator(`ws://${this.wsHost}:80/ws/${this.username}`)
+      const wsmediator = new WebSocketMediator(`${this.wsHost}/ws/${this.username}`)
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
