@@ -212,12 +212,19 @@ export class Map{
                 }
             }
         }
+        
+        let durabilityReduce = 0
         if(remainTroop > 0){
-            let count = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)
-            let lastRecord = records[records.length - 1] as BattleTransRecord
-            lastRecord.attackInfo.gloryGet += count 
+            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
+            if(records.length != 0){
+                let lastRecord = records[records.length - 1] as BattleTransRecord
+                lastRecord.attackInfo.gloryGet += durabilityReduce 
+            }     
         }
-        return records
+        return {
+            records: records,
+            durabilityReduce: durabilityReduce
+        }
     }
 
     attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){

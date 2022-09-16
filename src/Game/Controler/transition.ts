@@ -324,7 +324,7 @@ export class TransitionHandler {
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
-      for(let record of re as BattleTransRecord[]){
+      for(let record of re['records'] as BattleTransRecord[]){
         logic.general.addGlory(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
           let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username)
@@ -334,11 +334,22 @@ export class TransitionHandler {
         }
         this.recordEvent(TransitionEventType.Battles, record)
       }
-      let temp = re as BattleTransRecord[]
-      return{
-        result: true,
-        record: temp[temp.length - 1]
+      let temp = re['records'] as BattleTransRecord[]
+      if(temp.length != 0){
+        return{
+          result: true,
+          record: temp[temp.length - 1],
+          durabilityReduce: re['durabilityReduce']
+        }
       }
+      else{
+        logic.general.addGlory(re['durabilityReduce'] + logic.general.config.parameter.battle_victory_get_glory)
+        return{
+          result: true,
+          durabilityReduce: re['durabilityReduce']
+        }
+      }
+      
     }
     else{
       return re
