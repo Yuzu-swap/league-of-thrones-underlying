@@ -7,7 +7,7 @@ import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
 import { getTimeStamp, parseStateId } from '../Utils';
-import { BattleTransRecord } from '../Controler/transition';
+import { BattleRecordType, BattleTransRecord } from '../Controler/transition';
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -64,6 +64,8 @@ export interface BattleRecord{
       y_id: number
     }
     type: BattleType
+    recordType : string
+    timestamp: number
     result: boolean
   }
 
@@ -793,7 +795,9 @@ export class General{
             enemyInfo: enemyInfo,
             blockInfo: record.blockInfo,
             result : result,
-            type: type
+            type: type,
+            timestamp: record.timestamp,
+            recordType: record.recordType
         }
         return re
     }

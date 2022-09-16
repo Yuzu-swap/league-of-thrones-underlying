@@ -197,7 +197,7 @@ function example() {
         })
         general.getBattleRecords(
           (result)=>{
-            console.log('+++++++++++++++++++++++++',result)
+            console.log('+++++++++++++++++++++++++', result)
           }
         )
   
