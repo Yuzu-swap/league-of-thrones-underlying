@@ -589,7 +589,7 @@ export class General{
     }
 
     getMaxAttackTroop(){
-        return Math.max(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+        return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
     }
 
     battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
