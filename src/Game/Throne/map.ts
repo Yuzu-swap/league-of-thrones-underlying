@@ -159,7 +159,7 @@ export class MapComponent implements IMapComponent{
     }
 
     async getSeasonRankResult(callback: (result: any) => void): Promise<void> {
-        let defenseList = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'glory'})) ?? []
+        let defenseList = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': '-glory'})) ?? []
         let re = []
         const rankReward = this.map.seasonConfig.get(1).rank_reward
         let rewardIndex = 0
@@ -196,8 +196,8 @@ export class MapComponent implements IMapComponent{
     }   
 
     async getEndSeasonParameters(winUnion: number ): Promise<any>{
-        let defenseList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': 'glory', "$limit": 20}))
-        let unionList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": winUnion, '$orderBy': 'glory' } ))
+        let defenseList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': '-glory', "$limit": 20}))
+        let unionList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": winUnion, '$orderBy': '-glory' } ))
         let addressList = []
         let gloryList = []
         let unionSumGlory = 0 
