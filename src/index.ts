@@ -164,7 +164,7 @@ function example() {
       ComponentType.General,
       ((general: IGeneralComponent)=>{
         general.onStateUpdate((state)=>{
-          //console.log("general",state)
+          console.log("general",state)
         })
         general.ableGeneral(1, (result)=>{
           console.log("general able ", result)

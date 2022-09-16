@@ -194,9 +194,9 @@ export class General{
             return 0
         }
         const row = this.getGeneralQualification(id)
-        const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit
+        const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit + row.qualification_defense
         let re = 0
-        re = Math.round((2* Math.pow(currentLevel, 2) * currentLevel + 20) * sumq / 10) * 10
+        re = Math.round((2* Math.pow(currentLevel, 2) + 10 * currentLevel + 20) * sumq / 10) * 10
         return re 
     }
 

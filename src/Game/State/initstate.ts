@@ -93,7 +93,7 @@ export function GetInitState(){
                     id: row.general_id,
                     level: 1,
                     able: false,
-                    skill_levels: new Array(3).fill(1),
+                    skill_levels: new Array(row.general_skill.length).fill(1),
                     stamina: {
                         value: row.stamina,
                         lastUpdate: time
