@@ -53,13 +53,20 @@ export enum TransitionEventType {
 
 export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 
+export enum BattleRecordType{
+  Block = "block",
+  City = "city"
+}
+
 export interface BattleTransRecord{
   attackInfo: BattleRecordInfo
   defenseInfo: BattleRecordInfo
+  recordType: BattleRecordType,
   blockInfo: {
     x_id: number
     y_id: number
   }
+  timestamp: number
   result: boolean
 }
 
@@ -291,10 +298,12 @@ export class TransitionHandler {
           silverGet: -re['silverGet'],
           gloryGet: re['defenseGloryGet']
         },
+        recordType: BattleRecordType.City,
         blockInfo:{
-          x_id: -1,
-          y_id: -1
+          x_id: 0,
+          y_id: 0
         },
+        timestamp: getTimeStamp(),
         result: re['win']
       }
       logic1.general.addGlory(btr.attackInfo.gloryGet)

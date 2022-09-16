@@ -541,7 +541,11 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   async getBattleRecords( callback: (result: any) => void ) {
-    let re = (await this.mediator.query(TransitionEventType.Battles,{"$or":[ {"attackInfo.username" : Throne.instance().username},{"defenseInfo.username" : Throne.instance().username} ]})) as BattleTransRecord[]
+    let re = (await this.mediator.query(TransitionEventType.Battles,
+      {
+      "$or":[ {"attackInfo.username" : Throne.instance().username},{"defenseInfo.username" : Throne.instance().username} ]
+      ,'$orderBy' : 'timestamp'
+      })) as BattleTransRecord[]
     let trans = []
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))

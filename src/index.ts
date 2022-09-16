@@ -166,16 +166,16 @@ function example() {
         general.onStateUpdate((state)=>{
           console.log("general",state)
         })
-        general.ableGeneral(1, (result)=>{
+        general.ableGeneral(2, (result)=>{
           console.log("general able ", result)
         })
         for(let i = 0; i < 110 ; i ++){
-          general.upgradeGeneral(1,  (result)=>{
+          general.upgradeGeneral(2,  (result)=>{
             console.log("general up ", result)
           })
         }
-        let num = general.getUpgradeGeneralNeed(1, 1);
-        let num1= general.getUpgradeGeneralNeed(1, 2);
+        let num = general.getUpgradeGeneralNeed(2, 1);
+        let num1= general.getUpgradeGeneralNeed(2, 2);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
         for(let i = 0; i < 30 ; i ++){
@@ -201,7 +201,7 @@ function example() {
           }
         )
   
-        general.battle(1, 'test1',
+        general.battle(2, 'test1',
           (re)=>{
             console.log("general-----battle",re)
           }
@@ -241,11 +241,11 @@ function example() {
           )
           //console.log(map.getBlocksBelongInfo())
     
-          map.attackBlock( 9, 9, 1,
+          map.attackBlock( 9, 9, 2,
             (result)=>{
               console.log('map----attackBlock',result)
               console.log(map.getBlocksBelongInfo())
-              map.attackBlock( 8, 10, 1,
+              map.attackBlock( 8, 10, 2,
                 (result)=>{
                   console.log('map----attackBlock',result)
                   console.log(map.getBlocksBelongInfo())

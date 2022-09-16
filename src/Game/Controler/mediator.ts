@@ -10,7 +10,7 @@ import {
   IStateChangeWatcher,
   State
 } from '../../Core/state';
-import { BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
+import { BattleRecordType, BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
 import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
@@ -137,10 +137,12 @@ export class LocalMediator
         silverGet: -100,
         gloryGet: 100
       },
+      recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
         y_id: 2
       },
+      timestamp: 0,
       result: true,
     }
     let record2: BattleTransRecord = {
@@ -162,10 +164,12 @@ export class LocalMediator
         silverGet: 0,
         gloryGet: 100
       },
+      recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
         y_id: 2
       },
+      timestamp : 1,
       result: false,
     }
     let record3: BattleTransRecord = {
@@ -178,6 +182,7 @@ export class LocalMediator
         silverGet: 0,
         gloryGet: 100
       },
+      recordType: BattleRecordType.City, 
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
@@ -191,6 +196,7 @@ export class LocalMediator
         x_id: -1,
         y_id: -1
       },
+      timestamp: 2,
       result: true,
     }
     let record4: BattleTransRecord = {
@@ -212,6 +218,8 @@ export class LocalMediator
         silverGet: 100,
         gloryGet: 100
       },
+      recordType: BattleRecordType.City, 
+      timestamp: 3,
       blockInfo :{
         x_id: -1,
         y_id: -1

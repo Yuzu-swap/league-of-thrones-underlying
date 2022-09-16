@@ -1,5 +1,5 @@
 import { mapIdOffset } from "../Const";
-import { BattleTransRecord } from "../Controler/transition";
+import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, ISeasonConfigState } from "../State";
 import { SeasonStatus } from "../Throne/map";
@@ -261,6 +261,8 @@ export class Map{
                             silverGet: 0,
                             gloryGet: bre.defenseGloryGet
                         },
+                        recordType: BattleRecordType.Block,
+                        timestamp: getTimeStamp(),
                         blockInfo:{
                             x_id: x_id,
                             y_id: y_id
@@ -321,6 +323,8 @@ export class Map{
                         silverGet: 0,
                         gloryGet: bre.defenseGloryGet
                     },
+                    recordType: BattleRecordType.Block,
+                    timestamp: getTimeStamp(),
                     blockInfo:{
                         x_id: x_id,
                         y_id: y_id
