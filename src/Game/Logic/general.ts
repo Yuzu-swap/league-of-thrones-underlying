@@ -1,5 +1,5 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit} from '../DataConfig'
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { CityFacility, ResouceType, StateName } from '../Const';
 import { City } from './game';
@@ -62,6 +62,8 @@ export interface BattleRecord{
     blockInfo: {
       x_id: number
       y_id: number
+      type: number
+      parameter: number
     }
     type: BattleType
     recordType : string
@@ -82,11 +84,13 @@ export interface BattleRecordInfo{
 export class General{
     state: IGeneralState
     config: GeneralConfig
+    mapConfig: MapConfig
     city : City
     boost : IBoost
     constructor(state: IGeneralState, city: City) {
         this.state = state;
         this.config = GeneralConfigFromGDS;
+        this.mapConfig = MapConfigFromGDS
         this.city = city
     }
 
@@ -790,10 +794,17 @@ export class General{
             myInfo = record.defenseInfo
             enemyInfo = record.attackInfo
         }
+        let row = this.mapConfig.get(record.blockInfo.x_id, record.blockInfo.y_id)
+        let newBlockInfo = {
+            x_id: row.x_id,
+            y_id: row.y_id,
+            type: row.type,
+            parameter: row.parameter
+        }
         let re :BattleRecord = {
             myInfo: myInfo,
             enemyInfo: enemyInfo,
-            blockInfo: record.blockInfo,
+            blockInfo: newBlockInfo,
             result : result,
             type: type,
             timestamp: record.timestamp,
