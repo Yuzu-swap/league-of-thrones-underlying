@@ -41,7 +41,7 @@ export function setTimeOffset(offset : number ){
 
 export function getTimeStamp( offset : number = timeOffset) :number{
     let time = parseInt(new Date().getTime() / 1000 + '')
-    return time + offset
+    return time //+ offset
 }
 
 export function addToSortList( list: GloryInfo[], username : string, originGlory: number, newGlory: number, unionId : number){
