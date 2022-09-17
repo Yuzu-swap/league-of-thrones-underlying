@@ -71,8 +71,24 @@ export interface IMapGlobalState extends IState{
   seasonEnd: boolean
 }
 
+export interface GloryInfo{
+  username : string
+  glory: number
+  unionId: number
+}
+
+export interface IRewardGlobalState extends IState{
+  id: string
+  unionGloryRankInfo: GloryInfo[][]
+  globalGloryRankInfo: GloryInfo[]
+  contractAddressInput: string[]
+  contractGloryInput: number[]
+  unionGlorySum: number
+}
+
 export interface ISeasonConfigState extends IState{
   id: string
+  haveSet : boolean
   season_reservation: number,
   season_ready : number,
   season_open : number,

@@ -67,7 +67,13 @@ function getGlobleState(wather: IStateChangeWatcher):{
           ...InitState[StateName.SeasonConfig]
         },
         wather
-      ).unsderlying()
+      ).unsderlying(),
+      [StateName.RewardGloablState] : new State<ISeasonConfigState>(
+        {
+          id: [StateName.RewardGloablState],
+          ...InitState[StateName.RewardGloablState]
+        }
+      )
     }
   )
   const mapState = GetMapState()

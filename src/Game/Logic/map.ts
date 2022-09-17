@@ -1,7 +1,7 @@
 import { mapIdOffset } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, ISeasonConfigState } from "../State";
+import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -16,16 +16,18 @@ export class Map{
     mapConfig: MapConfig
     seasonState: ISeasonConfigState
     seasonConfig: SeasonConfig
+    rewardGlobalState : IRewardGlobalState
     parameter: Parameter
     boost: IBoost
     general: General
-    constructor( gState: IMapGlobalState, seasonState: ISeasonConfigState ){
+    constructor( gState: IMapGlobalState, seasonState: ISeasonConfigState, rewardGlobalState : IRewardGlobalState ){
         this.gState = gState
         this.blockStates = {}
         this.mapConfig = MapConfigFromGDS
         this.parameter = parameterConfig
         this.seasonConfig = SeasonConfigFromGDS
         this.seasonState = seasonState
+        this.rewardGlobalState = rewardGlobalState
     }
     setBoost(boost:IBoost, general: General){
         this.boost = boost
@@ -284,6 +286,7 @@ export class Map{
                     }
                     else{
                         defaultDefense[i].troops -= bre.defenseTroopReduce
+                        remainTroop -= bre.attackTroopReduce
                         break
                     }
                 }

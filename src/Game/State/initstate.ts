@@ -49,6 +49,7 @@ export var InitState = {
         seasonEnd: false
     },
     [StateName.SeasonConfig]:{
+        haveSet: false,
         season_reservation: 0,
         season_ready : 0,
         season_open : 0,
@@ -57,6 +58,13 @@ export var InitState = {
         rankConfigValue: [],
         unionRewardValue: 0,
         rankRewardValue: 0
+    },
+    [StateName.RewardGloablState]:{
+        unionGloryRankInfo: new Array(4).fill(new Array(0)),
+        globalGloryRankInfo: [],
+        contractAddressInput: [],
+        contractGloryInput: [],
+        unionGlorySum: 0
     }
 };
 

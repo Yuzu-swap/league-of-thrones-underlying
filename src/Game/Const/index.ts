@@ -4,7 +4,8 @@ export enum StateName {
 	DefenderInfo = "defenderinfo",
 	MapGlobalInfo = 'mapglobalinfo',
 	BlockInfo = 'blockinfo',
-	SeasonConfig = 'seasonconfig'
+	SeasonConfig = 'seasonconfig',
+	RewardGloablState = 'rewardglobalstate'
 }
 
 export enum CityFacility {

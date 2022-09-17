@@ -1,4 +1,5 @@
 import { StateName } from "../Const";
+import { GloryInfo } from "../State";
 
 export function parseStateId(stateId :string): { type : StateName , username : string }{
     let re = {
@@ -41,4 +42,25 @@ export function setTimeOffset(offset : number ){
 export function getTimeStamp( offset : number = timeOffset) :number{
     let time = parseInt(new Date().getTime() / 1000 + '')
     return time + offset
+}
+
+export function addToSortList( list: GloryInfo[], username : string, originGlory: number, newGlory: number, unionId : number){
+    let insert : GloryInfo = {
+        username: username,
+        glory: newGlory,
+        unionId: unionId
+    }
+    if(list.length == 0){
+        list.push(
+            insert
+        )
+    }
+    else{
+        let beginIndex = 0 , endIndex = list.length
+        let mid = 0
+        // while(beginIndex < endIndex){
+        //     mid = (beginIndex + endIndex) /2
+        //     if( list[mid].glory  )
+        // }
+    }
 }
