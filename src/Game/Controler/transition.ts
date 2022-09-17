@@ -137,9 +137,6 @@ export class TransitionHandler {
       case StateTransition.StartSeason:
         re = this.onStartSeason(arg as StartSeasonArgs)
         return re
-      case StateTransition.SetSeasonRewardConfig:
-        re = this.onSetSeasonRewardConfig(arg as SetSeasonRewardConfigArgs)
-        return re
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
@@ -334,6 +331,13 @@ export class TransitionHandler {
         error: 'block-is-too-far'
       }
     }
+    const blockGds = logic.map.mapConfig.get(args.x_id, args.y_id)
+    if(blockGds.type == 3){
+      return {
+        result: false,
+        error: 'cant-attack-init-block'
+      }
+    }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
       for(let record of re['records'] as BattleTransRecord[]){
@@ -451,7 +455,6 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
-<<<<<<< HEAD
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     if(gLogic.map.seasonState.haveSet){
       return {
@@ -459,10 +462,6 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
-=======
-    log("onStart season ",args)
-    
->>>>>>> a6e991c77d9382a9baf5774f48df343243b59a70
     for(let unionIdString in args.applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -481,35 +480,14 @@ export class TransitionHandler {
     }
     gLogic.map.seasonState.update(
       {
-<<<<<<< HEAD
-        'haveSet': true,
-        'season_reservation': args.season.season_reservation,
-        'season_ready' : args.season.season_ready,
-        'season_open' : args.season.season_open,
-        'season_end' : args.season.season_open,
-        'unionRewardValue': args.season.reward1Amount,
-        'rankRewardValue': args.season.reward2Amount
-=======
         'season_reservation': args.season.apply_ts,
         'season_ready' : args.season.prepare_ts,
         'season_open' : args.season.start_ts,
         'season_end' : args.season.end_ts,
         'unionRewardValue': args.season.reward_amount_1,
-        'rankRewardValue': args.season.reward_amount_2
->>>>>>> a6e991c77d9382a9baf5774f48df343243b59a70
-      }
-    )
-    return {
-      result: true
-    }
-  }
-
-  onSetSeasonRewardConfig( args : SetSeasonRewardConfigArgs ){
-    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    gLogic.map.seasonState.update(
-      {
-        'rankConfigFromTo': args.rankConfigFromTo,
-        'rankConfigValue' : args.rankConfigValue,
+        'rankRewardValue': args.season.reward_amount_2,
+        'rankConfigFromTo': args.season.rank_config_fromto,
+        'rankConfigValue' : args.season.rank_config_value,
       }
     )
     return {
@@ -525,6 +503,6 @@ export class TransitionHandler {
   }
 
   updateRewardState(rewardState: IRewardGlobalState, username: string, glory: number, unionId: number){
-    
+
   }
 }

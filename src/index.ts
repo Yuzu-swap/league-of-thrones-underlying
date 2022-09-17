@@ -244,7 +244,9 @@ function example() {
           map.attackBlock( 9, 9, 2,
             (result)=>{
               console.log('map----attackBlock',result)
-              console.log(map.getBlocksBelongInfo())
+              map.getBlockInfo(9, 9, (result)=>{
+                console.log(result)
+              })
               map.attackBlock( 8, 10, 2,
                 (result)=>{
                   console.log('map----attackBlock',result)

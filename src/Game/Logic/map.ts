@@ -390,7 +390,8 @@ export class Map{
             blockState.update(
                 {
                     'durability': row.durability,
-                    'belong': newBelong
+                    'belong': newBelong,
+                    'lastAttachTime': -1
                 }
             )
             this.changeBelongInfo(x_id, y_id, unionId)

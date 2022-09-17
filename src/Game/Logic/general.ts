@@ -548,7 +548,7 @@ export class General{
         }
         re.silver = this.city.getResource(ResouceType.Silver)
         re.troop = this.city.getResource(ResouceType.Troop)
-        re.defenseMaxTroop = this.city.getMaxDefenseTroop()
+        re.defenseMaxTroop = this.getMaxDefenseTroop()
         let defenseGeneralId = -1
         if(this.state.defense_general != -1){
             defenseGeneralId = this.state.defense_general
@@ -596,6 +596,10 @@ export class General{
 
     getMaxAttackTroop(){
         return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+    }
+
+    getMaxDefenseTroop(){
+        return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
     }
 
     battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){

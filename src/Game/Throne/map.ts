@@ -165,7 +165,7 @@ export class MapComponent implements IMapComponent{
         let rewardIndex = 0
         let reward = rankReward[rewardIndex]
         for(let i in defenseList){
-            if( parseInt(i)  > reward.end){
+            if( parseInt(i) + 1  > reward.end){
                 rewardIndex++
                 if(rewardIndex > rankReward.length){
                     break
@@ -175,6 +175,7 @@ export class MapComponent implements IMapComponent{
             let temp = {
                 username : defenseList[i]['username'],
                 unionId : defenseList[i]['unionId'],
+                glory: defenseList[i]['glory'],
                 reward: {
                     type: reward.type,
                     name: reward.name,
