@@ -451,6 +451,7 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
+<<<<<<< HEAD
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     if(gLogic.map.seasonState.haveSet){
       return {
@@ -458,6 +459,10 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
+=======
+    log("onStart season ",args)
+    
+>>>>>>> a6e991c77d9382a9baf5774f48df343243b59a70
     for(let unionIdString in args.applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -476,6 +481,7 @@ export class TransitionHandler {
     }
     gLogic.map.seasonState.update(
       {
+<<<<<<< HEAD
         'haveSet': true,
         'season_reservation': args.season.season_reservation,
         'season_ready' : args.season.season_ready,
@@ -483,6 +489,14 @@ export class TransitionHandler {
         'season_end' : args.season.season_open,
         'unionRewardValue': args.season.reward1Amount,
         'rankRewardValue': args.season.reward2Amount
+=======
+        'season_reservation': args.season.apply_ts,
+        'season_ready' : args.season.prepare_ts,
+        'season_open' : args.season.start_ts,
+        'season_end' : args.season.end_ts,
+        'unionRewardValue': args.season.reward_amount_1,
+        'rankRewardValue': args.season.reward_amount_2
+>>>>>>> a6e991c77d9382a9baf5774f48df343243b59a70
       }
     )
     return {
