@@ -711,12 +711,9 @@ export class General{
         return re
     }
 
-    checkDefenseBlock(generalId: number, x_id: number, y_id: number){
+    checkDefenseBlock(generalId: number){
         for(let info of this.state.defenseBlockList){
             if(info.generalId == generalId){
-                return false
-            }
-            if(info.x_id == x_id && info.y_id == y_id){
                 return false
             }
         }
@@ -731,7 +728,7 @@ export class General{
                 error: 'generalid-error'
             }
         }
-        if(!this.checkDefenseBlock(generalId, x_id, y_id)){
+        if(!this.checkDefenseBlock(generalId)){
             return {
                 result: false,
                 error: 'one-block-can-only-defense-once'

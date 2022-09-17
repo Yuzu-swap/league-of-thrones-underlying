@@ -175,7 +175,7 @@ function example() {
           })
         }
         let num = general.getUpgradeGeneralNeed(2, 1);
-        let num1= general.getUpgradeGeneralNeed(2, 2);
+        let num1= general.getSkillUpgradeNeed(2, 1, 1);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
         for(let i = 0; i < 30 ; i ++){
