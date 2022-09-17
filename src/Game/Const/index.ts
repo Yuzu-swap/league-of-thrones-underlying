@@ -111,12 +111,12 @@ export interface SetSeasonEndArgs extends StateTransitionArgs{
 export interface StartSeasonArgs extends StateTransitionArgs{
 	applies:{}
 	season:{
-		season_reservation: number,
-		season_ready : number,
-		season_open : number,
-		season_end : number,
-		reward1Amount: number
-        reward2Amount: number
+		apply_ts: number,
+		prepare_ts : number,
+		start_ts : number,
+		end_ts : number,
+		reward_amount_1: number
+        reward_amount_2: number
 	}
 }
 

@@ -439,6 +439,8 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
+    log("onStart season ",args)
+    
     for(let unionIdString in args.applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -458,12 +460,12 @@ export class TransitionHandler {
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     gLogic.map.seasonState.update(
       {
-        'season_reservation': args.season.season_reservation,
-        'season_ready' : args.season.season_ready,
-        'season_open' : args.season.season_open,
-        'season_end' : args.season.season_open,
-        'unionRewardValue': args.season.reward1Amount,
-        'rankRewardValue': args.season.reward2Amount
+        'season_reservation': args.season.apply_ts,
+        'season_ready' : args.season.prepare_ts,
+        'season_open' : args.season.start_ts,
+        'season_end' : args.season.end_ts,
+        'unionRewardValue': args.season.reward_amount_1,
+        'rankRewardValue': args.season.reward_amount_2
       }
     )
     return true
