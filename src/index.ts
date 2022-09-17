@@ -280,6 +280,11 @@ function example() {
               console.log('map----getSeasonRankResult',result)
             }
           )
+          map.getUnionWinInfo(
+            (result)=>{
+              console.log('map----getUnionWinInfo', JSON.stringify(result))
+            }
+          )
           console.log(map.getSeasonConfig())
         }
       )

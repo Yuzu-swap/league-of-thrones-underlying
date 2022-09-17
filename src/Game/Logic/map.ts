@@ -10,6 +10,12 @@ import { BattleResult, BattleType, DefenseInfo, General } from "./general";
 const DefaultTroopRecoverTime = 60 * 30
 const DurabilityRecoverTime = 60 * 30
 
+export enum UnionWinStatus {
+    Normal = 'Normal',
+    WaitToWin = 'WaitToWin',
+    HaveWin = 'HaveWin'
+}
+
 export class Map{
     gState: IMapGlobalState
     blockStates:{[key: string]: IBlockState} 
@@ -434,10 +440,14 @@ export class Map{
 
     checkUnionWin(){
         let time = getTimeStamp()
+        let status = UnionWinStatus.WaitToWin
+        let endTime = 0
         if(this.gState.unionWinId != 0){
             return {
                 unionWin: true,
-                unionId: this.gState.unionWinId
+                unionId: this.gState.unionWinId,
+                status: UnionWinStatus.HaveWin,
+                remainTime: 0
             }
         }
         const xOffset = [ 2, 1, -1, -2, -1, 1]
@@ -461,26 +471,47 @@ export class Map{
             }
             if( blockState.belong.unionId == 0){
                 unionWin = false
+                status = UnionWinStatus.Normal
                 break
             }
             if( winId == 0 || blockState.belong.unionId == winId){
                 winId = blockState.belong.unionId
                 if(time - blockState.belong.updateTime < this.parameter.victory_need_occupy_times){
                     unionWin = false
-                    break
                 }
+                let tempEndTime = blockState.belong.updateTime + this.parameter.victory_need_occupy_times
+                endTime = tempEndTime > endTime ? tempEndTime : endTime
+            }
+            else{
+                unionWin = false
+                status = UnionWinStatus.Normal
+                break
             }
         }
         if(!unionWin){
-            return {
-                unionWin : unionWin,
-                unionId : 0
+            if( status ==  UnionWinStatus.Normal){
+                return {
+                    unionWin : unionWin,
+                    unionId : 0,
+                    status : UnionWinStatus.Normal,
+                    remainTime : 0
+                }
+            }
+            else{
+                return {
+                    unionWin : unionWin,
+                    unionId : winId,
+                    status : UnionWinStatus.WaitToWin,
+                    remainTime : endTime - time
+                }
             }
         }
         else{
             return {
                 unionWin : unionWin,
-                unionId : winId
+                unionId : winId,
+                status : UnionWinStatus.HaveWin,
+                remainTime : 0
             }
         }
     }

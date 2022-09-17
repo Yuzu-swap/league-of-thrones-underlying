@@ -40,6 +40,7 @@ export interface IMapComponent extends IComponent{
     getSeasonStatus(callback: (result: any) => void) : Promise<void>
     getSeasonConfig():{}
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
+    getUnionWinInfo(callback: (result: any) => void): Promise<void>
 }
 
 export enum SeasonStatus{
@@ -195,6 +196,13 @@ export class MapComponent implements IMapComponent{
         let config = this.map.seasonConfig.get(1)
         return copyObj(config)
     }   
+
+    async getUnionWinInfo(callback: (result: any) => void): Promise<void>{
+        await this.queryBlockStates(0, 0)
+        let re = this.map.checkUnionWin()
+        delete re.unionWin
+        callback(re)
+    }
 
     async getEndSeasonParameters(winUnion: number ): Promise<any>{
         let defenseList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': '-glory', "$limit": 20}))
