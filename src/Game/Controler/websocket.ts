@@ -23,6 +23,7 @@ export class WebSocketMediator
   private ctx: ITransContext;
   private notifyStateChange: boolean;
   private closeCallback : ()=>void
+  private hasCallClose : number
 
   transitionHandler: TransitionHandler;
   constructor(url: string) {
@@ -33,6 +34,7 @@ export class WebSocketMediator
     this.respContext ={}
     this.stateCaches = {};
     this.notifyStateChange = true;
+    this.hasCallClose = 0
   }
 
   async init() {
@@ -40,6 +42,8 @@ export class WebSocketMediator
       this.client.onopen = () => {
         resolve('');
       };
+
+      this.hasCallClose = 0
 
       this.client.onmessage = (message: any) => {
         const msg: MessageS2C = JSON.parse(message.data) as MessageS2C;
@@ -87,8 +91,9 @@ export class WebSocketMediator
       setInterval(() => {
         //ping
         this.client.send('{}')
-        if(this.closeCallback != undefined && this.client.readyState == w3cwebsocket.CLOSED){
+        if(this.closeCallback != undefined && this.client.readyState == w3cwebsocket.CLOSED && this.hasCallClose == 0){
           this.closeCallback()
+          this.hasCallClose = 1
         }
       }, 10000)
     });
