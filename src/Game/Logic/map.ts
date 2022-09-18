@@ -552,6 +552,27 @@ export class Map{
                 error: "this-union-do-not-win"
             }
         }
+        let addressList = []
+        let gloryList = []
+        let unionSumGlory = 0 
+        for( let item  of this.rewardGlobalState.globalGloryRankInfo ){
+            addressList.push(item.username)
+            gloryList.push(item.glory)
+        }
+        for( let item of this.rewardGlobalState.unionGloryRankInfo[unionId - 1] ){
+            unionSumGlory += item.glory
+            if(addressList.indexOf(item.username) == -1){
+                addressList.push(item.username)
+                gloryList.push(item.glory)
+            }
+        }
+        this.rewardGlobalState.update(
+            {
+                contractAddressInput: addressList,
+                contractGloryInput: gloryList,
+                unionGlorySum: unionSumGlory
+            }
+        )
         this.gState.update(
             {
                 'unionWinId': unionId
@@ -579,6 +600,11 @@ export class Map{
                 error: 'it-is-not-time-to-end'
             }
         }
+    }
+
+
+    setContractInpur(){
+
     }
     
 }
