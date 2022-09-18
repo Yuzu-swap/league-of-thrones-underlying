@@ -22,6 +22,7 @@ export class WebSocketMediator
   private stateCaches: { [key: string]: IState } = {};
   private ctx: ITransContext;
   private notifyStateChange: boolean;
+  private closeCallback : ()=>void
 
   transitionHandler: TransitionHandler;
   constructor(url: string) {
@@ -77,6 +78,9 @@ export class WebSocketMediator
       };
 
       this.client.onerror = function (err: Error) {
+        if(this.closeCallback != undefined){
+          this.closeCallback()
+        }
         console.log('Connection Error', err);
       };
 
@@ -179,6 +183,11 @@ export class WebSocketMediator
 
     return ctx;
   }
+
+  setWsCloseCallbacl(callback: () => void): void {
+    this.closeCallback = callback
+  }
+
   _updateState(sid: string, obj: {}, notify: boolean) {
     console.log('update state', sid, obj, notify);
     if (this.stateCaches[sid]) {

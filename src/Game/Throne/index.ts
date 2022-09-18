@@ -626,6 +626,9 @@ export class Throne implements IThrone {
     this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
     if(this.wsUrl && this.username!='test'){
       const wsmediator = new WebSocketMediator(this.wsUrl)
+      if(obj['wsCloseCallback']){
+        wsmediator.setWsCloseCallbacl(obj['wsCloseCallback'])
+      }
       await wsmediator.init()
       this.mediator = wsmediator
     }else{

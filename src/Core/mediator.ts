@@ -12,6 +12,7 @@ export interface IStateMediator<TransactionIDType, ContextType> {
 	query( typ: string, args:{}):Promise<any>
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
+	setWsCloseCallbacl(callback : () => void): void
 }
 
 
@@ -36,6 +37,10 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType {
 		throw "not emplement"
+	}
+
+	setWsCloseCallbacl(callback : () => void){
+
 	}
 
 	protected notifyState(sid: IStateIdentity, state: IContextState<ContextType>): void {
