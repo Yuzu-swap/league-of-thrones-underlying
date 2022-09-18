@@ -44,6 +44,66 @@ export function getTimeStamp( offset : number = timeOffset) :number{
     return time //+ offset
 }
 
+function indexOfGloryList(list: GloryInfo[], username : string, glory: number){
+    let beginIndex = 0 , endIndex = list.length - 1
+    let mid = 0
+    let exist = false
+    let equal = false
+    let index = 0
+    if(list.length == 0){
+        return  {exist, index}
+    }
+    while(beginIndex <= endIndex){
+        mid = Math.floor((beginIndex + endIndex) /2)
+        if( list[mid].glory > glory ){
+            beginIndex = mid + 1
+            index = mid + 1
+        }
+        else if(list[mid].glory < glory ){
+            endIndex = mid - 1
+            index = mid
+        }
+        else{
+            equal = true
+            index = mid
+            break
+        }
+    }
+    if(equal){
+        //to 0
+        do{
+            for(let i = mid; i >=0; i--){
+                if(list[i].glory == glory){
+                    if(list[i].username == username){
+                        index = i
+                        exist = true
+                        break
+                    }
+                }
+                else{
+                    break
+                }
+            }
+            if(exist){
+                break
+            }
+            for(let i = mid; i < list.length; i++){
+                if(list[i].glory == glory){
+                    if(list[i].username == username){
+                        index = i
+                        exist = true
+                        break
+                    }
+                }
+                else{
+                    break
+                }
+            }
+        }while(false)
+    }
+    return {exist, index}
+}
+
 export function addToSortList( list: GloryInfo[], username : string, originGlory: number, newGlory: number, unionId : number){
     let insert : GloryInfo = {
         username: username,
@@ -54,13 +114,12 @@ export function addToSortList( list: GloryInfo[], username : string, originGlory
         list.push(
             insert
         )
+        return
     }
-    else{
-        let beginIndex = 0 , endIndex = list.length
-        let mid = 0
-        // while(beginIndex < endIndex){
-        //     mid = (beginIndex + endIndex) /2
-        //     if( list[mid].glory  )
-        // }
+    let origin = indexOfGloryList(list, username, originGlory)
+    if(origin.exist){
+        list.splice(origin.index, 1)
     }
+    let newInfo = indexOfGloryList(list, username, newGlory)
+    list.splice(newInfo.index, 0, insert)
 }

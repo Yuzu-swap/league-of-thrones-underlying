@@ -21,7 +21,7 @@
     {
         "value_type": 2,
         "buff_value": 4.5e-05,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -30,7 +30,7 @@
     {
         "value_type": 1,
         "buff_value": 0.015,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -84,7 +84,7 @@
     {
         "value_type": 2,
         "buff_value": 50,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -147,7 +147,7 @@
     {
         "value_type": 2,
         "buff_value": 10,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -174,7 +174,7 @@
     {
         "value_type": 2,
         "buff_value": 300,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -183,7 +183,7 @@
     {
         "value_type": 2,
         "buff_value": 100,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -228,7 +228,7 @@
     {
         "value_type": 1,
         "buff_value": 0.05,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -237,7 +237,7 @@
     {
         "value_type": 2,
         "buff_value": 400,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -318,7 +318,7 @@
     {
         "value_type": 2,
         "buff_value": 200,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -372,7 +372,7 @@
     {
         "value_type": 1,
         "buff_value": 0.02,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -426,7 +426,7 @@
     {
         "value_type": 2,
         "buff_value": 500,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -453,7 +453,7 @@
     {
         "value_type": 1,
         "buff_value": 0.02,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -498,7 +498,7 @@
     {
         "value_type": 2,
         "buff_value": 400,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -507,7 +507,7 @@
     {
         "value_type": 1,
         "buff_value": 0.01,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -516,7 +516,7 @@
     {
         "value_type": 1,
         "buff_value": 0.03,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -642,7 +642,7 @@
     {
         "value_type": 2,
         "buff_value": 200,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -678,7 +678,7 @@
     {
         "value_type": 1,
         "buff_value": 0.03,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
@@ -705,7 +705,7 @@
     {
         "value_type": 2,
         "buff_value": 300,
-        "buff_type":"recurit",
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],

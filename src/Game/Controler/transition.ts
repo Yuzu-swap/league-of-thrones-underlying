@@ -41,7 +41,7 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import { getTimeStamp, parseStateId } from '../Utils';
+import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
 
 const log = globalThis.log || function () {};
 
@@ -225,10 +225,19 @@ export class TransitionHandler {
     const logic: LogicEssential = this.genLogic(args.from);
     const city = logic.city;
     log('onUpdateFacility args ', args, ' cityState ', city.state);
-
     //Do Logic  here
     //Valdiate resource requirement first
-    return city.upgradeFacility(args.typ, args.index);
+    let re = city.upgradeFacility(args.typ, args.index);
+    if(re.result && args.typ == CityFacility.Fortress && city.state.facilities[CityFacility.Fortress][0] == 7){
+      this.updateRewardState(
+        logic.map.rewardGlobalState, 
+        parseStateId(logic.city.state.getId()).username, 
+        0,
+        logic.general.state.glory,
+        logic.general.state.unionId
+      )
+    }
+    return re
   }
 
   onRecruit(args: RecruitArgs): {} {
@@ -315,8 +324,28 @@ export class TransitionHandler {
         timestamp: getTimeStamp(),
         result: re['win']
       }
+      let oldGlory1 = logic1.general.state.glory
+      let oldGlory2 = logic2.general.state.glory
       logic1.general.addGlory(btr.attackInfo.gloryGet)
       logic2.general.addGlory(btr.defenseInfo.gloryGet)
+      if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
+        this.updateRewardState(
+          logic1.map.rewardGlobalState, 
+          parseStateId(logic1.city.state.getId()).username, 
+          oldGlory1,
+          logic1.general.state.glory,
+          logic1.general.state.unionId
+        )
+      }
+      if(logic2.city.state.facilities[CityFacility.Fortress][0] >= 7){
+        this.updateRewardState(
+          logic2.map.rewardGlobalState, 
+          parseStateId(logic2.city.state.getId()).username, 
+          oldGlory2,
+          logic2.general.state.glory,
+          logic2.general.state.unionId
+        )
+      }
       this.recordEvent(TransitionEventType.Battles, btr)
     }
     logic1.city.useSilver( - (re as any).silverGet as number)
@@ -340,19 +369,31 @@ export class TransitionHandler {
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
+      let oldGlory = logic.general.state.glory
       for(let record of re['records'] as BattleTransRecord[]){
         logic.general.addGlory(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
           let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username)
           if(tempLogic){
+            let oldTempGlory = tempLogic.general.state.glory
             tempLogic.general.addGlory(record.defenseInfo.gloryGet)
+            if(tempLogic.city.state.facilities[CityFacility.Fortress][0] >= 7){
+              this.updateRewardState(
+                tempLogic.map.rewardGlobalState, 
+                parseStateId(tempLogic.city.state.getId()).username, 
+                oldTempGlory,
+                tempLogic.general.state.glory,
+                tempLogic.general.state.unionId
+              )
+            }
           }
         }
         this.recordEvent(TransitionEventType.Battles, record)
       }
       let temp = re['records'] as BattleTransRecord[]
+      let transRe = {}
       if(temp.length != 0){
-        return{
+        transRe = {
           result: true,
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
@@ -360,12 +401,21 @@ export class TransitionHandler {
       }
       else{
         logic.general.addGlory(re['durabilityReduce'] + logic.general.config.parameter.battle_victory_get_glory)
-        return{
+        transRe = {
           result: true,
           durabilityReduce: re['durabilityReduce']
         }
       }
-      
+      if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
+        this.updateRewardState(
+          logic.map.rewardGlobalState, 
+          parseStateId(logic.city.state.getId()).username, 
+          oldGlory,
+          logic.general.state.glory,
+          logic.general.state.unionId
+        )
+      }
+      return transRe
     }
     else{
       return re
@@ -502,7 +552,16 @@ export class TransitionHandler {
     }
   }
 
-  updateRewardState(rewardState: IRewardGlobalState, username: string, glory: number, unionId: number){
-
+  updateRewardState(rewardState: IRewardGlobalState, username: string, oldGlory: number, newGlory: number, unionId: number){
+    let unionLists =  rewardState.unionGloryRankInfo
+    let globalList =  rewardState.globalGloryRankInfo
+    addToSortList(unionLists[unionId - 1], username, oldGlory, newGlory, unionId)
+    addToSortList(globalList, username, oldGlory, newGlory, unionId)
+    rewardState.update(
+      {
+        unionGloryRankInfo : unionLists,
+        globalGloryRankInfo: globalList
+      }
+    )
   }
 }

@@ -4,7 +4,7 @@ import {
   StateTransition
 } from './Game/Const';
 import { ConfigContainer } from './Core/config';
-import { ICityState } from './Game/State';
+import { GloryInfo, ICityState } from './Game/State';
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -33,7 +33,7 @@ import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
 import { General } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
-import { getTimeStamp } from './Game/Utils';
+import { addToSortList, getTimeStamp } from './Game/Utils';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -298,5 +298,18 @@ function example() {
 function test(){
   console.log(mapGDS['9^9'])
 }
+
+function testSort(){
+  let list: GloryInfo[] = []
+  addToSortList(list, "aaa", 0, 2, 0)
+  addToSortList(list, "bbb", 0, 3, 0)
+  addToSortList(list, "aaa", 2, 4, 0)
+  addToSortList(list, "ccc", 0, 3, 0)
+  addToSortList(list, "ddd", 0, 1, 0)
+  addToSortList(list, "eee", 0, 2.5, 0)
+  addToSortList(list, "eee", 2.5, 3.5, 0)
+  console.log(list)
+}
 //test()
 //example()
+//testSort()
