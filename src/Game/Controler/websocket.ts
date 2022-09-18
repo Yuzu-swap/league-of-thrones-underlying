@@ -86,12 +86,9 @@ export class WebSocketMediator
 
       setInterval(() => {
         //ping
-        try{
-          this.client.send('{}')
-        }catch{
-          if(this.closeCallback != undefined){
-            this.closeCallback()
-          }
+        this.client.send('{}')
+        if(this.closeCallback != undefined && this.client.readyState == w3cwebsocket.CLOSED){
+          this.closeCallback()
         }
       }, 10000)
     });

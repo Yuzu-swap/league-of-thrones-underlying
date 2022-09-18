@@ -13,9 +13,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -40,21 +40,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -79,9 +79,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -106,9 +106,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -160,9 +160,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -187,21 +187,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -226,9 +226,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -253,9 +253,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -307,9 +307,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -334,9 +334,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -361,9 +361,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -388,21 +388,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -427,9 +427,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -481,9 +481,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -508,9 +508,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -535,9 +535,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -562,21 +562,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -601,9 +601,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -628,9 +628,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -655,21 +655,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -694,9 +694,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -721,9 +721,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -775,9 +775,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -802,21 +802,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -841,9 +841,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -868,9 +868,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -922,9 +922,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -949,9 +949,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -976,9 +976,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1003,9 +1003,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1030,21 +1030,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -1068,22 +1068,19 @@
         "type": 5,
         "troops":[
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             }
         ],
         "silver_total_number": 276480000,
@@ -1108,9 +1105,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1135,9 +1132,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -1162,9 +1159,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1189,9 +1186,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1216,21 +1213,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -1255,9 +1252,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1282,9 +1279,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1309,9 +1306,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -1336,9 +1333,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1390,9 +1387,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1417,9 +1414,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1444,9 +1441,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -1471,9 +1468,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1525,9 +1522,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1552,21 +1549,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -1591,9 +1588,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1618,21 +1615,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -1657,9 +1654,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1711,9 +1708,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1738,21 +1735,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -1777,9 +1774,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1804,21 +1801,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -1843,9 +1840,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1870,21 +1867,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -1909,9 +1906,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1936,9 +1933,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -1963,9 +1960,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2017,21 +2014,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -2056,9 +2053,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2083,9 +2080,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2110,9 +2107,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2164,9 +2161,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2191,9 +2188,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2218,21 +2215,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -2257,9 +2254,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2284,9 +2281,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2338,9 +2335,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2365,9 +2362,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2392,21 +2389,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -2431,9 +2428,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2458,9 +2455,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2485,9 +2482,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2512,21 +2509,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -2551,9 +2548,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2578,9 +2575,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2644,9 +2641,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2671,21 +2668,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -2710,9 +2707,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2737,9 +2734,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2803,9 +2800,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -2830,9 +2827,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -2857,21 +2854,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -2896,9 +2893,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -2977,9 +2974,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3004,9 +3001,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -3031,21 +3028,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -3070,9 +3067,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -3150,22 +3147,19 @@
         "type": 5,
         "troops":[
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             }
         ],
         "silver_total_number": 276480000,
@@ -3348,22 +3342,19 @@
         "type": 5,
         "troops":[
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             }
         ],
         "silver_total_number": 276480000,
@@ -3481,9 +3472,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3508,21 +3499,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -3547,9 +3538,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -3574,9 +3565,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -3628,9 +3619,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3655,21 +3646,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -3694,9 +3685,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -3721,9 +3712,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -3775,9 +3766,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3802,9 +3793,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -3829,9 +3820,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -3856,21 +3847,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -3895,9 +3886,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3949,9 +3940,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -3976,9 +3967,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4003,9 +3994,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4030,21 +4021,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -4069,9 +4060,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -4096,9 +4087,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -4123,21 +4114,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -4162,9 +4153,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4189,9 +4180,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4243,9 +4234,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -4270,21 +4261,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -4309,9 +4300,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4336,9 +4327,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4390,9 +4381,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4417,9 +4408,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4444,9 +4435,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4471,9 +4462,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4498,21 +4489,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -4536,22 +4527,19 @@
         "type": 5,
         "troops":[
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             },
             {
-                "type": 3,
-                "defense": 472000,
-                "count": 50000,
-                "attack": 472000
+                "type": 3000,
+                "defense": 95000,
+                "attack": 95000
             }
         ],
         "silver_total_number": 276480000,
@@ -4576,9 +4564,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4603,9 +4591,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4630,9 +4618,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4657,9 +4645,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4684,21 +4672,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -4723,9 +4711,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4750,9 +4738,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4777,9 +4765,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4804,9 +4792,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4858,9 +4846,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4885,9 +4873,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4912,9 +4900,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -4939,9 +4927,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -4993,9 +4981,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5020,21 +5008,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5059,9 +5047,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5086,21 +5074,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5125,9 +5113,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5179,9 +5167,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5206,21 +5194,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5245,9 +5233,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5272,21 +5260,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5311,9 +5299,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5338,21 +5326,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -5377,9 +5365,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5404,9 +5392,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5431,9 +5419,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5485,21 +5473,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -5524,9 +5512,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5551,9 +5539,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5578,9 +5566,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5632,9 +5620,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5659,9 +5647,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5686,21 +5674,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5725,9 +5713,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5752,9 +5740,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5806,9 +5794,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5833,9 +5821,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5860,21 +5848,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             },
             {
                 "type": 2,
-                "defense": 250000,
-                "count": 10000,
-                "attack": 250000
+                "defense": 125000,
+                "count": 4000,
+                "attack": 125000
             }
         ],
         "silver_total_number": 276480000,
@@ -5899,9 +5887,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5926,9 +5914,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5953,9 +5941,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -5980,21 +5968,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -6019,9 +6007,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6046,9 +6034,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6112,9 +6100,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6139,21 +6127,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             },
             {
                 "type": 2,
-                "defense": 138000,
+                "defense": 69000,
                 "count": 2500,
-                "attack": 138000
+                "attack": 69000
             }
         ],
         "silver_total_number": 69120000,
@@ -6178,9 +6166,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6205,9 +6193,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6271,9 +6259,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -6298,9 +6286,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -6325,21 +6313,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -6364,9 +6352,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
@@ -6445,9 +6433,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 11000,
+                "defense": 5000,
                 "count": 100,
-                "attack": 11000
+                "attack": 5000
             }
         ],
         "silver_total_number": 72000,
@@ -6472,9 +6460,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 24000,
+                "defense": 12000,
                 "count": 200,
-                "attack": 24000
+                "attack": 12000
             }
         ],
         "silver_total_number": 216000,
@@ -6499,21 +6487,21 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             },
             {
                 "type": 2,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 17280000,
@@ -6538,9 +6526,9 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 54000,
+                "defense": 27000,
                 "count": 400,
-                "attack": 54000
+                "attack": 27000
             }
         ],
         "silver_total_number": 360000,
