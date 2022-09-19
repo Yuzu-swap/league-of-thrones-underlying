@@ -434,7 +434,7 @@ export class General{
     useGeneralStamina(generalId : number, amount: number): boolean{
         this.updateGeneralStamina(generalId)
         let generalInfo = this.getGeneralState(generalId)
-        if(this.getGeneralStamina(generalId) > amount){
+        if(this.getGeneralStamina(generalId) >= amount){
             generalInfo.stamina.value -= amount
             this.state.update(
                 {

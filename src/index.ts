@@ -206,6 +206,18 @@ function example() {
             console.log("general-----battle",re)
           }
         )
+
+        general.battle(2, 'test1',
+          (re)=>{
+            console.log("general-----battle",re)
+          }
+        )
+
+        general.battle(2, 'test1',
+          (re)=>{
+            console.log("general-----battle",re)
+          }
+        )
   
         general.getBattleStatuses('',
           (result)=>{
