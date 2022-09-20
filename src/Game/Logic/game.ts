@@ -265,7 +265,7 @@ export class City {
 
   useSilver(amount: number): boolean {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
-    if (amount < this.getResource(ResouceType.Silver)) {
+    if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: info.value - amount
       });
@@ -275,7 +275,7 @@ export class City {
   }
   useTroop(amount: number): boolean{
     const info: ResouceInfo = this.state.resources[ResouceType.Troop];
-    if( amount < info.value){
+    if( amount <= info.value){
       this.state.update(
         {
           [`resources.${ResouceType.Troop}.value`]: info.value - amount
