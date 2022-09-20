@@ -113,12 +113,12 @@ export class Map{
         )
     }
 
-    cancelDefenseBlock( x_id: number, y_id: number, username: string){
+    cancelDefenseBlock( x_id: number, y_id: number, username: string, generalId: number){
         let blockState = this.getBlockState(x_id, y_id)
         let defenseList = blockState.defenseList
         let remainTroop = 0
         for(let i = 0; i< defenseList.length; i++){
-            if(defenseList[i].username == username){
+            if(defenseList[i].username == username && defenseList[i].generalId == generalId){
                 remainTroop = defenseList[i].troops
                 defenseList.splice(i, 1)
                 break

@@ -443,7 +443,7 @@ export class TransitionHandler {
 
   onCancelDefenseBlock(args: AttackBlockArgs){
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
-    const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from)
+    const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from, args.generalId)
     logic.general.cancelDefenseBlock(args.generalId, remainTroop)
     return {
       result: true

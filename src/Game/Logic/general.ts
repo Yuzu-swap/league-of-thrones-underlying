@@ -712,6 +712,9 @@ export class General{
     }
 
     checkDefenseBlock(generalId: number){
+        if(this.state.defense_general == generalId){
+            return false
+        }
         for(let info of this.state.defenseBlockList){
             if(info.generalId == generalId){
                 return false
