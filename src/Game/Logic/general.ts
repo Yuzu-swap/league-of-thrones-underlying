@@ -187,6 +187,9 @@ export class General{
         if(!generalInfo.able){
             return {result : false, error: 'general-not-able'}
         }
+        if(!this.checkDefenseBlock(id)){
+            return {result : false, error: 'id-error'} 
+        }
         this.state.update(
             {
                 defense_general: id
@@ -558,7 +561,7 @@ export class General{
             for(let idstring in this.state.generalList ){
                 const id = parseInt(idstring)
                 const generalInfo = this.state.generalList[idstring]
-                if(generalInfo.able){
+                if(generalInfo.able && this.checkDefenseBlock(id)){
                     let generalLevel = generalInfo.level
                     let tempValue = this.getGeneralAbility( id, generalLevel, GeneralAbility.Attack) + this.getGeneralAbility( id, generalLevel, GeneralAbility.Defense)
                     if(tempValue > maxValue){
@@ -622,6 +625,12 @@ export class General{
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
         let ableTroop = this.getMaxAttackTroop()
+        if(ableTroop == 0){
+            return{
+                result: false,
+                error: 'do-not-have-troop'
+            }
+        }
         let attackInfo ={
             attack: status.sum[SkillType.Attack],
             defense: status.sum[SkillType.Defense],
