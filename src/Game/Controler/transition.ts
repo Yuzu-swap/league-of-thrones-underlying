@@ -145,8 +145,8 @@ export class TransitionHandler {
 
   getBlockStates(x_id : number , y_id : number): IBlockState[]{
     let re = []
-    const xOffset = [ 2, 1, -1, -2, -1, 1]
-    const yOffset = [ 0, 1, 1, 0, -1, -1]
+    const xOffset = [ 0, 1, 1, 0, -1, -1]
+    const yOffset = [ 2, 1, -1, -2, -1, 1]
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
     if(!center){
       return re

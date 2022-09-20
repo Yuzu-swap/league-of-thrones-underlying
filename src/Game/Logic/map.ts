@@ -89,8 +89,8 @@ export class Map{
     }
 
     checkBetween(unionId : number, x_id: number, y_id: number){
-        const xOffset = [ 2, 1, -1, -2, -1, 1]
-        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = false
         for(let i = 0; i < 6; i++){
             let tempX = x_id + xOffset[i]
@@ -190,8 +190,8 @@ export class Map{
                 error: 'block-is-be-protected'
             }
         }
-        const xOffset = [ 2, 1, -1, -2, -1, 1]
-        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
         let centerBlockState = this.getBlockState(x_id, y_id)
         const unionId = centerBlockState.belong.unionId
         let records = []
@@ -450,8 +450,8 @@ export class Map{
                 remainTime: 0
             }
         }
-        const xOffset = [ 2, 1, -1, -2, -1, 1]
-        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
         let xList = []
         let yList = []
         const centerX = 0

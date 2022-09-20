@@ -72,8 +72,8 @@ export class MapComponent implements IMapComponent{
     }
 
     genBlockIds(x_id: number, y_id: number):string[]{
-        const xOffset = [ 2, 1, -1, -2, -1, 1]
-        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = []
         let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
         if(validBlockIds.length == 0){
@@ -143,8 +143,8 @@ export class MapComponent implements IMapComponent{
         await this.queryBlockStates(xId, yId)
         let row = copyObj(this.map.mapConfig.get(xId, yId))
         row['now_durability'] = this.map.getDurability(xId, yId)
-        const xOffset = [ 2, 1, -1, -2, -1, 1]
-        const yOffset = [ 0, 1, 1, 0, -1, -1]
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
         let defenseListLength = 0
         defenseListLength += this.map.getDefenseList(xId, yId, true).length
         defenseListLength += this.map.getDefenseList(xId, yId, false).length
