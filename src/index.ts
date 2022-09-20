@@ -132,6 +132,7 @@ function example() {
         // bind button with action
         // button.onClick = () =>{
         for(let i = 0; i < 12; i++){
+          city.doUpgradeFacility(CityFacility.Fortress, 0, ()=>{})
           city.doUpgradeFacility(CityFacility.Home, 0, ()=>{})
         }
         console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
@@ -167,6 +168,12 @@ function example() {
           console.log("general",state)
         })
         general.ableGeneral(2, (result)=>{
+          console.log("general able ", result)
+        })
+        general.ableGeneral(3, (result)=>{
+          console.log("general able ", result)
+        })
+        general.ableGeneral(1, (result)=>{
           console.log("general able ", result)
         })
         for(let i = 0; i < 110 ; i ++){
@@ -270,12 +277,23 @@ function example() {
     
           console.log(map.getBlocksBelongInfo())
     
-          map.defenseBlock( 9 , 9, 1, 
+          map.defenseBlock( 10 , 10, 3, 
             (result)=>{
               console.log('map----defenseBlock',result)
             }
           )
-          map.getDefenseList(9, 9, 
+          map.defenseBlock( 10 , 10, 2, 
+            (result)=>{
+              console.log('map----defenseBlock',result)
+            }
+          )
+
+          map.cancelDefenseBlock( 10 , 10, 3, 
+            (result)=>{
+              console.log('map----defenseBlock',result)
+            }
+          )
+          map.getDefenseList(10, 10, 
             (result)=>{
               console.log('map----getDefenseList',result)
             }

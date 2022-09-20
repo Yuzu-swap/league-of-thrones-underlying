@@ -40,6 +40,7 @@ export var InitState = {
         troop: 0,
         silver: 0,
         glory: 0,
+        defenseMaxTroop: 0,
         unionId: 1
     },
     [StateName.MapGlobalInfo]:{

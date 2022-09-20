@@ -56,6 +56,7 @@ export interface IDefenderInfoState extends IState{
   defense: number
   silver: number
   troop: number
+  defenseMaxTroop: number
   unionId: number
   glory: number
   fortressLevel: number

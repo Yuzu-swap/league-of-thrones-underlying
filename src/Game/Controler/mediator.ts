@@ -246,6 +246,7 @@ export class LocalMediator
               troop: 10000,
               unionId : 1,
               glory: 500,
+              defenseMaxTroop: 100,
               fortressLevel: 1 
             },
             {
@@ -259,6 +260,7 @@ export class LocalMediator
               troop: 10000,
               unionId : 1,
               glory: 500,
+              defenseMaxTroop: 100,
               fortressLevel: 1
             }
           ]
@@ -276,6 +278,7 @@ export class LocalMediator
             troop: 10000,
             unionId : 1,
             glory: 500,
+            defenseMaxTroop: 100,
             fortressLevel: 1
           }
         ]
