@@ -44,6 +44,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	general.setBoost(boost)
 	map.setGeneral(general)
 	map.loadBlockStates(states.blocks)
+	boost.setTroop(city.getResource(ResouceType.Troop), city.getMaintainNeedTroop())
 	boost.setProduction(StateName.City, ResouceType.Silver, city.calculatePoduction(ResouceType.Silver))
 	boost.setProduction(StateName.City, ResouceType.Troop, city.calculatePoduction(ResouceType.Troop))
 	boost.setProduction(StateName.General, ResouceType.Silver, general.getGeneralProduction(ResouceType.Silver))

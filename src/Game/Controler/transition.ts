@@ -42,6 +42,7 @@ import {
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
+import { innerCancelBlockDefense } from '../Logic/map';
 
 const log = globalThis.log || function () {};
 
@@ -369,6 +370,12 @@ export class TransitionHandler {
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
     if(re['result'] == undefined){
+      for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
+        if(cancelDefense.username != ''){
+          let tempLogic: LogicEssential = this.genLogic(cancelDefense.username)
+          tempLogic.general.cancelDefenseBlock(cancelDefense.generalId, 0)
+        }
+      }
       let oldGlory = logic.general.state.glory
       for(let record of re['records'] as BattleTransRecord[]){
         logic.general.addGlory(record.attackInfo.gloryGet)

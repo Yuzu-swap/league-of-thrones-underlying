@@ -16,6 +16,11 @@ export enum UnionWinStatus {
     HaveWin = 'HaveWin'
 }
 
+export interface innerCancelBlockDefense{
+    generalId: number,
+    username: string
+}
+
 export class Map{
     gState: IMapGlobalState
     blockStates:{[key: string]: IBlockState} 
@@ -195,11 +200,13 @@ export class Map{
         let centerBlockState = this.getBlockState(x_id, y_id)
         const unionId = centerBlockState.belong.unionId
         let records = []
+        let cancelList = []
         let remainTroop = -1
         let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
         if(re['error']){
             return re
         }
+        cancelList = cancelList.concat(re['cancelList'])
         records = records.concat(re['records'])
         remainTroop = re['remainTroop']
         if(unionId != 0){
@@ -215,6 +222,7 @@ export class Map{
                     if(tempRe['error']){
                         return tempRe
                     }
+                    cancelList = cancelList.concat(tempRe['cancelList'])
                     records = records.concat(tempRe['records'])
                     remainTroop = tempRe['remainTroop']
                 }
@@ -231,6 +239,7 @@ export class Map{
         }
         return {
             records: records,
+            cancelList: cancelList,
             durabilityReduce: durabilityReduce
         }
     }
@@ -307,10 +316,12 @@ export class Map{
         if(remainTroop <= 0 ){
             return {
                 records: list,
-                remainTroop : remainTroop
+                cancelList: [],
+                remainTroop: remainTroop
             }
         }
         let defenseInfos = this.getDefenseList(x_id, y_id, false)
+        let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){
             let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
             let bre = this.general.battle(generalId, info, remainTroop)
@@ -349,12 +360,19 @@ export class Map{
                 }
                 list.push(battleRecord)
                 if( bre.win ){
+                    cancelList.push(
+                        {
+                            generalId: defenseInfos[i].generalId,
+                            username: defenseInfos[i].username
+                        }
+                    )
                     defenseInfos.shift()
                     i--
                     remainTroop -= bre.attackTroopReduce
                 }
                 else{
                     defenseInfos[i].troops -= bre.defenseTroopReduce
+                    remainTroop -= bre.attackTroopReduce
                     break
                 }
             }
@@ -366,6 +384,7 @@ export class Map{
         )
         return {
             records: list,
+            cancelList: cancelList,
             remainTroop : remainTroop
         }
     }

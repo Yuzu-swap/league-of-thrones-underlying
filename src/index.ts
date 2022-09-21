@@ -109,9 +109,9 @@ function example() {
       Throne.instance().mediator.sendTransaction(StateTransition.StartSeason,{
         from: Throne.instance().username,
         applies:{
-          "1" :{
-            "test1" : [ 12, 13 ]
-          }
+          // "1" :{
+          //   "test1" : [ 12, 13 ]
+          // }
         },
         season:{
           season_reservation: 0,
@@ -122,6 +122,26 @@ function example() {
           reward2Amount: 0
         }
       }, ()=>{})
+      Throne.instance().mediator.sendTransaction(StateTransition.SetUnionId,
+        {
+          from: 'test1',
+          unionId: 0
+        },
+        ()=>{})
+      Throne.instance().mediator.sendTransaction(StateTransition.AbleGeneral,
+        {
+          from: 'test1',
+          id: 1
+        },
+        ()=>{})
+      Throne.instance().mediator.sendTransaction(StateTransition.DefenseBlock,
+        {
+          from: 'test1',
+          x_id: 9,
+          y_id: 9,
+          generalId: 1
+        },
+        ()=>{})
     }
   )
   setTimeout(() => {
@@ -259,7 +279,31 @@ function example() {
             }
           )
           //console.log(map.getBlocksBelongInfo())
-    
+            
+          map.attackBlock( 9, 9, 2,
+            (result)=>{
+              console.log('map----attackBlock',result)
+              map.getBlockInfo(9, 9, (result)=>{
+                console.log(result)
+              })
+            }
+          )
+          map.attackBlock( 9, 9, 2,
+            (result)=>{
+              console.log('map----attackBlock',result)
+              map.getBlockInfo(9, 9, (result)=>{
+                console.log(result)
+              })
+            }
+          )
+          map.attackBlock( 9, 9, 2,
+            (result)=>{
+              console.log('map----attackBlock',result)
+              map.getBlockInfo(9, 9, (result)=>{
+                console.log(result)
+              })
+            }
+          )
           map.attackBlock( 9, 9, 2,
             (result)=>{
               console.log('map----attackBlock',result)
