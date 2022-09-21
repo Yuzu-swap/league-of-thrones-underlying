@@ -16,6 +16,7 @@ import {
   FacilityLimit
 } from '../DataConfig';
 import { IBoost } from './boost';
+import { getTimeStamp } from '../Utils';
 
 
 export interface CityConfig {
@@ -299,8 +300,8 @@ export class City {
       return {result: false, error: 'silver-not-enough'}
     }
     let recruit = this.state.recruit
-    const product = this.calculatePoduction(ResouceType.Troop)
-    const time = parseInt(new Date().getTime() / 1000 + '');
+    const product = this.boost.getProduction(ResouceType.Troop)
+    const time = parseInt(getTimeStamp() + '');
     const endtime = Math.floor(amount/product * 3600) + time
     this.useSilver(cost)
     recruit.push(
