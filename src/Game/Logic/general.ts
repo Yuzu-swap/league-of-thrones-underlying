@@ -699,7 +699,6 @@ export class General{
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
-        delete defenderInfo['defenseMaxTroop']
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 
