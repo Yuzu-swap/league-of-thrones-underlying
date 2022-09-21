@@ -301,7 +301,7 @@ export class City {
     }
     let recruit = this.state.recruit
     const product = this.boost.getProduction(ResouceType.Troop)
-    const time = parseInt(getTimeStamp() + '');
+    const time = getTimeStamp();
     const endtime = Math.floor(amount/product * 3600) + time
     this.useSilver(cost)
     recruit.push(
