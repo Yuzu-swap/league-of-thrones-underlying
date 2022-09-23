@@ -165,7 +165,7 @@ export class Map{
             defense: info.defense,
             troop: info.troops,
             silver: 0,
-            defenseMaxTroop: 0
+            defenseMaxTroop: info.troops
         }
         return re
     }
