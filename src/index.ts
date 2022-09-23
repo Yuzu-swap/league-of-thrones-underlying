@@ -125,7 +125,7 @@ function example() {
       Throne.instance().mediator.sendTransaction(StateTransition.SetUnionId,
         {
           from: 'test1',
-          unionId: 0
+          unionId: 1
         },
         ()=>{})
       Throne.instance().mediator.sendTransaction(StateTransition.AbleGeneral,
@@ -197,7 +197,7 @@ function example() {
           console.log("general able ", result)
         })
         for(let i = 0; i < 110 ; i ++){
-          general.upgradeGeneral(2,  (result)=>{
+          general.upgradeGeneral(1,  (result)=>{
             console.log("general up ", result)
           })
         }
@@ -219,7 +219,7 @@ function example() {
           console.log(re)
         })
         console.log('defenseGeneral', general.getGeneralBattleInfo(1))
-        general.battle(1, 'test', (re)=>{
+        general.battle(1, 'test1', (re)=>{
           console.log(re)
         })
         general.getBattleRecords(
