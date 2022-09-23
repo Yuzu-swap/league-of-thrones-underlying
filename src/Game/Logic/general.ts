@@ -367,6 +367,22 @@ export class General{
     }
 
     getGeneralProduction(typ : ResouceType){
+
+        let mapBase = 0
+        let mapPercent = 0
+        let mapBuffList = this.boost.getMapBuff()
+        for( let mapBuff of mapBuffList){
+            const skillRow = this.getSkillInfo(mapBuff)
+            if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
+             (skillRow.buff_type == SkillType.Troop && typ == ResouceType.Troop )){
+                if(skillRow['value_type'] == 1){
+                    mapPercent += skillRow.buff_value
+                }
+                else{
+                    mapBase += skillRow.buff_value
+                }
+            }
+        }
         let product = 0
         for(let idstring in this.state.generalList){
             const generalInfo = this.state.generalList[idstring]
@@ -375,20 +391,29 @@ export class General{
                 continue;
             }
             const row = this.getGeneralQualification(id)
+            let baseProduct = 0
+            let percentProduct = 1
             if(typ == ResouceType.Silver){
-                product += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Silver)
+                baseProduct += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Silver)
             }else{
-                product += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Troop)
+                baseProduct += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Troop)
             }
             for(let bi = 0; bi < row.general_skill.length; bi++){
                 const buff = this.getSkillInfo(row.general_skill[bi])
-                if(typ == ResouceType.Silver && buff.buff_type == SkillType.Silver ){
-                    product += this.getSkillValue(id, bi, generalInfo.skill_levels[bi])['value']
-                }
-                else if (typ == ResouceType.Troop && buff.buff_type == SkillType.Troop){
-                    product += this.getSkillValue(id, bi, generalInfo.skill_levels[bi])['value']
+                if(
+                    (typ == ResouceType.Silver && buff.buff_type == SkillType.Silver) ||
+                    (typ == ResouceType.Troop && buff.buff_type == SkillType.Troop)
+                    ){
+                    let skillValue = this.getSkillValue(id, bi, generalInfo.skill_levels[bi])
+                    if(skillValue['value_type'] == 1){
+                        percentProduct += skillValue['value']
+                    }
+                    else{
+                        baseProduct += skillValue['value']
+                    }
                 }
             }
+            product += (baseProduct + mapBase) * (percentProduct + mapPercent)
         }
         return product
     }
