@@ -1068,18 +1068,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             }
         ],
@@ -3147,18 +3150,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             }
         ],
@@ -3342,18 +3348,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             }
         ],
@@ -4527,18 +4536,21 @@
         "type": 5,
         "troops":[
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             },
             {
-                "type": 3000,
+                "type": 3,
                 "defense": 25000,
+                "count": 3000,
                 "attack": 25000
             }
         ],

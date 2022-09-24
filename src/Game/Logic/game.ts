@@ -194,7 +194,7 @@ export class City {
             re += production;
           }
         }
-        re -= this.state.resources[ResouceType.Troop].value * 3
+        re -= this.state.resources[ResouceType.Troop].value 
         break;
       case ResouceType.Troop:
         if (this.state.facilities[CityFacility.TrainingCenter]) {
