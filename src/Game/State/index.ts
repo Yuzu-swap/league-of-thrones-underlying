@@ -78,6 +78,10 @@ export interface GloryInfo{
   unionId: number
 }
 
+export interface RewardResult extends GloryInfo{
+  count: number
+}
+
 export interface IRewardGlobalState extends IState{
   id: string
   unionGloryRankInfo: GloryInfo[][]
@@ -85,6 +89,10 @@ export interface IRewardGlobalState extends IState{
   contractAddressInput: string[]
   contractGloryInput: number[]
   unionGlorySum: number
+  unionWinId: number
+  seasonEnd: boolean
+  unionRewardResult: RewardResult[]
+  gloryRewardResult: RewardResult[]
 }
 
 export interface ISeasonConfigState extends IState{

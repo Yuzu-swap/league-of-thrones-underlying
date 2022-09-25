@@ -1,7 +1,7 @@
 import { mapIdOffset } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
-import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState } from "../State";
+import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
+import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -536,7 +536,7 @@ export class Map{
     }
     getSeasonStatus(){
         let time = getTimeStamp()
-        const config = this.seasonConfig.get(1)
+        const config = this.seasonState
         let re = {
             status: SeasonStatus.Reservation,
             remaintime: config.season_ready - time
@@ -571,29 +571,10 @@ export class Map{
                 error: "this-union-do-not-win"
             }
         }
-        let addressList = []
-        let gloryList = []
-        let unionSumGlory = 0 
-        for( let item  of this.rewardGlobalState.globalGloryRankInfo ){
-            addressList.push(item.username)
-            gloryList.push(item.glory)
-        }
-        for( let item of this.rewardGlobalState.unionGloryRankInfo[unionId - 1] ){
-            unionSumGlory += item.glory
-            if(addressList.indexOf(item.username) == -1){
-                addressList.push(item.username)
-                gloryList.push(item.glory)
-            }
-        }
-        this.rewardGlobalState.update(
-            {
-                contractAddressInput: addressList,
-                contractGloryInput: gloryList,
-                unionGlorySum: unionSumGlory
-            }
-        )
+        this.setRewardResult(unionId)
         this.gState.update(
             {
+                'seasonEnd': true,
                 'unionWinId': unionId
             }
         )
@@ -602,8 +583,73 @@ export class Map{
         }
     }
 
+    setRewardResult(unionId: number){
+        let addressList = []
+        let gloryList = []
+        let unionSumGlory = 0 
+        for( let item  of this.rewardGlobalState.globalGloryRankInfo ){
+            addressList.push(item.username)
+            gloryList.push(item.glory)
+        }
+        if(unionId != 0){
+            for( let item of this.rewardGlobalState.unionGloryRankInfo[unionId - 1] ){
+                unionSumGlory += item.glory
+                if(addressList.indexOf(item.username) == -1){
+                    addressList.push(item.username)
+                    gloryList.push(item.glory)
+                }
+            }
+        }
+        let unionRewardResult: RewardResult[] = []
+        let gloryRewardResult: RewardResult[] = []
+
+        const rankReward = this.genRankResultList()
+        let rewardIndex = 0
+        let reward = rankReward[rewardIndex]
+        for(let i in this.rewardGlobalState.globalGloryRankInfo){
+            if( parseInt(i) + 1  > reward.end){
+                rewardIndex++
+                if(rewardIndex > rankReward.length){
+                    break
+                }
+                reward = rankReward[rewardIndex]
+            }
+            let temp: RewardResult = {
+                username : this.rewardGlobalState.globalGloryRankInfo[i].username,
+                unionId : this.rewardGlobalState.globalGloryRankInfo[i].unionId,
+                glory: this.rewardGlobalState.globalGloryRankInfo[i].glory,
+                count: reward.count
+            }
+            gloryRewardResult.push(temp)
+        }
+        if(unionId != 0 && unionSumGlory != 0){
+            for( let item of this.rewardGlobalState.unionGloryRankInfo[unionId - 1] ){
+                let temp: RewardResult = {
+                    username: item.username,
+                    glory: item.glory,
+                    unionId: item.unionId,
+                    count: item.glory * this.seasonState.unionRewardValue / unionSumGlory
+                }
+                unionRewardResult.push(temp)
+            }
+        }
+
+        this.rewardGlobalState.update(
+            {
+                contractAddressInput: addressList,
+                contractGloryInput: gloryList,
+                unionGlorySum: unionSumGlory,
+                unionWinId: unionId,
+                seasonEnd: true,
+                unionRewardResult: unionRewardResult,
+                gloryRewardResult: gloryRewardResult,
+            }
+        )
+    }
+
     setSeasonEnd(){
         if(this.getSeasonStatus().status = SeasonStatus.End){
+            this.setRewardResult(0)
             this.gState.update(
                 {
                     'seasonEnd': true
@@ -622,8 +668,22 @@ export class Map{
     }
 
 
-    setContractInpur(){
-
+    genRankResultList(){
+        let re : RankReward[] = []
+        if( this.seasonState.rankConfigValue.length * 2 != this.seasonState.rankConfigFromTo.length){
+            return re
+        }
+        for(let i = 0; i < this.seasonState.rankConfigValue.length; i++){
+            let temp: RankReward = {
+                type: 1,
+                name: "rose",
+                from: this.seasonState.rankConfigFromTo[ i*2 ],
+                end: this.seasonState.rankConfigFromTo[ i*2 + 1],
+                count: this.seasonState.rankConfigValue[i]
+            }
+            re.push(temp)
+        }
+        return re
     }
     
 }
