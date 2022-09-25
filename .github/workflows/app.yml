@@ -3,7 +3,7 @@ name: Throne Underlying Builder
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main , "releases/**" ]
 
 jobs:
   build:
