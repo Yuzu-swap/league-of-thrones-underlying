@@ -162,7 +162,7 @@ export class MapComponent implements IMapComponent{
     async getSeasonRankResult(callback: (result: any) => void): Promise<void> {
         let defenseList = (await this.mediator.query( StateName.DefenderInfo, {'$orderBy': '-glory'})) ?? []
         let re = []
-        const rankReward = this.map.seasonConfig.get(1).rank_reward
+        const rankReward = this.map.genRankResultList()
         let rewardIndex = 0
         let reward = rankReward[rewardIndex]
         for(let i in defenseList){

@@ -65,7 +65,11 @@ export var InitState = {
         globalGloryRankInfo: [],
         contractAddressInput: [],
         contractGloryInput: [],
-        unionGlorySum: 0
+        unionGlorySum: 0,
+        unionWinId: 0,
+        seasonEnd: false,
+        unionRewardResult: [],
+        gloryRewardResult: [],
     }
 };
 

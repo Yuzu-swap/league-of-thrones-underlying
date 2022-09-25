@@ -114,12 +114,14 @@ function example() {
           // }
         },
         season:{
-          season_reservation: 0,
-          season_ready : 0,
-          season_open : 0,
-          season_end : 0,
-          reward1Amount: 0,
-          reward2Amount: 0
+          apply_ts: 0,
+          prepare_ts : 0,
+          start_ts : 0,
+          end_ts : 0,
+          reward_amount_1: 5000,
+          reward_amount_2: 5000,
+          rank_config_fromto:[1, 1, 2, 3],
+          rank_config_value: [1100, 800],
         }
       }, ()=>{})
       Throne.instance().mediator.sendTransaction(StateTransition.SetUnionId,
