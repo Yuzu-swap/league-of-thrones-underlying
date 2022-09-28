@@ -133,6 +133,9 @@ export class General{
         if(id > len|| id <= 0){
             return false
         }
+        if(!this.state.generalList[id + ""]){
+            return false
+        }
         return true
     }
 
@@ -887,4 +890,22 @@ export class General{
         )
     }
 
+    getIconId(){
+        return this.state.iconId
+    }
+
+    setIconId(id: number){
+        if(!this.checkIdAble(id)){
+            return{
+                result: false,
+                error: 'does-not-have-this-icon'
+            }
+        }
+        this.state.update(
+            {'iconId': id}
+        )
+        return{
+            result: true
+        }
+    }
 }

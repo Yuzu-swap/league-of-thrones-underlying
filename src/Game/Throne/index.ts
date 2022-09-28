@@ -198,6 +198,10 @@ export interface IGeneralComponent extends IComponent {
   getBattleRecords( callback: (result: any) => void ): Promise<void>
 
   getDefenseBlockGenerals():[]
+
+  getIconId(): number
+
+  setIconId(iconId: number, callback: (result: any) => void): void
 }
 
 
@@ -555,6 +559,17 @@ export class GeneralComponent implements IGeneralComponent {
 
   getDefenseBlockGenerals(): [] {
     return copyObj(this.general.state.defenseBlockList) as []
+  }
+
+  getIconId(): number {
+    return this.general.getIconId()
+  }
+
+  setIconId(iconId: number, callback: (result: any) => void){
+    this.mediator.sendTransaction(StateTransition.SetIconId,{
+      from: Throne.instance().username,
+      iconId: iconId
+    }, callback)
   }
 
 }

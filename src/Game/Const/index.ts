@@ -49,7 +49,8 @@ export enum StateTransition {
 	SetUnionId,
 	SetUnionWin,
 	SetSeasonEnd,
-	StartSeason
+	StartSeason,
+	SetIconId
 }
 
 export interface StateTransitionArgs {
@@ -125,4 +126,8 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 export interface SetSeasonRewardConfigArgs extends StateTransitionArgs{
 	rankConfigFromTo: number[]
 	rankConfigValue: number[]
+}
+
+export interface SetIconIdArgs extends StateTransitionArgs{
+	iconId: number
 }

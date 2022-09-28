@@ -259,7 +259,14 @@ function example() {
             console.log('general----======-getbbb',result)
           }
         )
-  
+
+        console.log( general.getIconId())
+        general.setIconId( 4, 
+          (result)=>{
+            console.log('general----======setIcon',result)
+          }
+        )
+        console.log( general.getIconId())
         })
   
     )

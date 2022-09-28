@@ -25,7 +25,8 @@ import {
   StateTransitionArgs,
   SetSeasonEndArgs,
   StartSeasonArgs,
-  SetSeasonRewardConfigArgs
+  SetSeasonRewardConfigArgs,
+  SetIconIdArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -128,6 +129,9 @@ export class TransitionHandler {
         break
       case StateTransition.SetUnionId:
         re = this.onSetUnionId(arg as SetUnionIdArgs)
+        break
+      case StateTransition.SetIconId:
+        re = this.onSetIconId(arg as SetIconIdArgs)
         break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
@@ -570,5 +574,10 @@ export class TransitionHandler {
         globalGloryRankInfo: globalList
       }
     )
+  }
+
+  onSetIconId(args: SetIconIdArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    return logic.general.setIconId(args.iconId)
   }
 }

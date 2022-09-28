@@ -44,6 +44,7 @@ export interface IGeneralState extends IState{
   generalList: {[key : string ]: GeneralInfo}
   unionId: number
   glory: number
+  iconId: number
 }
 
 export interface IDefenderInfoState extends IState{
