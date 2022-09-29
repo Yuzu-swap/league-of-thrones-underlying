@@ -15,16 +15,19 @@ export function GenerateMemoryLoadStateFunction(initStates: {
 export class BaseStateManager implements IStateManager {
   states: { [key: string]: IState };
   loadStateFunc: LoadStateFunc;
+  cache: boolean
   constructor(
     initStates: { [key: string]: IState },
-    loadStateFunc?: LoadStateFunc
+    loadStateFunc?: LoadStateFunc,
+    cache?:boolean,
   ) {
     this.states = initStates;
     this.loadStateFunc = loadStateFunc;
+    this.cache = cache
   }
 
   get(sid: IStateIdentity): IState {
-    if( this.states[sid.id]){
+    if( this.cache && this.states[sid.id]){
       return this.states[sid.id]
     }
     if(this.loadStateFunc(sid)){
