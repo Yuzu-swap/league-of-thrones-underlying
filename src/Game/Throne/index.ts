@@ -76,6 +76,8 @@ export interface ICityComponent extends IComponent {
   receiveTroop(callback:(result: any) => void): void
 
   getRechargeConfigs():[]
+
+  getGold():number
   
 }
 
@@ -343,6 +345,10 @@ export class CityComponent implements ICityComponent {
 
   getRechargeConfigs(): [] {
     return this.city.getRechargeConfigs() as []
+  }
+
+  getGold(): number {
+    return this.city.state.gold
   }
 }
 
