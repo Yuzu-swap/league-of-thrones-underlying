@@ -21,7 +21,8 @@ export var InitState = {
               value: 100000,
           }
       },
-      recruit:[]
+      recruit:[],
+      gold: 0
     },
     [StateName.General]:{
         generalList: {},

@@ -97,6 +97,7 @@ export var run = function () {
 //run();
 let count = 0;
 function example() {
+  console.log("hello world")
   Throne.instance().init(
     {
       username: "test",
@@ -176,6 +177,30 @@ function example() {
           console.log(re)
         })
         console.log(city.getRecruitState())
+
+        console.log( JSON.stringify(city.getRechargeConfigs()))
+
+        Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
+          {
+            from: 'test',
+            username: 'test',
+            amount: 1
+          },
+          ()=>{})
+        Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
+          {
+            from: 'test',
+            username: 'test',
+            amount: 1001
+          },
+          ()=>{})
+        Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
+          {
+            from: 'test',
+            username: 'test',
+            amount: 100001
+          },
+          ()=>{})
         
         //update
       }

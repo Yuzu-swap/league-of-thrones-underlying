@@ -26,7 +26,8 @@ import {
   SetSeasonEndArgs,
   StartSeasonArgs,
   SetSeasonRewardConfigArgs,
-  SetIconIdArgs
+  SetIconIdArgs,
+  RechargeArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -141,6 +142,9 @@ export class TransitionHandler {
         return re
       case StateTransition.StartSeason:
         re = this.onStartSeason(arg as StartSeasonArgs)
+        return re
+      case StateTransition.Recharge:
+        re = this.onRecharge(arg as RechargeArgs)
         return re
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
@@ -579,5 +583,10 @@ export class TransitionHandler {
   onSetIconId(args: SetIconIdArgs){
     const logic : LogicEssential = this.genLogic(args.from)
     return logic.general.setIconId(args.iconId)
+  }
+
+  onRecharge(args: RechargeArgs){
+    const logic : LogicEssential = this.genLogic(args.username)
+    return logic.city.recharge(args.amount)
   }
 }

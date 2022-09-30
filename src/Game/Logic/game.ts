@@ -13,10 +13,14 @@ import {
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
   CityConfigFromGDS,
-  FacilityLimit
+  FacilityLimit,
+  RechargeConfigs,
+  RechargeConfigFromGDS,
+  RechargeConfig
 } from '../DataConfig';
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
+import { copyObj } from '../../Core/state';
 
 
 export interface CityConfig {
@@ -54,11 +58,13 @@ export class City {
   readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
+  rechargeConfig: RechargeConfigs 
   boost: IBoost;
 
   constructor(state: ICityState) {
     this.state = state;
     this.cityConfig = CityConfigFromGDS;
+    this.rechargeConfig = RechargeConfigFromGDS;
   }
 
   loadState(state: {}) {
@@ -388,6 +394,39 @@ export class City {
       }
     } 
     return troop
+  }
+
+  getRechargeConfigs(){
+    return copyObj(this.rechargeConfig.config)
+  }
+
+  recharge(amount: number){
+    let tempConfig = undefined
+    for(let config of this.rechargeConfig.config){
+      if(amount < config.price){
+        if(config.internal_id == 1){
+          return {
+            result: false,
+            error: ' less-than-first-level-recharge '
+          }
+        }
+        else{
+          break
+        }
+      }
+      else{
+        tempConfig = config
+      }
+    }
+    let nowGlod = this.state.gold
+    this.state.update(
+      {
+        gold: nowGlod + (tempConfig as RechargeConfig).gold + (tempConfig as RechargeConfig).extra_gold
+      }
+    )
+    return {
+      result: true
+    }
   }
 
   showAll() {

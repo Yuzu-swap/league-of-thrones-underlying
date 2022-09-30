@@ -16,6 +16,7 @@ export interface ICityState extends IState {
   facilities: { [key in CityFacility]?: number[] };
   resources: { [key in ResouceType]?: ResouceInfo };
   recruit: Recruit[]
+  gold: number
 }
 
 export interface GeneralStamina{

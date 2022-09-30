@@ -13,6 +13,7 @@ import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_t
 import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
+import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -359,3 +360,32 @@ export class SeasonConfig{
 }
 
 export var SeasonConfigFromGDS = new SeasonConfig(seasonGDS)
+
+export interface RechargeConfig{
+	token: number,
+	price: number,
+    internal_id: number,
+    internal_icon: number,
+    gold: number,
+    extra_gold: number
+}
+
+export class RechargeConfigs{
+	config : RechargeConfig[]
+	constructor(obj : {}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item as RechargeConfig)
+		}
+	}
+	get(id : number){
+		for(let i = 0; i< this.config.length; i++ ){
+			if(this.config[i].internal_id == id){
+				return this.config[i]
+			}
+		}
+		return undefined
+	}
+}
+
+export var RechargeConfigFromGDS = new RechargeConfigs(rechargeGDS)

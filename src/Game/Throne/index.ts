@@ -74,6 +74,8 @@ export interface ICityComponent extends IComponent {
    * receive troop
   */
   receiveTroop(callback:(result: any) => void): void
+
+  getRechargeConfigs():[]
   
 }
 
@@ -337,6 +339,10 @@ export class CityComponent implements ICityComponent {
       callback
     )
     this.listener.push(callback)
+  }
+
+  getRechargeConfigs(): [] {
+    return this.city.getRechargeConfigs() as []
   }
 }
 
