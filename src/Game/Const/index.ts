@@ -51,7 +51,8 @@ export enum StateTransition {
 	SetSeasonEnd,
 	StartSeason,
 	SetIconId,
-	Recharge
+	Recharge,
+	AddTestResource,
 }
 
 export interface StateTransitionArgs {

@@ -78,7 +78,11 @@ export interface ICityComponent extends IComponent {
   getRechargeConfigs():[]
 
   getGold():number
+
+  getTestResourceCoolDownTime(): number
+
   
+  addTestResource(callback: (res: ITransResult) => void): void
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -349,6 +353,17 @@ export class CityComponent implements ICityComponent {
 
   getGold(): number {
     return this.city.state.gold
+  }
+  
+  getTestResourceCoolDownTime(): number {
+    return this.city.getTestResourceCoolDownTime()
+  }
+
+  addTestResource(callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.AddTestResource, {
+      from: Throne.instance().username
+    }, callback)
+
   }
 }
 

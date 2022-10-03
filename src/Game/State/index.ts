@@ -17,6 +17,7 @@ export interface ICityState extends IState {
   resources: { [key in ResouceType]?: ResouceInfo };
   recruit: Recruit[]
   gold: number
+  lastAddTestTime: number
 }
 
 export interface GeneralStamina{

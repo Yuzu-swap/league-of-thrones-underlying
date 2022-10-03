@@ -172,6 +172,18 @@ function example() {
           //console.log("============", count)
           // rerender by new state
         });
+        console.log("cool down", city.getTestResourceCoolDownTime())
+        city.addTestResource(
+          (result)=>{
+            console.log(result)
+          }
+        )
+        console.log("cool down", city.getTestResourceCoolDownTime())
+        city.addTestResource(
+          (result)=>{
+            console.log(result)
+          }
+        )
         city.updateResource();
         city.doRecruit(5, (re)=>{
           console.log(re)
@@ -419,5 +431,5 @@ function testSort(){
   console.log(list)
 }
 //test()
-//example()
+example()
 //testSort()

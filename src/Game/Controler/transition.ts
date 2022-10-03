@@ -134,6 +134,9 @@ export class TransitionHandler {
       case StateTransition.SetIconId:
         re = this.onSetIconId(arg as SetIconIdArgs)
         break
+      case StateTransition.AddTestResource:
+        re = this.onAddTestResource(arg as StateTransitionArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -588,5 +591,9 @@ export class TransitionHandler {
   onRecharge(args: RechargeArgs){
     const logic : LogicEssential = this.genLogic(args.username)
     return logic.city.recharge(args.amount)
+  }
+  onAddTestResource(args: StateTransitionArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    return logic.city.addTestResource()
   }
 }

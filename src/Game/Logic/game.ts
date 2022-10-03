@@ -88,7 +88,7 @@ export class City {
         const hour = (time - info.lastUpdate) / 3600;
         value = hour * this.boost.getProduction(typ) + info.value - hour * this.state.resources[ResouceType.Troop].value * 3;
       }
-      return value;
+      return value < 0 ? 0 : value;
     }
     else{
       return this.state.resources[ResouceType.Troop].value
@@ -424,8 +424,40 @@ export class City {
         gold: nowGlod + (tempConfig as RechargeConfig).gold + (tempConfig as RechargeConfig).extra_gold
       }
     )
-    return {
+    return{
       result: true
+    }
+  }
+
+  addTestResource(){
+    const coolDown = this.getTestResourceCoolDownTime()
+    if(coolDown != 0 ){
+      return{
+        result: false,
+        error: 'cool-down-have-not-end'
+      }
+    }
+    const time = getTimeStamp()
+    this.useSilver( -1000000)
+    this.useTroop( -1000 )
+    this.state.update(
+      {
+        lastAddTestTime : time
+      }
+    )
+    return{
+      result: true
+    }
+  }
+
+  getTestResourceCoolDownTime(){
+    const time = getTimeStamp()
+    const maxCoolDown = 24 * 3600 ;
+    if(time - this.state.lastAddTestTime >= maxCoolDown){
+      return 0
+    }
+    else{
+      return maxCoolDown - ( time - this.state.lastAddTestTime)
     }
   }
 
