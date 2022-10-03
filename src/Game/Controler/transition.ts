@@ -129,6 +129,9 @@ export class TransitionHandler {
       case StateTransition.SetUnionId:
         re = this.onSetUnionId(arg as SetUnionIdArgs)
         break
+      case StateTransition.AddTestResource:
+        re = this.onAddTestResource(arg as StateTransitionArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -570,5 +573,10 @@ export class TransitionHandler {
         globalGloryRankInfo: globalList
       }
     )
+  }
+
+  onAddTestResource(args: StateTransitionArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    return logic.city.addTestResource()
   }
 }

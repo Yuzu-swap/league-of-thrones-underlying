@@ -74,7 +74,10 @@ export interface ICityComponent extends IComponent {
    * receive troop
   */
   receiveTroop(callback:(result: any) => void): void
+
+  getTestResourceCoolDownTime(): number
   
+  addTestResource(callback: (res: ITransResult) => void): void
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -333,6 +336,16 @@ export class CityComponent implements ICityComponent {
       callback
     )
     this.listener.push(callback)
+  }
+
+  getTestResourceCoolDownTime(): number {
+    return this.city.getTestResourceCoolDownTime()
+  }
+
+  addTestResource(callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.AddTestResource, {
+      from: Throne.instance().username
+    }, callback)
   }
 }
 

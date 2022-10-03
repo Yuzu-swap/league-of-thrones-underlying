@@ -49,7 +49,8 @@ export enum StateTransition {
 	SetUnionId,
 	SetUnionWin,
 	SetSeasonEnd,
-	StartSeason
+	StartSeason,
+	AddTestResource,
 }
 
 export interface StateTransitionArgs {

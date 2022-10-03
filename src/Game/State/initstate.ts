@@ -21,7 +21,8 @@ export var InitState = {
               value: 1000,
           }
       },
-      recruit:[]
+      recruit:[],
+      lastAddTestTime: -1
     },
     [StateName.General]:{
         generalList: {},
@@ -85,7 +86,6 @@ var _inited = false
 export function GetInitState(){
     if (!_inited) {
         //city state
-        const time = parseInt(new Date().getTime() / 1000 + '');
         for(let key in CityFacility)
         {
             let CityAnyType:any = CityFacility[key];
@@ -94,8 +94,6 @@ export function GetInitState(){
                 InitState[StateName.City].facilities[CityAnyType] = Array(maxCount).fill(1)
             }
         }
-        InitState[StateName.City].resources[ResouceType.Silver].lastUpdate = time
-        InitState[StateName.City].resources[ResouceType.Troop].lastUpdate = time
         //general state
         let len = qualificationGDS.Config.length
         InitState[StateName.General].unionId = 1
@@ -109,7 +107,7 @@ export function GetInitState(){
                     skill_levels: new Array(row.general_skill.length).fill(1),
                     stamina: {
                         value: row.stamina,
-                        lastUpdate: time
+                        lastUpdate: -1
                     }
                 }
                 InitState[StateName.General].generalList[row.general_id + ""] = generalInfo
