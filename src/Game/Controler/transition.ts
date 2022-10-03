@@ -590,7 +590,7 @@ export class TransitionHandler {
 
   onRecharge(args: RechargeArgs){
     const logic : LogicEssential = this.genLogic(args.username)
-    return logic.city.recharge(args.amount)
+    return logic.city.recharge(args.rechargeId, args.amount)
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)

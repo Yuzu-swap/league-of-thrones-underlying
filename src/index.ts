@@ -196,6 +196,7 @@ function example() {
           {
             from: 'test',
             username: 'test',
+            rechargeId: 0,
             amount: 1
           },
           ()=>{})
@@ -203,14 +204,16 @@ function example() {
           {
             from: 'test',
             username: 'test',
-            amount: 1001
+            rechargeId: 1,
+            amount: 10001
           },
           ()=>{})
         Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
           {
             from: 'test',
             username: 'test',
-            amount: 100001
+            rechargeId: 1,
+            amount: 1000
           },
           ()=>{})
         

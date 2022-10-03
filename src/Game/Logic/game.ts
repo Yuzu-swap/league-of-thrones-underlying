@@ -400,22 +400,17 @@ export class City {
     return copyObj(this.rechargeConfig.config)
   }
 
-  recharge(amount: number){
+  recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
-    for(let config of this.rechargeConfig.config){
-      if(amount < config.price){
-        if(config.internal_id == 1){
-          return {
-            result: false,
-            error: ' less-than-first-level-recharge '
-          }
-        }
-        else{
-          break
-        }
-      }
-      else{
-        tempConfig = config
+    tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
+    if(
+      !tempConfig
+      ||(tempConfig as RechargeConfig).internal_id != rechargeId
+      ||(tempConfig as RechargeConfig).price != amount
+    ){
+      return {
+        result: false,
+        error: 'recharge-config-error'
       }
     }
     let nowGlod = this.state.gold

@@ -136,5 +136,6 @@ export interface SetIconIdArgs extends StateTransitionArgs{
 
 export interface RechargeArgs extends StateTransitionArgs{
 	username: string,
+	rechargeId: number
 	amount: number
 }
