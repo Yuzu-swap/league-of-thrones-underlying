@@ -1,3 +1,5 @@
+import { RecoverMoraleType } from "../Logic/general";
+
 export enum StateName {
 	City = "city",
 	General = "general" ,
@@ -53,6 +55,7 @@ export enum StateTransition {
 	SetIconId,
 	Recharge,
 	AddTestResource,
+	RecoverMorale
 }
 
 export interface StateTransitionArgs {
@@ -138,4 +141,8 @@ export interface RechargeArgs extends StateTransitionArgs{
 	username: string,
 	rechargeId: number
 	amount: number
+}
+
+export interface RecoverMoraleArgs extends StateTransitionArgs{
+	resourceType: RecoverMoraleType
 }

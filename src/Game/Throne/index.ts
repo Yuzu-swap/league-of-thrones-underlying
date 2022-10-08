@@ -1,4 +1,4 @@
-import { BattleRecord, BattleResult, BattleType, General, GeneralAbility } from '../Logic/general'
+import { BattleRecord, BattleResult, BattleType, General, GeneralAbility, RecoverMoraleType } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
@@ -210,6 +210,14 @@ export interface IGeneralComponent extends IComponent {
   getIconId(): number
 
   setIconId(iconId: number, callback: (result: any) => void): void
+
+  getMorale(): number
+
+  getRecoverMoraleInfo(): {}
+
+  getMoraleBuff(): {}
+
+  recoverMorale( resourceType: RecoverMoraleType, callback: (result: any) => void): void
 }
 
 
@@ -354,7 +362,7 @@ export class CityComponent implements ICityComponent {
   getGold(): number {
     return this.city.state.gold
   }
-  
+
   getTestResourceCoolDownTime(): number {
     return this.city.getTestResourceCoolDownTime()
   }
@@ -596,6 +604,32 @@ export class GeneralComponent implements IGeneralComponent {
     this.mediator.sendTransaction(StateTransition.SetIconId,{
       from: Throne.instance().username,
       iconId: iconId
+    }, callback)
+  }
+
+  getMorale(): number {
+    return this.general.getMorale()
+  }
+
+  getRecoverMoraleInfo() {
+    return this.general.getRecoverMoraleInfo()
+  }
+
+  getMoraleBuff() {
+    let percent = this.general.getMoralePercent()
+    let re = {}
+    re['attack'] = 1 + percent
+    re['defense'] = 1 + percent
+    re['load'] = 1 + percent
+    re['silver_product'] = 1 + percent
+    re['troop_product'] = 1 + percent
+    return re
+  }
+
+  recoverMorale(resourceType: RecoverMoraleType, callback: (result: any) => void): void {
+    this.mediator.sendTransaction(StateTransition.RecoverMorale,{
+      from: Throne.instance().username,
+      resourceType: resourceType
     }, callback)
   }
 

@@ -46,6 +46,7 @@ export class Parameter {
 	victory_need_occupy_times: number
 	occupy_block_protect_times: number
 	battle_victory_get_glory: number
+	recovery_one_morale_need_gold: number
   
     constructor(obj: {}) {
       this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
@@ -57,6 +58,7 @@ export class Parameter {
 	  this.occupy_block_protect_times = obj['occupy_block_protect_times']? parseInt(obj['occupy_block_protect_times']['value']): 7200
 	  this.battle_victory_get_glory = obj['battle_victory_get_glory']? parseInt(obj['battle_victory_get_glory']['value']): 100
 	  let tempList = (obj['default_defense_general']['value'] as string).split('|')
+	  this.recovery_one_morale_need_gold = obj['recovery_one_morale_need_gold']? parseInt(obj['recovery_one_morale_need_gold']['value']): 10
 	  this.default_defense_general = []
 	  for(let item of tempList){
 		this.default_defense_general.push(parseInt(item))
@@ -389,3 +391,8 @@ export class RechargeConfigs{
 }
 
 export var RechargeConfigFromGDS = new RechargeConfigs(rechargeGDS)
+
+export const minMorale = 80
+export const maxMorale = 120
+export const normalMorale = 100
+export const moraleReduceGap = 15 * 60

@@ -27,7 +27,8 @@ import {
   StartSeasonArgs,
   SetSeasonRewardConfigArgs,
   SetIconIdArgs,
-  RechargeArgs
+  RechargeArgs,
+  RecoverMoraleArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -136,6 +137,9 @@ export class TransitionHandler {
         break
       case StateTransition.AddTestResource:
         re = this.onAddTestResource(arg as StateTransitionArgs)
+        break
+      case StateTransition.RecoverMorale:
+        re = this.onRecoverMorale(arg as RecoverMoraleArgs)
         break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
@@ -336,6 +340,9 @@ export class TransitionHandler {
         timestamp: getTimeStamp(),
         result: re['win']
       }
+      let moraleAdd = re['win'] ? 2 : -2
+      logic1.general.offsetMorale(moraleAdd)
+      logic2.general.offsetMorale(-moraleAdd)
       let oldGlory1 = logic1.general.state.glory
       let oldGlory2 = logic2.general.state.glory
       logic1.general.addGlory(btr.attackInfo.gloryGet)
@@ -389,12 +396,15 @@ export class TransitionHandler {
       }
       let oldGlory = logic.general.state.glory
       for(let record of re['records'] as BattleTransRecord[]){
+        let moraleAdd = record.result ? 2 : -2
+        logic.general.offsetMorale(moraleAdd)
         logic.general.addGlory(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
           let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username)
           if(tempLogic){
             let oldTempGlory = tempLogic.general.state.glory
             tempLogic.general.addGlory(record.defenseInfo.gloryGet)
+            tempLogic.general.offsetMorale(-moraleAdd)
             if(tempLogic.city.state.facilities[CityFacility.Fortress][0] >= 7){
               this.updateRewardState(
                 tempLogic.map.rewardGlobalState, 
@@ -595,5 +605,9 @@ export class TransitionHandler {
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
     return logic.city.addTestResource()
+  }
+  onRecoverMorale(args: RecoverMoraleArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    return logic.general.recoverMorale(args.resourceType)
   }
 }

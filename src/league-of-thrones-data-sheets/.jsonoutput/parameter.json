@@ -7,6 +7,10 @@
         "value":"100",
         "name":"troops_base_load"
     },
+    "recovery_one_morale_need_gold":{
+        "value":"10",
+        "name":"recovery_one_morale_need_gold"
+    },
     "occupy_block_protect_times":{
         "value":"7200",
         "name":"occupy_block_protect_times"

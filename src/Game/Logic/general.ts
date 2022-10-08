@@ -1,5 +1,5 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS} from '../DataConfig'
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { CityFacility, ResouceType, StateName } from '../Const';
 import { City } from './game';
@@ -38,6 +38,11 @@ export enum SkillType{
     Load = 'load',
     Silver = 'product',
     Troop = 'recruit'
+}
+
+export enum RecoverMoraleType{
+    Silver = 'silver',
+    Gold = 'gold'
 }
 
 export interface DefenseInfo{
@@ -374,6 +379,7 @@ export class General{
         let mapBase = 0
         let mapPercent = 0
         let mapBuffList = this.boost.getMapBuff()
+        let moralePercent = this.getMoralePercent()
         for( let mapBuff of mapBuffList){
             const skillRow = this.getSkillInfo(mapBuff)
             if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
@@ -416,7 +422,7 @@ export class General{
                     }
                 }
             }
-            product += (baseProduct + mapBase) * (percentProduct + mapPercent)
+            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent)
         }
         return product
     }
@@ -551,6 +557,12 @@ export class General{
                 }
             }
         }
+
+        let moralePercent = this.getMoralePercent()
+        for(let key in extraPercent){
+            extraPercent[key] += moralePercent
+        }
+        
 
         let sum = {
             [SkillType.Attack]: 0,
@@ -908,4 +920,105 @@ export class General{
             result: true
         }
     }
+
+    getMorale(){
+        let morale = this.state.morale.value
+        if(morale <= normalMorale){
+            return Math.max(morale, minMorale)
+        }
+        else{
+            const time = getTimeStamp()
+            let reduceNumber = Math.floor((time - this.state.morale.lastUpdate) / moraleReduceGap)
+            if(reduceNumber > 0){
+                throw "time error when reduce morale"
+            }
+            return Math.max(normalMorale, morale - reduceNumber)
+        }
+    }
+
+    offsetMorale(amount: number){
+        const time = getTimeStamp()
+        let morale = this.getMorale() + amount
+        morale = Math.max(morale, minMorale)
+        morale = Math.min(morale, maxMorale)
+        this.state.update(
+            {
+                morale: {
+                    value: morale,
+                    lastUpdate: time
+                }
+            }
+        )
+    }
+
+    getMoralePercent(){
+        let morale = this.getMorale()
+        return morale / 100 - 1
+    }
+
+    getRecoverMoraleInfo(){
+        let morale = this.getMorale()
+        let re = {
+            silverUse: 0,
+            silverAble: true,
+            goldUse:0,
+            goldAble: true
+        }
+        if(morale >= normalMorale){
+            return re
+        }
+        re.silverUse = this.boost.getProduction(ResouceType.Silver) * (normalMorale - morale) * 0.15
+        re.silverAble = this.city.getResource(ResouceType.Silver) >= re.silverUse ? true : false
+        re.goldUse = this.config.parameter.recovery_one_morale_need_gold * (normalMorale - morale)
+        re.goldAble = this.city.state.gold >= re.goldUse ? true : false
+        return re
+    }
+
+    recoverMorale(type : RecoverMoraleType){
+        let morale = this.getMorale()
+        if(morale >= normalMorale){
+            return{
+                result: false,
+                error: 'no-need-to-recover-morale'
+            }
+        }
+        let info = this.getRecoverMoraleInfo()
+        if(type == RecoverMoraleType.Gold){
+            if(info.goldAble){
+                this.city.useGold(info.goldUse)
+                this.offsetMorale( normalMorale - morale )
+                return{
+                    result: true
+                }
+            }
+            else{
+                return{
+                    result: false,
+                    error: 'gold-is-not-enough'
+                }
+            }
+        }
+        else if(type == RecoverMoraleType.Silver){
+            if(info.silverAble){
+                this.city.useSilver(info.silverUse)
+                this.offsetMorale( normalMorale - morale )
+                return{
+                    result: true
+                }
+            }
+            else{
+                return{
+                    result: false,
+                    error: 'silver-is-not-enough'
+                }
+            }
+        }
+        return{
+            result: false,
+            error: 'undefined-type'
+        }
+    }
+
+
+
 }

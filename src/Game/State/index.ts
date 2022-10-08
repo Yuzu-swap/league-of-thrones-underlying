@@ -47,6 +47,7 @@ export interface IGeneralState extends IState{
   unionId: number
   glory: number
   iconId: number
+  morale: ResouceInfo
 }
 
 export interface IDefenderInfoState extends IState{

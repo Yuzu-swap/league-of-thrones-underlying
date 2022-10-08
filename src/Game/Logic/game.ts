@@ -424,6 +424,18 @@ export class City {
     }
   }
 
+  useGold(amount: number){
+    if(amount <= this.state.gold){
+      this.state.update(
+        {
+          gold : this.state.gold - amount
+        }
+      )
+      return true
+    }
+    return false
+  }
+
   addTestResource(){
     const coolDown = this.getTestResourceCoolDownTime()
     if(coolDown != 0 ){

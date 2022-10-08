@@ -31,7 +31,11 @@ export var InitState = {
         defenseBlockList : [],
         unionId: 1,
         glory: 0,
-        iconId: -1
+        iconId: -1,
+        morale: {
+            lastUpdate: -1,
+            value: 100,
+        }
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{

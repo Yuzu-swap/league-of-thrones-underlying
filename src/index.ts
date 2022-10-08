@@ -31,7 +31,7 @@ import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
-import { General } from './Game/Logic/general';
+import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
 import { addToSortList, getTimeStamp } from './Game/Utils';
 
@@ -238,7 +238,7 @@ function example() {
         general.ableGeneral(1, (result)=>{
           console.log("general able ", result)
         })
-        for(let i = 0; i < 110 ; i ++){
+        for(let i = 0; i < 1 ; i ++){
           general.upgradeGeneral(1,  (result)=>{
             console.log("general up ", result)
           })
@@ -247,7 +247,7 @@ function example() {
         let num1= general.getSkillUpgradeNeed(2, 1, 1);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
-        for(let i = 0; i < 30 ; i ++){
+        for(let i = 0; i < 1 ; i ++){
           general.upgradeGeneralSkill(1 , 0, 
             (result)=>{
               console.log("upgrade skill", result)
@@ -307,8 +307,21 @@ function example() {
           }
         )
         console.log( general.getIconId())
+
+        console.log( general.getMorale())
+
+        console.log( general.getMoraleBuff())
+
+        console.log( general.getRecoverMoraleInfo())
+
+        general.recoverMorale(
+          RecoverMoraleType.Gold
+          ,(re)=>{
+            console.log(re)
+          }
+        )
+
         })
-  
     )
   }, 1500)
   
