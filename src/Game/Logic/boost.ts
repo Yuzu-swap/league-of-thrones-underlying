@@ -7,6 +7,7 @@ export interface IBoost {
     setTroop( troop: number, needTroop: number): void
     setMapBuff(list : number[]): void
     getMapBuff(): number[]
+    getSilverPosProduction(): number
     getProductionStatus(typ: ResouceType): {
         maintain: boolean,
         normalProduction: number
@@ -63,6 +64,14 @@ export class Boost implements IBoost{
             weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
         }
         return (this.city.product[typ] + this.general.product[typ]) * weight
+    }
+
+    getSilverPosProduction(){
+        let weight = 1
+        if(this.maintainNeedTroop > this.troop){
+            weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
+        }
+        return ( this.city.product[ResouceType.Silver] + this.general.product[ResouceType.Silver] + this.troop ) * weight
     }
 
     getProductionStatus(typ: ResouceType){

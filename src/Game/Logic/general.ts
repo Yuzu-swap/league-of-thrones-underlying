@@ -967,7 +967,7 @@ export class General{
         if(morale >= normalMorale){
             return re
         }
-        re.silverUse = this.boost.getProduction(ResouceType.Silver) * (normalMorale - morale) * 0.15
+        re.silverUse = this.boost.getSilverPosProduction() * (normalMorale - morale) * 0.15
         re.silverAble = this.city.getResource(ResouceType.Silver) >= re.silverUse ? true : false
         re.goldUse = this.config.parameter.recovery_one_morale_need_gold * (normalMorale - morale)
         re.goldAble = this.city.state.gold >= re.goldUse ? true : false
