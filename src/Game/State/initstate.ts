@@ -1,5 +1,5 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset } from '../Const';
+import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset, MaxStrategyPoint } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { copyObj } from '../../Core/state';
@@ -77,6 +77,16 @@ export var InitState = {
         seasonEnd: false,
         unionRewardResult: [],
         gloryRewardResult: [],
+    },
+    [StateName.Strategy]:{
+        strategyPoint: {
+            lastUpdate: -1,
+            value: MaxStrategyPoint,
+        },
+        buyTimes:{
+            lastUpdate: -1,
+            value: 0,
+        }
     }
 };
 

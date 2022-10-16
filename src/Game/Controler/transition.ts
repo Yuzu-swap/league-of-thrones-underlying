@@ -28,11 +28,12 @@ import {
   SetSeasonRewardConfigArgs,
   SetIconIdArgs,
   RechargeArgs,
-  RecoverMoraleArgs
+  RecoverMoraleArgs,
+  BuyStrategyPointArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState } from '../State';
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -141,6 +142,18 @@ export class TransitionHandler {
       case StateTransition.RecoverMorale:
         re = this.onRecoverMorale(arg as RecoverMoraleArgs)
         break
+      case StateTransition.BuyStrategyPoint:
+        re = this.onBuyStrategyPoint(arg as BuyStrategyPointArgs)
+        break
+      case StateTransition.StrategyBuySilver:
+        re = this.onStrategyBuySilver(arg as StateTransitionArgs)
+        break
+      case StateTransition.StrategyBuyTroop:
+        re = this.onStrategyBuyTroop(arg as StateTransitionArgs)
+        break
+      case StateTransition.StrategyBuyMorale:
+        re = this.onStrategyBuyMorale(arg as StateTransitionArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -201,13 +214,19 @@ export class TransitionHandler {
         id: `${StateName.RewardGloablState}`
       }
     )
+    const strategyState = this.stateManger.get(
+      {
+        id: `${StateName.Strategy}:${id}`
+      }
+    )
     const states: StateEssential = {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState: seasonState as ISeasonConfigState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
-      blocks: this.getBlockStates(x_id, y_id)
+      blocks: this.getBlockStates(x_id, y_id),
+      strategy: strategyState as IStrategyState
     };
     return createLogicEsential(states);
   }
@@ -610,4 +629,25 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(args.from)
     return logic.general.recoverMorale(args.resourceType)
   }
+
+  onBuyStrategyPoint(args: BuyStrategyPointArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
+    return logic.strategy.buyStrategyPoint(args.amount)
+  }
+
+  onStrategyBuyTroop(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.strategy.buyTroop()
+  }
+  
+  onStrategyBuySilver(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.strategy.buySilver()
+  }
+
+  onStrategyBuyMorale(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.strategy.buyMorale()
+  }
+
 }

@@ -11,7 +11,7 @@ import {
   State
 } from '../../Core/state';
 import { BattleRecordType, BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
-import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState } from '../State';
+import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState, IStrategyState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
   BaseMessage,
@@ -28,6 +28,7 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
 } {
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
+  const strategyStateId = `${StateName.Strategy}:${username}`;
   const InitState = GetInitState();
   return {
     [cityStateId]: new State<ICityState>(
@@ -43,7 +44,13 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
         ...InitState[StateName.General]
       },
       wather
-    ).unsderlying()
+    ).unsderlying(),
+    [strategyStateId]: new State<IStrategyState>(
+      {
+        id: strategyStateId,
+        ...InitState[StateName.Strategy]
+      }
+    )
   };
 }
 

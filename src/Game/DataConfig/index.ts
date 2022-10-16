@@ -14,6 +14,7 @@ import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/p
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
 import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
+import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -47,22 +48,43 @@ export class Parameter {
 	occupy_block_protect_times: number
 	battle_victory_get_glory: number
 	recovery_one_morale_need_gold: number
+	order_recovery_need_times: number
+	order_protect_times: number
+	order_protect_need: number
+	order_hoard_times: number
+	order_hoard_need: number
+	gather_need_general_stamina: number
+	gather_get_silver_parameter: number
   
     constructor(obj: {}) {
-      this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
-      this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
-      this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
-      this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
-	  this.troops_base_load = obj['troops_base_load']? parseInt(obj['troops_base_load']['value']): 100;
-	  this.victory_need_occupy_times = obj['victory_need_occupy_times']? parseInt(obj['victory_need_occupy_times']['value']): 28800
-	  this.occupy_block_protect_times = obj['occupy_block_protect_times']? parseInt(obj['occupy_block_protect_times']['value']): 7200
-	  this.battle_victory_get_glory = obj['battle_victory_get_glory']? parseInt(obj['battle_victory_get_glory']['value']): 100
-	  let tempList = (obj['default_defense_general']['value'] as string).split('|')
-	  this.recovery_one_morale_need_gold = obj['recovery_one_morale_need_gold']? parseInt(obj['recovery_one_morale_need_gold']['value']): 10
-	  this.default_defense_general = []
-	  for(let item of tempList){
-		this.default_defense_general.push(parseInt(item))
-	  }
+		this.default_defense_general = []
+		for(let key in obj){
+			if(obj[key]['value'].indexOf('|') != -1){
+				let tempList = obj[key]['value'].split('|')
+				for(let item of tempList){
+					this[key].push(parseInt(item))
+				}
+			}
+			else if(obj[key]['value'].indexOf('.') != -1){
+				this[key] = parseFloat(obj[key]['value'])
+			}
+			else{
+				this[key] = parseInt(obj[key]['value'])
+			}
+		}
+    //   this.general_troops_coefficient = obj['general_troops_coefficient'] ? parseFloat(obj['general_troops_coefficient']['value']) : 1;
+    //   this.general_stamina_recovery = obj['general_stamina_recovery'] ?  parseInt(obj['general_stamina_recovery']['value']) : 3600;
+    //   this.general_skill_max_level = obj['general_skill_max_level'] ? parseInt(obj['general_skill_max_level']['value']) : 20;
+    //   this.general_max_level = obj['general_max_level'] ? parseInt(obj['general_max_level']['value']) : 100;
+	//   this.troops_base_load = obj['troops_base_load']? parseInt(obj['troops_base_load']['value']): 100;
+	//   this.victory_need_occupy_times = obj['victory_need_occupy_times']? parseInt(obj['victory_need_occupy_times']['value']): 28800
+	//   this.occupy_block_protect_times = obj['occupy_block_protect_times']? parseInt(obj['occupy_block_protect_times']['value']): 7200
+	//   this.battle_victory_get_glory = obj['battle_victory_get_glory']? parseInt(obj['battle_victory_get_glory']['value']): 100
+	//   let tempList = (obj['default_defense_general']['value'] as string).split('|')
+	//   this.recovery_one_morale_need_gold = obj['recovery_one_morale_need_gold']? parseInt(obj['recovery_one_morale_need_gold']['value']): 10
+	//   for(let item of tempList){
+	// 	this.default_defense_general.push(parseInt(item))
+	//   }
     }
 
 }
@@ -396,3 +418,18 @@ export const minMorale = 80
 export const maxMorale = 120
 export const normalMorale = 100
 export const moraleReduceGap = 15 * 60
+
+export class StrategyBuyConfig{
+	config: number[] 
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item['need_gold'])
+		}
+	}
+	getMaxTimes(){
+		return this.config.length
+	}
+}
+
+export var StrategyBuyConfigFromGDS = new StrategyBuyConfig(strategyBuyGDS)

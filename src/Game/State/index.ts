@@ -138,6 +138,12 @@ export interface IBlockState extends IState{
   lastAttachTime: number
 }
 
+export interface IStrategyState extends IState{
+  id: string 
+  strategyPoint: ResouceInfo
+  buyTimes: ResouceInfo
+}
+
 export * from  "./initstate"
 
 

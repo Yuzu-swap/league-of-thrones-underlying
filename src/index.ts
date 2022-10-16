@@ -34,6 +34,7 @@ import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentT
 import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
 import { addToSortList, getTimeStamp } from './Game/Utils';
+import { StrategyComponent } from './Game/Throne/strategy';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -426,6 +427,26 @@ function example() {
       )
     }
     ,2000
+  )
+
+  setTimeout(
+    ()=>{
+      Throne.instance().initComponent(
+        ComponentType.Strategy,
+        (strategy : StrategyComponent)=>{
+          strategy.buySilver((re)=>console.log(re))
+          strategy.buyMorale((re)=>console.log(re))
+          strategy.buyTroop((re)=>console.log(re))
+          console.log(strategy.getStrategyNeed())
+          console.log(strategy.getBuyStrategyPointNeed(2))
+          console.log(strategy.getRecoverStrategyRemainTime())
+          console.log(strategy.getStrategyPointInfo())
+          strategy.buyStrategyPoint(2, ()=>{})
+        }
+      )
+
+    },
+    2500
   )
 
   

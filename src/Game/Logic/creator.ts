@@ -1,14 +1,16 @@
 import { General, GeneralConfig } from "./general";
 import { City, CityConfig } from "./game";
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState } from "../State";
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from "../State";
 import { Boost, IBoost } from "./boost";
 import { ResouceType, StateName } from "../Const";
 import { Map } from "./map";
+import { Strategy } from "./strategy";
 
 export interface LogicEssential {
 	city: City
 	general: General
 	map: Map
+	strategy: Strategy
 	boost: IBoost
 }
 export interface GlobalLogicEssential{
@@ -21,6 +23,7 @@ export interface StateEssential {
 	seasonState: ISeasonConfigState
 	rewardGlobalState: IRewardGlobalState
 	blocks: IBlockState[]
+	strategy: IStrategyState
 }
 export interface ConfigEssential {
 	cityConf: CityConfig
@@ -40,10 +43,13 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	var city: City = new City(states.city)
 	var general: General = new General(states.general, city)
 	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState)
+	var strategy: Strategy = new Strategy(states.strategy)
 	city.setBoost(boost)
 	general.setBoost(boost)
 	map.setGeneral(general)
 	map.loadBlockStates(states.blocks)
+	strategy.setBoost(boost)
+	strategy.setLogic(city, map, general)
 	boost.setTroop(city.getResource(ResouceType.Troop), city.getMaintainNeedTroop())
 	boost.setProduction(StateName.City, ResouceType.Silver, city.calculatePoduction(ResouceType.Silver))
 	boost.setProduction(StateName.City, ResouceType.Troop, city.calculatePoduction(ResouceType.Troop))
@@ -54,7 +60,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	//general.SetBoost(boost)
 	//boost.recalulate() 
 
-	return { city, general, map, boost }
+	return { city, general, map, strategy ,boost }
 }
 
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{

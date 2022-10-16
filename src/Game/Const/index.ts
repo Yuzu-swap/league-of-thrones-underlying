@@ -7,7 +7,8 @@ export enum StateName {
 	MapGlobalInfo = 'mapglobalinfo',
 	BlockInfo = 'blockinfo',
 	SeasonConfig = 'seasonconfig',
-	RewardGloablState = 'rewardglobalstate'
+	RewardGloablState = 'rewardglobalstate',
+	Strategy = 'strategy'
 }
 
 export enum CityFacility {
@@ -29,6 +30,7 @@ export enum ResouceType {
 
 export const MaxSize = 21;
 export const mapIdOffset = 10;
+export const MaxStrategyPoint = 20
 
 export enum StateTransition {
 	UpgradeFacility = 1,
@@ -55,7 +57,11 @@ export enum StateTransition {
 	SetIconId,
 	Recharge,
 	AddTestResource,
-	RecoverMorale
+	RecoverMorale,
+	BuyStrategyPoint,
+	StrategyBuySilver,
+	StrategyBuyTroop,
+	StrategyBuyMorale,
 }
 
 export interface StateTransitionArgs {
@@ -145,4 +151,8 @@ export interface RechargeArgs extends StateTransitionArgs{
 
 export interface RecoverMoraleArgs extends StateTransitionArgs{
 	resourceType: RecoverMoraleType
+}
+
+export interface BuyStrategyPointArgs extends StateTransitionArgs{
+	amount: number
 }

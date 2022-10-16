@@ -5,7 +5,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, ResouceInfo } from '../State'
+import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, IStrategyState, ResouceInfo } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -29,6 +29,7 @@ import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
 import { getTimeStamp, setTimeOffset } from '../Utils'
+import { StrategyComponent } from './strategy'
 
 
 
@@ -638,7 +639,8 @@ export class GeneralComponent implements IGeneralComponent {
 export enum ComponentType {
   City = 1,
   General = 2,
-  Map = 3
+  Map = 3,
+  Strategy = 4
 }
 
 export interface IThrone {
@@ -721,6 +723,7 @@ export class Throne implements IThrone {
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
+    states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState
     states.blocks = []
     // await Promise.all([
     //   async () => {
@@ -766,6 +769,11 @@ export class Throne implements IThrone {
       let mapCom = this.components[ComponentType.Map] as MapComponent
       mapCom.setMap(this.logicEssential.map)
       callback(mapCom as any as T)
+    } else if(typ == ComponentType.Strategy){
+      this.components[ComponentType.Strategy] = new StrategyComponent(this.mediator)
+      let strategyCom = this.components[ComponentType.Strategy] as StrategyComponent
+      strategyCom.setStrategy(this.logicEssential.strategy)
+      callback(strategyCom as any as T)
     }
   }
 }
