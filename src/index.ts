@@ -197,7 +197,7 @@ function example() {
           {
             from: 'test',
             username: 'test',
-            rechargeId: 0,
+            rechargeId: 1,
             amount: 1
           },
           ()=>{})

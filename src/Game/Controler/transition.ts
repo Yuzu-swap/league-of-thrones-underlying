@@ -91,6 +91,7 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
+    console.log("underlying_transition: sid: ", sid, "args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
     switch (sid) {

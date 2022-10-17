@@ -648,7 +648,8 @@ export class Map{
     }
 
     setSeasonEnd(){
-        if(this.getSeasonStatus().status = SeasonStatus.End){
+        if(this.getSeasonStatus().status == SeasonStatus.End){
+            console.log("endSeason success")
             this.setRewardResult(0)
             this.gState.update(
                 {
@@ -660,6 +661,7 @@ export class Map{
             }
         }
         else{
+            console.log("it-is-not-time-to-end")
             return{
                 result: false,
                 error: 'it-is-not-time-to-end'
