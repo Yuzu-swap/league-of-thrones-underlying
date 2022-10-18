@@ -1,5 +1,5 @@
 import { ComponentType, IComponent, Throne } from ".";
-import { Strategy } from "../Logic/strategy";
+import { Strategy, StrategyType } from "../Logic/strategy";
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName, MaxStrategyPoint } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
@@ -10,11 +10,16 @@ export interface IStrategyComponent extends IComponent{
     getBuyStrategyPointNeed(amount: number): number
     getRecoverStrategyRemainTime(): number
     getStrategyNeed():{}
+    getStrategiesInfo():{}
     buyStrategyPoint( amount: number ,callback: (result: any) => void): void
     buySilver(callback: (result: any) => void): void
     buyTroop(callback: (result: any) => void): void
+    buyProtect(callback: (result: any) => void): void
+    buyStore(callback: (result: any) => void): void
     buyMorale(callback: (result: any) => void): void
+    
 }
+
 
 export class StrategyComponent implements IStrategyComponent{
     type: ComponentType;
@@ -27,6 +32,13 @@ export class StrategyComponent implements IStrategyComponent{
 
     setStrategy(strategy: Strategy){
         this.strategy = strategy
+        this.mediator.onReceiveState(
+            {id:  this.strategy.state.id}
+            ,
+            ()=>{
+              this.strategy.updateBoost()
+            }
+          )
     }
 
     onStateUpdate(callback: IStatetWithTransContextCallback): void {
@@ -46,6 +58,24 @@ export class StrategyComponent implements IStrategyComponent{
         return re
     }
 
+    getStrategiesInfo():{} {
+        let re = {}
+        re['buyTroopCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 1000
+        re['buySilverCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 1000
+        re['buyMoraleCount'] = 2
+        re['protect'] = {
+            able : this.strategy.getStrategyStatus(StrategyType.Protect).able,
+            remainTime: this.strategy.getStrategyStatusRemainTime(StrategyType.Protect),
+            maxTime: this.strategy.parameter.order_protect_times
+        }
+        re['store'] = {
+            able : this.strategy.getStrategyStatus(StrategyType.Store).able,
+            remainTime: this.strategy.getStrategyStatusRemainTime(StrategyType.Store),
+            maxTime: this.strategy.parameter.order_hoard_times
+        }
+        return re 
+    }
+
     getBuyStrategyPointNeed(amount: number): number {
         return this.strategy.getBuyStrategyNeed(amount)
     }
@@ -59,8 +89,8 @@ export class StrategyComponent implements IStrategyComponent{
             buySilver: 1,
             buyTroop: 1,
             buyMorale: 1,
-            protect: 12,
-            store: 2
+            protect: this.strategy.parameter.order_protect_need,
+            store: this.strategy.parameter.order_hoard_need
         }
     }
 
@@ -85,6 +115,18 @@ export class StrategyComponent implements IStrategyComponent{
 
     buyMorale(callback: (result: any) => void): void {
         this.mediator.sendTransaction(StateTransition.StrategyBuyMorale,{
+            from: Throne.instance().username,
+        }, callback)
+    }
+
+    buyProtect(callback: (result: any) => void): void {
+        this.mediator.sendTransaction(StateTransition.StrategyBuyProtect,{
+            from: Throne.instance().username,
+        }, callback)
+    }
+
+    buyStore(callback: (result: any) => void): void {
+        this.mediator.sendTransaction(StateTransition.StrategyBuyStore,{
             from: Throne.instance().username,
         }, callback)
     }

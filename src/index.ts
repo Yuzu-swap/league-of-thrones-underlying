@@ -442,6 +442,9 @@ function example() {
           console.log(strategy.getRecoverStrategyRemainTime())
           console.log(strategy.getStrategyPointInfo())
           strategy.buyStrategyPoint(2, ()=>{})
+          strategy.buyStore((re)=>console.log(re))
+          strategy.buyProtect((re)=>console.log(re))
+          console.log(strategy.getStrategiesInfo())
         }
       )
 

@@ -1,11 +1,17 @@
+import { getTextOfJSDocComment } from "typescript";
 import { MaxStrategyPoint } from "../Const";
 import { Parameter, parameterConfig, StrategyBuyConfig, StrategyBuyConfigFromGDS } from "../DataConfig";
-import { IStrategyState } from "../State";
+import { IStrategyState, StrategyStatus } from "../State";
 import { getTimeStamp } from "../Utils";
 import { IBoost } from "./boost";
 import { City } from "./game";
 import { General } from "./general";
 import { Map } from "./map";
+
+export enum StrategyType {
+    Store = 'store',
+    Protect = 'protect'
+}
 
 export class Strategy{
     state: IStrategyState
@@ -156,7 +162,7 @@ export class Strategy{
     getOpenDayCount(){
         let time = getTimeStamp()
         let openTime = this.map.seasonState.season_open == 0 ? this.map.seasonConfig.get(1).season_open : this.map.seasonState.season_open 
-        let dayCount = Math.floor((time - openTime) / (60 * 60 * 24))
+        let dayCount = Math.ceil((time - openTime) / (60 * 60 * 24))
         return dayCount >=0 ? dayCount : 1
     }
 
@@ -190,6 +196,34 @@ export class Strategy{
         }
     }
 
+    buyProtect(){
+        let strategyUse = this.parameter.order_protect_need
+        if(!this.offsetStrategyPoint(-strategyUse)){
+            return{
+                result: false,
+                error: "strategy-point-error"
+            }
+        }
+        this.setStrategyStatus(StrategyType.Protect, true)
+        return{
+            result: true
+        }
+    }
+
+    buyStore(){
+        let strategyUse = this.parameter.order_hoard_need
+        if(!this.offsetStrategyPoint(-strategyUse)){
+            return{
+                result: false,
+                error: "strategy-point-error"
+            }
+        }
+        this.setStrategyStatus(StrategyType.Store, true)
+        return{
+            result: true
+        }
+    }
+
     buyMorale(){
         let strategyUse = 1
         if(!this.offsetStrategyPoint(-strategyUse)){
@@ -202,5 +236,86 @@ export class Strategy{
         return{
             result: true
         }
+    }
+
+    getStrategyStatus(type : StrategyType){
+        const time = getTimeStamp()
+        let info : StrategyStatus
+        let lastTime : number
+        if(type == StrategyType.Protect){
+            info = this.state.protect
+            lastTime = this.parameter.order_protect_times
+        }
+        else{
+            info = this.state.store
+            lastTime = this.parameter.order_hoard_times
+        }
+        let re : StrategyStatus = {
+            able : false,
+            beginTime: 0
+        }
+        if( !info.able){
+            return re
+        }
+        else{
+            if(time - info.beginTime > lastTime){
+                return re
+            }
+            else{
+                re.able = true
+                re.beginTime = info.beginTime
+                return re
+            }
+        }
+    }
+
+    setStrategyStatus(type: StrategyType, able: boolean){
+        const time = getTimeStamp()
+        let item : StrategyStatus = {
+            able : able,
+            beginTime: 0
+        }
+        if(able){
+            item.beginTime = time
+        }
+        if(type == StrategyType.Protect ){
+            this.state.update(
+                {
+                    protect : item
+                }
+            )
+        }
+        else{
+            this.state.update(
+                {
+                    store: item
+                }
+            )
+        }
+    }
+
+    getStrategyStatusRemainTime(type : StrategyType){
+        const time = getTimeStamp()
+        let info = this.getStrategyStatus(type)
+        let lastTime : number
+        if(type == StrategyType.Protect){
+            lastTime = this.parameter.order_protect_times
+        }
+        else{
+            lastTime = this.parameter.order_hoard_times
+        }
+        let remainTime = 0
+        if(info.able){
+            remainTime = lastTime - (time - info.beginTime)
+        }
+        if(remainTime < 0){
+            throw "strategy status calculate error"
+        }
+        return remainTime
+    }
+
+    updateBoost(){
+        this.boost.setStrategyStatus(StrategyType.Protect, this.getStrategyStatus(StrategyType.Protect).able)
+        this.boost.setStrategyStatus(StrategyType.Store, this.getStrategyStatus(StrategyType.Store).able)
     }
 }

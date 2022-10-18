@@ -64,6 +64,7 @@ export interface IDefenderInfoState extends IState{
   unionId: number
   glory: number
   fortressLevel: number
+  isProtected: boolean
 }
 
 

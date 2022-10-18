@@ -1,6 +1,7 @@
 import { copyObj } from "../../Core/state"
 import { ResouceType } from "../Const"
 import { StateName } from "../Const"
+import { StrategyType } from "./strategy"
 export interface IBoost {
     setProduction( stateType: StateName, typ: ResouceType ,value: number ): void
     getProduction( typ: ResouceType ): number
@@ -12,6 +13,8 @@ export interface IBoost {
         maintain: boolean,
         normalProduction: number
     }
+    setStrategyStatus( type: StrategyType, able: boolean ): void
+    getStrategyStatus(type: StrategyType) : boolean
 }
 
 export class Boost implements IBoost{
@@ -24,6 +27,12 @@ export class Boost implements IBoost{
     private map:{
         buff : number[]
     }
+
+    private strategy:{
+        store: boolean
+        protect: boolean
+    }
+    
 
     private troop: number
     private maintainNeedTroop: number
@@ -46,6 +55,10 @@ export class Boost implements IBoost{
         }
         this.troop = 0
         this.maintainNeedTroop = -1
+        this.strategy = {
+            store : false,
+            protect: false
+        }
     }
     
     setProduction(stateType: StateName, typ: ResouceType, value: number): void {
@@ -96,5 +109,23 @@ export class Boost implements IBoost{
 
     getMapBuff(){
         return this.map.buff.concat()
+    }
+
+    setStrategyStatus( type: StrategyType, able: boolean ){
+        if(type == StrategyType.Protect){
+            this.strategy.protect = able
+        }
+        else{
+            this.strategy.store = able
+        }
+    }
+
+    getStrategyStatus(type: StrategyType) {
+        if(type == StrategyType.Protect){
+            return this.strategy.protect
+        }
+        else{
+            return this.strategy.store 
+        }
     }
 }

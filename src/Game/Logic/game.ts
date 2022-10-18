@@ -21,6 +21,7 @@ import {
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
+import { StrategyType } from './strategy';
 
 
 export interface CityConfig {
@@ -365,6 +366,10 @@ export class City {
   robSilver(amount : number): number{
     let re = 0
     let saveAmount  = this.getSaveSilverAmount();
+    let ifStore = this.boost.getStrategyStatus(StrategyType.Store)
+    if(ifStore){
+      saveAmount = saveAmount * 2
+    }
     if(this.useSilver( Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount))){
       re = Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount)
     }

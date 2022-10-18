@@ -3,7 +3,8 @@ import {
   IState,
   IStateManager,
   IStateChangeWatcher,
-  State
+  State,
+  copyObj
 } from '../../Core/state';
 
 import {
@@ -33,7 +34,7 @@ import {
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -47,6 +48,7 @@ import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
+import { StrategyType } from '../Logic/strategy';
 
 const log = globalThis.log || function () {};
 
@@ -154,6 +156,12 @@ export class TransitionHandler {
         break
       case StateTransition.StrategyBuyMorale:
         re = this.onStrategyBuyMorale(arg as StateTransitionArgs)
+        break
+      case StateTransition.StrategyBuyProtect:
+        re = this.onStrategyBuyProtect(arg as StateTransitionArgs)
+        break
+      case StateTransition.StrategyBuyStore:
+        re = this.onStrategyBuyStore(arg as StateTransitionArgs)
         break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
@@ -322,7 +330,16 @@ export class TransitionHandler {
 
   onBattle(args: BattleArgs):{}{
     const logic1: LogicEssential = this.genLogic(args.from)
+    if( logic1.strategy.getStrategyStatus(StrategyType.Protect).able){
+      logic1.strategy.setStrategyStatus(StrategyType.Protect, false)
+    }
     const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""))
+    if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able){
+      return {
+        result: false,
+        error: 'cant-battle-player-be-protected'
+      }
+    }
     if(logic1.city.state.id == logic2.city.state.id){
       return{
         result: false,
@@ -393,6 +410,9 @@ export class TransitionHandler {
 
   onAttackBlock(args: AttackBlockArgs){
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
+      logic.strategy.setStrategyStatus(StrategyType.Protect, false)
+    }
     if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
       return{
         result: false,
@@ -472,6 +492,9 @@ export class TransitionHandler {
 
   onDefenseBlock(args: AttackBlockArgs){
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
+      logic.strategy.setStrategyStatus(StrategyType.Protect, false)
+    }
     if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
       return {
         result: false,
@@ -649,6 +672,26 @@ export class TransitionHandler {
   onStrategyBuyMorale(args: StateTransitionArgs){
     const logic: LogicEssential = this.genLogic(args.from)
     return logic.strategy.buyMorale()
+  }
+
+  onStrategyBuyProtect(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    let re = logic.strategy.buyProtect()
+    let defenseList: GeneralDefenseBlock[] = copyObj(logic.general.state.defenseBlockList) as GeneralDefenseBlock[]
+    for(let item of defenseList){
+      this.onCancelDefenseBlock({
+        from: args.from,
+        x_id: item.x_id,
+        y_id: item.y_id,
+        generalId: item.generalId
+      })
+    }
+    return re
+  }
+
+  onStrategyBuyStore(args: StateTransitionArgs ){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.strategy.buyStore()
   }
 
 }

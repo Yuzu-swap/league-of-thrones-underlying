@@ -48,7 +48,9 @@ export var InitState = {
         silver: 0,
         glory: 0,
         defenseMaxTroop: 0,
-        unionId: 1
+        unionId: 1,
+        fortressLevel: 1,
+        isProtected: false
     },
     [StateName.MapGlobalInfo]:{
         campInfo:[],
