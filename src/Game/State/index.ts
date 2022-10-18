@@ -138,10 +138,17 @@ export interface IBlockState extends IState{
   lastAttachTime: number
 }
 
+export interface StrategyStatus{
+  able: boolean
+  beginTime: number
+}
+
 export interface IStrategyState extends IState{
   id: string 
   strategyPoint: ResouceInfo
   buyTimes: ResouceInfo
+  store: StrategyStatus
+  protect: StrategyStatus
 }
 
 export * from  "./initstate"

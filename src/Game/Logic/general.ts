@@ -929,7 +929,7 @@ export class General{
         else{
             const time = getTimeStamp()
             let reduceNumber = Math.floor((time - this.state.morale.lastUpdate) / moraleReduceGap)
-            if(reduceNumber > 0){
+            if(reduceNumber < 0){
                 throw "time error when reduce morale"
             }
             return Math.max(normalMorale, morale - reduceNumber)

@@ -86,6 +86,14 @@ export var InitState = {
         buyTimes:{
             lastUpdate: -1,
             value: 0,
+        },
+        store:{
+            able: false,
+            beginTime: 0
+        },
+        protect:{
+            able: false,
+            beginTime: 0
         }
     }
 };
