@@ -50,9 +50,8 @@ export class WebSocketMediator
         this.ctx = msg;
 
         console.log('client receive msg is ', JSON.stringify(msg));
-        if (msg.SeqNum != undefined) {
+        if (msg.SeqNum ) {
           //context call
-
           if (this.respCallbacks[msg.SeqNum]) {
             if (msg.Type === MessageType.Transition) {
               this.respCallbacks[msg.SeqNum]( {...this.respContext[msg.SeqNum],result:msg.Data} );
