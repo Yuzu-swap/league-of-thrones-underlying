@@ -28,7 +28,7 @@ export class WebSocketMediator
   transitionHandler: TransitionHandler;
   constructor(url: string) {
     super();
-    this.seqNum = 0;
+    this.seqNum = 1;
     this.client = new w3cwebsocket(url);
     this.respCallbacks = {};
     this.respContext ={}
