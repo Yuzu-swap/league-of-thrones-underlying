@@ -6,7 +6,7 @@ import {
   IStateIdentity,
   State
 } from '../../Core/state';
-import { StateTransition } from '../Const';
+import { ChatMessage, StateTransition } from '../Const';
 import { ITransContext, ITransResult } from './mediator';
 import { TransitionHandler } from './transition';
 import { MessageS2C, MessageType, MessageC2S } from './Websocket/protocol';
@@ -72,10 +72,18 @@ export class WebSocketMediator
             delete this.respContext[msg.SeqNum];
           }
         } else {
-          // state notify
-          for (var sid in msg.States) {
-            const stateObj = msg.States[sid];
-            this._updateState(sid, stateObj, true);
+          if (msg.Type === MessageType.Transition) {
+            // state notify
+            for (var sid in msg.States) {
+              const stateObj = msg.States[sid];
+              this._updateState(sid, stateObj, true);
+            }
+          } else if (msg.Type === MessageType.Chat)  {
+            var msgList: ChatMessage[] = msg.Data as ChatMessage[]
+            for (var chatMsg of msg.Data){
+              //TODO:handle chant msg
+              //this.onReceiveChat(chatMsg)
+            }
           }
         }
       };

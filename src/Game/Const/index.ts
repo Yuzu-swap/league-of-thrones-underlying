@@ -158,3 +158,27 @@ export interface RecoverMoraleArgs extends StateTransitionArgs{
 export interface BuyStrategyPointArgs extends StateTransitionArgs{
 	amount: number
 }
+
+
+export enum ChatType {
+	ChatTypeText                  = 1,
+	ChatTypePos                   = 2,
+	ChatTypeSystem_OccupiedTile   = 3,
+	ChatTypeSystem_OccupiedCenter  =4,
+}
+
+export enum ChatChannel {
+	ChatChannel_WORLD  = 1,
+	ChatChannel_Camp   = 2,
+}
+
+
+export interface ChatMessage {
+	id: string
+	type: ChatType
+	channel: ChatChannel
+	content: string
+	sender: string
+	senderCamp:number
+	ts :number
+}
