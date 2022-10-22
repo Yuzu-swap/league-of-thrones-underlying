@@ -85,7 +85,7 @@ export interface ICityComponent extends IComponent {
   
   addTestResource(callback: (res: ITransResult) => void): void
 
-  onReceiveChat( callback: ( chatData: ChatMessage ) => void ) : void
+  onReceiveChat( channel: ChatChannel, callback: ( chatData: ChatMessage ) => void ) : void
 
   chat(data: {
     channel: ChatChannel
@@ -381,7 +381,7 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
 
-  onReceiveChat(callback: (chatData: ChatMessage) => void): void {
+  onReceiveChat(channel: ChatChannel, callback: (chatData: ChatMessage) => void): void {
     
   }
 
