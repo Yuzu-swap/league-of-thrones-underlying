@@ -90,7 +90,7 @@ export interface ICityComponent extends IComponent {
   chat(data: {
     channel: ChatChannel
 	  content: string
-  }) : Promise<void>
+  }, callback: ( result: any ) => void) : Promise<void>
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -385,7 +385,7 @@ export class CityComponent implements ICityComponent {
     
   }
 
-  async chat(data: { channel: ChatChannel; content: string }): Promise<void> {
+  async chat(data: { channel: ChatChannel; content: string }, callback: ( result: any ) => void): Promise<void> {
     
   }
 }
