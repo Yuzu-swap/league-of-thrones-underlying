@@ -1,7 +1,7 @@
 import { BattleRecord, BattleResult, BattleType, General, GeneralAbility, RecoverMoraleType } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
-import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
+import { StateTransition, CityFacility, ResouceType, StateName, ChatMessage, ChatChannel } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
@@ -84,6 +84,13 @@ export interface ICityComponent extends IComponent {
 
   
   addTestResource(callback: (res: ITransResult) => void): void
+
+  onReceiveChat( callback: ( chatData: ChatMessage ) => void ) : void
+
+  chat(data: {
+    channel: ChatChannel
+	  content: string
+  }) : Promise<void>
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -372,7 +379,14 @@ export class CityComponent implements ICityComponent {
     this.mediator.sendTransaction(StateTransition.AddTestResource, {
       from: Throne.instance().username
     }, callback)
+  }
 
+  onReceiveChat(callback: (chatData: ChatMessage) => void): void {
+    
+  }
+
+  async chat(data: { channel: ChatChannel; content: string }): Promise<void> {
+    
   }
 }
 
