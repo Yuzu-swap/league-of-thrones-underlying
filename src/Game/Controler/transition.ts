@@ -699,6 +699,12 @@ export class TransitionHandler {
 
   onMiningBlock(args: AttackBlockArgs){
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
+      return {
+        result: false,
+        error: 'unionId-error'
+      }
+    }
     if(!logic.map.miningable(args.x_id, args.y_id)){
       return {
         result: false,
