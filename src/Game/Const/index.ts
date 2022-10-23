@@ -63,7 +63,8 @@ export enum StateTransition {
 	StrategyBuyTroop,
 	StrategyBuyMorale,
 	StrategyBuyProtect,
-	StrategyBuyStore
+	StrategyBuyStore,
+	MiningBlock,
 }
 
 export interface StateTransitionArgs {

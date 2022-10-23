@@ -33,6 +33,7 @@ import { getTimeStamp, setTimeOffset } from "../Utils";
 export interface IMapComponent extends IComponent{
     attackBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     defenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
+    miningBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     cancelDefenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     getDefenseList(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
@@ -139,6 +140,15 @@ export class MapComponent implements IMapComponent{
         }, callback)
     }
 
+    miningBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void {
+        this.mediator.sendTransaction(StateTransition.MiningBlock, {
+            from: Throne.instance().username,
+            x_id: xId,
+            y_id: yId,
+            generalId: generalId
+        }, callback)
+    }
+
     async getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void> {
         await this.queryBlockStates(xId, yId)
         let row = copyObj(this.map.mapConfig.get(xId, yId))
@@ -155,7 +165,9 @@ export class MapComponent implements IMapComponent{
         }
         row['defense_list_len'] = defenseListLength
         row['protect_time'] = this.map.getProtectRemainTime(xId, yId)
-        row['belong'] = copyObj(this.map.getBlockState(xId, yId).belong)
+        let blockState = this.map.getBlockState(xId, yId)
+        row['belong'] = copyObj(blockState.belong)
+        row['remainSilver'] = blockState.remainSilver
         callback(row)
     }
 

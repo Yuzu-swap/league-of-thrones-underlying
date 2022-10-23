@@ -163,6 +163,9 @@ export class TransitionHandler {
       case StateTransition.StrategyBuyStore:
         re = this.onStrategyBuyStore(arg as StateTransitionArgs)
         break
+      case StateTransition.MiningBlock:
+        re = this.onMiningBlock(arg as AttackBlockArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -692,6 +695,24 @@ export class TransitionHandler {
   onStrategyBuyStore(args: StateTransitionArgs ){
     const logic: LogicEssential = this.genLogic(args.from)
     return logic.strategy.buyStore()
+  }
+
+  onMiningBlock(args: AttackBlockArgs){
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    if(!logic.map.miningable(args.x_id, args.y_id)){
+      return {
+        result: false,
+        error: "remainSilver-too-less"
+      }
+    }
+    let generalRe = logic.general.miningBlock(args.generalId)
+    if(!generalRe.result){
+      return generalRe
+    } 
+    logic.map.miningBlock(args.x_id, args.y_id)
+    return {
+      result: true
+    }
   }
 
 }

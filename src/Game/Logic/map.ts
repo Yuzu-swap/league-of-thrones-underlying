@@ -389,6 +389,30 @@ export class Map{
         }
     }
 
+    miningable(x_id: number, y_id: number ){
+        let blockState = this.getBlockState(x_id, y_id)
+        let row = this.getMapGDS(x_id, y_id)
+        if(row.gather_silver_speed <= 0){
+            return false
+        }
+        if(blockState.remainSilver >= row.gather_silver_speed){
+            return true
+        }
+        return false
+    }
+
+    miningBlock(x_id: number, y_id: number){
+        let blockState = this.getBlockState(x_id, y_id)
+        let row = this.getMapGDS(x_id, y_id)
+        if(this.miningable(x_id, y_id)){
+            blockState.update(
+                {
+                    'remainSilver' : blockState.remainSilver - row.gather_silver_speed
+                }
+            )
+        }
+    }
+
     getDurability( x_id: number, y_id: number){
         let time = parseInt(new Date().getTime() / 1000 + '')
         let blockState = this.getBlockState(x_id, y_id)

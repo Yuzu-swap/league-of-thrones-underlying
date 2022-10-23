@@ -230,16 +230,16 @@ function example() {
         general.onStateUpdate((state)=>{
           console.log("general",state)
         })
+        general.ableGeneral(1, (result)=>{
+          console.log("general able ", result)
+        })
         general.ableGeneral(2, (result)=>{
           console.log("general able ", result)
         })
         general.ableGeneral(3, (result)=>{
           console.log("general able ", result)
         })
-        general.ableGeneral(1, (result)=>{
-          console.log("general able ", result)
-        })
-        for(let i = 0; i < 1 ; i ++){
+        for(let i = 0; i < 100 ; i ++){
           general.upgradeGeneral(1,  (result)=>{
             console.log("general up ", result)
           })
@@ -248,7 +248,7 @@ function example() {
         let num1= general.getSkillUpgradeNeed(2, 1, 1);
         console.log("value", general.getGeneralQuaValue(1, 1))
         console.log("general status ", general.getAbleStatus())
-        for(let i = 0; i < 1 ; i ++){
+        for(let i = 0; i < 100 ; i ++){
           general.upgradeGeneralSkill(1 , 0, 
             (result)=>{
               console.log("upgrade skill", result)
@@ -343,7 +343,7 @@ function example() {
           )
           //console.log(map.getBlocksBelongInfo())
             
-          map.attackBlock( 9, 9, 2,
+          map.attackBlock( 9, 9, 1,
             (result)=>{
               console.log('map----attackBlock',result)
               map.getBlockInfo(9, 9, (result)=>{
@@ -351,7 +351,7 @@ function example() {
               })
             }
           )
-          map.attackBlock( 9, 9, 2,
+          map.attackBlock( 9, 9, 1,
             (result)=>{
               console.log('map----attackBlock',result)
               map.getBlockInfo(9, 9, (result)=>{
@@ -359,7 +359,7 @@ function example() {
               })
             }
           )
-          map.attackBlock( 9, 9, 2,
+          map.attackBlock( 9, 9, 1,
             (result)=>{
               console.log('map----attackBlock',result)
               map.getBlockInfo(9, 9, (result)=>{
@@ -367,9 +367,12 @@ function example() {
               })
             }
           )
-          map.attackBlock( 9, 9, 2,
+          map.attackBlock( 9, 9, 1, ()=>{})
+          map.attackBlock( 9, 9, 1, ()=>{})
+          map.attackBlock( 9, 9, 1,
             (result)=>{
               console.log('map----attackBlock',result)
+              map.miningBlock(9, 9, 1,()=>{})
               map.getBlockInfo(9, 9, (result)=>{
                 console.log(result)
               })

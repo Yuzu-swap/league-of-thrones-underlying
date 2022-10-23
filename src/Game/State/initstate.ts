@@ -184,6 +184,7 @@ export function GetMapState(){
                 durability: row['durability'],
                 defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
                 lastAttachTime: -1,
+                remainSilver: row['silver_total_number']
             }
         }
         for(let key in gInitState){

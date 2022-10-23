@@ -813,6 +813,25 @@ export class General{
         }
     }
 
+    miningBlock(generalId: number){
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                error: 'generalid-error'
+            }
+        }
+        if(!(this.useGeneralStamina(generalId, 1))){
+            return{
+                result: false,
+                error: 'general-stamina-error'
+            }
+        }
+        return {
+            result: true
+        }
+    }
+
     cancelDefenseBlock(generalId: number, remainTroop: number){
         let defenseList = this.state.defenseBlockList
         for(let i = 0; i< defenseList.length; i++){
