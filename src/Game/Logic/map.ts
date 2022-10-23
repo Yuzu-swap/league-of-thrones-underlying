@@ -411,6 +411,7 @@ export class Map{
                 }
             )
         }
+        return row.gather_silver_speed
     }
 
     getDurability( x_id: number, y_id: number){

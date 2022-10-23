@@ -709,9 +709,10 @@ export class TransitionHandler {
     if(!generalRe.result){
       return generalRe
     } 
-    logic.map.miningBlock(args.x_id, args.y_id)
+    let num = logic.map.miningBlock(args.x_id, args.y_id)
     return {
-      result: true
+      result: true,
+      getSilver: num
     }
   }
 
