@@ -43,7 +43,7 @@ export class StrategyComponent implements IStrategyComponent{
 
     onStateUpdate(callback: IStatetWithTransContextCallback): void {
         this.mediator.onReceiveState(
-            {id : StateName.Strategy}
+            {id : `${StateName.Strategy}:${Throne.instance().username}`}
             ,
             callback
         )
