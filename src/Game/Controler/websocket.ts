@@ -57,7 +57,7 @@ export class WebSocketMediator
               this.respCallbacks[msg.SeqNum]( {...this.respContext[msg.SeqNum],result:msg.Data} );
               for (var sid in msg.States) {
                 const stateObj = msg.States[sid];
-                this._updateState(sid, stateObj, false);
+                this._updateState(sid, stateObj, true);
               }
             } else if (msg.Type == MessageType.StateQuery) {
               for (var sid in msg.States) {

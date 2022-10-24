@@ -389,7 +389,7 @@ export class CityComponent implements ICityComponent {
   }
 
   onReceiveChat(channel: ChatChannel, callback: (chatData: ChatMessage) => void): void {
-    
+    this.mediator.onReceiveChat(channel, callback)
   }
 
   async chat(data: { channel: ChatChannel; content: string }, callback: ( result: any ) => void): Promise<void> {

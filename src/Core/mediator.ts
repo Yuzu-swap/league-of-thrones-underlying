@@ -1,3 +1,4 @@
+import { ChatChannel, ChatMessage } from "../Game/Const"
 import { IStateIdentity, IState } from "./state"
 
 
@@ -12,14 +13,20 @@ export interface IStateMediator<TransactionIDType, ContextType> {
 	query( typ: string, args:{}):Promise<any>
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
+	onReceiveChat( channel: ChatChannel, callback: (data:ChatMessage)=> void ): void
 	setWsCloseCallbacl(callback : () => void): void
 }
 
 
 export class BaseMediator<TransactionIDType, ContextType> implements IStateMediator<TransactionIDType, ContextType>{
 	listeners: { [key: string]: StateCallback<ContextType>[] }
+	chatListener: { [key in ChatChannel] : ((data:ChatMessage)=> void)[] }
 	constructor() {
 		this.listeners = {}
+		this.chatListener = {
+			[ChatChannel.ChatChannel_Camp] : [],
+			[ChatChannel.ChatChannel_WORLD] : []
+		}
 	}
 
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void {
@@ -28,6 +35,11 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 		}
 		this.listeners[sid.id].push(callback)
 	}
+
+	onReceiveChat(channel: ChatChannel, callback: (data: ChatMessage) => void) {
+		this.chatListener[channel].push(callback)
+	}
+
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void {
 		throw "not emplement"
 	}
