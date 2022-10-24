@@ -49,8 +49,9 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
       {
         id: strategyStateId,
         ...InitState[StateName.Strategy]
-      }
-    )
+      },
+      wather
+    ).unsderlying()
   };
 }
 

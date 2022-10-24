@@ -26,14 +26,14 @@ export class StrategyComponent implements IStrategyComponent{
     strategy: Strategy;
     mediator: IStateMediator<StateTransition, ITransContext>
     constructor(mediator: IStateMediator<StateTransition, ITransContext>) {
-        this.type = ComponentType.General
+        this.type = ComponentType.Strategy
         this.mediator = mediator
     }
 
     setStrategy(strategy: Strategy){
         this.strategy = strategy
         this.mediator.onReceiveState(
-            {id:  this.strategy.state.id}
+            {id: this.strategy.state.id}
             ,
             ()=>{
               this.strategy.updateBoost()
@@ -43,7 +43,7 @@ export class StrategyComponent implements IStrategyComponent{
 
     onStateUpdate(callback: IStatetWithTransContextCallback): void {
         this.mediator.onReceiveState(
-            {id : `${StateName.Strategy}:${Throne.instance().username}`}
+            {id: this.strategy.state.id}
             ,
             callback
         )

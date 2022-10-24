@@ -437,6 +437,9 @@ function example() {
       Throne.instance().initComponent(
         ComponentType.Strategy,
         (strategy : StrategyComponent)=>{
+          strategy.onStateUpdate(()=>{
+            console.log(strategy.getStrategyPointInfo())
+          })
           strategy.buySilver((re)=>console.log(re))
           strategy.buyMorale((re)=>console.log(re))
           strategy.buyTroop((re)=>console.log(re))
