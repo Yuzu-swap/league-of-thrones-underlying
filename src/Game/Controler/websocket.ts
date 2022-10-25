@@ -6,7 +6,7 @@ import {
   IStateIdentity,
   State
 } from '../../Core/state';
-import { ChatMessage, StateTransition } from '../Const';
+import { ChatMessage, ChatTransId, StateTransition } from '../Const';
 import { ITransContext, ITransResult } from './mediator';
 import { TransitionHandler } from './transition';
 import { MessageS2C, MessageType, MessageC2S } from './Websocket/protocol';
@@ -80,9 +80,9 @@ export class WebSocketMediator
             }
           } else if (msg.Type === MessageType.Chat)  {
             var msgList: ChatMessage[] = msg.Data as ChatMessage[]
-            for (var chatMsg of msg.Data){
+            for (var chatMsg of msgList){
               //TODO:handle chant msg
-              //this.onReceiveChat(chatMsg)
+              this.onReceiveChat(chatMsg)
             }
           }
         }
@@ -126,6 +126,37 @@ export class WebSocketMediator
     };
 
     console.log('send msg is ', JSON.stringify(msg));
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    });
+  }
+
+  chat(data: ChatMessage): Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: MessageType.Chat,
+      TransID: ChatTransId.SendChat,
+      Data: data,
+    };
+
+    console.log('chat msg is ', JSON.stringify(msg));
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    });
+  }
+
+  chatHistory(data: {}): Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: MessageType.Chat,
+      TransID: ChatTransId.HistoryData,
+      Data: data,
+    };
+    
     this.client.send(JSON.stringify(msg));
     return new Promise((res, rej) => {
       this.respCallbacks[seqNum] = res;

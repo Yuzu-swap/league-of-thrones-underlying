@@ -11,9 +11,12 @@ export type StateCallback<ContextType> = (state: IContextState<ContextType>) => 
 export interface IStateMediator<TransactionIDType, ContextType> {
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void
 	query( typ: string, args:{}):Promise<any>
+	chat( data: ChatMessage ): Promise<any>
+	chatHistory( data: {} ): Promise<any>
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType
 	onReceiveState(sid: IStateIdentity, callback: StateCallback<ContextType>): void
-	onReceiveChat( channel: ChatChannel, callback: (data:ChatMessage)=> void ): void
+	onReceiveChat(data:ChatMessage): void
+	listenChat( channel: ChatChannel, callback: (data:ChatMessage)=> void ): void
 	setWsCloseCallbacl(callback : () => void): void
 }
 
@@ -36,14 +39,30 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 		this.listeners[sid.id].push(callback)
 	}
 
-	onReceiveChat(channel: ChatChannel, callback: (data: ChatMessage) => void) {
+	onReceiveChat(data: ChatMessage): void {
+		let callbacklist = this.chatListener[data.channel]
+		for( let callback of callbacklist){
+			callback(data)
+		}
+	}
+
+	listenChat(channel: ChatChannel, callback: (data: ChatMessage) => void) {
 		this.chatListener[channel].push(callback)
 	}
+
 
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void {
 		throw "not emplement"
 	}
 	query( typ: string, args:{}):Promise<any> {
+		throw "not emplement"
+	}
+
+	chat(data: ChatMessage): Promise<any> {
+		throw "not emplement"
+	}
+
+	chatHistory(data: {}): Promise<any> {
 		throw "not emplement"
 	}
 

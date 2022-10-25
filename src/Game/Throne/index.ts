@@ -1,7 +1,7 @@
 import { BattleRecord, BattleResult, BattleType, General, GeneralAbility, RecoverMoraleType } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
 import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
-import { StateTransition, CityFacility, ResouceType, StateName, ChatMessage, ChatChannel } from '../Const'
+import { StateTransition, CityFacility, ResouceType, StateName, ChatMessage, ChatChannel, ChatType, ChatTransId } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
@@ -94,7 +94,6 @@ export interface ICityComponent extends IComponent {
 
   getHistoryChatData(
     data: {
-      channel: ChatChannel
       unionId: number
     }, callback: ( result: ChatMessage[] ) => void
   ): Promise<void>
@@ -389,15 +388,33 @@ export class CityComponent implements ICityComponent {
   }
 
   onReceiveChat(channel: ChatChannel, callback: (chatData: ChatMessage) => void): void {
-    this.mediator.onReceiveChat(channel, callback)
+    this.mediator.listenChat(channel, callback)
   }
 
   async chat(data: { channel: ChatChannel; content: string }, callback: ( result: any ) => void): Promise<void> {
-    
+    let msg:ChatMessage = {
+      id:  '',
+      type: ChatType.ChatTypeText,
+      channel: data.channel,
+      content: data.content,
+      sender: Throne.instance().username,
+      senderCamp: Throne.instance().logicEssential.general.state.unionId,
+      ts: getTimeStamp()
+    }
+    let re = await this.mediator.chat(msg)
+    callback(re)
   }
 
-  async getHistoryChatData(data: { channel: ChatChannel; unionId: number }, callback: (result: ChatMessage[]) => void): Promise<void> {
-    
+  async getHistoryChatData(data: { unionId: number }, callback: (result: ChatMessage[]) => void): Promise<void> {
+    let queryData = {}
+    if(!data.unionId){
+      queryData['camp'] = data.unionId = 1
+    }
+    else{
+      queryData['camp'] = data.unionId
+    }
+    let re = await this.mediator.chatHistory(queryData)
+    callback(re)
   }
 }
 

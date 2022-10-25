@@ -173,6 +173,10 @@ export enum ChatChannel {
 	ChatChannel_Camp   = 2,
 }
 
+export enum ChatTransId {
+	SendChat = 'send',
+	HistoryData = 'query'
+}
 
 export interface ChatMessage {
 	id: string
