@@ -28,6 +28,15 @@ async function testws(uname) {
         console.log('upgrade facility result is ', result);
       }
     );
+    // ws.sendTransaction(
+    //   StateTransition.InitGlobalStates,
+    //   {
+    //     from: uname,
+    //   },
+    //   (result) => {
+    //     console.log(' Init global ', result);
+    //   }
+    // );
 
     const cities = (await ws.query(
       `${StateName.City}`,

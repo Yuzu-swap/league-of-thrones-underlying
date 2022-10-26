@@ -65,6 +65,8 @@ export enum StateTransition {
 	StrategyBuyProtect,
 	StrategyBuyStore,
 	MiningBlock,
+	InitUserStates,
+	InitGlobalStates
 }
 
 export interface StateTransitionArgs {
@@ -160,6 +162,10 @@ export interface BuyStrategyPointArgs extends StateTransitionArgs{
 	amount: number
 }
 
+export interface InitUserStatesArgs extends StateTransitionArgs{
+	username: string
+}
+
 
 export enum ChatType {
 	ChatTypeText                  = 1,
@@ -185,5 +191,6 @@ export interface ChatMessage {
 	content: string
 	sender: string
 	senderCamp:number
+	iconId: number
 	ts :number
 }

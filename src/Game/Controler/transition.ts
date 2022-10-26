@@ -30,11 +30,12 @@ import {
   SetIconIdArgs,
   RechargeArgs,
   RecoverMoraleArgs,
-  BuyStrategyPointArgs
+  BuyStrategyPointArgs,
+  InitUserStatesArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { GeneralDefenseBlock, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, GetInitState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -166,6 +167,9 @@ export class TransitionHandler {
       case StateTransition.MiningBlock:
         re = this.onMiningBlock(arg as AttackBlockArgs)
         break
+      case StateTransition.InitUserStates:
+        re = this.onInitUserStates(arg as InitUserStatesArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -178,6 +182,10 @@ export class TransitionHandler {
       case StateTransition.Recharge:
         re = this.onRecharge(arg as RechargeArgs)
         return re
+      case StateTransition.InitGlobalStates:
+        re = this.onInitGlobalStates(arg as StateTransitionArgs)
+        return re
+      
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
@@ -719,6 +727,53 @@ export class TransitionHandler {
     return {
       result: true,
       getSilver: num
+    }
+  }
+
+  onInitUserStates(args : InitUserStatesArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    let initState = GetInitState()
+    logic.city.state.update(
+      initState[StateName.City]
+    )
+    logic.general.state.update(
+      initState[StateName.General]
+    )
+    logic.strategy.state.update(
+      initState[StateName.Strategy]
+    )
+    return {
+      result: true
+    }
+  }
+
+  onInitGlobalStates(args: StateTransitionArgs){
+    let initState = GetInitState()
+    const mapGlobalState = this.stateManger.get(
+      {
+        id: `${StateName.MapGlobalInfo}`
+      }
+    )
+    const rewardGlobalState = this.stateManger.get(
+      {
+        id: `${StateName.RewardGloablState}`
+      }
+    )
+    mapGlobalState.update(
+      initState[StateName.MapGlobalInfo]
+    )
+    rewardGlobalState.update(
+      initState[StateName.RewardGloablState]
+    )
+    for(let block in mapGDS){
+      let key = `${StateName.BlockInfo}:${block}`
+      let blockState = this.stateManger.get( {id : key})
+      blockState.update(
+        initState[key]
+      )
+    }
+    return {
+      result: true
     }
   }
 

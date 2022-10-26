@@ -399,6 +399,7 @@ export class CityComponent implements ICityComponent {
       content: data.content,
       sender: Throne.instance().username,
       senderCamp: Throne.instance().logicEssential.general.state.unionId,
+      iconId: Throne.instance().logicEssential.general.state.iconId,
       ts: getTimeStamp()
     }
     let re = await this.mediator.chat(msg)
