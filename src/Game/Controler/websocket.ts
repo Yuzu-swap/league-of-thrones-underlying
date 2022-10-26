@@ -65,9 +65,9 @@ export class WebSocketMediator
                 this._updateState(sid, stateObj, false);
               }
               this.respCallbacks[msg.SeqNum](this._getState(sid));
-            } else if (msg.Type == MessageType.Query) {
+            } else if (msg.Type == MessageType.Query || msg.Type == MessageType.Chat) {
               this.respCallbacks[msg.SeqNum](msg.Data);
-            }
+            } 
             delete this.respCallbacks[msg.SeqNum];
             delete this.respContext[msg.SeqNum];
           }
@@ -156,7 +156,7 @@ export class WebSocketMediator
       TransID: ChatTransId.HistoryData,
       Data: data,
     };
-    
+
     this.client.send(JSON.stringify(msg));
     return new Promise((res, rej) => {
       this.respCallbacks[seqNum] = res;
