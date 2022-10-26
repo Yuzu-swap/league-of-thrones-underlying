@@ -731,7 +731,7 @@ export class TransitionHandler {
   }
 
   onInitUserStates(args : InitUserStatesArgs){
-    const logic: LogicEssential = this.genLogic(args.from)
+    const logic: LogicEssential = this.genLogic(args.username)
     let initState = GetInitState()
     logic.city.state.update(
       initState[StateName.City]
@@ -742,6 +742,7 @@ export class TransitionHandler {
     logic.strategy.state.update(
       initState[StateName.Strategy]
     )
+    logic.general.updateDefenseInfo();
     return {
       result: true
     }
