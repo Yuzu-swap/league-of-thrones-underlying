@@ -429,7 +429,7 @@ export class CityComponent implements ICityComponent {
   }
 
   getAbleActivityInfo(): any[] {
-    let infolist = this.activity.getAbleActivities()
+    let infolist = this.activity.getBeforeActivities()
     let re = []
     for(let item of infolist){
       let rank = this.activity.getActivityRank(item.activityId, parseStateId(this.cityStateId.id).username, this.city.getActivityData(item.activityId))

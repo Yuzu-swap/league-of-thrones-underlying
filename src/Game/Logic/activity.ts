@@ -79,6 +79,19 @@ export class Activity{
         return re
     }
 
+    getBeforeActivities(){
+        let activities = this.getActivityConfig()
+        let re : ActivityInfo[] = []
+        const time = getTimeStamp()
+        for(let i = 0; i < activities.length; i++){
+            const info = this.getActivityInfo(i)
+            if(time > info.startTime){
+                re.push(this.getActivityInfo(i))
+            }
+        }
+        return re
+    }
+
     addDataToActivity(id: number, username: string, oldValue: number , newValue: number){
         if(!this.checkActivityAble(id)){
             return {
