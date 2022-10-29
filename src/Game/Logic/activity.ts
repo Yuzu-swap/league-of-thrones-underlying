@@ -152,7 +152,7 @@ export class Activity{
         if(rank != -1){
             rankReward = info.totalReward * value / this.state.sumValue[id]
         }
-        return {rank, rankReward }
+        return {rank, rankReward, value}
     }
 
     donateSilver(id: number, amount: number){
