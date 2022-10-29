@@ -11,7 +11,7 @@ import {
   State
 } from '../../Core/state';
 import { BattleRecordType, BattleTransRecord, TransitionEventType, TransitionHandler } from './transition';
-import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState, IStrategyState } from '../State';
+import { ICityState, GetInitState, IGeneralState, IMapGlobalState, GetMapState, IBlockState, ISeasonConfigState, IStrategyState, IActivityState } from '../State';
 import { GenerateMemoryLoadStateFunction } from './statemanger';
 import {
   BaseMessage,
@@ -80,8 +80,16 @@ function getGlobleState(wather: IStateChangeWatcher):{
         {
           id: [StateName.RewardGloablState],
           ...InitState[StateName.RewardGloablState]
-        }
-      )
+        },
+        wather
+      ).unsderlying(),
+      [StateName.Activity] : new State<IActivityState>(
+        {
+          id: [StateName.Activity],
+          ...InitState[StateName.Activity]
+        },
+        wather
+      ).unsderlying()
     }
   )
   const mapState = GetMapState()

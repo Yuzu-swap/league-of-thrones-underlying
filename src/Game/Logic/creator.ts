@@ -1,20 +1,23 @@
 import { General, GeneralConfig } from "./general";
 import { City, CityConfig } from "./game";
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from "../State";
+import { IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from "../State";
 import { Boost, IBoost } from "./boost";
 import { ResouceType, StateName } from "../Const";
 import { Map } from "./map";
 import { Strategy } from "./strategy";
+import { Activity } from "./activity";
 
 export interface LogicEssential {
 	city: City
 	general: General
 	map: Map
+	activity: Activity
 	strategy: Strategy
 	boost: IBoost
 }
 export interface GlobalLogicEssential{
 	map: Map
+	activity: Activity
 }
 export interface StateEssential {
 	city: ICityState
@@ -22,6 +25,7 @@ export interface StateEssential {
 	mapGlobal: IMapGlobalState
 	seasonState: ISeasonConfigState
 	rewardGlobalState: IRewardGlobalState
+	activityState : IActivityState
 	blocks: IBlockState[]
 	strategy: IStrategyState
 }
@@ -34,6 +38,7 @@ export interface GlobalStateEssential{
 	mapGlobal: IMapGlobalState
 	seasonState: ISeasonConfigState
 	rewardGlobalState: IRewardGlobalState
+	activityState : IActivityState
 	blocks: IBlockState[]
 }
 
@@ -44,6 +49,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	var general: General = new General(states.general, city)
 	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState)
 	var strategy: Strategy = new Strategy(states.strategy)
+	var activity: Activity = new Activity(states.activityState)
 	city.setBoost(boost)
 	general.setBoost(boost)
 	map.setGeneral(general)
@@ -57,15 +63,18 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	boost.setProduction(StateName.General, ResouceType.Troop, general.getGeneralProduction(ResouceType.Troop))
 	strategy.updateBoost()
 	boost.setMapBuff(map.getBuffList(states.general.unionId))
+	activity.setCity(city)
+	activity.setBoost(boost)
 	//city.SetBoost(boost)
 	//general.SetBoost(boost)
 	//boost.recalulate() 
 
-	return { city, general, map, strategy ,boost }
+	return { city, general, map, strategy ,boost, activity }
 }
 
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
 	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState, gStates.rewardGlobalState)
+	var activity: Activity = new Activity(gStates.activityState)
 	map.loadBlockStates(gStates.blocks)
-	return { map }
+	return { map , activity}
 }

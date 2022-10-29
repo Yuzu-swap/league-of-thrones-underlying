@@ -473,6 +473,40 @@ export class City {
     }
   }
 
+  getActivityData(activityId: number){
+    for(let item of this.state.userActivity){
+      if(item.id == activityId){
+        return item.value
+      }
+    }
+    return -1
+  }
+
+  setActivityData(activityId: number, value: number){
+    let haveSet = false
+    for(let item of this.state.userActivity){
+      if(item.id == activityId){
+        item.value = value
+        haveSet = true
+        break
+      }
+    }
+    if(!haveSet){
+      let list = this.state.userActivity
+      list.push(
+        {
+          id: activityId,
+          value: value
+        }
+      )
+      this.state.update(
+        {
+          userActivity : list
+        }
+      )
+    }
+  }
+
   showAll() {
     //facilities
     console.log('@@@Dump all facilities');

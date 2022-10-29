@@ -15,10 +15,10 @@
                 "count": 5000
             }
         ],
-        "season_reservation":"2022_9_15_8",
-        "season_ready":"2022_9_19_8",
-        "season_open":"2022_9_19_10",
-        "season_end":"2022_9_21_22",
+        "season_reservation":"2022_10_27_8",
+        "season_ready":"2022_10_27_8",
+        "season_open":"2022_10_27_10",
+        "season_end":"2022_11_27_22",
         "rank_reward":[
             {
                 "type": 1,
@@ -63,7 +63,57 @@
                 "count": 100
             }
         ],
-        "id": 1
+        "id": 1,
+        "dailyactivity":[
+            {
+                "day":"2022_10_27_10",
+                "activity": 1
+            },
+            {
+                "day":"2022_10_27_10",
+                "activity": 2
+            },
+            {
+                "day":"2022_10_27_10",
+                "activity": 3
+            },
+            {
+                "day":"2022_10_28_10",
+                "activity": 1
+            },
+            {
+                "day":"2022_10_28_10",
+                "activity": 2
+            },
+            {
+                "day":"2022_10_28_10",
+                "activity": 3
+            },
+            {
+                "day":"2022_10_29_10",
+                "activity": 1
+            },
+            {
+                "day":"2022_10_29_10",
+                "activity": 2
+            },
+            {
+                "day":"2022_10_29_10",
+                "activity": 3
+            },
+            {
+                "day":"2022_10_30_10",
+                "activity": 1
+            },
+            {
+                "day":"2022_10_30_10",
+                "activity": 2
+            },
+            {
+                "day":"2022_10_30_10",
+                "activity": 3
+            }
+        ]
     }
     ]
 }

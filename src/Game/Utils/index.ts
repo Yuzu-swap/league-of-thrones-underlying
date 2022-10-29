@@ -104,6 +104,68 @@ function indexOfGloryList(list: GloryInfo[], username : string, glory: number){
     return {exist, index}
 }
 
+
+export function indexOfSortedList(list: any[], username : string, value: number, valueKey: string){
+    let beginIndex = 0 , endIndex = list.length - 1
+    let mid = 0
+    let exist = false
+    let equal = false
+    let index = 0
+    if(list.length == 0){
+        return  {exist, index}
+    }
+    while(beginIndex <= endIndex){
+        mid = Math.floor((beginIndex + endIndex) /2)
+        if( list[mid][valueKey] > value ){
+            beginIndex = mid + 1
+            index = mid + 1
+        }
+        else if(list[mid][valueKey] < value ){
+            endIndex = mid - 1
+            index = mid
+        }
+        else{
+            equal = true
+            index = mid
+            break
+        }
+    }
+    if(equal){
+        //to 0
+        do{
+            for(let i = mid; i >=0; i--){
+                if(list[i][valueKey] == value){
+                    if(list[i]['username'] == username){
+                        index = i
+                        exist = true
+                        break
+                    }
+                }
+                else{
+                    break
+                }
+            }
+            if(exist){
+                break
+            }
+            for(let i = mid; i < list.length; i++){
+                if(list[i][valueKey] == value){
+                    if(list[i]['username'] == username){
+                        index = i
+                        exist = true
+                        break
+                    }
+                }
+                else{
+                    break
+                }
+            }
+        }while(false)
+    }
+    return {exist, index}
+}
+
+
 export function addToSortList( list: GloryInfo[], username : string, originGlory: number, newGlory: number, unionId : number){
     let insert : GloryInfo = {
         username: username,
@@ -121,5 +183,24 @@ export function addToSortList( list: GloryInfo[], username : string, originGlory
         list.splice(origin.index, 1)
     }
     let newInfo = indexOfGloryList(list, username, newGlory)
+    list.splice(newInfo.index, 0, insert)
+}
+
+export function addToNormalSortedList( list: any[], username : string, originValue: number, newValue: number, valueKey: string){
+    let insert  = {
+        username: username,
+    }
+    insert[valueKey] = newValue
+    if(list.length == 0){
+        list.push(
+            insert
+        )
+        return
+    }
+    let origin = indexOfSortedList(list, username, originValue, valueKey)
+    if(origin.exist){
+        list.splice(origin.index, 1)
+    }
+    let newInfo = indexOfSortedList(list, username, newValue, valueKey)
     list.splice(newInfo.index, 0, insert)
 }

@@ -4,7 +4,7 @@ import {
   StateTransition
 } from './Game/Const';
 import { ConfigContainer } from './Core/config';
-import { GloryInfo, ICityState } from './Game/State';
+import { ActivityData, GloryInfo, ICityState } from './Game/State';
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -33,7 +33,7 @@ import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
 import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
-import { addToSortList, getTimeStamp } from './Game/Utils';
+import { addToNormalSortedList, addToSortList, getTimeStamp } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
 
 export const GameName = 'league of thrones';
@@ -219,6 +219,13 @@ function example() {
           ()=>{})
         
         //update
+
+        console.log(city.getAbleActivityInfo())
+
+        city.donateSilver(5, 100, 
+          (result)=>{
+            console.log(result)
+          })
       }
     );
   }, 1000);
@@ -475,6 +482,17 @@ function testSort(){
   addToSortList(list, "eee", 0, 2.5, 0)
   addToSortList(list, "eee", 2.5, 3.5, 0)
   console.log(list)
+
+  let newList: ActivityData[] = [] 
+  addToNormalSortedList(newList, "aaa", 0, 2, 'value')
+  addToNormalSortedList(newList, "bbb", 0, 3, 'value')
+  addToNormalSortedList(newList, "aaa", 2, 4, 'value')
+  addToNormalSortedList(newList, "ccc", 0, 3, 'value')
+  addToNormalSortedList(newList, "ddd", 0, 1, 'value')
+  addToNormalSortedList(newList, "eee", 0, 2.5, 'value')
+  addToNormalSortedList(newList, "eee", 2.5, 3.5, 'value')
+  console.log(newList)
+
 }
 //test()
 //example()

@@ -5,7 +5,7 @@ import { StateTransition, CityFacility, ResouceType, StateName, ChatMessage, Cha
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, IStrategyState, ResouceInfo } from '../State'
+import { IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, IStrategyState, ResouceInfo } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -28,8 +28,9 @@ import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
-import { getTimeStamp, setTimeOffset } from '../Utils'
+import { getTimeStamp, parseStateId, setTimeOffset } from '../Utils'
 import { StrategyComponent } from './strategy'
+import { Activity } from '../Logic/activity'
 
 
 
@@ -97,6 +98,10 @@ export interface ICityComponent extends IComponent {
       unionId: number
     }, callback: ( result: ChatMessage[] ) => void
   ): Promise<void>
+
+  getAbleActivityInfo(): any[]
+
+  donateSilver( activityId: number, amount: number, callback:(result: any) => void ): void
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -238,6 +243,7 @@ export interface IGeneralComponent extends IComponent {
 export class CityComponent implements ICityComponent {
   type: ComponentType;
   city: City;
+  activity: Activity
   mediator: IStateMediator<StateTransition, ITransContext>
   cityStateId: IStateIdentity
   listener: IStatetWithTransContextCallback[]
@@ -260,6 +266,10 @@ export class CityComponent implements ICityComponent {
         this.city.updateBoost()
       }
     )
+  }
+
+  setActivity(activity: Activity){
+    this.activity = activity
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number): FacilityGdsRow {
@@ -416,6 +426,29 @@ export class CityComponent implements ICityComponent {
     }
     let re = await this.mediator.chatHistory(queryData)
     callback(re)
+  }
+
+  getAbleActivityInfo(): any[] {
+    let infolist = this.activity.getAbleActivities()
+    let re = []
+    for(let item of infolist){
+      let rank = this.activity.getActivityRank(item.activityId, parseStateId(this.cityStateId.id).username, this.city.getActivityData(item.activityId))
+      let singleInfo = Object.assign(item, rank)
+      re.push(singleInfo)
+    }
+    return re
+  }
+
+  donateSilver(activityId: number, amount: number, callback: (result: any) => void): void {
+    this.mediator.sendTransaction(
+      StateTransition.DonateSilver,
+      {
+        from: Throne.instance().username,
+        activityId: activityId,
+	      amount: amount
+      },
+      callback
+    )
   }
 }
 
@@ -768,6 +801,7 @@ export class Throne implements IThrone {
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
     states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState
     states.blocks = []
+    states.activityState = (await this.mediator.queryState({ id: `${StateName.Activity}` }, {}, null)) as IActivityState
     // await Promise.all([
     //   async () => {
     //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
@@ -801,6 +835,7 @@ export class Throne implements IThrone {
       this.components[ComponentType.City] = new CityComponent(`${StateName.City}:${this.username}`, this.mediator)
       let cityCom = this.components[ComponentType.City] as CityComponent
       cityCom.setCity(this.logicEssential.city)
+      cityCom.setActivity(this.logicEssential.activity)
       callback(cityCom as any as T)
     } else if (typ == ComponentType.General) {
       this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${this.username}`, this.mediator)

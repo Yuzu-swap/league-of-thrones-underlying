@@ -3,7 +3,7 @@ import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset, MaxStrategy
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
 import { copyObj } from '../../Core/state';
-import { GenBlockDefenseTroop } from '../DataConfig';
+import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
 import { GeneralInfo } from '.';
 
 export var InitState = {
@@ -23,7 +23,8 @@ export var InitState = {
       },
       recruit:[],
       gold: 0,
-      lastAddTestTime: -1
+      lastAddTestTime: -1,
+      userActivity: []
     },
     [StateName.General]:{
         generalList: {},
@@ -97,6 +98,11 @@ export var InitState = {
             able: false,
             beginTime: 0
         }
+    },
+    [StateName.Activity]:{
+        activityData: [],
+        sumValue: [],
+        haveSendReward: []
     }
 };
 
@@ -186,6 +192,12 @@ export function GetMapState(){
                 lastAttachTime: -1,
                 remainSilver: row['silver_total_number']
             }
+        }
+        let activityLen = SeasonConfigFromGDS.get(1).activities.length
+        for(let i = 0; i < activityLen; i++){
+            InitState[StateName.Activity].activityData.push([])
+            InitState[StateName.Activity].sumValue.push(0)
+            InitState[StateName.Activity].haveSendReward.push(false)
         }
         for(let key in gInitState){
             validBlockIds.push(key)

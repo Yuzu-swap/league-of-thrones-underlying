@@ -31,11 +31,12 @@ import {
   RechargeArgs,
   RecoverMoraleArgs,
   BuyStrategyPointArgs,
-  InitUserStatesArgs
+  InitUserStatesArgs,
+  DonateSilverArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { GeneralDefenseBlock, GetInitState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, GetInitState, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -170,6 +171,9 @@ export class TransitionHandler {
       case StateTransition.InitUserStates:
         re = this.onInitUserStates(arg as InitUserStatesArgs)
         break
+      case StateTransition.DonateSilver:
+        re = this.onDonateSilver(arg as DonateSilverArgs)
+        break
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -189,6 +193,7 @@ export class TransitionHandler {
     }
     const logic: LogicEssential = this.genLogic(arg['from']);
     logic.general.updateDefenseInfo();
+    logic.activity.updateAbleActivities();
     return re
   }
 
@@ -239,6 +244,11 @@ export class TransitionHandler {
         id: `${StateName.Strategy}:${id}`
       }
     )
+    const activities = this.stateManger.get(
+      {
+        id: `${StateName.Activity}`
+      }
+    ) 
     const states: StateEssential = {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
@@ -246,7 +256,8 @@ export class TransitionHandler {
       seasonState: seasonState as ISeasonConfigState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
       blocks: this.getBlockStates(x_id, y_id),
-      strategy: strategyState as IStrategyState
+      strategy: strategyState as IStrategyState,
+      activityState: activities as IActivityState
     };
     return createLogicEsential(states);
   }
@@ -267,11 +278,17 @@ export class TransitionHandler {
         id: `${StateName.RewardGloablState}`
       }
     )
+    const activities = this.stateManger.get(
+      {
+        id: `${StateName.Activity}`
+      }
+    ) 
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState : seasonState as ISeasonConfigState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
-      blocks: this.getBlockStates(x_id, y_id)
+      blocks: this.getBlockStates(x_id, y_id),
+      activityState: activities as IActivityState
     };
     return createGlobalEsential(gStates)
   }
@@ -776,6 +793,11 @@ export class TransitionHandler {
     return {
       result: true
     }
+  }
+
+  onDonateSilver(args: DonateSilverArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.activity.donateSilver(args.activityId, args.amount)
   }
 
 }

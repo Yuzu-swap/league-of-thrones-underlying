@@ -11,6 +11,11 @@ export interface Recruit{
   endtime: number;
 }
 
+export interface UserActivity{
+  id: number
+  value: number
+}
+
 export interface ICityState extends IState {
   id: string;
   facilities: { [key in CityFacility]?: number[] };
@@ -18,6 +23,7 @@ export interface ICityState extends IState {
   recruit: Recruit[]
   gold: number
   lastAddTestTime: number
+  userActivity: UserActivity[]
 }
 
 export interface GeneralStamina{
@@ -151,6 +157,18 @@ export interface IStrategyState extends IState{
   buyTimes: ResouceInfo
   store: StrategyStatus
   protect: StrategyStatus
+}
+
+export interface ActivityData{
+  username: string
+  value: number
+}
+
+export interface IActivityState extends IState{
+  id: string 
+  activityData: ActivityData[][]
+  sumValue: number[]
+  haveSendReward: boolean[]
 }
 
 export * from  "./initstate"

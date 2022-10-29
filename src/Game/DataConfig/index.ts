@@ -15,6 +15,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
 import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
+import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
 import {
 	CityFacility,
 	StateTransition,
@@ -332,7 +333,13 @@ export interface Season{
 	season_open: number
 	season_end: number
 	rank_reward: RankReward[]
+	activities: ActivityConf[]
 	id: number
+}
+
+export interface ActivityConf{
+	startTime: number
+	type: number
 }
 
 export interface SeasonReward{
@@ -364,7 +371,15 @@ export class SeasonConfig{
 				season_open: transDateToTimeStamp(seasonConf['season_open']),
 				season_end: transDateToTimeStamp(seasonConf['season_end']),
 				rank_reward: [],
+				activities: [],
 				id: seasonConf['id']
+			}
+			for(let item of seasonConf['dailyactivity'] as []){
+				let actConf : ActivityConf = {
+					startTime: transDateToTimeStamp(item['day']),
+					type: item['activity']
+				}
+				season.activities.push(actConf)
 			}
 			for(let item of seasonConf['show_season_victory_reward'] as []){
 				season.show_season_victory_reward.push( item as SeasonReward)
@@ -433,3 +448,25 @@ export class StrategyBuyConfig{
 }
 
 export var StrategyBuyConfigFromGDS = new StrategyBuyConfig(strategyBuyGDS)
+
+export interface ActivityType {
+	id: number
+    activity_type: number,
+    activity_pond: number,
+    activity_last: number
+}
+
+export class ActivityTypeConfig{
+	config: ActivityType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(type : number){
+		return this.config[type - 1]
+	}
+}
+
+export var ActivityTypeConfigFromGDS = new ActivityTypeConfig(activityTypeGDS)

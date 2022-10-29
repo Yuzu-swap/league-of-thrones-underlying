@@ -8,7 +8,8 @@ export enum StateName {
 	BlockInfo = 'blockinfo',
 	SeasonConfig = 'seasonconfig',
 	RewardGloablState = 'rewardglobalstate',
-	Strategy = 'strategy'
+	Strategy = 'strategy',
+	Activity = 'activity'
 }
 
 export enum CityFacility {
@@ -66,7 +67,8 @@ export enum StateTransition {
 	StrategyBuyStore,
 	MiningBlock,
 	InitUserStates,
-	InitGlobalStates
+	InitGlobalStates,
+	DonateSilver,
 }
 
 export interface StateTransitionArgs {
@@ -164,6 +166,11 @@ export interface BuyStrategyPointArgs extends StateTransitionArgs{
 
 export interface InitUserStatesArgs extends StateTransitionArgs{
 	username: string
+}
+
+export interface DonateSilverArgs extends StateTransitionArgs{
+	activityId: number
+	amount: number
 }
 
 
