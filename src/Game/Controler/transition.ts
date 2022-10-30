@@ -190,6 +190,9 @@ export class TransitionHandler {
         case StateTransition.InitGlobalStates:
           re = this.onInitGlobalStates(arg as StateTransitionArgs)
           return re
+        case StateTransition.RegularTask:
+          re = this.onRegularTask()
+          return re
         
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
@@ -632,6 +635,11 @@ export class TransitionHandler {
         logic.general.addextraGeneral(userInfos[username])
       }
     }
+    for(let item in args.season){
+      if(!args.season[item]){
+        throw "start season args error"
+      }
+    }
     gLogic.map.seasonState.update(
       {
         'season_reservation': args.season.apply_ts,
@@ -805,6 +813,33 @@ export class TransitionHandler {
   onDonateSilver(args: DonateSilverArgs){
     const logic: LogicEssential = this.genLogic(args.from)
     return logic.activity.donateSilver(args.activityId, args.amount)
+  }
+
+  onRegularTask(){
+    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
+    let activityList = gLogic.activity.getAbleActivities()
+    const time = getTimeStamp()
+    for(let activity of activityList){
+      if(time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
+        //send activity reward
+        console.log("sendActivity reward id:", activity.activityId)
+        let haveSendReward = gLogic.activity.state.haveSendReward
+        for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
+          const tempLogic : LogicEssential = this.genLogic(userdata.username)
+          let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
+          tempLogic.city.useSilver(-rank.rankReward)
+        }
+        haveSendReward[activity.activityId] = true
+        gLogic.activity.state.update(
+          {
+            'haveSendReward' : haveSendReward
+          }
+        )
+      }
+    }
+    return {
+      result: true
+    }
   }
 
 }

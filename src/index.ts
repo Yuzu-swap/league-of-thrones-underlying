@@ -233,6 +233,7 @@ function example() {
           (result)=>{
             console.log(result)
           })
+        
       }
     );
   }, 1000);
@@ -502,5 +503,5 @@ function testSort(){
 
 }
 //test()
-//example()
+example()
 //testSort()

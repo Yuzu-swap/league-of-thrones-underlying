@@ -69,6 +69,7 @@ export enum StateTransition {
 	InitUserStates,
 	InitGlobalStates,
 	DonateSilver,
+	RegularTask
 }
 
 export interface StateTransitionArgs {
@@ -136,8 +137,8 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 		end_ts : number,
 		reward_amount_1: number
         reward_amount_2: number
-		rank_config_fromto: number,
-        rank_config_value: number,
+		rank_config_fromto: number[],
+        rank_config_value: number[],
 	}
 }
 
