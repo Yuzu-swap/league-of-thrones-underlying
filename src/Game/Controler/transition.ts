@@ -168,12 +168,12 @@ export class TransitionHandler {
       case StateTransition.MiningBlock:
         re = this.onMiningBlock(arg as AttackBlockArgs)
         break
-      case StateTransition.InitUserStates:
-        re = this.onInitUserStates(arg as InitUserStatesArgs)
-        break
       case StateTransition.DonateSilver:
         re = this.onDonateSilver(arg as DonateSilverArgs)
         break
+      case StateTransition.InitUserStates:
+        re = this.onInitUserStates(arg as InitUserStatesArgs)
+        return re
       case StateTransition.SetUnionWin:
         re = this.onSetUnionWin(arg as SetUnionIdArgs)
         return re
@@ -750,6 +750,7 @@ export class TransitionHandler {
   onInitUserStates(args : InitUserStatesArgs){
     const logic: LogicEssential = this.genLogic(args.username)
     let initState = GetInitState()
+    console.log('state used to update', initState[StateName.City],initState[StateName.General],initState[StateName.Strategy])
     logic.city.state.update(
       initState[StateName.City]
     )
@@ -759,6 +760,7 @@ export class TransitionHandler {
     logic.strategy.state.update(
       initState[StateName.Strategy]
     )
+    console.log('state after update', logic.city.state, logic.general.state, logic.strategy.state)
     logic.general.updateDefenseInfo();
     return {
       result: true

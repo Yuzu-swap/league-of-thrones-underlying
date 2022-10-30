@@ -217,6 +217,13 @@ function example() {
             amount: 1000
           },
           ()=>{})
+
+        Throne.instance().mediator.sendTransaction(StateTransition.InitUserStates,
+          {
+            from: 'test',
+            username: 'test',
+          },
+          ()=>{})
         
         //update
 
