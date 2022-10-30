@@ -197,7 +197,7 @@ export class TransitionHandler {
       logic.activity.updateAbleActivities();
       return re
     }catch(err){
-      console.log("underlying_transition error is ",err)
+      console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)
       throw err
     }
   }
