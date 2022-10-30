@@ -171,7 +171,7 @@ export class TransitionHandler {
           break
         case StateTransition.InitUserStates:
           re = this.onInitUserStates(arg as InitUserStatesArgs)
-          break
+          return re
         case StateTransition.DonateSilver:
           re = this.onDonateSilver(arg as DonateSilverArgs)
           break
