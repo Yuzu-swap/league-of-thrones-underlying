@@ -98,103 +98,108 @@ export class TransitionHandler {
     console.log("underlying_transition: sid: ", sid, "args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
-    switch (sid) {
-      case StateTransition.UpgradeFacility:
-        re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
-        break
-      case StateTransition.Recruit:
-        re = this.onRecruit(arg as RecruitArgs);
-        break
-      case StateTransition.AbleGeneral:
-        re = this.onAbleGeneral(arg as AbleGeneralArgs);
-        break
-      case StateTransition.DisableGeneral:
-        re = this.onDisableGeneral(arg as DisableGeneralArgs)
-        break
-      case StateTransition.UpgradeGeneral:
-        re = this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
-        break
-      case StateTransition.UpgradeGeneralSkill:
-        re = this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
-        break
-      case StateTransition.SetDefenseGeneral:
-        re = this.onSetDefenseGeneral(arg as SetDefenseGeneralArgs)
-        break
-      case StateTransition.ReceiveTroop:
-        re = this.onReceiveTroop(arg as ReceiveTroopArgs)
-        break
-      case StateTransition.Battle:
-        re = this.onBattle(arg as BattleArgs)
-        break
-      case StateTransition.AttackBlock:
-        re = this.onAttackBlock(arg as AttackBlockArgs)
-        break
-      case StateTransition.DefenseBlock:
-        re = this.onDefenseBlock(arg as AttackBlockArgs)
-        break
-      case StateTransition.CancelDefenseBlock:
-        re = this.onCancelDefenseBlock(arg as AttackBlockArgs)
-        break
-      case StateTransition.SetUnionId:
-        re = this.onSetUnionId(arg as SetUnionIdArgs)
-        break
-      case StateTransition.SetIconId:
-        re = this.onSetIconId(arg as SetIconIdArgs)
-        break
-      case StateTransition.AddTestResource:
-        re = this.onAddTestResource(arg as StateTransitionArgs)
-        break
-      case StateTransition.RecoverMorale:
-        re = this.onRecoverMorale(arg as RecoverMoraleArgs)
-        break
-      case StateTransition.BuyStrategyPoint:
-        re = this.onBuyStrategyPoint(arg as BuyStrategyPointArgs)
-        break
-      case StateTransition.StrategyBuySilver:
-        re = this.onStrategyBuySilver(arg as StateTransitionArgs)
-        break
-      case StateTransition.StrategyBuyTroop:
-        re = this.onStrategyBuyTroop(arg as StateTransitionArgs)
-        break
-      case StateTransition.StrategyBuyMorale:
-        re = this.onStrategyBuyMorale(arg as StateTransitionArgs)
-        break
-      case StateTransition.StrategyBuyProtect:
-        re = this.onStrategyBuyProtect(arg as StateTransitionArgs)
-        break
-      case StateTransition.StrategyBuyStore:
-        re = this.onStrategyBuyStore(arg as StateTransitionArgs)
-        break
-      case StateTransition.MiningBlock:
-        re = this.onMiningBlock(arg as AttackBlockArgs)
-        break
-      case StateTransition.DonateSilver:
-        re = this.onDonateSilver(arg as DonateSilverArgs)
-        break
-      case StateTransition.InitUserStates:
-        re = this.onInitUserStates(arg as InitUserStatesArgs)
-        return re
-      case StateTransition.SetUnionWin:
-        re = this.onSetUnionWin(arg as SetUnionIdArgs)
-        return re
-      case StateTransition.SetSeasonEnd:
-        re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
-        return re
-      case StateTransition.StartSeason:
-        re = this.onStartSeason(arg as StartSeasonArgs)
-        return re
-      case StateTransition.Recharge:
-        re = this.onRecharge(arg as RechargeArgs)
-        return re
-      case StateTransition.InitGlobalStates:
-        re = this.onInitGlobalStates(arg as StateTransitionArgs)
-        return re
-      
+    try{
+      switch (sid) {
+        case StateTransition.UpgradeFacility:
+          re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
+          break
+        case StateTransition.Recruit:
+          re = this.onRecruit(arg as RecruitArgs);
+          break
+        case StateTransition.AbleGeneral:
+          re = this.onAbleGeneral(arg as AbleGeneralArgs);
+          break
+        case StateTransition.DisableGeneral:
+          re = this.onDisableGeneral(arg as DisableGeneralArgs)
+          break
+        case StateTransition.UpgradeGeneral:
+          re = this.onUpgradeGeneral(arg as UpgradeGeneralArgs)
+          break
+        case StateTransition.UpgradeGeneralSkill:
+          re = this.onUpgradeGeneralSkill(arg as UpgradeGeneralSkillArgs)
+          break
+        case StateTransition.SetDefenseGeneral:
+          re = this.onSetDefenseGeneral(arg as SetDefenseGeneralArgs)
+          break
+        case StateTransition.ReceiveTroop:
+          re = this.onReceiveTroop(arg as ReceiveTroopArgs)
+          break
+        case StateTransition.Battle:
+          re = this.onBattle(arg as BattleArgs)
+          break
+        case StateTransition.AttackBlock:
+          re = this.onAttackBlock(arg as AttackBlockArgs)
+          break
+        case StateTransition.DefenseBlock:
+          re = this.onDefenseBlock(arg as AttackBlockArgs)
+          break
+        case StateTransition.CancelDefenseBlock:
+          re = this.onCancelDefenseBlock(arg as AttackBlockArgs)
+          break
+        case StateTransition.SetUnionId:
+          re = this.onSetUnionId(arg as SetUnionIdArgs)
+          break
+        case StateTransition.SetIconId:
+          re = this.onSetIconId(arg as SetIconIdArgs)
+          break
+        case StateTransition.AddTestResource:
+          re = this.onAddTestResource(arg as StateTransitionArgs)
+          break
+        case StateTransition.RecoverMorale:
+          re = this.onRecoverMorale(arg as RecoverMoraleArgs)
+          break
+        case StateTransition.BuyStrategyPoint:
+          re = this.onBuyStrategyPoint(arg as BuyStrategyPointArgs)
+          break
+        case StateTransition.StrategyBuySilver:
+          re = this.onStrategyBuySilver(arg as StateTransitionArgs)
+          break
+        case StateTransition.StrategyBuyTroop:
+          re = this.onStrategyBuyTroop(arg as StateTransitionArgs)
+          break
+        case StateTransition.StrategyBuyMorale:
+          re = this.onStrategyBuyMorale(arg as StateTransitionArgs)
+          break
+        case StateTransition.StrategyBuyProtect:
+          re = this.onStrategyBuyProtect(arg as StateTransitionArgs)
+          break
+        case StateTransition.StrategyBuyStore:
+          re = this.onStrategyBuyStore(arg as StateTransitionArgs)
+          break
+        case StateTransition.MiningBlock:
+          re = this.onMiningBlock(arg as AttackBlockArgs)
+          break
+        case StateTransition.InitUserStates:
+          re = this.onInitUserStates(arg as InitUserStatesArgs)
+          return re
+        case StateTransition.DonateSilver:
+          re = this.onDonateSilver(arg as DonateSilverArgs)
+          break
+        case StateTransition.SetUnionWin:
+          re = this.onSetUnionWin(arg as SetUnionIdArgs)
+          return re
+        case StateTransition.SetSeasonEnd:
+          re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
+          return re
+        case StateTransition.StartSeason:
+          re = this.onStartSeason(arg as StartSeasonArgs)
+          return re
+        case StateTransition.Recharge:
+          re = this.onRecharge(arg as RechargeArgs)
+          return re
+        case StateTransition.InitGlobalStates:
+          re = this.onInitGlobalStates(arg as StateTransitionArgs)
+          return re
+        
+      }
+      const logic: LogicEssential = this.genLogic(arg['from']);
+      logic.general.updateDefenseInfo();
+      logic.activity.updateAbleActivities();
+      return re
+    }catch(err){
+      console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)
+      throw err
     }
-    const logic: LogicEssential = this.genLogic(arg['from']);
-    logic.general.updateDefenseInfo();
-    logic.activity.updateAbleActivities();
-    return re
   }
 
   getBlockStates(x_id : number , y_id : number): IBlockState[]{
