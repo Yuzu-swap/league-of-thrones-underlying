@@ -23,6 +23,10 @@
         "value":"12",
         "name":"order_protect_need"
     },
+    "order_limit":{
+        "value":"12",
+        "name":"order_limit"
+    },
     "order_hoard_times":{
         "value":"7200",
         "name":"order_hoard_times"
