@@ -636,7 +636,7 @@ export class TransitionHandler {
       }
     }
     for(let item in args.season){
-      if(!args.season[item]){
+      if(args.season[item] == undefined){
         throw "start season args error"
       }
     }
@@ -792,11 +792,19 @@ export class TransitionHandler {
         id: `${StateName.RewardGloablState}`
       }
     )
+    const activityState = this.stateManger.get(
+      {
+        id: `${StateName.Activity}`
+      }
+    )
     mapGlobalState.update(
       initState[StateName.MapGlobalInfo]
     )
     rewardGlobalState.update(
       initState[StateName.RewardGloablState]
+    )
+    activityState.update(
+      initState[StateName.Activity]
     )
     for(let block in mapGDS){
       let key = `${StateName.BlockInfo}:${block}`

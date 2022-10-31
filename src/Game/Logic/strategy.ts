@@ -119,18 +119,27 @@ export class Strategy{
     getBuyStrategyNeed(amount : number){
         let times = this.getBuyStrategyTimes()
         let re = 0
-        if(times >= this.strategyBuyConfig.getMaxTimes()){
+        if(times + amount > this.strategyBuyConfig.getMaxTimes()){
             return re
         }
         else{
-            return this.strategyBuyConfig.config[times + 1] * amount
+            for(let i = times; i < times + amount; i++){
+                re += this.strategyBuyConfig.config[times]
+            }
+            return re
         }
     }
 
     buyStrategyPoint(amount: number){
+        if(amount <= 0){
+            return {
+                result : false,
+                error: "amount-illegal"
+            }
+        }
         let times = this.getBuyStrategyTimes()
         const time = getTimeStamp()
-        if(times >= this.strategyBuyConfig.getMaxTimes()){
+        if(times + amount > this.strategyBuyConfig.getMaxTimes()){
             return {
                 result : false,
                 error: "have-reach-to-max-buy-times"
@@ -149,7 +158,7 @@ export class Strategy{
                 {
                     buyTimes:{
                         lastUpdate: time,
-                        value: times + 1,
+                        value: times + amount,
                     }
                 }
             )

@@ -31,7 +31,7 @@ export enum ResouceType {
 
 export const MaxSize = 21;
 export const mapIdOffset = 10;
-export const MaxStrategyPoint = 20
+export const MaxStrategyPoint = 12
 
 export enum StateTransition {
 	UpgradeFacility = 1,
