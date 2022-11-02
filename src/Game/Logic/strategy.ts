@@ -124,7 +124,7 @@ export class Strategy{
         }
         else{
             for(let i = times; i < times + amount; i++){
-                re += this.strategyBuyConfig.config[times]
+                re += this.strategyBuyConfig.config[i]
             }
             return re
         }
