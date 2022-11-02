@@ -104,6 +104,7 @@ export class Activity{
             value: newValue
         }
         let list = copyObj(this.state.activityData[id]) as ActivityData[]
+        console.log("addDataToActivity: id:", id, "list after copy:", list)
         let sumValue = this.state.sumValue[id]
         do{
             if(list.length == 0){
