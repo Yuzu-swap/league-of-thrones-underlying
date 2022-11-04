@@ -218,18 +218,18 @@ function example() {
           },
           ()=>{})
 
-        Throne.instance().mediator.sendTransaction(StateTransition.InitUserStates,
-          {
-            from: 'test',
-            username: 'test',
-          },
-          ()=>{})
+        // Throne.instance().mediator.sendTransaction(StateTransition.InitUserStates,
+        //   {
+        //     from: 'test',
+        //     username: 'test',
+        //   },
+        //   ()=>{})
         
         //update
 
         console.log(city.getAbleActivityInfo())
 
-        city.donateSilver(5, 100, 
+        city.donateSilver(29, 100, 
           (result)=>{
             console.log(result)
           })

@@ -209,6 +209,7 @@ export class Activity{
             else if(item.type == 2){
                 newValue = this.boost.getProduction(ResouceType.Troop)
             }
+            newValue = parseInt(newValue + '')
             this.addDataToActivity(item.activityId, parseStateId(this.city.state.id).username, oldValue, newValue)
             this.city.setActivityData(item.activityId, newValue)
         }

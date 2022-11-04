@@ -484,27 +484,27 @@ export class City {
 
   setActivityData(activityId: number, value: number){
     let haveSet = false
-    for(let item of this.state.userActivity){
-      if(item.id == activityId){
-        item.value = value
+    let list = this.state.userActivity
+    for(let i in list){
+      if(list[i].id == activityId){
+        list[i].value = value
         haveSet = true
         break
       }
     }
     if(!haveSet){
-      let list = this.state.userActivity
       list.push(
         {
           id: activityId,
           value: value
         }
       )
-      this.state.update(
-        {
-          userActivity : list
-        }
-      )
     }
+    this.state.update(
+      {
+        userActivity : list
+      }
+    )
   }
 
   showAll() {
