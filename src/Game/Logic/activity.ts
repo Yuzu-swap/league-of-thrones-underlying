@@ -187,6 +187,7 @@ export class Activity{
         this.addDataToActivity(id, parseStateId(this.city.state.id).username, oldValue, newValue)
         this.city.setActivityData(id, newValue)
         let rankInfo = this.getActivityRank(id, parseStateId(this.city.state.id).username, newValue)
+        console.log("donateSilver: after donate:", this.city.state)
         return{
             result: true,
             donateAmount: newValue,
