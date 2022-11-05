@@ -196,10 +196,10 @@ export class TransitionHandler {
         
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
-      console.log("transition before update",logic.city)
+      console.log("transition before update",logic.city.state)
       logic.general.updateDefenseInfo();
       logic.activity.updateAbleActivities();
-      console.log("transition after update",logic.city)
+      console.log("transition after update",logic.city.state)
       return re
     }catch(err){
       console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)
