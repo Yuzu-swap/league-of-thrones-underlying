@@ -69,7 +69,8 @@ export enum StateTransition {
 	InitUserStates,
 	InitGlobalStates,
 	DonateSilver,
-	RegularTask
+	RegularTask,
+	SetGuideStep
 }
 
 export interface StateTransitionArgs {
@@ -172,6 +173,10 @@ export interface InitUserStatesArgs extends StateTransitionArgs{
 export interface DonateSilverArgs extends StateTransitionArgs{
 	activityId: number
 	amount: number
+}
+
+export interface GuideStepArgs extends StateTransitionArgs{
+	step: number
 }
 
 

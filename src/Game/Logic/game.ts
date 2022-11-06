@@ -22,6 +22,7 @@ import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { StrategyType } from './strategy';
+import { NumericLiteral } from 'typescript';
 
 
 export interface CityConfig {
@@ -519,4 +520,20 @@ export class City {
 
     console.log('@@@Dump all facilities end\n');
   }
+
+  getGuideStep(){
+    return this.state.guideStep != undefined ? this.state.guideStep  : 0
+  }
+
+  setGuideStep( step : number ){
+    this.state.update(
+      {
+        guideStep : step
+      }
+    )
+    return {
+      result: true
+    }
+  }
+
 }

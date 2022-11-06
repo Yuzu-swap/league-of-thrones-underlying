@@ -24,7 +24,8 @@ export var InitState = {
       recruit:[],
       gold: 0,
       lastAddTestTime: -1,
-      userActivity: []
+      userActivity: [],
+      guideStep: 0
     },
     [StateName.General]:{
         generalList: {},

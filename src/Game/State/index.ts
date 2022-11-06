@@ -24,6 +24,7 @@ export interface ICityState extends IState {
   gold: number
   lastAddTestTime: number
   userActivity: UserActivity[]
+  guideStep: number
 }
 
 export interface GeneralStamina{

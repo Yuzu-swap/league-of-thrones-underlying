@@ -32,7 +32,8 @@ import {
   RecoverMoraleArgs,
   BuyStrategyPointArgs,
   InitUserStatesArgs,
-  DonateSilverArgs
+  DonateSilverArgs,
+  GuideStepArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -168,6 +169,9 @@ export class TransitionHandler {
           break
         case StateTransition.MiningBlock:
           re = this.onMiningBlock(arg as AttackBlockArgs)
+          break
+        case StateTransition.SetGuideStep:
+          re = this.onSetGuideStep(arg as GuideStepArgs)
           break
         case StateTransition.InitUserStates:
           re = this.onInitUserStates(arg as InitUserStatesArgs)
@@ -850,6 +854,11 @@ export class TransitionHandler {
     return {
       result: true
     }
+  }
+
+  onSetGuideStep( args : GuideStepArgs ){
+    const logic: LogicEssential = this.genLogic(args.from)
+    return logic.city.setGuideStep(args.step)
   }
 
 }

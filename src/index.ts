@@ -234,6 +234,13 @@ function example() {
             console.log(result)
           })
         
+        console.log( city.getGuideStep())
+        city.setGuideStep(
+          2, ()=>{
+            console.log( city.getGuideStep())
+          }
+        )
+
       }
     );
   }, 1000);
