@@ -149,7 +149,7 @@ export function GetInitState(){
         let maxlen = Math.floor((MaxSize + 1)/ 2)
         InitState[StateName.MapGlobalInfo].campInfo = []
         for(let i = 0; i< MaxSize; i++){
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(null).map(
+            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - i %2 ).fill(null).map(
                 ()=>{
                     return {unionId: 0,
                     attackEndTime: -1,
