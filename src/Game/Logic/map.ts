@@ -65,7 +65,7 @@ export class Map{
         return this.blockStates[ x_id + "^" + y_id ]
     }
 
-    getBelongInfo(x_id: number, y_id: number){
+    getBelongInfo(x_id: number, y_id: number): number{
         let xIndex = x_id + mapIdOffset;
         let yIndex = Math.floor((y_id + mapIdOffset) / 2)
         if(xIndex < 0 || yIndex < 0){
@@ -75,22 +75,34 @@ export class Map{
             this.gState.campInfo.length > xIndex &&
             this.gState.campInfo[xIndex].length > yIndex 
         ){
-            return this.gState.campInfo[xIndex][yIndex]
+            return this.gState.campInfo[xIndex][yIndex].unionId
         }
         return 0
     }
 
-    changeBelongInfo(x_id: number, y_id: number, unionId: number){
+    changeBelongInfo(x_id: number, y_id: number, unionId: number, protectEnd: number){
         let xIndex = x_id  + mapIdOffset;
         let yIndex = Math.floor((y_id  + mapIdOffset) / 2)
         let infoMap = this.gState.campInfo
-        infoMap[xIndex][yIndex] = unionId
+        infoMap[xIndex][yIndex].unionId = unionId
+        infoMap[xIndex][yIndex].protectEndTime = protectEnd
         this.gState.update(
             {
                 'campInfo': infoMap
             }
         )
+    }
 
+    changeGlobalLastAttack( x_id: number, y_id: number, attackEnd: number){
+        let xIndex = x_id  + mapIdOffset;
+        let yIndex = Math.floor((y_id  + mapIdOffset) / 2)
+        let infoMap = this.gState.campInfo
+        infoMap[xIndex][yIndex].attackEndTime = attackEnd
+        this.gState.update(
+            {
+                'campInfo': infoMap
+            }
+        )
     }
 
     checkBetween(unionId : number, x_id: number, y_id: number){
@@ -312,6 +324,7 @@ export class Map{
                     'lastAttachTime': time
                 }
             )
+            this.changeGlobalLastAttack(x_id, y_id, time)
         }
         if(remainTroop <= 0 ){
             return {
@@ -444,7 +457,7 @@ export class Map{
                     'lastAttachTime': -1
                 }
             )
-            this.changeBelongInfo(x_id, y_id, unionId)
+            this.changeBelongInfo(x_id, y_id, unionId, time + this.parameter.occupy_block_protect_times)
             update = durability
         }
         else{

@@ -75,9 +75,15 @@ export interface IDefenderInfoState extends IState{
 }
 
 
+export interface CampInfo{
+  unionId: number
+  attackEndTime: number
+  protectEndTime: number
+}
+
 export interface IMapGlobalState extends IState{
   id: string
-  campInfo: number[][]
+  campInfo: CampInfo[][]
   campMembers: string[][]
   updateTime: number[]
   unionWinId: number

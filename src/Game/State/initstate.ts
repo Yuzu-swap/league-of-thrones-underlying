@@ -149,7 +149,13 @@ export function GetInitState(){
         let maxlen = Math.floor((MaxSize + 1)/ 2)
         InitState[StateName.MapGlobalInfo].campInfo = []
         for(let i = 0; i< MaxSize; i++){
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(0))
+            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - (i + 1)%2 ).fill(null).map(
+                ()=>{
+                    return {unionId: 0,
+                    attackEndTime: -1,
+                    protectEndTime: -1}
+                 }
+                ))
         }
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
@@ -177,7 +183,7 @@ export function GetMapState(){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapIdOffset;
                 let yIndex = Math.floor((parseInt(list[1]) + mapIdOffset) / 2)
-                InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex] = unionId
+                InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
             }
             gInitState[key]= {
                 id: key,
