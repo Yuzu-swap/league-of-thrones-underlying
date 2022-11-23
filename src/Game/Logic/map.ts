@@ -1,7 +1,8 @@
+import { copyObj } from "../../Core/state";
 import { mapIdOffset } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
+import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -78,6 +79,26 @@ export class Map{
             return this.gState.campInfo[xIndex][yIndex].unionId
         }
         return 0
+    }
+
+    getBlockBattleStatus(x_id: number, y_id: number): CampInfo {
+        let xIndex = x_id + mapIdOffset;
+        let yIndex = Math.floor((y_id + mapIdOffset) / 2)
+        let defalutRe : CampInfo ={
+            unionId: 0,
+            attackEndTime: -1,
+            protectEndTime: -1
+        }
+        if(xIndex < 0 || yIndex < 0){
+            return defalutRe
+        }
+        if( 
+            this.gState.campInfo.length > xIndex &&
+            this.gState.campInfo[xIndex].length > yIndex 
+        ){
+            return this.gState.campInfo[xIndex][yIndex]
+        }
+        return defalutRe
     }
 
     changeBelongInfo(x_id: number, y_id: number, unionId: number, protectEnd: number){
@@ -324,7 +345,7 @@ export class Map{
                     'lastAttachTime': time
                 }
             )
-            this.changeGlobalLastAttack(x_id, y_id, time)
+            this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
         }
         if(remainTroop <= 0 ){
             return {
@@ -475,9 +496,9 @@ export class Map{
         let re = {}
         for(let id in this.mapConfig.config){
             let row : MapGDS = this.mapConfig.config[id]
-            re[id] = {
-                unionId : this.getBelongInfo(row.x_id, row.y_id)
-            }
+            re[id] = copyObj(
+                this.getBlockBattleStatus(row.x_id, row.y_id)
+            )
         }
         return re
     }
