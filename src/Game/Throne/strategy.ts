@@ -60,8 +60,8 @@ export class StrategyComponent implements IStrategyComponent{
 
     getStrategiesInfo():{} {
         let re = {}
-        re['buyTroopCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 1000
-        re['buySilverCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 1000
+        re['buyTroopCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 100
+        re['buySilverCount'] = Math.pow(this.strategy.getOpenDayCount(), 2) * 10000
         re['buyMoraleCount'] = 2
         re['protect'] = {
             able : this.strategy.getStrategyStatus(StrategyType.Protect).able,

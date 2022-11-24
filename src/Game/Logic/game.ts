@@ -303,7 +303,7 @@ export class City {
   }
 
   recruit( amount: number ){
-    const cost = 100 * amount
+    const cost = 10 * amount
     if( amount > this.getResource(ResouceType.Silver)){
       return {result: false, error: 'silver-not-enough'}
     }

@@ -1,84 +1,84 @@
 {
    "Config" : [
     {
-        "need_troop": 25,
-        "need_silver": 2500,
+        "need_troop": 10,
+        "need_silver": 1000,
         "maintain_need_troop": 0,
         "level": 1,
-        "archer_defense": 1000,
-        "archer_attack": 1000
+        "archer_defense": 400,
+        "archer_attack": 400
     },
     {
-        "need_troop": 50,
-        "need_silver": 5000,
-        "maintain_need_troop": 1,
+        "need_troop": 110,
+        "need_silver": 11000,
+        "maintain_need_troop": 11,
         "level": 2,
-        "archer_defense": 2000,
-        "archer_attack": 2000
+        "archer_defense": 1200,
+        "archer_attack": 1200
     },
     {
-        "need_troop": 250,
-        "need_silver": 25000,
-        "maintain_need_troop": 4,
-        "level": 3,
-        "archer_defense": 3000,
-        "archer_attack": 3000
-    },
-    {
-        "need_troop": 500,
-        "need_silver": 50000,
-        "maintain_need_troop": 10,
-        "level": 4,
-        "archer_defense": 5000,
-        "archer_attack": 5000
-    },
-    {
-        "need_troop": 1000,
-        "need_silver": 100000,
+        "need_troop": 300,
+        "need_silver": 30000,
         "maintain_need_troop": 30,
+        "level": 3,
+        "archer_defense": 1950,
+        "archer_attack": 1950
+    },
+    {
+        "need_troop": 590,
+        "need_silver": 59000,
+        "maintain_need_troop": 59,
+        "level": 4,
+        "archer_defense": 2750,
+        "archer_attack": 2750
+    },
+    {
+        "need_troop": 970,
+        "need_silver": 97000,
+        "maintain_need_troop": 97,
         "level": 5,
-        "archer_defense": 7000,
-        "archer_attack": 7000
+        "archer_defense": 3550,
+        "archer_attack": 3550
     },
     {
-        "need_troop": 1500,
-        "need_silver": 150000,
-        "maintain_need_troop": 60,
+        "need_troop": 1450,
+        "need_silver": 145000,
+        "maintain_need_troop": 145,
         "level": 6,
-        "archer_defense": 9000,
-        "archer_attack": 9000
+        "archer_defense": 4350,
+        "archer_attack": 4350
     },
     {
-        "need_troop": 2500,
-        "need_silver": 250000,
-        "maintain_need_troop": 100,
+        "need_troop": 2030,
+        "need_silver": 203000,
+        "maintain_need_troop": 203,
         "level": 7,
-        "archer_defense": 12000,
-        "archer_attack": 12000
+        "archer_defense": 5150,
+        "archer_attack": 5150
     },
     {
-        "need_troop": 3500,
-        "need_silver": 350000,
-        "maintain_need_troop": 200,
+        "need_troop": 2700,
+        "need_silver": 270000,
+        "maintain_need_troop": 270,
         "level": 8,
-        "archer_defense": 15000,
-        "archer_attack": 15000
+        "archer_defense": 5900,
+        "archer_attack": 5900
     },
     {
-        "need_troop": 5000,
-        "need_silver": 500000,
-        "maintain_need_troop": 300,
+        "need_troop": 3470,
+        "need_silver": 347000,
+        "maintain_need_troop": 347,
         "level": 9,
-        "archer_defense": 18000,
-        "archer_attack": 18000
+        "archer_defense": 6700,
+        "archer_attack": 6700
     },
     {
-        "need_troop": 5000,
-        "need_silver": 500000,
-        "maintain_need_troop": 500,
+        "need_troop": 4330,
+        "need_silver": 433000,
+        "maintain_need_troop": 433,
         "level": 10,
-        "archer_defense": 22000,
-        "archer_attack": 22000
+        "archer_defense": 7500,
+        "archer_attack": 7500
     }
     ]
 }

@@ -183,7 +183,7 @@ export class Strategy{
                 error: "strategy-point-error"
             }
         }
-        let count = Math.pow(this.getOpenDayCount(), 2) * 1000
+        let count = Math.pow(this.getOpenDayCount(), 2) * 100
         this.city.useTroop(-count)
         return{
             result: true
@@ -198,7 +198,7 @@ export class Strategy{
                 error: "strategy-point-error"
             }
         }
-        let count = Math.pow(this.getOpenDayCount(), 2) * 1000
+        let count = Math.pow(this.getOpenDayCount(), 2) * 10000
         this.city.useSilver(-count)
         return{
             result: true

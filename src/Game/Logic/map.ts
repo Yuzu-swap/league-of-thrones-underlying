@@ -267,7 +267,7 @@ export class Map{
             durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
-                lastRecord.attackInfo.gloryGet += durabilityReduce 
+                lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
             }     
         }
         return {

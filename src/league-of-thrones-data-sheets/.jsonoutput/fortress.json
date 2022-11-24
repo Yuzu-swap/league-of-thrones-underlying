@@ -1,72 +1,72 @@
 {
    "Config" : [
     {
-        "need_troop": 60,
-        "need_silver": 6000,
+        "need_troop": 0,
+        "need_silver": 2000,
         "maintain_need_troop": 0,
         "level": 1,
         "employ_count": 1
     },
     {
-        "need_troop": 100,
-        "need_silver": 10000,
-        "maintain_need_troop": 3,
+        "need_troop": 0,
+        "need_silver": 16000,
+        "maintain_need_troop": 16,
         "level": 2,
         "employ_count": 2
     },
     {
-        "need_troop": 200,
-        "need_silver": 20000,
-        "maintain_need_troop": 10,
+        "need_troop": 0,
+        "need_silver": 45000,
+        "maintain_need_troop": 45,
         "level": 3,
         "employ_count": 3
     },
     {
-        "need_troop": 600,
-        "need_silver": 60000,
-        "maintain_need_troop": 20,
+        "need_troop": 0,
+        "need_silver": 88000,
+        "maintain_need_troop": 88,
         "level": 4,
         "employ_count": 4
     },
     {
-        "need_troop": 1000,
-        "need_silver": 100000,
-        "maintain_need_troop": 50,
+        "need_troop": 0,
+        "need_silver": 146000,
+        "maintain_need_troop": 146,
         "level": 5,
         "employ_count": 5
     },
     {
-        "need_troop": 2000,
-        "need_silver": 200000,
-        "maintain_need_troop": 100,
+        "need_troop": 0,
+        "need_silver": 218000,
+        "maintain_need_troop": 218,
         "level": 6,
         "employ_count": 6
     },
     {
-        "need_troop": 4000,
-        "need_silver": 400000,
-        "maintain_need_troop": 200,
+        "need_troop": 0,
+        "need_silver": 304000,
+        "maintain_need_troop": 304,
         "level": 7,
         "employ_count": 7
     },
     {
-        "need_troop": 6000,
-        "need_silver": 600000,
-        "maintain_need_troop": 400,
+        "need_troop": 0,
+        "need_silver": 405000,
+        "maintain_need_troop": 405,
         "level": 8,
         "employ_count": 8
     },
     {
-        "need_troop": 10000,
-        "need_silver": 1000000,
-        "maintain_need_troop": 700,
+        "need_troop": 0,
+        "need_silver": 520000,
+        "maintain_need_troop": 520,
         "level": 9,
         "employ_count": 9
     },
     {
-        "need_troop": 10000,
-        "need_silver": 1000000,
-        "maintain_need_troop": 1000,
+        "need_troop": 0,
+        "need_silver": 650000,
+        "maintain_need_troop": 650,
         "level": 10,
         "employ_count": 10
     }

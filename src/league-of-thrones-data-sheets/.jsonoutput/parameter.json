@@ -4,7 +4,7 @@
         "name":"victory_need_occupy_times"
     },
     "troops_base_load":{
-        "value":"100",
+        "value":"5",
         "name":"troops_base_load"
     },
     "recovery_one_morale_need_gold":{
@@ -60,7 +60,7 @@
         "name":"gather_need_general_stamina"
     },
     "gather_get_silver_parameter":{
-        "value":"2",
+        "value":"0.5",
         "name":"gather_get_silver_parameter"
     },
     "default_defense_general":{
@@ -68,7 +68,7 @@
         "name":"default_defense_general"
     },
     "battle_victory_get_glory":{
-        "value":"100",
+        "value":"10",
         "name":"battle_victory_get_glory"
     }
 }

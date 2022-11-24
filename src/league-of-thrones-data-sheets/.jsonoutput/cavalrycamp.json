@@ -1,84 +1,84 @@
 {
    "Config" : [
     {
-        "need_troop": 25,
-        "need_silver": 2500,
+        "need_troop": 10,
+        "need_silver": 1000,
         "maintain_need_troop": 0,
         "level": 1,
-        "cavalry_defense": 1000,
-        "cavalry_attack": 1000
+        "cavalry_defense": 800,
+        "cavalry_attack": 800
     },
     {
-        "need_troop": 50,
-        "need_silver": 5000,
-        "maintain_need_troop": 1,
+        "need_troop": 110,
+        "need_silver": 11000,
+        "maintain_need_troop": 11,
         "level": 2,
-        "cavalry_defense": 2000,
-        "cavalry_attack": 2000
+        "cavalry_defense": 2400,
+        "cavalry_attack": 2400
     },
     {
-        "need_troop": 250,
-        "need_silver": 25000,
-        "maintain_need_troop": 4,
-        "level": 3,
-        "cavalry_defense": 3000,
-        "cavalry_attack": 3000
-    },
-    {
-        "need_troop": 500,
-        "need_silver": 50000,
-        "maintain_need_troop": 10,
-        "level": 4,
-        "cavalry_defense": 5000,
-        "cavalry_attack": 5000
-    },
-    {
-        "need_troop": 1000,
-        "need_silver": 100000,
+        "need_troop": 300,
+        "need_silver": 30000,
         "maintain_need_troop": 30,
+        "level": 3,
+        "cavalry_defense": 3900,
+        "cavalry_attack": 3900
+    },
+    {
+        "need_troop": 590,
+        "need_silver": 59000,
+        "maintain_need_troop": 59,
+        "level": 4,
+        "cavalry_defense": 5500,
+        "cavalry_attack": 5500
+    },
+    {
+        "need_troop": 970,
+        "need_silver": 97000,
+        "maintain_need_troop": 97,
         "level": 5,
-        "cavalry_defense": 7000,
-        "cavalry_attack": 7000
+        "cavalry_defense": 7100,
+        "cavalry_attack": 7100
     },
     {
-        "need_troop": 1500,
-        "need_silver": 150000,
-        "maintain_need_troop": 60,
+        "need_troop": 1450,
+        "need_silver": 145000,
+        "maintain_need_troop": 145,
         "level": 6,
-        "cavalry_defense": 9000,
-        "cavalry_attack": 9000
+        "cavalry_defense": 8700,
+        "cavalry_attack": 8700
     },
     {
-        "need_troop": 2500,
-        "need_silver": 250000,
-        "maintain_need_troop": 100,
+        "need_troop": 2030,
+        "need_silver": 203000,
+        "maintain_need_troop": 203,
         "level": 7,
-        "cavalry_defense": 12000,
-        "cavalry_attack": 12000
+        "cavalry_defense": 10300,
+        "cavalry_attack": 10300
     },
     {
-        "need_troop": 3500,
-        "need_silver": 350000,
-        "maintain_need_troop": 200,
+        "need_troop": 2700,
+        "need_silver": 270000,
+        "maintain_need_troop": 270,
         "level": 8,
+        "cavalry_defense": 11800,
+        "cavalry_attack": 11800
+    },
+    {
+        "need_troop": 3470,
+        "need_silver": 347000,
+        "maintain_need_troop": 347,
+        "level": 9,
+        "cavalry_defense": 13400,
+        "cavalry_attack": 13400
+    },
+    {
+        "need_troop": 4330,
+        "need_silver": 433000,
+        "maintain_need_troop": 433,
+        "level": 10,
         "cavalry_defense": 15000,
         "cavalry_attack": 15000
-    },
-    {
-        "need_troop": 5000,
-        "need_silver": 500000,
-        "maintain_need_troop": 300,
-        "level": 9,
-        "cavalry_defense": 18000,
-        "cavalry_attack": 18000
-    },
-    {
-        "need_troop": 5000,
-        "need_silver": 500000,
-        "maintain_need_troop": 500,
-        "level": 10,
-        "cavalry_defense": 22000,
-        "cavalry_attack": 22000
     }
     ]
 }

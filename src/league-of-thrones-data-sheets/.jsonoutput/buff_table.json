@@ -128,7 +128,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 1000,
+        "buff_value": 2000,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -137,7 +137,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 10000,
+        "buff_value": 2000,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -146,7 +146,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 10,
+        "buff_value": 20,
         "buff_type":"recruit",
         "buff_target":[
             "all"
@@ -164,7 +164,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 1000,
+        "buff_value": 500,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -182,7 +182,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 100,
+        "buff_value": 20,
         "buff_type":"recruit",
         "buff_target":[
             "all"
@@ -209,7 +209,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 10000,
+        "buff_value": 500,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -218,7 +218,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 10000,
+        "buff_value": 500,
         "buff_type":"defense",
         "buff_target":[
             "all"
@@ -281,7 +281,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 20000,
+        "buff_value": 4000,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -344,7 +344,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 20000,
+        "buff_value": 1000,
         "buff_type":"defense",
         "buff_target":[
             "all"
@@ -425,7 +425,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 500,
+        "buff_value": 100,
         "buff_type":"recruit",
         "buff_target":[
             "all"
@@ -443,7 +443,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 30000,
+        "buff_value": 1500,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -470,7 +470,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 1000,
+        "buff_value": 500,
         "buff_type":"defense",
         "buff_target":[
             "all"
@@ -524,7 +524,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 30000,
+        "buff_value": 1500,
         "buff_type":"defense",
         "buff_target":[
             "all"
@@ -542,7 +542,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 30000,
+        "buff_value": 6000,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -623,7 +623,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 20000,
+        "buff_value": 1000,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -632,7 +632,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 50000,
+        "buff_value": 10000,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -641,7 +641,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 200,
+        "buff_value": 40,
         "buff_type":"recruit",
         "buff_target":[
             "all"
@@ -668,7 +668,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 50000,
+        "buff_value": 2500,
         "buff_type":"defense",
         "buff_target":[
             "all"
@@ -704,7 +704,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 300,
+        "buff_value": 60,
         "buff_type":"recruit",
         "buff_target":[
             "all"
@@ -731,7 +731,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 50000,
+        "buff_value": 2500,
         "buff_type":"attack",
         "buff_target":[
             "all"

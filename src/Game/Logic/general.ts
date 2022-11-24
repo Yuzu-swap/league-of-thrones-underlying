@@ -214,7 +214,7 @@ export class General{
         const row = this.getGeneralQualification(id)
         const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit + row.qualification_defense
         let re = 0
-        re = Math.round((2* Math.pow(currentLevel, 2) + 10 * currentLevel + 20) * sumq / 10) * 10
+        re = Math.ceil(30 * sumq * currentLevel)
         return re 
     }
 
@@ -269,13 +269,13 @@ export class General{
         switch(typ){
             case GeneralAbility.Attack:
             case GeneralAbility.Defense:
-                return row[typ] * 100 * level
+                return row[typ] * 10 * level
             case GeneralAbility.Load:
-                return row[typ] * 250 * level
+                return row[typ] * 100 * level
             case GeneralAbility.Silver:
-                return parseFloat(((0.0002 * Math.pow(level, 2) + 0.01 * level + 0.1) * row[typ] * 3600).toFixed(2))
+                return parseFloat((10 * row[typ] * level).toFixed(2))
             case GeneralAbility.Troop:
-                return parseFloat(((0.000002 * Math.pow(level, 2) + 0.0001 * level + 0.001) * row[typ] * 3600).toFixed(2))
+                return parseFloat((0.1 * row[typ] * level).toFixed(2))
         }
     }
 
@@ -286,22 +286,22 @@ export class General{
         let cost = 0
         switch(buff.buff_type){
             case SkillType.Attack:
-                cost = 0.02 * row.qualification_attack * Math.pow(level, 2) + 0.5
+                cost = row.qualification_attack * level
                 break
             case SkillType.Defense:
-                cost = 0.02 * row.qualification_defense * Math.pow(level, 2) + 0.5
+                cost = row.qualification_defense * level
                 break
             case SkillType.Load:
-                cost = 0.02 * row.qualification_load * Math.pow(level, 2) + 0.5
+                cost = row.qualification_load * level
                 break
             case SkillType.Silver:
-                cost = 0.04 * row.qualification_silver_product * Math.pow(level, 2) + 1
+                cost = row.qualification_silver_product * level
                 break
             case SkillType.Troop:
-                cost = 0.04 * row.qualification_troop_recruit * Math.pow(level, 2) + 1
+                cost = row.qualification_troop_recruit * level
                 break
         }
-        return cost * 10000
+        return cost
     }
 
     getSkillValue( generalId : number, skillIndex : number, level: number ) : {}{
@@ -321,19 +321,19 @@ export class General{
             //value
             switch(buff.buff_type){
                 case SkillType.Silver:
-                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_silver_product * 3600).toFixed(2))
+                    re['value'] = row.qualification_silver_product * 10 * level
                     break
                 case SkillType.Troop:
-                    re['value'] = parseFloat((buff.buff_value *  Math.pow(level, 2) * row.qualification_troop_recruit * 3600).toFixed(2))
+                    re['value'] = row.qualification_troop_recruit * 0.1 * level
                     break
                 case SkillType.Attack:
-                    re['value'] = buff.buff_value * row.qualification_attack * Math.pow(level, 2)
+                    re['value'] = 10 * row.qualification_attack * level
                     break
                 case SkillType.Defense:
-                    re['value'] = buff.buff_value * row.qualification_defense * Math.pow(level, 2)
+                    re['value'] = 10 * row.qualification_defense * level
                     break
                 case SkillType.Load:
-                    re['value'] = buff.buff_value * row.qualification_load * Math.pow(level, 2)
+                    re['value'] = 100 * row.qualification_load * level
                     break
             }
         }
@@ -347,7 +347,7 @@ export class General{
             return false
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.getResource(ResouceType.Silver) >= need){
+        if(this.city.state.gold >= need){
             return true
         }
         return false
@@ -364,7 +364,7 @@ export class General{
             return {result : false, error: 'skill-is-max-level'} 
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.useSilver(need)){
+        if(this.city.useGold(need)){
             
             generalInfo.skill_levels[skillIndex] = level + 1
             this.state.update({
