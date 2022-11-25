@@ -323,7 +323,7 @@ export class CityComponent implements ICityComponent {
     }
     re['maintainNeedTroop'] = this.city.getMaintainNeedTroop()
     re['protectSilver'] = this.city.getSaveSilverAmount()
-    re['troopUseSilver'] = re[ResouceType.Troop].value * 3
+    re['troopUseSilver'] = re[ResouceType.Troop].value * 1
     return re
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined {

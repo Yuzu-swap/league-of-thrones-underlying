@@ -760,6 +760,7 @@ export class TransitionHandler {
       return generalRe
     } 
     let num = logic.map.miningBlock(args.x_id, args.y_id)
+    logic.city.useSilver(-num)
     return {
       result: true,
       getSilver: num
