@@ -302,8 +302,12 @@ export class City {
     this.boost.setProduction(StateName.City, ResouceType.Troop, this.calculatePoduction(ResouceType.Troop))
   }
 
+  getRecruitNeed(amount: number){
+    return 100 * amount
+  }
+
   recruit( amount: number ){
-    const cost = 10 * amount
+    const cost = this.getRecruitNeed(amount)
     if( amount > this.getResource(ResouceType.Silver)){
       return {result: false, error: 'silver-not-enough'}
     }

@@ -106,6 +106,8 @@ export interface ICityComponent extends IComponent {
   getGuideStep(): number
   
   setGuideStep( step: number , callback: (result: any) => void): void
+
+  getRecruitNeed(amount : number) : number
 }
 
 export interface IGeneralComponent extends IComponent {
@@ -349,6 +351,9 @@ export class CityComponent implements ICityComponent {
       from: Throne.instance().username,
       amount: amount
     }, callback)
+  }
+  getRecruitNeed(amount: number): number {
+    return this.city.getRecruitNeed(amount)
   }
 
   getRecruitState(): {} {
