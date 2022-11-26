@@ -241,6 +241,8 @@ export interface IGeneralComponent extends IComponent {
   getMoraleBuff(): {}
 
   recoverMorale( resourceType: RecoverMoraleType, callback: (result: any) => void): void
+
+  getAttackTroop(): number
 }
 
 
@@ -727,6 +729,10 @@ export class GeneralComponent implements IGeneralComponent {
       from: Throne.instance().username,
       resourceType: resourceType
     }, callback)
+  }
+
+  getAttackTroop(): number {
+    return this.general.getMaxAttackTroop()
   }
 
 }
