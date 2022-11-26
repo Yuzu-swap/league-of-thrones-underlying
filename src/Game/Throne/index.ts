@@ -243,6 +243,7 @@ export interface IGeneralComponent extends IComponent {
   recoverMorale( resourceType: RecoverMoraleType, callback: (result: any) => void): void
 
   getAttackTroop(): number
+  getDefenseTroop(): number
 }
 
 
@@ -733,6 +734,10 @@ export class GeneralComponent implements IGeneralComponent {
 
   getAttackTroop(): number {
     return this.general.getMaxAttackTroop()
+  }
+
+  getDefenseTroop(): number {
+    return this.general.getMaxDefenseTroop()
   }
 
 }
