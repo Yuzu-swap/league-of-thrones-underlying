@@ -132,6 +132,10 @@ function example() {
           unionId: 1
         },
         ()=>{})
+      Throne.instance().mediator.sendTransaction(StateTransition.RegularTask,
+        {
+        },
+        ()=>{})
       Throne.instance().mediator.sendTransaction(StateTransition.AbleGeneral,
         {
           from: 'test1',
