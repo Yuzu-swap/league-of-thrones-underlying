@@ -65,7 +65,7 @@ export class WebSocketMediator
                 this._updateState(sid, stateObj, false);
               }
               this.respCallbacks[msg.SeqNum](this._getState(sid));
-            } else if (msg.Type == MessageType.Query || msg.Type == MessageType.Chat) {
+            } else if (msg.Type == MessageType.Query || msg.Type == MessageType.Chat || msg.Type == MessageType.QueryCount) {
               this.respCallbacks[msg.SeqNum](msg.Data);
             } 
             delete this.respCallbacks[msg.SeqNum];
