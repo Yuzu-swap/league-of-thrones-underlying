@@ -132,6 +132,21 @@ export class WebSocketMediator
     });
   }
 
+  defaultQuery(type: MessageType, transID: string, args: {}): Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: type,
+      TransID: transID,
+      Data: args,
+    };
+    console.log('send msg is ', JSON.stringify(msg));
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    });
+  }
+
   chat(data: ChatMessage): Promise<any> {
     const seqNum = this.seqNum++;
     var msg: MessageC2S = {

@@ -2,7 +2,8 @@ export enum MessageType {
   Transition = 'transition',
   StateQuery = 'state_query', //state query will triiger state callback
   Query = 'query', //normal query won't trigger any  stae callback
-  Chat = 'chat'
+  Chat = 'chat',
+  QueryCount = 'query_count'
 }
 
 export interface BaseMessage {

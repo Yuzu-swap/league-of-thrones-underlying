@@ -31,6 +31,7 @@ import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
 import { getTimeStamp, parseStateId, setTimeOffset } from '../Utils'
 import { StrategyComponent } from './strategy'
 import { Activity } from '../Logic/activity'
+import { MessageType } from '../Controler/Websocket/protocol'
 
 
 
@@ -220,6 +221,8 @@ export interface IGeneralComponent extends IComponent {
   */
 
   getBattleStatuses(name : string, callback: (result: any) => void ): Promise<void>
+
+  getGloryAndRank(callback: (result: any) => void ): Promise<void>
 
   /**
    * battle
@@ -673,6 +676,16 @@ export class GeneralComponent implements IGeneralComponent {
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
     }
     callback(re ?? [])
+  }
+
+  async getGloryAndRank( callback: (result: any) => void ): Promise<void> {
+    let rank = -1
+    rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"glory":{"$gt":  this.general.state.glory}})
+    let re = {
+      glory: this.general.state.glory,
+      rank: rank
+    }
+    callback(re)
   }
 
   battle(generalId: number,name: string, callback: (result: any) => void): void {

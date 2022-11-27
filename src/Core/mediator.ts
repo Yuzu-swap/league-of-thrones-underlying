@@ -1,4 +1,5 @@
 import { ChatChannel, ChatMessage } from "../Game/Const"
+import { MessageType } from "../Game/Controler/Websocket/protocol"
 import { IStateIdentity, IState } from "./state"
 
 
@@ -10,6 +11,7 @@ export type StateCallback<ContextType> = (state: IContextState<ContextType>) => 
 
 export interface IStateMediator<TransactionIDType, ContextType> {
 	queryState(sid: IStateIdentity, args: {}, callback: (state: IState) => void): Promise<IState> | void
+	defaultQuery( type: MessageType, transID: string, args:{}):Promise<any>
 	query( typ: string, args:{}):Promise<any>
 	chat( data: ChatMessage ): Promise<any>
 	chatHistory( data: {} ): Promise<any>
@@ -55,6 +57,9 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 		throw "not emplement"
 	}
 	query( typ: string, args:{}):Promise<any> {
+		throw "not emplement"
+	}
+	defaultQuery(type: MessageType, transID: string, args: {}): Promise<any> {
 		throw "not emplement"
 	}
 
