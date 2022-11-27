@@ -804,7 +804,7 @@ export class TransitionHandler {
         id: `${StateName.Activity}`
       }
     )
-    console.log('activityState detail', activityState)
+    console.log('activityState detail', JSON.stringify(activityState))
     mapGlobalState.update(
       initState[StateName.MapGlobalInfo]
     )
