@@ -804,12 +804,14 @@ export class TransitionHandler {
         id: `${StateName.Activity}`
       }
     )
+    console.log('activityState detail', activityState)
     mapGlobalState.update(
       initState[StateName.MapGlobalInfo]
     )
     rewardGlobalState.update(
       initState[StateName.RewardGloablState]
     )
+    console.log('activityState to set', initState[StateName.Activity])
     activityState.update(
       initState[StateName.Activity]
     )
