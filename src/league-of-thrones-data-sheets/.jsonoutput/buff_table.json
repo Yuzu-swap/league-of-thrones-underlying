@@ -83,6 +83,114 @@
     },
     {
         "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "1"
+        ],
+        "buff_id": 10
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "1"
+        ],
+        "buff_id": 11
+    },
+    {
+        "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "2"
+        ],
+        "buff_id": 12
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "2"
+        ],
+        "buff_id": 13
+    },
+    {
+        "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "3"
+        ],
+        "buff_id": 14
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"attack",
+        "buff_target":[
+            "3"
+        ],
+        "buff_id": 15
+    },
+    {
+        "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "1"
+        ],
+        "buff_id": 16
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "1"
+        ],
+        "buff_id": 17
+    },
+    {
+        "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "2"
+        ],
+        "buff_id": 18
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "2"
+        ],
+        "buff_id": 19
+    },
+    {
+        "value_type": 2,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "3"
+        ],
+        "buff_id": 20
+    },
+    {
+        "value_type": 1,
+        "buff_value": 15,
+        "buff_type":"defense",
+        "buff_target":[
+            "3"
+        ],
+        "buff_id": 21
+    },
+    {
+        "value_type": 2,
         "buff_value": 50,
         "buff_type":"recruit",
         "buff_target":[
