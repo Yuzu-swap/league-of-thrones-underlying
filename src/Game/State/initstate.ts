@@ -25,7 +25,7 @@ export var InitState = {
       gold: 0,
       lastAddTestTime: -1,
       userActivity: [],
-      guideStep: 0
+      guideStep: []
     },
     [StateName.General]:{
         generalList: {},

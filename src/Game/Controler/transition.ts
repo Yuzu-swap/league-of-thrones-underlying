@@ -862,7 +862,7 @@ export class TransitionHandler {
 
   onSetGuideStep( args : GuideStepArgs ){
     const logic: LogicEssential = this.genLogic(args.from)
-    return logic.city.setGuideStep(args.step)
+    return logic.city.setGuideStep( args.type, args.step)
   }
 
 }

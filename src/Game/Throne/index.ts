@@ -104,9 +104,9 @@ export interface ICityComponent extends IComponent {
 
   donateSilver( activityId: number, amount: number, callback:(result: any) => void ): void
 
-  getGuideStep(): number
+  getGuideStep( type: string): number
   
-  setGuideStep( step: number , callback: (result: any) => void): void
+  setGuideStep( type :string , step: number , callback: (result: any) => void): void
 
   getRecruitNeed(amount : number) : number
 }
@@ -466,15 +466,16 @@ export class CityComponent implements ICityComponent {
     )
   }
 
-  getGuideStep(): number {
-    return this.city.getGuideStep()
+  getGuideStep(type: string): number {
+    return this.city.getGuideStep(type)
   }
 
-  setGuideStep(step: number, callback: (result: any) => void): void {
+  setGuideStep(type: string , step: number, callback: (result: any) => void): void {
     this.mediator.sendTransaction(
       StateTransition.SetGuideStep,
       {
         from :  Throne.instance().username,
+        type : type,
         step : step,
       },
       callback

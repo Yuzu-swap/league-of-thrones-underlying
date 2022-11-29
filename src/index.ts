@@ -238,13 +238,19 @@ function example() {
             console.log(result)
           })
         
-        console.log( city.getGuideStep())
+        console.log( city.getGuideStep("test"))
         city.setGuideStep(
+          "test",
           2, ()=>{
-            console.log( city.getGuideStep())
+            console.log( city.getGuideStep("test"))
           }
         )
-
+        city.setGuideStep(
+          "test",
+          5, ()=>{
+            console.log( city.getGuideStep("test"))
+          }
+        )
       }
     );
   }, 1000);

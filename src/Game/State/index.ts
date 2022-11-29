@@ -16,6 +16,11 @@ export interface UserActivity{
   value: number
 }
 
+export interface GuideStep{
+  type: string
+  step: number
+}
+
 export interface ICityState extends IState {
   id: string;
   facilities: { [key in CityFacility]?: number[] };
@@ -24,7 +29,7 @@ export interface ICityState extends IState {
   gold: number
   lastAddTestTime: number
   userActivity: UserActivity[]
-  guideStep: number
+  guideStep: GuideStep[]
 }
 
 export interface GeneralStamina{

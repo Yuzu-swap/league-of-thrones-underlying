@@ -176,6 +176,7 @@ export interface DonateSilverArgs extends StateTransitionArgs{
 }
 
 export interface GuideStepArgs extends StateTransitionArgs{
+	type: string
 	step: number
 }
 

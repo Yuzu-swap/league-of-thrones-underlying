@@ -1,4 +1,4 @@
-import { ICityState, ResouceInfo } from '../State';
+import { GuideStep, ICityState, ResouceInfo } from '../State';
 import { CityFacility, ResouceType, StateName } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
@@ -525,14 +525,36 @@ export class City {
     console.log('@@@Dump all facilities end\n');
   }
 
-  getGuideStep(){
-    return this.state.guideStep != undefined ? this.state.guideStep  : 0
+  getGuideStep( type: string){
+    let list = this.state.guideStep
+    for( let i in list ){
+      if(list[i].type == type){
+        return list[i].step
+      }
+    }
+    return 0
   }
 
-  setGuideStep( step : number ){
+  setGuideStep( type: string, step : number ){
+    let list = this.state.guideStep
+    let haveSet = false
+    for( let i in list ){
+      if(list[i].type == type){
+        list[i].step = step
+        haveSet = true
+        break
+      }
+    }
+    if(!haveSet){
+      let item : GuideStep = {
+        type: type,
+        step: step
+      }
+      list.push(item)
+    }
     this.state.update(
       {
-        guideStep : step
+        guideStep : list
       }
     )
     return {
