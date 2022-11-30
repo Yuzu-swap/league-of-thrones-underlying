@@ -315,7 +315,7 @@ export class General{
         re['value_type'] = buff.value_type
         if(buff.value_type == 1){
             //percent
-            re['value'] = buff.buff_value * level
+            re['value'] = buff.buff_value * level / 100
         }
         else{
             //value
