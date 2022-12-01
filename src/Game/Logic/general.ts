@@ -315,7 +315,7 @@ export class General{
         re['value_type'] = buff.value_type
         if(buff.value_type == 1){
             //percent
-            re['value'] = buff.buff_value * level / 100
+            re['value'] = buff.buff_value * level
         }
         else{
             //value
@@ -713,8 +713,8 @@ export class General{
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
-        re.attackGloryGet = Math.floor((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 )
-        re.defenseGloryGet = Math.floor((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 )
+        re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
+        re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
         if(remainTroopA > 0 ){
             re.win = true
             re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
