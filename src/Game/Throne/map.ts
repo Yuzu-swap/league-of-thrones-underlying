@@ -37,6 +37,7 @@ export interface IMapComponent extends IComponent{
     cancelDefenseBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
     getDefenseList(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
+    getInitBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void>
     getBlocksBelongInfo(): {}
     getSeasonStatus(callback: (result: any) => void) : Promise<void>
     getSeasonConfig():{}
@@ -166,6 +167,17 @@ export class MapComponent implements IMapComponent{
         row['defense_list_len'] = defenseListLength
         row['protect_time'] = this.map.getProtectRemainTime(xId, yId)
         let blockState = this.map.getBlockState(xId, yId)
+        row['belong'] = copyObj(blockState.belong)
+        row['remainSilver'] = blockState.remainSilver
+        callback(row)
+    }
+
+    async getInitBlockInfo(xId: number, yId: number, callback: (result: any) => void): Promise<void> {
+        let row = copyObj(this.map.mapConfig.get(xId, yId))
+        let blockState = copyObj(this.map.getBlockInitState(xId, yId)) as IBlockState
+        row['now_durability'] = blockState.durability
+        row['defense_list_len'] = blockState.defaultDefense.length
+        row['protect_time'] = 0
         row['belong'] = copyObj(blockState.belong)
         row['remainSilver'] = blockState.remainSilver
         callback(row)

@@ -408,6 +408,9 @@ function example() {
               map.getBlockInfo(9, 9, (result)=>{
                 console.log(result)
               })
+              map.getInitBlockInfo(9, 9, (result)=>{
+                console.log(result)
+              })
               map.attackBlock( 8, 10, 2,
                 (result)=>{
                   console.log('map----attackBlock',result)

@@ -1,8 +1,8 @@
 import { copyObj } from "../../Core/state";
-import { mapIdOffset } from "../Const";
+import { mapIdOffset, StateName } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
+import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -64,6 +64,11 @@ export class Map{
 
     getBlockState( x_id: number, y_id: number){
         return this.blockStates[ x_id + "^" + y_id ]
+    }
+
+    getBlockInitState(x_id: number, y_id: number){
+        const state = InitState[ `${StateName.BlockInfo}:${x_id}^${y_id}`]
+        return state
     }
 
     getBelongInfo(x_id: number, y_id: number): number{
