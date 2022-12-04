@@ -26,7 +26,6 @@ import {
   StateTransitionArgs,
   SetSeasonEndArgs,
   StartSeasonArgs,
-  SetSeasonRewardConfigArgs,
   SetIconIdArgs,
   RechargeArgs,
   RecoverMoraleArgs,

@@ -143,11 +143,6 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 	}
 }
 
-export interface SetSeasonRewardConfigArgs extends StateTransitionArgs{
-	rankConfigFromTo: number[]
-	rankConfigValue: number[]
-}
-
 export interface SetIconIdArgs extends StateTransitionArgs{
 	iconId: number
 }
