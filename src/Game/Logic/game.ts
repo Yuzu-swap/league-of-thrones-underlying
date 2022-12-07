@@ -308,14 +308,16 @@ export class City {
 
   recruit( amount: number ){
     const cost = this.getRecruitNeed(amount)
-    if( amount > this.getResource(ResouceType.Silver)){
+    if( cost > this.getResource(ResouceType.Silver)){
       return {result: false, error: 'silver-not-enough'}
     }
     let recruit = this.state.recruit
     const product = this.boost.getProduction(ResouceType.Troop)
     const time = getTimeStamp();
     const endtime = Math.floor(amount/product * 3600) + time
-    this.useSilver(cost)
+    if(!this.useSilver(cost)){
+      return {result: false, error: 'silver-not-enough'}
+    }
     recruit.push(
       {
         amount: amount,
