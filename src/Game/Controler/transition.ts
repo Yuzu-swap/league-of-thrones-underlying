@@ -674,6 +674,7 @@ export class TransitionHandler {
     let globalList =  rewardState.globalGloryRankInfo
     addToSortList(unionLists[unionId - 1], username, oldGlory, newGlory, unionId)
     addToSortList(globalList, username, oldGlory, newGlory, unionId)
+    console.log("after reward update: union:" + unionLists + "global" + globalList)
     rewardState.update(
       {
         unionGloryRankInfo : unionLists,
