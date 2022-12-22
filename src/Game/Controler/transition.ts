@@ -51,6 +51,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
+import { stringify } from 'querystring';
 
 const log = globalThis.log || function () {};
 
@@ -674,7 +675,7 @@ export class TransitionHandler {
     let globalList =  rewardState.globalGloryRankInfo
     addToSortList(unionLists[unionId - 1], username, oldGlory, newGlory, unionId)
     addToSortList(globalList, username, oldGlory, newGlory, unionId)
-    console.log("after reward update: union:" + unionLists + "global" + globalList)
+    console.log("after reward update: union:" + JSON.stringify(unionLists) + "global" + globalList)
     rewardState.update(
       {
         unionGloryRankInfo : unionLists,
