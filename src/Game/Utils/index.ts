@@ -172,10 +172,12 @@ export function addToSortList( list: GloryInfo[], username : string, originGlory
         glory: newGlory,
         unionId: unionId
     }
+    console.log("before add sort list, length:" + list.length + " list:"+ JSON.stringify(list))
     if(list.length == 0){
         list.push(
             insert
         )
+        console.log("add new item to list", JSON.stringify(list))
         return
     }
     let origin = indexOfGloryList(list, username, originGlory)
