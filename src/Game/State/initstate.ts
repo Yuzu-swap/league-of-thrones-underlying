@@ -72,7 +72,7 @@ export var InitState = {
         rankRewardValue: 0
     },
     [StateName.RewardGloablState]:{
-        unionGloryRankInfo: new Array(4).fill(new Array(0)),
+        unionGloryRankInfo: [[],[],[],[]],
         globalGloryRankInfo: [],
         contractAddressInput: [],
         contractGloryInput: [],

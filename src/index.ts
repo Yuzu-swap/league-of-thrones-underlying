@@ -102,7 +102,7 @@ function example() {
   Throne.instance().init(
     {
       username: "test",
-      unionId: 1
+      unionId: 2
     },
     (result)=>{
       console.log( (Throne.instance().mediator as LocalMediator).getTransaction().checkUnionWin())
