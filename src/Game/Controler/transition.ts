@@ -36,7 +36,7 @@ import {
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { GeneralDefenseBlock, GetInitState, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, GetInitState, GloryInfo, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -673,9 +673,11 @@ export class TransitionHandler {
   updateRewardState(rewardState: IRewardGlobalState, username: string, oldGlory: number, newGlory: number, unionId: number){
     let unionLists =  rewardState.unionGloryRankInfo
     let globalList =  rewardState.globalGloryRankInfo
-    addToSortList(unionLists[unionId - 1], username, oldGlory, newGlory, unionId)
+    let unionList = copyObj(unionLists[unionId - 1]) as GloryInfo[]
+    addToSortList(unionList, username, oldGlory, newGlory, unionId)
     addToSortList(globalList, username, oldGlory, newGlory, unionId)
-    console.log("after reward update: union:" + JSON.stringify(unionLists) + "global" + globalList +  "unionId:" + unionId) 
+    unionLists[unionId - 1] = unionList
+    console.log("after reward update: union:" + JSON.stringify(unionList) + "global" + globalList +  "unionId:" + unionId) 
     rewardState.update(
       {
         unionGloryRankInfo : unionLists,
