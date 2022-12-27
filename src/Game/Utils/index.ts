@@ -206,3 +206,7 @@ export function addToNormalSortedList( list: any[], username : string, originVal
     let newInfo = indexOfSortedList(list, username, newValue, valueKey)
     list.splice(newInfo.index, 0, insert)
 }
+
+export function getRandom():number{
+    return Math.random()
+}

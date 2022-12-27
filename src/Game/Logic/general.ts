@@ -6,7 +6,7 @@ import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
-import { getTimeStamp, parseStateId } from '../Utils';
+import { getRandom, getTimeStamp, parseStateId } from '../Utils';
 import { BattleRecordType, BattleTransRecord } from '../Controler/transition';
 import { StrategyType } from './strategy';
 
@@ -681,10 +681,10 @@ export class General{
         }
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
-        let randomA = 0.9 + Math.random() * 0.2
+        let randomA = 0.9 + getRandom() * 0.2
         let remainTroopD = defenseInfo.defenseMaxTroop
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
-        let randomD = 0.9 + Math.random() * 0.2
+        let randomD = 0.9 + getRandom() * 0.2
         let loopTime = 0
         while(true){
             loopTime++
