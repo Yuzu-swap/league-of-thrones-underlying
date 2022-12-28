@@ -214,7 +214,7 @@ export class General{
         const row = this.getGeneralQualification(id)
         const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit + row.qualification_defense
         let re = 0
-        re = Math.ceil(30 * sumq * currentLevel)
+        re = Math.ceil(20 * sumq * currentLevel)
         return re 
     }
 
