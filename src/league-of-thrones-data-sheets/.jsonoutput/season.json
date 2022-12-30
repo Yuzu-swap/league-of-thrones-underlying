@@ -15,10 +15,10 @@
                 "count": 3
             }
         ],
-        "season_reservation":"2022_12_29_22",
-        "season_ready":"2022_12_29_22",
-        "season_open":"2022_12_29_23",
-        "season_end":"2022_12_29_24",
+        "season_reservation":"2022_12_30_15",
+        "season_ready":"2022_12_30_16",
+        "season_open":"2022_12_30_16",
+        "season_end":"2022_12_30_17",
         "rank_reward":[
             {
                 "type": 1,
@@ -45,15 +45,15 @@
         "id": 1,
         "dailyactivity":[
             {
-                "day":"2022_12_29_23",
+                "day":"2022_12_30_15",
                 "activity": 1
             },
             {
-                "day":"2022_12_29_23",
+                "day":"2022_12_30_15",
                 "activity": 2
             },
             {
-                "day":"2022_12_29_23",
+                "day":"2022_12_30_15",
                 "activity": 3
             }
         ]
