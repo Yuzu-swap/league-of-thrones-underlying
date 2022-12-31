@@ -868,6 +868,16 @@ export class Throne implements IThrone {
         unionId: this.unionId
       }, callback)
     }
+    else{
+      callback(
+        {
+          result: 
+            {result:true,
+            unionId:states.general.unionId,
+            username:this.username}
+        }
+      )
+    }
   }
 
 
