@@ -684,7 +684,7 @@ export class GeneralComponent implements IGeneralComponent {
     rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"glory":{"$gt":  this.general.state.glory}})
     let re = {
       glory: this.general.state.glory,
-      rank: rank
+      rank: rank + 1
     }
     callback(re)
   }

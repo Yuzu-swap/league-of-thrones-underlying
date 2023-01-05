@@ -192,7 +192,7 @@ export class MapComponent implements IMapComponent{
         for(let i in defenseList){
             if( parseInt(i) + 1  > reward.end){
                 rewardIndex++
-                if(rewardIndex > rankReward.length){
+                if(rewardIndex >= rankReward.length){
                     break
                 }
                 reward = rankReward[rewardIndex]
