@@ -63,6 +63,13 @@ export class MapComponent implements IMapComponent{
 
     setMap(map: Map){
         this.map = map
+        this.mediator.onReceiveState(
+            {id : StateName.MapGlobalInfo}
+            ,
+            ()=>{
+                this.map.boost.setMapBuff(this.map.getBuffList(Throne.instance().unionId))
+            }
+        )
     }
 
     onStateUpdate(callback: IStatetWithTransContextCallback): void {

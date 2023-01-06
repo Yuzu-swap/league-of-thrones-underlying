@@ -877,6 +877,7 @@ export class Throne implements IThrone {
             username:this.username}
         }
       )
+      this.unionId = states.general.unionId
     }
   }
 
