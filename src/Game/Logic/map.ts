@@ -41,9 +41,8 @@ export class Map{
         this.seasonState = seasonState
         this.rewardGlobalState = rewardGlobalState
     }
-    setBoost(boost:IBoost, general: General){
+    setBoost(boost:IBoost){
         this.boost = boost
-        this.general = general
     }
 
     setGeneral(general){
