@@ -1,6 +1,6 @@
 {
     "victory_need_occupy_times":{
-        "value":"60",
+        "value":"28800",
         "name":"victory_need_occupy_times"
     },
     "troops_base_load":{

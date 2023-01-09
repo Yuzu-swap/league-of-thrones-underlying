@@ -1,7 +1,7 @@
 {
    "Config" : [
     {
-        "stamina": 99,
+        "stamina": 7,
         "qualification_troop_recruit": 4,
         "qualification_silver_product": 6,
         "qualification_load": 5,
@@ -16,7 +16,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 7,
         "qualification_troop_recruit": 5,
         "qualification_silver_product": 4,
         "qualification_load": 6,
@@ -31,7 +31,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 8,
         "qualification_troop_recruit": 6,
         "qualification_silver_product": 6,
         "qualification_load": 6,
@@ -47,7 +47,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 8,
         "qualification_troop_recruit": 20,
         "qualification_silver_product": 8,
         "qualification_load": 4,
@@ -63,7 +63,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 7,
         "qualification_troop_recruit": 4,
         "qualification_silver_product": 4,
         "qualification_load": 3,
@@ -78,7 +78,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 8,
         "qualification_troop_recruit": 5,
         "qualification_silver_product": 6,
         "qualification_load": 5,
@@ -94,7 +94,7 @@
         "general_from": 1
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 3,
         "qualification_load": 5,
@@ -109,7 +109,7 @@
         "general_from": 2
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 3,
         "qualification_load": 5,
@@ -124,7 +124,7 @@
         "general_from": 2
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 4,
         "qualification_load": 3,
@@ -139,7 +139,7 @@
         "general_from": 2
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 11,
         "qualification_silver_product": 5,
         "qualification_load": 3,
@@ -154,7 +154,7 @@
         "general_from": 2
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 3,
         "qualification_load": 3,
@@ -169,7 +169,7 @@
         "general_from": 3
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 3,
         "qualification_load": 2,
@@ -184,7 +184,7 @@
         "general_from": 3
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 5,
         "qualification_silver_product": 8,
         "qualification_load": 6,
@@ -199,7 +199,7 @@
         "general_from": 3
     },
     {
-        "stamina": 99,
+        "stamina": 5,
         "qualification_troop_recruit": 3,
         "qualification_silver_product": 3,
         "qualification_load": 3,
