@@ -100,7 +100,15 @@ export interface ICityComponent extends IComponent {
     }, callback: ( result: ChatMessage[] ) => void
   ): Promise<void>
 
+  getChatRedPoint( channel: ChatChannel ): boolean
+
+  updateChatRedPoint( channel: ChatChannel, msg: ChatMessage ): void
+
+  initRedPoint():Promise<void>
+
   getAbleActivityInfo(): any[]
+
+  readActivity( activityId: number ): void
 
   donateSilver( activityId: number, amount: number, callback:(result: any) => void ): void
 
@@ -249,6 +257,9 @@ export interface IGeneralComponent extends IComponent {
 
   getAttackTroop(): number
   getDefenseTroop(): number
+
+  getBattleRecordRedPoint(): boolean
+
 }
 
 
@@ -259,6 +270,8 @@ export class CityComponent implements ICityComponent {
   mediator: IStateMediator<StateTransition, ITransContext>
   cityStateId: IStateIdentity
   listener: IStatetWithTransContextCallback[]
+  chatRedPointInfo: { [key in ChatChannel ]? : { id: string , ts : number } }
+  chatReadInfo:{ [key in ChatChannel ]? : { id: string , ts : number } }
 
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.cityStateId = {
@@ -267,6 +280,8 @@ export class CityComponent implements ICityComponent {
     this.type = ComponentType.City
     this.mediator = mediator
     this.listener = []
+    this.chatReadInfo = {}
+    this.chatReadInfo = {}
   }
 
   setCity(city : City){
@@ -449,10 +464,12 @@ export class CityComponent implements ICityComponent {
     for(let item of infolist){
       let rank = this.activity.getActivityRank(item.activityId, parseStateId(this.cityStateId.id).username, this.city.getActivityData(item.activityId))
       let singleInfo = Object.assign(item, rank)
+      singleInfo['redPoint'] = true
       re.push(singleInfo)
     }
     return re
   }
+
 
   donateSilver(activityId: number, amount: number, callback: (result: any) => void): void {
     this.mediator.sendTransaction(
@@ -480,6 +497,53 @@ export class CityComponent implements ICityComponent {
       },
       callback
     )
+  }
+
+  getChatRedPoint(channel: ChatChannel): boolean {
+    if( this.chatReadInfo[channel] 
+      && this.chatReadInfo[channel].ts == this.chatRedPointInfo[channel].ts
+      && this.chatReadInfo[channel].id == this.chatRedPointInfo[channel].id )
+    {
+      return false
+    }
+    return true
+  }
+
+  updateChatRedPoint(channel: ChatChannel, msg: ChatMessage): void {
+    let info = {
+      id : msg.id,
+      ts : msg.ts
+    }
+    this.chatReadInfo[channel] = info
+  }
+
+  async initRedPoint(): Promise<void> {
+    await this.getHistoryChatData({unionId: Throne.instance().unionId}, 
+      (result)=>{
+        if(result.length != 0){
+          let worldInfo = {
+            id: result[result.length - 1].id,
+            ts: result[result.length - 1].ts
+          }
+          this.chatRedPointInfo[ChatChannel.ChatChannel_WORLD] = worldInfo
+          for(let i = result.length - 1 ; i>=0 ; i--){
+            if(result[i].senderCamp == Throne.instance().unionId){
+              let unionInfo = {
+                id: result[i].id,
+                ts: result[i].ts
+              }
+              this.chatRedPointInfo[ChatChannel.ChatChannel_Camp] = unionInfo
+            }
+            break
+          }
+
+        }
+      }
+    )
+  }
+
+  readActivity(activityId: number): void {
+    
   }
 }
 
@@ -759,6 +823,10 @@ export class GeneralComponent implements IGeneralComponent {
     return this.general.getMaxDefenseTroop()
   }
 
+  getBattleRecordRedPoint(): boolean {
+    return true
+  }
+
 }
 
 export enum ComponentType {
@@ -898,6 +966,7 @@ export class Throne implements IThrone {
       let cityCom = this.components[ComponentType.City] as CityComponent
       cityCom.setCity(this.logicEssential.city)
       cityCom.setActivity(this.logicEssential.activity)
+      await cityCom.initRedPoint()
       callback(cityCom as any as T)
     } else if (typ == ComponentType.General) {
       this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${this.username}`, this.mediator)
