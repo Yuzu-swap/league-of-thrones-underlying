@@ -270,8 +270,8 @@ export class CityComponent implements ICityComponent {
   mediator: IStateMediator<StateTransition, ITransContext>
   cityStateId: IStateIdentity
   listener: IStatetWithTransContextCallback[]
-  chatRedPointInfo: { [key in ChatChannel ]? : { id: string , ts : number } }
-  chatReadInfo:{ [key in ChatChannel ]? : { id: string , ts : number } }
+  chatRedPointInfo: { [key in ChatChannel ]? : { id: string , ts : number } } // global chat msg info
+  chatReadInfo:{ [key in ChatChannel ]? : { id: string , ts : number } }  // local read info
 
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.cityStateId = {
@@ -281,7 +281,7 @@ export class CityComponent implements ICityComponent {
     this.mediator = mediator
     this.listener = []
     this.chatReadInfo = {}
-    this.chatReadInfo = {}
+    this.chatRedPointInfo = {}
   }
 
   setCity(city : City){
@@ -540,6 +540,20 @@ export class CityComponent implements ICityComponent {
         }
       }
     )
+    this.mediator.listenChat(ChatChannel.ChatChannel_Camp , (msg)=>{
+      this.chatRedPointInfo[ChatChannel.ChatChannel_Camp] = {
+        id: msg.id,
+        ts: msg.ts
+      }
+    })
+
+    this.mediator.listenChat(ChatChannel.ChatChannel_WORLD , (msg)=>{
+      this.chatRedPointInfo[ChatChannel.ChatChannel_WORLD] = {
+        id: msg.id,
+        ts: msg.ts
+      }
+    })
+
   }
 
   readActivity(activityId: number): void {
