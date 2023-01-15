@@ -20,6 +20,8 @@ export interface IStateMediator<TransactionIDType, ContextType> {
 	onReceiveChat(data:ChatMessage): void
 	listenChat( channel: ChatChannel, callback: (data:ChatMessage)=> void ): void
 	setWsCloseCallbacl(callback : () => void): void
+	profileQuery( key: string): Promise<any>
+	profileSave( key: string , value : string): Promise<any>
 }
 
 
@@ -72,6 +74,14 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 	}
 
 	sendTransaction(tid: TransactionIDType, args: {}, callback: (res: any) => void): ContextType {
+		throw "not emplement"
+	}
+
+	profileQuery( key: string): Promise<any>{
+		throw "not emplement"
+	}
+
+	profileSave( key: string , value : string): Promise<any>{
 		throw "not emplement"
 	}
 

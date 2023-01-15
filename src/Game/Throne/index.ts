@@ -28,7 +28,7 @@ import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
-import { getTimeStamp, parseStateId, setTimeOffset } from '../Utils'
+import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTimeOffset } from '../Utils'
 import { StrategyComponent } from './strategy'
 import { Activity } from '../Logic/activity'
 import { MessageType } from '../Controler/Websocket/protocol'
@@ -259,7 +259,8 @@ export interface IGeneralComponent extends IComponent {
   getDefenseTroop(): number
 
   getBattleRecordRedPoint(): boolean
-
+  updateBattleRedPoint(timestamp : number ):void
+  initRedPoint():Promise<void>
 }
 
 
@@ -272,6 +273,10 @@ export class CityComponent implements ICityComponent {
   listener: IStatetWithTransContextCallback[]
   chatRedPointInfo: { [key in ChatChannel ]? : { id: string , ts : number } } // global chat msg info
   chatReadInfo:{ [key in ChatChannel ]? : { id: string , ts : number } }  // local read info
+  chatProfileKey : {
+    [key in ChatChannel ] : string
+  }
+  activityHaveRead: boolean[]
 
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.cityStateId = {
@@ -282,6 +287,11 @@ export class CityComponent implements ICityComponent {
     this.listener = []
     this.chatReadInfo = {}
     this.chatRedPointInfo = {}
+    this.chatProfileKey = {
+      [ChatChannel.ChatChannel_Camp] : `profile:chatCamp:${Throne.instance().username}`,
+      [ChatChannel.ChatChannel_WORLD]: `profile:chatWorld:${Throne.instance().username}`
+    }
+    this.activityHaveRead = []
   }
 
   setCity(city : City){
@@ -297,6 +307,14 @@ export class CityComponent implements ICityComponent {
 
   setActivity(activity: Activity){
     this.activity = activity
+    let len = activity.state.activityData.length
+    for(let i = 0; i < len; i++){
+      this.activityHaveRead.push(false)
+    }
+  }
+
+  getActivityProfileKey(id: number){
+    return `profile:activity:${Throne.instance().username}:${id}`
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number): FacilityGdsRow {
@@ -464,7 +482,7 @@ export class CityComponent implements ICityComponent {
     for(let item of infolist){
       let rank = this.activity.getActivityRank(item.activityId, parseStateId(this.cityStateId.id).username, this.city.getActivityData(item.activityId))
       let singleInfo = Object.assign(item, rank)
-      singleInfo['redPoint'] = true
+      singleInfo['redPoint'] = !this.activityHaveRead[item.activityId]
       re.push(singleInfo)
     }
     return re
@@ -515,6 +533,7 @@ export class CityComponent implements ICityComponent {
       ts : msg.ts
     }
     this.chatReadInfo[channel] = info
+    this.mediator.profileSave(this.chatProfileKey[channel], encodeChatProfile(msg.id, msg.ts))
   }
 
   async initRedPoint(): Promise<void> {
@@ -540,6 +559,26 @@ export class CityComponent implements ICityComponent {
         }
       }
     )
+    //read red point info from backend
+    //for(let key in ChatChannel)
+    let campProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_Camp])
+    if(campProfile['code'] == 0){
+      let campInfo = decodeChatProfile(campProfile['data'])
+      this.chatReadInfo[ChatChannel.ChatChannel_Camp] = {
+        id: campInfo.id,
+        ts: campInfo.ts
+      }
+    }
+
+    let worldProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_WORLD])
+    if(worldProfile['code'] == 0){
+      let worldInfo = decodeChatProfile(worldProfile['data'])
+      this.chatReadInfo[ChatChannel.ChatChannel_WORLD] = {
+        id: worldInfo.id,
+        ts: worldInfo.ts
+      }
+    }
+
     this.mediator.listenChat(ChatChannel.ChatChannel_Camp , (msg)=>{
       this.chatRedPointInfo[ChatChannel.ChatChannel_Camp] = {
         id: msg.id,
@@ -553,11 +592,17 @@ export class CityComponent implements ICityComponent {
         ts: msg.ts
       }
     })
-
+    for(let i= 0 ; i < this.activityHaveRead.length; i++){
+      let activityInfo = await this.mediator.profileQuery(this.getActivityProfileKey(i))
+      if(activityInfo['code'] == 0){
+        this.activityHaveRead[i] = true;
+      }
+    }
   }
 
   readActivity(activityId: number): void {
-    
+    this.activityHaveRead[activityId] = true;
+    this.mediator.profileSave(this.getActivityProfileKey(activityId), "1")
   }
 }
 
@@ -566,12 +611,18 @@ export class GeneralComponent implements IGeneralComponent {
   general: General;
   mediator: IStateMediator<StateTransition, ITransContext>
   generalStateId: IStateIdentity
+  battleRecordProfileKey : string
+  battleRecordLocalTs: number
+  battleRecordGobalTs: number
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.generalStateId = {
       id: myStateId
     }
     this.type = ComponentType.General
     this.mediator = mediator
+    this.battleRecordProfileKey = `profile:battleRecord:${Throne.instance().username}`
+    this.battleRecordLocalTs = 0
+    this.battleRecordGobalTs = 0
   }
 
   setGeneral(general : General){
@@ -582,6 +633,19 @@ export class GeneralComponent implements IGeneralComponent {
       ()=>{
         this.general.updateBoost()
       }
+    )
+  }
+
+  async initRedPoint(): Promise<void> {
+    let loaclInfo = await this.mediator.profileQuery(this.battleRecordProfileKey)
+    if(loaclInfo['code'] == 0){
+      this.battleRecordLocalTs = parseInt(loaclInfo['data'])
+    } 
+    setInterval(
+      () => {
+        this.getBattleRecords(()=>{})
+      },
+      10000
     )
   }
 
@@ -785,6 +849,10 @@ export class GeneralComponent implements IGeneralComponent {
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
     }
+    if(trans.length != 0){
+      this.battleRecordGobalTs = (trans[0] as BattleRecord).timestamp
+      await this.mediator.profileSave(this.battleRecordProfileKey, this.battleRecordGobalTs + '')
+    }
     callback(trans)
   }
 
@@ -838,7 +906,16 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getBattleRecordRedPoint(): boolean {
-    return true
+    if(this.battleRecordLocalTs != this.battleRecordGobalTs){
+      return true
+    }
+    return false
+  }
+
+  
+  updateBattleRedPoint(timestamp: number): void {
+    this.mediator.profileSave(this.battleRecordProfileKey, timestamp + '')
+    this.battleRecordLocalTs = timestamp
   }
 
 }

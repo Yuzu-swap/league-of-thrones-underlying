@@ -497,7 +497,18 @@ function example() {
 }
 
 function test(){
-  console.log(mapGDS['9^9'])
+  enum  TTT{
+    Test1 = "test1",
+    Test2 = "test2"
+  }
+  for(let key in TTT){
+    console.log(key)
+  }
+  for(let key in TTT){
+    let type : any =  TTT[key]
+    let typeT : TTT = type
+    console.log(typeT)
+  }
 }
 
 function testSort(){

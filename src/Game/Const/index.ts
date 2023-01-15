@@ -193,6 +193,11 @@ export enum ChatTransId {
 	HistoryData = 'query'
 }
 
+export enum ProfileTransId {
+	Save = 'save',
+	Query = 'query'
+}
+
 export interface ChatMessage {
 	id: string
 	type: ChatType
