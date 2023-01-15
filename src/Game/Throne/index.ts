@@ -1063,6 +1063,7 @@ export class Throne implements IThrone {
       this.components[ComponentType.General] = new GeneralComponent(`${StateName.General}:${this.username}`, this.mediator)
       let generalCom = this.components[ComponentType.General] as GeneralComponent
       generalCom.setGeneral(this.logicEssential.general)
+      await generalCom.initRedPoint()
       callback(generalCom as any as T)
     } else if(typ == ComponentType.Map){
       this.components[ComponentType.Map] = new MapComponent(this.mediator)
