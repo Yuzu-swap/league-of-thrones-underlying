@@ -204,6 +204,7 @@ export class TransitionHandler {
       logic.general.updateDefenseInfo();
       logic.activity.updateAbleActivities();
       console.log("transition after update",logic.city.state)
+      console.log("underlying_transition result: sid: ", sid, "result:", re)
       return re
     }catch(err){
       console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)

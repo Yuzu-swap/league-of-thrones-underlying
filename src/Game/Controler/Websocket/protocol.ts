@@ -3,7 +3,8 @@ export enum MessageType {
   StateQuery = 'state_query', //state query will triiger state callback
   Query = 'query', //normal query won't trigger any  stae callback
   Chat = 'chat',
-  QueryCount = 'query_count'
+  QueryCount = 'query_count',
+  Profile =  'profile'
 }
 
 export interface BaseMessage {

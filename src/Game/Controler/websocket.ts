@@ -6,7 +6,7 @@ import {
   IStateIdentity,
   State
 } from '../../Core/state';
-import { ChatMessage, ChatTransId, StateTransition } from '../Const';
+import { ChatMessage, ChatTransId, ProfileTransId, StateTransition } from '../Const';
 import { ITransContext, ITransResult } from './mediator';
 import { TransitionHandler } from './transition';
 import { MessageS2C, MessageType, MessageC2S } from './Websocket/protocol';
@@ -65,7 +65,7 @@ export class WebSocketMediator
                 this._updateState(sid, stateObj, false);
               }
               this.respCallbacks[msg.SeqNum](this._getState(sid));
-            } else if (msg.Type == MessageType.Query || msg.Type == MessageType.Chat || msg.Type == MessageType.QueryCount) {
+            } else if (msg.Type == MessageType.Query || msg.Type == MessageType.Chat || msg.Type == MessageType.QueryCount || msg.Type == MessageType.Profile) {
               this.respCallbacks[msg.SeqNum](msg.Data);
             } 
             delete this.respCallbacks[msg.SeqNum];
@@ -176,6 +176,39 @@ export class WebSocketMediator
     return new Promise((res, rej) => {
       this.respCallbacks[seqNum] = res;
     });
+  }
+
+  profileQuery(key: string): Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: MessageType.Profile,
+      TransID: ProfileTransId.Query,
+      Data: {
+        key : key
+      },
+    };
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    })
+  }
+
+  profileSave(key: string, value: string): Promise<any> {
+    const seqNum = this.seqNum++;
+    var msg: MessageC2S = {
+      SeqNum: seqNum,
+      Type: MessageType.Profile,
+      TransID: ProfileTransId.Save,
+      Data: {
+        key : key,
+        value : value 
+      },
+    };
+    this.client.send(JSON.stringify(msg));
+    return new Promise((res, rej) => {
+      this.respCallbacks[seqNum] = res;
+    })
   }
 
 

@@ -210,3 +210,18 @@ export function addToNormalSortedList( list: any[], username : string, originVal
 export function getRandom():number{
     return Math.random()
 }
+
+export function encodeChatProfile( id: string, ts: number){
+    return id+ ":" + ts;
+}
+
+export function decodeChatProfile( data: string ){
+    let list = data.split(':')
+    if(list.length != 2 ){
+        throw "chat profile error"
+    } 
+    return {
+        id: list[0],
+        ts: parseInt(list[1])
+    }
+}
