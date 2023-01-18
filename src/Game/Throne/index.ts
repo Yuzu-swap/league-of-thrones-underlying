@@ -957,12 +957,14 @@ export class Throne implements IThrone {
   username : string
   unionId: number
   wsUrl : string
+  version: string
 
 
 
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
+    this.version = "u20230118"
   }
 
 
