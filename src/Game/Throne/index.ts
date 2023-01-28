@@ -241,6 +241,8 @@ export interface IGeneralComponent extends IComponent {
 
   getBattleRecords( callback: (result: any) => void ): Promise<void>
 
+  getRecentWorldBattleRecords( callback: (result: any) => void ): Promise<void>
+
   getDefenseBlockGenerals():[]
 
   getIconId(): number
@@ -612,8 +614,10 @@ export class GeneralComponent implements IGeneralComponent {
   mediator: IStateMediator<StateTransition, ITransContext>
   generalStateId: IStateIdentity
   battleRecordProfileKey : string
-  battleRecordLocalTs: number
-  battleRecordGobalTs: number
+  battleRecordLocalTs: number // red point ts
+  battleRecordGobalTs: number // red point ts
+  recentWorldRecordTs: number
+
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.generalStateId = {
       id: myStateId
@@ -623,6 +627,7 @@ export class GeneralComponent implements IGeneralComponent {
     this.battleRecordProfileKey = `profile:battleRecord:${Throne.instance().username}`
     this.battleRecordLocalTs = 0
     this.battleRecordGobalTs = 0
+    this.recentWorldRecordTs = 0
   }
 
   setGeneral(general : General){
@@ -854,6 +859,19 @@ export class GeneralComponent implements IGeneralComponent {
       await this.mediator.profileSave(this.battleRecordProfileKey, this.battleRecordGobalTs + '')
     }
     callback(trans)
+  }
+
+  async getRecentWorldBattleRecords(callback: (result: any) => void) {
+    let lastTime = this.recentWorldRecordTs == 0 ? getTimeStamp() - 5 : this.recentWorldRecordTs
+    let re = (await this.mediator.query(TransitionEventType.Battles,
+      {
+      "timestamp": {"$gt" : lastTime} 
+      ,'$orderBy' : '-timestamp'
+      })) as BattleTransRecord[]
+    if(re){
+      this.recentWorldRecordTs = re[0].timestamp
+    }
+    callback(re ?? []) 
   }
 
   getDefenseBlockGenerals(): [] {
