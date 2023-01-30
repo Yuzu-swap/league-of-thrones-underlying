@@ -74,6 +74,7 @@ export interface IDefenderInfoState extends IState{
   troop: number
   defenseMaxTroop: number
   unionId: number
+  iconId: number
   glory: number
   fortressLevel: number
   isProtected: boolean

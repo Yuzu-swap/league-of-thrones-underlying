@@ -737,6 +737,7 @@ export class General{
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)
         let defenderInfo = this.getDefenseInfo() as any
         defenderInfo['unionId'] = this.state.unionId
+        defenderInfo['iconId'] = this.state.iconId
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]

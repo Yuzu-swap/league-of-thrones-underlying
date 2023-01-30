@@ -949,7 +949,8 @@ export enum ComponentType {
   City = 1,
   General = 2,
   Map = 3,
-  Strategy = 4
+  Strategy = 4,
+  User = 5
 }
 
 export interface IThrone {
