@@ -183,6 +183,7 @@ function example() {
             console.log(result)
           }
         )
+        const resource = city.getResource();
         console.log("cool down", city.getTestResourceCoolDownTime())
         city.addTestResource(
           (result)=>{
@@ -259,6 +260,12 @@ function example() {
     Throne.instance().initComponent(
       ComponentType.General,
       ((general: IGeneralComponent)=>{
+
+        general.getRecentWorldBattleRecords(
+          (re)=>{
+            console.log(re)
+          }
+        )
         general.onStateUpdate((state)=>{
           console.log("general",state)
         })
