@@ -1,6 +1,6 @@
 import { BattleRecord, BattleResult, BattleType, General, GeneralAbility, RecoverMoraleType } from '../Logic/general'
 import { City, RecruitStatus } from '../Logic/game'
-import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult } from '../Controler/mediator'
+import { ITransContext, LocalMediator, IStatetWithTransContextCallback, ITransResult, GetTestBattleTransRecord } from '../Controler/mediator'
 import { StateTransition, CityFacility, ResouceType, StateName, ChatMessage, ChatChannel, ChatType, ChatTransId } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
@@ -25,7 +25,6 @@ import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } 
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
-import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
 import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTimeOffset } from '../Utils'
@@ -241,7 +240,7 @@ export interface IGeneralComponent extends IComponent {
 
   getBattleRecords( callback: (result: any) => void ): Promise<void>
 
-  getRecentWorldBattleRecords( callback: (result: any) => void ): Promise<void>
+  getRecentWorldBattleRecords( callback: (result: BattleTransRecord[]) => void ): Promise<void>
 
   getDefenseBlockGenerals():[]
 
@@ -861,7 +860,14 @@ export class GeneralComponent implements IGeneralComponent {
     callback(trans)
   }
 
-  async getRecentWorldBattleRecords(callback: (result: any) => void) {
+  async getRecentWorldBattleRecords(callback: (result: BattleTransRecord[]) => void) {
+    //for test
+    if(this.recentWorldRecordTs == 0){
+      let re = GetTestBattleTransRecord()
+      this.recentWorldRecordTs = re[0].timestamp
+      callback(re)
+    }
+    // end test
     let lastTime = this.recentWorldRecordTs == 0 ? getTimeStamp() - 5 : this.recentWorldRecordTs
     let re = (await this.mediator.query(TransitionEventType.Battles,
       {
@@ -942,7 +948,8 @@ export enum ComponentType {
   City = 1,
   General = 2,
   Map = 3,
-  Strategy = 4
+  Strategy = 4,
+  User = 5
 }
 
 export interface IThrone {
@@ -982,7 +989,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u20230118"
+    this.version = "u20230203"
   }
 
 

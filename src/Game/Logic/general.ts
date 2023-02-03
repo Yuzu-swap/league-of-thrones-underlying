@@ -85,6 +85,8 @@ export interface BattleRecordInfo{
     troopReduce: number
     silverGet: number
     gloryGet: number
+    unionId: number
+    iconId: number
 }
 
 export class General{
@@ -737,6 +739,7 @@ export class General{
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)
         let defenderInfo = this.getDefenseInfo() as any
         defenderInfo['unionId'] = this.state.unionId
+        defenderInfo['iconId'] = this.state.iconId
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
@@ -756,7 +759,9 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop()
+            troops: this.getMaxAttackTroop(),
+            unionId: this.state.unionId,
+            iconId: this.state.iconId
         }
         return re
     }

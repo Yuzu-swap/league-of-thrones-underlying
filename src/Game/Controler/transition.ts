@@ -401,7 +401,9 @@ export class TransitionHandler {
           generalType: logic1.general.getGeneralQualification( args.generalId ).general_type,
           troopReduce: re['attackTroopReduce'],
           silverGet: re['silverGet'],
-          gloryGet: re['attackGloryGet']
+          gloryGet: re['attackGloryGet'],
+          unionId: logic1.general.state.unionId,
+          iconId: logic1.general.state.iconId
         },
         defenseInfo:{
           username: parseStateId(logic2.city.state.getId()).username,
@@ -410,7 +412,9 @@ export class TransitionHandler {
           generalType: defenseInfo.generalType,
           troopReduce: re['defenseTroopReduce'],
           silverGet: -re['silverGet'],
-          gloryGet: re['defenseGloryGet']
+          gloryGet: re['defenseGloryGet'],
+          unionId: logic2.general.state.unionId,
+          iconId: logic2.general.state.iconId
         },
         recordType: BattleRecordType.City,
         blockInfo:{

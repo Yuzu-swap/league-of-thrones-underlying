@@ -148,7 +148,9 @@ export class LocalMediator
         username: 'test',
         troopReduce: 1000,
         silverGet: 100,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       defenseInfo:{
         generalId: -1,
@@ -157,7 +159,9 @@ export class LocalMediator
         username: 'test1',
         troopReduce: 1500,
         silverGet: -100,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       recordType: BattleRecordType.City, 
       blockInfo :{
@@ -175,7 +179,9 @@ export class LocalMediator
         username: 'test',
         troopReduce: 1500,
         silverGet: 0,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       defenseInfo:{
         generalId: 2,
@@ -184,7 +190,9 @@ export class LocalMediator
         username: 'test1',
         troopReduce: 1000,
         silverGet: 0,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+       iconId: -1
       },
       recordType: BattleRecordType.City, 
       blockInfo :{
@@ -202,7 +210,9 @@ export class LocalMediator
         username: 'test',
         troopReduce: 1000,
         silverGet: 0,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       recordType: BattleRecordType.City, 
       defenseInfo:{
@@ -212,7 +222,9 @@ export class LocalMediator
         username: 'test1',
         troopReduce: 1500,
         silverGet: 0,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       blockInfo :{
         x_id: -1,
@@ -229,7 +241,9 @@ export class LocalMediator
         username: 'test',
         troopReduce: 1500,
         silverGet: -100,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       defenseInfo:{
         generalId: 2,
@@ -238,7 +252,9 @@ export class LocalMediator
         username: 'test1',
         troopReduce: 1000,
         silverGet: 100,
-        gloryGet: 100
+        gloryGet: 100,
+        unionId: 1,
+        iconId: -1
       },
       recordType: BattleRecordType.City, 
       timestamp: 3,
@@ -373,4 +389,162 @@ export class LocalMediator
   getTransaction(){
     return this.transitionHandler
   }
+
+  profileQuery(key: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve({})
+    });
+  }
+
+  profileSave(key: string, value: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve({})
+    });
+  }
+  
+  defaultQuery(type: MessageType, transID: string, args: {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve({})
+    });
+  }
+
+  chatHistory(data: {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve([])
+    });
+  }
+}
+
+
+export function GetTestBattleTransRecord(): BattleTransRecord[]{
+  let re = []
+  let record1:BattleTransRecord = {
+    attackInfo:{
+      generalId: 1,
+      generalLevel: 2,
+      generalType: 1,
+      username: 'test',
+      troopReduce: 1000,
+      silverGet: 100,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    defenseInfo:{
+      generalId: -1,
+      generalLevel: 2,
+      generalType: 1,
+      username: 'test1',
+      troopReduce: 1500,
+      silverGet: -100,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    recordType: BattleRecordType.Block, 
+    blockInfo :{
+      x_id: 2,
+      y_id: 2
+    },
+    timestamp: getTimeStamp(),
+    result: true,
+  }
+  re.push(record1)
+  let record2: BattleTransRecord = {
+    attackInfo:{
+      generalId: 1,
+      generalLevel: 2,
+      generalType: 1,
+      username: 'test',
+      troopReduce: 1500,
+      silverGet: 0,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    defenseInfo:{
+      generalId: 2,
+      generalLevel: 2,
+      generalType: 2,
+      username: 'test1',
+      troopReduce: 1000,
+      silverGet: 0,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    recordType: BattleRecordType.Block, 
+    blockInfo :{
+      x_id: 2,
+      y_id: 2
+    },
+    timestamp : getTimeStamp(),
+    result: false,
+  }
+  re.push(record2)
+  let record3: BattleTransRecord = {
+    attackInfo: {
+      generalId: 1,
+      generalLevel: 2,
+      generalType: 1,
+      username: 'test',
+      troopReduce: 1000,
+      silverGet: 0,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    recordType: BattleRecordType.City, 
+    defenseInfo:{
+      generalId: 2,
+      generalLevel: 2,
+      generalType: 2,
+      username: 'test1',
+      troopReduce: 1500,
+      silverGet: 0,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    blockInfo :{
+      x_id: -1,
+      y_id: -1
+    },
+    timestamp: getTimeStamp(),
+    result: true,
+  }
+  re.push(record3)
+  let record4: BattleTransRecord = {
+    attackInfo:{
+      generalId: 1,
+      generalLevel: 2,
+      generalType: 1,
+      username: 'test',
+      troopReduce: 1500,
+      silverGet: -100,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    defenseInfo:{
+      generalId: 2,
+      generalLevel: 2,
+      generalType: 2,
+      username: 'test1',
+      troopReduce: 1000,
+      silverGet: 100,
+      gloryGet: 100,
+      unionId: 1,
+      iconId: -1
+    },
+    recordType: BattleRecordType.City, 
+    timestamp: getTimeStamp(),
+    blockInfo :{
+      x_id: -1,
+      y_id: -1
+    },
+    result: false,
+  }
+  re.push(record4)
+  return re
 }

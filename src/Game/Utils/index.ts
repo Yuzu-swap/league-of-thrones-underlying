@@ -40,7 +40,14 @@ export function setTimeOffset(offset : number ){
 }
 
 export function getTimeStamp( offset : number = timeOffset) :number{
-    let time = parseInt(new Date().getTime() / 1000 + '')
+    const ctx = global && global.ctx
+    console.log("getTimeStamp ctx is ",ctx)
+    let time
+    if (ctx){
+        time = ctx.now()  // + offset
+    }else{
+        time = parseInt(new Date().getTime() / 1000 + '')
+    }
     return time //+ offset
 }
 
@@ -208,7 +215,13 @@ export function addToNormalSortedList( list: any[], username : string, originVal
 }
 
 export function getRandom():number{
-    return Math.random()
+    const ctx = global && global.ctx
+    console.log("getRandom ctx is ",ctx)
+    if (ctx){
+        return ctx.random()
+    }else{
+        return Math.random()
+    }
 }
 
 export function encodeChatProfile( id: string, ts: number){
