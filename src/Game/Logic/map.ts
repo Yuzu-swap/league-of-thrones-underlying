@@ -310,7 +310,9 @@ export class Map{
                             generalType: generalRow.general_type,
                             troopReduce: bre.attackTroopReduce,
                             silverGet: 0,
-                            gloryGet: bre.attackGloryGet
+                            gloryGet: bre.attackGloryGet,
+                            unionId: this.general.state.unionId,
+                            iconId: this.general.state.iconId
                         },
                         defenseInfo: 
                         {
@@ -320,7 +322,9 @@ export class Map{
                             generalType: info.generalType,
                             troopReduce: bre.defenseTroopReduce,
                             silverGet: 0,
-                            gloryGet: bre.defenseGloryGet
+                            gloryGet: bre.defenseGloryGet,
+                            unionId: 0,
+                            iconId: -1
                         },
                         recordType: BattleRecordType.Block,
                         timestamp: getTimeStamp(),
@@ -376,7 +380,9 @@ export class Map{
                         generalType: generalRow.general_type,
                         troopReduce: bre.attackTroopReduce,
                         silverGet: 0,
-                        gloryGet: bre.attackGloryGet
+                        gloryGet: bre.attackGloryGet,
+                        unionId: this.general.state.unionId,
+                        iconId: this.general.state.iconId
                     },
                     defenseInfo: 
                     {
@@ -386,7 +392,9 @@ export class Map{
                         generalType: info.generalType,
                         troopReduce: bre.defenseTroopReduce,
                         silverGet: 0,
-                        gloryGet: bre.defenseGloryGet
+                        gloryGet: bre.defenseGloryGet,
+                        unionId: defenseInfos[i].unionId,
+                        iconId: defenseInfos[i].iconId
                     },
                     recordType: BattleRecordType.Block,
                     timestamp: getTimeStamp(),

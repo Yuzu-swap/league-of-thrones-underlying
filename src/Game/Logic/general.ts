@@ -85,6 +85,8 @@ export interface BattleRecordInfo{
     troopReduce: number
     silverGet: number
     gloryGet: number
+    unionId: number
+    iconId: number
 }
 
 export class General{
@@ -757,7 +759,9 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop()
+            troops: this.getMaxAttackTroop(),
+            unionId: this.state.unionId,
+            iconId: this.state.iconId
         }
         return re
     }

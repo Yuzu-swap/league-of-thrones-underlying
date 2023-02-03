@@ -25,7 +25,6 @@ import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } 
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
-import { userInfo } from 'os'
 import { MapComponent, IMapComponent } from './map'
 import { BattleTransRecord, TransitionEventType } from '../Controler/transition'
 import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTimeOffset } from '../Utils'

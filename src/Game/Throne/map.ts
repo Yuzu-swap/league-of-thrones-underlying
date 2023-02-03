@@ -26,7 +26,6 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
-import { userInfo } from 'os'
 import { TransitionEventType } from "../Controler/transition";
 import { getTimeStamp, setTimeOffset } from "../Utils";
 

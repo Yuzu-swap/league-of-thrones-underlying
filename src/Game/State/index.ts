@@ -145,6 +145,8 @@ export interface BlockDefenseInfo{
   attack: number
   defense: number
   troops: number
+  unionId: number
+  iconId: number
 }
 
 export interface IBlockState extends IState{
