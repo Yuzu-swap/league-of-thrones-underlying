@@ -40,10 +40,9 @@ export function setTimeOffset(offset : number ){
 }
 
 export function getTimeStamp( offset : number = timeOffset) :number{
-    const ctx = global && global.ctx
-    console.log("getTimeStamp ctx is ",ctx)
     let time
-    if (ctx){
+    const isBrowser = () => typeof window !== `undefined`
+    if (!isBrowser() && ctx){
         time = ctx.now()  // + offset
     }else{
         time = parseInt(new Date().getTime() / 1000 + '')
@@ -215,8 +214,6 @@ export function addToNormalSortedList( list: any[], username : string, originVal
 }
 
 export function getRandom():number{
-    const ctx = global && global.ctx
-    console.log("getRandom ctx is ",ctx)
     if (ctx){
         return ctx.random()
     }else{
