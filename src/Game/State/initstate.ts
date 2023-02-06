@@ -18,7 +18,7 @@ export var InitState = {
           [ResouceType.Troop]:
           {
               lastUpdate: -1,
-              value: 1000000,
+              value: 1000,
           }
       },
       recruit:[],
