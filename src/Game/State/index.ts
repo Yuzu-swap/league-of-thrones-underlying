@@ -1,19 +1,20 @@
 import { CityFacility, ResouceType, StateName } from '../Const';
 import { IState } from '../../Core/state';
+import { Decimal } from 'decimal.js'
 
 export interface ResouceInfo {
   lastUpdate: number;
-  value: number;
+  value: Decimal;
 }
 
 export interface Recruit{
-  amount: number;
+  amount: Decimal;
   endtime: number;
 }
 
 export interface UserActivity{
   id: number
-  value: number
+  value: Decimal
 }
 
 export interface GuideStep{
@@ -26,7 +27,7 @@ export interface ICityState extends IState {
   facilities: { [key in CityFacility]?: number[] };
   resources: { [key in ResouceType]?: ResouceInfo };
   recruit: Recruit[]
-  gold: number
+  gold: Decimal
   lastAddTestTime: number
   userActivity: UserActivity[]
   guideStep: GuideStep[]
@@ -68,11 +69,11 @@ export interface IDefenderInfoState extends IState{
   generalId:number
   generalLevel: number
   generalType: number
-  attack: number
-  defense: number
-  silver: number
-  troop: number
-  defenseMaxTroop: number
+  attack: Decimal
+  defense: Decimal
+  silver: Decimal
+  troop: Decimal
+  defenseMaxTroop: Decimal
   unionId: number
   iconId: number
   glory: number
@@ -142,9 +143,9 @@ export interface BlockDefenseInfo{
   generalId: number
   generalType: number
   generalLevel: number
-  attack: number
-  defense: number
-  troops: number
+  attack: Decimal
+  defense: Decimal
+  troops: Decimal
   unionId: number
   iconId: number
 }
@@ -176,13 +177,13 @@ export interface IStrategyState extends IState{
 
 export interface ActivityData{
   username: string
-  value: number
+  value: Decimal
 }
 
 export interface IActivityState extends IState{
   id: string 
   activityData: ActivityData[][]
-  sumValue: number[]
+  sumValue: Decimal[]
   haveSendReward: boolean[]
 }
 

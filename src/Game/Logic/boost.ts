@@ -2,16 +2,17 @@ import { copyObj } from "../../Core/state"
 import { ResouceType } from "../Const"
 import { StateName } from "../Const"
 import { StrategyType } from "./strategy"
+import { Decimal } from "decimal.js"
 export interface IBoost {
-    setProduction( stateType: StateName, typ: ResouceType ,value: number ): void
-    getProduction( typ: ResouceType ): number
-    setTroop( troop: number, needTroop: number): void
+    setProduction( stateType: StateName, typ: ResouceType ,value: Decimal ): void
+    getProduction( typ: ResouceType ): Decimal
+    setTroop( troop: Decimal, needTroop: Decimal): void
     setMapBuff(list : number[]): void
     getMapBuff(): number[]
-    getSilverPosProduction(): number
+    getSilverPosProduction(): Decimal
     getProductionStatus(typ: ResouceType): {
         maintain: boolean,
-        normalProduction: number
+        normalProduction: Decimal
     }
     setStrategyStatus( type: StrategyType, able: boolean ): void
     getStrategyStatus(type: StrategyType) : boolean
@@ -19,10 +20,10 @@ export interface IBoost {
 
 export class Boost implements IBoost{
     private city :{
-        product : {}
+        product : {[ key in ResouceType ] : Decimal }
     }
     private general:{
-        product : {}
+        product : {[ key in ResouceType ] : Decimal }
     }
     private map:{
         buff : number[]
@@ -34,34 +35,34 @@ export class Boost implements IBoost{
     }
     
 
-    private troop: number
-    private maintainNeedTroop: number
+    private troop: Decimal
+    private maintainNeedTroop: Decimal
 
     constructor(){
         this.city = {
             product:{
-                [ResouceType.Silver] : 0,
-                [ResouceType.Troop] : 0
+                [ResouceType.Silver] : new Decimal(0),
+                [ResouceType.Troop] : new Decimal(0)
             }
         }
         this.general = {
             product:{
-                [ResouceType.Silver] : 0,
-                [ResouceType.Troop] : 0
+                [ResouceType.Silver] : new Decimal(0),
+                [ResouceType.Troop] : new Decimal(0)
             }
         }
         this.map ={
             buff : []
         }
-        this.troop = 0
-        this.maintainNeedTroop = -1
+        this.troop = new Decimal(0)
+        this.maintainNeedTroop = new Decimal(-1)
         this.strategy = {
             store : false,
             protect: false
         }
     }
     
-    setProduction(stateType: StateName, typ: ResouceType, value: number): void {
+    setProduction(stateType: StateName, typ: ResouceType, value: Decimal): void {
         switch(stateType){
             case StateName.City:
                 this.city.product[typ] = value
@@ -71,26 +72,26 @@ export class Boost implements IBoost{
                 break
         }
     }
-    getProduction(typ: ResouceType): number {
-        let weight = 1
+    getProduction(typ: ResouceType): Decimal {
+        let weight = new Decimal(1)
         if(this.maintainNeedTroop > this.troop){
-            weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
+            weight = Decimal.max(this.troop.div(this.maintainNeedTroop), 0.2)
         }
-        return (this.city.product[typ] + this.general.product[typ]) * weight
+        return this.city.product[typ].add(this.general.product[typ]).mul(weight)
     }
 
-    getSilverPosProduction(){
-        let weight = 1
+    getSilverPosProduction(): Decimal {
+        let weight = new Decimal(1)
         if(this.maintainNeedTroop > this.troop){
-            weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
+            weight = Decimal.max(this.troop.div(this.maintainNeedTroop), 0.2)
         }
-        return ( this.city.product[ResouceType.Silver] + this.general.product[ResouceType.Silver] + this.troop ) * weight
+        return this.city.product[ResouceType.Silver].add(this.general.product[ResouceType.Silver]).add(this.troop).mul(weight)
     }
 
     getProductionStatus(typ: ResouceType){
         let re = {
             maintain: true,
-            normalProduction: this.city.product[typ] + this.general.product[typ]
+            normalProduction: this.city.product[typ].add(this.general.product[typ])
         }
         if(this.maintainNeedTroop > this.troop){
             re.maintain = false
@@ -98,7 +99,7 @@ export class Boost implements IBoost{
         return re
     }
 
-    setTroop(troop: number, needTroop: number): void {
+    setTroop(troop: Decimal, needTroop: Decimal): void {
         this.troop = troop
         this.maintainNeedTroop = needTroop
     }

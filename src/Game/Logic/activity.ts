@@ -5,11 +5,12 @@ import { ActivityData, IActivityState } from "../State";
 import { getTimeStamp, indexOfSortedList, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { City } from "./game";
+import { Decimal } from 'decimal.js'
 
 export interface ActivityInfo{
     activityId: number
     type: number
-    totalReward: number
+    totalReward: Decimal
     startTime: number
     lastTime: number
 }
@@ -92,7 +93,7 @@ export class Activity{
         return re
     }
 
-    addDataToActivity(id: number, username: string, oldValue: number , newValue: number){
+    addDataToActivity(id: number, username: string, oldValue: Decimal , newValue: Decimal){
         if(!this.checkActivityAble(id)){
             return {
                 result: false,
@@ -117,13 +118,13 @@ export class Activity{
             let origin = indexOfSortedList(list, username, oldValue, 'value')
             if(origin.exist){
                 list.splice(origin.index, 1)
-                sumValue = sumValue - oldValue
+                sumValue = sumValue.minus(oldValue)
             }
             let newInfo = indexOfSortedList(list, username, newValue, 'value')
             list.splice(newInfo.index, 0, insert)
-            sumValue = sumValue + newValue
+            sumValue = sumValue.add(newValue)
             if(list.length > 200){
-                sumValue -= list[list.length - 1].value
+                sumValue = sumValue.minus(list[list.length - 1].value)
             }
         }while(false)
         let data = this.state.activityData
@@ -141,22 +142,22 @@ export class Activity{
         }
     }
 
-    getActivityRank(id: number, username: string, value: number){
+    getActivityRank(id: number, username: string, value: Decimal){
         const list = this.state.activityData[id]
         let origin = indexOfSortedList(list, username, value, 'value')
         let info = this.getActivityInfo(id)
         let rank = -1
-        let rankReward = 0
+        let rankReward = new Decimal(0)
         if(origin.exist){
             rank =  origin.index + 1
         }
         if(rank != -1){
-            rankReward = info.totalReward * value / this.state.sumValue[id]
+            rankReward = info.totalReward.mul(value).div(this.state.sumValue[id])
         }
         return {rank, rankReward, value}
     }
 
-    donateSilver(id: number, amount: number){
+    donateSilver(id: number, amount: Decimal){
         if(!this.checkActivityAble(id)){
             return {
                 result: false,
@@ -177,12 +178,12 @@ export class Activity{
                 error: 'silver-is-not-enough'
             }
         }
-        let newValue = 0
-        if(oldValue == -1){
+        let newValue = new Decimal(0);
+        if(oldValue.toNumber() == -1){
             newValue = amount
         }
         else{
-            newValue = oldValue + amount
+            newValue = oldValue.add(amount)
         }
         this.addDataToActivity(id, parseStateId(this.city.state.id).username, oldValue, newValue)
         this.city.setActivityData(id, newValue)
@@ -203,14 +204,14 @@ export class Activity{
                 continue
             }
             let oldValue = this.city.getActivityData(item.activityId)
-            let newValue = 0
+            let newValue = new Decimal(0)
             if(item.type == 1){
                 newValue = this.boost.getProduction(ResouceType.Silver)
             }
             else if(item.type == 2){
                 newValue = this.boost.getProduction(ResouceType.Troop)
             }
-            newValue = parseInt(newValue + '')
+            newValue = newValue.round()
             this.addDataToActivity(item.activityId, parseStateId(this.city.state.id).username, oldValue, newValue)
             this.city.setActivityData(item.activityId, newValue)
         }

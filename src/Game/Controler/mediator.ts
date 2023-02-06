@@ -93,7 +93,7 @@ function getGlobleState(wather: IStateChangeWatcher):{
     }
   )
   const mapState = GetMapState()
-  for(let id in mapState){
+  for(let id of Object.getOwnPropertyNames(mapState)){
     re[id] = new State<IBlockState>(
       mapState[id],
       wather

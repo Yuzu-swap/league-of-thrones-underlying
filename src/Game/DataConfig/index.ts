@@ -26,6 +26,8 @@ import { ConfigContainer } from '../../Core/config';
 import { BlockDefenseInfo } from '../State';
 import { transDateToTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
+import { Decimal } from 'decimal.js'
+
 export class FacilityLimit {
 	max_count: number;
 	building_name: string;
@@ -59,7 +61,7 @@ export class Parameter {
   
     constructor(obj: {}) {
 		this.default_defense_general = []
-		for(let key in obj){
+		for(let key of  Object.getOwnPropertyNames(obj)){
 			if(obj[key]['value'].indexOf('|') != -1){
 				let tempList = obj[key]['value'].split('|')
 				for(let item of tempList){
@@ -98,9 +100,9 @@ export interface MapOccupyReward{
 
 export interface MapDefenseTroop{
 	type: number
-	defense: number
-	count: number
-	attack: number
+	defense: Decimal
+	count: Decimal
+	attack: Decimal
 }
 
 export interface MapGDS{
@@ -121,7 +123,7 @@ export class MapConfig{
 	config: {[key: string]: MapGDS}
 	constructor(obj:{}){
 		this.config = {}
-		for(let key in obj){
+		for(let key of Object.getOwnPropertyNames(obj)){
 			let row = obj[key]
 			let temp: MapGDS = {
 				x_id: row['x_id'],
@@ -454,7 +456,7 @@ export var StrategyBuyConfigFromGDS = new StrategyBuyConfig(strategyBuyGDS)
 export interface ActivityType {
 	id: number
     activity_type: number,
-    activity_pond: number,
+    activity_pond: Decimal,
     activity_last: number
 }
 

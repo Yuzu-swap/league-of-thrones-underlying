@@ -1,5 +1,6 @@
 import { StateName } from "../Const";
 import { GloryInfo } from "../State";
+import { Decimal } from "decimal.js"
 
 export function parseStateId(stateId :string): { type : StateName , username : string }{
     let re = {
@@ -112,7 +113,7 @@ function indexOfGloryList(list: GloryInfo[], username : string, glory: number){
 }
 
 
-export function indexOfSortedList(list: any[], username : string, value: number, valueKey: string){
+export function indexOfSortedList(list: any[], username : string, value: Decimal, valueKey: string){
     let beginIndex = 0 , endIndex = list.length - 1
     let mid = 0
     let exist = false
@@ -195,7 +196,7 @@ export function addToSortList( list: GloryInfo[], username : string, originGlory
     list.splice(newInfo.index, 0, insert)
 }
 
-export function addToNormalSortedList( list: any[], username : string, originValue: number, newValue: number, valueKey: string){
+export function addToNormalSortedList( list: any[], username : string, originValue: Decimal, newValue: Decimal, valueKey: string){
     let insert  = {
         username: username,
     }

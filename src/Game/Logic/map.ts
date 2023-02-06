@@ -7,6 +7,7 @@ import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { BattleResult, BattleType, DefenseInfo, General } from "./general";
+import { Decimal } from 'decimal.js'
 
 const DefaultTroopRecoverTime = 60 * 30
 const DurabilityRecoverTime = 60 * 30
@@ -158,7 +159,7 @@ export class Map{
     cancelDefenseBlock( x_id: number, y_id: number, username: string, generalId: number){
         let blockState = this.getBlockState(x_id, y_id)
         let defenseList = blockState.defenseList
-        let remainTroop = 0
+        let remainTroop = new Decimal(0)
         for(let i = 0; i< defenseList.length; i++){
             if(defenseList[i].username == username && defenseList[i].generalId == generalId){
                 remainTroop = defenseList[i].troops
@@ -201,7 +202,7 @@ export class Map{
             attack: info.attack,
             defense: info.defense,
             troop: info.troops,
-            silver: 0,
+            silver: new Decimal(0),
             defenseMaxTroop: info.troops
         }
         return re
@@ -238,7 +239,7 @@ export class Map{
         const unionId = centerBlockState.belong.unionId
         let records = []
         let cancelList = []
-        let remainTroop = -1
+        let remainTroop = new Decimal(-1)
         let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
         if(re['error']){
             return re
@@ -248,7 +249,7 @@ export class Map{
         remainTroop = re['remainTroop']
         if(unionId != 0){
             for(let i = 0; i < 6; i++){
-                if(remainTroop <=0 ){
+                if(remainTroop <= new Decimal(0)){
                     break
                 }
                 let tempX = x_id + xOffset[i]
@@ -267,8 +268,8 @@ export class Map{
         }
         
         let durabilityReduce = 0
-        if(remainTroop > 0){
-            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
+        if(remainTroop > new Decimal(0)){
+            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop.toNumber() , this.general.state.unionId)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
                 lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
@@ -281,14 +282,14 @@ export class Map{
         }
     }
 
-    attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
-        let time = parseInt(new Date().getTime() / 1000 + '');
+    attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: Decimal = new Decimal(-1)){
+        let time = getTimeStamp()
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
         let firstBlock = false
         let list : BattleTransRecord[] = []
         let generalRow = this.general.getGeneralQualification(generalId)
-        if(remainTroop == -1){
+        if(remainTroop == new Decimal(-1)){
             remainTroop = this.general.getMaxAttackTroop()
             firstBlock = true
         }
@@ -309,7 +310,7 @@ export class Map{
                             generalLevel: this.general.getGeneralLevel(generalId),
                             generalType: generalRow.general_type,
                             troopReduce: bre.attackTroopReduce,
-                            silverGet: 0,
+                            silverGet: new Decimal(0),
                             gloryGet: bre.attackGloryGet,
                             unionId: this.general.state.unionId,
                             iconId: this.general.state.iconId
@@ -321,7 +322,7 @@ export class Map{
                             generalLevel: info.generalLevel,
                             generalType: info.generalType,
                             troopReduce: bre.defenseTroopReduce,
-                            silverGet: 0,
+                            silverGet: new Decimal(0),
                             gloryGet: bre.defenseGloryGet,
                             unionId: 0,
                             iconId: -1
@@ -461,7 +462,7 @@ export class Map{
     }
 
     getDurability( x_id: number, y_id: number){
-        let time = parseInt(new Date().getTime() / 1000 + '')
+        let time = getTimeStamp()
         let blockState = this.getBlockState(x_id, y_id)
         let row = this.getMapGDS(x_id, y_id)
         if(time - blockState.lastAttachTime > DurabilityRecoverTime){
@@ -473,7 +474,7 @@ export class Map{
     }
 
     reduceDurability( x_id: number, y_id: number, remainTroop: number , unionId: number ){
-        let time = parseInt(new Date().getTime() / 1000 + '')
+        let time = getTimeStamp()
         let blockState = this.getBlockState(x_id, y_id)
         let row = this.getMapGDS(x_id, y_id)
         let durability = this.getDurability(x_id, y_id)
@@ -506,7 +507,7 @@ export class Map{
 
     getBlocksBelongInfo(){
         let re = {}
-        for(let id in this.mapConfig.config){
+        for(let id of Object.getOwnPropertyNames(this.mapConfig.config)){
             let row : MapGDS = this.mapConfig.config[id]
             re[id] = copyObj(
                 this.getBlockBattleStatus(row.x_id, row.y_id)
@@ -517,7 +518,7 @@ export class Map{
 
     getBuffList(unionId : number){
         let list = []
-        for( let id in this.mapConfig.config){
+        for( let id of Object.getOwnPropertyNames(this.mapConfig.config)){
             let row : MapGDS = this.mapConfig.config[id]
             if(unionId == this.getBelongInfo(row.x_id, row.y_id)){
                 if(row.buff_id != 0){

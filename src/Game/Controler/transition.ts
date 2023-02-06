@@ -52,6 +52,7 @@ import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
 import { stringify } from 'querystring';
+import { Decimal } from 'decimal.js'
 
 const log = globalThis.log || function () {};
 
@@ -630,13 +631,13 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
-    for(let unionIdString in args.applies){
+    for(let unionIdString of Object.getOwnPropertyNames(args.applies)){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
         continue
       }
       let userInfos = args.applies[unionIdString]
-      for(let username in userInfos){
+      for(let username of Object.getOwnPropertyNames(userInfos)){
         const logic : LogicEssential = this.genLogic(username)
         logic.general.state.update(
           {
@@ -646,7 +647,7 @@ export class TransitionHandler {
         logic.general.addextraGeneral(userInfos[username])
       }
     }
-    for(let item in args.season){
+    for(let item of Object.getOwnPropertyNames(args.season)){
       if(args.season[item] == undefined){
         throw "start season args error"
       }
@@ -824,7 +825,7 @@ export class TransitionHandler {
     activityState.update(
       initState[StateName.Activity]
     )
-    for(let block in mapGDS){
+    for(let block in  Object.getOwnPropertyNames(mapGDS)){
       let key = `${StateName.BlockInfo}:${block}`
       let blockState = this.stateManger.get( {id : key})
       blockState.update(

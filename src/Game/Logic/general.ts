@@ -9,6 +9,7 @@ import { copyObj, State } from '../../Core/state';
 import { getRandom, getTimeStamp, parseStateId } from '../Utils';
 import { BattleRecordType, BattleTransRecord } from '../Controler/transition';
 import { StrategyType } from './strategy';
+import { Decimal } from 'decimal.js'
 
 export interface GeneralConfig{
     qualification : ConfigContainer<GeneralGdsRow>
@@ -19,11 +20,11 @@ export interface GeneralConfig{
 export interface BattleResult{
     result: boolean
     win: boolean
-    attackTroopReduce: number
-    defenseTroopReduce: number
-    silverGet: number
-    attackGloryGet: number
-    defenseGloryGet: number
+    attackTroopReduce: Decimal
+    defenseTroopReduce: Decimal
+    silverGet: Decimal
+    attackGloryGet: Decimal
+    defenseGloryGet: Decimal
 }
 
 export enum GeneralAbility{
@@ -50,11 +51,11 @@ export interface DefenseInfo{
     generalId:number
     generalLevel: number
     generalType: number
-    attack: number
-    defense: number
-    troop: number
-    silver: number
-    defenseMaxTroop: number
+    attack: Decimal
+    defense: Decimal
+    troop: Decimal
+    silver: Decimal
+    defenseMaxTroop: Decimal
 }
 
 export enum BattleType{
@@ -82,9 +83,9 @@ export interface BattleRecordInfo{
     generalId: number
     generalLevel: number
     generalType: number
-    troopReduce: number
-    silverGet: number
-    gloryGet: number
+    troopReduce: Decimal
+    silverGet: Decimal
+    gloryGet: Decimal
     unionId: number
     iconId: number
 }
@@ -124,7 +125,7 @@ export class General{
 
     getAbleCount():number{
         let count = 0
-        for( let id in this.state.generalList ){
+        for( let id of Object.getOwnPropertyNames(this.state.generalList)){
             if(this.state.generalList[id].able){
                 count++
             }
@@ -209,14 +210,14 @@ export class General{
         return {result : true}
     }
 
-    getGeneralUpgradeNeed(id: number, currentLevel: number): number{
+    getGeneralUpgradeNeed(id: number, currentLevel: number): Decimal{
         if(!this.checkIdAble(id)){
-            return 0
+            return new Decimal(0)
         }
         const row = this.getGeneralQualification(id)
         const sumq = row.qualification_attack + row.qualification_load + row.qualification_silver_product + row.qualification_troop_recruit + row.qualification_defense
-        let re = 0
-        re = Math.ceil(20 * sumq * currentLevel)
+        let re = new Decimal(0)
+        re = Decimal.ceil(20 * sumq * currentLevel)
         return re 
     }
 
@@ -266,22 +267,22 @@ export class General{
         return {result : false, error: 'silver-not-enough-error'} 
     }
 
-    getGeneralAbility(id: number, level: number ,typ : GeneralAbility): number{
+    getGeneralAbility(id: number, level: number ,typ : GeneralAbility): Decimal{
         const row = this.getGeneralQualification(id)
         switch(typ){
             case GeneralAbility.Attack:
             case GeneralAbility.Defense:
-                return row[typ] * 10 * level
+                return new Decimal(row[typ] * 10 * level)
             case GeneralAbility.Load:
-                return row[typ] * 100 * level
+                return new Decimal(row[typ] * 100 * level)
             case GeneralAbility.Silver:
-                return parseFloat((10 * row[typ] * level).toFixed(2))
+                return new Decimal(new Decimal(10 * row[typ] * level).toFixed(2))
             case GeneralAbility.Troop:
-                return parseFloat((0.1 * row[typ] * level).toFixed(2))
+                return new Decimal(new Decimal(0.1 * row[typ] * level).toFixed(2))
         }
     }
 
-    getSkillUpdateNeed( generalId : number, skillIndex : number, level: number): number{
+    getSkillUpdateNeed( generalId : number, skillIndex : number, level: number): Decimal{
         const row : GeneralGdsRow = this.getGeneralQualification(generalId)
         const skillId = row.general_skill[skillIndex]
         const buff = this.getSkillInfo(skillId)
@@ -303,13 +304,13 @@ export class General{
                 cost = row.qualification_troop_recruit * level
                 break
         }
-        return cost
+        return new Decimal(cost)
     }
 
-    getSkillValue( generalId : number, skillIndex : number, level: number ) : {}{
+    getSkillValue( generalId : number, skillIndex : number, level: number ) {
         let re = {
-            'value_type': 0,
-            'value': 0
+            value_type : 0,
+            value : new Decimal(0)
         }
         const row : GeneralGdsRow = this.getGeneralQualification(generalId)
         const skillId = row.general_skill[skillIndex]
@@ -317,25 +318,25 @@ export class General{
         re['value_type'] = buff.value_type
         if(buff.value_type == 1){
             //percent
-            re['value'] = buff.buff_value * level
+            re['value'] = new Decimal(buff.buff_value * level)
         }
         else{
             //value
             switch(buff.buff_type){
                 case SkillType.Silver:
-                    re['value'] = row.qualification_silver_product * 10 * level
+                    re['value'] = new Decimal(row.qualification_silver_product * 10 * level)
                     break
                 case SkillType.Troop:
-                    re['value'] = row.qualification_troop_recruit * 0.1 * level
+                    re['value'] = new Decimal(row.qualification_troop_recruit * 0.1 * level)
                     break
                 case SkillType.Attack:
-                    re['value'] = 10 * row.qualification_attack * level
+                    re['value'] = new Decimal(10 * row.qualification_attack * level)
                     break
                 case SkillType.Defense:
-                    re['value'] = 10 * row.qualification_defense * level
+                    re['value'] = new Decimal(10 * row.qualification_defense * level)
                     break
                 case SkillType.Load:
-                    re['value'] = 100 * row.qualification_load * level
+                    re['value'] = new Decimal(100 * row.qualification_load * level)
                     break
             }
         }
@@ -377,10 +378,10 @@ export class General{
         return {result : false, error: 'silver-not-enough-error'} 
     }
 
-    getGeneralProduction(typ : ResouceType){
+    getGeneralProduction(typ : ResouceType): Decimal {
 
-        let mapBase = 0
-        let mapPercent = 0
+        let mapBase = new Decimal(0)
+        let mapPercent = new Decimal(0)
         let mapBuffList = this.boost.getMapBuff()
         let moralePercent = this.getMoralePercent()
         for( let mapBuff of mapBuffList){
@@ -388,27 +389,27 @@ export class General{
             if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
              (skillRow.buff_type == SkillType.Troop && typ == ResouceType.Troop )){
                 if(skillRow['value_type'] == 1){
-                    mapPercent += skillRow.buff_value
+                    mapPercent = mapPercent.add(skillRow.buff_value)
                 }
                 else{
-                    mapBase += skillRow.buff_value
+                    mapBase = mapBase.add(skillRow.buff_value)
                 }
             }
         }
-        let product = 0
-        for(let idstring in this.state.generalList){
+        let product = new Decimal(0)
+        for(let idstring of Object.getOwnPropertyNames(this.state.generalList)){
             const generalInfo = this.state.generalList[idstring]
             const id = parseInt(idstring)
             if(!generalInfo.able){
                 continue;
             }
             const row = this.getGeneralQualification(id)
-            let baseProduct = 0
-            let percentProduct = 1
+            let baseProduct = new Decimal(0)
+            let percentProduct = new Decimal(1)
             if(typ == ResouceType.Silver){
-                baseProduct += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Silver)
+                baseProduct = baseProduct.add(this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Silver))
             }else{
-                baseProduct += this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Troop)
+                baseProduct = baseProduct.add(this.getGeneralAbility(id, generalInfo.level, GeneralAbility.Troop))
             }
             for(let bi = 0; bi < row.general_skill.length; bi++){
                 const buff = this.getSkillInfo(row.general_skill[bi])
@@ -418,20 +419,20 @@ export class General{
                     ){
                     let skillValue = this.getSkillValue(id, bi, generalInfo.skill_levels[bi])
                     if(skillValue['value_type'] == 1){
-                        percentProduct += skillValue['value']
+                        percentProduct = percentProduct.add(skillValue['value'])
                     }
                     else{
-                        baseProduct += skillValue['value']
+                        baseProduct = baseProduct.add(skillValue['value'])
                     }
                 }
             }
-            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent)
+            product = product.add((baseProduct.add(mapBase)).mul(percentProduct.add(mapPercent).add(moralePercent)))
         }
         return product
     }
 
     getGeneralStamina(generalId : number){
-        const time = parseInt(new Date().getTime() / 1000 + '');
+        const time = getTimeStamp()
         const generalInfo = this.getGeneralState(generalId)
         const stamina = generalInfo.stamina
         const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
@@ -443,7 +444,7 @@ export class General{
     }
 
     updateGeneralStamina(generalId: number){
-        const time = parseInt(new Date().getTime() / 1000 + '');
+        const time = getTimeStamp()
         let generalInfo = this.getGeneralState(generalId)
         const stamina = generalInfo.stamina
         const maxStamina = this.config.qualification.get((generalId-1).toString()).stamina
@@ -496,14 +497,14 @@ export class General{
         const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {
-                [SkillType.Attack]: this.config.parameter.default_defense_general[0],
-                [SkillType.Defense]: this.config.parameter.default_defense_general[1],
-                [SkillType.Load]: this.config.parameter.default_defense_general[2]
+                [SkillType.Attack]: new Decimal(this.config.parameter.default_defense_general[0]),
+                [SkillType.Defense]: new Decimal(this.config.parameter.default_defense_general[1]),
+                [SkillType.Load]: new Decimal(this.config.parameter.default_defense_general[2])
             }
             const cityStatus = this.city.getBattleStatus(1)
             let sum = {
-                [SkillType.Attack]: base[SkillType.Attack] + cityStatus.attack,
-                [SkillType.Defense]:  base[SkillType.Defense] + cityStatus.defense,
+                [SkillType.Attack]:  base[SkillType.Attack].add(cityStatus.attack),
+                [SkillType.Defense]:  base[SkillType.Defense].add(cityStatus.defense),
                 [SkillType.Load]: base[SkillType.Load]
             }
             return{
@@ -518,30 +519,30 @@ export class General{
             [SkillType.Load]: this.getGeneralAbility(generalId, generalLevel, GeneralAbility.Load)
         }
         let extraValue = {
-            [SkillType.Attack]: 0,
-            [SkillType.Defense]: 0,
-            [SkillType.Load]: 0
+            [SkillType.Attack]: new Decimal(0),
+            [SkillType.Defense]: new Decimal(0),
+            [SkillType.Load]: new Decimal(0)
         }
         let extraPercent = {
-            [SkillType.Attack]: 1,
-            [SkillType.Defense]: 1,
-            [SkillType.Load]: 1
+            [SkillType.Attack]: new Decimal(1),
+            [SkillType.Defense]: new Decimal(1),
+            [SkillType.Load]: new Decimal(1)
         }
       
         const row = this.getGeneralQualification(generalId)
         const cityStatus = this.city.getBattleStatus(row.general_type)
-        extraValue[SkillType.Attack] = cityStatus.attack
-        extraValue[SkillType.Defense] = cityStatus.defense
+        extraValue[SkillType.Attack] = new Decimal(cityStatus.attack)
+        extraValue[SkillType.Defense] = new Decimal(cityStatus.defense)
         for( let i = 0; i < row.general_skill.length; i++){
             const skillRow = this.getSkillInfo(row.general_skill[i])
             const skillLevel = generalInfo.skill_levels[i]
             const value = this.getSkillValue(generalId, i, skillLevel)
             if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
                 if(value['value_type'] == 1){
-                    extraPercent[skillRow.buff_type] += value['value']
+                    extraPercent[skillRow.buff_type] = extraPercent[skillRow.buff_type].add(value['value'])
                 }
                 else{
-                    extraValue[skillRow.buff_type] += value['value']
+                    extraValue[skillRow.buff_type] = extraValue[skillRow.buff_type].add(value['value'])
                 }
             }
         }
@@ -553,27 +554,27 @@ export class General{
             const skillRow = this.getSkillInfo(mapBuff)
             if(skillRow.buff_type == SkillType.Attack || skillRow.buff_type == SkillType.Defense || skillRow.buff_type == SkillType.Load){
                 if(skillRow['value_type'] == 1){
-                    extraPercent[skillRow.buff_type] += skillRow.buff_value
+                    extraPercent[skillRow.buff_type] = extraPercent[skillRow.buff_type].add(skillRow.buff_value)
                 }
                 else{
-                    extraValue[skillRow.buff_type] += skillRow.buff_value
+                    extraValue[skillRow.buff_type] = extraValue[skillRow.buff_type].add(skillRow.buff_value)
                 }
             }
         }
 
         let moralePercent = this.getMoralePercent()
-        for(let key in extraPercent){
-            extraPercent[key] += moralePercent
+        for(let key of Object.getOwnPropertyNames(extraPercent)){
+            extraPercent[key] = extraPercent[key].add(moralePercent)
         }
         
 
         let sum = {
-            [SkillType.Attack]: 0,
-            [SkillType.Defense]: 0,
-            [SkillType.Load]: 0
+            [SkillType.Attack]: new Decimal(0),
+            [SkillType.Defense]: new Decimal(0),
+            [SkillType.Load]: new Decimal(0)
         }
-        for( let type in sum ){
-            sum[type] = (extraValue[type] + base[type]) * extraPercent[type]
+        for( let type of Object.getOwnPropertyNames(sum)){
+            sum[type] = (extraValue[type].add(base[type])).mul(extraPercent[type])
         }
         return{
             sum: sum,
@@ -586,11 +587,11 @@ export class General{
             generalType: 1,
             generalId: -1,
             generalLevel: 1,
-            attack: 0,
-            defense: 0,
-            silver: 0,
-            troop: 0,
-            defenseMaxTroop: 0
+            attack: new Decimal(0),
+            defense: new Decimal(0),
+            silver: new Decimal(0),
+            troop: new Decimal(0),
+            defenseMaxTroop: new Decimal(0)
         }
         re.silver = this.city.getResource(ResouceType.Silver)
         re.troop = this.city.getResource(ResouceType.Troop)
@@ -600,13 +601,13 @@ export class General{
             defenseGeneralId = this.state.defense_general
         }
         else{
-            let maxValue = 1;
-            for(let idstring in this.state.generalList ){
+            let maxValue = new Decimal(1);
+            for(let idstring of Object.getOwnPropertyNames(this.state.generalList)){
                 const id = parseInt(idstring)
                 const generalInfo = this.state.generalList[idstring]
                 if(generalInfo.able && this.checkDefenseBlock(id)){
                     let generalLevel = generalInfo.level
-                    let tempValue = this.getGeneralAbility( id, generalLevel, GeneralAbility.Attack) + this.getGeneralAbility( id, generalLevel, GeneralAbility.Defense)
+                    let tempValue = this.getGeneralAbility( id, generalLevel, GeneralAbility.Attack).add(this.getGeneralAbility( id, generalLevel, GeneralAbility.Defense))
                     if(tempValue > maxValue){
                         maxValue = tempValue
                         defenseGeneralId = id
@@ -637,18 +638,18 @@ export class General{
         ){
             re = 1.2
         }
-        return re
+        return new Decimal(re)
     }
 
     getMaxAttackTroop(){
-        return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
+        return Decimal.min(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
     }
 
     getMaxDefenseTroop(){
-        return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
+        return Decimal.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
     }
 
-    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: Decimal = new Decimal(-1), useStamina: boolean = true){
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
@@ -668,7 +669,7 @@ export class General{
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
         let ableTroop = this.getMaxAttackTroop()
-        if(ableTroop == 0){
+        if(ableTroop == new Decimal(0)){
             return{
                 result: false,
                 error: 'do-not-have-troop'
@@ -679,56 +680,78 @@ export class General{
             defense: status.sum[SkillType.Defense],
             load: status.sum[SkillType.Load],
             generalType: generalType,
-            ableTroop: remainTroop != -1? remainTroop : ableTroop
+            ableTroop: remainTroop != new Decimal(-1)? remainTroop : ableTroop
         }
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
-        let randomA = 0.9 + getRandom() * 0.2
+        let randomA = new Decimal(getRandom()).mul(0.2).add(0.9)
         let remainTroopD = defenseInfo.defenseMaxTroop
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
-        let randomD = 0.9 + getRandom() * 0.2
+        let randomD = new Decimal(getRandom()).mul(0.2).add(0.9)
         let loopTime = 0
         while(true){
             loopTime++
             if(loopTime > 10000){
                 throw "battle data error"
             }
-            remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
-            if(remainTroopD <= 0){
-                remainTroopD = 0
+            //remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
+            remainTroopD = remainTroopD.minus(
+                (attackInfo.attack.mul(randomA).div(defenseInfo.defense).div(randomD))
+                .mul(coeA).mul(remainTroopA).div(10)
+                )
+            if(remainTroopD <= new Decimal(0)){
+                remainTroopD = new Decimal(0)
                 break
             }
-            remainTroopA -= (( defenseInfo.attack * randomD / attackInfo.defense / randomA ) * coeD * remainTroopD / 10 )
-            if(remainTroopA <= 0){
-                remainTroopA  = 0
+            //remainTroopA -= (( defenseInfo.attack * randomD / attackInfo.defense / randomA ) * coeD * remainTroopD / 10 )
+            remainTroopA = remainTroopA.minus(
+                (defenseInfo.attack .mul(randomD).div(attackInfo.defense).div(randomA))
+                .mul(coeD).mul(remainTroopD).div(10)
+                )
+            if(remainTroopA <= new Decimal(0)){
+                remainTroopA  = new Decimal(0)
                 break
             }
         }
         let re : BattleResult = {
             result: true,
             win: false,
-            attackTroopReduce: 0,
-            defenseTroopReduce: 0,
-            silverGet: 0,
-            attackGloryGet: 0,
-            defenseGloryGet: 0
+            attackTroopReduce: new Decimal(0),
+            defenseTroopReduce: new Decimal(0),
+            silverGet: new Decimal(0),
+            attackGloryGet: new Decimal(0),
+            defenseGloryGet: new Decimal(0)
         }
-        re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
-        re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
-        re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
-        re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
-        if(remainTroopA > 0 ){
+        re.attackTroopReduce = Decimal.floor(
+            attackInfo.ableTroop.minus(remainTroopA)
+            )
+        re.defenseTroopReduce = Decimal.floor(
+            Decimal.max(defenseInfo.troop, defenseInfo.defenseMaxTroop).minus(remainTroopD)
+            )
+        re.attackGloryGet = Decimal.floor(
+            Decimal.sqrt( 
+                (attackInfo.attack .add(attackInfo.defense)).mul(re.defenseTroopReduce).div(100)
+                )
+            )
+        re.defenseGloryGet = Decimal.floor(
+            Decimal.sqrt(
+                (defenseInfo.attack.add(defenseInfo.defense)).mul(re.attackTroopReduce).div(100) 
+                )
+            )
+        if(remainTroopA > new Decimal(0) ){
             re.win = true
-            re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
+            re.silverGet = attackInfo.load.add(
+                Decimal.floor(remainTroopA).mul(this.config.parameter.troops_base_load)
+                )
         }
         else{
             re.win = false
         }
         if(re.win){
-            re.attackGloryGet += this.config.parameter.battle_victory_get_glory
+            re.attackGloryGet = re.attackGloryGet.add(this.config.parameter.battle_victory_get_glory)
         }
         else{
-            re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
+            re.defenseGloryGet = re.defenseGloryGet.add(this.config.parameter.battle_victory_get_glory)
         }
         this.city.useTroop(re.attackTroopReduce)
         return re
@@ -837,7 +860,7 @@ export class General{
         }
     }
 
-    cancelDefenseBlock(generalId: number, remainTroop: number){
+    cancelDefenseBlock(generalId: number, remainTroop: Decimal){
         let defenseList = this.state.defenseBlockList
         for(let i = 0; i< defenseList.length; i++){
             let info = defenseList[i]
@@ -851,7 +874,7 @@ export class General{
                 'defenseBlockList': defenseList
             }
         )
-        this.city.useTroop(-remainTroop)
+        this.city.useTroop(Decimal.sub(0, remainTroop))
     }
 
     transferTransRecord(record: BattleTransRecord): BattleRecord{
@@ -948,7 +971,7 @@ export class General{
     }
 
     getMorale(){
-        let morale = this.state.morale.value
+        let morale = this.state.morale.value.toNumber()
         if(morale <= normalMorale){
             return Math.max(morale, minMorale)
         }
@@ -977,25 +1000,25 @@ export class General{
         )
     }
 
-    getMoralePercent(){
+    getMoralePercent(): Decimal {
         let morale = this.getMorale()
-        return morale / 100 - 1
+        return new Decimal(morale).div(100).minus(1)
     }
 
     getRecoverMoraleInfo(){
         let morale = this.getMorale()
         let re = {
-            silverUse: 0,
+            silverUse: new Decimal(0) ,
             silverAble: true,
-            goldUse:0,
+            goldUse: new Decimal(0),
             goldAble: true
         }
         if(morale >= normalMorale){
             return re
         }
-        re.silverUse = this.boost.getSilverPosProduction() * (normalMorale - morale) * 0.15
+        re.silverUse = this.boost.getSilverPosProduction().mul(normalMorale - morale).mul(0.15)
         re.silverAble = this.city.getResource(ResouceType.Silver) >= re.silverUse ? true : false
-        re.goldUse = this.config.parameter.recovery_one_morale_need_gold * (normalMorale - morale)
+        re.goldUse = new Decimal(this.config.parameter.recovery_one_morale_need_gold * (normalMorale - morale))
         re.goldAble = this.city.state.gold >= re.goldUse ? true : false
         return re
     }

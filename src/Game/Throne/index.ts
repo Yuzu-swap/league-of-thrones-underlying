@@ -394,7 +394,7 @@ export class CityComponent implements ICityComponent {
   }
 
   getRecruitState(): {} {
-    const time = parseInt(new Date().getTime() / 1000 + '');
+    const time = getTimeStamp()
     let re = {
       status: RecruitStatus.None,
       endtime: 0,
@@ -561,7 +561,6 @@ export class CityComponent implements ICityComponent {
       }
     )
     //read red point info from backend
-    //for(let key in ChatChannel)
     let campProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_Camp])
     if(campProfile['code'] == 0){
       let campInfo = decodeChatProfile(campProfile['data'])

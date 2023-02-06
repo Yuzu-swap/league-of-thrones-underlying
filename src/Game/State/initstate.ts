@@ -5,6 +5,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
 import { GeneralInfo } from '.';
+import { getTimeStamp } from '../Utils';
 
 export var InitState = {
     [StateName.City]: {
@@ -119,7 +120,7 @@ var _inited = false
 export function GetInitState(){
     if (!_inited) {
         //city state
-        for(let key in CityFacility)
+        for(let key of  Object.getOwnPropertyNames(CityFacility))
         {
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
@@ -173,8 +174,8 @@ var _ginit = false
 
 export function GetMapState(){
     if(!_ginit){
-        const time = parseInt(new Date().getTime() / 1000 + '');
-        for(let block in mapGDS){
+        const time = getTimeStamp()
+        for(let block of  Object.getOwnPropertyNames(mapGDS)){
             let key = `${StateName.BlockInfo}:${block}`
             let row = mapGDS[block]
             let list = block.split('^')
@@ -206,7 +207,7 @@ export function GetMapState(){
             InitState[StateName.Activity].sumValue.push(0)
             InitState[StateName.Activity].haveSendReward.push(false)
         }
-        for(let key in gInitState){
+        for(let key of Object.getOwnPropertyNames(gInitState)){
             validBlockIds.push(key)
         }
     }
