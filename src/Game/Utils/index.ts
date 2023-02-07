@@ -239,3 +239,76 @@ export function decodeChatProfile( data: string ){
         ts: parseInt(list[1])
     }
 }
+
+export function exportDecimal(aObject) {
+    // Prevent undefined objects
+    // if (!aObject) return aObject;
+    if(aObject instanceof Decimal){
+      return genDecimalString(aObject)
+    }
+  
+    let bObject = Array.isArray(aObject) ? [] : {};
+  
+    let value;
+    for (const key in aObject) {
+  
+      // Prevent self-references to parent object
+      // if (Object.is(aObject[key], aObject)) continue;
+      
+      value = aObject[key];
+  
+      if(value instanceof Decimal){
+        bObject[key] = genDecimalString(value)
+      }
+      else{
+        bObject[key] = (typeof value === "object") ? exportDecimal(value) : value;
+      }
+    }
+  
+    return bObject;
+}
+
+export function importDecimal(aObject) {
+    // Prevent undefined objects
+    // if (!aObject) return aObject;
+    if( typeof aObject === "string" && aObject.indexOf(decimalSign) != -1){
+      return getDecimalFromStr(aObject)
+    }
+  
+    let bObject = Array.isArray(aObject) ? [] : {};
+  
+    let value;
+    for (const key in aObject) {
+  
+      // Prevent self-references to parent object
+      // if (Object.is(aObject[key], aObject)) continue;
+      
+      value = aObject[key];
+  
+      if( typeof aObject === "string" && aObject.indexOf(decimalSign) != -1){
+        bObject[key] = getDecimalFromStr(value)
+      }
+      else{
+        bObject[key] = (typeof value === "object") ? exportDecimal(value) : value;
+      }
+    }
+  
+    return bObject;
+}
+
+export const decimalSign = 'Decimal'
+
+export function genDecimalString( value: Decimal )
+{
+    return decimalSign + ':' + value.toString()
+}
+
+export function getDecimalFromStr(value: string)
+{
+    let list = value.split(':')
+    if(list.length != 2)
+    {
+        throw "trans Decimal error"
+    }
+    return new Decimal(list[1])
+}

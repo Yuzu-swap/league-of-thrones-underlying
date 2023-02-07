@@ -1,5 +1,7 @@
 import { CityFacility } from "../Game/Const"
 import { Decimal } from 'decimal.js'
+import { copyObj } from "../Core/state"
+import { exportDecimal } from "../Game/Utils"
 
 test("hello test", ()=>{
     let t = 
@@ -8,7 +10,8 @@ test("hello test", ()=>{
     }
     t.a = new Decimal(1) as any 
     let c = new Decimal(2);
-    (t.a as any as Decimal).add(c)
+    let d = copyObj(t)
+    console.log(exportDecimal(t))
     expect(1 == 1)
 })
 

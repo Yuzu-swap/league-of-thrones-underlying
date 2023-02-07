@@ -1,3 +1,5 @@
+import Decimal from "decimal.js";
+
 const log = globalThis.log ||function(){}
 
 export interface IState {
@@ -18,6 +20,10 @@ export interface IStateIdentity {
 export function copyObj(aObject) {
   // Prevent undefined objects
   // if (!aObject) return aObject;
+  if(aObject instanceof Decimal)
+  {
+    return new Decimal(aObject)
+  }
 
   let bObject = Array.isArray(aObject) ? [] : {};
 
@@ -29,7 +35,12 @@ export function copyObj(aObject) {
     
     value = aObject[key];
 
-    bObject[key] = (typeof value === "object") ? copyObj(value) : value;
+    if(value instanceof Decimal){
+      bObject[key] = new Decimal(value)
+    }
+    else{
+      bObject[key] = (typeof value === "object") ? copyObj(value) : value;
+    }
   }
 
   return bObject;

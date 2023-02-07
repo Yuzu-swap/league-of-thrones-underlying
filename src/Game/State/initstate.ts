@@ -6,6 +6,7 @@ import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
 import { GeneralInfo } from '.';
 import { getTimeStamp } from '../Utils';
+import Decimal from 'decimal.js';
 
 export var InitState = {
     [StateName.City]: {
@@ -14,16 +15,16 @@ export var InitState = {
           [ResouceType.Silver]:
           {
               lastUpdate: -1,
-              value: 100000000,
+              value: new Decimal(100000000),
           },
           [ResouceType.Troop]:
           {
               lastUpdate: -1,
-              value: 1000000,
+              value: new Decimal(1000000),
           }
       },
       recruit:[],
-      gold: 0,
+      gold: new Decimal(0),
       lastAddTestTime: -1,
       userActivity: [],
       guideStep: []
