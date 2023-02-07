@@ -20,11 +20,11 @@ export interface GeneralConfig{
 export interface BattleResult{
     result: boolean
     win: boolean
-    attackTroopReduce: Decimal
-    defenseTroopReduce: Decimal
+    attackTroopReduce: number
+    defenseTroopReduce: number
     silverGet: Decimal
-    attackGloryGet: Decimal
-    defenseGloryGet: Decimal
+    attackGloryGet: number
+    defenseGloryGet: number
 }
 
 export enum GeneralAbility{
@@ -83,9 +83,9 @@ export interface BattleRecordInfo{
     generalId: number
     generalLevel: number
     generalType: number
-    troopReduce: Decimal
+    troopReduce: number
     silverGet: Decimal
-    gloryGet: Decimal
+    gloryGet: number
     unionId: number
     iconId: number
 }
@@ -716,28 +716,28 @@ export class General{
         let re : BattleResult = {
             result: true,
             win: false,
-            attackTroopReduce: new Decimal(0),
-            defenseTroopReduce: new Decimal(0),
+            attackTroopReduce: 0,
+            defenseTroopReduce: 0,
             silverGet: new Decimal(0),
-            attackGloryGet: new Decimal(0),
-            defenseGloryGet: new Decimal(0)
+            attackGloryGet: 0,
+            defenseGloryGet: 0
         }
         re.attackTroopReduce = Decimal.floor(
             attackInfo.ableTroop.minus(remainTroopA)
-            )
+            ).toNumber()
         re.defenseTroopReduce = Decimal.floor(
             Decimal.max(defenseInfo.troop, defenseInfo.defenseMaxTroop).minus(remainTroopD)
-            )
+            ).toNumber()
         re.attackGloryGet = Decimal.floor(
             Decimal.sqrt( 
-                (attackInfo.attack .add(attackInfo.defense)).mul(re.defenseTroopReduce).div(100)
+                (attackInfo.attack.add(attackInfo.defense)).mul(re.defenseTroopReduce).div(100)
                 )
-            )
+            ).toNumber()
         re.defenseGloryGet = Decimal.floor(
             Decimal.sqrt(
                 (defenseInfo.attack.add(defenseInfo.defense)).mul(re.attackTroopReduce).div(100) 
                 )
-            )
+            ).toNumber()
         if(remainTroopA > new Decimal(0) ){
             re.win = true
             re.silverGet = attackInfo.load.add(
@@ -748,12 +748,12 @@ export class General{
             re.win = false
         }
         if(re.win){
-            re.attackGloryGet = re.attackGloryGet.add(this.config.parameter.battle_victory_get_glory)
+            re.attackGloryGet += this.config.parameter.battle_victory_get_glory
         }
         else{
-            re.defenseGloryGet = re.defenseGloryGet.add(this.config.parameter.battle_victory_get_glory)
+            re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
         }
-        this.city.useTroop(re.attackTroopReduce)
+        this.city.useTroop(new Decimal(re.attackTroopReduce))
         return re
     }
 

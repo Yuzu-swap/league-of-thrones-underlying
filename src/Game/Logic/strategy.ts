@@ -7,6 +7,7 @@ import { IBoost } from "./boost";
 import { City } from "./game";
 import { General } from "./general";
 import { Map } from "./map";
+import { Decimal } from "decimal.js"
 
 export enum StrategyType {
     Store = 'store',
@@ -39,12 +40,12 @@ export class Strategy{
 
     getStrategyPonit(){
         const time = getTimeStamp()
-        let recover = Math.floor((time - this.state.strategyPoint.lastUpdate) / this.parameter.order_recovery_need_times)
-        if(this.state.strategyPoint.value + recover > MaxStrategyPoint){
+        let recover = Decimal.floor( new Decimal(time - this.state.strategyPoint.lastUpdate).div(this.parameter.order_recovery_need_times))
+        if(this.state.strategyPoint.value.add(recover).toNumber() > MaxStrategyPoint){
             return MaxStrategyPoint
         }
         else{
-            return recover + this.state.strategyPoint.value
+            return recover.add(this.state.strategyPoint.value).toNumber()
         }
     }
 
@@ -106,13 +107,13 @@ export class Strategy{
     getBuyStrategyTimes(){
         const aDaySeconds =  60 * 60 * 24
         const time = getTimeStamp()
-        let nowDay = Math.floor(time / aDaySeconds)
-        let lastDay = Math.floor(this.state.buyTimes.lastUpdate / aDaySeconds)
+        let nowDay = Decimal.floor( new Decimal(time).div(aDaySeconds))
+        let lastDay = Decimal.floor( new Decimal(this.state.buyTimes.lastUpdate).div(aDaySeconds))
         if(nowDay != lastDay){
             return 0
         }
         else{
-            return this.state.buyTimes.value
+            return this.state.buyTimes.value.toNumber()
         }
     }
 
@@ -147,7 +148,7 @@ export class Strategy{
         }
         else{
             let goldNeed = this.getBuyStrategyNeed(amount)
-            if(!this.city.useGold(goldNeed)){
+            if(!this.city.useGold(new Decimal(goldNeed))){
                 return {
                     result : false,
                     error: "gold-is-not-enough"
@@ -171,7 +172,7 @@ export class Strategy{
     getOpenDayCount(){
         let time = getTimeStamp()
         let openTime = this.map.seasonState.season_open == 0 ? this.map.seasonConfig.get(1).season_open : this.map.seasonState.season_open 
-        let dayCount = Math.ceil((time - openTime) / (60 * 60 * 24))
+        let dayCount = Decimal.ceil( new Decimal(time - openTime).div(60 * 60 * 24)).toNumber()
         return dayCount >=0 ? dayCount : 1
     }
 
@@ -184,7 +185,7 @@ export class Strategy{
             }
         }
         let count = this.getOpenDayCount() * 100
-        this.city.useTroop(-count)
+        this.city.useTroop(Decimal.sub(0, count))
         return{
             result: true
         }
@@ -199,7 +200,7 @@ export class Strategy{
             }
         }
         let count = this.getOpenDayCount() * 10000
-        this.city.useSilver(-count)
+        this.city.useSilver(Decimal.sub(0, count))
         return{
             result: true
         }

@@ -31,8 +31,8 @@ import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTi
 import { StrategyComponent } from './strategy'
 import { Activity } from '../Logic/activity'
 import { MessageType } from '../Controler/Websocket/protocol'
-
-
+import { Decimal } from 'decimal.js'
+ 
 
 export interface IComponent {
   //trigger when state update
@@ -390,7 +390,7 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
   getRecruitNeed(amount: number): number {
-    return this.city.getRecruitNeed(amount)
+    return this.city.getRecruitNeed(amount).toNumber()
   }
 
   getRecruitState(): {} {

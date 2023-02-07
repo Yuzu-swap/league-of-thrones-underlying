@@ -339,11 +339,11 @@ export class Map{
                     if( bre.win ){
                         defaultDefense.shift()
                         i--
-                        remainTroop -= bre.attackTroopReduce
+                        remainTroop = remainTroop.minus(bre.attackTroopReduce)
                     }
                     else{
-                        defaultDefense[i].troops -= bre.defenseTroopReduce
-                        remainTroop -= bre.attackTroopReduce
+                        defaultDefense[i].troops = defaultDefense[i].troops.minus(bre.defenseTroopReduce)
+                        remainTroop = remainTroop.minus(bre.attackTroopReduce)
                         break
                     }
                 }
@@ -356,7 +356,7 @@ export class Map{
             )
             this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
         }
-        if(remainTroop <= 0 ){
+        if(remainTroop <= new Decimal(0)){
             return {
                 records: list,
                 cancelList: [],
@@ -380,7 +380,7 @@ export class Map{
                         generalLevel: this.general.getGeneralLevel(generalId),
                         generalType: generalRow.general_type,
                         troopReduce: bre.attackTroopReduce,
-                        silverGet: 0,
+                        silverGet: new Decimal(0),
                         gloryGet: bre.attackGloryGet,
                         unionId: this.general.state.unionId,
                         iconId: this.general.state.iconId
@@ -392,7 +392,7 @@ export class Map{
                         generalLevel: info.generalLevel,
                         generalType: info.generalType,
                         troopReduce: bre.defenseTroopReduce,
-                        silverGet: 0,
+                        silverGet: new Decimal(0),
                         gloryGet: bre.defenseGloryGet,
                         unionId: defenseInfos[i].unionId,
                         iconId: defenseInfos[i].iconId
@@ -415,11 +415,11 @@ export class Map{
                     )
                     defenseInfos.shift()
                     i--
-                    remainTroop -= bre.attackTroopReduce
+                    remainTroop = remainTroop.minus(bre.attackTroopReduce)
                 }
                 else{
-                    defenseInfos[i].troops -= bre.defenseTroopReduce
-                    remainTroop -= bre.attackTroopReduce
+                    defenseInfos[i].troops = defenseInfos[i].troops.minus(bre.defenseTroopReduce)
+                    remainTroop = remainTroop.minus(bre.attackTroopReduce)
                     break
                 }
             }

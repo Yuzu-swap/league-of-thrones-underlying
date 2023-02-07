@@ -332,7 +332,7 @@ export class TransitionHandler {
     const logic: LogicEssential = this.genLogic(args.from);
     const city = logic.city;
 
-    return city.recruit(args.amount);
+    return city.recruit(new Decimal(args.amount));
   }
 
   onAbleGeneral(args: AbleGeneralArgs): {} {
@@ -393,7 +393,7 @@ export class TransitionHandler {
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
     if(re.result == true){
-      (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
+      (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as Decimal)
       let btr: BattleTransRecord  = {
         attackInfo :{
           username: parseStateId(logic1.city.state.getId()).username,
@@ -412,7 +412,7 @@ export class TransitionHandler {
           generalLevel: defenseInfo.generalLevel,
           generalType: defenseInfo.generalType,
           troopReduce: re['defenseTroopReduce'],
-          silverGet: -re['silverGet'],
+          silverGet: Decimal.sub(0, re['silverGet']),
           gloryGet: re['defenseGloryGet'],
           unionId: logic2.general.state.unionId,
           iconId: logic2.general.state.iconId
@@ -452,7 +452,7 @@ export class TransitionHandler {
       }
       this.recordEvent(TransitionEventType.Battles, btr)
     }
-    logic1.city.useSilver( - (re as any).silverGet as number)
+    logic1.city.useSilver( Decimal.sub(0, (re as any).silverGet) )
     return re
   }
 
@@ -479,7 +479,7 @@ export class TransitionHandler {
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
           let tempLogic: LogicEssential = this.genLogic(cancelDefense.username)
-          tempLogic.general.cancelDefenseBlock(cancelDefense.generalId, 0)
+          tempLogic.general.cancelDefenseBlock(cancelDefense.generalId, new Decimal(0))
         }
       }
       let oldGlory = logic.general.state.glory
@@ -699,7 +699,7 @@ export class TransitionHandler {
 
   onRecharge(args: RechargeArgs){
     const logic : LogicEssential = this.genLogic(args.username)
-    return logic.city.recharge(args.rechargeId, args.amount)
+    return logic.city.recharge(args.rechargeId, new Decimal(args.amount))
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
@@ -769,7 +769,7 @@ export class TransitionHandler {
       return generalRe
     } 
     let num = logic.map.miningBlock(args.x_id, args.y_id)
-    logic.city.useSilver(-num)
+    logic.city.useSilver(Decimal.sub(0, num))
     return {
       result: true,
       getSilver: num
@@ -839,7 +839,7 @@ export class TransitionHandler {
 
   onDonateSilver(args: DonateSilverArgs){
     const logic: LogicEssential = this.genLogic(args.from)
-    return logic.activity.donateSilver(args.activityId, args.amount)
+    return logic.activity.donateSilver(args.activityId, new Decimal(args.amount))
   }
 
   onRegularTask(){
@@ -854,7 +854,7 @@ export class TransitionHandler {
         for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
           const tempLogic : LogicEssential = this.genLogic(userdata.username)
           let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
-          tempLogic.city.useGold(-rank.rankReward)
+          tempLogic.city.useGold(Decimal.sub(0, rank.rankReward))
         }
         haveSendReward[activity.activityId] = true
         gLogic.activity.state.update(
