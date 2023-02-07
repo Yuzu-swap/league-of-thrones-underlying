@@ -35,6 +35,7 @@ import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
 import { addToNormalSortedList, addToSortList, getTimeStamp } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
+import Decimal from 'decimal.js';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -530,13 +531,13 @@ function testSort(){
   console.log(list)
 
   let newList: ActivityData[] = [] 
-  addToNormalSortedList(newList, "aaa", 0, 2, 'value')
-  addToNormalSortedList(newList, "bbb", 0, 3, 'value')
-  addToNormalSortedList(newList, "aaa", 2, 4, 'value')
-  addToNormalSortedList(newList, "ccc", 0, 3, 'value')
-  addToNormalSortedList(newList, "ddd", 0, 1, 'value')
-  addToNormalSortedList(newList, "eee", 0, 2.5, 'value')
-  addToNormalSortedList(newList, "eee", 2.5, 3.5, 'value')
+  addToNormalSortedList(newList, "aaa", new Decimal(0), new Decimal(2), 'value')
+  addToNormalSortedList(newList, "bbb", new Decimal(0), new Decimal(3), 'value')
+  addToNormalSortedList(newList, "aaa", new Decimal(2), new Decimal(4), 'value')
+  addToNormalSortedList(newList, "ccc", new Decimal(0), new Decimal(3), 'value')
+  addToNormalSortedList(newList, "ddd", new Decimal(0), new Decimal(1), 'value')
+  addToNormalSortedList(newList, "eee", new Decimal(0), new Decimal(2.5), 'value')
+  addToNormalSortedList(newList, "eee", new Decimal(2.5), new Decimal(3.5), 'value')
   console.log(newList)
 
 }

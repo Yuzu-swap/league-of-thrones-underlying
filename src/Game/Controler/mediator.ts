@@ -21,6 +21,7 @@ import {
 } from './Websocket/protocol';
 import { BattleType } from '../Logic/general';
 import { getTimeStamp } from '../Utils';
+import Decimal from 'decimal.js';
 
 
 function getInitState(username:string,wather: IStateChangeWatcher): {
@@ -147,7 +148,7 @@ export class LocalMediator
         generalType: 1,
         username: 'test',
         troopReduce: 1000,
-        silverGet: 100,
+        silverGet: new Decimal(100),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -158,7 +159,7 @@ export class LocalMediator
         generalType: 1,
         username: 'test1',
         troopReduce: 1500,
-        silverGet: -100,
+        silverGet: new Decimal(-100),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -178,7 +179,7 @@ export class LocalMediator
         generalType: 1,
         username: 'test',
         troopReduce: 1500,
-        silverGet: 0,
+        silverGet: new Decimal(0),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -189,7 +190,7 @@ export class LocalMediator
         generalType: 2,
         username: 'test1',
         troopReduce: 1000,
-        silverGet: 0,
+        silverGet: new Decimal(0),
         gloryGet: 100,
         unionId: 1,
        iconId: -1
@@ -209,7 +210,7 @@ export class LocalMediator
         generalType: 1,
         username: 'test',
         troopReduce: 1000,
-        silverGet: 0,
+        silverGet: new Decimal(0),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -221,7 +222,7 @@ export class LocalMediator
         generalType: 2,
         username: 'test1',
         troopReduce: 1500,
-        silverGet: 0,
+        silverGet: new Decimal(0),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -240,7 +241,7 @@ export class LocalMediator
         generalType: 1,
         username: 'test',
         troopReduce: 1500,
-        silverGet: -100,
+        silverGet: new Decimal(-100),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -251,7 +252,7 @@ export class LocalMediator
         generalType: 2,
         username: 'test1',
         troopReduce: 1000,
-        silverGet: 100,
+        silverGet: new Decimal(100),
         gloryGet: 100,
         unionId: 1,
         iconId: -1
@@ -425,7 +426,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 1,
       username: 'test',
       troopReduce: 1000,
-      silverGet: 100,
+      silverGet: new Decimal(100),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -436,7 +437,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 1,
       username: 'test1',
       troopReduce: 1500,
-      silverGet: -100,
+      silverGet: new Decimal(-100),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -457,7 +458,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 1,
       username: 'test',
       troopReduce: 1500,
-      silverGet: 0,
+      silverGet: new Decimal(0),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -468,7 +469,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 2,
       username: 'test1',
       troopReduce: 1000,
-      silverGet: 0,
+      silverGet: new Decimal(0),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -489,7 +490,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 1,
       username: 'test',
       troopReduce: 1000,
-      silverGet: 0,
+      silverGet: new Decimal(0),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -501,7 +502,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 2,
       username: 'test1',
       troopReduce: 1500,
-      silverGet: 0,
+      silverGet: new Decimal(0),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -521,7 +522,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 1,
       username: 'test',
       troopReduce: 1500,
-      silverGet: -100,
+      silverGet: new Decimal(-100),
       gloryGet: 100,
       unionId: 1,
       iconId: -1
@@ -532,7 +533,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       generalType: 2,
       username: 'test1',
       troopReduce: 1000,
-      silverGet: 100,
+      silverGet: new Decimal(100),
       gloryGet: 100,
       unionId: 1,
       iconId: -1

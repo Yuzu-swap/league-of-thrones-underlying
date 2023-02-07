@@ -2,8 +2,13 @@ import { CityFacility } from "../Game/Const"
 import { Decimal } from 'decimal.js'
 
 test("hello test", ()=>{
-    let t = 1
-    console.log((t as any as Decimal).add(1))
+    let t = 
+    {
+        a: "1"
+    }
+    t.a = new Decimal(1) as any 
+    let c = new Decimal(2);
+    (t.a as any as Decimal).add(c)
     expect(1 == 1)
 })
 

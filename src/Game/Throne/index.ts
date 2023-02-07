@@ -365,7 +365,7 @@ export class CityComponent implements ICityComponent {
     }
     re['maintainNeedTroop'] = this.city.getMaintainNeedTroop()
     re['protectSilver'] = this.city.getSaveSilverAmount()
-    re['troopUseSilver'] = re[ResouceType.Troop].value * 1
+    re['troopUseSilver'] = re[ResouceType.Troop].value.toNumber() * 1
     return re
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined {
@@ -390,7 +390,7 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
   getRecruitNeed(amount: number): number {
-    return this.city.getRecruitNeed(amount).toNumber()
+    return this.city.getRecruitNeed(new Decimal(amount)).toNumber()
   }
 
   getRecruitState(): {} {
@@ -402,7 +402,7 @@ export class CityComponent implements ICityComponent {
     }
     if(this.city.state.recruit.length != 0){
       re.endtime = this.city.state.recruit[0].endtime
-      re.amount = this.city.state.recruit[0].amount
+      re.amount = this.city.state.recruit[0].amount.toNumber()
       if(re.endtime >= time){
         re.status = RecruitStatus.Going
       }
@@ -433,7 +433,7 @@ export class CityComponent implements ICityComponent {
   }
 
   getGold(): number {
-    return this.city.state.gold
+    return this.city.state.gold.toNumber()
   }
 
   getTestResourceCoolDownTime(): number {
@@ -733,7 +733,7 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getUpgradeGeneralNeed(id: number, level: number): number {
-    return this.general.getGeneralUpgradeNeed(id, level)
+    return this.general.getGeneralUpgradeNeed(id, level).toNumber()
   }
 
   getGeneralQuaValue(id: number, level: number): {} {
@@ -747,7 +747,7 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getSkillUpgradeNeed(generalId: number, skillIndex: number, level: number): number {
-    return this.general.getSkillUpdateNeed(generalId, skillIndex, level)
+    return this.general.getSkillUpdateNeed(generalId, skillIndex, level).toNumber()
   }
 
   checkGeneralSkillUpgrade(generalId: number, skillIndex: number): boolean {
@@ -905,11 +905,11 @@ export class GeneralComponent implements IGeneralComponent {
   getMoraleBuff() {
     let percent = this.general.getMoralePercent()
     let re = {}
-    re['attack'] = 1 + percent
-    re['defense'] = 1 + percent
-    re['load'] = 1 + percent
-    re['silver_product'] = 1 + percent
-    re['troop_product'] = 1 + percent
+    re['attack'] = 1 + percent.toNumber()
+    re['defense'] = 1 + percent.toNumber()
+    re['load'] = 1 + percent.toNumber()
+    re['silver_product'] = 1 + percent.toNumber()
+    re['troop_product'] = 1 + percent.toNumber()
     return re
   }
 
@@ -921,11 +921,11 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getAttackTroop(): number {
-    return this.general.getMaxAttackTroop()
+    return this.general.getMaxAttackTroop().toNumber()
   }
 
   getDefenseTroop(): number {
-    return this.general.getMaxDefenseTroop()
+    return this.general.getMaxDefenseTroop().toNumber()
   }
 
   getBattleRecordRedPoint(): boolean {
