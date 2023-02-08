@@ -44,7 +44,7 @@ export * from './Core/state';
 export * from './Game/Throne';
 export * from './Game/Const';
 
-
+// update force for bugfixed
 export var run = function () {
   /*
   const mediator = new LocalMediator();
