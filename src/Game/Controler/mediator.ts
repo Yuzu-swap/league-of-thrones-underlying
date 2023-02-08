@@ -20,7 +20,7 @@ import {
   MessageType
 } from './Websocket/protocol';
 import { BattleType } from '../Logic/general';
-import { getTimeStamp } from '../Utils';
+import { getTimeStamp, importDecimal } from '../Utils';
 import Decimal from 'decimal.js';
 
 
@@ -30,7 +30,7 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
   const strategyStateId = `${StateName.Strategy}:${username}`;
-  const InitState = GetInitState();
+  const InitState = importDecimal(GetInitState());
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -60,7 +60,7 @@ function getGlobleState(wather: IStateChangeWatcher):{
   [key: string]: IState
 }{
   let re = {}
-  const InitState = GetInitState();
+  const InitState = importDecimal(GetInitState());
   re = Object.assign(
     re, {
       [StateName.MapGlobalInfo]: new State<IMapGlobalState>(

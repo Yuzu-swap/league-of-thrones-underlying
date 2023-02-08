@@ -285,11 +285,11 @@ export function importDecimal(aObject) {
       
       value = aObject[key];
   
-      if( typeof aObject === "string" && aObject.indexOf(decimalSign) != -1){
+      if( typeof value === "string" && value.indexOf(decimalSign) != -1){
         bObject[key] = getDecimalFromStr(value)
       }
       else{
-        bObject[key] = (typeof value === "object") ? exportDecimal(value) : value;
+        bObject[key] = (typeof value === "object") ? importDecimal(value) : value;
       }
     }
   

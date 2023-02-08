@@ -48,7 +48,7 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
+import { addToSortList, getTimeStamp, importDecimal, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
 import { stringify } from 'querystring';
@@ -778,7 +778,7 @@ export class TransitionHandler {
 
   onInitUserStates(args : InitUserStatesArgs){
     const logic: LogicEssential = this.genLogic(args.username)
-    let initState = GetInitState()
+    let initState = importDecimal(GetInitState())
     console.log('state used to update', initState[StateName.City],initState[StateName.General],initState[StateName.Strategy])
     logic.city.state.update(
       initState[StateName.City]
@@ -797,7 +797,7 @@ export class TransitionHandler {
   }
 
   onInitGlobalStates(args: StateTransitionArgs){
-    let initState = GetInitState()
+    let initState = importDecimal(GetInitState())
     const mapGlobalState = this.stateManger.get(
       {
         id: `${StateName.MapGlobalInfo}`

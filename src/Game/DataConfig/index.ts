@@ -149,9 +149,9 @@ export class MapConfig{
 			for(let troop of row['troops']){
 				let ttemp: MapDefenseTroop = {
 					type: troop['type'],
-					defense: troop['defense'],
-					count: troop['count'],
-					attack: troop['attack']
+					defense: new Decimal(troop['defense']),
+					count: new Decimal(troop['count']),
+					attack:  new Decimal(troop['attack'])
 				}
 				temp.troops.push(ttemp)
 			}

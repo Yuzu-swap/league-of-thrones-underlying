@@ -5,7 +5,7 @@ import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_con
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
 import { GeneralInfo } from '.';
-import { getTimeStamp } from '../Utils';
+import { exportDecimal, getTimeStamp } from '../Utils';
 import Decimal from 'decimal.js';
 
 export var InitState = {
@@ -38,7 +38,7 @@ export var InitState = {
         iconId: -1,
         morale: {
             lastUpdate: -1,
-            value: 100,
+            value: new Decimal(100),
         }
     },
     //TODO: add default defender info
@@ -46,12 +46,12 @@ export var InitState = {
         generalId: -1,
         generalLevel: 1,
         generalType: 1,
-        attack: 100,
-        defense: 100,
-        troop: 0,
-        silver: 0,
+        attack: new Decimal(100),
+        defense: new Decimal(100),
+        troop: new Decimal(0),
+        silver: new Decimal(0),
         glory: 0,
-        defenseMaxTroop: 0,
+        defenseMaxTroop: new Decimal(0),
         unionId: 1,
         fortressLevel: 1,
         isProtected: false
@@ -87,11 +87,11 @@ export var InitState = {
     [StateName.Strategy]:{
         strategyPoint: {
             lastUpdate: -1,
-            value: MaxStrategyPoint,
+            value: new Decimal(MaxStrategyPoint),
         },
         buyTimes:{
             lastUpdate: -1,
-            value: 0,
+            value: new Decimal(0),
         },
         store:{
             able: false,
@@ -168,7 +168,7 @@ export function GetInitState(){
         InitState = Object.assign(InitState, GetMapState())        
         _inited = true
     }
-    return  copyObj(InitState)
+    return  exportDecimal(copyObj(InitState))
 }
 
 var _ginit = false
@@ -205,7 +205,7 @@ export function GetMapState(){
         let activityLen = SeasonConfigFromGDS.get(1).activities.length
         for(let i = 0; i < activityLen; i++){
             InitState[StateName.Activity].activityData.push([])
-            InitState[StateName.Activity].sumValue.push(0)
+            InitState[StateName.Activity].sumValue.push(new Decimal(0))
             InitState[StateName.Activity].haveSendReward.push(false)
         }
         for(let key of Object.getOwnPropertyNames(gInitState)){
