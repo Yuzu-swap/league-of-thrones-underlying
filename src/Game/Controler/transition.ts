@@ -842,10 +842,19 @@ export class TransitionHandler {
     let activityList = gLogic.activity.getBeforeActivities()
     const time = getTimeStamp()
     for(let activity of activityList){
+      let haveSendReward = gLogic.activity.state.haveSendReward
+      if(time > activity.startTime + activity.lastTime && haveSendReward[activity.activityId] == true)
+      {
+        haveSendReward[activity.activityId] = false
+        gLogic.activity.state.update(
+          {
+            'haveSendReward' : haveSendReward
+          }
+        )
+      }
       if(time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
         //send activity reward
         console.log("sendActivity reward id:", activity.activityId)
-        let haveSendReward = gLogic.activity.state.haveSendReward
         for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
           const tempLogic : LogicEssential = this.genLogic(userdata.username)
           let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
