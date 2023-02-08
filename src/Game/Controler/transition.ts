@@ -843,7 +843,7 @@ export class TransitionHandler {
     const time = getTimeStamp()
     for(let activity of activityList){
       let haveSendReward = gLogic.activity.state.haveSendReward
-      if(time > activity.startTime + activity.lastTime && haveSendReward[activity.activityId] == true)
+      if(time < activity.startTime + activity.lastTime && haveSendReward[activity.activityId] == true)
       {
         haveSendReward[activity.activityId] = false
         gLogic.activity.state.update(
