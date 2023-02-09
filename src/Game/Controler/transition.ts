@@ -853,7 +853,7 @@ export class TransitionHandler {
         let haveSendReward = gLogic.activity.state.haveSendReward
         for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
           const tempLogic : LogicEssential = this.genLogic(userdata.username)
-          let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
+          let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.decTypeValue)
           tempLogic.city.useGold(Decimal.sub(0, rank.rankReward))
         }
         haveSendReward[activity.activityId] = true

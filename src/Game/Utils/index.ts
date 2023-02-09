@@ -271,10 +271,6 @@ export function exportDecimal(aObject) {
 export function importDecimal(aObject) {
     // Prevent undefined objects
     // if (!aObject) return aObject;
-    if( typeof aObject === "string" && aObject.indexOf(decimalSign) != -1){
-      return getDecimalFromStr(aObject)
-    }
-  
     let bObject = Array.isArray(aObject) ? [] : {};
   
     let value;
@@ -285,30 +281,34 @@ export function importDecimal(aObject) {
       
       value = aObject[key];
   
-      if( typeof value === "string" && value.indexOf(decimalSign) != -1){
+      if( key.indexOf(decimalSign) != -1){
         bObject[key] = getDecimalFromStr(value)
       }
       else{
         bObject[key] = (typeof value === "object") ? importDecimal(value) : value;
       }
     }
-  
     return bObject;
 }
 
-export const decimalSign = 'Decimal'
+export const decimalSign = 'decType'
 
-export function genDecimalString( value: Decimal )
-{
-    return decimalSign + ':' + value.toString()
+export function genDecimalString( value: Decimal ) {
+    return value.toString()
 }
 
-export function getDecimalFromStr(value: string)
-{
-    let list = value.split(':')
-    if(list.length != 2)
+export function getDecimalFromStr(value: string | string[]) {
+    if(Array.isArray(value))
     {
-        throw "trans Decimal error"
+        let re = []
+        for(let item of value)
+        {
+            re.push(new Decimal(item))
+        }
+        return re
     }
-    return new Decimal(list[1])
+    else{
+        return new Decimal(value)
+    }
+
 }

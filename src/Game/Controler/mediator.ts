@@ -30,7 +30,7 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
   const strategyStateId = `${StateName.Strategy}:${username}`;
-  const InitState = importDecimal(GetInitState());
+  const InitState = GetInitState();
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -60,7 +60,7 @@ function getGlobleState(wather: IStateChangeWatcher):{
   [key: string]: IState
 }{
   let re = {}
-  const InitState = importDecimal(GetInitState());
+  const InitState = GetInitState();
   re = Object.assign(
     re, {
       [StateName.MapGlobalInfo]: new State<IMapGlobalState>(

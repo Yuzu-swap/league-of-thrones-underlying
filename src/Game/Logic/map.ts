@@ -162,7 +162,7 @@ export class Map{
         let remainTroop = new Decimal(0)
         for(let i = 0; i< defenseList.length; i++){
             if(defenseList[i].username == username && defenseList[i].generalId == generalId){
-                remainTroop = defenseList[i].troops
+                remainTroop = defenseList[i].decTypeTroops
                 defenseList.splice(i, 1)
                 break
             }
@@ -199,11 +199,11 @@ export class Map{
             generalId : info.generalId,
             generalLevel: info.generalLevel,
             generalType: info.generalType,
-            attack: info.attack,
-            defense: info.defense,
-            troop: info.troops,
+            attack: info.decTypeAttack,
+            defense: info.decTypeDefense,
+            troop: info.decTypeTroops,
             silver: new Decimal(0),
-            defenseMaxTroop: info.troops
+            defenseMaxTroop: info.decTypeTroops
         }
         return re
     }
@@ -342,7 +342,7 @@ export class Map{
                         remainTroop = remainTroop.minus(bre.attackTroopReduce)
                     }
                     else{
-                        defaultDefense[i].troops = defaultDefense[i].troops.minus(bre.defenseTroopReduce)
+                        defaultDefense[i].decTypeTroops = defaultDefense[i].decTypeTroops.minus(bre.defenseTroopReduce)
                         remainTroop = remainTroop.minus(bre.attackTroopReduce)
                         break
                     }
@@ -418,7 +418,7 @@ export class Map{
                     remainTroop = remainTroop.minus(bre.attackTroopReduce)
                 }
                 else{
-                    defenseInfos[i].troops = defenseInfos[i].troops.minus(bre.defenseTroopReduce)
+                    defenseInfos[i].decTypeTroops = defenseInfos[i].decTypeTroops.minus(bre.defenseTroopReduce)
                     remainTroop = remainTroop.minus(bre.attackTroopReduce)
                     break
                 }

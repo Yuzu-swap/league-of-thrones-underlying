@@ -41,11 +41,11 @@ export class Strategy{
     getStrategyPonit(){
         const time = getTimeStamp()
         let recover = Decimal.floor( new Decimal(time - this.state.strategyPoint.lastUpdate).div(this.parameter.order_recovery_need_times))
-        if(this.state.strategyPoint.value.add(recover).toNumber() > MaxStrategyPoint){
+        if(this.state.strategyPoint.decTypeValue.add(recover).toNumber() > MaxStrategyPoint){
             return MaxStrategyPoint
         }
         else{
-            return recover.add(this.state.strategyPoint.value).toNumber()
+            return recover.add(this.state.strategyPoint.decTypeValue).toNumber()
         }
     }
 
@@ -70,7 +70,7 @@ export class Strategy{
                 {
                     strategyPoint:{
                         lastUpdate: time,
-                        value: MaxStrategyPoint,
+                        decTypeValue: new Decimal(MaxStrategyPoint),
                     }
                 }
             )
@@ -81,7 +81,7 @@ export class Strategy{
                 {
                     strategyPoint:{
                         lastUpdate: time,
-                        value: strategyPoint + amount,
+                        decTypeValue: new Decimal(strategyPoint + amount),
                     }
                 }
             )
@@ -96,7 +96,7 @@ export class Strategy{
                 {
                     strategyPoint:{
                         lastUpdate: updateTime,
-                        value: strategyPoint + amount,
+                        decTypeValue: new Decimal(strategyPoint + amount),
                     }
                 }
             )
@@ -113,7 +113,7 @@ export class Strategy{
             return 0
         }
         else{
-            return this.state.buyTimes.value.toNumber()
+            return this.state.buyTimes.decTypeValue.toNumber()
         }
     }
 
@@ -159,7 +159,7 @@ export class Strategy{
                 {
                     buyTimes:{
                         lastUpdate: time,
-                        value: times + amount,
+                        decTypeValue: new Decimal(times + amount),
                     }
                 }
             )

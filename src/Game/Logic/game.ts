@@ -86,15 +86,15 @@ export class City {
       }
       let value = new Decimal(0);
       const info = this.state.resources[typ];
-      value = info.value;
+      value = info.decTypeValue;
       if (info.lastUpdate != -1) {
         const hour = new Decimal(time - info.lastUpdate).div(3600);
-        value = hour.mul(this.boost.getProduction(typ)).add(info.value).minus(hour.mul(this.state.resources[ResouceType.Troop].value).mul(3)) ;
+        value = hour.mul(this.boost.getProduction(typ)).add(info.decTypeValue).minus(hour.mul(this.state.resources[ResouceType.Troop].decTypeValue).mul(3)) ;
       }
       return value < new Decimal(0) ? new Decimal(0) : value;
     }
     else{
-      return this.state.resources[ResouceType.Troop].value
+      return this.state.resources[ResouceType.Troop].decTypeValue
     }
   }
 
@@ -104,7 +104,7 @@ export class City {
       this.state.update({
         [`resources.${typ}`]: {
           lastUpdate: time,
-          value: this.getResource(typ),
+          decTypeValue: this.getResource(typ),
         }
       });
     }
@@ -116,7 +116,7 @@ export class City {
       let reduceCount = 0
       for(let i = 0; i< recruit.length; i++){
         if(recruit[i].endtime <= time){
-          troopAdd = troopAdd.add(recruit[i].amount)
+          troopAdd = troopAdd.add(recruit[i].decTypeAmount)
           recruit.splice(i - reduceCount, 1)
           reduceCount++
         }
@@ -129,11 +129,11 @@ export class City {
             'recruit': recruit ,
             [`resources.${ResouceType.Silver}`]: {
               lastUpdate: time,
-              value: nowValue,
+              decTypeValue: nowValue,
             },
             [`resources.${ResouceType.Troop}`]:{
               lastUpdate: time,
-              value: troop.value.add(troopAdd),
+              decTypeValue: troop.decTypeValue.add(troopAdd),
             }
           }
         )
@@ -203,7 +203,7 @@ export class City {
             re = re.add(production);
           }
         }
-        re = re.minus(this.state.resources[ResouceType.Troop].value)
+        re = re.minus(this.state.resources[ResouceType.Troop].decTypeValue)
         break;
       case ResouceType.Troop:
         if (this.state.facilities[CityFacility.TrainingCenter]) {
@@ -245,7 +245,7 @@ export class City {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     let silver = {
       lastUpdate: info.lastUpdate,
-      value: info.value.minus(row.need_silver)
+      decTypeValue: info.decTypeValue.minus(row.need_silver)
     };
     this.state.update({
       [`facilities.${typ}`]: levelList,
@@ -277,7 +277,7 @@ export class City {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
-        [`resources.${ResouceType.Silver}.value`]: info.value.minus(amount)
+        [`resources.${ResouceType.Silver}.decTypeValue`]: info.decTypeValue.minus(amount)
       });
       return true;
     }
@@ -285,10 +285,10 @@ export class City {
   }
   useTroop(amount: Decimal): boolean{
     const info: ResouceInfo = this.state.resources[ResouceType.Troop];
-    if( amount <= info.value){
+    if( amount <= info.decTypeValue){
       this.state.update(
         {
-          [`resources.${ResouceType.Troop}.value`]: info.value .minus(amount)
+          [`resources.${ResouceType.Troop}.decTypeValue`]: info.decTypeValue .minus(amount)
         }
       )
       this.updateResource(ResouceType.Silver)
@@ -321,7 +321,7 @@ export class City {
     }
     recruit.push(
       {
-        amount: amount,
+        decTypeAmount: amount,
         endtime: endtime
       }
     )
@@ -426,10 +426,10 @@ export class City {
         error: 'recharge-config-error'
       }
     }
-    let nowGlod = this.state.gold
+    let nowGlod = this.state.decTypeGold
     this.state.update(
       {
-        gold: nowGlod.add((tempConfig as RechargeConfig).gold + (tempConfig as RechargeConfig).extra_gold)
+        decTypeGold: nowGlod.add((tempConfig as RechargeConfig).gold + (tempConfig as RechargeConfig).extra_gold)
       }
     )
     return{
@@ -438,10 +438,10 @@ export class City {
   }
 
   useGold(amount: Decimal){
-    if(amount <= this.state.gold){
+    if(amount <= this.state.decTypeGold){
       this.state.update(
         {
-          gold : this.state.gold.minus(amount)
+          decTypeGold : this.state.decTypeGold.minus(amount)
         }
       )
       return true
@@ -484,7 +484,7 @@ export class City {
   getActivityData(activityId: number) : Decimal {
     for(let item of this.state.userActivity){
       if(item.id == activityId){
-        return item.value
+        return item.decTypeValue
       }
     }
     return new Decimal(-1)
@@ -495,7 +495,7 @@ export class City {
     let list = this.state.userActivity
     for(let i in list){
       if(list[i].id == activityId){
-        list[i].value = value
+        list[i].decTypeValue = value
         haveSet = true
         break
       }
@@ -504,7 +504,7 @@ export class City {
       list.push(
         {
           id: activityId,
-          value: value
+          decTypeValue: value
         }
       )
     }

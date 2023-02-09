@@ -102,11 +102,11 @@ export class Activity{
         }
         let insert: ActivityData = {
             username: username,
-            value: newValue
+            decTypeValue: newValue
         }
         let list = copyObj(this.state.activityData[id]) as ActivityData[]
         //console.log("addDataToActivity: id:", id, "list after copy:", list)
-        let sumValue = this.state.sumValue[id]
+        let sumValue = this.state.decTypeSumValue[id]
         do{
             if(list.length == 0){
                 list.push(
@@ -124,17 +124,17 @@ export class Activity{
             list.splice(newInfo.index, 0, insert)
             sumValue = sumValue.add(newValue)
             if(list.length > 200){
-                sumValue = sumValue.minus(list[list.length - 1].value)
+                sumValue = sumValue.minus(list[list.length - 1].decTypeValue)
             }
         }while(false)
         let data = this.state.activityData
         data[id] = list
-        let sumValueList = this.state.sumValue
+        let sumValueList = this.state.decTypeSumValue
         sumValueList[id] = sumValue
         this.state.update(
             {
                 'activityData' : data,
-                'sumValue' : sumValueList
+                'decTypeSumValue' : sumValueList
             }
         )
         return {
@@ -152,7 +152,7 @@ export class Activity{
             rank =  origin.index + 1
         }
         if(rank != -1){
-            rankReward = info.totalReward.mul(value).div(this.state.sumValue[id])
+            rankReward = info.totalReward.mul(value).div(this.state.decTypeSumValue[id])
         }
         return {rank, rankReward, value}
     }

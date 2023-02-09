@@ -350,7 +350,7 @@ export class General{
             return false
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.state.gold >= need){
+        if(this.city.state.decTypeGold >= need){
             return true
         }
         return false
@@ -780,9 +780,9 @@ export class General{
             generalId: generalId,
             generalLevel: this.getGeneralLevel(generalId),
             generalType: row.general_type,
-            attack: attackinfo.sum[SkillType.Attack],
-            defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop(),
+            decTypeAttack: attackinfo.sum[SkillType.Attack],
+            decTypeDefense: attackinfo.sum[SkillType.Defense],
+            decTypeTroops: this.getMaxAttackTroop(),
             unionId: this.state.unionId,
             iconId: this.state.iconId
         }
@@ -971,7 +971,7 @@ export class General{
     }
 
     getMorale(){
-        let morale = this.state.morale.value.toNumber()
+        let morale = this.state.morale.decTypeValue.toNumber()
         if(morale <= normalMorale){
             return Math.max(morale, minMorale)
         }
@@ -993,7 +993,7 @@ export class General{
         this.state.update(
             {
                 morale: {
-                    value: morale,
+                    decTypeValue: new Decimal(morale),
                     lastUpdate: time
                 }
             }
@@ -1019,7 +1019,7 @@ export class General{
         re.silverUse = this.boost.getSilverPosProduction().mul(normalMorale - morale).mul(0.15)
         re.silverAble = this.city.getResource(ResouceType.Silver) >= re.silverUse ? true : false
         re.goldUse = new Decimal(this.config.parameter.recovery_one_morale_need_gold * (normalMorale - morale))
-        re.goldAble = this.city.state.gold >= re.goldUse ? true : false
+        re.goldAble = this.city.state.decTypeGold >= re.goldUse ? true : false
         return re
     }
 

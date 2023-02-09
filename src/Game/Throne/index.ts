@@ -350,22 +350,22 @@ export class CityComponent implements ICityComponent {
     let re = {
       [ResouceType.Silver]:
       {
-          value: this.city.getResource(ResouceType.Silver),
-          production: this.city.boost.getProduction(ResouceType.Silver),
+          value: this.city.getResource(ResouceType.Silver).toNumber(),
+          production: this.city.boost.getProduction(ResouceType.Silver).toNumber(),
           maintain: silverStatus.maintain,
-          normal: silverStatus.normalProduction
+          normal: silverStatus.normalProduction.toNumber()
       },
       [ResouceType.Troop]:
       {
-          value: this.city.getResource(ResouceType.Troop),
-          production: this.city.boost.getProduction(ResouceType.Troop),
+          value: this.city.getResource(ResouceType.Troop).toNumber(),
+          production: this.city.boost.getProduction(ResouceType.Troop).toNumber(),
           maintain: troopStatus.maintain,
-          normal: troopStatus.normalProduction
+          normal: troopStatus.normalProduction.toNumber()
       } 
     }
-    re['maintainNeedTroop'] = this.city.getMaintainNeedTroop()
+    re['maintainNeedTroop'] = this.city.getMaintainNeedTroop().toNumber()
     re['protectSilver'] = this.city.getSaveSilverAmount()
-    re['troopUseSilver'] = re[ResouceType.Troop].value.toNumber() * 1
+    re['troopUseSilver'] = re[ResouceType.Troop].value * 1
     return re
   }
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): FacilityGdsRow | undefined {
@@ -402,7 +402,7 @@ export class CityComponent implements ICityComponent {
     }
     if(this.city.state.recruit.length != 0){
       re.endtime = this.city.state.recruit[0].endtime
-      re.amount = this.city.state.recruit[0].amount.toNumber()
+      re.amount = this.city.state.recruit[0].decTypeAmount.toNumber()
       if(re.endtime >= time){
         re.status = RecruitStatus.Going
       }
@@ -433,7 +433,7 @@ export class CityComponent implements ICityComponent {
   }
 
   getGold(): number {
-    return this.city.state.gold.toNumber()
+    return this.city.state.decTypeGold.toNumber()
   }
 
   getTestResourceCoolDownTime(): number {

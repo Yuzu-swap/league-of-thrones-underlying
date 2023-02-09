@@ -15,16 +15,16 @@ export var InitState = {
           [ResouceType.Silver]:
           {
               lastUpdate: -1,
-              value: new Decimal(100000000),
+              decTypeValue: new Decimal(100000000),
           },
           [ResouceType.Troop]:
           {
               lastUpdate: -1,
-              value: new Decimal(1000000),
+              decTypeValue: new Decimal(1000000),
           }
       },
       recruit:[],
-      gold: new Decimal(0),
+      decTypeGold: new Decimal(0),
       lastAddTestTime: -1,
       userActivity: [],
       guideStep: []
@@ -38,7 +38,7 @@ export var InitState = {
         iconId: -1,
         morale: {
             lastUpdate: -1,
-            value: new Decimal(100),
+            decTypeValue: new Decimal(100),
         }
     },
     //TODO: add default defender info
@@ -46,12 +46,12 @@ export var InitState = {
         generalId: -1,
         generalLevel: 1,
         generalType: 1,
-        attack: new Decimal(100),
-        defense: new Decimal(100),
-        troop: new Decimal(0),
-        silver: new Decimal(0),
+        decTypeAttack: new Decimal(100),
+        decTypeDefense: new Decimal(100),
+        decTypeTroop: new Decimal(0),
+        decTypeSilver: new Decimal(0),
         glory: 0,
-        defenseMaxTroop: new Decimal(0),
+        decTypeDefenseMaxTroop: new Decimal(0),
         unionId: 1,
         fortressLevel: 1,
         isProtected: false
@@ -87,11 +87,11 @@ export var InitState = {
     [StateName.Strategy]:{
         strategyPoint: {
             lastUpdate: -1,
-            value: new Decimal(MaxStrategyPoint),
+            decTypeValue: new Decimal(MaxStrategyPoint),
         },
         buyTimes:{
             lastUpdate: -1,
-            value: new Decimal(0),
+            decTypeValue: new Decimal(0),
         },
         store:{
             able: false,

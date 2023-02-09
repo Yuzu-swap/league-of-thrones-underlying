@@ -1,4 +1,5 @@
 import Decimal from "decimal.js";
+import { decimalSign, getDecimalFromStr, importDecimal } from "../Game/Utils";
 
 const log = globalThis.log ||function(){}
 
@@ -49,7 +50,11 @@ export function copyObj(aObject) {
 function setObjectByPath(obj: {}, path: string, val: any) {
   const segIndex = path.indexOf('.');
   if (segIndex == -1) {
-    if (typeof(val) == "object"){
+    if (path.indexOf(decimalSign) != -1) {
+      let tempObj = {}
+      tempObj[path] = val
+      obj[path] = importDecimal(tempObj)[path]
+    } else if (typeof(val) == "object"){
       obj[path] = copyObj(val)
     }else{
       obj[path] = val
@@ -82,8 +87,9 @@ export class State<UnderlyingStateType extends IStateIdentity>
     watcher?: IStateChangeWatcher
   ) {
     // deep clone ins ES%
-    for (var key in initVal) {
-      this[key] = initVal[key];
+    let objWithDec = importDecimal(initVal)
+    for (var key in objWithDec) {
+      this[key] = objWithDec[key];
     }
     this._watcher = watcher;
   }

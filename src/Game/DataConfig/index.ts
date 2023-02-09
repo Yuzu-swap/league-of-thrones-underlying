@@ -317,9 +317,9 @@ export function GenBlockDefenseTroop(x_id: number, y_id: number){
 			generalId: -1,
 			generalLevel: 1,
 			generalType: troop.type,
-			attack: troop.attack,
-			defense: troop.defense,
-			troops: troop.count,
+			decTypeAttack: troop.attack,
+			decTypeDefense: troop.defense,
+			decTypeTroops: troop.count,
 			unionId: 0,
 			iconId: -1
 		}
