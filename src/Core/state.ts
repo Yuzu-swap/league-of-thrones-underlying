@@ -112,7 +112,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
     log("onStateChange ", obj)
 
     if (this._watcher) {
-      this._watcher.onStateChange( exportDecimal(obj) , this);
+      this._watcher.onStateChange( obj , this);
     }
   }
   getId(): string {
@@ -130,7 +130,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
         setObjectByPath(res, key, this[key]);
       }
     }
-    return res;
+    return exportDecimal(res);
   }
 
   getWatcher(): IStateChangeWatcher {
