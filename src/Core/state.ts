@@ -55,7 +55,7 @@ function setObjectByPath(obj: {}, path: string, val: any) {
       tempObj[path] = val
       obj[path] = importDecimal(tempObj)[path]
     } else if (typeof(val) == "object"){
-      obj[path] = copyObj(val)
+      obj[path] = importDecimal(copyObj(val))
     }else{
       obj[path] = val
     }
