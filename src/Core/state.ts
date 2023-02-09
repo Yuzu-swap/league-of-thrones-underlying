@@ -1,5 +1,5 @@
 import Decimal from "decimal.js";
-import { decimalSign, getDecimalFromStr, importDecimal } from "../Game/Utils";
+import { decimalSign, exportDecimal, getDecimalFromStr, importDecimal } from "../Game/Utils";
 
 const log = globalThis.log ||function(){}
 
@@ -112,7 +112,7 @@ export class State<UnderlyingStateType extends IStateIdentity>
     log("onStateChange ", obj)
 
     if (this._watcher) {
-      this._watcher.onStateChange(obj, this);
+      this._watcher.onStateChange( exportDecimal(obj) , this);
     }
   }
   getId(): string {
