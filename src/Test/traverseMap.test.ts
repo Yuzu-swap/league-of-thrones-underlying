@@ -7,15 +7,15 @@ test("hello test", ()=>{
     let t = 
     { b:
        {
-        a: "1"
+        decTypeA: "1"
        }
     }
-    t.b.a = new Decimal(1) as any 
     let c = new Decimal(2.123123123);
-    console.log(JSON.stringify(c))
+    let e = new Decimal(c)
+    console.log(JSON.stringify(e))
     let d = copyObj(t)
     console.log(exportDecimal(t))
-    console.log(importDecimal(exportDecimal(t)))
+    console.log(importDecimal(importDecimal(exportDecimal(t))))
     expect(1 == 1)
 })
 

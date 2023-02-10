@@ -51,11 +51,11 @@ export interface DefenseInfo{
     generalId:number
     generalLevel: number
     generalType: number
-    attack: Decimal
-    defense: Decimal
-    troop: Decimal
-    silver: Decimal
-    defenseMaxTroop: Decimal
+    decTypeAttack: Decimal
+    decTypeDefense: Decimal
+    decTypeTroop: Decimal
+    decTypeSilver: Decimal
+    decTypeDefenseMaxTroop: Decimal
 }
 
 export enum BattleType{
@@ -587,15 +587,15 @@ export class General{
             generalType: 1,
             generalId: -1,
             generalLevel: 1,
-            attack: new Decimal(0),
-            defense: new Decimal(0),
-            silver: new Decimal(0),
-            troop: new Decimal(0),
-            defenseMaxTroop: new Decimal(0)
+            decTypeAttack: new Decimal(0),
+            decTypeDefense: new Decimal(0),
+            decTypeSilver: new Decimal(0),
+            decTypeTroop: new Decimal(0),
+            decTypeDefenseMaxTroop: new Decimal(0)
         }
-        re.silver = this.city.getResource(ResouceType.Silver)
-        re.troop = this.city.getResource(ResouceType.Troop)
-        re.defenseMaxTroop = this.getMaxDefenseTroop()
+        re.decTypeSilver = this.city.getResource(ResouceType.Silver)
+        re.decTypeTroop = this.city.getResource(ResouceType.Troop)
+        re.decTypeDefenseMaxTroop = this.getMaxDefenseTroop()
         let defenseGeneralId = -1
         if(this.state.defense_general != -1){
             defenseGeneralId = this.state.defense_general
@@ -616,8 +616,8 @@ export class General{
             }
         }
         let status = this.getGeneralBattleStatus(defenseGeneralId)
-            re.attack = status.sum[SkillType.Attack]
-            re.defense = status.sum[SkillType.Defense]
+            re.decTypeAttack = status.sum[SkillType.Attack]
+            re.decTypeDefense = status.sum[SkillType.Defense]
         if(defenseGeneralId != -1){
             const row = this.getGeneralQualification(defenseGeneralId)
             re.generalType = row.general_type
@@ -685,7 +685,7 @@ export class General{
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
         let randomA = new Decimal(getRandom()).mul(0.2).add(0.9)
-        let remainTroopD = defenseInfo.defenseMaxTroop
+        let remainTroopD = defenseInfo.decTypeDefenseMaxTroop
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
         let randomD = new Decimal(getRandom()).mul(0.2).add(0.9)
         let loopTime = 0
@@ -696,7 +696,7 @@ export class General{
             }
             //remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
             remainTroopD = remainTroopD.minus(
-                (attackInfo.attack.mul(randomA).div(defenseInfo.defense).div(randomD))
+                (attackInfo.attack.mul(randomA).div(defenseInfo.decTypeDefense).div(randomD))
                 .mul(coeA).mul(remainTroopA).div(10)
                 )
             if(remainTroopD <= new Decimal(0)){
@@ -705,7 +705,7 @@ export class General{
             }
             //remainTroopA -= (( defenseInfo.attack * randomD / attackInfo.defense / randomA ) * coeD * remainTroopD / 10 )
             remainTroopA = remainTroopA.minus(
-                (defenseInfo.attack .mul(randomD).div(attackInfo.defense).div(randomA))
+                (defenseInfo.decTypeAttack .mul(randomD).div(attackInfo.defense).div(randomA))
                 .mul(coeD).mul(remainTroopD).div(10)
                 )
             if(remainTroopA <= new Decimal(0)){
@@ -726,7 +726,7 @@ export class General{
             attackInfo.ableTroop.minus(remainTroopA)
             ).toNumber()
         re.defenseTroopReduce = Decimal.floor(
-            Decimal.max(defenseInfo.troop, defenseInfo.defenseMaxTroop).minus(remainTroopD)
+            Decimal.max(defenseInfo.decTypeTroop, defenseInfo.decTypeDefenseMaxTroop).minus(remainTroopD)
             ).toNumber()
         re.attackGloryGet = Decimal.floor(
             Decimal.sqrt( 
@@ -735,7 +735,7 @@ export class General{
             ).toNumber()
         re.defenseGloryGet = Decimal.floor(
             Decimal.sqrt(
-                (defenseInfo.attack.add(defenseInfo.defense)).mul(re.attackTroopReduce).div(100) 
+                (defenseInfo.decTypeAttack.add(defenseInfo.decTypeDefense)).mul(re.attackTroopReduce).div(100) 
                 )
             ).toNumber()
         if(remainTroopA > new Decimal(0) ){

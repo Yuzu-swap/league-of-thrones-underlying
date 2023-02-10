@@ -199,11 +199,11 @@ export class Map{
             generalId : info.generalId,
             generalLevel: info.generalLevel,
             generalType: info.generalType,
-            attack: info.decTypeAttack,
-            defense: info.decTypeDefense,
-            troop: info.decTypeTroops,
-            silver: new Decimal(0),
-            defenseMaxTroop: info.decTypeTroops
+            decTypeAttack: info.decTypeAttack,
+            decTypeDefense: info.decTypeDefense,
+            decTypeTroop: info.decTypeTroops,
+            decTypeSilver: new Decimal(0),
+            decTypeDefenseMaxTroop: info.decTypeTroops
         }
         return re
     }
