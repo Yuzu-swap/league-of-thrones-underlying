@@ -278,6 +278,7 @@ export class City {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: info.value - amount
       });
+      this.updateResource(ResouceType.Silver)
       return true;
     }
     return false;
