@@ -184,7 +184,6 @@ function example() {
             console.log(result)
           }
         )
-        const resource = city.getResource();
         console.log("cool down", city.getTestResourceCoolDownTime())
         city.addTestResource(
           (result)=>{
