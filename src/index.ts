@@ -166,6 +166,7 @@ function example() {
         console.log('test error',city.getUpgradeInfo(CityFacility.Store, 15))
         // watch action response
         console.log(city.getFacilityOrder())
+        const resource = city.getResource();
         // watch state update
         city.onStateUpdate(() => {
           // regenerate  ui state
