@@ -233,51 +233,39 @@ export class TransitionHandler {
     return re
   }
 
-  genLogic(id: string, x_id: number = 0, y_id: number = 0): LogicEssential {
+  genLogic(id: string, x_id: number = 0, y_id: number = 0,  gStatesIn: GlobalStateEssential = null ): LogicEssential {
     const stateId = { id: `${StateName.City}:${id}` };
     const cityState = this.stateManger.get(stateId);
     const generalState = this.stateManger.get({
       id: `${StateName.General}:${id}`
     });
-    const mapGlobalState = this.stateManger.get(
-      {
-        id: `${StateName.MapGlobalInfo}`
-      }
-    )
-    const seasonState = this.stateManger.get(
-      {
-        id: `${StateName.SeasonConfig}`
-      }
-    )
-    const rewardGlobalState = this.stateManger.get(
-      {
-        id: `${StateName.RewardGloablState}`
-      }
-    )
     const strategyState = this.stateManger.get(
       {
         id: `${StateName.Strategy}:${id}`
       }
     )
-    const activities = this.stateManger.get(
-      {
-        id: `${StateName.Activity}`
-      }
-    ) 
+    let gStates : GlobalStateEssential
+    if(gStatesIn == null){
+      gStates = this.genGlobalStateEssential(x_id, y_id)
+    }
+    else{
+      gStates = gStatesIn
+    }
+
     const states: StateEssential = {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
-      mapGlobal: mapGlobalState as IMapGlobalState,
-      seasonState: seasonState as ISeasonConfigState,
-      rewardGlobalState: rewardGlobalState as IRewardGlobalState,
-      blocks: this.getBlockStates(x_id, y_id),
+      mapGlobal: gStates.mapGlobal,
+      seasonState: gStates.seasonState,
+      rewardGlobalState: gStates.rewardGlobalState,
+      blocks: gStates.blocks,
       strategy: strategyState as IStrategyState,
-      activityState: activities as IActivityState
+      activityState: gStates.activityState
     };
     return createLogicEsential(states);
   }
 
-  genGlobalLogic(x_id: number = 0, y_id:number = 0): GlobalLogicEssential{
+  genGlobalStateEssential(x_id: number, y_id:number): GlobalStateEssential{
     const mapGlobalState = this.stateManger.get(
       {
         id: `${StateName.MapGlobalInfo}`
@@ -305,6 +293,12 @@ export class TransitionHandler {
       blocks: this.getBlockStates(x_id, y_id),
       activityState: activities as IActivityState
     };
+    return gStates
+  }
+
+  genGlobalLogic(x_id: number = 0, y_id:number = 0): GlobalLogicEssential{
+    
+    const gStates : GlobalStateEssential = this.genGlobalStateEssential(x_id, y_id)
     return createGlobalEsential(gStates)
   }
 
@@ -372,11 +366,12 @@ export class TransitionHandler {
   }
 
   onBattle(args: BattleArgs):{}{
-    const logic1: LogicEssential = this.genLogic(args.from)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0)
+    const logic1: LogicEssential = this.genLogic(args.from, 0, 0, gStates)
     if( logic1.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic1.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
-    const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""))
+    const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""), 0, 0, gStates)
     if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able){
       return {
         result: false,
@@ -452,7 +447,8 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.x_id)
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
@@ -473,7 +469,7 @@ export class TransitionHandler {
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
-          let tempLogic: LogicEssential = this.genLogic(cancelDefense.username)
+          let tempLogic: LogicEssential = this.genLogic(cancelDefense.username, args.x_id, args.y_id, gStates)
           tempLogic.general.cancelDefenseBlock(cancelDefense.generalId, 0)
         }
       }
@@ -483,7 +479,7 @@ export class TransitionHandler {
         logic.general.offsetMorale(moraleAdd)
         logic.general.addGlory(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
-          let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username)
+          let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username, args.x_id, args.y_id, gStates)
           if(tempLogic){
             let oldTempGlory = tempLogic.general.state.glory
             tempLogic.general.addGlory(record.defenseInfo.gloryGet)
