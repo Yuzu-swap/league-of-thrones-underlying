@@ -5,4 +5,5 @@ GameName = indexObj.GameName
 TransitionHandler = indexObj.TransitionHandler
 InitState = indexObj.GetInitState()
 State = indexObj.State
+TxType = indexObj.StringifyTxType()
 

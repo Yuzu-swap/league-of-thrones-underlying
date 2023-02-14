@@ -1,7 +1,8 @@
 import {
   CityFacility,
   StateName,
-  StateTransition
+  StateTransition,
+  StringifyTxType
 } from './Game/Const';
 import { ConfigContainer } from './Core/config';
 import { ActivityData, GloryInfo, ICityState } from './Game/State';

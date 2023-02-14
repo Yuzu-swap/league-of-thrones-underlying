@@ -73,6 +73,21 @@ export enum StateTransition {
 	SetGuideStep
 }
 
+export function StringifyTxType() {
+	let re = []
+	for(let key of Object.getOwnPropertyNames(StateTransition)){
+		if(isNaN(key as any)){
+			re.push(
+				{
+					str: key,
+					num: StateTransition[key]
+				}
+			)
+		}
+	}
+	return re
+}
+
 export interface StateTransitionArgs {
 	from: string
 }
