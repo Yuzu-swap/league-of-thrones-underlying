@@ -217,7 +217,7 @@ export class TransitionHandler {
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
-    if(!center){
+    if(!center || center.hasOwnProperty("belong") == false ){
       return re
     }
     re.push(center)
@@ -226,7 +226,7 @@ export class TransitionHandler {
       let newY = y_id + yOffset[i]
       let stateId = { id : `${StateName.BlockInfo}:${newX}^${newY}`}
       let newState =  this.stateManger.get(stateId) as IBlockState
-      if(newState){
+      if(newState && newState.hasOwnProperty("belong") ){
         re.push(newState)
       }
     }
