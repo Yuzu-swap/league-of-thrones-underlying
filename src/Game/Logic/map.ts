@@ -268,6 +268,14 @@ export class Map{
         
         let durabilityReduce = 0
         if(remainTroop > 0){
+            if(records.length == 0){
+                if(!this.general.useGeneralStamina(generalId, 1)){
+                    return {
+                        result: false,
+                        error: 'general-stamina-not-enough'
+                    }
+                }
+            }
             durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
