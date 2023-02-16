@@ -447,7 +447,7 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.x_id)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
