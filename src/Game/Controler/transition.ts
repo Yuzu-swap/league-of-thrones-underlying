@@ -217,7 +217,7 @@ export class TransitionHandler {
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
-    if(!center || center.hasOwnProperty("belong") == false ){
+    if(!center){
       return re
     }
     re.push(center)
@@ -226,11 +226,10 @@ export class TransitionHandler {
       let newY = y_id + yOffset[i]
       let stateId = { id : `${StateName.BlockInfo}:${newX}^${newY}`}
       let newState =  this.stateManger.get(stateId) as IBlockState
-      if(newState && newState.hasOwnProperty("belong") ){
+      if(newState){
         re.push(newState)
       }
     }
-    console.log("get block states ", JSON.stringify(re))
     return re
   }
 
@@ -452,7 +451,7 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.x_id)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
