@@ -230,6 +230,7 @@ export class TransitionHandler {
         re.push(newState)
       }
     }
+    console.log("get block states ", JSON.stringify(re))
     return re
   }
 
