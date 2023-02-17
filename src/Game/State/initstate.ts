@@ -13,12 +13,12 @@ export var InitState = {
           [ResouceType.Silver]:
           {
               lastUpdate: -1,
-              value: 100000000,
+              value: 100000000000,
           },
           [ResouceType.Troop]:
           {
               lastUpdate: -1,
-              value: 1000,
+              value: 1000000000,
           }
       },
       recruit:[],
