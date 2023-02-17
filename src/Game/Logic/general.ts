@@ -759,7 +759,7 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop(),
+            troops: this.getMaxDefenseTroop(),
             unionId: this.state.unionId,
             iconId: this.state.iconId
         }
