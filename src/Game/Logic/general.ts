@@ -756,7 +756,7 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop()
+            troops: this.getMaxDefenseTroop()
         }
         return re
     }
@@ -793,7 +793,14 @@ export class General{
                 error: 'general-stamina-error'
             }
         }
-        let troop = this.getMaxAttackTroop()
+        let troop = this.getMaxDefenseTroop()
+        if(troop <= 0)
+        {
+            return{
+                result: false,
+                error: 'troop-not-enough'
+            }
+        }
         this.city.useTroop(troop)
         let defenseList = this.state.defenseBlockList
         defenseList.push(
