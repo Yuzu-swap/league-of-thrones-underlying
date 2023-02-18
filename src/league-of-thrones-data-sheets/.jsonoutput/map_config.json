@@ -18,9 +18,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 3,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3003,
         "area_block": 2,
@@ -40,21 +40,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -79,14 +79,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -106,14 +106,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -165,9 +165,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3003,
         "area_block": 1,
@@ -187,21 +187,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -226,14 +226,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 2,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 2,
@@ -253,14 +253,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -312,9 +312,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 1,
@@ -334,14 +334,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -361,14 +361,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -388,21 +388,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -432,9 +432,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 2,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 2,
@@ -486,9 +486,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 3,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 2,
@@ -508,14 +508,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3001,
         "area_block": 1,
@@ -535,14 +535,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -562,21 +562,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -606,9 +606,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3003,
         "area_block": 2,
@@ -633,9 +633,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 1,
@@ -655,21 +655,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -694,14 +694,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -721,14 +721,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -780,9 +780,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 2,
@@ -802,21 +802,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -841,14 +841,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -868,14 +868,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -922,14 +922,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -949,14 +949,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 1,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3002,
         "area_block": 2,
@@ -976,14 +976,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 2,
@@ -1003,14 +1003,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -1030,21 +1030,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -1069,27 +1069,27 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 2,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 3,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             }
         ],
         "silver_total_number": 25600000,
         "parameter": 3,
         "gather_silver_speed": 128000,
-        "durability": 100000,
+        "durability": 25000,
         "buff_id": 1009,
         "area_block": 1,
         "area": 4
@@ -1108,14 +1108,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -1135,14 +1135,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -1162,14 +1162,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -1189,14 +1189,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 1012,
         "area_block": 1,
@@ -1216,21 +1216,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -1255,14 +1255,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1282,14 +1282,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -1309,14 +1309,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3002,
         "area_block": 1,
@@ -1336,14 +1336,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1390,14 +1390,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1417,14 +1417,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 2,
@@ -1444,14 +1444,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3002,
         "area_block": 1,
@@ -1471,14 +1471,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -1525,14 +1525,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -1552,21 +1552,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -1591,14 +1591,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -1618,21 +1618,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -1657,14 +1657,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1711,14 +1711,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -1738,21 +1738,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -1777,14 +1777,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1804,21 +1804,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -1843,14 +1843,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -1870,21 +1870,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -1909,14 +1909,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -1935,15 +1935,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 2,
@@ -1962,15 +1962,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -2017,21 +2017,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -2056,14 +2056,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2082,15 +2082,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2109,15 +2109,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -2164,14 +2164,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -2190,15 +2190,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2218,21 +2218,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -2256,17 +2256,17 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
-        "buff_id": 1012,
+        "buff_id": 3004,
         "area_block": 2,
         "area": 1
     },
@@ -2284,14 +2284,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -2338,14 +2338,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -2364,15 +2364,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -2392,21 +2392,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -2430,17 +2430,17 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
-        "buff_id": 1010,
+        "buff_id": 3002,
         "area_block": 1,
         "area": 4
     },
@@ -2458,14 +2458,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2485,14 +2485,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -2512,21 +2512,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -2550,15 +2550,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -2577,15 +2577,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -2605,28 +2605,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1011,
+        "durability": 100000,
+        "buff_id": 1015,
         "area_block": 1,
         "area": 0
     },
@@ -2644,14 +2644,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -2671,21 +2671,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -2709,15 +2709,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -2736,15 +2736,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2764,28 +2764,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1011,
+        "durability": 100000,
+        "buff_id": 1015,
         "area_block": 1,
         "area": 0
     },
@@ -2808,9 +2808,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3003,
         "area_block": 1,
@@ -2830,14 +2830,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -2857,21 +2857,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -2896,14 +2896,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -2982,9 +2982,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 2,
@@ -3004,14 +3004,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3002,
         "area_block": 1,
@@ -3031,21 +3031,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -3070,14 +3070,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -3151,27 +3151,27 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 2,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 3,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             }
         ],
         "silver_total_number": 25600000,
         "parameter": 4,
         "gather_silver_speed": 128000,
-        "durability": 100000,
+        "durability": 25000,
         "buff_id": 1010,
         "area_block": 1,
         "area": 1
@@ -3217,28 +3217,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1011,
+        "durability": 100000,
+        "buff_id": 1016,
         "area_block": 1,
         "area": 0
     },
@@ -3283,28 +3283,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1012,
+        "durability": 100000,
+        "buff_id": 1016,
         "area_block": 1,
         "area": 0
     },
@@ -3349,27 +3349,27 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 2,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 3,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             }
         ],
         "silver_total_number": 25600000,
         "parameter": 1,
         "gather_silver_speed": 128000,
-        "durability": 100000,
+        "durability": 25000,
         "buff_id": 1009,
         "area_block": 1,
         "area": 3
@@ -3415,28 +3415,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1009,
+        "durability": 100000,
+        "buff_id": 1013,
         "area_block": 1,
         "area": 0
     },
@@ -3486,9 +3486,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3004,
         "area_block": 2,
@@ -3508,21 +3508,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -3547,14 +3547,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -3574,14 +3574,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 2,
@@ -3633,9 +3633,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3004,
         "area_block": 1,
@@ -3655,21 +3655,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -3694,14 +3694,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 1,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 2,
@@ -3721,14 +3721,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -3780,9 +3780,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3002,
         "area_block": 1,
@@ -3802,14 +3802,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3002,
         "area_block": 1,
@@ -3829,14 +3829,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -3856,21 +3856,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -3900,9 +3900,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3004,
         "area_block": 1,
@@ -3954,9 +3954,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 2,
@@ -3976,14 +3976,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -4003,14 +4003,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -4030,21 +4030,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -4074,9 +4074,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 1,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 2,
@@ -4101,9 +4101,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 1,
@@ -4123,21 +4123,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -4162,14 +4162,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -4189,14 +4189,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -4248,9 +4248,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 2,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 2,
@@ -4270,21 +4270,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -4309,14 +4309,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3004,
         "area_block": 1,
@@ -4336,14 +4336,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -4390,14 +4390,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -4417,14 +4417,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -4444,14 +4444,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -4471,14 +4471,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -4498,21 +4498,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -4537,27 +4537,27 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 2,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             },
             {
                 "type": 3,
-                "defense": 29500,
+                "defense": 22000,
                 "count": 7000,
-                "attack": 29500
+                "attack": 22000
             }
         ],
         "silver_total_number": 25600000,
         "parameter": 2,
         "gather_silver_speed": 128000,
-        "durability": 100000,
+        "durability": 25000,
         "buff_id": 1010,
         "area_block": 1,
         "area": 2
@@ -4576,14 +4576,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -4603,14 +4603,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 2,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3001,
         "area_block": 2,
@@ -4630,14 +4630,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -4657,14 +4657,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -4684,21 +4684,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -4723,14 +4723,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -4750,14 +4750,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 2,
@@ -4777,14 +4777,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 2,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3001,
         "area_block": 2,
@@ -4804,14 +4804,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -4858,14 +4858,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -4885,14 +4885,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -4912,14 +4912,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3001,
         "area_block": 1,
@@ -4939,14 +4939,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -4993,14 +4993,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -5020,21 +5020,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5059,14 +5059,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 2,
@@ -5086,21 +5086,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5125,14 +5125,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -5179,14 +5179,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -5206,21 +5206,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5245,14 +5245,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -5272,21 +5272,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5311,16 +5311,16 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
-        "buff_id": 1002,
+        "buff_id": 3002,
         "area_block": 1,
         "area": 3
     },
@@ -5338,21 +5338,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -5377,14 +5377,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -5403,15 +5403,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -5430,15 +5430,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 2,
@@ -5485,21 +5485,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -5524,14 +5524,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -5550,15 +5550,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 2,
@@ -5577,15 +5577,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -5632,14 +5632,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3001,
         "area_block": 1,
@@ -5658,15 +5658,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 1,
@@ -5686,21 +5686,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5724,17 +5724,17 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
-        "buff_id": 1010,
+        "buff_id": 3002,
         "area_block": 1,
         "area": 2
     },
@@ -5752,14 +5752,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -5806,14 +5806,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -5832,15 +5832,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -5860,21 +5860,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 2,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             },
             {
                 "type": 3,
-                "defense": 33500,
+                "defense": 26000,
                 "count": 8500,
-                "attack": 33500
+                "attack": 26000
             }
         ],
         "silver_total_number": 32400000,
@@ -5898,15 +5898,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -5926,16 +5926,16 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
-        "buff_id": 1003,
+        "buff_id": 3003,
         "area_block": 1,
         "area": 3
     },
@@ -5953,14 +5953,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -5980,21 +5980,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -6018,15 +6018,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -6045,15 +6045,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 1,
@@ -6073,28 +6073,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1010,
+        "durability": 100000,
+        "buff_id": 1014,
         "area_block": 1,
         "area": 0
     },
@@ -6112,14 +6112,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 2,
@@ -6139,21 +6139,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 2,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             },
             {
                 "type": 3,
-                "defense": 21800,
+                "defense": 18000,
                 "count": 4000,
-                "attack": 21800
+                "attack": 18000
             }
         ],
         "silver_total_number": 14400000,
@@ -6177,15 +6177,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 1,
+                "defense": 20000,
+                "count": 5500,
+                "attack": 20000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 5000000,
         "parameter": 4,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 25000,
         "durability": 3000,
         "buff_id": 3003,
         "area_block": 1,
@@ -6204,15 +6204,15 @@
         "type": 1,
         "troops":[
             {
-                "type": 3,
-                "defense": 18000,
-                "count": 3000,
-                "attack": 18000
+                "type": 2,
+                "defense": 30000,
+                "count": 7000,
+                "attack": 30000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 7200000,
         "parameter": 3,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 36000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -6232,28 +6232,28 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 37500,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 37500
+                "attack": 30000
             }
         ],
         "silver_total_number": 40000000,
         "parameter": 0,
         "gather_silver_speed": 200000,
-        "durability": 25000,
-        "buff_id": 1010,
+        "durability": 100000,
+        "buff_id": 1014,
         "area_block": 1,
         "area": 0
     },
@@ -6276,9 +6276,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3001,
         "area_block": 1,
@@ -6298,14 +6298,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 1,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3001,
         "area_block": 2,
@@ -6325,21 +6325,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -6364,14 +6364,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 2,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3004,
         "area_block": 2,
@@ -6450,9 +6450,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 200000,
         "parameter": 4,
-        "gather_silver_speed": 2000,
+        "gather_silver_speed": 1000,
         "durability": 500,
         "buff_id": 3004,
         "area_block": 1,
@@ -6472,14 +6472,14 @@
         "troops":[
             {
                 "type": 2,
-                "defense": 10000,
+                "defense": 6000,
                 "count": 1500,
-                "attack": 10000
+                "attack": 6000
             }
         ],
-        "silver_total_number": 3600000,
+        "silver_total_number": 800000,
         "parameter": 4,
-        "gather_silver_speed": 18000,
+        "gather_silver_speed": 4000,
         "durability": 1500,
         "buff_id": 3003,
         "area_block": 1,
@@ -6499,21 +6499,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 2,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             },
             {
                 "type": 3,
-                "defense": 13800,
+                "defense": 12000,
                 "count": 2000,
-                "attack": 13800
+                "attack": 12000
             }
         ],
         "silver_total_number": 6400000,
@@ -6538,14 +6538,14 @@
         "troops":[
             {
                 "type": 3,
-                "defense": 18000,
+                "defense": 12000,
                 "count": 3000,
-                "attack": 18000
+                "attack": 12000
             }
         ],
-        "silver_total_number": 10000000,
+        "silver_total_number": 3200000,
         "parameter": 1,
-        "gather_silver_speed": 50000,
+        "gather_silver_speed": 16000,
         "durability": 3000,
         "buff_id": 3002,
         "area_block": 2,
