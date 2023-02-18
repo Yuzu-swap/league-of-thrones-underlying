@@ -714,7 +714,8 @@ export class General{
             defenseGloryGet: 0
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
-        re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
+        let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
+        re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
         re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
         re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
         if(remainTroopA > 0 ){

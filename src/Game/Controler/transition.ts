@@ -426,6 +426,8 @@ export class TransitionHandler {
       let oldGlory2 = logic2.general.state.glory
       logic1.general.addGlory(btr.attackInfo.gloryGet)
       logic2.general.addGlory(btr.defenseInfo.gloryGet)
+      logic2.city.useTroop(btr.defenseInfo.troopReduce)
+      logic2.general.updateDefenseInfo()
       if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(
           logic1.map.rewardGlobalState, 
