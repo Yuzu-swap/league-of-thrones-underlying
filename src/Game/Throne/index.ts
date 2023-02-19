@@ -107,7 +107,7 @@ export interface ICityComponent extends IComponent {
 
   getAbleActivityInfo(): any[]
 
-  readAllActivity(): void
+  readActivity(activityId: number): void
 
   donateSilver( activityId: number, amount: number, callback:(result: any) => void ): void
 
@@ -277,7 +277,7 @@ export class CityComponent implements ICityComponent {
   chatProfileKey : {
     [key in ChatChannel ] : string
   }
-  activityHaveRead: boolean
+  activityHaveRead: boolean[]
 
   constructor(myStateId: string, mediator: IStateMediator<StateTransition, ITransContext>) {
     this.cityStateId = {
@@ -289,10 +289,10 @@ export class CityComponent implements ICityComponent {
     this.chatReadInfo = {}
     this.chatRedPointInfo = {}
     this.chatProfileKey = {
-      [ChatChannel.ChatChannel_Camp] : "profile:chatCamp",
-      [ChatChannel.ChatChannel_WORLD]: "profile:chatWorld"
+      [ChatChannel.ChatChannel_Camp] : "profile-chatCamp",
+      [ChatChannel.ChatChannel_WORLD]: "profile-chatWorld"
     }
-    this.activityHaveRead = false
+    this.activityHaveRead = []
   }
 
   setCity(city : City){
@@ -308,10 +308,15 @@ export class CityComponent implements ICityComponent {
 
   setActivity(activity: Activity){
     this.activity = activity
+    let len = this.activity.state.activityData.length
+    for(let i = 0; i< len; i++)
+    {
+      this.activityHaveRead.push(false) 
+    }
   }
 
-  getActivityProfileKey(){
-    return "profile:activity"
+  getActivityProfileKey(activityId: number){
+    return `profile-activity-${activityId}`
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number): FacilityGdsRow {
@@ -589,17 +594,17 @@ export class CityComponent implements ICityComponent {
         ts: msg.ts
       }
     })
-   
-    let activityInfo = await this.mediator.profileQuery(this.getActivityProfileKey())
-    if(activityInfo['code'] == 0){
-      this.activityHaveRead = true;
+    for(let i= 0 ; i < this.activityHaveRead.length; i++){
+      let activityInfo = await this.mediator.profileQuery(this.getActivityProfileKey(i))
+      if(activityInfo['code'] == 0){
+        this.activityHaveRead[i] = true;
+      }
     }
-
   }
 
-  readAllActivity(): void {
-    this.activityHaveRead = true;
-    this.mediator.profileSave(this.getActivityProfileKey(), "1")
+  readActivity(activityId: number): void {
+    this.activityHaveRead[activityId] = true;
+    this.mediator.profileSave(this.getActivityProfileKey(activityId), "1")
   }
 }
 
@@ -619,7 +624,7 @@ export class GeneralComponent implements IGeneralComponent {
     }
     this.type = ComponentType.General
     this.mediator = mediator
-    this.battleRecordProfileKey = "profile:battleRecord"
+    this.battleRecordProfileKey = `profile-battleRecord`
     this.battleRecordLocalTs = 0
     this.battleRecordGobalTs = 0
     this.recentWorldRecordTs = 0
