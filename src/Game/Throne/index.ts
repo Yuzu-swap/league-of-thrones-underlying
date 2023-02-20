@@ -520,7 +520,11 @@ export class CityComponent implements ICityComponent {
   }
 
   getChatRedPoint(channel: ChatChannel): boolean {
-    if( this.chatReadInfo[channel] 
+    if( JSON.stringify(this.chatRedPointInfo[channel]) === '{}' )
+    {
+      return false
+    }
+    else if( JSON.stringify(this.chatReadInfo[channel]) !== '{}'
       && this.chatReadInfo[channel].ts == this.chatRedPointInfo[channel].ts
       && this.chatReadInfo[channel].id == this.chatRedPointInfo[channel].id )
     {
