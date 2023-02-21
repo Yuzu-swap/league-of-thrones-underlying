@@ -361,8 +361,14 @@ export class TransitionHandler {
   onReceiveTroop(args: ReceiveTroopArgs):{}{
     const logic: LogicEssential = this.genLogic(args.from);
     const city = logic.city;
+    let beforeReceive = city.getResource(ResouceType.Troop)
     city.updateResource(ResouceType.Troop)
-    return {result: true}
+    let afterReceive = city.getResource(ResouceType.Troop)
+    return {
+      result: true,
+      txType: StateTransition.ReceiveTroop,
+      receive: afterReceive - beforeReceive
+    }
   }
 
   onBattle(args: BattleArgs):{}{
@@ -426,6 +432,8 @@ export class TransitionHandler {
       let oldGlory2 = logic2.general.state.glory
       logic1.general.addGlory(btr.attackInfo.gloryGet)
       logic2.general.addGlory(btr.defenseInfo.gloryGet)
+      logic2.city.useTroop(btr.defenseInfo.troopReduce)
+      logic2.general.updateDefenseInfo()
       if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(
           logic1.map.rewardGlobalState, 
@@ -451,7 +459,7 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.x_id)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)

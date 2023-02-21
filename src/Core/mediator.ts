@@ -1,5 +1,5 @@
 import { ChatChannel, ChatMessage } from "../Game/Const"
-import { MessageType } from "../Game/Controler/Websocket/protocol"
+import { MessageS2C, MessageType } from "../Game/Controler/Websocket/protocol"
 import { IStateIdentity, IState } from "./state"
 
 
@@ -22,6 +22,7 @@ export interface IStateMediator<TransactionIDType, ContextType> {
 	setWsCloseCallbacl(callback : () => void): void
 	profileQuery( key: string): Promise<any>
 	profileSave( key: string , value : string): Promise<any>
+	setChainBlockCallback(callback: ( msg: MessageS2C ) => void): void
 }
 
 
@@ -87,6 +88,10 @@ export class BaseMediator<TransactionIDType, ContextType> implements IStateMedia
 
 	setWsCloseCallbacl(callback : () => void){
 
+	}
+
+	setChainBlockCallback(callback: ( msg: MessageS2C ) => void){
+		throw "not emplement"
 	}
 
 	protected notifyState(sid: IStateIdentity, state: IContextState<ContextType>): void {

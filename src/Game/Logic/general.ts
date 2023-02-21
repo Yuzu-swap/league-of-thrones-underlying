@@ -1,7 +1,7 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
-import { CityFacility, ResouceType, StateName } from '../Const';
+import { CityFacility, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
@@ -261,7 +261,12 @@ export class General{
             this.state.update({
                 [`generalList.${id}`] : generalInfo,
             })
-            return {result: true}
+            return {
+                result: true,
+                txType: StateTransition.UpgradeGeneral,
+                generalId: id,
+                levelTo:  generalInfo.level
+            }
         }
         return {result : false, error: 'silver-not-enough-error'} 
     }
@@ -372,7 +377,13 @@ export class General{
             this.state.update({
                 [`generalList.${generalId}`] : generalInfo,
             })
-            return {result : true }
+            return {
+                result : true,
+                txType: StateTransition.UpgradeGeneralSkill,
+                generalId: generalId,
+                skillIndex: skillIndex,
+                levelTo: generalInfo.skill_levels[skillIndex]
+            }
         }
         return {result : false, error: 'silver-not-enough-error'} 
     }
@@ -714,7 +725,8 @@ export class General{
             defenseGloryGet: 0
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
-        re.defenseTroopReduce = Math.floor(Math.max(defenseInfo.troop, defenseInfo.defenseMaxTroop) - remainTroopD)
+        let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
+        re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
         re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
         re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
         if(remainTroopA > 0 ){
@@ -759,7 +771,7 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxAttackTroop(),
+            troops: this.getMaxDefenseTroop(),
             unionId: this.state.unionId,
             iconId: this.state.iconId
         }
@@ -798,7 +810,14 @@ export class General{
                 error: 'general-stamina-error'
             }
         }
-        let troop = this.getMaxAttackTroop()
+        let troop = this.getMaxDefenseTroop()
+        if(troop <= 0)
+        {
+            return{
+                result: false,
+                error: 'troop-not-enough'
+            }
+        }
         this.city.useTroop(troop)
         let defenseList = this.state.defenseBlockList
         defenseList.push(

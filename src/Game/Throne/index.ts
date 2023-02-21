@@ -31,6 +31,7 @@ import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTi
 import { StrategyComponent } from './strategy'
 import { Activity } from '../Logic/activity'
 import { MessageType } from '../Controler/Websocket/protocol'
+import { ChainComponent } from './chain'
 
 
 
@@ -107,7 +108,7 @@ export interface ICityComponent extends IComponent {
 
   getAbleActivityInfo(): any[]
 
-  readActivity( activityId: number ): void
+  readActivity(activityId: number): void
 
   donateSilver( activityId: number, amount: number, callback:(result: any) => void ): void
 
@@ -289,8 +290,8 @@ export class CityComponent implements ICityComponent {
     this.chatReadInfo = {}
     this.chatRedPointInfo = {}
     this.chatProfileKey = {
-      [ChatChannel.ChatChannel_Camp] : `profile:chatCamp:${Throne.instance().username}`,
-      [ChatChannel.ChatChannel_WORLD]: `profile:chatWorld:${Throne.instance().username}`
+      [ChatChannel.ChatChannel_Camp] : "profile-chatCamp",
+      [ChatChannel.ChatChannel_WORLD]: "profile-chatWorld"
     }
     this.activityHaveRead = []
   }
@@ -308,14 +309,15 @@ export class CityComponent implements ICityComponent {
 
   setActivity(activity: Activity){
     this.activity = activity
-    let len = activity.state.activityData.length
-    for(let i = 0; i < len; i++){
-      this.activityHaveRead.push(false)
+    let len = this.activity.state.activityData.length
+    for(let i = 0; i< len; i++)
+    {
+      this.activityHaveRead.push(false) 
     }
   }
 
-  getActivityProfileKey(id: number){
-    return `profile:activity:${Throne.instance().username}:${id}`
+  getActivityProfileKey(activityId: number){
+    return `profile-activity-${activityId}`
   }
 
   getUpgradeInfo(typ: CityFacility, targetLevel: number): FacilityGdsRow {
@@ -519,7 +521,14 @@ export class CityComponent implements ICityComponent {
   }
 
   getChatRedPoint(channel: ChatChannel): boolean {
-    if( this.chatReadInfo[channel] 
+    if( !this.chatRedPointInfo[channel] ||
+      JSON.stringify(this.chatRedPointInfo[channel]) === '{}' )
+    {
+      return false
+    }
+    else if(
+      this.chatReadInfo[channel]
+      &&  JSON.stringify(this.chatReadInfo[channel]) !== '{}'
       && this.chatReadInfo[channel].ts == this.chatRedPointInfo[channel].ts
       && this.chatReadInfo[channel].id == this.chatRedPointInfo[channel].id )
     {
@@ -623,7 +632,7 @@ export class GeneralComponent implements IGeneralComponent {
     }
     this.type = ComponentType.General
     this.mediator = mediator
-    this.battleRecordProfileKey = `profile:battleRecord:${Throne.instance().username}`
+    this.battleRecordProfileKey = `profile-battleRecord`
     this.battleRecordLocalTs = 0
     this.battleRecordGobalTs = 0
     this.recentWorldRecordTs = 0
@@ -853,11 +862,11 @@ export class GeneralComponent implements IGeneralComponent {
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
     }
+    callback(trans)
     if(trans.length != 0){
       this.battleRecordGobalTs = (trans[0] as BattleRecord).timestamp
       await this.mediator.profileSave(this.battleRecordProfileKey, this.battleRecordGobalTs + '')
     }
-    callback(trans)
   }
 
   async getRecentWorldBattleRecords(callback: (result: BattleTransRecord[]) => void) {
@@ -949,7 +958,8 @@ export enum ComponentType {
   General = 2,
   Map = 3,
   Strategy = 4,
-  User = 5
+  User = 5,
+  Chain = 6
 }
 
 export interface IThrone {
@@ -989,7 +999,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u20230203"
+    this.version = "u20230221"
   }
 
 
@@ -1065,6 +1075,7 @@ export class Throne implements IThrone {
       )
       this.unionId = states.general.unionId
     }
+    this.components[ComponentType.Chain] = new ChainComponent(this.mediator)
   }
 
 
@@ -1102,6 +1113,8 @@ export class Throne implements IThrone {
       let strategyCom = this.components[ComponentType.Strategy] as StrategyComponent
       strategyCom.setStrategy(this.logicEssential.strategy)
       callback(strategyCom as any as T)
+    } else if(typ == ComponentType.Chain){
+      callback(this.components[ComponentType.Chain] as any as T)
     }
   }
 }
