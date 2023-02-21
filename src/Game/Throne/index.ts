@@ -862,11 +862,11 @@ export class GeneralComponent implements IGeneralComponent {
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
     }
+    callback(trans)
     if(trans.length != 0){
       this.battleRecordGobalTs = (trans[0] as BattleRecord).timestamp
       await this.mediator.profileSave(this.battleRecordProfileKey, this.battleRecordGobalTs + '')
     }
-    callback(trans)
   }
 
   async getRecentWorldBattleRecords(callback: (result: BattleTransRecord[]) => void) {
@@ -999,7 +999,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u20230203"
+    this.version = "u20230221"
   }
 
 
