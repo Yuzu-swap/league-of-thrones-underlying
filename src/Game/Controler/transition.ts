@@ -361,8 +361,14 @@ export class TransitionHandler {
   onReceiveTroop(args: ReceiveTroopArgs):{}{
     const logic: LogicEssential = this.genLogic(args.from);
     const city = logic.city;
+    let beforeReceive = city.getResource(ResouceType.Troop)
     city.updateResource(ResouceType.Troop)
-    return {result: true}
+    let afterReceive = city.getResource(ResouceType.Troop)
+    return {
+      result: true,
+      txType: StateTransition.ReceiveTroop,
+      receive: afterReceive - beforeReceive
+    }
   }
 
   onBattle(args: BattleArgs):{}{

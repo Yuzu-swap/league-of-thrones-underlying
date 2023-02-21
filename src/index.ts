@@ -36,6 +36,7 @@ import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
 import { addToNormalSortedList, addToSortList, getTimeStamp } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
+import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -153,6 +154,21 @@ function example() {
         ()=>{})
     }
   )
+  setTimeout(
+    ()=>{
+      Throne.instance().initComponent<ChainComponent>(
+        ComponentType.Chain,
+        (chainCom: IChainComponent) =>{
+          chainCom.onReceiveChainBlockInfo( 
+            (msg)=>{
+              console.log("mmmmmsg", msg)
+          } )
+        }
+      )
+    },
+    500
+  )
+
   setTimeout(() => {
     Throne.instance().initComponent<CityComponent>(
       ComponentType.City,

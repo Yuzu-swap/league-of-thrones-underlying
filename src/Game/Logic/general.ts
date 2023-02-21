@@ -1,7 +1,7 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
-import { CityFacility, ResouceType, StateName } from '../Const';
+import { CityFacility, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
@@ -261,7 +261,12 @@ export class General{
             this.state.update({
                 [`generalList.${id}`] : generalInfo,
             })
-            return {result: true}
+            return {
+                result: true,
+                txType: StateTransition.UpgradeGeneral,
+                generalId: id,
+                levelTo:  generalInfo.level
+            }
         }
         return {result : false, error: 'silver-not-enough-error'} 
     }
@@ -372,7 +377,13 @@ export class General{
             this.state.update({
                 [`generalList.${generalId}`] : generalInfo,
             })
-            return {result : true }
+            return {
+                result : true,
+                txType: StateTransition.UpgradeGeneralSkill,
+                generalId: generalId,
+                skillIndex: skillIndex,
+                levelTo: generalInfo.skill_levels[skillIndex]
+            }
         }
         return {result : false, error: 'silver-not-enough-error'} 
     }

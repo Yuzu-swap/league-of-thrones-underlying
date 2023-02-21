@@ -31,6 +31,7 @@ import { decodeChatProfile, encodeChatProfile, getTimeStamp, parseStateId, setTi
 import { StrategyComponent } from './strategy'
 import { Activity } from '../Logic/activity'
 import { MessageType } from '../Controler/Websocket/protocol'
+import { ChainComponent } from './chain'
 
 
 
@@ -957,7 +958,8 @@ export enum ComponentType {
   General = 2,
   Map = 3,
   Strategy = 4,
-  User = 5
+  User = 5,
+  Chain = 6
 }
 
 export interface IThrone {
@@ -1073,6 +1075,7 @@ export class Throne implements IThrone {
       )
       this.unionId = states.general.unionId
     }
+    this.components[ComponentType.Chain] = new ChainComponent(this.mediator)
   }
 
 
@@ -1110,6 +1113,8 @@ export class Throne implements IThrone {
       let strategyCom = this.components[ComponentType.Strategy] as StrategyComponent
       strategyCom.setStrategy(this.logicEssential.strategy)
       callback(strategyCom as any as T)
+    } else if(typ == ComponentType.Chain){
+      callback(this.components[ComponentType.Chain] as any as T)
     }
   }
 }

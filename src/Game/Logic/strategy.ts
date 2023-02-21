@@ -1,5 +1,5 @@
 import { getTextOfJSDocComment } from "typescript";
-import { MaxStrategyPoint } from "../Const";
+import { MaxStrategyPoint, StateTransition } from "../Const";
 import { Parameter, parameterConfig, StrategyBuyConfig, StrategyBuyConfigFromGDS } from "../DataConfig";
 import { IStrategyState, StrategyStatus } from "../State";
 import { getTimeStamp } from "../Utils";
@@ -186,7 +186,8 @@ export class Strategy{
         let count = this.getOpenDayCount() * 100
         this.city.useTroop(-count)
         return{
-            result: true
+            result: true,
+            txType: StateTransition.StrategyBuyTroop
         }
     }
 
@@ -201,7 +202,8 @@ export class Strategy{
         let count = this.getOpenDayCount() * 10000
         this.city.useSilver(-count)
         return{
-            result: true
+            result: true,
+            txType: StateTransition.StrategyBuySilver
         }
     }
 
@@ -215,7 +217,8 @@ export class Strategy{
         }
         this.setStrategyStatus(StrategyType.Protect, true)
         return{
-            result: true
+            result: true,
+            txType: StateTransition.StrategyBuyProtect
         }
     }
 
@@ -229,7 +232,8 @@ export class Strategy{
         }
         this.setStrategyStatus(StrategyType.Store, true)
         return{
-            result: true
+            result: true,
+            txType: StateTransition.StrategyBuyStore
         }
     }
 
@@ -243,7 +247,8 @@ export class Strategy{
         }
         this.general.offsetMorale(2)
         return{
-            result: true
+            result: true,
+            txType: StateTransition.StrategyBuyMorale
         }
     }
 

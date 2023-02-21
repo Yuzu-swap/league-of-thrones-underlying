@@ -1,5 +1,5 @@
 import { GuideStep, ICityState, ResouceInfo } from '../State';
-import { CityFacility, ResouceType, StateName } from '../Const';
+import { CityFacility, ResouceType, StateName, StateTransition } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
   FacilityGdsRow,
@@ -251,7 +251,12 @@ export class City {
       [`resources.${ResouceType.Silver}`]: silver
     });
     this.useTroop(row.need_troop)
-    return {result:true}
+    return {
+      result: true,
+      txType: StateTransition.UpgradeFacility,
+      facility: typ,
+      levelTo: tartgetLevel
+    }
   }
 
   getFacilityOrder(): string[] {
@@ -330,7 +335,12 @@ export class City {
         'recruit': recruit
       }
     )
-    return {result: true, endtime: endtime}
+    return {
+      result: true, 
+      txType: StateTransition.Recruit,
+      amount: amount,
+      endtime: endtime
+    }
   }
 
   //1= infantry ；2=cavalry ；3=archer

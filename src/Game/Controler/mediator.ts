@@ -119,6 +119,7 @@ export class LocalMediator
   private ctx: ITransContext;
   private seqNum: number;
   private username:string
+  private chainBlockCallback: (msg: MessageS2C) => void
   constructor(username: string[]) {
     super();
     let obj = {}
@@ -379,6 +380,20 @@ export class LocalMediator
     //clean ctx
     this.ctx = null;
 
+    if(this.chainBlockCallback)
+    {
+      let msg : MessageS2C = {
+        SeqNum: ctx.SeqNum,
+        Type: MessageType.Transition,
+        TransID: ctx.TransID,
+        States: {},
+        Data: result
+      }
+      this.chainBlockCallback(
+        msg
+      )
+    }
+
     if (callback) {
       callback({ ...ctx, result });
     }
@@ -413,6 +428,11 @@ export class LocalMediator
       resolve([])
     });
   }
+
+  setChainBlockCallback(callback: (msg: MessageS2C) => void): void {
+    this.chainBlockCallback = callback
+  }
+
 }
 
 

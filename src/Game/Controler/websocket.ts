@@ -24,6 +24,7 @@ export class WebSocketMediator
   private notifyStateChange: boolean;
   private closeCallback : ()=>void
   private hasCallClose : number
+  private chainBlockCallback: (msg: MessageS2C) => void
 
   transitionHandler: TransitionHandler;
   constructor(url: string) {
@@ -48,7 +49,10 @@ export class WebSocketMediator
       this.client.onmessage = (message: any) => {
         const msg: MessageS2C = JSON.parse(message.data) as MessageS2C;
         this.ctx = msg;
-
+        
+        if(msg.Type == MessageType.Transition && this.chainBlockCallback){
+          this.chainBlockCallback(msg)
+        }
         console.log('client receive msg is ', JSON.stringify(msg));
         if (msg.SeqNum ) {
           //context call
@@ -281,6 +285,9 @@ export class WebSocketMediator
   setWsCloseCallbacl(callback: () => void): void {
     this.closeCallback = callback
   }
+  setChainBlockCallback(callback: ( msg: MessageS2C ) => void){
+		this.chainBlockCallback = callback
+	}
 
   _updateState(sid: string, obj: {}, notify: boolean) {
     console.log('update state', sid, obj, notify);
