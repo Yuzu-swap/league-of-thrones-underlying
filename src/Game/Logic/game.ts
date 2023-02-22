@@ -88,7 +88,7 @@ export class City {
       value = info.value;
       if (info.lastUpdate != -1) {
         const hour = (time - info.lastUpdate) / 3600;
-        value = hour * this.boost.getProduction(typ) + info.value - hour * this.state.resources[ResouceType.Troop].value * 3;
+        value = hour * this.boost.getProduction(typ) + info.value;
       }
       return value < 0 ? 0 : value;
     }
