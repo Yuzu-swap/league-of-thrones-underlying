@@ -388,7 +388,8 @@ export class City {
     if(ifStore){
       saveAmount = saveAmount * 2
     }
-    if(this.useSilver( Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount))){
+    let sliverCanRob = Math.max(this.getResource(ResouceType.Silver) - saveAmount, 0)
+    if(this.useSilver( Math.min(amount, sliverCanRob))){
       re = Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount)
     }
     return re
