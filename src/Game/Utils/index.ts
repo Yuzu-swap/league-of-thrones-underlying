@@ -238,3 +238,7 @@ export function decodeChatProfile( data: string ){
         ts: parseInt(list[1])
     }
 }
+
+export function isNumber( value ) : boolean {
+    return Number.isFinite(value)
+}
