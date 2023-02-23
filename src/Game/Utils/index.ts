@@ -210,3 +210,7 @@ export function addToNormalSortedList( list: any[], username : string, originVal
 export function getRandom():number{
     return Math.random()
 }
+
+export function isNumber( value ) : boolean {
+    return Number.isFinite(value)
+}

@@ -33,7 +33,7 @@ import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
 import { General, RecoverMoraleType } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
-import { addToNormalSortedList, addToSortList, getTimeStamp } from './Game/Utils';
+import { addToNormalSortedList, addToSortList, getTimeStamp, isNumber } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
 
 export const GameName = 'league of thrones';
@@ -498,6 +498,8 @@ function example() {
 }
 
 function test(){
+  let fa = isNumber("1")
+  let isN = isNaN("1-1" as any)
   console.log(mapGDS['9^9'])
 }
 

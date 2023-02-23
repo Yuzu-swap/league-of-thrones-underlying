@@ -2,7 +2,7 @@ import { getTextOfJSDocComment } from "typescript";
 import { MaxStrategyPoint } from "../Const";
 import { Parameter, parameterConfig, StrategyBuyConfig, StrategyBuyConfigFromGDS } from "../DataConfig";
 import { IStrategyState, StrategyStatus } from "../State";
-import { getTimeStamp } from "../Utils";
+import { getTimeStamp, isNumber } from "../Utils";
 import { IBoost } from "./boost";
 import { City } from "./game";
 import { General } from "./general";
@@ -44,7 +44,8 @@ export class Strategy{
             return MaxStrategyPoint
         }
         else{
-            return recover + this.state.strategyPoint.value
+            let point = recover + this.state.strategyPoint.value
+            return isNumber(point) ? point : 0;
         }
     }
 
@@ -62,6 +63,9 @@ export class Strategy{
     }
 
     offsetStrategyPoint(amount : number){
+        if(!isNumber(amount)){
+            return false
+        }
         let strategyPoint = this.getStrategyPonit()
         const time = getTimeStamp()
         if(strategyPoint + amount >= MaxStrategyPoint){
@@ -112,7 +116,7 @@ export class Strategy{
             return 0
         }
         else{
-            return this.state.buyTimes.value
+            return isNumber(this.state.buyTimes.value) ? this.state.buyTimes.value : 0
         }
     }
 
@@ -131,6 +135,12 @@ export class Strategy{
     }
 
     buyStrategyPoint(amount: number){
+        if(!isNumber(amount)){
+            return {
+                result : false,
+                error: "amount-illegal"
+            }
+        }
         if(amount <= 0){
             return {
                 result : false,
