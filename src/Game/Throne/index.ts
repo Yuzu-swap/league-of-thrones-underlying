@@ -871,11 +871,11 @@ export class GeneralComponent implements IGeneralComponent {
 
   async getRecentWorldBattleRecords(callback: (result: BattleTransRecord[]) => void) {
     //for test
-    if(this.recentWorldRecordTs == 0){
-      let re = GetTestBattleTransRecord()
-      this.recentWorldRecordTs = re[0].timestamp
-      callback(re)
-    }
+    // if(this.recentWorldRecordTs == 0){
+    //   let re = GetTestBattleTransRecord()
+    //   this.recentWorldRecordTs = re[0].timestamp
+    //   callback(re)
+    // }
     // end test
     let lastTime = this.recentWorldRecordTs == 0 ? getTimeStamp() - 5 : this.recentWorldRecordTs
     let re = (await this.mediator.query(TransitionEventType.Battles,
@@ -999,7 +999,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u20230225"
+    this.version = "u2023022501"
   }
 
 
