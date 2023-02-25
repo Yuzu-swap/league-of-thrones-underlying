@@ -224,6 +224,15 @@ export function getRandom():number{
     }
 }
 
+export function getTxHash():string{
+    const ctx = global && global.ctx
+    if (ctx){
+        return ctx.getTxHash()
+    }else{
+        return ""
+    }
+}
+
 export function encodeChatProfile( id: string, ts: number){
     return id+ ":" + ts;
 }
