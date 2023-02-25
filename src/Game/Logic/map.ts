@@ -4,7 +4,7 @@ import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
-import { getTimeStamp, parseStateId } from "../Utils";
+import { getTimeStamp, getTxHash, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { BattleResult, BattleType, DefenseInfo, General } from "./general";
 
@@ -340,6 +340,7 @@ export class Map{
                             x_id: x_id,
                             y_id: y_id
                         },
+                        txHash: getTxHash(),
                         result: bre.win
                     }
                     list.push(battleRecord)
@@ -410,6 +411,7 @@ export class Map{
                         x_id: x_id,
                         y_id: y_id
                     },
+                    txHash: getTxHash(),
                     result: bre.win
                 }
                 list.push(battleRecord)

@@ -20,7 +20,7 @@ import {
   MessageType
 } from './Websocket/protocol';
 import { BattleType } from '../Logic/general';
-import { getTimeStamp } from '../Utils';
+import { getTimeStamp, getTxHash } from '../Utils';
 
 
 function getInitState(username:string,wather: IStateChangeWatcher): {
@@ -170,6 +170,7 @@ export class LocalMediator
         y_id: 2
       },
       timestamp: 0,
+      txHash: getTxHash(),
       result: true,
     }
     let record2: BattleTransRecord = {
@@ -201,6 +202,7 @@ export class LocalMediator
         y_id: 2
       },
       timestamp : 1,
+      txHash: getTxHash(),
       result: false,
     }
     let record3: BattleTransRecord = {
@@ -232,6 +234,7 @@ export class LocalMediator
         y_id: -1
       },
       timestamp: 2,
+      txHash: getTxHash(),
       result: true,
     }
     let record4: BattleTransRecord = {
@@ -263,6 +266,7 @@ export class LocalMediator
         x_id: -1,
         y_id: -1
       },
+      txHash: getTxHash(),
       result: false,
     }
     if(typ == StateName.DefenderInfo){
@@ -467,6 +471,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       y_id: 2
     },
     timestamp: getTimeStamp(),
+    txHash: getTxHash(),
     result: true,
   }
   re.push(record1)
@@ -499,6 +504,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       y_id: 2
     },
     timestamp : getTimeStamp(),
+    txHash: getTxHash(),
     result: false,
   }
   re.push(record2)
@@ -531,6 +537,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       y_id: -1
     },
     timestamp: getTimeStamp(),
+    txHash: getTxHash(),
     result: true,
   }
   re.push(record3)
@@ -563,6 +570,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       x_id: -1,
       y_id: -1
     },
+    txHash: getTxHash(),
     result: false,
   }
   re.push(record4)

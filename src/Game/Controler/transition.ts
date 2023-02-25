@@ -48,7 +48,7 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
+import { addToSortList, getTimeStamp, getTxHash, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
 import { stringify } from 'querystring';
@@ -78,6 +78,7 @@ export interface BattleTransRecord{
   }
   timestamp: number
   result: boolean
+  txHash: string
 }
 
 
@@ -423,6 +424,7 @@ export class TransitionHandler {
           y_id: 0
         },
         timestamp: getTimeStamp(),
+        txHash: getTxHash(),
         result: re['win']
       }
       let moraleAdd = re['win'] ? 2 : -2
