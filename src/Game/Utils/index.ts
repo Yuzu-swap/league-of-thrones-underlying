@@ -226,6 +226,7 @@ export function getRandom():number{
 
 export function getTxHash():string{
     const ctx = global && global.ctx
+    console.log("getTimeStamp ctx is ",ctx)
     if (ctx){
         return ctx.getTxHash()
     }else{
