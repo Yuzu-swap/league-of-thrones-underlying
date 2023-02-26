@@ -40,16 +40,17 @@ export function setTimeOffset(offset : number ){
 }
 
 export function getTimeStamp( offset : number = timeOffset) :number{
-    const ctx = global && global.ctx
-    console.log("getTimeStamp ctx is ",ctx)
     let time
-    if (ctx){
+    const isBrowser = () => typeof window !== `undefined`
+    if (!isBrowser() && ctx){
         time = ctx.now()  // + offset
     }else{
         time = parseInt(new Date().getTime() / 1000 + '')
     }
     return time //+ offset
 }
+
+
 
 function indexOfGloryList(list: GloryInfo[], username : string, glory: number){
     let beginIndex = 0 , endIndex = list.length - 1
@@ -215,9 +216,8 @@ export function addToNormalSortedList( list: any[], username : string, originVal
 }
 
 export function getRandom():number{
-    const ctx = global && global.ctx
-    console.log("getRandom ctx is ",ctx)
-    if (ctx){
+    const isBrowser = () => typeof window !== `undefined`
+    if (!isBrowser() && ctx){
         return ctx.random()
     }else{
         return Math.random()
@@ -225,8 +225,8 @@ export function getRandom():number{
 }
 
 export function getTxHash():string{
-    const ctx = global && global.ctx
-    if (ctx){
+    const isBrowser = () => typeof window !== `undefined`
+    if (!isBrowser() && ctx){
         return ctx.getTxHash()
     }else{
         return ""
