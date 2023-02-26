@@ -1,5 +1,6 @@
 import {
   CityFacility,
+  RecoverMoraleType,
   StateName,
   StateTransition,
   StringifyTxType
@@ -32,9 +33,9 @@ import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
-import { General, RecoverMoraleType } from './Game/Logic/general';
+import { General } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
-import { addToNormalSortedList, addToSortList, getTimeStamp, isNumber } from './Game/Utils';
+import { addToNormalSortedList, addToSortList, checkNaNInObj, getTimeStamp, isNumber } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
 import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 
@@ -506,7 +507,7 @@ function example() {
           console.log(strategy.getBuyStrategyPointNeed(2))
           console.log(strategy.getRecoverStrategyRemainTime())
           console.log(strategy.getStrategyPointInfo())
-          strategy.buyStrategyPoint(2, ()=>{})
+          strategy.buyStrategyPoint(2 , ()=>{})
           strategy.buyStore((re)=>console.log(re))
           strategy.buyProtect((re)=>console.log(re))
           console.log(strategy.getStrategiesInfo())
@@ -533,6 +534,15 @@ function test(){
     let typeT : TTT = type
     console.log(typeT)
   }
+  let t1 = {
+    tt: 123,
+    tt12: {
+      tt: 231,
+      t3: 123,
+    },
+    t3: [1, 3]
+  }
+  checkNaNInObj(t1)
 }
 
 function testSort(){

@@ -1,4 +1,5 @@
-import { RecoverMoraleType } from "../Logic/general";
+import {createCheckers} from "ts-interface-checker";
+import IndexTI from "./index-ti"
 
 export enum StateName {
 	City = "city",
@@ -168,6 +169,12 @@ export interface RechargeArgs extends StateTransitionArgs{
 	amount: number
 }
 
+export enum RecoverMoraleType{
+    Silver = 'silver',
+    Gold = 'gold'
+}
+
+
 export interface RecoverMoraleArgs extends StateTransitionArgs{
 	resourceType: RecoverMoraleType
 }
@@ -222,4 +229,39 @@ export interface ChatMessage {
 	senderCamp:number
 	iconId: number
 	ts :number
+}
+
+const checkMapFactory = createCheckers(IndexTI)
+
+export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = 
+{
+	[StateTransition.UpgradeFacility] : checkMapFactory.UpgradeFacilityArgs,
+	[StateTransition.Recruit]: checkMapFactory.RecruitArgs,
+	[StateTransition.AbleGeneral]: checkMapFactory.AbleGeneralArgs,
+	[StateTransition.UpgradeGeneral]: checkMapFactory.UpgradeGeneralArgs,
+	[StateTransition.UpgradeGeneralSkill]: checkMapFactory.UpgradeGeneralSkillArgs,
+	[StateTransition.SetDefenseGeneral]: checkMapFactory.SetDefenseGeneralArgs,
+	[StateTransition.ReceiveTroop]: checkMapFactory.ReceiveTroopArgs,
+	[StateTransition.Battle]: checkMapFactory.BattleArgs,
+	[StateTransition.AttackBlock]: checkMapFactory.AttackBlockArgs,
+	[StateTransition.DefenseBlock]: checkMapFactory.AttackBlockArgs,
+	[StateTransition.MiningBlock]: checkMapFactory.AttackBlockArgs,
+	[StateTransition.CancelDefenseBlock]: checkMapFactory.AttackBlockArgs,
+	[StateTransition.SetUnionId]: checkMapFactory.SetUnionIdArgs,
+	[StateTransition.SetIconId]: checkMapFactory.SetIconIdArgs,
+	[StateTransition.AddTestResource]: checkMapFactory.StateTransitionArgs,
+	[StateTransition.RecoverMorale]: checkMapFactory.RecoverMoraleArgs,
+	[StateTransition.BuyStrategyPoint]: checkMapFactory.BuyStrategyPointArgs,
+	[StateTransition.StrategyBuyMorale]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.StrategyBuyProtect]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.StrategyBuySilver]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.StrategyBuyStore]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.StrategyBuyTroop]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.SetGuideStep]: checkMapFactory.GuideStepArgs,
+	[StateTransition.InitUserStates]: checkMapFactory.InitUserStatesArgs,
+	[StateTransition.DonateSilver]: checkMapFactory.DonateSilverArgs,
+	[StateTransition.SetUnionWin]: checkMapFactory.SetUnionIdArgs,
+	[StateTransition.SetSeasonEnd]: checkMapFactory.SetSeasonEndArgs,
+	[StateTransition.StartSeason]: checkMapFactory.StartSeasonArgs,
+	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,
 }

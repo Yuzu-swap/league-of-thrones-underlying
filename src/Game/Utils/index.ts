@@ -251,3 +251,17 @@ export function decodeChatProfile( data: string ){
 export function isNumber( value ) : boolean {
     return Number.isFinite(value)
 }
+
+
+export function checkNaNInObj(aObject) {
+    let value;
+    for (const key in aObject) {
+      value = aObject[key];
+      if(typeof value == "number" && !isNumber(value)){
+        throw "obj have illegal number"
+      }
+      if(typeof value === "object") {
+        checkNaNInObj(value)
+      } 
+    }
+  }
