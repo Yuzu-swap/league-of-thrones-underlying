@@ -877,7 +877,7 @@ export class GeneralComponent implements IGeneralComponent {
     //   callback(re)
     // }
     // end test
-    let lastTime = this.recentWorldRecordTs == 0 ? getTimeStamp() - 5 : this.recentWorldRecordTs
+    let lastTime = this.recentWorldRecordTs == 0 ? getTimeStamp() - 180 : this.recentWorldRecordTs
     let re = (await this.mediator.query(TransitionEventType.Battles,
       {
       "timestamp": {"$gt" : lastTime} 
