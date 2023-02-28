@@ -32,7 +32,8 @@ import {
   BuyStrategyPointArgs,
   InitUserStatesArgs,
   DonateSilverArgs,
-  GuideStepArgs
+  GuideStepArgs,
+  checkerMapForTxArgsTypeMap
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -48,7 +49,7 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import { addToSortList, getTimeStamp, parseStateId } from '../Utils';
+import { addToSortList, checkNaNInObj, getTimeStamp, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
 import { stringify } from 'querystring';
@@ -100,6 +101,10 @@ export class TransitionHandler {
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
     try{
+      if(checkerMapForTxArgsTypeMap[sid]){
+        checkerMapForTxArgsTypeMap[sid].check(arg)
+        checkNaNInObj(arg)
+      }
       switch (sid) {
         case StateTransition.UpgradeFacility:
           re = this.onUpdateFacility(arg as UpgradeFacilityArgs);

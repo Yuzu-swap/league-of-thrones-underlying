@@ -1,5 +1,6 @@
 import {
   CityFacility,
+  RecoverMoraleType,
   StateName,
   StateTransition
 } from './Game/Const';
@@ -31,9 +32,9 @@ import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
-import { General, RecoverMoraleType } from './Game/Logic/general';
+import { General } from './Game/Logic/general';
 import { IMapComponent } from './Game/Throne/map';
-import { addToNormalSortedList, addToSortList, getTimeStamp, isNumber } from './Game/Utils';
+import { addToNormalSortedList, addToSortList, checkNaNInObj, getTimeStamp, isNumber } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
 
 export const GameName = 'league of thrones';
@@ -483,7 +484,7 @@ function example() {
           console.log(strategy.getBuyStrategyPointNeed(2))
           console.log(strategy.getRecoverStrategyRemainTime())
           console.log(strategy.getStrategyPointInfo())
-          strategy.buyStrategyPoint(2, ()=>{})
+          strategy.buyStrategyPoint(2 , ()=>{})
           strategy.buyStore((re)=>console.log(re))
           strategy.buyProtect((re)=>console.log(re))
           console.log(strategy.getStrategiesInfo())
@@ -498,9 +499,27 @@ function example() {
 }
 
 function test(){
-  let fa = isNumber("1")
-  let isN = isNaN("1-1" as any)
-  console.log(mapGDS['9^9'])
+  enum  TTT{
+    Test1 = "test1",
+    Test2 = "test2"
+  }
+  for(let key in TTT){
+    console.log(key)
+  }
+  for(let key in TTT){
+    let type : any =  TTT[key]
+    let typeT : TTT = type
+    console.log(typeT)
+  }
+  let t1 = {
+    tt: 123,
+    tt12: {
+      tt: 231,
+      t3: 123,
+    },
+    t3: [1, 3]
+  }
+  checkNaNInObj(t1)
 }
 
 function testSort(){
@@ -528,5 +547,5 @@ function testSort(){
 
 
 //test()
-//example()
+example()
 //testSort()

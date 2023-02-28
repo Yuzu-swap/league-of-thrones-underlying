@@ -1,7 +1,7 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
-import { CityFacility, ResouceType, StateName } from '../Const';
+import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
@@ -41,10 +41,6 @@ export enum SkillType{
     Troop = 'recruit'
 }
 
-export enum RecoverMoraleType{
-    Silver = 'silver',
-    Gold = 'gold'
-}
 
 export interface DefenseInfo{
     generalId:number
