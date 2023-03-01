@@ -29,6 +29,7 @@ import { callbackify } from 'util'
 import { userInfo } from 'os'
 import { TransitionEventType } from "../Controler/transition";
 import { getTimeStamp, setTimeOffset } from "../Utils";
+import { MessageType } from "../Controler/Websocket/protocol";
 
 export interface IMapComponent extends IComponent{
     attackBlock(xId: number, yId: number, generalId: number, callback: (result: any) => void): void
@@ -43,6 +44,7 @@ export interface IMapComponent extends IComponent{
     getSeasonConfig():{}
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
     getUnionWinInfo(callback: (result: any) => void): Promise<void>
+    getExpectUnionReward(callback: (result: any) => void): Promise<void>
 }
 
 export enum SeasonStatus{
@@ -262,5 +264,28 @@ export class MapComponent implements IMapComponent{
                 resolve(re)
             }
         )
+    }
+
+    async getExpectUnionReward(callback: (result: any) => void): Promise<void> {
+        let unionId = Throne.instance().unionId
+        let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1]
+        let re = {
+            topInfo: [],
+            myInfo: {}
+        }
+        if(unionSum == 0){
+            callback(re)
+        }
+        else{
+            let unionList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": unionId , '$orderBy': '-glory' , "$limit": 20} ))
+            let rank = -1
+            rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"unionId": unionId , "glory":{"$gt":  this.map.general.state.glory}})
+            for(let i in unionList){
+                let item = unionList[i]
+                item['rank'] = i + 1
+                item['']
+            }
+            
+        }
     }
 }

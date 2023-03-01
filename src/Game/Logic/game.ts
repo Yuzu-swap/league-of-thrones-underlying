@@ -438,6 +438,14 @@ export class City {
     }
   }
 
+  initGold(){
+    this.state.update(
+      {
+        gold : 200
+      }
+    )
+  }
+
   useGold(amount: number){
     if(amount <= this.state.gold){
       this.state.update(
