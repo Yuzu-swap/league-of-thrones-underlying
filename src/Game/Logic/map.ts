@@ -768,5 +768,17 @@ export class Map{
         }
         return re
     }
+
+    addGloryAndSum( value: number ){
+        this.general.addGlory(value)
+        let unionId = this.general.state.unionId
+        let glorySum = this.rewardGlobalState.unionGlorySumRuntime
+        glorySum[unionId -1 ] += value
+        this.rewardGlobalState.update(
+            {
+                unionGlorySumRuntime: glorySum
+            }
+        )
+    }
     
 }

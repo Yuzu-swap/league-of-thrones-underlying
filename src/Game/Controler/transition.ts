@@ -437,8 +437,8 @@ export class TransitionHandler {
       logic2.general.offsetMorale(-moraleAdd)
       let oldGlory1 = logic1.general.state.glory
       let oldGlory2 = logic2.general.state.glory
-      logic1.general.addGlory(btr.attackInfo.gloryGet)
-      logic2.general.addGlory(btr.defenseInfo.gloryGet)
+      logic1.map.addGloryAndSum(btr.attackInfo.gloryGet)
+      logic2.map.addGloryAndSum(btr.defenseInfo.gloryGet)
       logic2.city.useTroop(btr.defenseInfo.troopReduce)
       logic2.general.updateDefenseInfo()
       if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
@@ -496,12 +496,12 @@ export class TransitionHandler {
       for(let record of re['records'] as BattleTransRecord[]){
         let moraleAdd = record.result ? 2 : -2
         logic.general.offsetMorale(moraleAdd)
-        logic.general.addGlory(record.attackInfo.gloryGet)
+        logic.map.addGloryAndSum(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
           let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username, args.x_id, args.y_id, gStates)
           if(tempLogic){
             let oldTempGlory = tempLogic.general.state.glory
-            tempLogic.general.addGlory(record.defenseInfo.gloryGet)
+            tempLogic.map.addGloryAndSum(record.defenseInfo.gloryGet)
             tempLogic.general.offsetMorale(-moraleAdd)
             if(tempLogic.city.state.facilities[CityFacility.Fortress][0] >= 7){
               this.updateRewardState(
@@ -526,7 +526,7 @@ export class TransitionHandler {
         }
       }
       else{
-        logic.general.addGlory(re['durabilityReduce'] + logic.general.config.parameter.battle_victory_get_glory)
+        logic.map.addGloryAndSum(re['durabilityReduce'] + logic.general.config.parameter.battle_victory_get_glory)
         transRe = {
           result: true,
           durabilityReduce: re['durabilityReduce']
@@ -655,6 +655,7 @@ export class TransitionHandler {
           }
         )
         logic.general.addextraGeneral(userInfos[username])
+        logic.city.initGold()
       }
     }
     for(let item in args.season){
