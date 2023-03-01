@@ -269,6 +269,7 @@ export class MapComponent implements IMapComponent{
     async getExpectUnionReward(callback: (result: any) => void): Promise<void> {
         let unionId = Throne.instance().unionId
         let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1]
+        let rewardSum = this.map.seasonConfig.get(1).show_season_victory_reward[0].count
         let re = {
             topInfo: [],
             myInfo: {}
@@ -281,11 +282,23 @@ export class MapComponent implements IMapComponent{
             let rank = -1
             rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"unionId": unionId , "glory":{"$gt":  this.map.general.state.glory}})
             for(let i in unionList){
-                let item = unionList[i]
-                item['rank'] = i + 1
-                item['']
+                let item = {
+                    username: unionList[i].username,
+                    unionId: unionId,
+                    glory: unionList[i].glory,
+                    rank: i + 1,
+                    reward:  unionList[i].glory / unionSum * rewardSum
+                }
+                re.topInfo.push(item)
             }
-            
+            re.myInfo = {
+                username: Throne.instance().username,
+                unionId: unionId,
+                glory: this.map.general.state.glory,
+                rank: rank + 1,
+                reward:  this.map.general.state.glory / unionSum * rewardSum
+            }
+            callback(re)
         }
     }
 }
