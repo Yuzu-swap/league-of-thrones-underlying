@@ -113,6 +113,7 @@ export interface IRewardGlobalState extends IState{
   contractAddressInput: string[]
   contractGloryInput: number[]
   unionGlorySum: number
+  unionGlorySumRuntime: number[] 
   unionWinId: number
   seasonEnd: boolean
   unionRewardResult: RewardResult[]
