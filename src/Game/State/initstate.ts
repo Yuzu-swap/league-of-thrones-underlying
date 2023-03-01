@@ -77,6 +77,7 @@ export var InitState = {
         contractAddressInput: [],
         contractGloryInput: [],
         unionGlorySum: 0,
+        unionGlorySumRuntime:[0, 0, 0, 0],
         unionWinId: 0,
         seasonEnd: false,
         unionRewardResult: [],
