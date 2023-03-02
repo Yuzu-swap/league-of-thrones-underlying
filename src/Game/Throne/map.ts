@@ -281,13 +281,12 @@ export class MapComponent implements IMapComponent{
             let unionList : IDefenderInfoState[] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": unionId , '$orderBy': '-glory' , "$limit": 20} ))
             let rank = -1
             rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"unionId": unionId , "glory":{"$gt":  this.map.general.state.glory}})
-            rank = parseInt(rank as any)
             for(let i in unionList){
                 let item = {
                     username: unionList[i].username,
                     unionId: unionId,
                     glory: unionList[i].glory,
-                    rank: i + 1,
+                    rank: parseInt(i) + 1,
                     reward:  unionList[i].glory / unionSum * rewardSum
                 }
                 re.topInfo.push(item)
