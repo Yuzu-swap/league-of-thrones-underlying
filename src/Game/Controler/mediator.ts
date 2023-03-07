@@ -167,7 +167,8 @@ export class LocalMediator
       recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
-        y_id: 2
+        y_id: 2,
+        durabilityReduce: 0
       },
       timestamp: 0,
       txHash: getTxHash(),
@@ -199,7 +200,8 @@ export class LocalMediator
       recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
-        y_id: 2
+        y_id: 2,
+        durabilityReduce: 0
       },
       timestamp : 1,
       txHash: getTxHash(),
@@ -231,7 +233,8 @@ export class LocalMediator
       },
       blockInfo :{
         x_id: -1,
-        y_id: -1
+        y_id: -1,
+        durabilityReduce: 0
       },
       timestamp: 2,
       txHash: getTxHash(),
@@ -264,7 +267,8 @@ export class LocalMediator
       timestamp: 3,
       blockInfo :{
         x_id: -1,
-        y_id: -1
+        y_id: -1,
+        durabilityReduce: 0
       },
       txHash: getTxHash(),
       result: false,
@@ -468,7 +472,8 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
     recordType: BattleRecordType.Block, 
     blockInfo :{
       x_id: 2,
-      y_id: 2
+      y_id: 2,
+      durabilityReduce: 0
     },
     timestamp: getTimeStamp(),
     txHash: getTxHash(),
@@ -501,7 +506,8 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
     recordType: BattleRecordType.Block, 
     blockInfo :{
       x_id: 2,
-      y_id: 2
+      y_id: 2,
+      durabilityReduce: 0
     },
     timestamp : getTimeStamp(),
     txHash: getTxHash(),
@@ -534,7 +540,8 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
     },
     blockInfo :{
       x_id: -1,
-      y_id: -1
+      y_id: -1,
+      durabilityReduce: 0
     },
     timestamp: getTimeStamp(),
     txHash: getTxHash(),
@@ -568,7 +575,8 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
     timestamp: getTimeStamp(),
     blockInfo :{
       x_id: -1,
-      y_id: -1
+      y_id: -1,
+      durabilityReduce: 0
     },
     txHash: getTxHash(),
     result: false,
