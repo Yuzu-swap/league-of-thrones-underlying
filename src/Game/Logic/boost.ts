@@ -74,7 +74,7 @@ export class Boost implements IBoost{
     getProduction(typ: ResouceType): number {
         let weight = 1
         if(this.maintainNeedTroop > this.troop){
-            weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
+            weight = Math.max(this.troop / this.maintainNeedTroop, 0.8)
         }
         return (this.city.product[typ] + this.general.product[typ]) * weight
     }
@@ -82,7 +82,7 @@ export class Boost implements IBoost{
     getSilverPosProduction(){
         let weight = 1
         if(this.maintainNeedTroop > this.troop){
-            weight = Math.max(this.troop / this.maintainNeedTroop, 0.2)
+            weight = Math.max(this.troop / this.maintainNeedTroop, 0.8)
         }
         return ( this.city.product[ResouceType.Silver] + this.general.product[ResouceType.Silver] + this.troop ) * weight
     }
