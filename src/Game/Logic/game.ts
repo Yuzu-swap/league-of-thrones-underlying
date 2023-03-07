@@ -391,6 +391,7 @@ export class City {
     let sliverCanRob = Math.max(this.getResource(ResouceType.Silver) - saveAmount, 0)
     if(this.useSilver( Math.min(amount, sliverCanRob))){
       re = Math.min(amount, this.getResource(ResouceType.Silver) - saveAmount)
+      re = Math.max(re, 0)
     }
     return re
   }
