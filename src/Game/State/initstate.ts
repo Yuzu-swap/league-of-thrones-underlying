@@ -25,7 +25,8 @@ export var InitState = {
       gold: 0,
       lastAddTestTime: -1,
       userActivity: [],
-      guideStep: []
+      guideStep: [],
+      firstLogin: -1
     },
     [StateName.General]:{
         generalList: {},
@@ -37,7 +38,8 @@ export var InitState = {
         morale: {
             lastUpdate: -1,
             value: 100,
-        }
+        },
+        unionInit: false
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{

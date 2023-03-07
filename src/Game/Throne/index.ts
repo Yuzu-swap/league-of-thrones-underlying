@@ -999,7 +999,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u202303021"
+    this.version = "u202303071"
   }
 
 
@@ -1061,7 +1061,8 @@ export class Throne implements IThrone {
     if(this.unionId != 0){
       this.mediator.sendTransaction(StateTransition.SetUnionId,{
         from: this.username,
-        unionId: this.unionId
+        unionId: this.unionId,
+        force: false
       }, callback)
     }
     else{

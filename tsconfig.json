@@ -8,7 +8,7 @@
         "outDir":"dist",     
         "resolveJsonModule": true,
         "watch":false ,
-        "typeRoots": ["src/types/index.d.ts" ],
+        "typeRoots": ["src/types/index.d.ts", "src/global.d.ts" ],
         "types":["node", "@types/jest"],
         "lib": ["es2015","dom"]
     },
@@ -20,5 +20,8 @@
         "dist",
         "node_modules",
         "static"
-    ]
+    ],
+    "ts-node": {
+        "files": true // 增加这一条配置即可，其他同默认配置
+    },
 }

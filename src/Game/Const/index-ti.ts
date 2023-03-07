@@ -71,6 +71,7 @@ export const StateTransition = t.enumtype({
   "DonateSilver": 35,
   "RegularTask": 36,
   "SetGuideStep": 37,
+  "FirstLogin": 38,
 });
 
 export const StateTransitionArgs = t.iface([], {
@@ -122,6 +123,11 @@ export const AttackBlockArgs = t.iface(["StateTransitionArgs"], {
 });
 
 export const SetUnionIdArgs = t.iface(["StateTransitionArgs"], {
+  "unionId": "number",
+  "force": "boolean",
+});
+
+export const SetUnionWinArgs = t.iface(["StateTransitionArgs"], {
   "unionId": "number",
 });
 
@@ -230,6 +236,7 @@ const exportedTypeSuite: t.ITypeSuite = {
   BattleArgs,
   AttackBlockArgs,
   SetUnionIdArgs,
+  SetUnionWinArgs,
   SetSeasonEndArgs,
   StartSeasonArgs,
   SetIconIdArgs,

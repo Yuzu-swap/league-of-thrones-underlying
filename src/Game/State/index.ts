@@ -30,6 +30,7 @@ export interface ICityState extends IState {
   lastAddTestTime: number
   userActivity: UserActivity[]
   guideStep: GuideStep[]
+  firstLogin: number
 }
 
 export interface GeneralStamina{
@@ -60,6 +61,7 @@ export interface IGeneralState extends IState{
   glory: number
   iconId: number
   morale: ResouceInfo
+  unionInit: boolean
 }
 
 export interface IDefenderInfoState extends IState{

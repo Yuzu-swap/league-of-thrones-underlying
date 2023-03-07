@@ -33,7 +33,8 @@ import {
   InitUserStatesArgs,
   DonateSilverArgs,
   GuideStepArgs,
-  checkerMapForTxArgsTypeMap
+  checkerMapForTxArgsTypeMap,
+  SetUnionWinArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -185,8 +186,11 @@ export class TransitionHandler {
         case StateTransition.DonateSilver:
           re = this.onDonateSilver(arg as DonateSilverArgs)
           break
+        case StateTransition.FirstLogin:
+          re = this.onFirstLogin(arg as StateTransitionArgs)
+          break
         case StateTransition.SetUnionWin:
-          re = this.onSetUnionWin(arg as SetUnionIdArgs)
+          re = this.onSetUnionWin(arg as SetUnionWinArgs)
           return re
         case StateTransition.SetSeasonEnd:
           re = this.onSetSeasonEnd(arg as SetSeasonEndArgs)
@@ -581,6 +585,12 @@ export class TransitionHandler {
 
   onSetUnionId(args: SetUnionIdArgs){
     const logic : LogicEssential = this.genLogic(args.from)
+    if(args.force == false && logic.general.state.unionInit == true){
+      return {
+        result: false,
+        error: 'unionId-have-set'
+      }
+    }
     logic.general.state.update(
       {
         'unionId' : args.unionId
@@ -605,7 +615,7 @@ export class TransitionHandler {
     }
   }
 
-  onSetUnionWin(args : SetUnionIdArgs){
+  onSetUnionWin(args : SetUnionWinArgs){
     const logic : LogicEssential = this.genLogic(args.from, 0, 0)
     let re = logic.map.setUnionWin(args.unionId)
     return re
@@ -883,6 +893,24 @@ export class TransitionHandler {
   onSetGuideStep( args : GuideStepArgs ){
     const logic: LogicEssential = this.genLogic(args.from)
     return logic.city.setGuideStep( args.type, args.step)
+  }
+
+  onFirstLogin(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from) 
+    if(logic.city.state.firstLogin != -1)
+    {
+      return {
+        result: false,
+        error: "it-is-not-first-login"
+      }
+    }
+    const time = getTimeStamp()
+    logic.city.state.update({
+      firstLogin: time
+    })
+    return{
+      result: true
+    }
   }
 
 }

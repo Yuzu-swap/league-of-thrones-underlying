@@ -71,7 +71,8 @@ export enum StateTransition {
 	InitGlobalStates,
 	DonateSilver,
 	RegularTask,
-	SetGuideStep
+	SetGuideStep,
+	FirstLogin
 }
 
 export function StringifyTxType() {
@@ -138,6 +139,11 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 }
 
 export interface SetUnionIdArgs extends StateTransitionArgs{
+	unionId: number
+	force: boolean
+}
+
+export interface SetUnionWinArgs extends StateTransitionArgs{
 	unionId: number
 }
 
@@ -260,7 +266,7 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } =
 	[StateTransition.SetGuideStep]: checkMapFactory.GuideStepArgs,
 	[StateTransition.InitUserStates]: checkMapFactory.InitUserStatesArgs,
 	[StateTransition.DonateSilver]: checkMapFactory.DonateSilverArgs,
-	[StateTransition.SetUnionWin]: checkMapFactory.SetUnionIdArgs,
+	[StateTransition.SetUnionWin]: checkMapFactory.SetUnionWinArgs,
 	[StateTransition.SetSeasonEnd]: checkMapFactory.SetSeasonEndArgs,
 	[StateTransition.StartSeason]: checkMapFactory.StartSeasonArgs,
 	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,

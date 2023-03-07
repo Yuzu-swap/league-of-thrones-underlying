@@ -101,6 +101,7 @@ export var run = function () {
 //run();
 let count = 0;
 function example() {
+  global.ctx = undefined
   console.log("hello world")
   Throne.instance().init(
     {
@@ -132,7 +133,8 @@ function example() {
       Throne.instance().mediator.sendTransaction(StateTransition.SetUnionId,
         {
           from: 'test1',
-          unionId: 1
+          unionId: 1,
+          force: true
         },
         ()=>{})
       Throne.instance().mediator.sendTransaction(StateTransition.RegularTask,
@@ -252,7 +254,7 @@ function example() {
 
         console.log(city.getAbleActivityInfo())
 
-        city.donateSilver(29, 100, 
+        city.donateSilver(1, 100, 
           (result)=>{
             console.log(result)
           })
