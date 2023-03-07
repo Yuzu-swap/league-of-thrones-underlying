@@ -1076,6 +1076,11 @@ export class Throne implements IThrone {
       )
       this.unionId = states.general.unionId
     }
+    if( this.logicEssential.city.state.firstLogin == -1 ){
+      this.mediator.sendTransaction(StateTransition.FirstLogin,{
+        from: this.username,
+      }, ()=>{})
+    }
     this.components[ComponentType.Chain] = new ChainComponent(this.mediator)
   }
 
