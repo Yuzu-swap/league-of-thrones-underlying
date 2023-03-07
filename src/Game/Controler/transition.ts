@@ -449,7 +449,9 @@ export class TransitionHandler {
       }
       this.recordEvent(TransitionEventType.Battles, btr)
     }
-    logic1.city.useSilver( - (re as any).silverGet as number)
+    if((re as any).silverGet > 0){
+      logic1.city.useSilver( - (re as any).silverGet as number)
+    }
     return re
   }
 
