@@ -280,6 +280,7 @@ export class Map{
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
                 lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
+                lastRecord.blockInfo.durabilityReduce = durabilityReduce
             }     
         }
         return {
@@ -338,7 +339,8 @@ export class Map{
                         timestamp: getTimeStamp(),
                         blockInfo:{
                             x_id: x_id,
-                            y_id: y_id
+                            y_id: y_id,
+                            durabilityReduce: 0
                         },
                         txHash: getTxHash(),
                         result: bre.win
@@ -409,7 +411,8 @@ export class Map{
                     timestamp: getTimeStamp(),
                     blockInfo:{
                         x_id: x_id,
-                        y_id: y_id
+                        y_id: y_id,
+                        durabilityReduce: 0
                     },
                     txHash: getTxHash(),
                     result: bre.win
@@ -444,6 +447,45 @@ export class Map{
             remainTroop : remainTroop
         }
     }
+
+    genDurabilityRecord(x_id:number, y_id: number, generalId: number, gloryGet: number, durabilityReduce: number ) : BattleTransRecord{
+        let generalRow = this.general.getGeneralQualification(generalId)
+        let battleRecord : BattleTransRecord= {
+            attackInfo : {
+                username: parseStateId(this.general.state.getId()).username ,
+                generalId: generalId,
+                generalLevel: this.general.getGeneralLevel(generalId),
+                generalType: generalRow.general_type,
+                troopReduce: 0,
+                silverGet: 0,
+                gloryGet: gloryGet,
+                unionId: this.general.state.unionId,
+                iconId: this.general.state.iconId
+            },
+            defenseInfo: 
+            {
+                username: '',
+                generalId: -1,
+                generalLevel: 0,
+                generalType: 0,
+                troopReduce: 0,
+                silverGet: 0,
+                gloryGet: 0,
+                unionId: 0,
+                iconId: -1
+            },
+            recordType: BattleRecordType.Block,
+            timestamp: getTimeStamp(),
+            blockInfo:{
+                x_id: x_id,
+                y_id: y_id,
+                durabilityReduce: durabilityReduce
+            },
+            txHash: getTxHash(),
+            result: true
+        }
+        return battleRecord
+    } 
 
     miningable(x_id: number, y_id: number ){
         let blockState = this.getBlockState(x_id, y_id)

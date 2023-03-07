@@ -77,6 +77,7 @@ export interface BattleTransRecord{
   blockInfo: {
     x_id: number
     y_id: number
+    durabilityReduce: number
   }
   timestamp: number
   result: boolean
@@ -430,7 +431,8 @@ export class TransitionHandler {
         recordType: BattleRecordType.City,
         blockInfo:{
           x_id: 0,
-          y_id: 0
+          y_id: 0,
+          durabilityReduce: 0
         },
         timestamp: getTimeStamp(),
         txHash: getTxHash(),
@@ -530,11 +532,17 @@ export class TransitionHandler {
         }
       }
       else{
-        logic.map.addGloryAndSum(re['durabilityReduce'] + logic.general.config.parameter.battle_victory_get_glory)
+        logic.map.addGloryAndSum(Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory)
         transRe = {
           result: true,
           durabilityReduce: re['durabilityReduce']
         }
+        this.recordEvent(
+          TransitionEventType.Battles,
+          logic.map.genDurabilityRecord(
+            args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
+          )
+        )
       }
       if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(
