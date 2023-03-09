@@ -388,8 +388,9 @@ export class TransitionHandler {
     if( logic1.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic1.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
+    logic1.general.setLastBattle()
     const logic2: LogicEssential = this.genLogic(args.name.replace("defenderinfo:", ""), 0, 0, gStates)
-    if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able){
+    if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able || logic2.general.isNewPlayerProtect()){
       return {
         result: false,
         error: 'cant-battle-player-be-protected'

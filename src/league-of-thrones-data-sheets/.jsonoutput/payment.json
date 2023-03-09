@@ -2,51 +2,51 @@
    "Config" : [
     {
         "token": 1,
-        "price": 1,
+        "price": 5,
         "internal_id": 1,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0
+    },
+    {
+        "token": 1,
+        "price": 10,
+        "internal_id": 2,
         "internal_icon": 1,
         "gold": 1000,
+        "extra_gold": 100
+    },
+    {
+        "token": 1,
+        "price": 20,
+        "internal_id": 3,
+        "internal_icon": 1,
+        "gold": 2000,
+        "extra_gold": 300
+    },
+    {
+        "token": 1,
+        "price": 50,
+        "internal_id": 4,
+        "internal_icon": 1,
+        "gold": 5000,
         "extra_gold": 1000
     },
     {
         "token": 1,
-        "price": 2,
-        "internal_id": 2,
-        "internal_icon": 0,
-        "gold": 5000,
-        "extra_gold": 5000
-    },
-    {
-        "token": 1,
-        "price": 3,
-        "internal_id": 3,
-        "internal_icon": 0,
-        "gold": 10000,
-        "extra_gold": 10000
-    },
-    {
-        "token": 1,
-        "price": 4,
-        "internal_id": 4,
-        "internal_icon": 1,
-        "gold": 20000,
-        "extra_gold": 20000
-    },
-    {
-        "token": 1,
-        "price": 5,
+        "price": 100,
         "internal_id": 5,
         "internal_icon": 1,
-        "gold": 50000,
-        "extra_gold": 50000
+        "gold": 10000,
+        "extra_gold": 3000
     },
     {
         "token": 1,
-        "price": 6,
+        "price": 200,
         "internal_id": 6,
         "internal_icon": 1,
-        "gold": 100000,
-        "extra_gold": 100000
+        "gold": 20000,
+        "extra_gold": 6000
     }
     ]
 }

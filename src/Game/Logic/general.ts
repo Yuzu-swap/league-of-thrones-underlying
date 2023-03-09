@@ -751,7 +751,7 @@ export class General{
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
-        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect)
+        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect) || this.isNewPlayerProtect()
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 
@@ -1061,6 +1061,24 @@ export class General{
         }
     }
 
+    isNewPlayerProtect(): boolean
+    {
+        let time = getTimeStamp()
+        if(
+            (this.city.state.firstLogin == -1 || time - this.city.state.firstLogin < this.config.parameter.new_player_protect_times)
+            && this.state.lastBattle == -1
+            )
+        {
+            return true
+        }
+        return false
+    }
 
-
+    setLastBattle()
+    {
+        let time = getTimeStamp()
+        this.state.update(
+            { lastBattle: time }
+        )
+    }
 }

@@ -16,13 +16,15 @@ import {
   FacilityLimit,
   RechargeConfigs,
   RechargeConfigFromGDS,
-  RechargeConfig
+  RechargeConfig,
+  Parameter,
+  parameterConfig
 } from '../DataConfig';
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { StrategyType } from './strategy';
-import { NumericLiteral } from 'typescript';
+import { isNewExpression, NumericLiteral } from 'typescript';
 
 
 export interface CityConfig {
@@ -62,11 +64,13 @@ export class City {
   cityConfig: CityConfig;
   rechargeConfig: RechargeConfigs 
   boost: IBoost;
+  parameter: Parameter
 
   constructor(state: ICityState) {
     this.state = state;
     this.cityConfig = CityConfigFromGDS;
     this.rechargeConfig = RechargeConfigFromGDS;
+    this.parameter = parameterConfig
   }
 
   loadState(state: {}) {
@@ -452,7 +456,7 @@ export class City {
   initGold(){
     this.state.update(
       {
-        gold : 200
+        gold : this.parameter.choose_random_camp_reward
       }
     )
   }

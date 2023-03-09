@@ -56,6 +56,8 @@ export class Parameter {
 	order_hoard_need: number
 	gather_need_general_stamina: number
 	gather_get_silver_parameter: number
+	new_player_protect_times: number
+	choose_random_camp_reward: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []

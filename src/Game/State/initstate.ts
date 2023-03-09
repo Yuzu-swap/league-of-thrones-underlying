@@ -39,7 +39,8 @@ export var InitState = {
             lastUpdate: -1,
             value: 100,
         },
-        unionInit: false
+        unionInit: false,
+        lastBattle: -1
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{

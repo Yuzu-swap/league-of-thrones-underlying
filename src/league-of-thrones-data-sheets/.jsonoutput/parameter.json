@@ -1,6 +1,6 @@
 {
     "victory_need_occupy_times":{
-        "value":"60",
+        "value":"28800",
         "name":"victory_need_occupy_times"
     },
     "troops_base_load":{
@@ -39,6 +39,10 @@
         "value":"7200",
         "name":"occupy_block_protect_times"
     },
+    "new_player_protect_times":{
+        "value":"86400",
+        "name":"new_player_protect_times"
+    },
     "general_troops_coefficient":{
         "value":"1.2",
         "name":"general_troops_coefficient"
@@ -66,6 +70,10 @@
     "default_defense_general":{
         "value":"100|100|100|1",
         "name":"default_defense_general"
+    },
+    "choose_random_camp_reward":{
+        "value":"200",
+        "name":"choose_random_camp_reward"
     },
     "battle_victory_get_glory":{
         "value":"10",
