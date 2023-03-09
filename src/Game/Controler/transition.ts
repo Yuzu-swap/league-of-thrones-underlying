@@ -577,7 +577,7 @@ export class TransitionHandler {
     if(re['result'] == false){
       return re
     }
-    let info = logic.general.getDefenseBlockInfo(args.generalId)
+    let info = logic.general.getDefenseBlockInfo(args.generalId, re.troops)
     let re1 = logic.map.defenseBlock(args.x_id, args.y_id, info)
     return {
       result: true
