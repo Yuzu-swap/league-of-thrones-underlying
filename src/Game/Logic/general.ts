@@ -741,7 +741,7 @@ export class General{
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 
-    getDefenseBlockInfo(generalId : number) : BlockDefenseInfo
+    getDefenseBlockInfo(generalId : number, troops: number) : BlockDefenseInfo
     {
         let attackinfo = this.getGeneralBattleStatus(generalId)
         let row = this.getGeneralQualification(generalId)
@@ -753,7 +753,7 @@ export class General{
             generalType: row.general_type,
             attack: attackinfo.sum[SkillType.Attack],
             defense: attackinfo.sum[SkillType.Defense],
-            troops: this.getMaxDefenseTroop()
+            troops: troops? troops : this.getMaxDefenseTroop()
         }
         return re
     }
@@ -813,7 +813,8 @@ export class General{
             }
         )
         return {
-            result: true
+            result: true,
+            troops: troop
         }
     }
 
