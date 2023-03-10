@@ -44,6 +44,7 @@ export interface IMapComponent extends IComponent{
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
     getUnionWinInfo(callback: (result: any) => void): Promise<void>
     getExpectUnionReward(callback: (result: any) => void): Promise<void>
+    getUnionOverView(callback: (result: any) => void): Promise<void>
 }
 
 export enum SeasonStatus{
@@ -299,5 +300,14 @@ export class MapComponent implements IMapComponent{
             }
             callback(re)
         }
+    }
+
+    async getUnionOverView(callback: (result: any) => void): Promise<void> {
+        let re = [[], [], [], []]
+        re[0] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": 1 , '$orderBy': '-glory'} ))
+        re[1] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": 2 , '$orderBy': '-glory'} ))
+        re[2] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": 3 , '$orderBy': '-glory'} ))
+        re[3] = (await this.mediator.query( StateName.DefenderInfo, { "unionId": 4 , '$orderBy': '-glory'} ))
+        callback(re)
     }
 }
