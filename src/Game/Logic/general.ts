@@ -893,7 +893,8 @@ export class General{
             x_id: row.x_id,
             y_id: row.y_id,
             type: row.type,
-            parameter: row.parameter
+            parameter: row.parameter,
+            durabilityReduce: record.blockInfo.durabilityReduce ?? 0
         }
         let re :BattleRecord = {
             myInfo: myInfo,
