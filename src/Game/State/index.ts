@@ -163,6 +163,7 @@ export interface IBlockState extends IState{
   defenseList: BlockDefenseInfo[]
   lastAttachTime: number
   remainSilver: number
+  firstOccupy: number
 }
 
 export interface StrategyStatus{

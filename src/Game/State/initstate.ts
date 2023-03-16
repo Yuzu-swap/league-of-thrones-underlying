@@ -201,7 +201,8 @@ export function GetMapState(){
                 durability: row['durability'],
                 defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
                 lastAttachTime: -1,
-                remainSilver: row['silver_total_number']
+                remainSilver: row['silver_total_number'],
+                firstOccupy: -1
             }
         }
         let activityLen = SeasonConfigFromGDS.get(1).activities.length

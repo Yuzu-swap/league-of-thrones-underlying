@@ -535,11 +535,17 @@ export class Map{
                 unionId : unionId,
                 updateTime: time
             }
+            let firstOccupy = blockState.firstOccupy
+            if(blockState.firstOccupy == -1){
+                firstOccupy = time
+                this.general.city.useGold(-100)
+            }
             blockState.update(
                 {
                     'durability': row.durability,
                     'belong': newBelong,
-                    'lastAttachTime': -1
+                    'lastAttachTime': -1,
+                    'firstOccupy': firstOccupy
                 }
             )
             this.changeBelongInfo(x_id, y_id, unionId, time + this.parameter.occupy_block_protect_times)
