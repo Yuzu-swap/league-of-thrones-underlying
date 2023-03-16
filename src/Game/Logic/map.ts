@@ -732,7 +732,7 @@ export class Map{
         for(let i in this.rewardGlobalState.globalGloryRankInfo){
             if( parseInt(i) + 1  > reward.end){
                 rewardIndex++
-                if(rewardIndex > rankReward.length){
+                if(rewardIndex >= rankReward.length){
                     break
                 }
                 reward = rankReward[rewardIndex]
