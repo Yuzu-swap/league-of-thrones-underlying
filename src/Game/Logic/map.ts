@@ -232,6 +232,12 @@ export class Map{
                 error: 'block-is-be-protected'
             }
         }
+        if(!(this.general.useGeneralStamina(generalId, 1))){
+            return{
+                result: false,
+                error: 'general-stamina-error'
+            }
+        }
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let centerBlockState = this.getBlockState(x_id, y_id)
@@ -268,14 +274,6 @@ export class Map{
         
         let durabilityReduce = 0
         if(remainTroop > 0){
-            if(records.length == 0){
-                if(!this.general.useGeneralStamina(generalId, 1)){
-                    return {
-                        result: false,
-                        error: 'general-stamina-not-enough'
-                    }
-                }
-            }
             durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
@@ -304,8 +302,7 @@ export class Map{
         if(firstBlock){
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
-                let bre = this.general.battle(generalId, info, remainTroop, firstBlock)
-                firstBlock = false
+                let bre = this.general.battle(generalId, info, remainTroop, false)
                 if(!bre['result']){
                     return bre
                 }
@@ -377,7 +374,7 @@ export class Map{
         let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){
             let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
-            let bre = this.general.battle(generalId, info, remainTroop)
+            let bre = this.general.battle(generalId, info, remainTroop, false)
             if(!bre['result']){
                 return bre
             }
