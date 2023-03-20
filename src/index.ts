@@ -133,7 +133,7 @@ function example() {
       Throne.instance().mediator.sendTransaction(StateTransition.SetUnionId,
         {
           from: 'test1',
-          unionId: 1,
+          unionId: 0,
           force: true
         },
         ()=>{})
