@@ -378,7 +378,7 @@ export class SeasonConfig{
 				activities: [],
 				id: seasonConf['id']
 			}
-			for(let item of seasonConf['dailyactivity'] as []){
+			for(let item of (seasonConf['dailyactivity'] || []) as []){
 				let actConf : ActivityConf = {
 					startTime: transDateToTimeStamp(item['day']),
 					type: item['activity']

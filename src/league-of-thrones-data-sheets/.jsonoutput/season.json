@@ -5,7 +5,7 @@
             {
                 "type": 1,
                 "name":"rose",
-                "count	": 10000
+                "count": 10000
             }
         ],
         "show_rank_reward":[
@@ -15,9 +15,9 @@
                 "count": 10000
             }
         ],
-        "season_reservation":"2023_3_19_14	",
+        "season_reservation":"2023_3_19_14",
         "season_ready":"2023_3_20_14",
-        "season_open":"2023_3_20_14	",
+        "season_open":"2023_3_20_14",
         "season_end":"2023_3_31_14",
         "rank_reward":[
             {
