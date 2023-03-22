@@ -7,6 +7,10 @@
         "value":"5",
         "name":"troops_base_load"
     },
+    "register_reward_gold":{
+        "value":"200",
+        "name":"register_reward_gold"
+    },
     "recovery_one_morale_need_gold":{
         "value":"10",
         "name":"recovery_one_morale_need_gold"
