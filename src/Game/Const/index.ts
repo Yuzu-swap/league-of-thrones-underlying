@@ -72,7 +72,8 @@ export enum StateTransition {
 	DonateSilver,
 	RegularTask,
 	SetGuideStep,
-	FirstLogin
+	FirstLogin,
+	FinishOutChainUserActivity,
 }
 
 export function StringifyTxType() {
@@ -203,6 +204,11 @@ export interface GuideStepArgs extends StateTransitionArgs{
 	step: number
 }
 
+export interface OutChainUserActivityArgs extends StateTransitionArgs{
+	username: string
+	type: string
+	action: string
+}
 
 export enum ChatType {
 	ChatTypeText                  = 1,
@@ -236,6 +242,8 @@ export interface ChatMessage {
 	iconId: number
 	ts :number
 }
+
+
 
 const checkMapFactory = createCheckers(IndexTI)
 

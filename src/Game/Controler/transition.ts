@@ -34,7 +34,8 @@ import {
   DonateSilverArgs,
   GuideStepArgs,
   checkerMapForTxArgsTypeMap,
-  SetUnionWinArgs
+  SetUnionWinArgs,
+  OutChainUserActivityArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -108,6 +109,22 @@ export class TransitionHandler {
         checkerMapForTxArgsTypeMap[sid].check(arg)
         checkNaNInObj(arg)
       }
+      const witnessName = "witness"
+      const onlyWitnessTransitions = [
+        StateTransition.StartSeason,
+        StateTransition.Recharge,
+        StateTransition.FinishOutChainUserActivity,
+      ]
+      // if sid in onlyWitness transition type
+      if ( onlyWitnessTransitions.includes(sid) ) {
+        if (arg["from"] != witnessName ){
+          console.log(" only witness can do this transition sid: ",sid , " from: ", arg["from"])
+          throw new Error(" only witness can do this transition sid: " + sid + " from: " + arg["from"])
+        }
+      }
+
+
+
       switch (sid) {
         case StateTransition.UpgradeFacility:
           re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
@@ -207,6 +224,9 @@ export class TransitionHandler {
           return re
         case StateTransition.RegularTask:
           re = this.onRegularTask()
+          return re
+        case StateTransition.FinishOutChainUserActivity:
+          re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
           return re
         
       }
@@ -732,6 +752,10 @@ export class TransitionHandler {
   onRecharge(args: RechargeArgs){
     const logic : LogicEssential = this.genLogic(args.username)
     return logic.city.recharge(args.rechargeId, args.amount)
+  }
+  onUserFinsishOutChainActivity(args: OutChainUserActivityArgs){
+    const logic : LogicEssential = this.genLogic(args.username)
+    return logic.city.finishOutChainUserActivity(args.type,args.action)
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)

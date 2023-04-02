@@ -31,6 +31,7 @@ export interface ICityState extends IState {
   userActivity: UserActivity[]
   guideStep: GuideStep[]
   firstLogin: number
+  rewardClaimed: {[key: string]: boolean}
 }
 
 export interface GeneralStamina{
