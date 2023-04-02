@@ -344,13 +344,15 @@ export class General{
     }
 
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
-        const generalInfo = this.getGeneralState(generalId)
+        const generalInfo = this.getGeneralState(generalId);
+        const generalLevel = generalInfo.level;
+        const skillLevelLimit = Math.floor(generalLevel/5) + 1;
         const level = generalInfo.skill_levels[skillIndex]
         if(level == this.config.parameter.general_skill_max_level){
             return false
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.state.gold >= need){
+        if(this.city.state.gold >= need && level < skillLevelLimit){
             return true
         }
         return false
