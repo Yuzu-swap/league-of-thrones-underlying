@@ -65,7 +65,6 @@ export enum StateTransition {
 	StrategyBuyTroop,
 	StrategyBuyMorale,
 	StrategyBuyProtect,
-	StrategyBuyProtect1,
 	StrategyBuyStore,
 	MiningBlock,
 	InitUserStates,
@@ -73,7 +72,8 @@ export enum StateTransition {
 	DonateSilver,
 	RegularTask,
 	SetGuideStep,
-	FirstLogin
+	FirstLogin,
+	StrategyBuyProtect1
 }
 
 export function StringifyTxType() {

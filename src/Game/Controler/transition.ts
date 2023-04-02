@@ -172,6 +172,9 @@ export class TransitionHandler {
         case StateTransition.StrategyBuyProtect:
           re = this.onStrategyBuyProtect(arg as StateTransitionArgs)
           break
+        case StateTransition.StrategyBuyProtect1:
+          re = this.onStrategyBuyProtect1(arg as StateTransitionArgs)
+          break
         case StateTransition.StrategyBuyStore:
           re = this.onStrategyBuyStore(arg as StateTransitionArgs)
           break
@@ -765,6 +768,21 @@ export class TransitionHandler {
   onStrategyBuyProtect(args: StateTransitionArgs){
     const logic: LogicEssential = this.genLogic(args.from)
     let re = logic.strategy.buyProtect()
+    let defenseList: GeneralDefenseBlock[] = copyObj(logic.general.state.defenseBlockList) as GeneralDefenseBlock[]
+    for(let item of defenseList){
+      this.onCancelDefenseBlock({
+        from: args.from,
+        x_id: item.x_id,
+        y_id: item.y_id,
+        generalId: item.generalId
+      })
+    }
+    return re
+  }
+
+  onStrategyBuyProtect1(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    let re = logic.strategy.buyProtect1()
     let defenseList: GeneralDefenseBlock[] = copyObj(logic.general.state.defenseBlockList) as GeneralDefenseBlock[]
     for(let item of defenseList){
       this.onCancelDefenseBlock({

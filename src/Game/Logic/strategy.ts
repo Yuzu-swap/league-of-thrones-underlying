@@ -235,12 +235,14 @@ export class Strategy{
 
     buyProtect1(){
         let strategyUse = this.parameter.order_protect_1hour_need
+        console.log('buyProtect1.1', strategyUse, StrategyType.Protect1);
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
                 error: "strategy-point-error"
             }
         }
+        console.log('buyProtect1', strategyUse, StrategyType.Protect1);
         this.setStrategyStatus(StrategyType.Protect1, true)
         return{
             result: true,
@@ -286,10 +288,8 @@ export class Strategy{
             info = this.state.protect
             lastTime = this.parameter.order_protect_times
         }else if(type == StrategyType.Protect1){
-            info = this.state.protect1 || {able:false, beginTime:-1};
+            info = this.state.protect1
             lastTime = this.parameter.order_protect_1hour_times
-
-            console.log('getStrategyStatus', info, StrategyType.Protect1, this.state);
         }else{
             info = this.state.store
             lastTime = this.parameter.order_hoard_times
@@ -319,7 +319,6 @@ export class Strategy{
             able : able,
             beginTime: 0
         }
-        console.log('setStrategyStatus 1', type, item);
         if(able){
             item.beginTime = time
         }
