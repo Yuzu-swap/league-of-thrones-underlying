@@ -40,6 +40,7 @@ export class WebSocketMediator
 
   async init() {
     return new Promise((resolve, reject) => {
+      var _this = this;
       this.client.onopen = () => {
         resolve('');
       };
@@ -93,8 +94,8 @@ export class WebSocketMediator
       };
 
       this.client.onerror = function (err: Error) {
-        if(this.closeCallback != undefined){
-          this.closeCallback()
+        if(_this.closeCallback != undefined){
+          _this.closeCallback()
         }
         console.log('Connection Error', err);
       };
