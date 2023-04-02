@@ -367,7 +367,6 @@ export class Strategy{
     }
 
     updateBoost(){
-        console.log('updateBoost', StrategyType.Protect1, this.getStrategyStatus(StrategyType.Protect1));
         this.boost.setStrategyStatus(StrategyType.Protect, this.getStrategyStatus(StrategyType.Protect).able)
         this.boost.setStrategyStatus(StrategyType.Protect1, this.getStrategyStatus(StrategyType.Protect1).able)
         this.boost.setStrategyStatus(StrategyType.Store, this.getStrategyStatus(StrategyType.Store).able)
