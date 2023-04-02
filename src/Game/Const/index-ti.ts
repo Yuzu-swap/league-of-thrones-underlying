@@ -72,6 +72,7 @@ export const StateTransition = t.enumtype({
   "RegularTask": 36,
   "SetGuideStep": 37,
   "FirstLogin": 38,
+  "StrategyBuyProtect1": 39,
 });
 
 export const StateTransitionArgs = t.iface([], {

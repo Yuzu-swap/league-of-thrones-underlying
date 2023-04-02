@@ -23,9 +23,17 @@
         "value":"28800",
         "name":"order_protect_times"
     },
+    "order_protect_1hour_times":{
+        "value":"3600",
+        "name":"order_protect_1hour_times"
+    },
     "order_protect_need":{
         "value":"8",
         "name":"order_protect_need"
+    },
+    "order_protect_1hour_need":{
+        "value":"2",
+        "name":"order_protect_1hour_need"
     },
     "order_limit":{
         "value":"12",
