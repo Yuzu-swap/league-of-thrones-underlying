@@ -282,7 +282,7 @@ export class WebSocketMediator
     return ctx;
   }
 
-  setWsCloseCallbacl(callback: () => void): void {
+  setWsCloseCallback(callback: () => void): void {
     this.closeCallback = callback
   }
   setChainBlockCallback(callback: ( msg: MessageS2C ) => void){
