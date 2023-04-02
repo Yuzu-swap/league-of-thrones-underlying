@@ -102,6 +102,10 @@ export var InitState = {
         protect:{
             able: false,
             beginTime: 0
+        },
+        protect1:{
+            able: false,
+            beginTime: 0
         }
     },
     [StateName.Activity]:{

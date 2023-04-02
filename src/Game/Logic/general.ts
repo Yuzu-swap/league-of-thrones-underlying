@@ -344,13 +344,15 @@ export class General{
     }
 
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
-        const generalInfo = this.getGeneralState(generalId)
+        const generalInfo = this.getGeneralState(generalId);
+        const generalLevel = generalInfo.level;
+        const skillLevelLimit = Math.floor(generalLevel/5) + 1;
         const level = generalInfo.skill_levels[skillIndex]
         if(level == this.config.parameter.general_skill_max_level){
             return false
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.state.gold >= need){
+        if(this.city.state.gold >= need && level < skillLevelLimit){
             return true
         }
         return false
@@ -751,7 +753,7 @@ export class General{
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
-        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect) || this.isNewPlayerProtect()
+        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect) || this.boost.getStrategyStatus(StrategyType.Protect1) || this.isNewPlayerProtect()
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 

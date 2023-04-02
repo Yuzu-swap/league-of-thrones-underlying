@@ -10,7 +10,8 @@ import { Map } from "./map";
 
 export enum StrategyType {
     Store = 'store',
-    Protect = 'protect'
+    Protect = 'protect',
+    Protect1 = 'protect1',
 }
 
 export class Strategy{
@@ -232,6 +233,21 @@ export class Strategy{
         }
     }
 
+    buyProtect1(){
+        let strategyUse = this.parameter.order_protect_1hour_need
+        if(!this.offsetStrategyPoint(-strategyUse)){
+            return{
+                result: false,
+                error: "strategy-point-error"
+            }
+        }
+        this.setStrategyStatus(StrategyType.Protect1, true)
+        return{
+            result: true,
+            txType: StateTransition.StrategyBuyProtect1
+        }
+    }
+
     buyStore(){
         let strategyUse = this.parameter.order_hoard_need
         if(!this.offsetStrategyPoint(-strategyUse)){
@@ -269,8 +285,12 @@ export class Strategy{
         if(type == StrategyType.Protect){
             info = this.state.protect
             lastTime = this.parameter.order_protect_times
-        }
-        else{
+        }else if(type == StrategyType.Protect1){
+            info = this.state.protect1 || {able:false, beginTime:-1};
+            lastTime = this.parameter.order_protect_1hour_times
+
+            console.log('getStrategyStatus', info, StrategyType.Protect1, this.state);
+        }else{
             info = this.state.store
             lastTime = this.parameter.order_hoard_times
         }
@@ -299,6 +319,7 @@ export class Strategy{
             able : able,
             beginTime: 0
         }
+        console.log('setStrategyStatus 1', type, item);
         if(able){
             item.beginTime = time
         }
@@ -306,6 +327,13 @@ export class Strategy{
             this.state.update(
                 {
                     protect : item
+                }
+            )
+        }
+        if(type == StrategyType.Protect1 ){
+            this.state.update(
+                {
+                    protect1 : item
                 }
             )
         }
@@ -324,8 +352,9 @@ export class Strategy{
         let lastTime : number
         if(type == StrategyType.Protect){
             lastTime = this.parameter.order_protect_times
-        }
-        else{
+        }else if(type == StrategyType.Protect1){
+            lastTime = this.parameter.order_protect_1hour_times
+        }else{
             lastTime = this.parameter.order_hoard_times
         }
         let remainTime = 0
@@ -339,7 +368,9 @@ export class Strategy{
     }
 
     updateBoost(){
+        console.log('updateBoost', StrategyType.Protect1, this.getStrategyStatus(StrategyType.Protect1));
         this.boost.setStrategyStatus(StrategyType.Protect, this.getStrategyStatus(StrategyType.Protect).able)
+        this.boost.setStrategyStatus(StrategyType.Protect1, this.getStrategyStatus(StrategyType.Protect1).able)
         this.boost.setStrategyStatus(StrategyType.Store, this.getStrategyStatus(StrategyType.Store).able)
     }
 }

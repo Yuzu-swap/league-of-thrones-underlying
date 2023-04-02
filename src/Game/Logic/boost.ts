@@ -31,6 +31,7 @@ export class Boost implements IBoost{
     private strategy:{
         store: boolean
         protect: boolean
+        protect1: boolean
     }
     
 
@@ -57,7 +58,8 @@ export class Boost implements IBoost{
         this.maintainNeedTroop = -1
         this.strategy = {
             store : false,
-            protect: false
+            protect: false,
+            protect1: false
         }
     }
     
@@ -114,8 +116,9 @@ export class Boost implements IBoost{
     setStrategyStatus( type: StrategyType, able: boolean ){
         if(type == StrategyType.Protect){
             this.strategy.protect = able
-        }
-        else{
+        }else if(type == StrategyType.Protect1){
+            this.strategy.protect1 = able
+        }else{
             this.strategy.store = able
         }
     }
@@ -123,8 +126,9 @@ export class Boost implements IBoost{
     getStrategyStatus(type: StrategyType) {
         if(type == StrategyType.Protect){
             return this.strategy.protect
-        }
-        else{
+        }else if(type == StrategyType.Protect1){
+            return this.strategy.protect1
+        }else{
             return this.strategy.store 
         }
     }

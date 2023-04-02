@@ -512,6 +512,7 @@ function example() {
           strategy.buyStrategyPoint(2 , ()=>{})
           strategy.buyStore((re)=>console.log(re))
           strategy.buyProtect((re)=>console.log(re))
+          strategy.buyProtect1((re)=>console.log(re))
           console.log(strategy.getStrategiesInfo())
         }
       )

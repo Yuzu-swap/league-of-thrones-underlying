@@ -177,6 +177,7 @@ export interface IStrategyState extends IState{
   buyTimes: ResouceInfo
   store: StrategyStatus
   protect: StrategyStatus
+  protect1: StrategyStatus
 }
 
 export interface ActivityData{
