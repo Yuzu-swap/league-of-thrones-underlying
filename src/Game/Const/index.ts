@@ -73,7 +73,7 @@ export enum StateTransition {
 	RegularTask,
 	SetGuideStep,
 	FirstLogin,
-	StrategyBuyProtect,
+	StrategyBuyProtect1,
 	FinishOutChainUserActivity
 }
 
