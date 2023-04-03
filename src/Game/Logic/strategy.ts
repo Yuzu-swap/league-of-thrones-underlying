@@ -194,7 +194,7 @@ export class Strategy{
                 error: "strategy-point-error"
             }
         }
-        let count = this.getOpenDayCount() * 100
+        let count = this.getOpenDayCount() * 50
         this.city.useTroop(-count)
         return{
             result: true,
@@ -288,7 +288,7 @@ export class Strategy{
             info = this.state.protect
             lastTime = this.parameter.order_protect_times
         }else if(type == StrategyType.Protect1){
-            info = this.state.protect1
+            info = this.state.protect1 || {able:false, beginTime: 0}
             lastTime = this.parameter.order_protect_1hour_times
         }else{
             info = this.state.store
