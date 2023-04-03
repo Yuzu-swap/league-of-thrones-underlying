@@ -541,6 +541,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory)
         transRe = {
           result: true,
+          reTestData: re,
           durabilityReduce: re['durabilityReduce']
         }
         this.recordEvent(
