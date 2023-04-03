@@ -429,6 +429,7 @@ export class City {
     return copyObj(this.rechargeConfig.config)
   }
 
+
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
@@ -450,6 +451,37 @@ export class City {
     )
     return{
       result: true
+    }
+  }
+
+  finishOutChainUserActivity(type :string,action: string ){
+    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward  
+    const actionReward = this.parameter[action + "_" + type +  "_reward"] 
+    console.log("OutChainUserActivityArgs ",type , " action ", action,  ' actionReward', actionReward)
+    // actionReward is number
+    if( typeof actionReward === 'number' && !isNaN(actionReward) ) {
+
+      if(this.state.rewardClaimed[action]){
+        return {
+          result : false,
+          error: "reward-already-claimed"
+        }
+      }
+      this.state.rewardClaimed[action] = true
+      let nowGlod = this.state.gold
+      this.state.update(
+        {
+          gold: nowGlod + actionReward,
+        }
+      )
+      return {
+        result: true
+      }
+    } else {
+      return {
+        result : false,
+        error: "action-reward-error"
+      }
     }
   }
 

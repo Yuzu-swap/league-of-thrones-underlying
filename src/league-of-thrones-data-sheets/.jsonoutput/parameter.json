@@ -3,6 +3,10 @@
         "value":"28800",
         "name":"victory_need_occupy_times"
     },
+    "upgrade_fortress_share_activity_reward":{
+        "value":"100",
+        "name":"upgrade_fortress_share_activity_reward"
+    },
     "troops_base_load":{
         "value":"5",
         "name":"troops_base_load"
@@ -90,5 +94,9 @@
     "battle_victory_get_glory":{
         "value":"10",
         "name":"battle_victory_get_glory"
+    },
+    "attack_territory_share_activity_reward":{
+        "value":"100",
+        "name":"attack_territory_share_activity_reward"
     }
 }
