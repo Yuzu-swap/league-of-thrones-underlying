@@ -726,9 +726,9 @@ export class General{
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
         re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
         // re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
-        re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) *  re.defenseTroopReduce ）/ 100 )
+        re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense)*  re.defenseTroopReduce)/100)
         // re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
-        re.defenseGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) * re.attackTroopReduce) / 100 )
+        re.defenseGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense)* re.attackTroopReduce)/100)
         if(remainTroopA > 0 ){
             re.win = true
             re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
