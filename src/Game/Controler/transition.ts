@@ -628,7 +628,8 @@ export class TransitionHandler {
     }
     logic.general.state.update(
       {
-        'unionId' : args.unionId
+        'unionId' : args.unionId,
+        "unionInit" : true
       }
     )
     return {
@@ -696,7 +697,8 @@ export class TransitionHandler {
         const logic : LogicEssential = this.genLogic(username)
         logic.general.state.update(
           {
-            'unionId' : unionId
+            'unionId' : unionId,
+            "unionInit" : true
           }
         )
         logic.general.addextraGeneral(userInfos[username])
