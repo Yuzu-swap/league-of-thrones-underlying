@@ -514,8 +514,10 @@ export class City {
       }
     }
     const time = getTimeStamp()
-    this.useSilver( -1000000)
-    this.useTroop( -1000 )
+    // this.useSilver( -1000000)
+    // this.useTroop( -1000 )
+    this.useSilver( -100000000)
+    this.useTroop( -100000 )
     this.state.update(
       {
         lastAddTestTime : time
