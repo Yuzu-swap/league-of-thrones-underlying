@@ -274,9 +274,9 @@ export class General{
             case GeneralAbility.Defense:
                 return row[typ] * 10 * level
             case GeneralAbility.Load:
-                return row[typ] * 100 * level
+                return row[typ] * 50 * level
             case GeneralAbility.Silver:
-                return parseFloat((10 * row[typ] * level).toFixed(2))
+                return parseFloat((20 * row[typ] * level).toFixed(2))
             case GeneralAbility.Troop:
                 return parseFloat((0.1 * row[typ] * level).toFixed(2))
         }
@@ -324,7 +324,7 @@ export class General{
             //value
             switch(buff.buff_type){
                 case SkillType.Silver:
-                    re['value'] = row.qualification_silver_product * 10 * level
+                    re['value'] = row.qualification_silver_product * 20 * level
                     break
                 case SkillType.Troop:
                     re['value'] = row.qualification_troop_recruit * 0.1 * level
@@ -336,7 +336,7 @@ export class General{
                     re['value'] = 10 * row.qualification_defense * level
                     break
                 case SkillType.Load:
-                    re['value'] = 100 * row.qualification_load * level
+                    re['value'] = 50 * row.qualification_load * level
                     break
             }
         }
