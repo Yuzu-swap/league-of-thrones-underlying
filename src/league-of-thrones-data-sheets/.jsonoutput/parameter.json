@@ -8,11 +8,11 @@
         "name":"upgrade_fortress_share_activity_reward"
     },
     "troops_base_load":{
-        "value":"5",
+        "value":"1",
         "name":"troops_base_load"
     },
     "register_reward_gold":{
-        "value":"200",
+        "value":"100",
         "name":"register_reward_gold"
     },
     "recovery_one_morale_need_gold":{
@@ -27,13 +27,13 @@
         "value":"28800",
         "name":"order_protect_times"
     },
-    "order_protect_1hour_times":{
-        "value":"3600",
-        "name":"order_protect_1hour_times"
-    },
     "order_protect_need":{
         "value":"8",
         "name":"order_protect_need"
+    },
+    "order_protect_1hour_times":{
+        "value":"3600",
+        "name":"order_protect_1hour_times"
     },
     "order_protect_1hour_need":{
         "value":"2",

@@ -54,21 +54,21 @@
         "need_silver": 169000,
         "maintain_need_troop": 169,
         "level": 8,
-        "get_troop": 150
+        "get_troop": 155
     },
     {
         "need_troop": 0,
         "need_silver": 217000,
         "maintain_need_troop": 217,
         "level": 9,
-        "get_troop": 170
+        "get_troop": 180
     },
     {
         "need_troop": 0,
         "need_silver": 271000,
         "maintain_need_troop": 271,
         "level": 10,
-        "get_troop": 190
+        "get_troop": 210
     }
     ]
 }

@@ -50,21 +50,21 @@
         "level": 7
     },
     {
-        "product_silver": 15000,
+        "product_silver": 15500,
         "need_troop": 0,
         "need_silver": 169000,
         "maintain_need_troop": 169,
         "level": 8
     },
     {
-        "product_silver": 17000,
+        "product_silver": 18000,
         "need_troop": 0,
         "need_silver": 217000,
         "maintain_need_troop": 217,
         "level": 9
     },
     {
-        "product_silver": 19000,
+        "product_silver": 21000,
         "need_troop": 0,
         "need_silver": 271000,
         "maintain_need_troop": 271,
