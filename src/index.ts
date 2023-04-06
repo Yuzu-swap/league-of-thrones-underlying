@@ -39,6 +39,9 @@ import { addToNormalSortedList, addToSortList, checkNaNInObj, getTimeStamp, isNu
 import { StrategyComponent } from './Game/Throne/strategy';
 import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 
+import parameterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/parameter.json')
+
+export const randomCampReward = parameterGDS.choose_random_camp_reward;
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
 export * from './Game/Controler/transition';
