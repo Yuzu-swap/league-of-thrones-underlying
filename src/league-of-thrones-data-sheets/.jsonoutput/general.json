@@ -11,7 +11,7 @@
         "general_skill":[
             16,
             16,
-            17
+            8
         ],
         "general_id": 1,
         "general_from": 1
@@ -149,8 +149,8 @@
         "general_type": 1,
         "general_skill":[
             16,
-            16,
-            17
+            17,
+            16
         ],
         "general_id": 10,
         "general_from": 2
@@ -166,7 +166,7 @@
         "general_skill":[
             12,
             18,
-            12
+            5
         ],
         "general_id": 11,
         "general_from": 2
@@ -243,7 +243,7 @@
         "general_skill":[
             10,
             10,
-            11
+            6
         ],
         "general_id": 16,
         "general_from": 3
@@ -257,9 +257,9 @@
         "qualification_attack": 17,
         "general_type": 2,
         "general_skill":[
-            12,
-            12,
-            13
+            18,
+            8,
+            18
         ],
         "general_id": 17,
         "general_from": 3
@@ -275,7 +275,7 @@
         "general_skill":[
             14,
             20,
-            14
+            20
         ],
         "general_id": 18,
         "general_from": 3
