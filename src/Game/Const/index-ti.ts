@@ -73,6 +73,7 @@ export const StateTransition = t.enumtype({
   "SetGuideStep": 37,
   "FirstLogin": 38,
   "StrategyBuyProtect1": 39,
+  "FinishOutChainUserActivity": 40,
 });
 
 export const StateTransitionArgs = t.iface([], {
@@ -124,8 +125,10 @@ export const AttackBlockArgs = t.iface(["StateTransitionArgs"], {
 });
 
 export const SetUnionIdArgs = t.iface(["StateTransitionArgs"], {
-  "unionId": "number",
+  "union_id": "number",
   "force": "boolean",
+  "random_union": "boolean",
+  "general_ids": t.array("number"),
 });
 
 export const SetUnionWinArgs = t.iface(["StateTransitionArgs"], {
@@ -185,6 +188,12 @@ export const DonateSilverArgs = t.iface(["StateTransitionArgs"], {
 export const GuideStepArgs = t.iface(["StateTransitionArgs"], {
   "type": "string",
   "step": "number",
+});
+
+export const OutChainUserActivityArgs = t.iface(["StateTransitionArgs"], {
+  "username": "string",
+  "type": "string",
+  "action": "string",
 });
 
 export const ChatType = t.enumtype({
@@ -248,6 +257,7 @@ const exportedTypeSuite: t.ITypeSuite = {
   InitUserStatesArgs,
   DonateSilverArgs,
   GuideStepArgs,
+  OutChainUserActivityArgs,
   ChatType,
   ChatChannel,
   ChatTransId,

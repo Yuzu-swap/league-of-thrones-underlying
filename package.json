@@ -8,6 +8,7 @@
     "build": "tsc --declaration -p tsconfig.json",
     "bundle": "npm run build && browserify src/bundle.js -o dist/bundle.js",
     "prepare": "npm run build",
+    "ts-check":"`npm bin`/ts-interface-builder src/Game/Const/index.ts",
     "test": "jest"
   },
   "author": "",
