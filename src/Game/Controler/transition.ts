@@ -558,10 +558,11 @@ export class TransitionHandler {
         }
       }
       else{
-        logic.map.addGloryAndSum(Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory)
+        let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
+        logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
-          reTestData: re,
+          gloryGet: gloryGet, //do fix
           durabilityReduce: re['durabilityReduce']
         }
         this.recordEvent(

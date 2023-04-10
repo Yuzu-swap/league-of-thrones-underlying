@@ -1,0 +1,74 @@
+{
+   "Config" : [
+    {
+        "scale_of_troop_defense": 750,
+        "need_troop": 0,
+        "need_silver": 2000,
+        "maintain_need_troop": 0,
+        "level": 1
+    },
+    {
+        "scale_of_troop_defense": 1500,
+        "need_troop": 0,
+        "need_silver": 16000,
+        "maintain_need_troop": 16,
+        "level": 2
+    },
+    {
+        "scale_of_troop_defense": 2250,
+        "need_troop": 0,
+        "need_silver": 45000,
+        "maintain_need_troop": 45,
+        "level": 3
+    },
+    {
+        "scale_of_troop_defense": 3000,
+        "need_troop": 0,
+        "need_silver": 88000,
+        "maintain_need_troop": 88,
+        "level": 4
+    },
+    {
+        "scale_of_troop_defense": 4500,
+        "need_troop": 0,
+        "need_silver": 146000,
+        "maintain_need_troop": 146,
+        "level": 5
+    },
+    {
+        "scale_of_troop_defense": 6000,
+        "need_troop": 0,
+        "need_silver": 218000,
+        "maintain_need_troop": 218,
+        "level": 6
+    },
+    {
+        "scale_of_troop_defense": 8250,
+        "need_troop": 0,
+        "need_silver": 304000,
+        "maintain_need_troop": 304,
+        "level": 7
+    },
+    {
+        "scale_of_troop_defense": 10500,
+        "need_troop": 0,
+        "need_silver": 405000,
+        "maintain_need_troop": 405,
+        "level": 8
+    },
+    {
+        "scale_of_troop_defense": 12750,
+        "need_troop": 0,
+        "need_silver": 520000,
+        "maintain_need_troop": 520,
+        "level": 9
+    },
+    {
+        "scale_of_troop_defense": 15000,
+        "need_troop": 0,
+        "need_silver": 650000,
+        "maintain_need_troop": 650,
+        "level": 10
+    }
+    ]
+}

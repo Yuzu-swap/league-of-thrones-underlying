@@ -194,7 +194,7 @@ export class Strategy{
                 error: "strategy-point-error"
             }
         }
-        let count = this.getOpenDayCount() * 50
+        let count = this.getOpenDayCount() * 70
         this.city.useTroop(-count)
         return{
             result: true,
