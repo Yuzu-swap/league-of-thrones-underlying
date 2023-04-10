@@ -141,8 +141,10 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 }
 
 export interface SetUnionIdArgs extends StateTransitionArgs{
-	unionId: number
+	union_id: number
 	force: boolean
+	random_union:boolean
+	general_ids: number[]
 }
 
 export interface SetUnionWinArgs extends StateTransitionArgs{

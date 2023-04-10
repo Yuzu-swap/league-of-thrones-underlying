@@ -60,6 +60,7 @@ export class Parameter {
 	gather_get_silver_parameter: number
 	new_player_protect_times: number
 	choose_random_camp_reward: number
+	register_reward_gold: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []

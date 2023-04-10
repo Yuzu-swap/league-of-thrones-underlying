@@ -485,10 +485,18 @@ export class City {
     }
   }
 
-  initGold(){
+  addPreRegisterGold(){
     this.state.update(
       {
-        gold : this.parameter.choose_random_camp_reward
+        gold : this.state.gold  + this.parameter.register_reward_gold
+      }
+    )
+  }
+
+  addRandomCampGold(){
+    this.state.update(
+      {
+        gold : this.state.gold  + this.parameter.choose_random_camp_reward
       }
     )
   }
