@@ -1,0 +1,74 @@
+{
+   "Config" : [
+    {
+        "silver_save": 40000,
+        "need_troop": 0,
+        "need_silver": 2000,
+        "maintain_need_troop": 0,
+        "level": 1
+    },
+    {
+        "silver_save": 120000,
+        "need_troop": 0,
+        "need_silver": 16000,
+        "maintain_need_troop": 16,
+        "level": 2
+    },
+    {
+        "silver_save": 200000,
+        "need_troop": 0,
+        "need_silver": 45000,
+        "maintain_need_troop": 45,
+        "level": 3
+    },
+    {
+        "silver_save": 280000,
+        "need_troop": 0,
+        "need_silver": 88000,
+        "maintain_need_troop": 88,
+        "level": 4
+    },
+    {
+        "silver_save": 360000,
+        "need_troop": 0,
+        "need_silver": 146000,
+        "maintain_need_troop": 146,
+        "level": 5
+    },
+    {
+        "silver_save": 440000,
+        "need_troop": 0,
+        "need_silver": 218000,
+        "maintain_need_troop": 218,
+        "level": 6
+    },
+    {
+        "silver_save": 520000,
+        "need_troop": 0,
+        "need_silver": 304000,
+        "maintain_need_troop": 304,
+        "level": 7
+    },
+    {
+        "silver_save": 600000,
+        "need_troop": 0,
+        "need_silver": 405000,
+        "maintain_need_troop": 405,
+        "level": 8
+    },
+    {
+        "silver_save": 680000,
+        "need_troop": 0,
+        "need_silver": 520000,
+        "maintain_need_troop": 520,
+        "level": 9
+    },
+    {
+        "silver_save": 760000,
+        "need_troop": 0,
+        "need_silver": 650000,
+        "maintain_need_troop": 650,
+        "level": 10
+    }
+    ]
+}

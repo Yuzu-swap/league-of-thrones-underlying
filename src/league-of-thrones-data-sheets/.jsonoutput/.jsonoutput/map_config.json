@@ -1,0 +1,6553 @@
+{
+    "9^9":{
+        "y_id": 9,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 3,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 1
+    },
+    "9^7":{
+        "y_id": 7,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1004,
+        "area_block": 1,
+        "area": 1
+    },
+    "9^5":{
+        "y_id": 5,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "9^3":{
+        "y_id": 3,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 3,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 1
+    },
+    "9^1":{
+        "y_id": 1,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "9^-9":{
+        "y_id": -9,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "9^-7":{
+        "y_id": -7,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1002,
+        "area_block": 1,
+        "area": 4
+    },
+    "9^-5":{
+        "y_id": -5,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 2,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 4
+    },
+    "9^-3":{
+        "y_id": -3,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "9^-1":{
+        "y_id": -1,
+        "x_id": 9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "8^8":{
+        "y_id": 8,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "8^6":{
+        "y_id": 6,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "8^4":{
+        "y_id": 4,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "8^2":{
+        "y_id": 2,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1008,
+        "area_block": 1,
+        "area": 1
+    },
+    "8^10":{
+        "y_id": 10,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 2,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 1
+    },
+    "8^0":{
+        "y_id": 0,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "8^-8":{
+        "y_id": -8,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 3,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 4
+    },
+    "8^-6":{
+        "y_id": -6,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "8^-4":{
+        "y_id": -4,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "8^-2":{
+        "y_id": -2,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1006,
+        "area_block": 1,
+        "area": 4
+    },
+    "8^-10":{
+        "y_id": -10,
+        "x_id": 8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 1,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 4
+    },
+    "7^9":{
+        "y_id": 9,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "7^7":{
+        "y_id": 7,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1006,
+        "area_block": 1,
+        "area": 1
+    },
+    "7^5":{
+        "y_id": 5,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "7^3":{
+        "y_id": 3,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "7^1":{
+        "y_id": 1,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "7^-9":{
+        "y_id": -9,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 1,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 4
+    },
+    "7^-7":{
+        "y_id": -7,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1008,
+        "area_block": 1,
+        "area": 4
+    },
+    "7^-5":{
+        "y_id": -5,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "7^-3":{
+        "y_id": -3,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "7^-1":{
+        "y_id": -1,
+        "x_id": 7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^8":{
+        "y_id": 8,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "6^6":{
+        "y_id": 6,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 1,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 1
+    },
+    "6^4":{
+        "y_id": 4,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 1
+    },
+    "6^2":{
+        "y_id": 2,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "6^10":{
+        "y_id": 10,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1004,
+        "area_block": 1,
+        "area": 1
+    },
+    "6^0":{
+        "y_id": 0,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 5,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 2,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 3,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            }
+        ],
+        "silver_total_number": 4000000,
+        "parameter": 3,
+        "gather_silver_speed": 20000,
+        "durability": 100000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^-8":{
+        "y_id": -8,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^-6":{
+        "y_id": -6,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^-4":{
+        "y_id": -4,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^-2":{
+        "y_id": -2,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 4
+    },
+    "6^-10":{
+        "y_id": -10,
+        "x_id": 6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1002,
+        "area_block": 1,
+        "area": 4
+    },
+    "5^9":{
+        "y_id": 9,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "5^7":{
+        "y_id": 7,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 1
+    },
+    "5^5":{
+        "y_id": 5,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "5^3":{
+        "y_id": 3,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "5^1":{
+        "y_id": 1,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "5^-9":{
+        "y_id": -9,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "5^-7":{
+        "y_id": -7,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 4
+    },
+    "5^-5":{
+        "y_id": -5,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "5^-3":{
+        "y_id": -3,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 1,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 4
+    },
+    "5^-1":{
+        "y_id": -1,
+        "x_id": 5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "4^8":{
+        "y_id": 8,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 1
+    },
+    "4^6":{
+        "y_id": 6,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 1
+    },
+    "4^4":{
+        "y_id": 4,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "4^2":{
+        "y_id": 2,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 1
+    },
+    "4^10":{
+        "y_id": 10,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "4^0":{
+        "y_id": 0,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "4^-8":{
+        "y_id": -8,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 4
+    },
+    "4^-6":{
+        "y_id": -6,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 4
+    },
+    "4^-4":{
+        "y_id": -4,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "4^-2":{
+        "y_id": -2,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 4
+    },
+    "4^-10":{
+        "y_id": -10,
+        "x_id": 4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^9":{
+        "y_id": 9,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1008,
+        "area_block": 1,
+        "area": 1
+    },
+    "3^7":{
+        "y_id": 7,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "3^5":{
+        "y_id": 5,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 3,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 1
+    },
+    "3^3":{
+        "y_id": 3,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 1,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 1
+    },
+    "3^1":{
+        "y_id": 1,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^-9":{
+        "y_id": -9,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1006,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^-7":{
+        "y_id": -7,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^-5":{
+        "y_id": -5,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^-3":{
+        "y_id": -3,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "3^-1":{
+        "y_id": -1,
+        "x_id": 3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^8":{
+        "y_id": 8,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "2^6":{
+        "y_id": 6,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "2^4":{
+        "y_id": 4,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 1
+    },
+    "2^2":{
+        "y_id": 2,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 1,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 1
+    },
+    "2^10":{
+        "y_id": 10,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "2^0":{
+        "y_id": 0,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 3,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^-8":{
+        "y_id": -8,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^-6":{
+        "y_id": -6,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^-4":{
+        "y_id": -4,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^-2":{
+        "y_id": -2,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "2^-10":{
+        "y_id": -10,
+        "x_id": 2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "1^9":{
+        "y_id": 9,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "1^7":{
+        "y_id": 7,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1012,
+        "area_block": 1,
+        "area": 1
+    },
+    "1^5":{
+        "y_id": 5,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "1^3":{
+        "y_id": 3,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "1^1":{
+        "y_id": 1,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1015,
+        "area_block": 1,
+        "area": 0
+    },
+    "1^-9":{
+        "y_id": -9,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "1^-7":{
+        "y_id": -7,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 4
+    },
+    "1^-5":{
+        "y_id": -5,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 4
+    },
+    "1^-3":{
+        "y_id": -3,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 4
+    },
+    "1^-1":{
+        "y_id": -1,
+        "x_id": 1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1015,
+        "area_block": 1,
+        "area": 0
+    },
+    "10^8":{
+        "y_id": 8,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "10^6":{
+        "y_id": 6,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 1
+    },
+    "10^4":{
+        "y_id": 4,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1002,
+        "area_block": 1,
+        "area": 1
+    },
+    "10^2":{
+        "y_id": 2,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 1
+    },
+    "10^10":{
+        "y_id": 10,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 3,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 1,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 0,
+        "area_block": 1,
+        "area": 1
+    },
+    "10^0":{
+        "y_id": 0,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 1,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 4
+    },
+    "10^-8":{
+        "y_id": -8,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 1,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 4
+    },
+    "10^-6":{
+        "y_id": -6,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 4
+    },
+    "10^-4":{
+        "y_id": -4,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1004,
+        "area_block": 1,
+        "area": 4
+    },
+    "10^-2":{
+        "y_id": -2,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 2,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 4
+    },
+    "10^-10":{
+        "y_id": -10,
+        "x_id": 10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 3,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 4,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 0,
+        "area_block": 1,
+        "area": 4
+    },
+    "0^8":{
+        "y_id": 8,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 1
+    },
+    "0^6":{
+        "y_id": 6,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 5,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 2,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 3,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            }
+        ],
+        "silver_total_number": 4000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 100000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 1
+    },
+    "0^4":{
+        "y_id": 4,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "0^2":{
+        "y_id": 2,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1016,
+        "area_block": 1,
+        "area": 0
+    },
+    "0^10":{
+        "y_id": 10,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 1
+    },
+    "0^0":{
+        "y_id": 0,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1016,
+        "area_block": 1,
+        "area": 0
+    },
+    "0^-8":{
+        "y_id": -8,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 3
+    },
+    "0^-6":{
+        "y_id": -6,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 5,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 2,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 3,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            }
+        ],
+        "silver_total_number": 4000000,
+        "parameter": 1,
+        "gather_silver_speed": 20000,
+        "durability": 100000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 3
+    },
+    "0^-4":{
+        "y_id": -4,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "0^-2":{
+        "y_id": -2,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1013,
+        "area_block": 1,
+        "area": 0
+    },
+    "0^-10":{
+        "y_id": -10,
+        "x_id": 0,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 1004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-9^9":{
+        "y_id": 9,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 1,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 2
+    },
+    "-9^7":{
+        "y_id": 7,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-9^5":{
+        "y_id": 5,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-9^3":{
+        "y_id": 3,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 3,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 2
+    },
+    "-9^1":{
+        "y_id": 1,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-9^-9":{
+        "y_id": -9,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-9^-7":{
+        "y_id": -7,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1001,
+        "area_block": 1,
+        "area": 3
+    },
+    "-9^-5":{
+        "y_id": -5,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 1,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 3
+    },
+    "-9^-3":{
+        "y_id": -3,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 2,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 3
+    },
+    "-9^-1":{
+        "y_id": -1,
+        "x_id": -9,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^8":{
+        "y_id": 8,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^6":{
+        "y_id": 6,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^4":{
+        "y_id": 4,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^2":{
+        "y_id": 2,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1007,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^10":{
+        "y_id": 10,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^0":{
+        "y_id": 0,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 1,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-8^-8":{
+        "y_id": -8,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 1,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 3
+    },
+    "-8^-6":{
+        "y_id": -6,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-8^-4":{
+        "y_id": -4,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 3
+    },
+    "-8^-2":{
+        "y_id": -2,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1005,
+        "area_block": 1,
+        "area": 3
+    },
+    "-8^-10":{
+        "y_id": -10,
+        "x_id": -8,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 1,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 3
+    },
+    "-7^9":{
+        "y_id": 9,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 4,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-7^7":{
+        "y_id": 7,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1005,
+        "area_block": 1,
+        "area": 2
+    },
+    "-7^5":{
+        "y_id": 5,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-7^3":{
+        "y_id": 3,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-7^1":{
+        "y_id": 1,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-7^-9":{
+        "y_id": -9,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 2,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 3
+    },
+    "-7^-7":{
+        "y_id": -7,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1007,
+        "area_block": 1,
+        "area": 3
+    },
+    "-7^-5":{
+        "y_id": -5,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-7^-3":{
+        "y_id": -3,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 3
+    },
+    "-7^-1":{
+        "y_id": -1,
+        "x_id": -7,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^8":{
+        "y_id": 8,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^6":{
+        "y_id": 6,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^4":{
+        "y_id": 4,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^2":{
+        "y_id": 2,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^10":{
+        "y_id": 10,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^0":{
+        "y_id": 0,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 5,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 2,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            },
+            {
+                "type": 3,
+                "defense": 28000,
+                "count": 7000,
+                "attack": 28000
+            }
+        ],
+        "silver_total_number": 4000000,
+        "parameter": 2,
+        "gather_silver_speed": 20000,
+        "durability": 100000,
+        "buff_id": 1010,
+        "area_block": 1,
+        "area": 2
+    },
+    "-6^-8":{
+        "y_id": -8,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-6^-6":{
+        "y_id": -6,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 2,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 3
+    },
+    "-6^-4":{
+        "y_id": -4,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-6^-2":{
+        "y_id": -2,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-6^-10":{
+        "y_id": -10,
+        "x_id": -6,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1001,
+        "area_block": 1,
+        "area": 3
+    },
+    "-5^9":{
+        "y_id": 9,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-5^7":{
+        "y_id": 7,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 2
+    },
+    "-5^5":{
+        "y_id": 5,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 2,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 2
+    },
+    "-5^3":{
+        "y_id": 3,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-5^1":{
+        "y_id": 1,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 3,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-5^-9":{
+        "y_id": -9,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 3,
+                "defense": 10000,
+                "count": 4000,
+                "attack": 10000
+            }
+        ],
+        "silver_total_number": 700000,
+        "parameter": 4,
+        "gather_silver_speed": 7000,
+        "durability": 8000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-5^-7":{
+        "y_id": -7,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-5^-5":{
+        "y_id": -5,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 3
+    },
+    "-5^-3":{
+        "y_id": -3,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-5^-1":{
+        "y_id": -1,
+        "x_id": -5,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-4^8":{
+        "y_id": 8,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 3,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 2
+    },
+    "-4^6":{
+        "y_id": 6,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 2
+    },
+    "-4^4":{
+        "y_id": 4,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 3,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 2
+    },
+    "-4^2":{
+        "y_id": 2,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 2
+    },
+    "-4^10":{
+        "y_id": 10,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-4^0":{
+        "y_id": 0,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-4^-8":{
+        "y_id": -8,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-4^-6":{
+        "y_id": -6,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1011,
+        "area_block": 1,
+        "area": 3
+    },
+    "-4^-4":{
+        "y_id": -4,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 2,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 3
+    },
+    "-4^-2":{
+        "y_id": -2,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1011,
+        "area_block": 1,
+        "area": 3
+    },
+    "-4^-10":{
+        "y_id": -10,
+        "x_id": -4,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 18000,
+                "count": 5500,
+                "attack": 18000
+            }
+        ],
+        "silver_total_number": 1100000,
+        "parameter": 4,
+        "gather_silver_speed": 11000,
+        "durability": 11000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-3^9":{
+        "y_id": 9,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1007,
+        "area_block": 1,
+        "area": 2
+    },
+    "-3^7":{
+        "y_id": 7,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-3^5":{
+        "y_id": 5,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-3^3":{
+        "y_id": 3,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 2,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 2
+    },
+    "-3^1":{
+        "y_id": 1,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-3^-9":{
+        "y_id": -9,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 2,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            },
+            {
+                "type": 3,
+                "defense": 20000,
+                "count": 6000,
+                "attack": 20000
+            }
+        ],
+        "silver_total_number": 2600000,
+        "parameter": 2,
+        "gather_silver_speed": 13000,
+        "durability": 24000,
+        "buff_id": 1005,
+        "area_block": 1,
+        "area": 3
+    },
+    "-3^-7":{
+        "y_id": -7,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-3^-5":{
+        "y_id": -5,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 1,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 3
+    },
+    "-3^-3":{
+        "y_id": -3,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-3^-1":{
+        "y_id": -1,
+        "x_id": -3,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^8":{
+        "y_id": 8,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^6":{
+        "y_id": 6,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^4":{
+        "y_id": 4,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1011,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^2":{
+        "y_id": 2,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^10":{
+        "y_id": 10,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^0":{
+        "y_id": 0,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-2^-8":{
+        "y_id": -8,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 1,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 3
+    },
+    "-2^-6":{
+        "y_id": -6,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 3
+    },
+    "-2^-4":{
+        "y_id": -4,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 3
+    },
+    "-2^-2":{
+        "y_id": -2,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 2,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 3
+    },
+    "-2^-10":{
+        "y_id": -10,
+        "x_id": -2,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 4,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-1^9":{
+        "y_id": 9,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 3,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 2
+    },
+    "-1^7":{
+        "y_id": 7,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1011,
+        "area_block": 1,
+        "area": 2
+    },
+    "-1^5":{
+        "y_id": 5,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 2
+    },
+    "-1^3":{
+        "y_id": 3,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3002,
+        "area_block": 1,
+        "area": 2
+    },
+    "-1^1":{
+        "y_id": 1,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1014,
+        "area_block": 1,
+        "area": 0
+    },
+    "-1^-9":{
+        "y_id": -9,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 24000,
+                "count": 7000,
+                "attack": 24000
+            }
+        ],
+        "silver_total_number": 1500000,
+        "parameter": 3,
+        "gather_silver_speed": 15000,
+        "durability": 14000,
+        "buff_id": 3003,
+        "area_block": 2,
+        "area": 3
+    },
+    "-1^-7":{
+        "y_id": -7,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 2,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            },
+            {
+                "type": 3,
+                "defense": 33000,
+                "count": 10000,
+                "attack": 33000
+            }
+        ],
+        "silver_total_number": 4600000,
+        "parameter": 3,
+        "gather_silver_speed": 23000,
+        "durability": 40000,
+        "buff_id": 1009,
+        "area_block": 1,
+        "area": 3
+    },
+    "-1^-5":{
+        "y_id": -5,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 4,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-1^-3":{
+        "y_id": -3,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
+            }
+        ],
+        "silver_total_number": 2000000,
+        "parameter": 3,
+        "gather_silver_speed": 20000,
+        "durability": 20000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 3
+    },
+    "-1^-1":{
+        "y_id": -1,
+        "x_id": -1,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 2,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 2,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            },
+            {
+                "type": 3,
+                "defense": 40000,
+                "count": 10000,
+                "attack": 40000
+            }
+        ],
+        "silver_total_number": 6000000,
+        "gather_silver_speed": 30000,
+        "durability": 35000,
+        "buff_id": 1014,
+        "area_block": 1,
+        "area": 0
+    },
+    "-10^8":{
+        "y_id": 8,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-10^6":{
+        "y_id": 6,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 1,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3001,
+        "area_block": 2,
+        "area": 2
+    },
+    "-10^4":{
+        "y_id": 4,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1001,
+        "area_block": 1,
+        "area": 2
+    },
+    "-10^2":{
+        "y_id": 2,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 2,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3004,
+        "area_block": 2,
+        "area": 2
+    },
+    "-10^10":{
+        "y_id": 10,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 3,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 2,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 0,
+        "area_block": 1,
+        "area": 2
+    },
+    "-10^0":{
+        "y_id": 0,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 6,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 2
+    },
+    "-10^-8":{
+        "y_id": -8,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3004,
+        "area_block": 1,
+        "area": 3
+    },
+    "-10^-6":{
+        "y_id": -6,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 2000,
+                "count": 1000,
+                "attack": 2000
+            }
+        ],
+        "silver_total_number": 200000,
+        "parameter": 4,
+        "gather_silver_speed": 2000,
+        "durability": 2000,
+        "buff_id": 3003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-10^-4":{
+        "y_id": -4,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 4,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 2,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            },
+            {
+                "type": 3,
+                "defense": 7000,
+                "count": 3000,
+                "attack": 7000
+            }
+        ],
+        "silver_total_number": 1200000,
+        "parameter": 1,
+        "gather_silver_speed": 6000,
+        "durability": 12000,
+        "buff_id": 1003,
+        "area_block": 1,
+        "area": 3
+    },
+    "-10^-2":{
+        "y_id": -2,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 1,
+        "troops":[
+            {
+                "type": 2,
+                "defense": 5000,
+                "count": 2000,
+                "attack": 5000
+            }
+        ],
+        "silver_total_number": 400000,
+        "parameter": 1,
+        "gather_silver_speed": 4000,
+        "durability": 4000,
+        "buff_id": 3002,
+        "area_block": 2,
+        "area": 3
+    },
+    "-10^-10":{
+        "y_id": -10,
+        "x_id": -10,
+        "victory_occupy_reward":[
+            {
+                "type": 0,
+                "name":"0",
+                "count": 0
+            }
+        ],
+        "type": 3,
+        "troops":[
+            {
+                "type": 1,
+                "defense": 0,
+                "count": 0,
+                "attack": 0
+            }
+        ],
+        "silver_total_number": 0,
+        "parameter": 3,
+        "gather_silver_speed": 0,
+        "durability": 0,
+        "buff_id": 0,
+        "area_block": 1,
+        "area": 3
+    }
+}
