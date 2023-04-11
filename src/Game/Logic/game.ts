@@ -325,6 +325,7 @@ export class City {
     const product = this.boost.getProduction(ResouceType.Troop)
     const time = getTimeStamp();
     const endtime = Math.floor(amount/product * 3600) + time
+    console.log('recruit', product, amount, Math.floor(amount/product * 3600));
     if(!this.useSilver(cost)){
       return {result: false, error: 'silver-not-enough'}
     }
