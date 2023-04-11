@@ -629,14 +629,23 @@ export class TransitionHandler {
     }
     logic.general.state.update(
       {
-        'unionId' : args.unionId,
+        'unionId' : args.union_id,
         "unionInit" : true
       }
     )
+
+    const username = args.from
+    console.log("onSetUnionId username ",username , " applyInfo is ", args)
+
+    logic.general.addextraGeneral(args.general_ids)
+    if(args.random_union){
+      logic.city.addRandomCampGold()
+    }
+    
     return {
       result: true,
       username: args.from,
-      unionId: args.unionId
+      unionId: args.union_id
     }
   }
 
@@ -688,6 +697,7 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
+    console.log("onStartSeason applies are ", args.applies)
     for(let unionIdString in args.applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -702,8 +712,13 @@ export class TransitionHandler {
             "unionInit" : true
           }
         )
-        logic.general.addextraGeneral(userInfos[username])
-        logic.city.initGold()
+        const applyInfo = userInfos[username]
+        console.log("username ",username , " applyInfo is ", applyInfo)
+        logic.general.addextraGeneral(applyInfo.general_ids)
+        logic.city.addPreRegisterGold()
+        if(applyInfo.random_union){
+          logic.city.addRandomCampGold()
+        }
       }
     }
     for(let item in args.season){
