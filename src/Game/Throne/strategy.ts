@@ -15,9 +15,9 @@ export interface IStrategyComponent extends IComponent{
     buySilver(callback: (result: any) => void): void
     buyTroop(callback: (result: any) => void): void
     buyProtect(callback: (result: any) => void): void
+    buyProtect1(callback: (result: any) => void): void
     buyStore(callback: (result: any) => void): void
     buyMorale(callback: (result: any) => void): void
-    
 }
 
 
@@ -60,9 +60,14 @@ export class StrategyComponent implements IStrategyComponent{
 
     getStrategiesInfo():{} {
         let re = {}
-        re['buyTroopCount'] = this.strategy.getOpenDayCount() * 100
+        re['buyTroopCount'] = this.strategy.getOpenDayCount() * 70
         re['buySilverCount'] = this.strategy.getOpenDayCount() * 10000
         re['buyMoraleCount'] = 2
+        re['protect1'] = {
+            able : this.strategy.getStrategyStatus(StrategyType.Protect1).able,
+            remainTime: this.strategy.getStrategyStatusRemainTime(StrategyType.Protect1),
+            maxTime: this.strategy.parameter.order_protect_1hour_times
+        }
         re['protect'] = {
             able : this.strategy.getStrategyStatus(StrategyType.Protect).able,
             remainTime: this.strategy.getStrategyStatusRemainTime(StrategyType.Protect),
@@ -89,6 +94,7 @@ export class StrategyComponent implements IStrategyComponent{
             buySilver: 1,
             buyTroop: 1,
             buyMorale: 1,
+            protect1: this.strategy.parameter.order_protect_1hour_need,
             protect: this.strategy.parameter.order_protect_need,
             store: this.strategy.parameter.order_hoard_need
         }
@@ -121,6 +127,12 @@ export class StrategyComponent implements IStrategyComponent{
 
     buyProtect(callback: (result: any) => void): void {
         this.mediator.sendTransaction(StateTransition.StrategyBuyProtect,{
+            from: Throne.instance().username,
+        }, callback)
+    }
+
+    buyProtect1(callback: (result: any) => void): void {
+        this.mediator.sendTransaction(StateTransition.StrategyBuyProtect1,{
             from: Throne.instance().username,
         }, callback)
     }

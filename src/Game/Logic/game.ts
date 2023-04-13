@@ -325,6 +325,7 @@ export class City {
     const product = this.boost.getProduction(ResouceType.Troop)
     const time = getTimeStamp();
     const endtime = Math.floor(amount/product * 3600) + time
+    console.log('recruit', product, amount, Math.floor(amount/product * 3600));
     if(!this.useSilver(cost)){
       return {result: false, error: 'silver-not-enough'}
     }
@@ -429,6 +430,7 @@ export class City {
     return copyObj(this.rechargeConfig.config)
   }
 
+
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
@@ -453,10 +455,49 @@ export class City {
     }
   }
 
-  initGold(){
+  finishOutChainUserActivity(type :string,action: string ){
+    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward  
+    const actionReward = this.parameter[action + "_" + type +  "_reward"] 
+    console.log("OutChainUserActivityArgs ",type , " action ", action,  ' actionReward', actionReward)
+    // actionReward is number
+    if( typeof actionReward === 'number' && !isNaN(actionReward) ) {
+
+      if(this.state.rewardClaimed[action]){
+        return {
+          result : false,
+          error: "reward-already-claimed"
+        }
+      }
+      this.state.rewardClaimed[action] = true
+      let nowGlod = this.state.gold
+      this.state.update(
+        {
+          gold: nowGlod + actionReward,
+        }
+      )
+      return {
+        result: true
+      }
+    } else {
+      return {
+        result : false,
+        error: "action-reward-error"
+      }
+    }
+  }
+
+  addPreRegisterGold(){
     this.state.update(
       {
-        gold : this.parameter.choose_random_camp_reward
+        gold : this.state.gold  + this.parameter.register_reward_gold
+      }
+    )
+  }
+
+  addRandomCampGold(){
+    this.state.update(
+      {
+        gold : this.state.gold  + this.parameter.choose_random_camp_reward
       }
     )
   }
@@ -482,8 +523,12 @@ export class City {
       }
     }
     const time = getTimeStamp()
-    this.useSilver( -1000000)
-    this.useTroop( -1000 )
+    // this.useSilver( 0)
+    // this.useTroop( 0 )
+    // this.useGold( 0 )
+    this.useSilver( -100000000)
+    this.useTroop( -100000 )
+    this.useGold( -50000 )
     this.state.update(
       {
         lastAddTestTime : time

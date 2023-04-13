@@ -72,7 +72,9 @@ export enum StateTransition {
 	DonateSilver,
 	RegularTask,
 	SetGuideStep,
-	FirstLogin
+	FirstLogin,
+	StrategyBuyProtect1,
+	FinishOutChainUserActivity
 }
 
 export function StringifyTxType() {
@@ -139,8 +141,10 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 }
 
 export interface SetUnionIdArgs extends StateTransitionArgs{
-	unionId: number
+	union_id: number
 	force: boolean
+	random_union:boolean
+	general_ids: number[]
 }
 
 export interface SetUnionWinArgs extends StateTransitionArgs{
@@ -203,6 +207,11 @@ export interface GuideStepArgs extends StateTransitionArgs{
 	step: number
 }
 
+export interface OutChainUserActivityArgs extends StateTransitionArgs{
+	username: string
+	type: string
+	action: string
+}
 
 export enum ChatType {
 	ChatTypeText                  = 1,
@@ -237,6 +246,8 @@ export interface ChatMessage {
 	ts :number
 }
 
+
+
 const checkMapFactory = createCheckers(IndexTI)
 
 export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = 
@@ -260,6 +271,7 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } =
 	[StateTransition.BuyStrategyPoint]: checkMapFactory.BuyStrategyPointArgs,
 	[StateTransition.StrategyBuyMorale]:  checkMapFactory.StateTransitionArgs,
 	[StateTransition.StrategyBuyProtect]:  checkMapFactory.StateTransitionArgs,
+	[StateTransition.StrategyBuyProtect1]:  checkMapFactory.StateTransitionArgs,
 	[StateTransition.StrategyBuySilver]:  checkMapFactory.StateTransitionArgs,
 	[StateTransition.StrategyBuyStore]:  checkMapFactory.StateTransitionArgs,
 	[StateTransition.StrategyBuyTroop]:  checkMapFactory.StateTransitionArgs,

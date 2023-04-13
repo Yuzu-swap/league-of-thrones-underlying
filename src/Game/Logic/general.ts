@@ -274,9 +274,9 @@ export class General{
             case GeneralAbility.Defense:
                 return row[typ] * 10 * level
             case GeneralAbility.Load:
-                return row[typ] * 100 * level
+                return row[typ] * 50 * level
             case GeneralAbility.Silver:
-                return parseFloat((10 * row[typ] * level).toFixed(2))
+                return parseFloat((20 * row[typ] * level).toFixed(2))
             case GeneralAbility.Troop:
                 return parseFloat((0.1 * row[typ] * level).toFixed(2))
         }
@@ -324,7 +324,7 @@ export class General{
             //value
             switch(buff.buff_type){
                 case SkillType.Silver:
-                    re['value'] = row.qualification_silver_product * 10 * level
+                    re['value'] = row.qualification_silver_product * 20 * level
                     break
                 case SkillType.Troop:
                     re['value'] = row.qualification_troop_recruit * 0.1 * level
@@ -336,7 +336,7 @@ export class General{
                     re['value'] = 10 * row.qualification_defense * level
                     break
                 case SkillType.Load:
-                    re['value'] = 100 * row.qualification_load * level
+                    re['value'] = 50 * row.qualification_load * level
                     break
             }
         }
@@ -344,13 +344,15 @@ export class General{
     }
 
     checkGeneralSkillUpgrade(generalId : number, skillIndex : number):boolean{
-        const generalInfo = this.getGeneralState(generalId)
+        const generalInfo = this.getGeneralState(generalId);
+        const generalLevel = generalInfo.level;
+        const skillLevelLimit = Math.floor(generalLevel/5) + 1;
         const level = generalInfo.skill_levels[skillIndex]
         if(level == this.config.parameter.general_skill_max_level){
             return false
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
-        if(this.city.state.gold >= need){
+        if(this.city.state.gold >= need && level < skillLevelLimit){
             return true
         }
         return false
@@ -723,8 +725,10 @@ export class General{
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
         re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
-        re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
-        re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
+        // re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
+        re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense)*  re.defenseTroopReduce)/100)
+        // re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
+        re.defenseGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense)* re.attackTroopReduce)/100)
         if(remainTroopA > 0 ){
             re.win = true
             re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
@@ -751,7 +755,7 @@ export class General{
         defenderInfo['glory'] = this.state.glory
         defenderInfo['username'] = parseStateId(defenseInfoId).username
         defenderInfo['fortressLevel'] = this.city.state.facilities[CityFacility.Fortress][0]
-        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect) || this.isNewPlayerProtect()
+        defenderInfo['isProtected'] = this.boost.getStrategyStatus(StrategyType.Protect) || this.boost.getStrategyStatus(StrategyType.Protect1) || this.isNewPlayerProtect()
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 

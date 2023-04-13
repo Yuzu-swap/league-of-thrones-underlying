@@ -1,0 +1,22 @@
+{
+   "Config" : [
+    {
+        "id": 1,
+        "activity_type": 1,
+        "activity_pond": 1000,
+        "activity_last": 24
+    },
+    {
+        "id": 2,
+        "activity_type": 2,
+        "activity_pond": 1000,
+        "activity_last": 24
+    },
+    {
+        "id": 3,
+        "activity_type": 3,
+        "activity_pond": 1000,
+        "activity_last": 24
+    }
+    ]
+}
