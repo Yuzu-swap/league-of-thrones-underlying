@@ -34,7 +34,8 @@ import {
   DonateSilverArgs,
   GuideStepArgs,
   checkerMapForTxArgsTypeMap,
-  SetUnionWinArgs
+  SetUnionWinArgs,
+  OutChainUserActivityArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -108,6 +109,22 @@ export class TransitionHandler {
         checkerMapForTxArgsTypeMap[sid].check(arg)
         checkNaNInObj(arg)
       }
+      const witnessName = "witness"
+      const onlyWitnessTransitions = [
+        StateTransition.StartSeason,
+        StateTransition.Recharge,
+        StateTransition.FinishOutChainUserActivity,
+      ]
+      // if sid in onlyWitness transition type
+      if ( onlyWitnessTransitions.includes(sid) ) {
+        if (arg["from"] != witnessName ){
+          console.log(" only witness can do this transition sid: ",sid , " from: ", arg["from"])
+          throw new Error(" only witness can do this transition sid: " + sid + " from: " + arg["from"])
+        }
+      }
+
+
+
       switch (sid) {
         case StateTransition.UpgradeFacility:
           re = this.onUpdateFacility(arg as UpgradeFacilityArgs);
@@ -172,6 +189,9 @@ export class TransitionHandler {
         case StateTransition.StrategyBuyProtect:
           re = this.onStrategyBuyProtect(arg as StateTransitionArgs)
           break
+        case StateTransition.StrategyBuyProtect1:
+          re = this.onStrategyBuyProtect1(arg as StateTransitionArgs)
+          break
         case StateTransition.StrategyBuyStore:
           re = this.onStrategyBuyStore(arg as StateTransitionArgs)
           break
@@ -207,6 +227,9 @@ export class TransitionHandler {
           return re
         case StateTransition.RegularTask:
           re = this.onRegularTask()
+          return re
+        case StateTransition.FinishOutChainUserActivity:
+          re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
           return re
         
       }
@@ -535,9 +558,11 @@ export class TransitionHandler {
         }
       }
       else{
-        logic.map.addGloryAndSum(Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory)
+        let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
+        logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
+          gloryGet: gloryGet, //do fix
           durabilityReduce: re['durabilityReduce']
         }
         this.recordEvent(
@@ -604,13 +629,23 @@ export class TransitionHandler {
     }
     logic.general.state.update(
       {
-        'unionId' : args.unionId
+        'unionId' : args.union_id,
+        "unionInit" : true
       }
     )
+
+    const username = args.from
+    console.log("onSetUnionId username ",username , " applyInfo is ", args)
+
+    logic.general.addextraGeneral(args.general_ids)
+    if(args.random_union){
+      logic.city.addRandomCampGold()
+    }
+    
     return {
       result: true,
       username: args.from,
-      unionId: args.unionId
+      unionId: args.union_id
     }
   }
 
@@ -662,6 +697,7 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
+    console.log("onStartSeason applies are ", args.applies)
     for(let unionIdString in args.applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -672,11 +708,17 @@ export class TransitionHandler {
         const logic : LogicEssential = this.genLogic(username)
         logic.general.state.update(
           {
-            'unionId' : unionId
+            'unionId' : unionId,
+            "unionInit" : true
           }
         )
-        logic.general.addextraGeneral(userInfos[username])
-        logic.city.initGold()
+        const applyInfo = userInfos[username]
+        console.log("username ",username , " applyInfo is ", applyInfo)
+        logic.general.addextraGeneral(applyInfo.general_ids)
+        logic.city.addPreRegisterGold()
+        if(applyInfo.random_union){
+          logic.city.addRandomCampGold()
+        }
       }
     }
     for(let item in args.season){
@@ -733,6 +775,10 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(args.username)
     return logic.city.recharge(args.rechargeId, args.amount)
   }
+  onUserFinsishOutChainActivity(args: OutChainUserActivityArgs){
+    const logic : LogicEssential = this.genLogic(args.username)
+    return logic.city.finishOutChainUserActivity(args.type,args.action)
+  }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
     return logic.city.addTestResource()
@@ -765,6 +811,21 @@ export class TransitionHandler {
   onStrategyBuyProtect(args: StateTransitionArgs){
     const logic: LogicEssential = this.genLogic(args.from)
     let re = logic.strategy.buyProtect()
+    let defenseList: GeneralDefenseBlock[] = copyObj(logic.general.state.defenseBlockList) as GeneralDefenseBlock[]
+    for(let item of defenseList){
+      this.onCancelDefenseBlock({
+        from: args.from,
+        x_id: item.x_id,
+        y_id: item.y_id,
+        generalId: item.generalId
+      })
+    }
+    return re
+  }
+
+  onStrategyBuyProtect1(args: StateTransitionArgs){
+    const logic: LogicEssential = this.genLogic(args.from)
+    let re = logic.strategy.buyProtect1()
     let defenseList: GeneralDefenseBlock[] = copyObj(logic.general.state.defenseBlockList) as GeneralDefenseBlock[]
     for(let item of defenseList){
       this.onCancelDefenseBlock({

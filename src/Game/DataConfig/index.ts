@@ -52,12 +52,15 @@ export class Parameter {
 	order_recovery_need_times: number
 	order_protect_times: number
 	order_protect_need: number
+	order_protect_1hour_need: number
+	order_protect_1hour_times: number
 	order_hoard_times: number
 	order_hoard_need: number
 	gather_need_general_stamina: number
 	gather_get_silver_parameter: number
 	new_player_protect_times: number
 	choose_random_camp_reward: number
+	register_reward_gold: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []

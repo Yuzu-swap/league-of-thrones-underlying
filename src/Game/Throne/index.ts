@@ -999,7 +999,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u202303072"
+    this.version = "u20230411"
   }
 
 
@@ -1026,7 +1026,7 @@ export class Throne implements IThrone {
     if(this.wsUrl && this.username!='test'){
       const wsmediator = new WebSocketMediator(this.wsUrl)
       if(obj['wsCloseCallback']){
-        wsmediator.setWsCloseCallbacl(obj['wsCloseCallback'])
+        wsmediator.setWsCloseCallback(obj['wsCloseCallback'])
       }
       await wsmediator.init()
       this.mediator = wsmediator

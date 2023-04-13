@@ -1,0 +1,52 @@
+{
+   "Config" : [
+    {
+        "order_times": 1,
+        "need_gold": 30
+    },
+    {
+        "order_times": 2,
+        "need_gold": 30
+    },
+    {
+        "order_times": 3,
+        "need_gold": 50
+    },
+    {
+        "order_times": 4,
+        "need_gold": 50
+    },
+    {
+        "order_times": 5,
+        "need_gold": 70
+    },
+    {
+        "order_times": 6,
+        "need_gold": 70
+    },
+    {
+        "order_times": 7,
+        "need_gold": 100
+    },
+    {
+        "order_times": 8,
+        "need_gold": 100
+    },
+    {
+        "order_times": 9,
+        "need_gold": 150
+    },
+    {
+        "order_times": 10,
+        "need_gold": 150
+    },
+    {
+        "order_times": 11,
+        "need_gold": 200
+    },
+    {
+        "order_times": 12,
+        "need_gold": 200
+    }
+    ]
+}

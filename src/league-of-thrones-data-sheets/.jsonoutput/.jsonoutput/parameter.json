@@ -28,7 +28,7 @@
         "name":"order_protect_times"
     },
     "order_protect_need":{
-        "value":"12",
+        "value":"8",
         "name":"order_protect_need"
     },
     "order_protect_1hour_times":{
