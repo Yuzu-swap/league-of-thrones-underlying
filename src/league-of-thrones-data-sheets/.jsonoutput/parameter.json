@@ -59,6 +59,14 @@
         "value":"86400",
         "name":"new_player_protect_times"
     },
+    "healing_troops_need_silver":{
+        "value":"100",
+        "name":"healing_troops_need_silver"
+    },
+    "healing_troops_need_gold":{
+        "value":"0.1",
+        "name":"healing_troops_need_gold"
+    },
     "general_troops_coefficient":{
         "value":"1.2",
         "name":"general_troops_coefficient"

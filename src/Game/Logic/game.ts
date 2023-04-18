@@ -12,6 +12,7 @@ import {
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
+  FacilityHospitalGdsRow,
   CityConfigFromGDS,
   FacilityLimit,
   RechargeConfigs,
@@ -38,6 +39,7 @@ export interface CityConfig {
     [CityFacility.ArcherCamp]: ConfigContainer<FacilityArcherCampGdsRow>;
     [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>;
     [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>;
+    [CityFacility.Hospital]: ConfigContainer<FacilityHospitalGdsRow>;
   };
   limit: {
     [CityFacility.Fortress]: FacilityLimit;
@@ -49,6 +51,7 @@ export interface CityConfig {
     [CityFacility.ArcherCamp]: FacilityLimit;
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
+    [CityFacility.Hospital]: FacilityLimit;
   };
 }
 
@@ -417,7 +420,8 @@ export class City {
     for(let key in CityFacility)
     {
       let type: CityFacility = CityFacility[key];
-      const levelList = this.state.facilities[type]
+      const levelList = this.state.facilities[type] || [];
+      console.log('getMaintainNeedTroop', this.state.facilities, type, levelList);
       for(let level of levelList){
         const row = this.cityConfig.facilityConfig[type].get((level -1).toString())
         troop+= row.maintain_need_troop
