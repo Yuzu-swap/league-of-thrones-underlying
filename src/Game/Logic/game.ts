@@ -283,6 +283,18 @@ export class City {
       (fortresslevel - 1).toString()
     ).employ_count;
   }
+  
+  updateInjuredTroops(amount: number): boolean {
+    const amountBefore: number = this.state[`resources.injured.troops.value`] || 0;
+    this.state.update({
+      [`resources.injured.troops.value`]: amountBefore + amount
+    });
+    return true;
+  }
+  getInjuredTroops(): number {
+    const amount: number = this.state[`resources.injured.troops.value`] || 0;
+    return amount;
+  }
 
   useSilver(amount: number): boolean {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
@@ -421,7 +433,7 @@ export class City {
     {
       let type: CityFacility = CityFacility[key];
       const levelList = this.state.facilities[type] || [];
-      console.log('getMaintainNeedTroop', this.state.facilities, type, levelList);
+      // console.log('getMaintainNeedTroop', this.state.facilities, type, levelList);
       for(let level of levelList){
         const row = this.cityConfig.facilityConfig[type].get((level -1).toString())
         troop+= row.maintain_need_troop

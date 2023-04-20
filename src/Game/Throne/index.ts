@@ -59,6 +59,7 @@ export interface ICityComponent extends IComponent {
    * Returns the order of the facility for show
   */
   getFacilityOrder(): string[];
+  getInjuredTroops(): number;
   updateResource(inter?: number): void;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -330,6 +331,10 @@ export class CityComponent implements ICityComponent {
 
   getFacilityOrder(): string[] {
     return this.city.getFacilityOrder()
+  }
+
+  getInjuredTroops(): number {
+    return this.city.getInjuredTroops()
   }
 
   updateResource(inter: number = 5000): void {

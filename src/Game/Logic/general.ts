@@ -743,6 +743,7 @@ export class General{
             re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
         }
         this.city.useTroop(re.attackTroopReduce)
+        this.city.updateInjuredTroops(re.attackTroopReduce)
         return re
     }
 
