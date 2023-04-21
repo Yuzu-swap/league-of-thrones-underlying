@@ -21,6 +21,11 @@ export interface GuideStep{
   step: number
 }
 
+export interface InjuredTroops{
+  updateTime: number
+  value: number
+}
+
 export interface ICityState extends IState {
   id: string;
   facilities: { [key in CityFacility]?: number[] };
@@ -30,6 +35,7 @@ export interface ICityState extends IState {
   lastAddTestTime: number
   userActivity: UserActivity[]
   guideStep: GuideStep[]
+  injuredTroops: InjuredTroops
   firstLogin: number
   rewardClaimed: {[key: string]: boolean}
 }

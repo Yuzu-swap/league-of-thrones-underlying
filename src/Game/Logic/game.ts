@@ -1,4 +1,4 @@
-import { GuideStep, ICityState, ResouceInfo } from '../State';
+import { GuideStep, ICityState, ResouceInfo, InjuredTroops } from '../State';
 import { CityFacility, ResouceType, StateName, StateTransition } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
@@ -284,16 +284,71 @@ export class City {
     ).employ_count;
   }
   
-  updateInjuredTroops(amount: number): boolean {
-    const amountBefore: number = this.state[`resources.injured.troops.value`] || 0;
+  updateInjuredTroops(amount: number) {
+    let injuredTroops: InjuredTroops = this.state.injuredTroops;
+        injuredTroops.value += amount;
+        injuredTroops.updateTime = new Date().getTime();
     this.state.update({
-      [`resources.injured.troops.value`]: amountBefore + amount
+      injuredTroops: injuredTroops
     });
-    return true;
+    return injuredTroops;
   }
-  getInjuredTroops(): number {
-    const amount: number = this.state[`resources.injured.troops.value`] || 0;
-    return amount;
+
+  getInjuredTroops() {
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: -1, value : 0};
+    return injuredTroops;
+  }
+
+  healEstimate(amount: number){
+    let unit1 = this.parameter["healing_troops_need_silver"];
+    let unit2 = this.parameter["healing_troops_need_gold"];
+    return {
+      silver: amount* unit1,
+      gold: amount* unit2
+    }
+  }
+
+  healTroopsBySilver(amount: number){
+    let injuredTroops = this.getInjuredTroops();
+    if(injuredTroops.value < amount){
+      return {
+        err: 'heal count big the injury.'
+      }
+    }
+
+    let silversNeed = this.healEstimate(amount).silver;
+    if (silversNeed > this.getResource(ResouceType.Silver)) {
+      return {
+        err: 'silvers not enough.'
+      }
+    }
+    this.useSilver(silversNeed);
+    this.useTroop( -1* amount )
+    this.updateInjuredTroops( -1 * amount )
+
+    return { result: true }
+  }
+
+  healTroopsByGold(amount: number){
+    let injuredTroops = this.getInjuredTroops();
+    if(injuredTroops.value < amount){
+      return {
+        err: 'heal count big the injury.'
+      }
+    }
+
+    let nowGlod = this.state.gold;
+    let goldsNeed = this.healEstimate(amount).gold;;
+    if (goldsNeed > nowGlod) {
+      return {
+        err: 'gold not enough.'
+      }
+    }
+    this.useGold(goldsNeed)
+    this.useTroop( -1* amount ); //plus
+    this.updateInjuredTroops( -1 * amount ) //minus
+
+    return { result: true }
   }
 
   useSilver(amount: number): boolean {

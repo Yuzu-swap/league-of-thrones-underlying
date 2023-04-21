@@ -59,8 +59,10 @@ export interface ICityComponent extends IComponent {
    * Returns the order of the facility for show
   */
   getFacilityOrder(): string[];
-  getInjuredTroops(): number;
-  updateResource(inter?: number): void;
+  getInjuredTroops(): any;
+  healEstimate(amount: number): any;
+  healTroops(typ: string, count: number): any;
+  updateResource(inter?: number): any;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
   doUpgradeFacility(typ: CityFacility, index: number, callback: (res: ITransResult) => void): void;
@@ -333,8 +335,36 @@ export class CityComponent implements ICityComponent {
     return this.city.getFacilityOrder()
   }
 
-  getInjuredTroops(): number {
+  getInjuredTroops() {
     return this.city.getInjuredTroops()
+  }
+
+  healEstimate(amount: number) {
+    return this.city.healEstimate(amount);
+  }
+
+  healTroops(typ: string, count: number){
+    let supportTypes = {
+      silver: true,
+      gold: true
+    };
+    if(!supportTypes[typ]){
+      return {
+        err: 'support type should be silver/gold.'
+      }
+    }
+    if(count <= 0){
+      return {
+        err: 'count must > 0.'
+      }
+    }
+
+    if(typ === 'silver'){
+      return this.city.healTroopsBySilver(count);
+    }
+    if(typ === 'gold'){
+      return this.city.healTroopsByGold(count);
+    }
   }
 
   updateResource(inter: number = 5000): void {
