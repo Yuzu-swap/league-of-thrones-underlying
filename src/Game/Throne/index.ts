@@ -61,7 +61,7 @@ export interface ICityComponent extends IComponent {
   getFacilityOrder(): string[];
   getInjuredTroops(): any;
   healEstimate(amount: number): any;
-  healTroops(typ: string, count: number): any;
+  healTroops(typ: string, amount: number): any;
   updateResource(inter?: number): any;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -343,7 +343,7 @@ export class CityComponent implements ICityComponent {
     return this.city.healEstimate(amount);
   }
 
-  healTroops(typ: string, count: number){
+  healTroops(typ: string, amount: number){
     let supportTypes = {
       silver: true,
       gold: true
@@ -353,17 +353,17 @@ export class CityComponent implements ICityComponent {
         err: 'support type should be silver/gold.'
       }
     }
-    if(count <= 0){
+    if(amount <= 0){
       return {
-        err: 'count must > 0.'
+        err: 'amount must > 0.'
       }
     }
 
     if(typ === 'silver'){
-      return this.city.healTroopsBySilver(count);
+      return this.city.healTroopsBySilver(amount);
     }
     if(typ === 'gold'){
-      return this.city.healTroopsByGold(count);
+      return this.city.healTroopsByGold(amount);
     }
   }
 
