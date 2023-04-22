@@ -42,6 +42,12 @@ import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 import parameterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/parameter.json')
 
 export const randomCampReward = parameterGDS.choose_random_camp_reward;
+export const rewardConfig = {
+  randomCamp: parameterGDS.choose_random_camp_reward || {},
+  upgrade_fortress: parameterGDS.upgrade_fortress_share_activity_reward || {},
+  attack: parameterGDS.attack_territory_share_activity_reward || {},
+  stamina_share: parameterGDS.stamina_share_activity_reward || {}
+};
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
 export * from './Game/Controler/transition';

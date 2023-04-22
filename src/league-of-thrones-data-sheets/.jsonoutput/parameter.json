@@ -11,6 +11,10 @@
         "value":"1",
         "name":"troops_base_load"
     },
+    "stamina_share_activity_reward":{
+        "value":"1",
+        "name":"stamina_share_activity_reward"
+    },
     "register_reward_gold":{
         "value":"100",
         "name":"register_reward_gold"
