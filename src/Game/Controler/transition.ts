@@ -778,7 +778,7 @@ export class TransitionHandler {
   }
   onUserFinsishOutChainActivity(args: OutChainUserActivityArgs){
     const logic : LogicEssential = this.genLogic(args.username)
-    return logic.city.finishOutChainUserActivity(args.type,args.action)
+    return logic.city.finishOutChainUserActivity(args.type,args.action,logic.strategy)
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
