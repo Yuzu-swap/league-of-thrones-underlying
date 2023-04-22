@@ -531,7 +531,9 @@ export class City {
     if (action == "accquire_energy") {
       console.log("OutChainUserActivityArgs accquire_energy")
       strategy.offsetStrategyPoint(1,true)
-      return
+      return {
+        result: true
+      }
     }
     const actionReward = this.parameter[action + "_" + type +  "_reward"] 
     console.log("OutChainUserActivityArgs ",type , " action ", action,  ' actionReward', actionReward)
