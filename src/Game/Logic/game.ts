@@ -24,7 +24,7 @@ import {
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
-import { StrategyType } from './strategy';
+import { Strategy, StrategyType } from './strategy';
 import { isNewExpression, NumericLiteral } from 'typescript';
 
 
@@ -526,8 +526,13 @@ export class City {
     }
   }
 
-  finishOutChainUserActivity(type :string,action: string ){
-    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward  
+  finishOutChainUserActivity(type :string,action: string,strategy:Strategy ){
+    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward ,accquire_energy_share_activity_reward 
+    if (action == "accquire_energy") {
+      console.log("OutChainUserActivityArgs accquire_energy")
+      strategy.offsetStrategyPoint(1,true)
+      return
+    }
     const actionReward = this.parameter[action + "_" + type +  "_reward"] 
     console.log("OutChainUserActivityArgs ",type , " action ", action,  ' actionReward', actionReward)
     // actionReward is number

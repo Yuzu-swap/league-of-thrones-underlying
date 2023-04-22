@@ -63,18 +63,22 @@ export class Strategy{
         }
     }
 
-    offsetStrategyPoint(amount : number){
+    offsetStrategyPoint(amount : number, overload: boolean = false){
         if(!isNumber(amount)){
             return false
         }
         let strategyPoint = this.getStrategyPonit()
         const time = getTimeStamp()
         if(strategyPoint + amount >= MaxStrategyPoint){
+            let value = MaxStrategyPoint
+            if(overload) {
+                value =  strategyPoint + amount
+            }
             this.state.update(
                 {
                     strategyPoint:{
                         lastUpdate: time,
-                        value: MaxStrategyPoint,
+                        value: value,
                     }
                 }
             )
