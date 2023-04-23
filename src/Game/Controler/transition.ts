@@ -519,6 +519,7 @@ export class TransitionHandler {
       }
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
+    console.log('attackBlocksAround result:', re);
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
