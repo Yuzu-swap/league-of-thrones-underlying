@@ -471,6 +471,7 @@ export class TransitionHandler {
       logic2.map.addGloryAndSum(btr.defenseInfo.gloryGet)
       logic2.city.useTroop(btr.defenseInfo.troopReduce)
       logic2.city.updateInjuredTroops(btr.defenseInfo.troopReduce)
+      console.log('updateInjuredTroops onBattle.defenseInfo', btr.defenseInfo);
       logic2.general.updateDefenseInfo()
       if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(

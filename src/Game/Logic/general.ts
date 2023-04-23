@@ -744,6 +744,7 @@ export class General{
         }
         this.city.useTroop(re.attackTroopReduce)
         this.city.updateInjuredTroops(re.attackTroopReduce)
+        console.log('updateInjuredTroops battle.attackTroopReduce', re);
         return re
     }
 

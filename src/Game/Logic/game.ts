@@ -288,6 +288,7 @@ export class City {
     let injuredTroops: InjuredTroops = this.state.injuredTroops;
         injuredTroops.value += amount;
         injuredTroops.updateTime = new Date().getTime();
+        console.log('updateInjuredTroops save', injuredTroops);
     this.state.update({
       injuredTroops: injuredTroops
     });
