@@ -285,7 +285,7 @@ export class City {
   }
   
   updateInjuredTroops(amount: number) {
-    let injuredTroops: InjuredTroops = this.state.injuredTroops || { value: 299, today: 0, updateTime: -1};
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
         console.log('updateInjuredTroops 1', amount, injuredTroops);
     let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60*1000;
@@ -306,7 +306,7 @@ export class City {
   }
 
   getInjuredTroops() {
-    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: -1, today: 0, value : 299};
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
     return injuredTroops;
   }
 
@@ -314,8 +314,8 @@ export class City {
     let unit1 = this.parameter["healing_troops_need_silver"];
     let unit2 = this.parameter["healing_troops_need_gold"];
     return {
-      silver: amount* unit1,
-      gold: amount* unit2
+      silver: Math.ceil(amount* unit1),
+      gold: Math.ceil(amount* unit2)
     }
   }
 
