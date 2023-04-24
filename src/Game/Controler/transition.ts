@@ -425,6 +425,7 @@ export class TransitionHandler {
     }
     let defenseInfo = logic2.general.getDefenseInfo()
     let re = logic1.general.battle(args.generalId, defenseInfo)
+    console.log('updateInjuredTroops general.battle', re);
     if(re.result == true){
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
       let btr: BattleTransRecord  = {
@@ -468,6 +469,8 @@ export class TransitionHandler {
       logic1.map.addGloryAndSum(btr.attackInfo.gloryGet)
       logic2.map.addGloryAndSum(btr.defenseInfo.gloryGet)
       logic2.city.useTroop(btr.defenseInfo.troopReduce)
+      logic2.city.updateInjuredTroops(btr.defenseInfo.troopReduce)
+      console.log('updateInjuredTroops onBattle.defenseInfo', btr.defenseInfo);
       logic2.general.updateDefenseInfo()
       if(logic1.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(
