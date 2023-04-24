@@ -23,6 +23,7 @@ export interface GuideStep{
 
 export interface InjuredTroops{
   updateTime: number
+  today: number
   value: number
 }
 
