@@ -285,25 +285,28 @@ export class City {
   }
   
   updateInjuredTroops(amount: number) {
-    let injuredTroops: InjuredTroops = this.state.injuredTroops;
-        injuredTroops.value += amount;
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { value: 299, today: 0, updateTime: -1};
+        console.log('updateInjuredTroops 1', amount, injuredTroops);
+    let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60*1000;
     let timeBefore = injuredTroops.updateTime;
+    let today = injuredTroops.today;
     if(Math.floor(timeBefore/dayMsLong) === Math.floor(new Date().getTime()/dayMsLong)){
-        injuredTroops.today += amount;
+      today += amount;
     }else{
-        injuredTroops.today = amount;      
+      today = amount;
     }
-        injuredTroops.updateTime = new Date().getTime();
-        console.log('updateInjuredTroops save', injuredTroops);
+    let updateTime = new Date().getTime();
+    console.log('updateInjuredTroops 2', amount, { value , today, updateTime});
+    
     this.state.update({
-      injuredTroops: injuredTroops
+      injuredTroops: { value , today, updateTime}
     });
-    return injuredTroops;
+    return { value , today, updateTime};
   }
 
   getInjuredTroops() {
-    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: -1, today: 0, value : 99999};
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: -1, today: 0, value : 299};
     return injuredTroops;
   }
 
