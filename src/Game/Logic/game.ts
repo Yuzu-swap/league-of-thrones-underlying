@@ -284,17 +284,19 @@ export class City {
     ).employ_count;
   }
   
-  updateInjuredTroops(amount: number) {
+  updateInjuredTroops(amount: number, type: string) {
     let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
         console.log('updateInjuredTroops 1', amount, injuredTroops);
     let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60*1000;
     let timeBefore = injuredTroops.updateTime;
     let today = injuredTroops.today;
-    if(Math.floor(timeBefore/dayMsLong) === Math.floor(new Date().getTime()/dayMsLong)){
-      today += amount;
-    }else{
-      today = amount;
+    if(type === 'heal'){
+      if(Math.floor(timeBefore/dayMsLong) === Math.floor(new Date().getTime()/dayMsLong)){
+        today += amount;
+      }else{
+        today = amount;
+      }
     }
     let updateTime = new Date().getTime();
     console.log('updateInjuredTroops 2', amount, { value , today, updateTime});
@@ -335,7 +337,7 @@ export class City {
     }
     this.useSilver(silversNeed);
     this.useTroop( -1* amount )
-    this.updateInjuredTroops( -1 * amount )
+    this.updateInjuredTroops( -1 * amount , 'heal')
 
     return { result: true }
   }
@@ -357,7 +359,7 @@ export class City {
     }
     this.useGold(goldsNeed)
     this.useTroop( -1* amount ); //plus
-    this.updateInjuredTroops( -1 * amount ) //minus
+    this.updateInjuredTroops( -1 * amount , 'heal') //minus
 
     return { result: true }
   }
