@@ -236,7 +236,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 2000,
+        "buff_value": 200,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -254,7 +254,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 20,
+        "buff_value": 2,
         "buff_type":"recruit",
         "buff_target":[
             "all"
