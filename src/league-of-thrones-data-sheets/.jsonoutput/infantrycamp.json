@@ -5,8 +5,8 @@
         "need_silver": 2000,
         "maintain_need_troop": 0,
         "level": 1,
-        "infantry_defense": 0,
-        "infantry_attack": 0
+        "infantry_defense": 500,
+        "infantry_attack": 500
     },
     {
         "need_troop": 160,
