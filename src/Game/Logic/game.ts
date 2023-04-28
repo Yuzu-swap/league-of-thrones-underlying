@@ -551,14 +551,14 @@ export class City {
     // actionReward is number
     if( typeof actionReward === 'number' && !isNaN(actionReward) ) {
 
+      if (!this.state.rewardClaimed) {
+        this.state.update({rewardClaimed : {} })
+      }
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
           error: "reward-already-claimed"
         }
-      }
-      if (!this.state.rewardClaimed) {
-        this.state.update({rewardClaimed : {} })
       }
       this.state.rewardClaimed[action] = true
       let nowGlod = this.state.gold
