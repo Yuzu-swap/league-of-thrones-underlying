@@ -1065,21 +1065,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             }
         ],
         "silver_total_number": 4000000,
@@ -1194,7 +1194,7 @@
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
-        "buff_id": 1012,
+        "buff_id": 3001,
         "area_block": 1,
         "area": 4
     },
@@ -3140,21 +3140,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             }
         ],
         "silver_total_number": 4000000,
@@ -3334,21 +3334,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             }
         ],
         "silver_total_number": 4000000,
@@ -4516,21 +4516,21 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 28000,
-                "count": 7000,
-                "attack": 28000
+                "defense": 30000,
+                "count": 10000,
+                "attack": 30000
             }
         ],
         "silver_total_number": 4000000,
