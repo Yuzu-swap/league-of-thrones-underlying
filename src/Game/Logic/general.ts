@@ -748,6 +748,16 @@ export class General{
         return re
     }
 
+    healTroops(typ: string, amount: number){
+        console.log('healTroops:', typ, amount);
+        if(typ === 'silver'){
+          return this.city.healTroopsBySilver(amount);
+        }
+        if(typ === 'gold'){
+          return this.city.healTroopsByGold(amount);
+        }
+      }
+
     //should trigger when defense general change
     updateDefenseInfo(){
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)

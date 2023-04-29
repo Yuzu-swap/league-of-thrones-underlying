@@ -35,7 +35,8 @@ import {
   GuideStepArgs,
   checkerMapForTxArgsTypeMap,
   SetUnionWinArgs,
-  OutChainUserActivityArgs
+  OutChainUserActivityArgs,
+  HealTroopsArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -230,6 +231,9 @@ export class TransitionHandler {
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
+          return re
+        case StateTransition.HealTroops:
+          re = this.onHealTroops(arg as HealTroopsArgs)
           return re
         
       }
@@ -495,6 +499,14 @@ export class TransitionHandler {
       logic1.city.useSilver( - (re as any).silverGet as number)
     }
     return re
+  }
+
+  onHealTroops(args: HealTroopsArgs){
+    const logic: LogicEssential = this.genLogic(args.from);
+    console.log('onHealTroops', args);
+    let re = logic.general.healTroops(args.typ, args.amount);
+    console.log('onHealTroops', re);
+    return re;
   }
 
   onAttackBlock(args: AttackBlockArgs){
