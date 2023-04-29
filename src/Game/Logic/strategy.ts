@@ -41,14 +41,13 @@ export class Strategy{
     getStrategyPonit(){
         const time = getTimeStamp()
         let recover = Math.floor((time - this.state.strategyPoint.lastUpdate) / this.parameter.order_recovery_need_times)
-        //remove limit for share reward
-        // if(this.state.strategyPoint.value + recover > MaxStrategyPoint){
-        //     return MaxStrategyPoint
-        // }
-        // else{
+        if(this.state.strategyPoint.value + recover > MaxStrategyPoint){
+            return MaxStrategyPoint
+        }
+        else{
             let point = recover + this.state.strategyPoint.value
             return isNumber(point) ? point : 0;
-        // }
+        }
     }
 
     getRecoverRemainTime(){
