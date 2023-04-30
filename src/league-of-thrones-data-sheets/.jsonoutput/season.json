@@ -15,10 +15,10 @@
                 "count": 10000
             }
         ],
-        "season_reservation":"2023_4_30_14",
-        "season_ready":"2023_5_2_14",
-        "season_open":"2023_5_2_14",
-        "season_end":"2023_5_12_14",
+        "season_reservation":"2023_5_1_14",
+        "season_ready":"2023_5_3_14",
+        "season_open":"2023_5_3_14",
+        "season_end":"2023_5_13_14",
         "rank_reward":[
             {
                 "type": 1,
@@ -164,18 +164,6 @@
         "id": 1,
         "dailyactivity":[
             {
-                "day":"2023_5_2_14",
-                "activity": 1
-            },
-            {
-                "day":"2023_5_2_14",
-                "activity": 2
-            },
-            {
-                "day":"2023_5_2_14",
-                "activity": 3
-            },
-            {
                 "day":"2023_5_3_14",
                 "activity": 1
             },
@@ -269,6 +257,18 @@
             },
             {
                 "day":"2023_5_10_14",
+                "activity": 3
+            },
+            {
+                "day":"2023_5_11_14",
+                "activity": 1
+            },
+            {
+                "day":"2023_5_11_14",
+                "activity": 2
+            },
+            {
+                "day":"2023_5_11_14",
                 "activity": 3
             }
         ]
