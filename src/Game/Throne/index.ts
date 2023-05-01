@@ -61,7 +61,7 @@ export interface ICityComponent extends IComponent {
   getFacilityOrder(): string[];
   getInjuredTroops(): any;
   healEstimate(amount: number): any;
-  healTroops(typ: string, amount: number): any;
+  healTroopsStart(typ: string, amount: number, callback: (res: ITransResult) => void): void;
   updateResource(inter?: number): any;
   checkUpgradeFacility(typ: CityFacility, index: number): boolean;
   getFacilityUpgradeRequirement(typ: CityFacility, targetLevel: number): any;
@@ -343,28 +343,33 @@ export class CityComponent implements ICityComponent {
     return this.city.healEstimate(amount);
   }
 
-  healTroops(typ: string, amount: number){
+  healTroopsStart(typ: string, amount: number, callback: (res: ITransResult) => void){
     let supportTypes = {
       silver: true,
       gold: true
     };
-    if(!supportTypes[typ]){
-      return {
-        err: 'support type should be silver/gold.'
-      }
-    }
-    if(amount <= 0){
-      return {
-        err: 'amount must > 0.'
-      }
-    }
+    // if(!supportTypes[typ]){
+    //   callback({
+    //     err: 'support type should be silver/gold.'
+    //   })
+    // }
+    // if(amount <= 0){
+    //   callback({
+    //     err: 'amount must > 0.'
+    //   })
+    // }
 
-    if(typ === 'silver'){
-      return this.city.healTroopsBySilver(amount);
-    }
-    if(typ === 'gold'){
-      return this.city.healTroopsByGold(amount);
-    }
+    // if(typ === 'silver'){
+    //   return this.city.healTroopsBySilver(amount);
+    // }
+    // if(typ === 'gold'){
+    //   return this.city.healTroopsByGold(amount);
+    // }
+    this.mediator.sendTransaction(StateTransition.HealTroops, {
+      from: Throne.instance().username,
+      typ: typ,
+      amount: amount,
+    }, callback)
   }
 
   updateResource(inter: number = 5000): void {
