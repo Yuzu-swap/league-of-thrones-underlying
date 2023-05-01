@@ -34,11 +34,12 @@ export class ChainComponent implements IChainComponent{
     }
 
     HandleMsg( msg: MessageS2C ):void {
-        if(msg.Data.txType != undefined){
+        //tofixed
+        // if(msg.Data.txType != undefined){
             for(let i = 0; i < this.callbackList.length ; i++){
                 this.callbackList[i](msg)
             }
-        }
+        // }
     }
     
 }
