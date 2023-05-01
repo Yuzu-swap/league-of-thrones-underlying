@@ -557,12 +557,14 @@ export class City {
       if (!this.state.rewardClaimed) {
         this.state.update({rewardClaimed : {} })
       }
+      
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
           error: "reward-already-claimed"
         }
       }
+   
       this.state.rewardClaimed[action] = true
       let nowGlod = this.state.gold
       this.state.update(
