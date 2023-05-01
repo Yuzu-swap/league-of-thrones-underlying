@@ -34,7 +34,7 @@ export class ChainComponent implements IChainComponent{
     }
 
     HandleMsg( msg: MessageS2C ):void {
-        if(msg.Data.txType != undefined){
+        if(msg.Type != undefined){
             for(let i = 0; i < this.callbackList.length ; i++){
                 this.callbackList[i](msg)
             }
