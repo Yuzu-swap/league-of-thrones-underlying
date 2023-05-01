@@ -35,7 +35,8 @@ import {
   GuideStepArgs,
   checkerMapForTxArgsTypeMap,
   SetUnionWinArgs,
-  OutChainUserActivityArgs
+  OutChainUserActivityArgs,
+  HealTroopsArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -230,8 +231,11 @@ export class TransitionHandler {
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
+          console.log('FinishOutChainUserActivity re:', re);
           return re
-        
+        case StateTransition.HealTroops:
+          re = this.onHealTroops(arg as HealTroopsArgs)
+          return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
       console.log("transition before update",logic.city.state)
@@ -495,6 +499,14 @@ export class TransitionHandler {
       logic1.city.useSilver( - (re as any).silverGet as number)
     }
     return re
+  }
+
+  onHealTroops(args: HealTroopsArgs){
+    const logic: LogicEssential = this.genLogic(args.from);
+    console.log('onHealTroops', args);
+    let re = logic.general.healTroops(args.typ, args.amount);
+    console.log('onHealTroops', re);
+    return re;
   }
 
   onAttackBlock(args: AttackBlockArgs){
@@ -776,8 +788,11 @@ export class TransitionHandler {
     return logic.city.recharge(args.rechargeId, args.amount)
   }
   onUserFinsishOutChainActivity(args: OutChainUserActivityArgs){
+    console.log('FinishOutChainUserActivity args:', args);
     const logic : LogicEssential = this.genLogic(args.username)
-    return logic.city.finishOutChainUserActivity(args.type,args.action)
+    const re = logic.city.finishOutChainUserActivity(args.type,args.action,logic.strategy);
+    console.log('FinishOutChainUserActivity re:', re);
+    return re;
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)

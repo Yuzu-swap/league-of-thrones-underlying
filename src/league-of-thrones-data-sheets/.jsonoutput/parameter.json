@@ -11,6 +11,10 @@
         "value":"1",
         "name":"troops_base_load"
     },
+    "stamina_share_activity_reward":{
+        "value":"1",
+        "name":"stamina_share_activity_reward"
+    },
     "register_reward_gold":{
         "value":"100",
         "name":"register_reward_gold"
@@ -58,6 +62,14 @@
     "new_player_protect_times":{
         "value":"86400",
         "name":"new_player_protect_times"
+    },
+    "healing_troops_need_silver":{
+        "value":"100",
+        "name":"healing_troops_need_silver"
+    },
+    "healing_troops_need_gold":{
+        "value":"0.1",
+        "name":"healing_troops_need_gold"
     },
     "general_troops_coefficient":{
         "value":"1.2",

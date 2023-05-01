@@ -23,6 +23,7 @@ export enum CityFacility {
 	ArcherCamp = 'archercamp',
 	TrainingCenter = 'trainingcenter',
 	Home = 'home',
+	Hospital = 'hospital'
 }
 
 export enum ResouceType {
@@ -74,7 +75,8 @@ export enum StateTransition {
 	SetGuideStep,
 	FirstLogin,
 	StrategyBuyProtect1,
-	FinishOutChainUserActivity
+	FinishOutChainUserActivity,
+	HealTroops
 }
 
 export function StringifyTxType() {
@@ -213,6 +215,11 @@ export interface OutChainUserActivityArgs extends StateTransitionArgs{
 	action: string
 }
 
+export interface HealTroopsArgs extends StateTransitionArgs{
+  typ: string
+  amount: number
+}
+
 export enum ChatType {
 	ChatTypeText                  = 1,
 	ChatTypePos                   = 2,
@@ -245,8 +252,6 @@ export interface ChatMessage {
 	iconId: number
 	ts :number
 }
-
-
 
 const checkMapFactory = createCheckers(IndexTI)
 
@@ -282,4 +287,5 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } =
 	[StateTransition.SetSeasonEnd]: checkMapFactory.SetSeasonEndArgs,
 	[StateTransition.StartSeason]: checkMapFactory.StartSeasonArgs,
 	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,
+	[StateTransition.HealTroops]: checkMapFactory.HealTroopsArgs,
 }

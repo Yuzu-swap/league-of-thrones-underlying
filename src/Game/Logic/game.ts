@@ -1,4 +1,4 @@
-import { GuideStep, ICityState, ResouceInfo } from '../State';
+import { GuideStep, ICityState, ResouceInfo, InjuredTroops } from '../State';
 import { CityFacility, ResouceType, StateName, StateTransition } from '../Const';
 import { ConfigContainer } from '../../Core/config';
 import {
@@ -12,6 +12,7 @@ import {
   FacilityArcherCampGdsRow,
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
+  FacilityHospitalGdsRow,
   CityConfigFromGDS,
   FacilityLimit,
   RechargeConfigs,
@@ -23,7 +24,7 @@ import {
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
-import { StrategyType } from './strategy';
+import { Strategy, StrategyType } from './strategy';
 import { isNewExpression, NumericLiteral } from 'typescript';
 
 
@@ -38,6 +39,7 @@ export interface CityConfig {
     [CityFacility.ArcherCamp]: ConfigContainer<FacilityArcherCampGdsRow>;
     [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>;
     [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>;
+    [CityFacility.Hospital]: ConfigContainer<FacilityHospitalGdsRow>;
   };
   limit: {
     [CityFacility.Fortress]: FacilityLimit;
@@ -49,6 +51,7 @@ export interface CityConfig {
     [CityFacility.ArcherCamp]: FacilityLimit;
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
+    [CityFacility.Hospital]: FacilityLimit;
   };
 }
 
@@ -280,6 +283,87 @@ export class City {
       (fortresslevel - 1).toString()
     ).employ_count;
   }
+  
+  updateInjuredTroops(amount: number, type: string) {
+    let injuredTroops: InjuredTroops = this.getInjuredTroops();
+    console.log('updateInjuredTroops-1: ', amount, type, injuredTroops);
+    let value = injuredTroops.value + amount;
+    let dayMsLong = 24*60*60;
+    let timeBefore = injuredTroops.updateTime;
+    let updateTime = Math.floor(new Date().getTime()/1000);
+    let today = injuredTroops.today;
+    if(type === 'heal'){
+      if(Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong)){
+        today += amount;
+      }else{
+        today = amount;
+      }
+    }
+    console.log('updateInjuredTroops-2: ', today, Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong));
+    console.log('updateInjuredTroops-3: ', amount, { value , today, updateTime});
+    
+    this.state.update({
+      injuredTroops: { value , today, updateTime}
+    });
+    return { value , today, updateTime};
+  }
+
+  getInjuredTroops() {
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
+    return injuredTroops;
+  }
+
+  healEstimate(amount: number){
+    let unit1 = this.parameter["healing_troops_need_silver"];
+    let unit2 = this.parameter["healing_troops_need_gold"];
+    return {
+      silver: Math.ceil(amount* unit1),
+      gold: Math.ceil(amount* unit2)
+    }
+  }
+
+  healTroopsBySilver(amount: number){
+    let injuredTroops = this.getInjuredTroops();
+    if(injuredTroops.value < amount){
+      return {
+        err: 'heal count big the injury.'
+      }
+    }
+
+    let silversNeed = this.healEstimate(amount).silver;
+    if (silversNeed > this.getResource(ResouceType.Silver)) {
+      return {
+        err: 'silvers not enough.'
+      }
+    }
+    this.useSilver(silversNeed);
+    this.useTroop( -1* amount )
+    this.updateInjuredTroops( -1 * amount , 'heal')
+
+    return { result: true }
+  }
+
+  healTroopsByGold(amount: number){
+    let injuredTroops = this.getInjuredTroops();
+    if(injuredTroops.value < amount){
+      return {
+        err: 'heal count big the injury.'
+      }
+    }
+
+    let nowGlod = this.state.gold;
+    let goldsNeed = this.healEstimate(amount).gold;;
+    if (goldsNeed > nowGlod) {
+      return {
+        err: 'gold not enough.'
+      }
+    }
+    this.useGold(goldsNeed)
+    this.useTroop( -1* amount ); //plus
+    this.updateInjuredTroops( -1 * amount , 'heal') //minus
+
+    return { result: true }
+  }
 
   useSilver(amount: number): boolean {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
@@ -417,7 +501,8 @@ export class City {
     for(let key in CityFacility)
     {
       let type: CityFacility = CityFacility[key];
-      const levelList = this.state.facilities[type]
+      const levelList = this.state.facilities[type] || [];
+      // console.log('getMaintainNeedTroop', this.state.facilities, type, levelList);
       for(let level of levelList){
         const row = this.cityConfig.facilityConfig[type].get((level -1).toString())
         troop+= row.maintain_need_troop
@@ -455,13 +540,23 @@ export class City {
     }
   }
 
-  finishOutChainUserActivity(type :string,action: string ){
-    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward  
+  finishOutChainUserActivity(type :string,action: string,strategy:Strategy ){
+    //upgrade_fortress_share_activity_reward ,attack_territory_share_activity_reward ,accquire_energy_share_activity_reward 
+    if (action == "accquire_energy") {
+      console.log("OutChainUserActivityArgs accquire_energy")
+      strategy.offsetStrategyPoint(1,true)
+      return {
+        result: true
+      }
+    }
     const actionReward = this.parameter[action + "_" + type +  "_reward"] 
     console.log("OutChainUserActivityArgs ",type , " action ", action,  ' actionReward', actionReward)
     // actionReward is number
     if( typeof actionReward === 'number' && !isNaN(actionReward) ) {
 
+      if (!this.state.rewardClaimed) {
+        this.state.update({rewardClaimed : {} })
+      }
       if(this.state.rewardClaimed[action]){
         return {
           result : false,

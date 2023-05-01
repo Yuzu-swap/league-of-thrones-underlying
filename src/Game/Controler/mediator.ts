@@ -386,6 +386,8 @@ export class LocalMediator
     this.ctx = ctx;
     const result = this.transitionHandler.onTransition(tid, args);
     //clean ctx
+    console.log('sendTransaction', {tid, args, result, ctx});
+    console.log('sendTransaction StateTransition', StateTransition);
     this.ctx = null;
 
     if(this.chainBlockCallback)
