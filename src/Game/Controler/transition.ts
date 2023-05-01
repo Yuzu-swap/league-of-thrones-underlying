@@ -231,11 +231,11 @@ export class TransitionHandler {
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
+          console.log('FinishOutChainUserActivity re:', re);
           return re
         case StateTransition.HealTroops:
           re = this.onHealTroops(arg as HealTroopsArgs)
           return re
-        
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
       console.log("transition before update",logic.city.state)
@@ -788,8 +788,11 @@ export class TransitionHandler {
     return logic.city.recharge(args.rechargeId, args.amount)
   }
   onUserFinsishOutChainActivity(args: OutChainUserActivityArgs){
+    console.log('FinishOutChainUserActivity args:', args);
     const logic : LogicEssential = this.genLogic(args.username)
-    return logic.city.finishOutChainUserActivity(args.type,args.action,logic.strategy)
+    const re = logic.city.finishOutChainUserActivity(args.type,args.action,logic.strategy);
+    console.log('FinishOutChainUserActivity re:', re);
+    return re;
   }
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
