@@ -431,6 +431,18 @@ export class City {
       endtime: endtime
     }
   }
+  
+  recruitEstimate( amount: number ){
+    const cost = this.getRecruitNeed(amount)
+    const product = this.boost.getProduction(ResouceType.Troop)
+    const time = Math.floor(amount/product * 3600);
+    
+    return {
+      amount: amount,
+      cost: cost,
+      time: time
+    }
+  }
 
   //1= infantry ；2=cavalry ；3=archer
   getBattleStatus(general_type: number){
