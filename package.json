@@ -8,14 +8,14 @@
     "build": "tsc --declaration -p tsconfig.json",
     "bundle": "npm run build && browserify src/bundle.js -o dist/bundle.js",
     "prepare": "npm run build",
-    "ts-check":"`npm bin`/ts-interface-builder src/Game/Const/index.ts",
+    "ts-check": "`npm bin`/ts-interface-builder src/Game/Const/index.ts",
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.2.5",
-    "@types/node": "20.1.0",
+    "@types/node": "^20.1.0",
     "jest": "^29.3.1",
     "prettier": "^2.7.1",
     "ts-interface-builder": "^0.3.3",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@types/websocket": "^1.0.5",
+    "node": "^20.1.0",
     "ts-interface-checker": "^1.0.2",
     "ts-node": "^10.9.1",
     "websocket": "^1.0.34"
