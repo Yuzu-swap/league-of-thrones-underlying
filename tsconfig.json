@@ -9,7 +9,7 @@
         "resolveJsonModule": true,
         "watch":false ,
         "typeRoots": ["src/types/index.d.ts", "src/global.d.ts" ],
-        "types":["node", "@types/jest"],
+        "types":["node@20.1.0", "@types/jest"],
         "lib": ["es2015","dom"]
     },
     "include":[
