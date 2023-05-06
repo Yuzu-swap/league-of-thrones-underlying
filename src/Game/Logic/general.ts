@@ -771,8 +771,7 @@ export class General{
         new State<IDefenderInfoState>({id: defenseInfoId} as IDefenderInfoState, this.state.getWatcher()).update(defenderInfo)
     }
 
-    getDefenseBlockInfo(generalId : number, troops: number) : BlockDefenseInfo
-    {
+    getDefenseBlockInfo(generalId : number, troops: number) : BlockDefenseInfo{
         let attackinfo = this.getGeneralBattleStatus(generalId)
         let row = this.getGeneralQualification(generalId)
         let username =  parseStateId(this.state.getId()).username
@@ -823,14 +822,16 @@ export class General{
             }
         }
         let troop = this.getMaxDefenseTroop()
-        if(troop <= 0)
-        {
+        if(troop <= 0){
             return{
                 result: false,
                 error: 'troop-not-enough'
             }
         }
         this.city.useTroop(troop)
+        this.city.updateInjuredTroops(troop, 'battle')
+        console.log('updateInjuredTroops defenseBlock', troop);
+
         let defenseList = this.state.defenseBlockList
         defenseList.push(
             {
@@ -1078,8 +1079,7 @@ export class General{
         }
     }
 
-    isNewPlayerProtect(): boolean
-    {
+    isNewPlayerProtect(): boolean{
         let time = getTimeStamp()
         if(
             (this.city.state.firstLogin == -1 || time - this.city.state.firstLogin < this.config.parameter.new_player_protect_times)
@@ -1091,8 +1091,7 @@ export class General{
         return false
     }
 
-    setLastBattle()
-    {
+    setLastBattle(){
         let time = getTimeStamp()
         this.state.update(
             { lastBattle: time }

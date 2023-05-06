@@ -376,6 +376,7 @@ export class City {
     }
     return false;
   }
+  
   useTroop(amount: number): boolean{
     const info: ResouceInfo = this.state.resources[ResouceType.Troop];
     if( amount <= info.value){
