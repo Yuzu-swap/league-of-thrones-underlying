@@ -829,8 +829,8 @@ export class General{
             }
         }
         this.city.useTroop(troop)
-        this.city.updateInjuredTroops(troop, 'battle')
-        console.log('updateInjuredTroops defenseBlock', troop);
+        // this.city.updateInjuredTroops(troop, 'battle')
+        // console.log('updateInjuredTroops defenseBlock', troop);
 
         let defenseList = this.state.defenseBlockList
         defenseList.push(
