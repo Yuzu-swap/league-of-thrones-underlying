@@ -517,7 +517,7 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
-    console.log('attackBlocksAround args:' args);
+    console.log('attackBlocksAround args:', args);
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
@@ -537,7 +537,7 @@ export class TransitionHandler {
       }
     }
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId);
-    console.log('attackBlocksAround result:' re);
+    console.log('attackBlocksAround result:', re);
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
@@ -602,11 +602,11 @@ export class TransitionHandler {
           logic.general.state.unionId
         )
       }
-      console.log('attackBlocksAround result2:' transRe);
+      console.log('attackBlocksAround result2:', transRe);
       return transRe
     }
     else{
-      console.log('attackBlocksAround result1:' re);
+      console.log('attackBlocksAround result1:', re);
       return re
     }
   }
