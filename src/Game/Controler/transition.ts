@@ -577,8 +577,14 @@ export class TransitionHandler {
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
         }
-      }
-      else{
+        let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
+        let { troopReduce = 0, username = ''} = defenseInfo;
+        if(username !== ''){
+          let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+          logic2.city.updateInjuredTroops(troopReduce, 'battle')
+          console.log('updateInjuredTroops attackBlock defenseInfo:', defenseInfo)
+        }
+      }else{
         let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
         logic.map.addGloryAndSum(gloryGet)
         transRe = {
@@ -606,6 +612,14 @@ export class TransitionHandler {
       return transRe
     }
     else{
+      let records = re.records || [];
+      let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
+      let { troopReduce = 0, username = ''} = defenseInfo;
+      if(username !== ''){
+        let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+        logic2.city.updateInjuredTroops(troopReduce, 'battle')
+        console.log('updateInjuredTroops attackBlock defenseInfo:', defenseInfo)
+      }
       console.log('attackBlocksAround result1:', re);
       return re
     }

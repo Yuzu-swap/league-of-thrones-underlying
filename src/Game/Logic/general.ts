@@ -24,6 +24,7 @@ export interface BattleResult{
     silverGet: number
     attackGloryGet: number
     defenseGloryGet: number
+    records: []
 }
 
 export enum GeneralAbility{
@@ -720,7 +721,8 @@ export class General{
             defenseTroopReduce: 0,
             silverGet: 0,
             attackGloryGet: 0,
-            defenseGloryGet: 0
+            defenseGloryGet: 0,
+            records: []
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
