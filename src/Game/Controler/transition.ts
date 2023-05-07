@@ -429,12 +429,14 @@ export class TransitionHandler {
         error: 'cant-battle-self'
       }
     }
+    console.log('updateInjuredTroops battle args:', args)
     let defenseInfo = logic2.general.getDefenseInfo()
+    console.log('updateInjuredTroops defenseInfo:', defenseInfo)
     let re = logic1.general.battle(args.generalId, defenseInfo)
+    console.log('updateInjuredTroops battle result:', re)
 
     logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
-    console.log('updateInjuredTroops battle args:', args)
-    console.log('updateInjuredTroops defenseInfo:', re)
+    console.log('updateInjuredTroops defenseTroopReduce:', re)
 
     if(re.result == true){
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
