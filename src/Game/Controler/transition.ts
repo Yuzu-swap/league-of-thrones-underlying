@@ -429,8 +429,15 @@ export class TransitionHandler {
         error: 'cant-battle-self'
       }
     }
+    console.log('updateInjuredTroops battle args:', args)
     let defenseInfo = logic2.general.getDefenseInfo()
+    console.log('updateInjuredTroops defenseInfo:', defenseInfo)
     let re = logic1.general.battle(args.generalId, defenseInfo)
+    console.log('updateInjuredTroops battle result:', re)
+
+    logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
+    console.log('updateInjuredTroops defenseTroopReduce:', re)
+
     if(re.result == true){
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
       let btr: BattleTransRecord  = {
@@ -510,6 +517,7 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs){
+    console.log('attackBlocksAround args:', args);
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
@@ -528,7 +536,8 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId)
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId);
+    console.log('attackBlocksAround result:', re);
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
@@ -568,8 +577,14 @@ export class TransitionHandler {
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
         }
-      }
-      else{
+        let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
+        let { troopReduce = 0, username = ''} = defenseInfo;
+        if(username !== ''){
+          let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+          logic2.city.updateInjuredTroops(troopReduce, 'battle')
+          console.log('updateInjuredTroops attackBlock defenseInfo:', defenseInfo)
+        }
+      }else{
         let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
         logic.map.addGloryAndSum(gloryGet)
         transRe = {
@@ -593,9 +608,19 @@ export class TransitionHandler {
           logic.general.state.unionId
         )
       }
+      console.log('attackBlocksAround result2:', transRe);
       return transRe
     }
     else{
+      let records = re.records || [];
+      let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
+      let { troopReduce = 0, username = ''} = defenseInfo;
+      if(username !== ''){
+        let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+        logic2.city.updateInjuredTroops(troopReduce, 'battle')
+        console.log('updateInjuredTroops attackBlock defenseInfo:', defenseInfo)
+      }
+      console.log('attackBlocksAround result1:', re);
       return re
     }
   }

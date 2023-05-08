@@ -376,6 +376,7 @@ export class City {
     }
     return false;
   }
+  
   useTroop(amount: number): boolean{
     const info: ResouceInfo = this.state.resources[ResouceType.Troop];
     if( amount <= info.value){
@@ -429,6 +430,18 @@ export class City {
       txType: StateTransition.Recruit,
       amount: amount,
       endtime: endtime
+    }
+  }
+  
+  recruitEstimate( amount: number ){
+    const cost = this.getRecruitNeed(amount)
+    const product = this.boost.getProduction(ResouceType.Troop)
+    const time = Math.floor(amount/product * 3600);
+    
+    return {
+      amount: amount,
+      cost: cost,
+      time: time
     }
   }
 

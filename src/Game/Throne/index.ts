@@ -425,11 +425,11 @@ export class CityComponent implements ICityComponent {
       index: index,
     }, callback)
   }
-
+  
   recruitEstimate(amount: number) {
     return this.city.recruitEstimate(amount);
   }
-  
+
   doRecruit(amount: number, callback: (res: ITransResult) => void) {
     this.mediator.sendTransaction(StateTransition.Recruit, {
       from: Throne.instance().username,
@@ -1044,7 +1044,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u20230502"
+    this.version = "u050702"
   }
 
 
