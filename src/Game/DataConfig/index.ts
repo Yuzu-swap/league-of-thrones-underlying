@@ -63,6 +63,10 @@ export class Parameter {
 	new_player_protect_times: number
 	choose_random_camp_reward: number
 	register_reward_gold: number
+	attack_player_need_stamina: number
+	attack_plots_need_stamina: number
+	defense_plots_need_stamina: number
+	gather_need_stamina: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []

@@ -232,7 +232,9 @@ export class Map{
                 error: 'block-is-be-protected'
             }
         }
-        if(!(this.general.useGeneralStamina(generalId, 1))){
+
+        let stamina = this.parameter.attack_plots_need_stamina;
+        if(!(this.general.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
                 error: 'general-stamina-error'

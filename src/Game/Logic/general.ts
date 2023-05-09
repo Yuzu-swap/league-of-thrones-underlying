@@ -704,7 +704,8 @@ export class General{
             }
         }
         if(useStamina){
-            if(!(this.useGeneralStamina(generalId, 1))){
+            let stamina = this.config.parameter.attack_player_need_stamina;
+            if(!(this.useGeneralStamina(generalId, stamina))){
                 return{
                     result: false,
                     error: 'general-stamina-error'
@@ -854,7 +855,8 @@ export class General{
                 error: 'one-block-can-only-defense-once'
             }
         }
-        if(!(this.useGeneralStamina(generalId, 1))){
+        let stamina = this.config.parameter.defense_plots_need_stamina;
+        if(!(this.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
                 error: 'general-stamina-error'
@@ -898,7 +900,8 @@ export class General{
                 error: 'generalid-error'
             }
         }
-        if(!(this.useGeneralStamina(generalId, 1))){
+        let stamina = this.config.parameter.gather_need_stamina;
+        if(!(this.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
                 error: 'general-stamina-error'

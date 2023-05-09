@@ -48,6 +48,13 @@ export const rewardConfig = {
   attack: parameterGDS.attack_territory_share_activity_reward || {},
   stamina_share: parameterGDS.stamina_share_activity_reward || {}
 };
+export const staminaTimes = {
+  attackPlayer: parameterGDS.attack_player_need_stamina.value,
+  attackPlots: parameterGDS.attack_plots_need_stamina.value,
+  defensePlots: parameterGDS.defense_plots_need_stamina.value,
+  gather: parameterGDS.gather_need_stamina.value
+};
+
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
 export * from './Game/Controler/transition';
