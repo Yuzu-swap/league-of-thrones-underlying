@@ -244,18 +244,22 @@ export class General{
 
     upgradeGeneral( id: number ){
         this.city.updateResource(ResouceType.Silver)
+        let generalInfo = this.getGeneralState(id)
+        const level = generalInfo.level
         if(!this.checkIdAble(id)){
             return {
                 txType: StateTransition.UpgradeGeneral,
+                generalId: id,
+                levelTo:  level + 1,
                 result : false, 
                 error: 'index-error'
             } 
         }
-        let generalInfo = this.getGeneralState(id)
-        const level = generalInfo.level
         if(level == this.config.parameter.general_max_level){
             return {
                 txType: StateTransition.UpgradeGeneral,
+                generalId: id,
+                levelTo:  level + 1,
                 result : false, 
                 error: 'general-level-is-max'
             } 
@@ -275,6 +279,8 @@ export class General{
         }
         return {
             txType: StateTransition.UpgradeGeneral,
+            generalId: id,
+            levelTo:  level + 1,
             result : false, 
             error: 'silver-not-enough-error'
         } 
@@ -373,25 +379,30 @@ export class General{
 
     upgradeGeneralSkill(generalId : number, skillIndex : number){
         this.city.updateResource(ResouceType.Silver)
+        let generalInfo = this.getGeneralState(generalId)
+        const level = generalInfo.skill_levels[skillIndex]
         if(!this.checkGeneralSkillUpgrade(generalId, skillIndex)){
             return {
                 txType: StateTransition.UpgradeGeneralSkill,
+                generalId: generalId,
+                skillIndex: skillIndex,
+                levelTo: generalInfo.skill_levels[skillIndex],
                 result : false, 
                 error: 'silver-not-enough-error'
             } 
         }
-        let generalInfo = this.getGeneralState(generalId)
-        const level = generalInfo.skill_levels[skillIndex]
         if( level == this.config.parameter.general_skill_max_level ){
             return {
                 txType: StateTransition.UpgradeGeneralSkill,
+                generalId: generalId,
+                skillIndex: skillIndex,
+                levelTo: generalInfo.skill_levels[skillIndex],
                 result : false, 
                 error: 'skill-is-max-level'
             } 
         }
         const need = this.getSkillUpdateNeed(generalId, skillIndex, level)
         if(this.city.useGold(need)){
-            
             generalInfo.skill_levels[skillIndex] = level + 1
             this.state.update({
                 [`generalList.${generalId}`] : generalInfo,
@@ -406,6 +417,9 @@ export class General{
         }
         return {
             txType: StateTransition.UpgradeGeneralSkill,
+            generalId: generalId,
+            skillIndex: skillIndex,
+            levelTo: generalInfo.skill_levels[skillIndex],
             result : false, 
             error: 'silver-not-enough-error'
         } 
