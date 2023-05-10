@@ -230,12 +230,20 @@ export class City {
   upgradeFacility(typ: CityFacility, index: number = 0) {
     this.updateResource(ResouceType.Silver)
     if (!this.checkUpgradeFacility(typ, index)) {
-      return {result:false,"error":"checkUpgradeFacility-error"};
+      return {
+        result:false,
+        txType: StateTransition.UpgradeFacility,
+        "error":"checkUpgradeFacility-error"
+      };
     }
     let levelList = this.state.facilities[typ]?.concat() ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
-      return {result:false,"error":"index-over-max"};
+      return {
+        result:false,
+        txType: StateTransition.UpgradeFacility,
+        "error":"index-over-max"
+      };
     }
 
     let tartgetLevel = 1;
@@ -363,7 +371,9 @@ export class City {
     this.useTroop( -1* amount ); //plus
     this.updateInjuredTroops( -1 * amount , 'heal') //minus
 
-    return { result: true }
+    return { 
+      result: true
+    }
   }
 
   useSilver(amount: number): boolean {
@@ -405,7 +415,11 @@ export class City {
   recruit( amount: number ){
     const cost = this.getRecruitNeed(amount)
     if( cost > this.getResource(ResouceType.Silver)){
-      return {result: false, error: 'silver-not-enough'}
+      return {
+        result: false, 
+        txType: StateTransition.Recruit,
+        error: 'silver-not-enough'
+      }
     }
     let recruit = this.state.recruit
     const product = this.boost.getProduction(ResouceType.Troop)
@@ -413,7 +427,11 @@ export class City {
     const endtime = Math.floor(amount/product * 3600) + time
     console.log('recruit', product, amount, Math.floor(amount/product * 3600));
     if(!this.useSilver(cost)){
-      return {result: false, error: 'silver-not-enough'}
+      return {
+        result: false, 
+        txType: StateTransition.Recruit,
+        error: 'silver-not-enough'
+      }
     }
     recruit.push(
       {
@@ -540,6 +558,7 @@ export class City {
     ){
       return {
         result: false,
+        txType: StateTransition.Recharge,
         error: 'recharge-config-error'
       }
     }
@@ -550,7 +569,8 @@ export class City {
       }
     )
     return{
-      result: true
+      result: true,
+      txType: StateTransition.Recharge
     }
   }
 

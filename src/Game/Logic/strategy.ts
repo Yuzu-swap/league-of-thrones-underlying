@@ -143,12 +143,14 @@ export class Strategy{
         if(!isNumber(amount)){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "amount-illegal"
             }
         }
         if(amount <= 0){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "amount-illegal"
             }
         }
@@ -157,6 +159,7 @@ export class Strategy{
         if(times + amount > this.strategyBuyConfig.getMaxTimes()){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "have-reach-to-max-buy-times"
             }
         }
@@ -165,6 +168,7 @@ export class Strategy{
             if(!this.city.useGold(goldNeed)){
                 return {
                     result : false,
+                    txType: StateTransition.BuyStrategyPoint,
                     error: "gold-is-not-enough"
                 }
             }
@@ -178,7 +182,8 @@ export class Strategy{
                 }
             )
             return {
-                result: true
+                result: true,
+                txType: StateTransition.BuyStrategyPoint
             }
         }
     }
@@ -195,6 +200,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyTroop,
                 error: "strategy-point-error"
             }
         }
@@ -211,6 +217,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuySilver,
                 error: "strategy-point-error"
             }
         }
@@ -227,6 +234,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyProtect,
                 error: "strategy-point-error"
             }
         }
@@ -243,6 +251,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyProtect1,
                 error: "strategy-point-error"
             }
         }
@@ -259,6 +268,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyStore,
                 error: "strategy-point-error"
             }
         }
@@ -274,6 +284,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyMorale,
                 error: "strategy-point-error"
             }
         }
