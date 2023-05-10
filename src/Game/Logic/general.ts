@@ -150,6 +150,7 @@ export class General{
         if(!this.checkIdAble(id)){
             return {
                 result : false, 
+                generalId: id,
                 txType: StateTransition.AbleGeneral,
                 error: 'index-error'
             }
@@ -166,6 +167,7 @@ export class General{
         )
         return {
             txType: StateTransition.AbleGeneral,
+            generalId: id,
             result : true
         }
     }
@@ -175,6 +177,7 @@ export class General{
         if(!this.checkIdAble(id)){
             return {
                 result : false, 
+                generalId: id,
                 txType: StateTransition.DisableGeneral,
                 error: 'index-error'
             } 
@@ -197,6 +200,7 @@ export class General{
             )
         }
         return {
+            generalId: id,
             txType: StateTransition.DisableGeneral,
             result : true
         }
@@ -206,6 +210,7 @@ export class General{
         if(!this.checkIdAble(id)){
             return {
                 result : false, 
+                generalId: id,
                 txType: StateTransition.SetDefenseGeneral,
                 error: 'id-error'
             } 
@@ -214,6 +219,7 @@ export class General{
         if(!generalInfo.able){
             return {
                 result : false, 
+                generalId: id,
                 txType: StateTransition.SetDefenseGeneral,
                 error: 'general-not-able'
             }
@@ -221,6 +227,7 @@ export class General{
         if(!this.checkDefenseBlock(id)){
             return {
                 result : false, 
+                generalId: id,
                 txType: StateTransition.SetDefenseGeneral,
                 error: 'id-error'
             } 
@@ -232,6 +239,7 @@ export class General{
         )
         return {
             txType: StateTransition.SetDefenseGeneral,
+            generalId: id,
             result : true
         }
     }
