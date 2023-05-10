@@ -309,6 +309,7 @@ export class City {
   }
 
   getInjuredTroops() {
+    this.updateInjuredTroops(0, 'heal');
     let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
     return injuredTroops;
   }
