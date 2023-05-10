@@ -285,7 +285,7 @@ export class City {
   }
   
   updateInjuredTroops(amount: number, type: string) {
-    let injuredTroops: InjuredTroops = this.getInjuredTroops();
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
     console.log('updateInjuredTroops-1: ', amount, type, injuredTroops);
     let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60;
