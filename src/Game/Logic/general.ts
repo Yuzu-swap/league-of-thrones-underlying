@@ -25,6 +25,7 @@ export interface BattleResult{
     attackGloryGet: number
     defenseGloryGet: number
     records: []
+    txType: number
 }
 
 export enum GeneralAbility{
@@ -147,7 +148,11 @@ export class General{
     ableGeneral(id: number){
         this.city.updateResource(ResouceType.Silver)
         if(!this.checkIdAble(id)){
-            return {result : false, error: 'index-error'}
+            return {
+                result : false, 
+                txType: StateTransition.AbleGeneral,
+                error: 'index-error'
+            }
         }
         let count = this.getAbleCount()
         let generalInfo = this.getGeneralState(id)
@@ -159,13 +164,20 @@ export class General{
                 [`generalList.${id}`] : generalInfo
             }
         )
-        return {result : true}
+        return {
+            txType: StateTransition.AbleGeneral,
+            result : true
+        }
     }
 
     disableGeneral(id: number){
         this.city.updateResource(ResouceType.Silver)
         if(!this.checkIdAble(id)){
-            return {result : false, error: 'index-error'} 
+            return {
+                result : false, 
+                txType: StateTransition.DisableGeneral,
+                error: 'index-error'
+            } 
         }
         let generalInfo = this.getGeneralState(id)
         generalInfo.able = false
@@ -184,26 +196,44 @@ export class General{
                 }
             )
         }
-        return {result : true}
+        return {
+            txType: StateTransition.DisableGeneral,
+            result : true
+        }
     }
 
     setDefenseGeneral(id : number){
         if(!this.checkIdAble(id)){
-            return {result : false, error: 'id-error'} 
+            return {
+                result : false, 
+                txType: StateTransition.SetDefenseGeneral,
+                error: 'id-error'
+            } 
         }
         const generalInfo = this.getGeneralState(id)
         if(!generalInfo.able){
-            return {result : false, error: 'general-not-able'}
+            return {
+                result : false, 
+                txType: StateTransition.SetDefenseGeneral,
+                error: 'general-not-able'
+            }
         }
         if(!this.checkDefenseBlock(id)){
-            return {result : false, error: 'id-error'} 
+            return {
+                result : false, 
+                txType: StateTransition.SetDefenseGeneral,
+                error: 'id-error'
+            } 
         }
         this.state.update(
             {
                 defense_general: id
             }
         )
-        return {result : true}
+        return {
+            txType: StateTransition.SetDefenseGeneral,
+            result : true
+        }
     }
 
     getGeneralUpgradeNeed(id: number, currentLevel: number): number{
@@ -700,6 +730,7 @@ export class General{
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
+                txType: StateTransition.Battle,
                 error: 'generalid-error'
             }
         }
@@ -708,6 +739,7 @@ export class General{
             if(!(this.useGeneralStamina(generalId, stamina))){
                 return{
                     result: false,
+                    txType: StateTransition.Battle,
                     error: 'general-stamina-error'
                 }
             }
@@ -719,6 +751,7 @@ export class General{
         if(ableTroop == 0){
             return{
                 result: false,
+                txType: StateTransition.Battle,
                 error: 'do-not-have-troop'
             }
         }
@@ -760,7 +793,8 @@ export class General{
             silverGet: 0,
             attackGloryGet: 0,
             defenseGloryGet: 0,
-            records: []
+            records: [],
+            txType: StateTransition.Battle
         }
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
@@ -846,12 +880,14 @@ export class General{
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
+                txType: StateTransition.DefenseBlock,
                 error: 'generalid-error'
             }
         }
         if(!this.checkDefenseBlock(generalId)){
             return {
                 result: false,
+                txType: StateTransition.DefenseBlock,
                 error: 'one-block-can-only-defense-once'
             }
         }
@@ -859,6 +895,7 @@ export class General{
         if(!(this.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
+                txType: StateTransition.DefenseBlock,
                 error: 'general-stamina-error'
             }
         }
@@ -866,6 +903,7 @@ export class General{
         if(troop <= 0){
             return{
                 result: false,
+                txType: StateTransition.DefenseBlock,
                 error: 'troop-not-enough'
             }
         }
@@ -888,6 +926,7 @@ export class General{
         )
         return {
             result: true,
+            txType: StateTransition.DefenseBlock,
             troops: troop
         }
     }
@@ -897,6 +936,7 @@ export class General{
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
+                txType: StateTransition.MiningBlock,
                 error: 'generalid-error'
             }
         }
@@ -904,10 +944,12 @@ export class General{
         if(!(this.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
+                txType: StateTransition.MiningBlock,
                 error: 'general-stamina-error'
             }
         }
         return {
+            txType: StateTransition.MiningBlock,
             result: true
         }
     }
@@ -1012,6 +1054,7 @@ export class General{
         if(!this.checkIdAble(id)){
             return{
                 result: false,
+                txType: StateTransition.SetIconId,
                 error: 'does-not-have-this-icon'
             }
         }
@@ -1019,7 +1062,8 @@ export class General{
             {'iconId': id}
         )
         return{
-            result: true
+            result: true,
+            txType: StateTransition.SetIconId
         }
     }
 
@@ -1081,6 +1125,7 @@ export class General{
         if(morale >= normalMorale){
             return{
                 result: false,
+                txType: StateTransition.RecoverMorale,
                 error: 'no-need-to-recover-morale'
             }
         }
@@ -1090,12 +1135,14 @@ export class General{
                 this.city.useGold(info.goldUse)
                 this.offsetMorale( normalMorale - morale )
                 return{
+                    txType: StateTransition.RecoverMorale,
                     result: true
                 }
             }
             else{
                 return{
                     result: false,
+                    txType: StateTransition.RecoverMorale,
                     error: 'gold-is-not-enough'
                 }
             }
@@ -1105,18 +1152,21 @@ export class General{
                 this.city.useSilver(info.silverUse)
                 this.offsetMorale( normalMorale - morale )
                 return{
+                    txType: StateTransition.RecoverMorale,
                     result: true
                 }
             }
             else{
                 return{
                     result: false,
+                    txType: StateTransition.RecoverMorale,
                     error: 'silver-is-not-enough'
                 }
             }
         }
         return{
             result: false,
+            txType: StateTransition.RecoverMorale,
             error: 'undefined-type'
         }
     }

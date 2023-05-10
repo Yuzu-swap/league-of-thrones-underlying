@@ -1,5 +1,5 @@
 import { copyObj } from "../../Core/state";
-import { mapIdOffset, StateName } from "../Const";
+import { mapIdOffset, StateName, StateTransition } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
@@ -229,6 +229,7 @@ export class Map{
         if(!this.checkIfCanAttack(x_id, y_id)){
             return {
                 result: false,
+                txType: StateTransition.AttackBlock,
                 error: 'block-is-be-protected'
             }
         }
@@ -237,6 +238,7 @@ export class Map{
         if(!(this.general.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
+                txType: StateTransition.AttackBlock,
                 error: 'general-stamina-error'
             }
         }
@@ -284,6 +286,7 @@ export class Map{
             }     
         }
         return {
+            txType: StateTransition.AttackBlock,
             records: records,
             cancelList: cancelList,
             durabilityReduce: durabilityReduce
@@ -366,6 +369,7 @@ export class Map{
         }
         if(remainTroop <= 0 ){
             return {
+                txType: StateTransition.AttackBlock,
                 records: list,
                 cancelList: [],
                 remainTroop: remainTroop
@@ -440,6 +444,7 @@ export class Map{
             }
         )
         return {
+            txType: StateTransition.AttackBlock,
             records: list,
             cancelList: cancelList,
             remainTroop : remainTroop
@@ -655,6 +660,7 @@ export class Map{
             }
         }
     }
+
     getSeasonStatus(){
         let time = getTimeStamp()
         const config = this.seasonState
@@ -685,10 +691,12 @@ export class Map{
         }
         return re
     }
+
     setUnionWin(unionId : number){
         if(!(this.checkUnionWin().unionId == unionId)){
             return {
                 result: false,
+                txType: StateTransition.SetUnionWin,
                 error: "this-union-do-not-win"
             }
         }
@@ -700,6 +708,7 @@ export class Map{
             }
         )
         return{
+            txType: StateTransition.SetUnionWin,
             result: true
         }
     }
@@ -778,6 +787,7 @@ export class Map{
                 }
             )
             return {
+                txType: StateTransition.SetSeasonEnd,
                 result: true
             }
         }
@@ -785,6 +795,7 @@ export class Map{
             console.log("it-is-not-time-to-end")
             return{
                 result: false,
+                txType: StateTransition.SetSeasonEnd,
                 error: 'it-is-not-time-to-end'
             }
         }

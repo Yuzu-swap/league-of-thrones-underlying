@@ -420,12 +420,14 @@ export class TransitionHandler {
     if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able || logic2.general.isNewPlayerProtect()){
       return {
         result: false,
+        txType: StateTransition.Battle,
         error: 'cant-battle-player-be-protected'
       }
     }
     if(logic1.city.state.id == logic2.city.state.id){
       return{
         result: false,
+        txType: StateTransition.Battle,
         error: 'cant-battle-self'
       }
     }
@@ -526,6 +528,7 @@ export class TransitionHandler {
     if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
       return{
         result: false,
+        txType: StateTransition.AttackBlock,
         error: 'block-is-too-far'
       }
     }
@@ -533,6 +536,7 @@ export class TransitionHandler {
     if(blockGds.type == 3){
       return {
         result: false,
+        txType: StateTransition.AttackBlock,
         error: 'cant-attack-init-block'
       }
     }
@@ -574,6 +578,7 @@ export class TransitionHandler {
       if(temp.length != 0){
         transRe = {
           result: true,
+          txType: StateTransition.AttackBlock,
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
         }
@@ -589,6 +594,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
+          txType: StateTransition.AttackBlock,
           gloryGet: gloryGet, //do fix
           durabilityReduce: re['durabilityReduce']
         }
@@ -633,6 +639,7 @@ export class TransitionHandler {
     if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.DefenseBlock,
         error: 'unionId-error'
       }
     }
@@ -643,6 +650,7 @@ export class TransitionHandler {
     let info = logic.general.getDefenseBlockInfo(args.generalId, re.troops)
     let re1 = logic.map.defenseBlock(args.x_id, args.y_id, info)
     return {
+      txType: StateTransition.DefenseBlock,
       result: true
     }
   }
@@ -652,6 +660,7 @@ export class TransitionHandler {
     const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from, args.generalId)
     logic.general.cancelDefenseBlock(args.generalId, remainTroop)
     return {
+      txType: StateTransition.CancelDefenseBlock,
       result: true
     }
   }
@@ -661,6 +670,7 @@ export class TransitionHandler {
     if(args.force == false && logic.general.state.unionInit == true){
       return {
         result: false,
+        txType: StateTransition.SetUnionId,
         error: 'unionId-have-set'
       }
     }
@@ -681,6 +691,7 @@ export class TransitionHandler {
     
     return {
       result: true,
+      txType: StateTransition.SetUnionId,
       username: args.from,
       unionId: args.union_id
     }
@@ -708,6 +719,7 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(args.from)
     logic.map.setSeasonEnd()
     return {
+      txType: StateTransition.SetSeasonEnd,
       result: true
     }
   }
@@ -731,6 +743,7 @@ export class TransitionHandler {
     if(gLogic.map.seasonState.haveSet){
       return {
         result: true,
+        txType: StateTransition.StartSeason,
         error: 'seasonHaveSet'
       }
     }
@@ -776,6 +789,7 @@ export class TransitionHandler {
       }
     )
     return {
+      txType: StateTransition.StartSeason,
       result: true
     }
   }
@@ -888,12 +902,14 @@ export class TransitionHandler {
     if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.MiningBlock,
         error: 'unionId-error'
       }
     }
     if(!logic.map.miningable(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.MiningBlock,
         error: "remainSilver-too-less"
       }
     }
@@ -905,6 +921,7 @@ export class TransitionHandler {
     logic.city.useSilver(-num)
     return {
       result: true,
+      txType: StateTransition.MiningBlock,
       getSilver: num
     }
   }
@@ -925,6 +942,7 @@ export class TransitionHandler {
     console.log('state after update', logic.city.state, logic.general.state, logic.strategy.state)
     logic.general.updateDefenseInfo();
     return {
+      txType: StateTransition.InitUserStates,
       result: true
     }
   }
@@ -966,6 +984,7 @@ export class TransitionHandler {
       )
     }
     return {
+      txType: StateTransition.InitGlobalStates,
       result: true
     }
   }
@@ -998,6 +1017,7 @@ export class TransitionHandler {
       }
     }
     return {
+      txType: StateTransition.RegularTask,
       result: true
     }
   }
@@ -1013,6 +1033,7 @@ export class TransitionHandler {
     {
       return {
         result: false,
+        txType: StateTransition.FirstLogin,
         error: "it-is-not-first-login"
       }
     }
@@ -1021,6 +1042,7 @@ export class TransitionHandler {
       firstLogin: time
     })
     return{
+      txType: StateTransition.FirstLogin,
       result: true
     }
   }

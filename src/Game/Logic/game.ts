@@ -335,6 +335,7 @@ export class City {
     let injuredTroops = this.getInjuredTroops();
     if(injuredTroops.value < amount){
       return {
+        txType: StateTransition.HealTroops,
         err: 'heal count big the injury.'
       }
     }
@@ -342,6 +343,7 @@ export class City {
     let silversNeed = this.healEstimate(amount).silver;
     if (silversNeed > this.getResource(ResouceType.Silver)) {
       return {
+        txType: StateTransition.HealTroops,
         err: 'silvers not enough.'
       }
     }
@@ -349,13 +351,17 @@ export class City {
     this.useTroop( -1* amount )
     this.updateInjuredTroops( -1 * amount , 'heal')
 
-    return { result: true }
+    return { 
+      txType: StateTransition.HealTroops,
+      result: true 
+    }
   }
 
   healTroopsByGold(amount: number){
     let injuredTroops = this.getInjuredTroops();
     if(injuredTroops.value < amount){
       return {
+        txType: StateTransition.HealTroops,
         err: 'heal count big the injury.'
       }
     }
@@ -364,6 +370,7 @@ export class City {
     let goldsNeed = this.healEstimate(amount).gold;;
     if (goldsNeed > nowGlod) {
       return {
+        txType: StateTransition.HealTroops,
         err: 'gold not enough.'
       }
     }
@@ -372,6 +379,7 @@ export class City {
     this.updateInjuredTroops( -1 * amount , 'heal') //minus
 
     return { 
+      txType: StateTransition.HealTroops,
       result: true
     }
   }
@@ -522,6 +530,7 @@ export class City {
     const row = this.cityConfig.facilityConfig[CityFacility.Wall].get((wallLevel -1).toString())
     return row.scale_of_troop_defense
   }
+
   getMaxAttackTroop(){
     const wallLevel = this.state.facilities[CityFacility.MilitaryCenter][0]
     const row = this.cityConfig.facilityConfig[CityFacility.MilitaryCenter].get((wallLevel -1).toString())
@@ -580,6 +589,7 @@ export class City {
       console.log("OutChainUserActivityArgs accquire_energy")
       strategy.offsetStrategyPoint(1,true)
       return {
+        txType: StateTransition.FinishOutChainUserActivity,
         result: true
       }
     }
@@ -594,6 +604,7 @@ export class City {
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
+          txType: StateTransition.FinishOutChainUserActivity,
           error: "reward-already-claimed"
         }
       }
@@ -610,6 +621,7 @@ export class City {
     } else {
       return {
         result : false,
+        txType: StateTransition.FinishOutChainUserActivity,
         error: "action-reward-error"
       }
     }
@@ -648,6 +660,7 @@ export class City {
     if(coolDown != 0 ){
       return{
         result: false,
+        txType: StateTransition.AddTestResource,
         error: 'cool-down-have-not-end'
       }
     }
@@ -664,6 +677,7 @@ export class City {
       }
     )
     return{
+      txType: StateTransition.AddTestResource,
       result: true
     }
   }
@@ -759,6 +773,7 @@ export class City {
       }
     )
     return {
+      txType: StateTransition.SetGuideStep,
       result: true
     }
   }
