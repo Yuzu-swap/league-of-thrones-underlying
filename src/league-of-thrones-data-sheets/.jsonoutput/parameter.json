@@ -1,8 +1,4 @@
 {
-    "attack_player_need_stamina": { "value": "5", "name":"attack_player_need_stamina"},
-    "attack_plots_need_stamina": { "value": "4", "name":"attack_plots_need_stamina"},
-    "defense_plots_need_stamina": { "value": "3", "name":"defense_plots_need_stamina"},
-    "gather_need_stamina": { "value": "2", "name":"gather_need_stamina"},
     "victory_need_occupy_times":{
         "value":"28800",
         "name":"victory_need_occupy_times"
@@ -99,6 +95,14 @@
         "value":"0.5",
         "name":"gather_get_silver_parameter"
     },
+    "gather_need_stamina":{
+        "value":"1",
+        "name":"gather_need_stamina"
+    },
+    "defense_plots_need_stamina":{
+        "value":"1",
+        "name":"defense_plots_need_stamina"
+    },
     "default_defense_general":{
         "value":"100|100|100|1",
         "name":"default_defense_general"
@@ -114,5 +118,13 @@
     "attack_territory_share_activity_reward":{
         "value":"100",
         "name":"attack_territory_share_activity_reward"
+    },
+    "attack_plots_need_stamina":{
+        "value":"1",
+        "name":"attack_plots_need_stamina"
+    },
+    "attack_player_need_stamina":{
+        "value":"3",
+        "name":"attack_player_need_stamina"
     }
 }
