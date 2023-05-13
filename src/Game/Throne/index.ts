@@ -731,6 +731,7 @@ export class GeneralComponent implements IGeneralComponent {
     let re = {}
     for (let idstring in this.general.state.generalList) {
       const generalInfo = this.general.state.generalList[idstring]
+      const stamina = generalInfo.stamina;
       const id = parseInt(idstring)
       let temp = {
         id: id,
@@ -738,13 +739,15 @@ export class GeneralComponent implements IGeneralComponent {
         level: 0,
         able: false,
         skilllevel: [1, 1, 1],
-        stamina: 0
+        stamina: 0,
+        staminaTime: 0
       }
       temp.qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(id)))
       temp.level = generalInfo.level
       temp.able = generalInfo.able
       temp.skilllevel = generalInfo.skill_levels.concat()
       temp.stamina = this.general.getGeneralStamina(id)
+      temp.staminaTime =  stamina.lastUpdate;
       re[idstring] = temp
     }
     return re
