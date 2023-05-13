@@ -52,7 +52,8 @@ export const staminaTimes = {
   attackPlayer: parameterGDS.attack_player_need_stamina.value,
   attackPlots: parameterGDS.attack_plots_need_stamina.value,
   defensePlots: parameterGDS.defense_plots_need_stamina.value,
-  gather: parameterGDS.gather_need_stamina.value
+  gather: parameterGDS.gather_need_stamina.value,
+  spy: parameterGDS.spy_need_stamina.value
 };
 
 export const GameName = 'league of thrones';

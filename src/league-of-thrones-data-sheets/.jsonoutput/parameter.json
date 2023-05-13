@@ -126,5 +126,9 @@
     "attack_player_need_stamina":{
         "value":"3",
         "name":"attack_player_need_stamina"
+    },
+    "spy_need_stamina":{
+        "value":"1",
+        "name":"spy_need_stamina"
     }
 }
