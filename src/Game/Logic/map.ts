@@ -307,7 +307,8 @@ export class Map{
         if(firstBlock){
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
-                let bre = this.general.battle(generalId, info, remainTroop, false)
+                let unionId = this.general.state.unionId;
+                let bre = this.general.battle(generalId, unionId, info, remainTroop, false)
                 if(!bre['result']){
                     return bre
                 }
@@ -322,7 +323,7 @@ export class Map{
                             troopReduce: bre.attackTroopReduce,
                             silverGet: 0,
                             gloryGet: bre.attackGloryGet,
-                            unionId: this.general.state.unionId,
+                            unionId: unionId,
                             iconId: this.general.state.iconId
                         },
                         defenseInfo: {
@@ -379,7 +380,8 @@ export class Map{
         let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){
             let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
-            let bre = this.general.battle(generalId, info, remainTroop, false)
+            let unionId = this.general.state.unionId;
+            let bre = this.general.battle(generalId, unionId, info, remainTroop, false)
             if(!bre['result']){
                 return bre
             }
@@ -394,7 +396,7 @@ export class Map{
                         troopReduce: bre.attackTroopReduce,
                         silverGet: 0,
                         gloryGet: bre.attackGloryGet,
-                        unionId: this.general.state.unionId,
+                        unionId: unionId,
                         iconId: this.general.state.iconId
                     },
                     defenseInfo: 

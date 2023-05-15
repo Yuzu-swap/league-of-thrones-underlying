@@ -437,7 +437,7 @@ export class TransitionHandler {
     console.log('updateInjuredTroops battle args:', args)
     let defenseInfo = logic2.general.getDefenseInfo()
     console.log('updateInjuredTroops defenseInfo:', defenseInfo)
-    let re = logic1.general.battle(args.generalId, defenseInfo)
+    let re = logic1.general.battle(args.generalId, logic1.general.state.unionId, defenseInfo)
     console.log('updateInjuredTroops battle result:', re)
 
     logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
@@ -478,9 +478,34 @@ export class TransitionHandler {
         txHash: getTxHash(),
         result: re['win']
       }
-      let moraleAdd = re['win'] ? 2 : -2
-      logic1.general.offsetMorale(moraleAdd)
-      logic2.general.offsetMorale(-moraleAdd)
+
+      const status1 = logic1.general.getGeneralBattleStatus(args.generalId);
+      const total1 = status1.sum['attack'] + status1.sum['defense'];
+      const status2 = logic2.general.getGeneralBattleStatus(defenseInfo.generalId);
+      const total2 = status2.sum['attack'] + status2.sum['defense'];
+      const powerCompare = total1/total2;
+      console.log('powerCompare:', status1, status2, total1, total2, powerCompare);
+
+      let moraleAdd = 3;
+      if(powerCompare > 2){
+        if(!re['win']){
+          logic1.general.offsetMorale(moraleAdd * -1);
+          logic2.general.offsetMorale(moraleAdd);
+        }
+      }else if(powerCompare <= 2 && powerCompare > 1/2){
+        if(re['win']){
+          logic1.general.offsetMorale(moraleAdd);
+          logic2.general.offsetMorale(moraleAdd * -1);
+        }else{
+          logic1.general.offsetMorale(moraleAdd * -1);
+          logic2.general.offsetMorale(moraleAdd);
+        }
+      }else{
+        if(!re['win']){
+          logic2.general.offsetMorale(moraleAdd);
+        }
+      }
+
       let oldGlory1 = logic1.general.state.glory
       let oldGlory2 = logic2.general.state.glory
       logic1.map.addGloryAndSum(btr.attackInfo.gloryGet)
@@ -602,7 +627,7 @@ export class TransitionHandler {
       }
       let oldGlory = logic.general.state.glory
       for(let record of re['records'] as BattleTransRecord[]){
-        let moraleAdd = record.result ? 2 : -2
+        let moraleAdd = record.result ? 3 : -3
         logic.general.offsetMorale(moraleAdd)
         logic.map.addGloryAndSum(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){

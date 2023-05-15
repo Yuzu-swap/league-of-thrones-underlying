@@ -732,7 +732,7 @@ export class General{
         return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
     }
 
-    battle( generalId : number , defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+    battle( generalId : number , attackUnionId : number, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
@@ -776,6 +776,9 @@ export class General{
         let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
         let randomD = 0.9 + getRandom() * 0.2
         let loopTime = 0
+
+        let defenseUnionId = defenseInfo['unionId'];
+
         while(true){
             loopTime++
             if(loopTime > 10000){
@@ -807,7 +810,9 @@ export class General{
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
         re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
         // re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
-        re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense)*  re.defenseTroopReduce)/100)
+        if(attackUnionId !== defenseUnionId){
+            re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense)*  re.defenseTroopReduce)/100)            
+        }
         // re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
         re.defenseGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense)* re.attackTroopReduce)/100)
         if(remainTroopA > 0 ){
@@ -818,7 +823,9 @@ export class General{
             re.win = false
         }
         if(re.win){
-            re.attackGloryGet += this.config.parameter.battle_victory_get_glory
+            if(attackUnionId !== defenseUnionId){
+                re.attackGloryGet += this.config.parameter.battle_victory_get_glory
+            }
         }
         else{
             re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
