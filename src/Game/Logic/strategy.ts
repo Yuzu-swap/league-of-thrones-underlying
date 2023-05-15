@@ -288,7 +288,7 @@ export class Strategy{
                 error: "strategy-point-error"
             }
         }
-        this.general.offsetMorale(2)
+        this.general.offsetMorale(3)
         return{
             result: true,
             txType: StateTransition.StrategyBuyMorale

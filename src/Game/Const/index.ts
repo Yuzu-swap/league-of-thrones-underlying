@@ -76,7 +76,8 @@ export enum StateTransition {
 	FirstLogin,
 	StrategyBuyProtect1,
 	FinishOutChainUserActivity,
-	HealTroops
+	HealTroops,
+	SpyEnamy
 }
 
 export function StringifyTxType() {
@@ -220,6 +221,11 @@ export interface HealTroopsArgs extends StateTransitionArgs{
   amount: number
 }
 
+export interface SpyEnamyArgs extends StateTransitionArgs{
+  username: string
+  generalId: number
+}
+
 export enum ChatType {
 	ChatTypeText                  = 1,
 	ChatTypePos                   = 2,
@@ -288,4 +294,5 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } =
 	[StateTransition.StartSeason]: checkMapFactory.StartSeasonArgs,
 	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,
 	[StateTransition.HealTroops]: checkMapFactory.HealTroopsArgs,
+	[StateTransition.SpyEnamy]: checkMapFactory.SpyEnamyArgs,
 }

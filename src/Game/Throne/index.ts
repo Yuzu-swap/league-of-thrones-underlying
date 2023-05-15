@@ -232,6 +232,7 @@ export interface IGeneralComponent extends IComponent {
   */
 
   getBattleStatuses(name : string, callback: (result: any) => void ): Promise<void>
+  spyEnamy(username : string, generalId: number, callback: (result: any) => void ): void
 
   getGloryAndRank(callback: (result: any) => void ): Promise<void>
 
@@ -879,7 +880,35 @@ export class GeneralComponent implements IGeneralComponent {
     else{
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
     }
-    callback(re ?? [])
+    re = re ?? [];
+
+    let list = [];
+    re.forEach(function(item){
+      list.push({
+        id: item.id,
+        username: item.username,
+        unionId: item.unionId,
+        player: item.player,
+        isProtected: item.isProtected
+      });
+    });
+    callback(list)
+  }
+
+  spyEnamy( username: string, generalId: number, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.SpyEnamy,{
+      from: Throne.instance().username,
+      generalId: generalId,
+      username: username
+    }, async function(res){
+      if(res.result){
+        let data = await this.mediator.query( StateName.DefenderInfo, {username : username});
+        res.data = data;
+        callback(res);
+      }else{
+        callback(res);
+      }
+    })
   }
 
   async getGloryAndRank( callback: (result: any) => void ): Promise<void> {
@@ -1047,7 +1076,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u0511"
+    this.version = "u0515"
   }
 
 
@@ -1203,8 +1232,6 @@ function example() {
       general.onStateUpdate((state) => {
         console.log("general", state)
       })
-
-
     }
     )
   )

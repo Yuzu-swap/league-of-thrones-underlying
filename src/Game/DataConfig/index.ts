@@ -67,6 +67,7 @@ export class Parameter {
 	attack_plots_need_stamina: number
 	defense_plots_need_stamina: number
 	gather_need_stamina: number
+	spy_need_stamina: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []

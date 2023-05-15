@@ -840,6 +840,31 @@ export class General{
         }
     }
 
+    spyForEnamy( username: string, generalId: number) {
+        if(username == ''){
+          return {
+            result: false,
+            txType: StateTransition.SpyEnamy,
+            err: 'username require'
+          }
+        }
+
+        let stamina = this.config.parameter.spy_need_stamina;
+        if(!(this.useGeneralStamina(generalId, stamina))){
+            return{
+                result: false,
+                txType: StateTransition.SpyEnamy,
+                error: 'general-stamina-error'
+            }
+        }
+
+        //beacuse of no mediator, spy data in callback by index.ts(async spyEnamy)
+        return {
+            result: true,
+            txType: StateTransition.SpyEnamy
+        };
+    }
+
     //should trigger when defense general change
     updateDefenseInfo(){
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)

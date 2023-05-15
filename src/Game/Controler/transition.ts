@@ -36,7 +36,8 @@ import {
   checkerMapForTxArgsTypeMap,
   SetUnionWinArgs,
   OutChainUserActivityArgs,
-  HealTroopsArgs
+  HealTroopsArgs,
+  SpyEnamyArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -69,7 +70,8 @@ export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 
 export enum BattleRecordType{
   Block = "block",
-  City = "city"
+  City = "city",
+  Spy = "spy"
 }
 
 export interface BattleTransRecord{
@@ -123,8 +125,6 @@ export class TransitionHandler {
           throw new Error(" only witness can do this transition sid: " + sid + " from: " + arg["from"])
         }
       }
-
-
 
       switch (sid) {
         case StateTransition.UpgradeFacility:
@@ -235,6 +235,9 @@ export class TransitionHandler {
           return re
         case StateTransition.HealTroops:
           re = this.onHealTroops(arg as HealTroopsArgs)
+          return re
+        case StateTransition.SpyEnamy:
+          re = this.onSpyEnamy(arg as SpyEnamyArgs)
           return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
@@ -515,6 +518,47 @@ export class TransitionHandler {
     console.log('onHealTroops', args);
     let re = logic.general.healTroops(args.typ, args.amount);
     console.log('onHealTroops', re);
+    return re;
+  }
+
+  onSpyEnamy(args: SpyEnamyArgs){
+    const logic: LogicEssential = this.genLogic(args.from);
+    let re = logic.general.spyForEnamy(args.from, args.generalId);
+    let btr: BattleTransRecord  = {
+      attackInfo :{
+        username: args.from,
+        generalId: args.generalId,
+        generalLevel: -1,
+        generalType: -1,
+        troopReduce: 0,
+        silverGet: 0,
+        gloryGet: 0,
+        unionId: -1,
+        iconId: -1
+      },
+      defenseInfo:{
+        username: args.username,
+        generalId: -1,
+        generalLevel: -1,
+        generalType: -1,
+        troopReduce: 0,
+        silverGet: 0,
+        gloryGet: 0,
+        unionId: -1,
+        iconId: -1
+      },
+      recordType: BattleRecordType.Spy,
+      blockInfo:{
+        x_id: 0,
+        y_id: 0,
+        durabilityReduce: 0
+      },
+      timestamp: getTimeStamp(),
+      txHash: getTxHash(),
+      result: re['result']
+    }
+    this.recordEvent(TransitionEventType.Battles, btr)
+    console.log('spyEnamy', args, re);
     return re;
   }
 
