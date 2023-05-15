@@ -895,15 +895,25 @@ export class GeneralComponent implements IGeneralComponent {
     callback(list)
   }
 
-  spyEnamy( username: string, generalId: number, callback: (result: any) => void ) {
+  async spyEnamy( username: string, generalId: number, callback: (result: any) => void ) {
+    let _this = this;
+    let res = await this.mediator.query( StateName.DefenderInfo, {username : username});
+    let _enamy = (res || [])[0] || {};
+    if(_enamy.isProtected){
+      callback({
+        result: false,
+        err: 'enamy not exist or under protect',
+        data: res || []
+      });
+    }
     this.mediator.sendTransaction(StateTransition.SpyEnamy,{
       from: Throne.instance().username,
       generalId: generalId,
       username: username
     }, async function(res){
       if(res.result){
-        let data = await this.mediator.query( StateName.DefenderInfo, {username : username});
-        res.data = data;
+        let data = await _this.mediator.query( StateName.DefenderInfo, {username : username});
+        res.data = data || [];
         callback(res);
       }else{
         callback(res);

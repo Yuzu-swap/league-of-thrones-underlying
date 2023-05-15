@@ -840,6 +840,7 @@ export class General{
         }
     }
 
+    //username === enamy
     spyForEnamy( username: string, generalId: number) {
         if(username == ''){
           return {
