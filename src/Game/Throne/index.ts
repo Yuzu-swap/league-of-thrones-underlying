@@ -902,9 +902,10 @@ export class GeneralComponent implements IGeneralComponent {
     if(_enamy.isProtected){
       callback({
         result: false,
-        err: 'enamy not exist or under protect',
+        err: 'Player not exist or under protect',
         data: res || []
       });
+      return;
     }
     this.mediator.sendTransaction(StateTransition.SpyEnamy,{
       from: Throne.instance().username,

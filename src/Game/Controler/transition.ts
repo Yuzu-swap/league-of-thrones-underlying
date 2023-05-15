@@ -524,17 +524,22 @@ export class TransitionHandler {
   onSpyEnamy(args: SpyEnamyArgs){
     const logic: LogicEssential = this.genLogic(args.from);
     let re = logic.general.spyForEnamy(args.from, args.generalId);
+
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0)
+    const logic1: LogicEssential = this.genLogic(args.from, 0, 0, gStates)
+    const logic2: LogicEssential = this.genLogic(args.username, 0, 0, gStates)
+
     let btr: BattleTransRecord  = {
       attackInfo :{
         username: args.from,
         generalId: args.generalId,
-        generalLevel: -1,
-        generalType: -1,
+        generalLevel: logic1.general.getGeneralLevel( args.generalId ),
+        generalType: logic1.general.getGeneralQualification( args.generalId ).general_type,
         troopReduce: 0,
         silverGet: 0,
         gloryGet: 0,
-        unionId: -1,
-        iconId: -1
+        unionId: logic1.general.state.unionId,
+        iconId: logic1.general.state.iconId
       },
       defenseInfo:{
         username: args.username,
@@ -544,8 +549,8 @@ export class TransitionHandler {
         troopReduce: 0,
         silverGet: 0,
         gloryGet: 0,
-        unionId: -1,
-        iconId: -1
+        unionId: logic2.general.state.unionId,
+        iconId: logic2.general.state.iconId
       },
       recordType: BattleRecordType.Spy,
       blockInfo:{
