@@ -261,8 +261,7 @@ export interface ChatMessage {
 
 const checkMapFactory = createCheckers(IndexTI)
 
-export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = 
-{
+export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = {
 	[StateTransition.UpgradeFacility] : checkMapFactory.UpgradeFacilityArgs,
 	[StateTransition.Recruit]: checkMapFactory.RecruitArgs,
 	[StateTransition.AbleGeneral]: checkMapFactory.AbleGeneralArgs,

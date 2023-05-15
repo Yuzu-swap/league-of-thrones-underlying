@@ -522,12 +522,13 @@ export class TransitionHandler {
   }
 
   onSpyEnamy(args: SpyEnamyArgs){
-    const logic: LogicEssential = this.genLogic(args.from);
-    let re = logic.general.spyForEnamy(args.from, args.generalId);
-
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0)
     const logic1: LogicEssential = this.genLogic(args.from, 0, 0, gStates)
     const logic2: LogicEssential = this.genLogic(args.username, 0, 0, gStates)
+
+    const logic: LogicEssential = this.genLogic(args.from);
+    let re = logic.general.spyForEnamy(args.from, args.generalId);
+        re['store'] = logic.strategy.getStrategyStatus(StrategyType.Store);
 
     let btr: BattleTransRecord  = {
       attackInfo :{
@@ -562,7 +563,8 @@ export class TransitionHandler {
       txHash: getTxHash(),
       result: re['result']
     }
-    this.recordEvent(TransitionEventType.Battles, btr)
+    this.recordEvent(TransitionEventType.Battles, btr);
+
     console.log('spyEnamy', args, re);
     return re;
   }

@@ -907,7 +907,7 @@ export class GeneralComponent implements IGeneralComponent {
       });
       return;
     }
-    this.mediator.sendTransaction(StateTransition.SpyEnamy,{
+    this.mediator.sendTransaction(StateTransition.SpyEnamy, {
       from: Throne.instance().username,
       generalId: generalId,
       username: username

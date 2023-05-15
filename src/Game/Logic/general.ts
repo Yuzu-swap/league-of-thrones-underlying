@@ -43,7 +43,6 @@ export enum SkillType{
     Troop = 'recruit'
 }
 
-
 export interface DefenseInfo{
     generalId:number
     generalLevel: number
