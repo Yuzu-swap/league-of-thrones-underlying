@@ -501,8 +501,9 @@ export class TransitionHandler {
           logic2.general.offsetMorale(moraleAdd);
         }
       }else{
-        if(!re['win']){
-          logic2.general.offsetMorale(moraleAdd);
+        if(re['win']){
+          logic1.general.offsetMorale(moraleAdd);
+          logic2.general.offsetMorale(moraleAdd * -1);
         }
       }
 
