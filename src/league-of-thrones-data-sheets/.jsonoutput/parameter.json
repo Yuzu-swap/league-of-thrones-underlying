@@ -15,6 +15,10 @@
         "value":"1",
         "name":"stamina_share_activity_reward"
     },
+    "spy_need_stamina":{
+        "value":"1",
+        "name":"spy_need_stamina"
+    },
     "register_reward_gold":{
         "value":"100",
         "name":"register_reward_gold"
@@ -87,6 +91,10 @@
         "value":"100",
         "name":"general_max_level"
     },
+    "gather_need_stamina":{
+        "value":"1",
+        "name":"gather_need_stamina"
+    },
     "gather_need_general_stamina":{
         "value":"1",
         "name":"gather_need_general_stamina"
@@ -94,10 +102,6 @@
     "gather_get_silver_parameter":{
         "value":"0.5",
         "name":"gather_get_silver_parameter"
-    },
-    "gather_need_stamina":{
-        "value":"1",
-        "name":"gather_need_stamina"
     },
     "defense_plots_need_stamina":{
         "value":"1",
@@ -126,9 +130,5 @@
     "attack_player_need_stamina":{
         "value":"3",
         "name":"attack_player_need_stamina"
-    },
-    "spy_need_stamina":{
-        "value":"3",
-        "name":"spy_need_stamina"
-    },
+    }
 }
