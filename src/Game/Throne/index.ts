@@ -1094,14 +1094,12 @@ export class Throne implements IThrone {
   async init( obj : {}, callback: (result: any) => void = ()=>{}) {
     if(this.instanceState == InstanceStatus.Null){
       this.instanceState = InstanceStatus.Loading
-    }
-    else if(this.instanceState  == InstanceStatus.Loading){
+    }else if(this.instanceState  == InstanceStatus.Loading){
       return {
         result: false,
         error: "throne-have-not-finish-init"
       }
-    }
-    else{
+    }else{
       return{
         result: true
       }
@@ -1152,16 +1150,14 @@ export class Throne implements IThrone {
         unionId: this.unionId,
         force: false
       }, callback)
-    }
-    else{
-      callback(
-        {
-          result: 
-            {result:true,
-            unionId:states.general.unionId,
-            username:this.username}
+    }else{
+      callback({
+        result: {
+          result: true,
+          unionId: states.general.unionId,
+          username: this.username
         }
-      )
+      })
       this.unionId = states.general.unionId
     }
     if( this.logicEssential.city.state.firstLogin == -1 ){
@@ -1171,8 +1167,6 @@ export class Throne implements IThrone {
     }
     this.components[ComponentType.Chain] = new ChainComponent(this.mediator)
   }
-
-
 
   async initComponent<T extends IComponent>(
     typ: ComponentType,
