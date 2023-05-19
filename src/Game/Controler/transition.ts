@@ -555,7 +555,7 @@ export class TransitionHandler {
     const logic: LogicEssential = this.genLogic(args.from);
     let re = logic.general.spyForEnamy(args.from, args.generalId);
 
-    let typeInfos = logic2.city.getAllUpgradeInfo['store'];
+    let typeInfos = logic2.city.getAllUpgradeInfo(CityFacility.Store);
     let cityLevel = logic2.city.state.facilities['store'][0];
     re['store'] = typeInfos[cityLevel-1];
 
