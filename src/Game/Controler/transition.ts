@@ -554,7 +554,7 @@ export class TransitionHandler {
 
     const logic: LogicEssential = this.genLogic(args.from);
     let re = logic.general.spyForEnamy(args.from, args.generalId);
-        re['store'] = logic.strategy.getStrategyStatus(StrategyType.Store);
+        re['store'] = logic2.strategy.getStrategyStatus(StrategyType.Store);
 
     let btr: BattleTransRecord  = {
       attackInfo :{
