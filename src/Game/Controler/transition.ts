@@ -554,7 +554,10 @@ export class TransitionHandler {
 
     const logic: LogicEssential = this.genLogic(args.from);
     let re = logic.general.spyForEnamy(args.from, args.generalId);
-        re['store'] = logic2.city.state.facilities;
+
+    let typeInfos = logic2.city.getAllUpgradeInfo['store'];
+    let cityLevel = logic2.city.state.facilities['store'][0];
+    re['store'] = typeInfos[cityLevel-1];
 
     let btr: BattleTransRecord  = {
       attackInfo :{
