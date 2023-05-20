@@ -778,6 +778,7 @@ export class General{
         let loopTime = 0
 
         let defenseUnionId = defenseInfo['unionId'];
+        console.log('battlecity:', attackUnionId, defenseUnionId);
 
         while(true){
             loopTime++

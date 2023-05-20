@@ -889,7 +889,8 @@ export class GeneralComponent implements IGeneralComponent {
         username: item.username,
         unionId: item.unionId,
         player: item.player,
-        isProtected: item.isProtected
+        isProtected: item.isProtected,
+        statuses: item
       });
     });
     callback(list)

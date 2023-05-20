@@ -486,7 +486,7 @@ export class TransitionHandler {
       const powerCompare = total1/total2;
       console.log('powerCompare:', status1, status2, total1, total2, powerCompare);
 
-      let moraleAdd = 3;
+      let moraleAdd = 2;
       if(powerCompare > 2){
         if(!re['win']){
           logic1.general.offsetMorale(moraleAdd * -1);
@@ -631,7 +631,7 @@ export class TransitionHandler {
       }
       let oldGlory = logic.general.state.glory
       for(let record of re['records'] as BattleTransRecord[]){
-        let moraleAdd = record.result ? 3 : -3
+        let moraleAdd = record.result ? 2 : -2
         logic.general.offsetMorale(moraleAdd)
         logic.map.addGloryAndSum(record.attackInfo.gloryGet)
         if(record.defenseInfo.username != ''){
