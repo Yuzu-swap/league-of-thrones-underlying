@@ -436,8 +436,12 @@ export class TransitionHandler {
     }
     console.log('updateInjuredTroops battle args:', args)
     let defenseInfo = logic2.general.getDefenseInfo()
-    console.log('updateInjuredTroops defenseInfo:', defenseInfo)
-    let re = logic1.general.battle(args.generalId, logic1.general.state.unionId, defenseInfo)
+    console.log('updateInjuredTroops defenseInfo:', defenseInfo);
+    let unionIds = {
+      attackUnionId: logic1.general.state.unionId, 
+      defenseUnionId: logic2.general.state.unionId
+    };
+    let re = logic1.general.battle(args.generalId, unionIds, defenseInfo)
     console.log('updateInjuredTroops battle result:', re)
 
     logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')

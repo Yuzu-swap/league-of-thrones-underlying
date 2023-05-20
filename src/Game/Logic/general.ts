@@ -732,7 +732,7 @@ export class General{
         return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
     }
 
-    battle( generalId : number , attackUnionId : number, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+    battle( generalId : number , unionIds : any, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
@@ -777,7 +777,7 @@ export class General{
         let randomD = 0.9 + getRandom() * 0.2
         let loopTime = 0
 
-        let defenseUnionId = defenseInfo['unionId'];
+        let { attackUnionId, defenseUnionId } = unionIds;
         console.log('battlecity:', attackUnionId, defenseUnionId);
 
         while(true){
