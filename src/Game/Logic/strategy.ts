@@ -302,10 +302,12 @@ export class Strategy{
         if(type == StrategyType.Protect){
             info = this.state.protect
             lastTime = this.parameter.order_protect_times
-        }else if(type == StrategyType.Protect1){
+        }
+        if(type == StrategyType.Protect1){
             info = this.state.protect1 || {able:false, beginTime: 0}
             lastTime = this.parameter.order_protect_1hour_times
-        }else{
+        }
+        if(type == StrategyType.Store){
             info = this.state.store
             lastTime = this.parameter.order_hoard_times
         }
@@ -313,14 +315,12 @@ export class Strategy{
             able : false,
             beginTime: 0
         }
-        if( !info.able){
+        if(!info.able){
             return re
-        }
-        else{
+        }else{
             if(time - info.beginTime > lastTime){
                 return re
-            }
-            else{
+            }else{
                 re.able = true
                 re.beginTime = info.beginTime
                 return re
@@ -351,7 +351,7 @@ export class Strategy{
                 }
             )
         }
-        else{
+        if(type == StrategyType.Store ){
             this.state.update(
                 {
                     store: item
