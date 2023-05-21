@@ -230,12 +230,20 @@ export class City {
   upgradeFacility(typ: CityFacility, index: number = 0) {
     this.updateResource(ResouceType.Silver)
     if (!this.checkUpgradeFacility(typ, index)) {
-      return {result:false,"error":"checkUpgradeFacility-error"};
+      return {
+        result:false,
+        txType: StateTransition.UpgradeFacility,
+        "error":"checkUpgradeFacility-error"
+      };
     }
     let levelList = this.state.facilities[typ]?.concat() ?? [];
     const maxCount = this.cityConfig.limit[typ].max_count;
     if (index >= maxCount) {
-      return {result:false,"error":"index-over-max"};
+      return {
+        result:false,
+        txType: StateTransition.UpgradeFacility,
+        "error":"index-over-max"
+      };
     }
 
     let tartgetLevel = 1;
@@ -285,7 +293,7 @@ export class City {
   }
   
   updateInjuredTroops(amount: number, type: string) {
-    let injuredTroops: InjuredTroops = this.getInjuredTroops();
+    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
     console.log('updateInjuredTroops-1: ', amount, type, injuredTroops);
     let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60;
@@ -309,6 +317,7 @@ export class City {
   }
 
   getInjuredTroops() {
+    this.updateInjuredTroops(0, 'heal');
     let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
     return injuredTroops;
   }
@@ -326,6 +335,7 @@ export class City {
     let injuredTroops = this.getInjuredTroops();
     if(injuredTroops.value < amount){
       return {
+        txType: StateTransition.HealTroops,
         err: 'heal count big the injury.'
       }
     }
@@ -333,6 +343,7 @@ export class City {
     let silversNeed = this.healEstimate(amount).silver;
     if (silversNeed > this.getResource(ResouceType.Silver)) {
       return {
+        txType: StateTransition.HealTroops,
         err: 'silvers not enough.'
       }
     }
@@ -340,13 +351,17 @@ export class City {
     this.useTroop( -1* amount )
     this.updateInjuredTroops( -1 * amount , 'heal')
 
-    return { result: true }
+    return { 
+      txType: StateTransition.HealTroops,
+      result: true 
+    }
   }
 
   healTroopsByGold(amount: number){
     let injuredTroops = this.getInjuredTroops();
     if(injuredTroops.value < amount){
       return {
+        txType: StateTransition.HealTroops,
         err: 'heal count big the injury.'
       }
     }
@@ -355,6 +370,7 @@ export class City {
     let goldsNeed = this.healEstimate(amount).gold;;
     if (goldsNeed > nowGlod) {
       return {
+        txType: StateTransition.HealTroops,
         err: 'gold not enough.'
       }
     }
@@ -362,7 +378,10 @@ export class City {
     this.useTroop( -1* amount ); //plus
     this.updateInjuredTroops( -1 * amount , 'heal') //minus
 
-    return { result: true }
+    return { 
+      txType: StateTransition.HealTroops,
+      result: true
+    }
   }
 
   useSilver(amount: number): boolean {
@@ -404,7 +423,11 @@ export class City {
   recruit( amount: number ){
     const cost = this.getRecruitNeed(amount)
     if( cost > this.getResource(ResouceType.Silver)){
-      return {result: false, error: 'silver-not-enough'}
+      return {
+        result: false, 
+        txType: StateTransition.Recruit,
+        error: 'silver-not-enough'
+      }
     }
     let recruit = this.state.recruit
     const product = this.boost.getProduction(ResouceType.Troop)
@@ -412,7 +435,11 @@ export class City {
     const endtime = Math.floor(amount/product * 3600) + time
     console.log('recruit', product, amount, Math.floor(amount/product * 3600));
     if(!this.useSilver(cost)){
-      return {result: false, error: 'silver-not-enough'}
+      return {
+        result: false, 
+        txType: StateTransition.Recruit,
+        error: 'silver-not-enough'
+      }
     }
     recruit.push(
       {
@@ -503,6 +530,7 @@ export class City {
     const row = this.cityConfig.facilityConfig[CityFacility.Wall].get((wallLevel -1).toString())
     return row.scale_of_troop_defense
   }
+
   getMaxAttackTroop(){
     const wallLevel = this.state.facilities[CityFacility.MilitaryCenter][0]
     const row = this.cityConfig.facilityConfig[CityFacility.MilitaryCenter].get((wallLevel -1).toString())
@@ -539,6 +567,7 @@ export class City {
     ){
       return {
         result: false,
+        txType: StateTransition.Recharge,
         error: 'recharge-config-error'
       }
     }
@@ -549,7 +578,8 @@ export class City {
       }
     )
     return{
-      result: true
+      result: true,
+      txType: StateTransition.Recharge
     }
   }
 
@@ -559,6 +589,7 @@ export class City {
       console.log("OutChainUserActivityArgs accquire_energy")
       strategy.offsetStrategyPoint(1,true)
       return {
+        txType: StateTransition.FinishOutChainUserActivity,
         result: true
       }
     }
@@ -574,6 +605,7 @@ export class City {
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
+          txType: StateTransition.FinishOutChainUserActivity,
           error: "reward-already-claimed"
         }
       }
@@ -591,6 +623,7 @@ export class City {
     } else {
       return {
         result : false,
+        txType: StateTransition.FinishOutChainUserActivity,
         error: "action-reward-error"
       }
     }
@@ -629,6 +662,7 @@ export class City {
     if(coolDown != 0 ){
       return{
         result: false,
+        txType: StateTransition.AddTestResource,
         error: 'cool-down-have-not-end'
       }
     }
@@ -645,6 +679,7 @@ export class City {
       }
     )
     return{
+      txType: StateTransition.AddTestResource,
       result: true
     }
   }
@@ -740,6 +775,7 @@ export class City {
       }
     )
     return {
+      txType: StateTransition.SetGuideStep,
       result: true
     }
   }

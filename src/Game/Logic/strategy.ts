@@ -143,12 +143,14 @@ export class Strategy{
         if(!isNumber(amount)){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "amount-illegal"
             }
         }
         if(amount <= 0){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "amount-illegal"
             }
         }
@@ -157,6 +159,7 @@ export class Strategy{
         if(times + amount > this.strategyBuyConfig.getMaxTimes()){
             return {
                 result : false,
+                txType: StateTransition.BuyStrategyPoint,
                 error: "have-reach-to-max-buy-times"
             }
         }
@@ -165,6 +168,7 @@ export class Strategy{
             if(!this.city.useGold(goldNeed)){
                 return {
                     result : false,
+                    txType: StateTransition.BuyStrategyPoint,
                     error: "gold-is-not-enough"
                 }
             }
@@ -178,7 +182,8 @@ export class Strategy{
                 }
             )
             return {
-                result: true
+                result: true,
+                txType: StateTransition.BuyStrategyPoint
             }
         }
     }
@@ -195,6 +200,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyTroop,
                 error: "strategy-point-error"
             }
         }
@@ -211,6 +217,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuySilver,
                 error: "strategy-point-error"
             }
         }
@@ -227,6 +234,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyProtect,
                 error: "strategy-point-error"
             }
         }
@@ -243,6 +251,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyProtect1,
                 error: "strategy-point-error"
             }
         }
@@ -259,6 +268,7 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyStore,
                 error: "strategy-point-error"
             }
         }
@@ -274,10 +284,11 @@ export class Strategy{
         if(!this.offsetStrategyPoint(-strategyUse)){
             return{
                 result: false,
+                txType: StateTransition.StrategyBuyMorale,
                 error: "strategy-point-error"
             }
         }
-        this.general.offsetMorale(2)
+        this.general.offsetMorale(3)
         return{
             result: true,
             txType: StateTransition.StrategyBuyMorale
@@ -291,10 +302,12 @@ export class Strategy{
         if(type == StrategyType.Protect){
             info = this.state.protect
             lastTime = this.parameter.order_protect_times
-        }else if(type == StrategyType.Protect1){
+        }
+        if(type == StrategyType.Protect1){
             info = this.state.protect1 || {able:false, beginTime: 0}
             lastTime = this.parameter.order_protect_1hour_times
-        }else{
+        }
+        if(type == StrategyType.Store){
             info = this.state.store
             lastTime = this.parameter.order_hoard_times
         }
@@ -302,14 +315,12 @@ export class Strategy{
             able : false,
             beginTime: 0
         }
-        if( !info.able){
+        if(!info.able){
             return re
-        }
-        else{
+        }else{
             if(time - info.beginTime > lastTime){
                 return re
-            }
-            else{
+            }else{
                 re.able = true
                 re.beginTime = info.beginTime
                 return re
@@ -340,7 +351,7 @@ export class Strategy{
                 }
             )
         }
-        else{
+        if(type == StrategyType.Store ){
             this.state.update(
                 {
                     store: item

@@ -1,5 +1,5 @@
 import { copyObj } from "../../Core/state";
-import { ResouceType } from "../Const";
+import { ResouceType, StateTransition } from "../Const";
 import { ActivityTypeConfig, ActivityTypeConfigFromGDS, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { ActivityData, IActivityState } from "../State";
 import { getTimeStamp, indexOfSortedList, parseStateId } from "../Utils";
@@ -160,6 +160,7 @@ export class Activity{
         if(!this.checkActivityAble(id)){
             return {
                 result: false,
+                txType: StateTransition.DonateSilver,
                 error: "activity-is-not-able:id:" + id 
             }
         }
@@ -167,6 +168,7 @@ export class Activity{
         if(info.type != 3){
             return{
                 result: false,
+                txType: StateTransition.DonateSilver,
                 error: "activity-type-error" 
             }
         }
@@ -174,6 +176,7 @@ export class Activity{
         if(!this.city.useSilver(amount)){
             return {
                 result: false,
+                txType: StateTransition.DonateSilver,
                 error: 'silver-is-not-enough'
             }
         }
@@ -190,6 +193,7 @@ export class Activity{
         console.log("donateSilver: after donate:", this.city.state)
         return{
             result: true,
+            txType: StateTransition.DonateSilver,
             donateAmount: newValue,
             rank: rankInfo.rank,
             rankReward: rankInfo.rankReward

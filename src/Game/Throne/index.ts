@@ -232,6 +232,7 @@ export interface IGeneralComponent extends IComponent {
   */
 
   getBattleStatuses(name : string, callback: (result: any) => void ): Promise<void>
+  spyEnamy(username : string, generalId: number, callback: (result: any) => void ): void
 
   getGloryAndRank(callback: (result: any) => void ): Promise<void>
 
@@ -731,6 +732,7 @@ export class GeneralComponent implements IGeneralComponent {
     let re = {}
     for (let idstring in this.general.state.generalList) {
       const generalInfo = this.general.state.generalList[idstring]
+      const stamina = generalInfo.stamina;
       const id = parseInt(idstring)
       let temp = {
         id: id,
@@ -738,13 +740,15 @@ export class GeneralComponent implements IGeneralComponent {
         level: 0,
         able: false,
         skilllevel: [1, 1, 1],
-        stamina: 0
+        stamina: 0,
+        staminaTime: 0
       }
       temp.qualification = JSON.parse(JSON.stringify(this.getGeneralQualification(id)))
       temp.level = generalInfo.level
       temp.able = generalInfo.able
       temp.skilllevel = generalInfo.skill_levels.concat()
       temp.stamina = this.general.getGeneralStamina(id)
+      temp.staminaTime =  stamina.lastUpdate;
       re[idstring] = temp
     }
     return re
@@ -876,7 +880,47 @@ export class GeneralComponent implements IGeneralComponent {
     else{
       re = await this.mediator.query( StateName.DefenderInfo, {username : username})
     }
-    callback(re ?? [])
+    re = re ?? [];
+
+    let list = [];
+    re.forEach(function(item){
+      list.push({
+        id: item.id,
+        username: item.username,
+        unionId: item.unionId,
+        player: item.player,
+        isProtected: item.isProtected,
+        statuses: item
+      });
+    });
+    callback(list)
+  }
+
+  async spyEnamy( username: string, generalId: number, callback: (result: any) => void ) {
+    let _this = this;
+    let res = await this.mediator.query( StateName.DefenderInfo, {username : username});
+    let _enamy = (res || [])[0] || {};
+    if(_enamy.isProtected){
+      callback({
+        result: false,
+        err: 'Player not exist or under protect',
+        data: res || []
+      });
+      return;
+    }
+    this.mediator.sendTransaction(StateTransition.SpyEnamy, {
+      from: Throne.instance().username,
+      generalId: generalId,
+      username: username
+    }, async function(res){
+      if(res.result){
+        let data = await _this.mediator.query( StateName.DefenderInfo, {username : username});
+        res.data = data || [];
+        callback(res);
+      }else{
+        callback(res);
+      }
+    })
   }
 
   async getGloryAndRank( callback: (result: any) => void ): Promise<void> {
@@ -1044,21 +1088,19 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u050702"
+    this.version = "u051502"
   }
 
 
   async init( obj : {}, callback: (result: any) => void = ()=>{}) {
     if(this.instanceState == InstanceStatus.Null){
       this.instanceState = InstanceStatus.Loading
-    }
-    else if(this.instanceState  == InstanceStatus.Loading){
+    }else if(this.instanceState  == InstanceStatus.Loading){
       return {
         result: false,
         error: "throne-have-not-finish-init"
       }
-    }
-    else{
+    }else{
       return{
         result: true
       }
@@ -1109,16 +1151,14 @@ export class Throne implements IThrone {
         unionId: this.unionId,
         force: false
       }, callback)
-    }
-    else{
-      callback(
-        {
-          result: 
-            {result:true,
-            unionId:states.general.unionId,
-            username:this.username}
+    }else{
+      callback({
+        result: {
+          result: true,
+          unionId: states.general.unionId,
+          username: this.username
         }
-      )
+      })
       this.unionId = states.general.unionId
     }
     if( this.logicEssential.city.state.firstLogin == -1 ){
@@ -1128,8 +1168,6 @@ export class Throne implements IThrone {
     }
     this.components[ComponentType.Chain] = new ChainComponent(this.mediator)
   }
-
-
 
   async initComponent<T extends IComponent>(
     typ: ComponentType,
@@ -1200,8 +1238,6 @@ function example() {
       general.onStateUpdate((state) => {
         console.log("general", state)
       })
-
-
     }
     )
   )

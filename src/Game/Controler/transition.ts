@@ -36,7 +36,8 @@ import {
   checkerMapForTxArgsTypeMap,
   SetUnionWinArgs,
   OutChainUserActivityArgs,
-  HealTroopsArgs
+  HealTroopsArgs,
+  SpyEnamyArgs
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
@@ -69,7 +70,8 @@ export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 
 export enum BattleRecordType{
   Block = "block",
-  City = "city"
+  City = "city",
+  Spy = "spy"
 }
 
 export interface BattleTransRecord{
@@ -123,8 +125,6 @@ export class TransitionHandler {
           throw new Error(" only witness can do this transition sid: " + sid + " from: " + arg["from"])
         }
       }
-
-
 
       switch (sid) {
         case StateTransition.UpgradeFacility:
@@ -235,6 +235,9 @@ export class TransitionHandler {
           return re
         case StateTransition.HealTroops:
           re = this.onHealTroops(arg as HealTroopsArgs)
+          return re
+        case StateTransition.SpyEnamy:
+          re = this.onSpyEnamy(arg as SpyEnamyArgs)
           return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
@@ -420,19 +423,25 @@ export class TransitionHandler {
     if( logic2.strategy.getStrategyStatus(StrategyType.Protect).able || logic2.general.isNewPlayerProtect()){
       return {
         result: false,
+        txType: StateTransition.Battle,
         error: 'cant-battle-player-be-protected'
       }
     }
     if(logic1.city.state.id == logic2.city.state.id){
       return{
         result: false,
+        txType: StateTransition.Battle,
         error: 'cant-battle-self'
       }
     }
     console.log('updateInjuredTroops battle args:', args)
     let defenseInfo = logic2.general.getDefenseInfo()
-    console.log('updateInjuredTroops defenseInfo:', defenseInfo)
-    let re = logic1.general.battle(args.generalId, defenseInfo)
+    console.log('updateInjuredTroops defenseInfo:', defenseInfo);
+    let unionIds = {
+      attackUnionId: logic1.general.state.unionId, 
+      defenseUnionId: logic2.general.state.unionId
+    };
+    let re = logic1.general.battle(args.generalId, unionIds, defenseInfo)
     console.log('updateInjuredTroops battle result:', re)
 
     logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
@@ -473,9 +482,35 @@ export class TransitionHandler {
         txHash: getTxHash(),
         result: re['win']
       }
-      let moraleAdd = re['win'] ? 2 : -2
-      logic1.general.offsetMorale(moraleAdd)
-      logic2.general.offsetMorale(-moraleAdd)
+
+      const status1 = logic1.general.getGeneralBattleStatus(args.generalId);
+      const total1 = status1.sum['attack'] + status1.sum['defense'];
+      const status2 = logic2.general.getGeneralBattleStatus(defenseInfo.generalId);
+      const total2 = status2.sum['attack'] + status2.sum['defense'];
+      const powerCompare = total1/total2;
+      console.log('powerCompare:', status1, status2, total1, total2, powerCompare);
+
+      let moraleAdd = 2;
+      if(powerCompare > 2){
+        if(!re['win']){
+          logic1.general.offsetMorale(moraleAdd * -1);
+          logic2.general.offsetMorale(moraleAdd);
+        }
+      }else if(powerCompare <= 2 && powerCompare > 1/2){
+        if(re['win']){
+          logic1.general.offsetMorale(moraleAdd);
+          logic2.general.offsetMorale(moraleAdd * -1);
+        }else{
+          logic1.general.offsetMorale(moraleAdd * -1);
+          logic2.general.offsetMorale(moraleAdd);
+        }
+      }else{
+        if(re['win']){
+          logic1.general.offsetMorale(moraleAdd);
+          logic2.general.offsetMorale(moraleAdd * -1);
+        }
+      }
+
       let oldGlory1 = logic1.general.state.glory
       let oldGlory2 = logic2.general.state.glory
       logic1.map.addGloryAndSum(btr.attackInfo.gloryGet)
@@ -516,6 +551,57 @@ export class TransitionHandler {
     return re;
   }
 
+  onSpyEnamy(args: SpyEnamyArgs){
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0)
+    const logic1: LogicEssential = this.genLogic(args.from, 0, 0, gStates)
+    const logic2: LogicEssential = this.genLogic(args.username, 0, 0, gStates)
+
+    const logic: LogicEssential = this.genLogic(args.from);
+    let re = logic.general.spyForEnamy(args.from, args.generalId);
+
+    let typeInfos = logic2.city.getAllUpgradeInfo(CityFacility.Store);
+    let cityLevel = logic2.city.state.facilities['store'][0];
+    re['store'] = typeInfos[cityLevel-1];
+
+    let btr: BattleTransRecord  = {
+      attackInfo :{
+        username: args.from,
+        generalId: args.generalId,
+        generalLevel: logic1.general.getGeneralLevel( args.generalId ),
+        generalType: logic1.general.getGeneralQualification( args.generalId ).general_type,
+        troopReduce: 0,
+        silverGet: 0,
+        gloryGet: 0,
+        unionId: logic1.general.state.unionId,
+        iconId: logic1.general.state.iconId
+      },
+      defenseInfo:{
+        username: args.username,
+        generalId: -1,
+        generalLevel: -1,
+        generalType: -1,
+        troopReduce: 0,
+        silverGet: 0,
+        gloryGet: 0,
+        unionId: logic2.general.state.unionId,
+        iconId: logic2.general.state.iconId
+      },
+      recordType: BattleRecordType.Spy,
+      blockInfo:{
+        x_id: 0,
+        y_id: 0,
+        durabilityReduce: 0
+      },
+      timestamp: getTimeStamp(),
+      txHash: getTxHash(),
+      result: re['result']
+    }
+    this.recordEvent(TransitionEventType.Battles, btr);
+
+    console.log('spyEnamy', args, re);
+    return re;
+  }
+
   onAttackBlock(args: AttackBlockArgs){
     console.log('attackBlocksAround args:', args);
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
@@ -526,6 +612,7 @@ export class TransitionHandler {
     if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
       return{
         result: false,
+        txType: StateTransition.AttackBlock,
         error: 'block-is-too-far'
       }
     }
@@ -533,6 +620,7 @@ export class TransitionHandler {
     if(blockGds.type == 3){
       return {
         result: false,
+        txType: StateTransition.AttackBlock,
         error: 'cant-attack-init-block'
       }
     }
@@ -574,6 +662,7 @@ export class TransitionHandler {
       if(temp.length != 0){
         transRe = {
           result: true,
+          txType: StateTransition.AttackBlock,
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
         }
@@ -589,6 +678,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
+          txType: StateTransition.AttackBlock,
           gloryGet: gloryGet, //do fix
           durabilityReduce: re['durabilityReduce']
         }
@@ -633,6 +723,7 @@ export class TransitionHandler {
     if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.DefenseBlock,
         error: 'unionId-error'
       }
     }
@@ -643,6 +734,7 @@ export class TransitionHandler {
     let info = logic.general.getDefenseBlockInfo(args.generalId, re.troops)
     let re1 = logic.map.defenseBlock(args.x_id, args.y_id, info)
     return {
+      txType: StateTransition.DefenseBlock,
       result: true
     }
   }
@@ -652,6 +744,7 @@ export class TransitionHandler {
     const remainTroop = logic.map.cancelDefenseBlock(args.x_id, args.y_id, args.from, args.generalId)
     logic.general.cancelDefenseBlock(args.generalId, remainTroop)
     return {
+      txType: StateTransition.CancelDefenseBlock,
       result: true
     }
   }
@@ -661,6 +754,7 @@ export class TransitionHandler {
     if(args.force == false && logic.general.state.unionInit == true){
       return {
         result: false,
+        txType: StateTransition.SetUnionId,
         error: 'unionId-have-set'
       }
     }
@@ -681,6 +775,7 @@ export class TransitionHandler {
     
     return {
       result: true,
+      txType: StateTransition.SetUnionId,
       username: args.from,
       unionId: args.union_id
     }
@@ -708,6 +803,7 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(args.from)
     logic.map.setSeasonEnd()
     return {
+      txType: StateTransition.SetSeasonEnd,
       result: true
     }
   }
@@ -731,6 +827,7 @@ export class TransitionHandler {
     if(gLogic.map.seasonState.haveSet){
       return {
         result: true,
+        txType: StateTransition.StartSeason,
         error: 'seasonHaveSet'
       }
     }
@@ -776,6 +873,7 @@ export class TransitionHandler {
       }
     )
     return {
+      txType: StateTransition.StartSeason,
       result: true
     }
   }
@@ -888,12 +986,14 @@ export class TransitionHandler {
     if(logic.general.state.unionId != logic.map.getBelongInfo(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.MiningBlock,
         error: 'unionId-error'
       }
     }
     if(!logic.map.miningable(args.x_id, args.y_id)){
       return {
         result: false,
+        txType: StateTransition.MiningBlock,
         error: "remainSilver-too-less"
       }
     }
@@ -905,6 +1005,7 @@ export class TransitionHandler {
     logic.city.useSilver(-num)
     return {
       result: true,
+      txType: StateTransition.MiningBlock,
       getSilver: num
     }
   }
@@ -925,6 +1026,7 @@ export class TransitionHandler {
     console.log('state after update', logic.city.state, logic.general.state, logic.strategy.state)
     logic.general.updateDefenseInfo();
     return {
+      txType: StateTransition.InitUserStates,
       result: true
     }
   }
@@ -966,6 +1068,7 @@ export class TransitionHandler {
       )
     }
     return {
+      txType: StateTransition.InitGlobalStates,
       result: true
     }
   }
@@ -998,6 +1101,7 @@ export class TransitionHandler {
       }
     }
     return {
+      txType: StateTransition.RegularTask,
       result: true
     }
   }
@@ -1013,6 +1117,7 @@ export class TransitionHandler {
     {
       return {
         result: false,
+        txType: StateTransition.FirstLogin,
         error: "it-is-not-first-login"
       }
     }
@@ -1021,6 +1126,7 @@ export class TransitionHandler {
       firstLogin: time
     })
     return{
+      txType: StateTransition.FirstLogin,
       result: true
     }
   }

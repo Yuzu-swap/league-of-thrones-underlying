@@ -15,6 +15,10 @@
         "value":"1",
         "name":"stamina_share_activity_reward"
     },
+    "spy_need_stamina":{
+        "value":"1",
+        "name":"spy_need_stamina"
+    },
     "register_reward_gold":{
         "value":"100",
         "name":"register_reward_gold"
@@ -68,7 +72,7 @@
         "name":"healing_troops_need_silver"
     },
     "healing_troops_need_gold":{
-        "value":"0.1",
+        "value":"0.3",
         "name":"healing_troops_need_gold"
     },
     "general_troops_coefficient":{
@@ -87,6 +91,10 @@
         "value":"100",
         "name":"general_max_level"
     },
+    "gather_need_stamina":{
+        "value":"1",
+        "name":"gather_need_stamina"
+    },
     "gather_need_general_stamina":{
         "value":"1",
         "name":"gather_need_general_stamina"
@@ -94,6 +102,10 @@
     "gather_get_silver_parameter":{
         "value":"0.5",
         "name":"gather_get_silver_parameter"
+    },
+    "defense_plots_need_stamina":{
+        "value":"1",
+        "name":"defense_plots_need_stamina"
     },
     "default_defense_general":{
         "value":"100|100|100|1",
@@ -110,5 +122,13 @@
     "attack_territory_share_activity_reward":{
         "value":"100",
         "name":"attack_territory_share_activity_reward"
+    },
+    "attack_plots_need_stamina":{
+        "value":"1",
+        "name":"attack_plots_need_stamina"
+    },
+    "attack_player_need_stamina":{
+        "value":"3",
+        "name":"attack_player_need_stamina"
     }
 }
