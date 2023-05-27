@@ -523,7 +523,7 @@ export class CityComponent implements ICityComponent {
       queryData['camp'] = data.unionId
     }
     let re = await this.mediator.chatHistory(queryData)
-    callback(re)
+    callback(re || [])
   }
 
   getAbleActivityInfo(): any[] {
