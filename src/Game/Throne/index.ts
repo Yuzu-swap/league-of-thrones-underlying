@@ -505,6 +505,7 @@ export class CityComponent implements ICityComponent {
       channel: data.channel,
       content: data.content,
       sender: Throne.instance().username,
+      seasonId: Throne.instance().seasonId,
       senderCamp: Throne.instance().logicEssential.general.state.unionId,
       iconId: Throne.instance().logicEssential.general.state.iconId,
       ts: getTimeStamp()
@@ -1082,13 +1083,12 @@ export class Throne implements IThrone {
   unionId: number
   wsUrl : string
   version: string
-
-
+  seasonId: string
 
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u051502"
+    this.version = "u0528"
   }
 
 
@@ -1107,11 +1107,12 @@ export class Throne implements IThrone {
     }
     const states: StateEssential = {} as StateEssential;
     const statesTest: StateEssential = {} as StateEssential;
-    this.username = obj['username'] ? obj['username'] : 'test'
+    this.username = obj['username'] ? obj['username'] : 'test';
+    this.seasonId = obj['seasonId'];
     this.unionId = obj['unionId'] ?  obj['unionId'] : 0
     this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
     if(this.wsUrl && this.username!='test'){
-      const wsmediator = new WebSocketMediator(this.wsUrl)
+      const wsmediator = new WebSocketMediator(this.wsUrl, obj)
       if(obj['wsCloseCallback']){
         wsmediator.setWsCloseCallback(obj['wsCloseCallback'])
       }

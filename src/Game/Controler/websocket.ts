@@ -13,8 +13,7 @@ import { MessageS2C, MessageType, MessageC2S } from './Websocket/protocol';
 
 export class WebSocketMediator
   extends BaseMediator<StateTransition, ITransContext>
-  implements IStateChangeWatcher
-{
+  implements IStateChangeWatcher{
   private client: any;
   private seqNum: number;
   private respCallbacks: {};
@@ -24,18 +23,20 @@ export class WebSocketMediator
   private notifyStateChange: boolean;
   private closeCallback : ()=>void
   private hasCallClose : number
+  private seasonId : string
   private chainBlockCallback: (msg: MessageS2C) => void
 
   transitionHandler: TransitionHandler;
-  constructor(url: string) {
+  constructor(url: string, data: any) {
     super();
     this.seqNum = 1;
     this.client = new w3cwebsocket(url);
     this.respCallbacks = {};
-    this.respContext ={}
+    this.respContext ={};
     this.stateCaches = {};
     this.notifyStateChange = true;
-    this.hasCallClose = 0
+    this.hasCallClose = 0;
+    this.seasonId = data.seasonId;
   }
 
   async init() {
@@ -118,11 +119,9 @@ export class WebSocketMediator
   }
 
 
-  query(
-    typ: string,
-    args:{}
-  ):Promise<any> {
+  query(typ: string, args: {seasonId: string} ): Promise<any> {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Query,
@@ -137,8 +136,9 @@ export class WebSocketMediator
     });
   }
 
-  defaultQuery(type: MessageType, transID: string, args: {}): Promise<any> {
+  defaultQuery(type: MessageType, transID: string, args: { seasonId: string }): Promise<any> {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: type,
@@ -154,6 +154,7 @@ export class WebSocketMediator
 
   chat(data: ChatMessage): Promise<any> {
     const seqNum = this.seqNum++;
+    data.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Chat,
@@ -168,8 +169,9 @@ export class WebSocketMediator
     });
   }
 
-  chatHistory(data: {}): Promise<any> {
+  chatHistory(data: { seasonId: string }): Promise<any> {
     const seqNum = this.seqNum++;
+    data.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Chat,
@@ -185,11 +187,13 @@ export class WebSocketMediator
 
   profileQuery(key: string): Promise<any> {
     const seqNum = this.seqNum++;
+    const seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Profile,
       TransID: ProfileTransId.Query,
       Data: {
+        seasonId: seasonId,
         key : key
       },
     };
@@ -201,11 +205,13 @@ export class WebSocketMediator
 
   profileSave(key: string, value: string): Promise<any> {
     const seqNum = this.seqNum++;
+    const seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Profile,
       TransID: ProfileTransId.Save,
       Data: {
+        seasonId: seasonId,
         key : key,
         value : value 
       },
@@ -219,7 +225,7 @@ export class WebSocketMediator
 
   queryState(
     sid: IStateIdentity,
-    args: {},
+    args: { seasonId: string },
     callback: (state: IState) => void
   ): Promise<IState> | void {
     //state is in memory
@@ -239,11 +245,14 @@ export class WebSocketMediator
     } else {
       //async load state from server
       const seqNum = this.seqNum++;
+      const seasonId = this.seasonId;
       var msg: MessageC2S = {
         SeqNum: seqNum,
         Type: MessageType.StateQuery,
         TransID: sid.id,
-        Data: {}
+        Data: {
+          seasonId: seasonId
+        }
       };
 
       console.log('send msg is ', JSON.stringify(msg));
@@ -260,10 +269,11 @@ export class WebSocketMediator
 
   sendTransaction(
     tid: StateTransition,
-    args: {},
+    args: any,
     callback: (res: ITransResult) => void
   ): ITransContext {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var ctx: ITransContext = {
       SeqNum: seqNum,
       Type: MessageType.Transition,

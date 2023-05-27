@@ -249,6 +249,7 @@ export enum ProfileTransId {
 }
 
 export interface ChatMessage {
+	seasonId: string
 	id: string
 	type: ChatType
 	channel: ChatChannel
