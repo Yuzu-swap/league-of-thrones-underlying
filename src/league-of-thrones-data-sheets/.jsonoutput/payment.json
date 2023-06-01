@@ -1,98 +1,166 @@
 {
-    "6^2":{
-        "token": 1,
-        "price": 32000,
-        "internal_id": 6,
-        "internal_icon": 1,
-        "gold": 20000,
-        "extra_gold": 6000
-    },
-    "6^1":{
-        "token": 1,
-        "price": 200000000,
-        "internal_id": 6,
-        "internal_icon": 1,
-        "gold": 20000,
-        "extra_gold": 6000
-    },
-    "5^2":{
-        "token": 1,
-        "price": 16000,
-        "internal_id": 5,
-        "internal_icon": 1,
-        "gold": 10000,
-        "extra_gold": 3000
-    },
-    "5^1":{
-        "token": 1,
-        "price": 100000000,
-        "internal_id": 5,
-        "internal_icon": 1,
-        "gold": 10000,
-        "extra_gold": 3000
-    },
-    "4^2":{
-        "token": 1,
-        "price": 8000,
-        "internal_id": 4,
-        "internal_icon": 1,
-        "gold": 5000,
-        "extra_gold": 1000
-    },
-    "4^1":{
-        "token": 1,
-        "price": 50000000,
-        "internal_id": 4,
-        "internal_icon": 1,
-        "gold": 5000,
-        "extra_gold": 1000
-    },
-    "3^2":{
-        "token": 1,
-        "price": 3200,
-        "internal_id": 3,
-        "internal_icon": 1,
-        "gold": 2000,
-        "extra_gold": 300
-    },
-    "3^1":{
-        "token": 1,
-        "price": 20000000,
-        "internal_id": 3,
-        "internal_icon": 1,
-        "gold": 2000,
-        "extra_gold": 300
-    },
-    "2^2":{
-        "token": 1,
-        "price": 1600,
-        "internal_id": 2,
-        "internal_icon": 1,
-        "gold": 1000,
-        "extra_gold": 100
-    },
-    "2^1":{
-        "token": 1,
-        "price": 10000000,
-        "internal_id": 2,
-        "internal_icon": 1,
-        "gold": 1000,
-        "extra_gold": 100
-    },
-    "1^2":{
-        "token": 1,
-        "price": 800,
-        "internal_id": 1,
-        "internal_icon": 0,
-        "gold": 500,
-        "extra_gold": 0
-    },
-    "1^1":{
+   "Config" : [
+    {
         "token": 1,
         "price": 5000000,
         "internal_id": 1,
         "internal_icon": 0,
         "gold": 500,
-        "extra_gold": 0
+        "extra_gold": 0,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 10000000,
+        "internal_id": 2,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 20000000,
+        "internal_id": 3,
+        "internal_icon": 1,
+        "gold": 2000,
+        "extra_gold": 300,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 50000000,
+        "internal_id": 4,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 1000,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 100000000,
+        "internal_id": 5,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 3000,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 200000000,
+        "internal_id": 6,
+        "internal_icon": 1,
+        "gold": 20000,
+        "extra_gold": 6000,
+        "chain":"emerald"
+    },
+    {
+        "token": 1,
+        "price": 1,
+        "internal_id": 7,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 2,
+        "internal_id": 8,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 3,
+        "internal_id": 9,
+        "internal_icon": 1,
+        "gold": 2000,
+        "extra_gold": 300,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 4,
+        "internal_id": 10,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 1000,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 5,
+        "internal_id": 11,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 3000,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 6,
+        "internal_id": 12,
+        "internal_icon": 1,
+        "gold": 20000,
+        "extra_gold": 6000,
+        "chain":"bsctest"
+    },
+    {
+        "token": 1,
+        "price": 800,
+        "internal_id": 13,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0,
+        "chain":"bsc"
+    },
+    {
+        "token": 1,
+        "price": 1600,
+        "internal_id": 14,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"bsc"
+    },
+    {
+        "token": 1,
+        "price": 3200,
+        "internal_id": 15,
+        "internal_icon": 1,
+        "gold": 2000,
+        "extra_gold": 300,
+        "chain":"bsc"
+    },
+    {
+        "token": 1,
+        "price": 8000,
+        "internal_id": 16,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 1000,
+        "chain":"bsc"
+    },
+    {
+        "token": 1,
+        "price": 16000,
+        "internal_id": 17,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 3000,
+        "chain":"bsc"
+    },
+    {
+        "token": 1,
+        "price": 32000,
+        "internal_id": 18,
+        "internal_icon": 1,
+        "gold": 20000,
+        "extra_gold": 6000,
+        "chain":"bsc"
     }
+    ]
 }
