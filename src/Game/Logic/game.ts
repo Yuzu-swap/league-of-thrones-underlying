@@ -568,6 +568,7 @@ export class City {
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
+    console.log("recharge config ",tempConfig," rechargeId ",rechargeId)
     if(
       !tempConfig
       ||(tempConfig as RechargeConfig).internal_id != rechargeId

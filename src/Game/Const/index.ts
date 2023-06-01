@@ -177,9 +177,10 @@ export interface SetIconIdArgs extends StateTransitionArgs{
 }
 
 export interface RechargeArgs extends StateTransitionArgs{
-	username: string,
+	username: string
 	rechargeId: number
 	amount: number
+	chain: string
 }
 
 export enum RecoverMoraleType{

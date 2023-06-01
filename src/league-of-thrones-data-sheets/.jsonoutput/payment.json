@@ -55,7 +55,7 @@
         "chain":"emerald"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 1,
         "internal_id": 7,
         "internal_icon": 0,
@@ -64,7 +64,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 2,
         "internal_id": 8,
         "internal_icon": 1,
@@ -73,7 +73,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 3,
         "internal_id": 9,
         "internal_icon": 1,
@@ -82,7 +82,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 4,
         "internal_id": 10,
         "internal_icon": 1,
@@ -91,7 +91,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 5,
         "internal_id": 11,
         "internal_icon": 1,
@@ -100,7 +100,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 2,
         "price": 6,
         "internal_id": 12,
         "internal_icon": 1,
@@ -109,7 +109,7 @@
         "chain":"bsctest"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 800,
         "internal_id": 13,
         "internal_icon": 0,
@@ -118,7 +118,7 @@
         "chain":"bsc"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 1600,
         "internal_id": 14,
         "internal_icon": 1,
@@ -127,7 +127,7 @@
         "chain":"bsc"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 3200,
         "internal_id": 15,
         "internal_icon": 1,
@@ -136,7 +136,7 @@
         "chain":"bsc"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 8000,
         "internal_id": 16,
         "internal_icon": 1,
@@ -145,7 +145,7 @@
         "chain":"bsc"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 16000,
         "internal_id": 17,
         "internal_icon": 1,
@@ -154,7 +154,7 @@
         "chain":"bsc"
     },
     {
-        "token": 1,
+        "token": 3,
         "price": 32000,
         "internal_id": 18,
         "internal_icon": 1,
