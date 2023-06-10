@@ -142,7 +142,7 @@ export class Activity{
     }
 
     getActivityRank(id: number, username: string, value: number){
-        const list = this.state.activityData[id]
+        const list = this.state.activityData[id] || [];
         let origin = indexOfSortedList(list, username, value, 'value')
         let info = this.getActivityInfo(id)
         let rank = -1

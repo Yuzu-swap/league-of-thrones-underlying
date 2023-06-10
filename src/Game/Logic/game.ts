@@ -552,8 +552,17 @@ export class City {
     return troop
   }
 
-  getRechargeConfigs(){
-    return copyObj(this.rechargeConfig.config)
+  getRechargeConfigs(chainName){
+    var all = copyObj(this.rechargeConfig.config);
+    console.log('getRechargeConfigs', chainName, all);
+    var config = [];
+    for(let key in all){
+      let item = all[key];
+      if(item.chain === chainName){
+        config.push(item);
+      }
+    }
+    return config;
   }
 
 

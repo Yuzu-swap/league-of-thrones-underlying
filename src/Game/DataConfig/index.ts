@@ -434,7 +434,7 @@ export class RechargeConfigs{
 	config : RechargeConfig[]
 	constructor(obj : {}){
 		this.config = []
-		for(let item of obj['Config']){
+		for(let item of (obj['Config'] || [])){
 			this.config.push(item as RechargeConfig)
 		}
 	}

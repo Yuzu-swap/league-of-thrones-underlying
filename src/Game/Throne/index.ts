@@ -81,7 +81,7 @@ export interface ICityComponent extends IComponent {
   */
   receiveTroop(callback:(result: any) => void): void
 
-  getRechargeConfigs():[]
+  getRechargeConfigs(chainName: string):[]
 
   getGold():number
 
@@ -476,8 +476,8 @@ export class CityComponent implements ICityComponent {
     this.listener.push(callback)
   }
 
-  getRechargeConfigs(): [] {
-    return this.city.getRechargeConfigs() as []
+  getRechargeConfigs(chainName): [] {
+    return this.city.getRechargeConfigs(chainName) as []
   }
 
   getGold(): number {
