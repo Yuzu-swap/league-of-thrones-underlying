@@ -359,6 +359,7 @@ export interface Season{
 }
 
 export interface ActivityConf{
+	relativeTime: string
 	startTime: number
 	type: number
 }
@@ -397,6 +398,7 @@ export class SeasonConfig{
 			}
 			for(let item of (seasonConf['dailyactivity'] || []) as []){
 				let actConf : ActivityConf = {
+					relativeTime: item['day'],
 					startTime: transDateToTimeStamp(item['day']),
 					type: item['activity']
 				}

@@ -7,6 +7,7 @@ import { IBoost } from "./boost";
 import { City } from "./game";
 
 export interface ActivityInfo{
+    relativeTime: string
     activityId: number
     type: number
     totalReward: number
@@ -50,6 +51,7 @@ export class Activity{
         let info : ActivityInfo = {
             activityId : id,
             type : act.type,
+            relativeTime: act.relativeTime,
             startTime: act.startTime,
             totalReward: row.activity_pond,
             lastTime: row.activity_last * 60 * 60
