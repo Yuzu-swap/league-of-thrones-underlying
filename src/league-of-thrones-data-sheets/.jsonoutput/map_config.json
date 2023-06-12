@@ -18,7 +18,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 3,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -57,7 +57,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -84,7 +84,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -111,7 +111,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 3,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -164,7 +164,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -203,7 +203,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -230,7 +230,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 2,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -257,7 +257,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -310,7 +310,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -337,7 +337,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -364,7 +364,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -403,7 +403,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -430,7 +430,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 2,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -483,7 +483,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 3,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -510,7 +510,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -537,7 +537,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -576,7 +576,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -603,7 +603,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 1,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -630,7 +630,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -669,7 +669,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -696,7 +696,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -723,7 +723,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -776,7 +776,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 1,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -815,7 +815,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -842,7 +842,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -869,7 +869,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -923,7 +923,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -950,7 +950,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 1,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -977,7 +977,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1004,7 +1004,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1043,7 +1043,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -1065,24 +1065,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 2,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 3,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             }
         ],
-        "silver_total_number": 4000000,
+        "silver_total_number": 12000000,
         "parameter": 3,
         "gather_silver_speed": 20000,
         "durability": 100000,
@@ -1109,7 +1109,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -1136,7 +1136,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -1163,7 +1163,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1190,7 +1190,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1229,7 +1229,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -1256,7 +1256,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -1283,7 +1283,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1310,7 +1310,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1337,7 +1337,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1391,7 +1391,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -1418,7 +1418,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1445,7 +1445,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1472,7 +1472,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 1,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1525,7 +1525,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1547,24 +1547,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -1591,7 +1591,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -1613,24 +1613,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -1657,7 +1657,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1710,7 +1710,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1732,24 +1732,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -1776,7 +1776,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -1798,24 +1798,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -1842,7 +1842,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -1881,7 +1881,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -1908,7 +1908,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -1935,7 +1935,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 3,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -1958,11 +1958,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 1,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2027,7 +2027,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -2054,7 +2054,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2081,7 +2081,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2104,11 +2104,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2161,7 +2161,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2184,11 +2184,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2210,24 +2210,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -2250,11 +2250,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 1,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2281,7 +2281,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2335,7 +2335,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2358,11 +2358,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2384,24 +2384,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -2424,11 +2424,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2455,7 +2455,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2482,7 +2482,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2504,24 +2504,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -2544,11 +2544,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2571,11 +2571,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2597,24 +2597,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1015,
@@ -2640,7 +2640,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -2662,24 +2662,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -2702,11 +2702,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2729,11 +2729,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -2755,24 +2755,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1015,
@@ -2798,7 +2798,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -2825,7 +2825,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -2864,7 +2864,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -2891,7 +2891,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -2972,7 +2972,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 1,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -2999,7 +2999,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -3038,7 +3038,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -3065,7 +3065,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 2,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3140,24 +3140,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 2,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 3,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             }
         ],
-        "silver_total_number": 4000000,
+        "silver_total_number": 12000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 100000,
@@ -3205,24 +3205,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1016,
@@ -3270,24 +3270,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1016,
@@ -3334,24 +3334,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 2,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 3,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             }
         ],
-        "silver_total_number": 4000000,
+        "silver_total_number": 12000000,
         "parameter": 1,
         "gather_silver_speed": 20000,
         "durability": 100000,
@@ -3399,24 +3399,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1013,
@@ -3469,7 +3469,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 1,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -3508,7 +3508,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -3535,7 +3535,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3562,7 +3562,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 3,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3615,7 +3615,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -3654,7 +3654,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -3681,7 +3681,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 1,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3708,7 +3708,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 2,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3761,7 +3761,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3788,7 +3788,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3815,7 +3815,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -3854,7 +3854,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -3881,7 +3881,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -3935,7 +3935,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 1,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3962,7 +3962,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -3989,7 +3989,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4028,7 +4028,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -4055,7 +4055,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 1,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -4082,7 +4082,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 4,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -4121,7 +4121,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -4148,7 +4148,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4175,7 +4175,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4228,7 +4228,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 2,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -4267,7 +4267,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -4294,7 +4294,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4321,7 +4321,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4374,7 +4374,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4401,7 +4401,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4428,7 +4428,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4455,7 +4455,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4494,7 +4494,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -4516,24 +4516,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 2,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             },
             {
                 "type": 3,
-                "defense": 30000,
-                "count": 10000,
-                "attack": 30000
+                "defense": 28000,
+                "count": 8500,
+                "attack": 28000
             }
         ],
-        "silver_total_number": 4000000,
+        "silver_total_number": 12000000,
         "parameter": 2,
         "gather_silver_speed": 20000,
         "durability": 100000,
@@ -4560,7 +4560,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4587,7 +4587,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 2,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4614,7 +4614,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4641,7 +4641,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4680,7 +4680,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -4707,7 +4707,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4734,7 +4734,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4761,7 +4761,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 2,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4788,7 +4788,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4842,7 +4842,7 @@
                 "attack": 10000
             }
         ],
-        "silver_total_number": 700000,
+        "silver_total_number": 2100000,
         "parameter": 4,
         "gather_silver_speed": 7000,
         "durability": 8000,
@@ -4869,7 +4869,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4896,7 +4896,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4923,7 +4923,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4976,7 +4976,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 3,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -4998,24 +4998,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5042,7 +5042,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 3,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5064,24 +5064,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5108,7 +5108,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -5161,7 +5161,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -5183,24 +5183,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5227,7 +5227,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 2,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5249,24 +5249,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5293,7 +5293,7 @@
                 "attack": 18000
             }
         ],
-        "silver_total_number": 1100000,
+        "silver_total_number": 3300000,
         "parameter": 4,
         "gather_silver_speed": 11000,
         "durability": 11000,
@@ -5332,7 +5332,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -5359,7 +5359,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5386,7 +5386,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5409,11 +5409,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 2,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5478,7 +5478,7 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 7800000,
         "parameter": 2,
         "gather_silver_speed": 13000,
         "durability": 24000,
@@ -5505,7 +5505,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5532,7 +5532,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 1,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5555,11 +5555,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5613,7 +5613,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5636,11 +5636,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5662,24 +5662,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5702,11 +5702,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5733,7 +5733,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5786,7 +5786,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 1,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5809,11 +5809,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5835,24 +5835,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5875,11 +5875,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 2,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -5906,7 +5906,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 4,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5933,7 +5933,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 3,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -5955,24 +5955,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -5995,11 +5995,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -6022,11 +6022,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -6048,24 +6048,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1014,
@@ -6091,7 +6091,7 @@
                 "attack": 24000
             }
         ],
-        "silver_total_number": 1500000,
+        "silver_total_number": 4500000,
         "parameter": 3,
         "gather_silver_speed": 15000,
         "durability": 14000,
@@ -6113,24 +6113,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 2,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             },
             {
                 "type": 3,
-                "defense": 33000,
+                "defense": 30000,
                 "count": 10000,
-                "attack": 33000
+                "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 13800000,
         "parameter": 3,
         "gather_silver_speed": 23000,
         "durability": 40000,
@@ -6153,11 +6153,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 4,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -6180,11 +6180,11 @@
             {
                 "type": 2,
                 "defense": 30000,
-                "count": 10000,
+                "count": 8500,
                 "attack": 30000
             }
         ],
-        "silver_total_number": 2000000,
+        "silver_total_number": 6000000,
         "parameter": 3,
         "gather_silver_speed": 20000,
         "durability": 20000,
@@ -6206,24 +6206,24 @@
         "troops":[
             {
                 "type": 1,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 2,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             },
             {
                 "type": 3,
-                "defense": 40000,
+                "defense": 35000,
                 "count": 10000,
-                "attack": 40000
+                "attack": 35000
             }
         ],
-        "silver_total_number": 6000000,
+        "silver_total_number": 18000000,
         "gather_silver_speed": 30000,
         "durability": 35000,
         "buff_id": 1014,
@@ -6249,7 +6249,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -6276,7 +6276,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 1,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -6315,7 +6315,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -6342,7 +6342,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 2,
         "gather_silver_speed": 4000,
         "durability": 4000,
@@ -6422,7 +6422,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -6449,7 +6449,7 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 200000,
+        "silver_total_number": 600000,
         "parameter": 4,
         "gather_silver_speed": 2000,
         "durability": 2000,
@@ -6488,7 +6488,7 @@
                 "attack": 7000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 3600000,
         "parameter": 1,
         "gather_silver_speed": 6000,
         "durability": 12000,
@@ -6515,7 +6515,7 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 400000,
+        "silver_total_number": 1200000,
         "parameter": 1,
         "gather_silver_speed": 4000,
         "durability": 4000,
