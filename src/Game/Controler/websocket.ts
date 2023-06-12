@@ -21,7 +21,7 @@ export class WebSocketMediator
   private stateCaches: { [key: string]: IState } = {};
   private ctx: ITransContext;
   private notifyStateChange: boolean;
-  private closeCallback : ()=>void
+  private closeCallback : (err: any)=>void
   private hasCallClose : number
   private seasonId : string
   private chainBlockCallback: (msg: MessageS2C) => void
@@ -56,6 +56,12 @@ export class WebSocketMediator
           this.chainBlockCallback(msg)
         }
         console.log('client receive msg is ', JSON.stringify(msg));
+        if(msg.TransID === 'kickout'){
+          this.hasCallClose = 1
+          if(_this.closeCallback != undefined){
+            _this.closeCallback(msg)
+          }
+        }
         if (msg.SeqNum ) {
           //context call
           if (this.respCallbacks[msg.SeqNum]) {
@@ -95,17 +101,26 @@ export class WebSocketMediator
       };
 
       this.client.onerror = function (err: Error) {
-        if(_this.closeCallback != undefined){
-          _this.closeCallback()
+        if(_this.closeCallback != undefined && this.hasCallClose === 0){
+          _this.closeCallback(err)
         }
-        console.log('Connection Error', err);
+        this.hasCallClose = 1
+        console.log('onerror', err);
       };
+
+      // this.client.onclose = function (err: Error) {
+      //   if(_this.closeCallback != undefined){
+      //     _this.closeCallback(err)
+      //   }
+      //   this.hasCallClose = 1
+      //   console.log('onclose', err);
+      // };
 
       setInterval(() => {
         //ping
         this.client.send('{}')
         if(this.closeCallback != undefined && this.client.readyState == w3cwebsocket.CLOSED && this.hasCallClose == 0){
-          this.closeCallback()
+          this.closeCallback({setInterval:1, hasCallClose: this.hasCallClose})
           this.hasCallClose = 1
         }
       }, 10000)
