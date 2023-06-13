@@ -54,6 +54,7 @@ export class StrategyComponent implements IStrategyComponent{
         re['strategyPoint'] = this.strategy.getStrategyPonit()
         re['maxStrategyPoint'] = MaxStrategyPoint
         re['buyTimes'] = this.strategy.getBuyStrategyTimes()
+        re['buyTimesLastUpdate'] = this.strategy.getBuyStrategyTimesLastUpdate()
         re['maxBuyTimes'] = this.strategy.strategyBuyConfig.getMaxTimes()
         return re
     }

@@ -68,7 +68,7 @@ export class Activity{
     checkActivityAble(id: number){
         const time = getTimeStamp()
         const info = this.getActivityInfo(id)
-        console.log('checkActivityAble', time, info);
+        console.log('checkActivityAble ', time, info);
         if(time >= info.startTime && time < info.startTime + info.lastTime){
             return true
         }

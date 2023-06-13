@@ -125,6 +125,10 @@ export class Strategy{
         }
     }
 
+    getBuyStrategyTimesLastUpdate(){
+        return this.state.buyTimes.lastUpdate;
+    }
+
     getBuyStrategyNeed(amount : number){
         let times = this.getBuyStrategyTimes()
         let re = 0
