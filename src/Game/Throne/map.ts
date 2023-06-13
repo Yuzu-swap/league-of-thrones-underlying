@@ -43,7 +43,7 @@ export interface IMapComponent extends IComponent{
     getSeasonConfig():{}
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
     getUnionWinInfo(callback: (result: any) => void): Promise<void>
-    getExpectUnionReward(callback: (result: any) => void): Promise<void>
+    getExpectUnionReward(chainName: string, callback: (result: any) => void): Promise<void>
     getUnionOverView(callback: (result: any) => void): Promise<void>
 }
 
@@ -266,10 +266,16 @@ export class MapComponent implements IMapComponent{
         )
     }
 
-    async getExpectUnionReward(callback: (result: any) => void): Promise<void> {
+    async getExpectUnionReward(chainName: string, callback: (result: any) => void): Promise<void> {
         let unionId = Throne.instance().unionId
-        let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1]
-        let rewardSum = this.map.seasonConfig.get(1).show_season_victory_reward[0].count
+        let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1];
+        let chains = {
+            'emerald' : 1,
+            'bsctest' : 2,
+            'bsc' : 3
+        };
+        let index = chains[chainName];
+        let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
         let re = {
             topInfo: [],
             myInfo: {}
