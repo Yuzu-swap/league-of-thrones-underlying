@@ -20,6 +20,7 @@ export class Activity{
     activityGDS : ActivityTypeConfig
     state: IActivityState
     rewardNumber: number
+    chainIndex: number
     city: City
     boost: IBoost
     constructor(state: IActivityState){
@@ -33,12 +34,17 @@ export class Activity{
         this.city = city
     }
 
+    setChainIndex(chainIndex: number){
+        this.chainIndex = chainIndex
+    }
+
     setBoost(boost: IBoost){
         this.boost = boost
     }
 
     getActivityConfig(){
-        return this.seasonGDS.get(1).activities
+        let chainIndex = this.chainIndex || 1;
+        return this.seasonGDS.get(chainIndex).activities
     }
 
     getActivityInfo(id: number){
@@ -62,6 +68,7 @@ export class Activity{
     checkActivityAble(id: number){
         const time = getTimeStamp()
         const info = this.getActivityInfo(id)
+        console.log('checkActivityAble', time, info);
         if(time >= info.startTime && time < info.startTime + info.lastTime){
             return true
         }
@@ -87,9 +94,9 @@ export class Activity{
         const time = getTimeStamp()
         for(let i = 0; i < activities.length; i++){
             const info = this.getActivityInfo(i)
-            if(time > info.startTime){
+            // if(time > info.startTime){
                 re.push(this.getActivityInfo(i))
-            }
+            // }
         }
         return re
     }
@@ -163,7 +170,7 @@ export class Activity{
             return {
                 result: false,
                 txType: StateTransition.DonateSilver,
-                error: "activity-is-not-able:id:" + id 
+                error: "donateSilver:activity-is-not-able:id:" + id 
             }
         }
         let info = this.getActivityInfo(id)

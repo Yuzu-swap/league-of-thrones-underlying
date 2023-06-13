@@ -109,7 +109,7 @@ export interface ICityComponent extends IComponent {
 
   initRedPoint():Promise<void>
 
-  getAbleActivityInfo(): any[]
+  getAbleActivityInfo(index: number): any[]
 
   readActivity(activityId: number): void
 
@@ -526,7 +526,8 @@ export class CityComponent implements ICityComponent {
     callback(re || [])
   }
 
-  getAbleActivityInfo(): any[] {
+  getAbleActivityInfo(index: number): any[] {
+    this.activity.setChainIndex(index);
     let infolist = this.activity.getBeforeActivities()
     let re = []
     for(let item of infolist){

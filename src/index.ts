@@ -269,7 +269,7 @@ function example() {
         
         //update
 
-        console.log(city.getAbleActivityInfo())
+        console.log(city.getAbleActivityInfo(1))
 
         city.donateSilver(1, 100, 
           (result)=>{

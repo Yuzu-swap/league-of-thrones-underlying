@@ -397,12 +397,18 @@ export class SeasonConfig{
 				id: seasonConf['id']
 			}
 			for(let item of (seasonConf['dailyactivity'] || []) as []){
+				// console.log('activities', item)
+				let relativeTime = item['day'] + '';
+				let relativeTimes = relativeTime.split('_');
+                let startTime = transDateToTimeStamp(seasonConf['season_open']) + (parseInt(relativeTimes[0]) -1)*24*60*60 + parseInt(relativeTimes[1])*60*60;
+                // console.log('activities', startTime, relativeTimes);
 				let actConf : ActivityConf = {
 					relativeTime: item['day'],
-					startTime: transDateToTimeStamp(item['day']),
+					startTime: startTime,
 					type: item['activity']
 				}
 				season.activities.push(actConf)
+				// console.log('season.activities', season.activities);
 			}
 			for(let item of seasonConf['show_season_victory_reward'] as []){
 				season.show_season_victory_reward.push( item as SeasonReward)
