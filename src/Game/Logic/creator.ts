@@ -65,6 +65,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	boost.setProduction(StateName.General, ResouceType.Troop, general.getGeneralProduction(ResouceType.Troop))
 	strategy.updateBoost()
 	activity.setCity(city)
+	activity.setMap(map)
 	activity.setBoost(boost)
 	//city.SetBoost(boost)
 	//general.SetBoost(boost)

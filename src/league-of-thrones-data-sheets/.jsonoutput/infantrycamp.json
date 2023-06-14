@@ -5,80 +5,80 @@
         "need_silver": 2000,
         "maintain_need_troop": 0,
         "level": 1,
-        "infantry_defense": 500,
-        "infantry_attack": 500
+        "infantry_defense": 100,
+        "infantry_attack": 100
     },
     {
         "need_troop": 160,
         "need_silver": 16000,
         "maintain_need_troop": 16,
         "level": 2,
-        "infantry_defense": 1200,
-        "infantry_attack": 1200
+        "infantry_defense": 400,
+        "infantry_attack": 400
     },
     {
         "need_troop": 450,
         "need_silver": 45000,
         "maintain_need_troop": 45,
         "level": 3,
-        "infantry_defense": 2400,
-        "infantry_attack": 2400
+        "infantry_defense": 900,
+        "infantry_attack": 900
     },
     {
         "need_troop": 880,
         "need_silver": 88000,
         "maintain_need_troop": 88,
         "level": 4,
-        "infantry_defense": 3600,
-        "infantry_attack": 3600
+        "infantry_defense": 1600,
+        "infantry_attack": 1600
     },
     {
         "need_troop": 1460,
         "need_silver": 146000,
         "maintain_need_troop": 146,
         "level": 5,
-        "infantry_defense": 4800,
-        "infantry_attack": 4800
+        "infantry_defense": 2500,
+        "infantry_attack": 2500
     },
     {
         "need_troop": 2180,
         "need_silver": 218000,
         "maintain_need_troop": 218,
         "level": 6,
-        "infantry_defense": 6000,
-        "infantry_attack": 6000
+        "infantry_defense": 3600,
+        "infantry_attack": 3600
     },
     {
         "need_troop": 3040,
         "need_silver": 304000,
         "maintain_need_troop": 304,
         "level": 7,
-        "infantry_defense": 7500,
-        "infantry_attack": 7500
+        "infantry_defense": 4900,
+        "infantry_attack": 4900
     },
     {
         "need_troop": 4050,
         "need_silver": 405000,
         "maintain_need_troop": 405,
         "level": 8,
-        "infantry_defense": 9000,
-        "infantry_attack": 9000
+        "infantry_defense": 6400,
+        "infantry_attack": 6400
     },
     {
         "need_troop": 5200,
         "need_silver": 520000,
         "maintain_need_troop": 520,
         "level": 9,
-        "infantry_defense": 10500,
-        "infantry_attack": 10500
+        "infantry_defense": 8100,
+        "infantry_attack": 8100
     },
     {
         "need_troop": 6500,
         "need_silver": 650000,
         "maintain_need_troop": 650,
         "level": 10,
-        "infantry_defense": 12000,
-        "infantry_attack": 12000
+        "infantry_defense": 10000,
+        "infantry_attack": 10000
     }
     ]
 }

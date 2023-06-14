@@ -125,6 +125,10 @@ export class Strategy{
         }
     }
 
+    getBuyStrategyTimesLastUpdate(){
+        return this.state.buyTimes.lastUpdate;
+    }
+
     getBuyStrategyNeed(amount : number){
         let times = this.getBuyStrategyTimes()
         let re = 0
@@ -190,7 +194,7 @@ export class Strategy{
 
     getOpenDayCount(){
         let time = getTimeStamp()
-        let openTime = this.map.seasonState.season_open == 0 ? this.map.seasonConfig.get(1).season_open : this.map.seasonState.season_open 
+        let openTime = this.map.seasonState.season_open;
         let dayCount = Math.ceil((time - openTime) / (60 * 60 * 24))
         return dayCount >=0 ? dayCount : 1
     }

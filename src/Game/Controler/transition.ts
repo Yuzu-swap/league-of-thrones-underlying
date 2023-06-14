@@ -784,7 +784,8 @@ export class TransitionHandler {
   onCheckSeasonFinish(args : StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
     let time = getTimeStamp()
-    const config = logic.map.seasonConfig.get(1)
+    // const config = logic.map.seasonConfig.get(1)
+    const config = logic.map.seasonState;
     if(time > config.season_end){
       return {
         result: false,

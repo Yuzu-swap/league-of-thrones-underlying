@@ -5,273 +5,846 @@
             {
                 "type": 1,
                 "name":"rose",
-                "count": 10000
+                "count": 10000000000
             }
         ],
         "show_rank_reward":[
             {
                 "type": 1,
                 "name":"rose",
-                "count": 10000
+                "count": 10000000000
             }
         ],
-        "season_reservation":"2023_5_20_14",
-        "season_ready":"2023_5_22_14",
-        "season_open":"2023_5_22_14",
-        "season_end":"2023_6_1_14",
         "rank_reward":[
             {
                 "type": 1,
                 "name":"rose",
                 "from": 1,
                 "end": 1,
-                "count": 2100
+                "count": 2000000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 2,
                 "end": 2,
-                "count": 1600
+                "count": 1500000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 3,
                 "end": 3,
-                "count": 1200
+                "count": 1100000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 4,
                 "end": 4,
-                "count": 1000
+                "count": 900000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 5,
                 "end": 5,
-                "count": 800
+                "count": 700000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 6,
                 "end": 6,
-                "count": 600
+                "count": 600000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 7,
                 "end": 7,
-                "count": 600
+                "count": 500000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 8,
                 "end": 8,
-                "count": 400
+                "count": 400000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 9,
                 "end": 9,
-                "count": 400
+                "count": 350000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 10,
                 "end": 10,
-                "count": 200
+                "count": 300000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 11,
                 "end": 11,
-                "count": 200
+                "count": 270000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 12,
                 "end": 12,
-                "count": 180
+                "count": 240000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 13,
                 "end": 13,
-                "count": 160
+                "count": 210000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 14,
                 "end": 14,
-                "count": 140
+                "count": 180000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 15,
                 "end": 15,
-                "count": 120
+                "count": 150000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 16,
                 "end": 16,
-                "count": 100
+                "count": 140000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 17,
                 "end": 17,
-                "count": 80
+                "count": 130000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 18,
                 "end": 18,
-                "count": 60
+                "count": 120000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 19,
                 "end": 19,
-                "count": 40
+                "count": 110000000
             },
             {
                 "type": 1,
                 "name":"rose",
                 "from": 20,
                 "end": 20,
-                "count": 20
+                "count": 100000000
             }
         ],
         "id": 1,
         "dailyactivity":[
             {
-                "day":"2023_5_22_14",
+                "day":"1_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_22_14",
+                "day":"1_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_22_14",
+                "day":"1_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_23_14",
+                "day":"2_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_23_14",
+                "day":"2_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_23_14",
+                "day":"2_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_24_14",
+                "day":"3_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_24_14",
+                "day":"3_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_24_14",
+                "day":"3_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_25_14",
+                "day":"4_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_25_14",
+                "day":"4_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_25_14",
+                "day":"4_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_26_14",
+                "day":"5_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_26_14",
+                "day":"5_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_26_14",
+                "day":"5_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_27_14",
+                "day":"6_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_27_14",
+                "day":"6_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_27_14",
+                "day":"6_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_28_14",
+                "day":"7_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_28_14",
+                "day":"7_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_28_14",
+                "day":"7_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_29_14",
+                "day":"8_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_29_14",
+                "day":"8_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_29_14",
+                "day":"8_14",
                 "activity": 3
             },
             {
-                "day":"2023_5_30_14",
+                "day":"9_14",
                 "activity": 1
             },
             {
-                "day":"2023_5_30_14",
+                "day":"9_14",
                 "activity": 2
             },
             {
-                "day":"2023_5_30_14",
+                "day":"9_14",
+                "activity": 3
+            },
+            {
+                "day":"10_14",
+                "activity": 1
+            },
+            {
+                "day":"10_14",
+                "activity": 2
+            },
+            {
+                "day":"10_14",
                 "activity": 3
             }
-        ]
+        ],
+        "chain":"emerald"
+    },
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 1,
+                "end": 1,
+                "count": 2000000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 2,
+                "end": 2,
+                "count": 1500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 3,
+                "end": 3,
+                "count": 1100000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 4,
+                "end": 4,
+                "count": 900000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 5,
+                "end": 5,
+                "count": 700000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 6,
+                "end": 6,
+                "count": 600000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 7,
+                "end": 7,
+                "count": 500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 8,
+                "end": 8,
+                "count": 400000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 9,
+                "end": 9,
+                "count": 350000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 10,
+                "end": 10,
+                "count": 300000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 11,
+                "end": 11,
+                "count": 270000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 12,
+                "end": 12,
+                "count": 240000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 13,
+                "end": 13,
+                "count": 210000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 14,
+                "end": 14,
+                "count": 180000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 15,
+                "end": 15,
+                "count": 150000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 16,
+                "end": 16,
+                "count": 140000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 17,
+                "end": 17,
+                "count": 130000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 18,
+                "end": 18,
+                "count": 120000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 19,
+                "end": 19,
+                "count": 110000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 20,
+                "end": 20,
+                "count": 100000000
+            }
+        ],
+        "id": 2,
+        "dailyactivity":[
+            {
+                "day":"1_14",
+                "activity": 1
+            },
+            {
+                "day":"1_14",
+                "activity": 2
+            },
+            {
+                "day":"1_14",
+                "activity": 3
+            },
+            {
+                "day":"2_14",
+                "activity": 1
+            },
+            {
+                "day":"2_14",
+                "activity": 2
+            },
+            {
+                "day":"2_14",
+                "activity": 3
+            },
+            {
+                "day":"3_14",
+                "activity": 1
+            },
+            {
+                "day":"3_14",
+                "activity": 2
+            },
+            {
+                "day":"3_14",
+                "activity": 3
+            },
+            {
+                "day":"4_14",
+                "activity": 1
+            },
+            {
+                "day":"4_14",
+                "activity": 2
+            },
+            {
+                "day":"4_14",
+                "activity": 3
+            },
+            {
+                "day":"5_14",
+                "activity": 1
+            },
+            {
+                "day":"5_14",
+                "activity": 2
+            },
+            {
+                "day":"5_14",
+                "activity": 3
+            },
+            {
+                "day":"6_14",
+                "activity": 1
+            },
+            {
+                "day":"6_14",
+                "activity": 2
+            },
+            {
+                "day":"6_14",
+                "activity": 3
+            },
+            {
+                "day":"7_14",
+                "activity": 1
+            },
+            {
+                "day":"7_14",
+                "activity": 2
+            },
+            {
+                "day":"7_14",
+                "activity": 3
+            },
+            {
+                "day":"8_14",
+                "activity": 1
+            },
+            {
+                "day":"8_14",
+                "activity": 2
+            },
+            {
+                "day":"8_14",
+                "activity": 3
+            },
+            {
+                "day":"9_14",
+                "activity": 1
+            },
+            {
+                "day":"9_14",
+                "activity": 2
+            },
+            {
+                "day":"9_14",
+                "activity": 3
+            },
+            {
+                "day":"10_14",
+                "activity": 1
+            },
+            {
+                "day":"10_14",
+                "activity": 2
+            },
+            {
+                "day":"10_14",
+                "activity": 3
+            }
+        ],
+        "chain":"bsctest"
+    },
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 1,
+                "end": 1,
+                "count": 2000000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 2,
+                "end": 2,
+                "count": 1500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 3,
+                "end": 3,
+                "count": 1100000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 4,
+                "end": 4,
+                "count": 900000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 5,
+                "end": 5,
+                "count": 700000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 6,
+                "end": 6,
+                "count": 600000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 7,
+                "end": 7,
+                "count": 500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 8,
+                "end": 8,
+                "count": 400000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 9,
+                "end": 9,
+                "count": 350000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 10,
+                "end": 10,
+                "count": 300000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 11,
+                "end": 11,
+                "count": 270000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 12,
+                "end": 12,
+                "count": 240000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 13,
+                "end": 13,
+                "count": 210000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 14,
+                "end": 14,
+                "count": 180000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 15,
+                "end": 15,
+                "count": 150000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 16,
+                "end": 16,
+                "count": 140000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 17,
+                "end": 17,
+                "count": 130000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 18,
+                "end": 18,
+                "count": 120000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 19,
+                "end": 19,
+                "count": 110000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 20,
+                "end": 20,
+                "count": 100000000
+            }
+        ],
+        "id": 3,
+        "dailyactivity":[
+            {
+                "day":"1_14",
+                "activity": 1
+            },
+            {
+                "day":"1_14",
+                "activity": 2
+            },
+            {
+                "day":"1_14",
+                "activity": 3
+            },
+            {
+                "day":"2_14",
+                "activity": 1
+            },
+            {
+                "day":"2_14",
+                "activity": 2
+            },
+            {
+                "day":"2_14",
+                "activity": 3
+            },
+            {
+                "day":"3_14",
+                "activity": 1
+            },
+            {
+                "day":"3_14",
+                "activity": 2
+            },
+            {
+                "day":"3_14",
+                "activity": 3
+            },
+            {
+                "day":"4_14",
+                "activity": 1
+            },
+            {
+                "day":"4_14",
+                "activity": 2
+            },
+            {
+                "day":"4_14",
+                "activity": 3
+            },
+            {
+                "day":"5_14",
+                "activity": 1
+            },
+            {
+                "day":"5_14",
+                "activity": 2
+            },
+            {
+                "day":"5_14",
+                "activity": 3
+            },
+            {
+                "day":"6_14",
+                "activity": 1
+            },
+            {
+                "day":"6_14",
+                "activity": 2
+            },
+            {
+                "day":"6_14",
+                "activity": 3
+            },
+            {
+                "day":"7_14",
+                "activity": 1
+            },
+            {
+                "day":"7_14",
+                "activity": 2
+            },
+            {
+                "day":"7_14",
+                "activity": 3
+            },
+            {
+                "day":"8_14",
+                "activity": 1
+            },
+            {
+                "day":"8_14",
+                "activity": 2
+            },
+            {
+                "day":"8_14",
+                "activity": 3
+            },
+            {
+                "day":"9_14",
+                "activity": 1
+            },
+            {
+                "day":"9_14",
+                "activity": 2
+            },
+            {
+                "day":"9_14",
+                "activity": 3
+            },
+            {
+                "day":"10_14",
+                "activity": 1
+            },
+            {
+                "day":"10_14",
+                "activity": 2
+            },
+            {
+                "day":"10_14",
+                "activity": 3
+            }
+        ],
+        "chain":"bsc"
     }
     ]
 }

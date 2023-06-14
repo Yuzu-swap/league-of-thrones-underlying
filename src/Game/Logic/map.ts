@@ -308,7 +308,11 @@ export class Map{
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
                 let unionId = this.general.state.unionId;
-                let bre = this.general.battle(generalId, unionId, info, remainTroop, false)
+                let unionIds = {
+                  attackUnionId: unionId, 
+                  defenseUnionId: 0
+                };
+                let bre = this.general.battle(generalId, unionIds, info, remainTroop, false)
                 if(!bre['result']){
                     return bre
                 }
@@ -381,7 +385,11 @@ export class Map{
         for(let i = 0; i < defenseInfos.length; i++){
             let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
             let unionId = this.general.state.unionId;
-            let bre = this.general.battle(generalId, unionId, info, remainTroop, false)
+            let unionIds = {
+              attackUnionId: unionId, 
+              defenseUnionId: defenseInfos[i].unionId
+            };
+            let bre = this.general.battle(generalId, unionIds, info, remainTroop, false)
             if(!bre['result']){
                 return bre
             }
@@ -663,6 +671,9 @@ export class Map{
         }
     }
 
+    getSeasonState(){
+        return this.seasonState;
+    }
     getSeasonStatus(){
         let time = getTimeStamp()
         const config = this.seasonState

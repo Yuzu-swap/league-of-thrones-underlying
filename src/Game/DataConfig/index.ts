@@ -359,6 +359,7 @@ export interface Season{
 }
 
 export interface ActivityConf{
+	relativeTime: string
 	startTime: number
 	type: number
 }
@@ -387,20 +388,22 @@ export class SeasonConfig{
 				show_season_victory_reward : [],
 				show_rank_reward: [],
 				show_occupy_reward: [],
-				season_reservation : transDateToTimeStamp(seasonConf['season_reservation']),
-				season_ready: transDateToTimeStamp(seasonConf['season_ready']),
-				season_open: transDateToTimeStamp(seasonConf['season_open']),
-				season_end: transDateToTimeStamp(seasonConf['season_end']),
+				season_reservation : 0,
+				season_ready: 0,
+				season_open: 0,
+				season_end: 0,
 				rank_reward: [],
 				activities: [],
 				id: seasonConf['id']
 			}
 			for(let item of (seasonConf['dailyactivity'] || []) as []){
 				let actConf : ActivityConf = {
-					startTime: transDateToTimeStamp(item['day']),
+					relativeTime: item['day'],
+					startTime: 0,
 					type: item['activity']
 				}
 				season.activities.push(actConf)
+				// console.log('season.activities', season.activities);
 			}
 			for(let item of seasonConf['show_season_victory_reward'] as []){
 				season.show_season_victory_reward.push( item as SeasonReward)
@@ -434,7 +437,7 @@ export class RechargeConfigs{
 	config : RechargeConfig[]
 	constructor(obj : {}){
 		this.config = []
-		for(let item of obj['Config']){
+		for(let item of (obj['Config'] || [])){
 			this.config.push(item as RechargeConfig)
 		}
 	}

@@ -233,7 +233,7 @@ function example() {
         })
         console.log(city.getRecruitState())
 
-        console.log( JSON.stringify(city.getRechargeConfigs()))
+        console.log( JSON.stringify(city.getRechargeConfigs('oasis')))
 
         Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
           {
@@ -269,7 +269,7 @@ function example() {
         
         //update
 
-        console.log(city.getAbleActivityInfo())
+        console.log(city.getAbleActivityInfo(1))
 
         city.donateSilver(1, 100, 
           (result)=>{

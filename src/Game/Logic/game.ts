@@ -552,18 +552,28 @@ export class City {
     return troop
   }
 
-  getRechargeConfigs(){
-    return copyObj(this.rechargeConfig.config)
+  getRechargeConfigs(chainName){
+    var all = copyObj(this.rechargeConfig.config);
+    console.log('getRechargeConfigs', chainName, all);
+    var config = [];
+    for(let key in all){
+      let item = all[key];
+      if(item.chain === chainName){
+        config.push(item);
+      }
+    }
+    return config;
   }
 
 
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
+    console.log("recharge config ",tempConfig," rechargeId ",rechargeId,"amount ",amount*1e6)
     if(
       !tempConfig
       ||(tempConfig as RechargeConfig).internal_id != rechargeId
-      ||(tempConfig as RechargeConfig).price != amount
+      ||(tempConfig as RechargeConfig).price != (amount * 1e6)
     ){
       return {
         result: false,

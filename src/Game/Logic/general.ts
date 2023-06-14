@@ -330,7 +330,8 @@ export class General{
             case GeneralAbility.Defense:
                 return row[typ] * 10 * level
             case GeneralAbility.Load:
-                return row[typ] * 50 * level
+                //qualification_load
+                return row[typ] * 100 * level
             case GeneralAbility.Silver:
                 return parseFloat((20 * row[typ] * level).toFixed(2))
             case GeneralAbility.Troop:
@@ -392,7 +393,7 @@ export class General{
                     re['value'] = 10 * row.qualification_defense * level
                     break
                 case SkillType.Load:
-                    re['value'] = 50 * row.qualification_load * level
+                    re['value'] = 100 * row.qualification_load * level
                     break
             }
         }

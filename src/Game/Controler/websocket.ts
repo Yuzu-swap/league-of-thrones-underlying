@@ -13,8 +13,7 @@ import { MessageS2C, MessageType, MessageC2S } from './Websocket/protocol';
 
 export class WebSocketMediator
   extends BaseMediator<StateTransition, ITransContext>
-  implements IStateChangeWatcher
-{
+  implements IStateChangeWatcher{
   private client: any;
   private seqNum: number;
   private respCallbacks: {};
@@ -22,20 +21,22 @@ export class WebSocketMediator
   private stateCaches: { [key: string]: IState } = {};
   private ctx: ITransContext;
   private notifyStateChange: boolean;
-  private closeCallback : ()=>void
+  private closeCallback : (err: any)=>void
   private hasCallClose : number
+  private seasonId : string
   private chainBlockCallback: (msg: MessageS2C) => void
 
   transitionHandler: TransitionHandler;
-  constructor(url: string) {
+  constructor(url: string, data: any) {
     super();
     this.seqNum = 1;
     this.client = new w3cwebsocket(url);
     this.respCallbacks = {};
-    this.respContext ={}
+    this.respContext ={};
     this.stateCaches = {};
     this.notifyStateChange = true;
-    this.hasCallClose = 0
+    this.hasCallClose = 0;
+    this.seasonId = data.seasonId;
   }
 
   async init() {
@@ -55,6 +56,12 @@ export class WebSocketMediator
           this.chainBlockCallback(msg)
         }
         console.log('client receive msg is ', JSON.stringify(msg));
+        if(msg.TransID === 'kickout'){
+          this.hasCallClose = 1
+          if(_this.closeCallback != undefined){
+            _this.closeCallback(msg)
+          }
+        }
         if (msg.SeqNum ) {
           //context call
           if (this.respCallbacks[msg.SeqNum]) {
@@ -94,17 +101,26 @@ export class WebSocketMediator
       };
 
       this.client.onerror = function (err: Error) {
-        if(_this.closeCallback != undefined){
-          _this.closeCallback()
+        if(_this.closeCallback != undefined && this.hasCallClose === 0){
+          _this.closeCallback(err)
         }
-        console.log('Connection Error', err);
+        this.hasCallClose = 1
+        console.log('onerror', err);
       };
+
+      // this.client.onclose = function (err: Error) {
+      //   if(_this.closeCallback != undefined){
+      //     _this.closeCallback(err)
+      //   }
+      //   this.hasCallClose = 1
+      //   console.log('onclose', err);
+      // };
 
       setInterval(() => {
         //ping
         this.client.send('{}')
         if(this.closeCallback != undefined && this.client.readyState == w3cwebsocket.CLOSED && this.hasCallClose == 0){
-          this.closeCallback()
+          this.closeCallback({setInterval:1, hasCallClose: this.hasCallClose})
           this.hasCallClose = 1
         }
       }, 10000)
@@ -118,11 +134,9 @@ export class WebSocketMediator
   }
 
 
-  query(
-    typ: string,
-    args:{}
-  ):Promise<any> {
+  query(typ: string, args: {seasonId: string} ): Promise<any> {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Query,
@@ -137,8 +151,9 @@ export class WebSocketMediator
     });
   }
 
-  defaultQuery(type: MessageType, transID: string, args: {}): Promise<any> {
+  defaultQuery(type: MessageType, transID: string, args: { seasonId: string }): Promise<any> {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: type,
@@ -154,6 +169,7 @@ export class WebSocketMediator
 
   chat(data: ChatMessage): Promise<any> {
     const seqNum = this.seqNum++;
+    data.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Chat,
@@ -168,8 +184,9 @@ export class WebSocketMediator
     });
   }
 
-  chatHistory(data: {}): Promise<any> {
+  chatHistory(data: { seasonId: string }): Promise<any> {
     const seqNum = this.seqNum++;
+    data.seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Chat,
@@ -185,11 +202,13 @@ export class WebSocketMediator
 
   profileQuery(key: string): Promise<any> {
     const seqNum = this.seqNum++;
+    const seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Profile,
       TransID: ProfileTransId.Query,
       Data: {
+        seasonId: seasonId,
         key : key
       },
     };
@@ -201,11 +220,13 @@ export class WebSocketMediator
 
   profileSave(key: string, value: string): Promise<any> {
     const seqNum = this.seqNum++;
+    const seasonId = this.seasonId;
     var msg: MessageC2S = {
       SeqNum: seqNum,
       Type: MessageType.Profile,
       TransID: ProfileTransId.Save,
       Data: {
+        seasonId: seasonId,
         key : key,
         value : value 
       },
@@ -219,7 +240,7 @@ export class WebSocketMediator
 
   queryState(
     sid: IStateIdentity,
-    args: {},
+    args: { seasonId: string },
     callback: (state: IState) => void
   ): Promise<IState> | void {
     //state is in memory
@@ -239,11 +260,14 @@ export class WebSocketMediator
     } else {
       //async load state from server
       const seqNum = this.seqNum++;
+      const seasonId = this.seasonId;
       var msg: MessageC2S = {
         SeqNum: seqNum,
         Type: MessageType.StateQuery,
         TransID: sid.id,
-        Data: {}
+        Data: {
+          seasonId: seasonId
+        }
       };
 
       console.log('send msg is ', JSON.stringify(msg));
@@ -260,10 +284,11 @@ export class WebSocketMediator
 
   sendTransaction(
     tid: StateTransition,
-    args: {},
+    args: any,
     callback: (res: ITransResult) => void
   ): ITransContext {
     const seqNum = this.seqNum++;
+    args.seasonId = this.seasonId;
     var ctx: ITransContext = {
       SeqNum: seqNum,
       Type: MessageType.Transition,
