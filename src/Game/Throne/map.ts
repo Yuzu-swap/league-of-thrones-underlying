@@ -226,8 +226,8 @@ export class MapComponent implements IMapComponent{
         callback(re)
     }
     getSeasonConfig(): {} {
-        let config = this.map.seasonConfig.get(1)
-        return copyObj(config)
+        let seasonState = this.map.getSeasonState()
+        return seasonState;
     }   
 
     async getUnionWinInfo(callback: (result: any) => void): Promise<void>{

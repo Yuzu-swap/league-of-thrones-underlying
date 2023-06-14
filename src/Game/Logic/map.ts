@@ -671,6 +671,9 @@ export class Map{
         }
     }
 
+    getSeasonState(){
+        return this.seasonState;
+    }
     getSeasonStatus(){
         let time = getTimeStamp()
         const config = this.seasonState

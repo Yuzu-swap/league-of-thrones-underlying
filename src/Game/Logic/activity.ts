@@ -5,6 +5,7 @@ import { ActivityData, IActivityState } from "../State";
 import { getTimeStamp, indexOfSortedList, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { City } from "./game";
+import { Map } from "./map";
 
 export interface ActivityInfo{
     relativeTime: string
@@ -22,6 +23,7 @@ export class Activity{
     rewardNumber: number
     chainIndex: number
     city: City
+    map: Map
     boost: IBoost
     constructor(state: IActivityState){
         this.state = state
@@ -32,6 +34,10 @@ export class Activity{
 
     setCity(city: City){
         this.city = city
+    }
+
+    setMap(map: Map){
+        this.map = map
     }
 
     setChainIndex(chainIndex: number){
@@ -52,13 +58,17 @@ export class Activity{
         if(id < 0 || id >= activities.length){
             throw "activity id error"
         }
-        let act = activities[id]
+        let seasonState = this.map.getSeasonState();
+        let act = activities[id];
+        let relativeTimes = act.relativeTime.split('_');
+        let startTime = seasonState.season_open + (parseInt(relativeTimes[0]) -1)*24*60*60 + parseInt(relativeTimes[1])*60*60;
+
         let row = this.activityGDS.get(act.type)
         let info : ActivityInfo = {
             activityId : id,
             type : act.type,
             relativeTime: act.relativeTime,
-            startTime: act.startTime,
+            startTime: startTime,
             totalReward: row.activity_pond,
             lastTime: row.activity_last * 60 * 60
         }

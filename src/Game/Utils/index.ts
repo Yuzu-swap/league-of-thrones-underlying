@@ -20,6 +20,7 @@ export function parseStateId(stateId :string): { type : StateName , username : s
 export function transDateToTimeStamp( date: string ){
     //new Date('2019-05-28T09:00:20.000Z')
     //"2022_8_14_22"
+    date = date || '';
     let list = date.split('_')
     if(list.length != 4){
         return 0

@@ -388,23 +388,18 @@ export class SeasonConfig{
 				show_season_victory_reward : [],
 				show_rank_reward: [],
 				show_occupy_reward: [],
-				season_reservation : transDateToTimeStamp(seasonConf['season_reservation']),
-				season_ready: transDateToTimeStamp(seasonConf['season_ready']),
-				season_open: transDateToTimeStamp(seasonConf['season_open']),
-				season_end: transDateToTimeStamp(seasonConf['season_end']),
+				season_reservation : 0,
+				season_ready: 0,
+				season_open: 0,
+				season_end: 0,
 				rank_reward: [],
 				activities: [],
 				id: seasonConf['id']
 			}
 			for(let item of (seasonConf['dailyactivity'] || []) as []){
-				// console.log('activities', item)
-				let relativeTime = item['day'] + '';
-				let relativeTimes = relativeTime.split('_');
-                let startTime = transDateToTimeStamp(seasonConf['season_open']) + (parseInt(relativeTimes[0]) -1)*24*60*60 + parseInt(relativeTimes[1])*60*60;
-                // console.log('activities', startTime, relativeTimes);
 				let actConf : ActivityConf = {
 					relativeTime: item['day'],
-					startTime: startTime,
+					startTime: 0,
 					type: item['activity']
 				}
 				season.activities.push(actConf)
