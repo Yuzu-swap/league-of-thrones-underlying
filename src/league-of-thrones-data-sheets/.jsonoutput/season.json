@@ -278,6 +278,30 @@
             {
                 "day":"10_0",
                 "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
+                "activity": 3
             }
         ],
         "chain":"emerald"
@@ -560,6 +584,30 @@
             {
                 "day":"10_0",
                 "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
+                "activity": 3
             }
         ],
         "chain":"bsctest"
@@ -841,6 +889,30 @@
             },
             {
                 "day":"10_0",
+                "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
                 "activity": 3
             }
         ],
