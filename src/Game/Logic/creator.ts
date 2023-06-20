@@ -76,7 +76,9 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
 	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState, gStates.rewardGlobalState)
-	var activity: Activity = new Activity(gStates.activityState)
 	map.loadBlockStates(gStates.blocks)
+	
+	var activity: Activity = new Activity(gStates.activityState)
+	activity.setMap(map)
 	return { map , activity}
 }

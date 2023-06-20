@@ -1085,7 +1085,8 @@ export class TransitionHandler {
     const time = getTimeStamp()
     console.log('onRegularTask run:', time, activityList);
     for(let i=0;i<activityList.length;i++){
-      let activity = gLogic.activity.getActivityInfo(i);
+      // let activity = gLogic.activity.getActivityInfo(i);
+      let activity = activityList[i];
       console.log('onRegularTask activityList:', time, activity);
       if(time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
         //send activity reward
