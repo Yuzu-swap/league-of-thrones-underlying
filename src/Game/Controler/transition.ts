@@ -1095,7 +1095,7 @@ export class TransitionHandler {
         //send activity reward
         console.log("sendActivity reward id:", activity.activityId)
         let haveSendReward = gLogic.activity.state.haveSendReward
-        for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
+        for(let userdata of (gLogic.activity.state.activityData[activity.activityId] || [])){
           const tempLogic : LogicEssential = this.genLogic(userdata.username)
           let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
           tempLogic.city.useGold(-rank.rankReward)
@@ -1106,8 +1106,11 @@ export class TransitionHandler {
             'haveSendReward' : haveSendReward
           }
         )
+        console.log("sendActivity reward over id:", activity.activityId, haveSendReward)
       }
     }
+    console.log("sendActivity reward over all:", gLogic.activity.state.haveSendReward)
+
     return {
       txType: StateTransition.RegularTask,
       result: true
