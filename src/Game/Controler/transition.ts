@@ -227,7 +227,7 @@ export class TransitionHandler {
           re = this.onInitGlobalStates(arg as StateTransitionArgs)
           return re
         case StateTransition.RegularTask:
-          re = this.onRegularTask()
+          re = this.onRegularTask(arg as OutChainUserActivityArgs)
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
@@ -1079,16 +1079,23 @@ export class TransitionHandler {
     return logic.activity.donateSilver(args.activityId, args.amount)
   }
 
-  onRegularTask(){
+  onRegularTask(args: any){
+    const logic : LogicEssential = this.genLogic(args.from)
+    const seasonState = logic.map.seasonState;
+
+    console.log('onRegularTask start:', seasonState, args);
+
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    let activityList = gLogic.activity.getBeforeActivities()
+    let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
     const time = getTimeStamp()
+    console.log('onRegularTask run:', time, activityList);
     for(let activity of activityList){
+      console.log('onRegularTask activityList:', time, activity);
       if(time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
         //send activity reward
         console.log("sendActivity reward id:", activity.activityId)
         let haveSendReward = gLogic.activity.state.haveSendReward
-        for(let userdata of gLogic.activity.state.activityData[activity.activityId]){
+        for(let userdata of (gLogic.activity.state.activityData[activity.activityId] || [])){
           const tempLogic : LogicEssential = this.genLogic(userdata.username)
           let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
           tempLogic.city.useGold(-rank.rankReward)
@@ -1099,8 +1106,11 @@ export class TransitionHandler {
             'haveSendReward' : haveSendReward
           }
         )
+        console.log("sendActivity reward over id:", activity.activityId, haveSendReward)
       }
     }
+    console.log("sendActivity reward over all:", gLogic.activity.state.haveSendReward)
+
     return {
       txType: StateTransition.RegularTask,
       result: true

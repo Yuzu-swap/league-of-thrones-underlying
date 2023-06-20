@@ -50,7 +50,7 @@ export class Activity{
 
     getActivityConfig(){
         let chainIndex = this.chainIndex || 1;
-        return this.seasonGDS.get(chainIndex).activities
+        return this.seasonGDS.get(chainIndex).activities || [];
     }
 
     getActivityInfo(id: number){
@@ -107,6 +107,28 @@ export class Activity{
             // if(time > info.startTime){
                 re.push(this.getActivityInfo(i))
             // }
+        }
+        return re
+    }
+
+    getBeforeActivitiesForReward(seasonState: any){
+        let activities = this.getActivityConfig()
+        let re : ActivityInfo[] = []
+        for(let i = 0; i < activities.length; i++){
+            let act = activities[i];
+            let relativeTimes = act.relativeTime.split('_');
+            let startTime = seasonState.season_open + (parseInt(relativeTimes[0]) -1)*24*60*60 + parseInt(relativeTimes[1])*60*60;
+
+            let row = this.activityGDS.get(act.type)
+            let info : ActivityInfo = {
+                activityId : i,
+                type : act.type,
+                relativeTime: act.relativeTime,
+                startTime: startTime,
+                totalReward: row.activity_pond,
+                lastTime: row.activity_last * 60 * 60
+            }
+            re.push(info)
         }
         return re
     }
