@@ -111,13 +111,24 @@ export class Activity{
         return re
     }
 
-    getBeforeActivitiesForReward(map){
-        this.setMap(map);
+    getBeforeActivitiesForReward(seasonState: any){
         let activities = this.getActivityConfig()
         let re : ActivityInfo[] = []
         const time = getTimeStamp()
         for(let i = 0; i < activities.length; i++){
-            const info = this.getActivityInfo(i)
+            let act = activities[i];
+            let relativeTimes = act.relativeTime.split('_');
+            let startTime = seasonState.season_open + (parseInt(relativeTimes[0]) -1)*24*60*60 + parseInt(relativeTimes[1])*60*60;
+
+            let row = this.activityGDS.get(act.type)
+            let info : ActivityInfo = {
+                activityId : i,
+                type : act.type,
+                relativeTime: act.relativeTime,
+                startTime: startTime,
+                totalReward: row.activity_pond,
+                lastTime: row.activity_last * 60 * 60
+            }
             re.push(info)
         }
         return re

@@ -227,7 +227,7 @@ export class TransitionHandler {
           re = this.onInitGlobalStates(arg as StateTransitionArgs)
           return re
         case StateTransition.RegularTask:
-          re = this.onRegularTask()
+          re = this.onRegularTask(arg as OutChainUserActivityArgs)
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
@@ -1079,9 +1079,14 @@ export class TransitionHandler {
     return logic.activity.donateSilver(args.activityId, args.amount)
   }
 
-  onRegularTask(){
+  onRegularTask(args: any){
+    const logic : LogicEssential = this.genLogic(args.from)
+    const seasonState = logic.map.seasonState;
+
+    console.log('onRegularTask start:', seasonState, args);
+
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    let activityList = gLogic.activity.getBeforeActivitiesForReward(gLogic.map)
+    let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
     const time = getTimeStamp()
     console.log('onRegularTask run:', time, activityList);
     for(let i=0;i<activityList.length;i++){
