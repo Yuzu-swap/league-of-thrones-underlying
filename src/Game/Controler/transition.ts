@@ -1081,7 +1081,7 @@ export class TransitionHandler {
 
   onRegularTask(){
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    let activityList = gLogic.activity.getBeforeActivities()
+    let activityList = gLogic.activity.getBeforeActivitiesForReward(gLogic.map)
     const time = getTimeStamp()
     console.log('onRegularTask run:', time, activityList);
     for(let i=0;i<activityList.length;i++){

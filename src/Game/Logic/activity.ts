@@ -111,6 +111,18 @@ export class Activity{
         return re
     }
 
+    getBeforeActivitiesForReward(map){
+        this.setMap(map);
+        let activities = this.getActivityConfig()
+        let re : ActivityInfo[] = []
+        const time = getTimeStamp()
+        for(let i = 0; i < activities.length; i++){
+            const info = this.getActivityInfo(i)
+            re.push(info)
+        }
+        return re
+    }
+
     addDataToActivity(id: number, username: string, oldValue: number , newValue: number){
         if(!this.checkActivityAble(id)){
             return {
