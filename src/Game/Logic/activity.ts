@@ -50,7 +50,7 @@ export class Activity{
 
     getActivityConfig(){
         let chainIndex = this.chainIndex || 1;
-        return this.seasonGDS.get(chainIndex).activities
+        return this.seasonGDS.get(chainIndex).activities || [];
     }
 
     getActivityInfo(id: number){
@@ -114,7 +114,6 @@ export class Activity{
     getBeforeActivitiesForReward(seasonState: any){
         let activities = this.getActivityConfig()
         let re : ActivityInfo[] = []
-        const time = getTimeStamp()
         for(let i = 0; i < activities.length; i++){
             let act = activities[i];
             let relativeTimes = act.relativeTime.split('_');
