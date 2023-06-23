@@ -873,10 +873,23 @@ export class TransitionHandler {
         'rankConfigValue' : args.season.rank_config_value,
       }
     )
+
+    const priceInfo = args.priceInfo;
+    this.updateTokenPriceInfo('initial', priceInfo);
+
     return {
       txType: StateTransition.StartSeason,
       result: true
     }
+  }
+
+  updateTokenPriceInfo(typ: string, priceInfo: any){
+    // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
+    // typ = initial, current
+    const gLogic: GlobalLogicEssential = this.genGlobalLogic();
+    let tokenPriceInfo = gLogic.map.tokenPriceInfo;
+        tokenPriceInfo[typ] = priceInfo;
+    gLogic.map.tokenPriceInfo.update(tokenPriceInfo)
   }
 
 
@@ -1084,6 +1097,9 @@ export class TransitionHandler {
     const seasonState = logic.map.seasonState;
 
     console.log('onRegularTask start:', seasonState, args);
+
+    const priceInfo = args.priceInfo;
+    this.updateTokenPriceInfo('current', priceInfo);
 
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);

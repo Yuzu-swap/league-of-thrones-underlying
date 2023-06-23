@@ -27,6 +27,7 @@ export class Map{
     blockStates:{[key: string]: IBlockState} 
     mapConfig: MapConfig
     seasonState: ISeasonConfigState
+    tokenPriceInfo: any
     seasonConfig: SeasonConfig
     rewardGlobalState : IRewardGlobalState
     parameter: Parameter
@@ -671,6 +672,9 @@ export class Map{
         }
     }
 
+    getTokenPriceInfo(){
+        return this.tokenPriceInfo;
+    }
     getSeasonState(){
         return this.seasonState;
     }

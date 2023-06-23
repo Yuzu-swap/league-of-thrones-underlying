@@ -169,7 +169,8 @@ export interface StartSeasonArgs extends StateTransitionArgs{
         reward_amount_2: number
 		rank_config_fromto: number[],
         rank_config_value: number[],
-	}
+	},
+	priceInfo: {}
 }
 
 export interface SetIconIdArgs extends StateTransitionArgs{
