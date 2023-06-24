@@ -285,11 +285,6 @@ export class TransitionHandler {
         id: `${StateName.Strategy}:${id}`
       }
     )
-    const tokenPriceInfo = this.stateManger.get(
-      {
-        id: `${StateName.TokenPriceInfo}`
-      }
-    )
     let gStates : GlobalStateEssential
     if(gStatesIn == null){
       gStates = this.genGlobalStateEssential(x_id, y_id)
@@ -303,7 +298,7 @@ export class TransitionHandler {
       general: generalState as IGeneralState,
       mapGlobal: gStates.mapGlobal,
       seasonState: gStates.seasonState,
-      tokenPriceInfo: tokenPriceInfo as ITokenPriceInfoState,
+      tokenPriceInfo: gStates.tokenPriceInfo,
       rewardGlobalState: gStates.rewardGlobalState,
       blocks: gStates.blocks,
       strategy: strategyState as IStrategyState,
@@ -323,6 +318,11 @@ export class TransitionHandler {
         id: `${StateName.SeasonConfig}`
       }
     )
+    const tokenPriceInfo = this.stateManger.get(
+      {
+        id: `${StateName.TokenPriceInfo}`
+      }
+    )
     const rewardGlobalState = this.stateManger.get(
       {
         id: `${StateName.RewardGloablState}`
@@ -336,6 +336,7 @@ export class TransitionHandler {
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState : seasonState as ISeasonConfigState,
+      tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
       blocks: this.getBlockStates(x_id, y_id),
       activityState: activities as IActivityState

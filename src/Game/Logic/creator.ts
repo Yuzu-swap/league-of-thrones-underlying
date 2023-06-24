@@ -41,6 +41,7 @@ export interface GlobalStateEssential{
 	rewardGlobalState: IRewardGlobalState
 	activityState : IActivityState
 	blocks: IBlockState[]
+	tokenPriceInfo: ITokenPriceInfoState
 }
 
 
