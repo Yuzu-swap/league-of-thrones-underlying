@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
+import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -82,10 +82,10 @@ export class MapComponent implements IMapComponent{
         )
     }
 
-    async getTokenPriceInfo(){ 
-        let tokenPriceInfo =  await this.mediator.query(StateName.TokenPriceInfo, {})
-        // return this.map.getTokenPriceInfo() || {};
-        return tokenPriceInfo || {};
+    async getTokenPricesInfo(){ 
+        let tokenPriceInfo =  await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null) as ITokenPriceInfoState;
+        let tokenPriceInfo2 = this.map.getTokenPriceInfo();
+        return { tokenPriceInfo, tokenPriceInfo2 }
     }
 
     genBlockIds(x_id: number, y_id: number):string[]{

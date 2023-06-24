@@ -900,13 +900,20 @@ export class TransitionHandler {
 
     console.log('updateTokenPriceInfo 2:', gLogic.map.tokenPriceInfo);
 
+    // const tokenPriceInfo = this.stateManger.get(
+    //   {
+    //     id: `${StateName.TokenPriceInfo}`
+    //   }
+    // )
+
     let tokenPriceInfo = gLogic.map.tokenPriceInfo;
         tokenPriceInfo['initial'] = tokenPriceInfo['initial'] || priceInfo;
-        tokenPriceInfo[typ] = priceInfo;
+        tokenPriceInfo['current'] = tokenPriceInfo['current'] || priceInfo;
         tokenPriceInfo['lastUpdate'] = getTimeStamp();
+        tokenPriceInfo[typ] = priceInfo;
 
-    // gLogic.map.setTokenPriceInfo(tokenPriceInfo);
     gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
+    gLogic.map.setTokenPriceInfo(tokenPriceInfo);
 
     console.log('updateTokenPriceInfo tokenPriceInfo:', tokenPriceInfo);
     console.log('updateTokenPriceInfo 3:', gLogic.map.tokenPriceInfo);

@@ -1,6 +1,6 @@
 import { General, GeneralConfig } from "./general";
 import { City, CityConfig } from "./game";
-import { IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from "../State";
+import { IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, ITokenPriceInfoState, IStrategyState } from "../State";
 import { Boost, IBoost } from "./boost";
 import { ResouceType, StateName } from "../Const";
 import { Map } from "./map";
@@ -28,7 +28,7 @@ export interface StateEssential {
 	activityState : IActivityState
 	blocks: IBlockState[]
 	strategy: IStrategyState
-	tokenPriceInfo: any
+	tokenPriceInfo: ITokenPriceInfoState
 }
 export interface ConfigEssential {
 	cityConf: CityConfig
@@ -41,7 +41,7 @@ export interface GlobalStateEssential{
 	rewardGlobalState: IRewardGlobalState
 	activityState : IActivityState
 	blocks: IBlockState[]
-	tokenPriceInfo: any
+	tokenPriceInfo: ITokenPriceInfoState
 }
 
 
