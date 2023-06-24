@@ -898,19 +898,19 @@ export class TransitionHandler {
 
     const gLogic: GlobalLogicEssential = this.genGlobalLogic();
 
-    console.log('updateTokenPriceInfo 2:', gLogic.map.getTokenPriceInfo());
+    console.log('updateTokenPriceInfo 2:', gLogic.map.tokenPriceInfo);
 
-    let tokenPriceInfo = gLogic.map.getTokenPriceInfo();
+    let tokenPriceInfo = gLogic.map.tokenPriceInfo;
+        tokenPriceInfo['initial'] = tokenPriceInfo['initial'] || priceInfo;
         tokenPriceInfo[typ] = priceInfo;
         tokenPriceInfo['lastUpdate'] = getTimeStamp();
 
-    gLogic.map.setTokenPriceInfo(tokenPriceInfo);
-    // gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
+    // gLogic.map.setTokenPriceInfo(tokenPriceInfo);
+    gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
 
     console.log('updateTokenPriceInfo tokenPriceInfo:', tokenPriceInfo);
-    console.log('updateTokenPriceInfo 3:', gLogic.map.getTokenPriceInfo());
+    console.log('updateTokenPriceInfo 3:', gLogic.map.tokenPriceInfo);
   }
-
 
   recordEvent(typ: TransitionEventType,event: any) {
     if (this.eventRecorderFunc){

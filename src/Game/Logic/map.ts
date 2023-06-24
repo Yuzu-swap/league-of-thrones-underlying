@@ -55,10 +55,6 @@ export class Map{
         this.general = general
     }
 
-    setTokenPriceInfo(tokenPriceInfo : ITokenPriceInfoState){
-        this.tokenPriceInfo = tokenPriceInfo
-    }
-
     getMapGDS(x_id: number, y_id: number){
         return this.mapConfig.get(x_id, y_id)
     }
@@ -681,6 +677,9 @@ export class Map{
         }
     }
 
+    setTokenPriceInfo(tokenPriceInfo : ITokenPriceInfoState){
+        this.tokenPriceInfo = tokenPriceInfo
+    }
     getTokenPriceInfo(){
         return this.tokenPriceInfo;
     }
