@@ -82,10 +82,10 @@ export class MapComponent implements IMapComponent{
         )
     }
 
-    async getTokenPricesInfo(){ 
-        let tokenPriceInfo =  await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null) as ITokenPriceInfoState;
-        let tokenPriceInfo2 = this.map.getTokenPriceInfo();
-        return { tokenPriceInfo, tokenPriceInfo2 }
+    getTokenPricesInfo(){ 
+        // let tokenPriceInfo =  await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null) as ITokenPriceInfoState;
+        let tokenPriceInfo = this.map.getTokenPriceInfo();
+        return tokenPriceInfo
     }
 
     genBlockIds(x_id: number, y_id: number):string[]{

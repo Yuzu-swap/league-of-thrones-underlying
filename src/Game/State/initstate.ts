@@ -74,6 +74,11 @@ export var InitState = {
         unionRewardValue: 0,
         rankRewardValue: 0
     },
+    [StateName.TokenPriceInfo]:{
+        initial: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
+        current: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
+        lastUpdate: 0
+    },
     [StateName.RewardGloablState]:{
         unionGloryRankInfo: [[],[],[],[]],
         globalGloryRankInfo: [],
