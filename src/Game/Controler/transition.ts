@@ -904,9 +904,11 @@ export class TransitionHandler {
         tokenPriceInfo[typ] = priceInfo;
         tokenPriceInfo['lastUpdate'] = getTimeStamp();
 
-    gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
+    gLogic.map.setTokenPriceInfo(tokenPriceInfo);
+    // gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
 
-    console.log('updateTokenPriceInfo 3:', tokenPriceInfo, gLogic.map.getTokenPriceInfo());
+    console.log('updateTokenPriceInfo tokenPriceInfo:', tokenPriceInfo);
+    console.log('updateTokenPriceInfo 3:', gLogic.map.getTokenPriceInfo());
   }
 
 

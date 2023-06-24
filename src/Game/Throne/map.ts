@@ -82,6 +82,10 @@ export class MapComponent implements IMapComponent{
         )
     }
 
+    getTokenPriceInfo(){
+        return this.map.getTokenPriceInfo() || {};
+    }
+
     genBlockIds(x_id: number, y_id: number):string[]{
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
