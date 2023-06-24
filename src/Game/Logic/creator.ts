@@ -44,7 +44,6 @@ export interface GlobalStateEssential{
 	tokenPriceInfo: ITokenPriceInfoState
 }
 
-
 export function createLogicEsential(states: StateEssential): LogicEssential {
 	console.log('createLogicEsential getGeneralBattleStatus:', states);
 	var boost: IBoost = new Boost()
