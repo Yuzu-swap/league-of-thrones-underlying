@@ -94,13 +94,11 @@ export class General{
     map: Map
     city : City
     boost : IBoost
-    gState: any
-    constructor(state: IGeneralState, gState: any, city: City) {
+    constructor(state: IGeneralState, city: City) {
         this.state = state;
         this.config = GeneralConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
-        this.gState = gState
     }
 
     setMap( map : Map){
