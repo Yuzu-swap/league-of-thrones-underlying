@@ -304,7 +304,6 @@ export class TransitionHandler {
       strategy: strategyState as IStrategyState,
       activityState: gStates.activityState
     };
-    console.log('genLogic gStates:', gStates);
     return createLogicEsential(states);
   }
 
