@@ -894,13 +894,19 @@ export class TransitionHandler {
     // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
     // typ = initial, current
 
-    console.log('updateTokenPriceInfo:', typ, priceInfo);
-    
+    console.log('updateTokenPriceInfo 1:', typ, priceInfo);
+
     const gLogic: GlobalLogicEssential = this.genGlobalLogic();
-    let tokenPriceInfo = gLogic.map.tokenPriceInfo;
+
+    console.log('updateTokenPriceInfo 2:', gLogic.map.getTokenPriceInfo());
+
+    let tokenPriceInfo = gLogic.map.getTokenPriceInfo();
         tokenPriceInfo[typ] = priceInfo;
         tokenPriceInfo['lastUpdate'] = getTimeStamp();
-    gLogic.map.tokenPriceInfo.update(tokenPriceInfo)
+
+    gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
+
+    console.log('updateTokenPriceInfo 3:', tokenPriceInfo, gLogic.map.getTokenPriceInfo());
   }
 
 

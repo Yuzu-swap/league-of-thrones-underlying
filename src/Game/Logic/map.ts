@@ -2,7 +2,7 @@ import { copyObj } from "../../Core/state";
 import { mapIdOffset, StateName, StateTransition } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
 import { GenBlockDefenseTroop, MapConfig, MapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
-import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, RewardResult } from "../State";
+import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, ITokenPriceInfoState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, getTxHash, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
@@ -27,21 +27,25 @@ export class Map{
     blockStates:{[key: string]: IBlockState} 
     mapConfig: MapConfig
     seasonState: ISeasonConfigState
-    tokenPriceInfo: any
+    tokenPriceInfo: ITokenPriceInfoState
     seasonConfig: SeasonConfig
     rewardGlobalState : IRewardGlobalState
     parameter: Parameter
     boost: IBoost
     general: General
-    constructor( gState: IMapGlobalState, seasonState: ISeasonConfigState, rewardGlobalState : IRewardGlobalState ){
+    constructor( 
+        gState: IMapGlobalState, 
+        seasonState: ISeasonConfigState, 
+        rewardGlobalState : IRewardGlobalState,
+        tokenPriceInfo : ITokenPriceInfoState ){
         this.gState = gState
         this.blockStates = {}
         this.mapConfig = MapConfigFromGDS
         this.parameter = parameterConfig
         this.seasonConfig = SeasonConfigFromGDS
         this.seasonState = seasonState
+        this.tokenPriceInfo = tokenPriceInfo
         this.rewardGlobalState = rewardGlobalState
-        this.tokenPriceInfo = { 'createdAt': getTimeStamp() }
     }
     setBoost(boost:IBoost){
         this.boost = boost
@@ -49,10 +53,6 @@ export class Map{
 
     setGeneral(general){
         this.general = general
-    }
-
-    setTokenPriceInfo(tokenPriceInfo: any){
-        this.tokenPriceInfo = tokenPriceInfo
     }
 
     getMapGDS(x_id: number, y_id: number){
