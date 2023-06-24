@@ -1,6 +1,6 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
-import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
+import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ITokenPriceInfoState, ResouceInfo} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
@@ -94,11 +94,13 @@ export class General{
     map: Map
     city : City
     boost : IBoost
-    constructor(state: IGeneralState, city: City) {
+    tokenPriceInfo: ITokenPriceInfoState
+    constructor(state: IGeneralState, tokenPriceInfo: ITokenPriceInfoState, city: City) {
         this.state = state;
         this.config = GeneralConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
+        this.tokenPriceInfo = tokenPriceInfo
     }
 
     setMap( map : Map){
@@ -584,8 +586,9 @@ export class General{
     }
 
     getGeneralBattleStatus(generalId : number){
-        let tokenPriceInfo = this.map.tokenPriceInfo;
-        console.log('getGeneralBattleStatus tokenPriceInfo: ', tokenPriceInfo);
+        let tokenPriceInfo = this.tokenPriceInfo;
+        let unionId = this.state.unionId;
+        console.log('getGeneralBattleStatus tokenPriceInfo: ', tokenPriceInfo, unionId, this);
         const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {
