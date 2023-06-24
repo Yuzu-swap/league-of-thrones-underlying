@@ -3,6 +3,7 @@ import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConf
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState , ResouceInfo} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
+import { Map } from "./map";
 import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
@@ -90,6 +91,7 @@ export class General{
     state: IGeneralState
     config: GeneralConfig
     mapConfig: MapConfig
+    map: Map
     city : City
     boost : IBoost
     constructor(state: IGeneralState, city: City) {
@@ -97,6 +99,10 @@ export class General{
         this.config = GeneralConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
+    }
+
+    setMap( map : Map){
+        this.map = map
     }
 
     setBoost( boost : IBoost){
@@ -578,6 +584,8 @@ export class General{
     }
 
     getGeneralBattleStatus(generalId : number){
+        let tokenPriceInfo = this.map.tokenPriceInfo;
+        console.log('getGeneralBattleStatus tokenPriceInfo: ', tokenPriceInfo);
         const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {

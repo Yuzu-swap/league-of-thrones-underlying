@@ -82,10 +82,32 @@ export class MapComponent implements IMapComponent{
         )
     }
 
-    getTokenPricesInfo(){ 
-        // let tokenPriceInfo =  await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null) as ITokenPriceInfoState;
-        let tokenPriceInfo = this.map.getTokenPriceInfo();
-        return tokenPriceInfo
+    async getTokenPriceInfo(callback: (result: any) => void): Promise<void>{ 
+        let tokenPriceInfo =  (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null)) as ITokenPriceInfoState;
+        console.log('updateTokenPriceInfo in map:', tokenPriceInfo);
+        let result = this.createTokenPriceFormat(tokenPriceInfo);
+        callback(result);
+    }
+
+    createTokenPriceFormat(tokenPriceInfo){
+        let unions = {
+            1: "BTC",
+            2: "ETH",
+            3: "USDT",
+            4: "BNB"
+        };
+        let { current, initial } = tokenPriceInfo;
+
+        let result = [];
+        for(var id=1;id<5;id++){
+            let name = unions[id];
+            let v1 = initial[name]/1 || current[name]/1;
+            let v2 = current[name]/1 || initial[name]/1;
+            let changeValue = Math.min((v2 - v1)/v1, 5);
+
+            result.push({ id, name, changeValue, v1, v2});
+        }
+        return result;
     }
 
     genBlockIds(x_id: number, y_id: number):string[]{

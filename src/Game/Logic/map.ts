@@ -677,12 +677,6 @@ export class Map{
         }
     }
 
-    setTokenPriceInfo(tokenPriceInfo : ITokenPriceInfoState){
-        this.tokenPriceInfo = tokenPriceInfo
-    }
-    getTokenPriceInfo(){
-        return this.tokenPriceInfo;
-    }
     getSeasonState(){
         return this.seasonState;
     }
