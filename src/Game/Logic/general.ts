@@ -94,13 +94,13 @@ export class General{
     map: Map
     city : City
     boost : IBoost
-    tokenPriceInfo: ITokenPriceInfoState
-    constructor(state: IGeneralState, tokenPriceInfo: ITokenPriceInfoState, city: City) {
+    gState: any
+    constructor(state: IGeneralState, gState: any, city: City) {
         this.state = state;
         this.config = GeneralConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
-        this.tokenPriceInfo = tokenPriceInfo
+        this.gState = gState
     }
 
     setMap( map : Map){
@@ -476,6 +476,7 @@ export class General{
         let mapPercent = 0
         let mapBuffList = this.boost.getMapBuff()
         let moralePercent = this.getMoralePercent()
+        let tokenBuff = this.getTokenBuff()
         for( let mapBuff of mapBuffList){
             const skillRow = this.getSkillInfo(mapBuff)
             if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
@@ -518,7 +519,7 @@ export class General{
                     }
                 }
             }
-            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent)
+            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff)
         }
         return product
     }
@@ -585,10 +586,17 @@ export class General{
         this.boost.setProduction(StateName.General, ResouceType.Troop, this.getGeneralProduction(ResouceType.Troop))
     }
 
-    getGeneralBattleStatus(generalId : number){
-        let tokenPriceInfo = this.tokenPriceInfo;
+    getTokenBuff(){
+        // let tokenPriceInfo = this.tokenPriceInfo;
         let unionId = this.state.unionId;
-        console.log('getGeneralBattleStatus tokenPriceInfo: ', tokenPriceInfo, unionId, this);
+        let tokenBuff = Math.random();
+        console.log('getGeneralBattleStatus tokenBuff: ', unionId, tokenBuff, this);
+        return tokenBuff;
+    }
+
+    getGeneralBattleStatus(generalId : number){
+        let tokenBuff = this.getTokenBuff();
+
         const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {
@@ -619,9 +627,9 @@ export class General{
             [SkillType.Load]: 0
         }
         let extraPercent = {
-            [SkillType.Attack]: 1,
-            [SkillType.Defense]: 1,
-            [SkillType.Load]: 1
+            [SkillType.Attack]: 1 + tokenBuff,
+            [SkillType.Defense]: 1 + tokenBuff,
+            [SkillType.Load]: 1 + tokenBuff
         }
       
         const row = this.getGeneralQualification(generalId)

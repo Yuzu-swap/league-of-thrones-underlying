@@ -41,15 +41,15 @@ export interface GlobalStateEssential{
 	rewardGlobalState: IRewardGlobalState
 	activityState : IActivityState
 	blocks: IBlockState[]
-	tokenPriceInfo: ITokenPriceInfoState
 }
 
 
 export function createLogicEsential(states: StateEssential): LogicEssential {
+	console.log('createLogicEsential getGeneralBattleStatus:', states);
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
-	var general: General = new General(states.general, states.tokenPriceInfo,city)
-	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState, states.tokenPriceInfo)
+	var general: General = new General(states.general, states, city)
+	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState)
 	var strategy: Strategy = new Strategy(states.strategy)
 	var activity: Activity = new Activity(states.activityState)
 	city.setBoost(boost)
@@ -79,7 +79,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 }
 
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
-	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState, gStates.rewardGlobalState, gStates.tokenPriceInfo)
+	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState, gStates.rewardGlobalState)
 	map.loadBlockStates(gStates.blocks)
 
 	var activity: Activity = new Activity(gStates.activityState)
