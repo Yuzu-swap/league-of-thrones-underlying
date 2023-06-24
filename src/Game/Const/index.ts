@@ -8,6 +8,7 @@ export enum StateName {
 	MapGlobalInfo = 'mapglobalinfo',
 	BlockInfo = 'blockinfo',
 	SeasonConfig = 'seasonconfig',
+	TokenPriceInfo = 'tokenPriceInfo',
 	RewardGloablState = 'rewardglobalstate',
 	Strategy = 'strategy',
 	Activity = 'activity'

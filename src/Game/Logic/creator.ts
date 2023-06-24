@@ -28,6 +28,7 @@ export interface StateEssential {
 	activityState : IActivityState
 	blocks: IBlockState[]
 	strategy: IStrategyState
+	tokenPriceInfo: any
 }
 export interface ConfigEssential {
 	cityConf: CityConfig
@@ -40,6 +41,7 @@ export interface GlobalStateEssential{
 	rewardGlobalState: IRewardGlobalState
 	activityState : IActivityState
 	blocks: IBlockState[]
+	tokenPriceInfo: any
 }
 
 
@@ -77,6 +79,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 export function createGlobalEsential(gStates: GlobalStateEssential) : GlobalLogicEssential{
 	var map: Map = new Map(gStates.mapGlobal, gStates.seasonState, gStates.rewardGlobalState)
 	map.loadBlockStates(gStates.blocks)
+	map.setTokenPriceInfo(gStates.tokenPriceInfo)
 
 	var activity: Activity = new Activity(gStates.activityState)
 

@@ -41,7 +41,7 @@ import {
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { GeneralDefenseBlock, GetInitState, GloryInfo, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, GetInitState, GloryInfo, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, ITokenPriceInfoState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -298,6 +298,7 @@ export class TransitionHandler {
       general: generalState as IGeneralState,
       mapGlobal: gStates.mapGlobal,
       seasonState: gStates.seasonState,
+      tokenPriceInfo: gStates.tokenPriceInfo,
       rewardGlobalState: gStates.rewardGlobalState,
       blocks: gStates.blocks,
       strategy: strategyState as IStrategyState,
@@ -317,6 +318,11 @@ export class TransitionHandler {
         id: `${StateName.SeasonConfig}`
       }
     )
+    const tokenPriceInfo = this.stateManger.get(
+      {
+        id: `${StateName.TokenPriceInfo}`
+      }
+    )
     const rewardGlobalState = this.stateManger.get(
       {
         id: `${StateName.RewardGloablState}`
@@ -330,6 +336,7 @@ export class TransitionHandler {
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState : seasonState as ISeasonConfigState,
+      tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
       blocks: this.getBlockStates(x_id, y_id),
       activityState: activities as IActivityState
@@ -874,7 +881,7 @@ export class TransitionHandler {
       }
     )
 
-    const priceInfo = args.priceInfo;
+    const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo('initial', priceInfo);
 
     return {
@@ -889,6 +896,7 @@ export class TransitionHandler {
     const gLogic: GlobalLogicEssential = this.genGlobalLogic();
     let tokenPriceInfo = gLogic.map.tokenPriceInfo;
         tokenPriceInfo[typ] = priceInfo;
+        tokenPriceInfo['lastUpdate'] = getTimeStamp();
     gLogic.map.tokenPriceInfo.update(tokenPriceInfo)
   }
 
@@ -1098,7 +1106,7 @@ export class TransitionHandler {
 
     console.log('onRegularTask start:', seasonState, args);
 
-    const priceInfo = args.priceInfo;
+    const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo('current', priceInfo);
 
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()

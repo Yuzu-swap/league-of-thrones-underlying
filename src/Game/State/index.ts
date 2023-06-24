@@ -199,6 +199,8 @@ export interface IActivityState extends IState{
   haveSendReward: boolean[]
 }
 
+export interface ITokenPriceInfoState {}
+
 export * from  "./initstate"
 
 

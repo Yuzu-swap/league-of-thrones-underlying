@@ -41,6 +41,7 @@ export class Map{
         this.seasonConfig = SeasonConfigFromGDS
         this.seasonState = seasonState
         this.rewardGlobalState = rewardGlobalState
+        this.tokenPriceInfo = { 'createdAt': getTimeStamp() }
     }
     setBoost(boost:IBoost){
         this.boost = boost
@@ -48,6 +49,10 @@ export class Map{
 
     setGeneral(general){
         this.general = general
+    }
+
+    setTokenPriceInfo(tokenPriceInfo: any){
+        this.tokenPriceInfo = tokenPriceInfo
     }
 
     getMapGDS(x_id: number, y_id: number){
