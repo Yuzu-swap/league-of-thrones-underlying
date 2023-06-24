@@ -893,6 +893,9 @@ export class TransitionHandler {
   updateTokenPriceInfo(typ: string, priceInfo: any){
     // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
     // typ = initial, current
+
+    console.log('updateTokenPriceInfo:', typ, priceInfo);
+    
     const gLogic: GlobalLogicEssential = this.genGlobalLogic();
     let tokenPriceInfo = gLogic.map.tokenPriceInfo;
         tokenPriceInfo[typ] = priceInfo;
