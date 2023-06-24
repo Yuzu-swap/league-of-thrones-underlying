@@ -891,31 +891,24 @@ export class TransitionHandler {
   }
 
   updateTokenPriceInfo(typ: string, priceInfo: any){
-    // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
-    // typ = initial, current
-
     console.log('updateTokenPriceInfo 1:', typ, priceInfo);
 
     const gLogic: GlobalLogicEssential = this.genGlobalLogic();
 
-    console.log('updateTokenPriceInfo 2:', gLogic.map.tokenPriceInfo);
+    console.log('updateTokenPriceInfo 2: gLogic.map:', gLogic.map, ' :tokenPriceInfo: ', gLogic.map.tokenPriceInfo);
 
-    // const tokenPriceInfo = this.stateManger.get(
-    //   {
-    //     id: `${StateName.TokenPriceInfo}`
-    //   }
-    // )
-
+    // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
+    // typ = initial, current
     let tokenPriceInfo = gLogic.map.tokenPriceInfo;
-        tokenPriceInfo['initial'] = tokenPriceInfo['initial'] || priceInfo;
-        tokenPriceInfo['current'] = tokenPriceInfo['current'] || priceInfo;
-        tokenPriceInfo['lastUpdate'] = getTimeStamp();
-        tokenPriceInfo[typ] = priceInfo;
+    let newTokenPriceInfo = {
+      initial: tokenPriceInfo['initial'] || priceInfo,
+      current: tokenPriceInfo['current'] || priceInfo,
+      lastUpdate: getTimeStamp()
+    };
+    newTokenPriceInfo[typ] = priceInfo;
+    console.log('updateTokenPriceInfo tokenPriceInfo:', newTokenPriceInfo);
 
-    gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
-    gLogic.map.setTokenPriceInfo(tokenPriceInfo);
-
-    console.log('updateTokenPriceInfo tokenPriceInfo:', tokenPriceInfo);
+    gLogic.map.tokenPriceInfo.update(newTokenPriceInfo);
     console.log('updateTokenPriceInfo 3:', gLogic.map.tokenPriceInfo);
   }
 
