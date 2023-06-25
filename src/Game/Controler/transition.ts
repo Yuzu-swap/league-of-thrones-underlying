@@ -304,8 +304,6 @@ export class TransitionHandler {
       strategy: strategyState as IStrategyState,
       activityState: gStates.activityState
     };
-    // console.log('tokenPriceInfo state 2:', gStates.tokenPriceInfo, gStates)
-    // console.log('tokenPriceInfo gStatesIn:', gStatesIn)
     return createLogicEsential(states);
   }
 
@@ -343,7 +341,6 @@ export class TransitionHandler {
       blocks: this.getBlockStates(x_id, y_id),
       activityState: activities as IActivityState
     };
-    // console.log('tokenPriceInfo state 1:', tokenPriceInfo)
     return gStates
   }
 
