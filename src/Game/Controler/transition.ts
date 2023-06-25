@@ -882,7 +882,7 @@ export class TransitionHandler {
     )
 
     const priceInfo = args.priceInfo || {};
-    this.updateTokenPriceInfo('initial', priceInfo);
+    this.updateTokenPriceInfo(gLogic, 'initial', priceInfo);
 
     return {
       txType: StateTransition.StartSeason,
@@ -890,32 +890,25 @@ export class TransitionHandler {
     }
   }
 
-  updateTokenPriceInfo(typ: string, priceInfo: any){
-    // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
-    // typ = initial, current
-
+  updateTokenPriceInfo(gLogic: GlobalLogicEssential, typ: string, priceInfo: any){
     console.log('updateTokenPriceInfo 1:', typ, priceInfo);
 
-    const gLogic: GlobalLogicEssential = this.genGlobalLogic();
+    // const gLogic: GlobalLogicEssential = this.genGlobalLogic();
 
     console.log('updateTokenPriceInfo 2:', gLogic.map.tokenPriceInfo);
 
-    // const tokenPriceInfo = this.stateManger.get(
-    //   {
-    //     id: `${StateName.TokenPriceInfo}`
-    //   }
-    // )
-
+    // priceInfo = {"ETH":"1800","USDT":"1","BTC":"27512","BNB":"245}
+    // typ = initial, current
     let tokenPriceInfo = gLogic.map.tokenPriceInfo;
-        tokenPriceInfo['initial'] = tokenPriceInfo['initial'] || priceInfo;
-        tokenPriceInfo['current'] = tokenPriceInfo['current'] || priceInfo;
-        tokenPriceInfo['lastUpdate'] = getTimeStamp();
-        tokenPriceInfo[typ] = priceInfo;
+    let newTokenPriceInfo = {
+      initial: tokenPriceInfo['initial'] || priceInfo,
+      current: tokenPriceInfo['current'] || priceInfo,
+      lastUpdate: getTimeStamp()
+    };
+    newTokenPriceInfo[typ] = priceInfo;
+    console.log('updateTokenPriceInfo tokenPriceInfo:', newTokenPriceInfo);
 
-    gLogic.map.tokenPriceInfo.update(tokenPriceInfo);
-    // gLogic.map.setTokenPriceInfo(tokenPriceInfo);
-
-    console.log('updateTokenPriceInfo tokenPriceInfo:', tokenPriceInfo);
+    gLogic.map.tokenPriceInfo.update(newTokenPriceInfo);
     console.log('updateTokenPriceInfo 3:', gLogic.map.tokenPriceInfo);
   }
 
@@ -1127,7 +1120,7 @@ export class TransitionHandler {
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     
     const priceInfo = args.priceInfo || {};
-    this.updateTokenPriceInfo('current', priceInfo);
+    this.updateTokenPriceInfo(gLogic, 'current', priceInfo);
 
     let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
     const time = getTimeStamp()

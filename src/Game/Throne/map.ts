@@ -102,7 +102,7 @@ export class MapComponent implements IMapComponent{
         for(var id=1;id<5;id++){
             let name = unions[id];
             let v1 = initial[name]/1 || current[name]/1;
-            let v2 = current[name]/1 || initial[name]/1;
+            let v2 = current[name]/1;
             let changeValue = Math.min((v2 - v1)/v1, 5);
 
             result.push({ id, name, changeValue, v1, v2});
