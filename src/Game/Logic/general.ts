@@ -586,6 +586,10 @@ export class General{
 
     getTokenBuff(){
         // let tokenPriceInfo = this.tokenPriceInfo;
+        let tokenPriceInfo = {
+            initial: {},
+            current: {}
+        };
         let unions = {
             1: "BTC",
             2: "ETH",
@@ -593,12 +597,20 @@ export class General{
             4: "BNB"
         };
         let unionId = this.state.unionId;
-        if(unionId < 1){
+        let token = unions[unionId] || '';
+        if(token === ''){
             return 0;
         }
 
-        
-        let tokenBuff = Math.random();
+        let { initial, current } = tokenPriceInfo;
+        let v1 = initial[token] || 0;
+        let v2 = current[token] || 0;
+
+        if(v1 === 0 || v2 === 0){
+            return 0;
+        }
+
+        let tokenBuff = (v2 - v1)/v1;
             tokenBuff = Math.min(tokenBuff, 5);
         console.log('getGeneralBattleStatus tokenBuff: ', unionId, tokenBuff, this);
         return tokenBuff;
