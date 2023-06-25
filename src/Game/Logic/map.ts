@@ -36,13 +36,15 @@ export class Map{
     constructor( 
         gState: IMapGlobalState, 
         seasonState: ISeasonConfigState, 
-        rewardGlobalState : IRewardGlobalState){
+        rewardGlobalState : IRewardGlobalState,
+        tokenPriceInfo : ITokenPriceInfoState ){
         this.gState = gState
         this.blockStates = {}
         this.mapConfig = MapConfigFromGDS
         this.parameter = parameterConfig
         this.seasonConfig = SeasonConfigFromGDS
         this.seasonState = seasonState
+        this.tokenPriceInfo = tokenPriceInfo
         this.rewardGlobalState = rewardGlobalState
     }
     setBoost(boost:IBoost){

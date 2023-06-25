@@ -1,6 +1,6 @@
 import { ConfigContainer } from '../../Core/config';
 import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
-import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ITokenPriceInfoState, ResouceInfo} from '../State';
+import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
@@ -593,7 +593,13 @@ export class General{
             4: "BNB"
         };
         let unionId = this.state.unionId;
+        if(unionId < 1){
+            return 0;
+        }
+
+        
         let tokenBuff = Math.random();
+            tokenBuff = Math.min(tokenBuff, 5);
         console.log('getGeneralBattleStatus tokenBuff: ', unionId, tokenBuff, this);
         return tokenBuff;
     }
