@@ -45,7 +45,6 @@ export interface GlobalStateEssential{
 }
 
 export function createLogicEsential(states: StateEssential): LogicEssential {
-	console.log('createLogicEsential getGeneralBattleStatus:', states);
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
 	var general: General = new General(states.general, city)

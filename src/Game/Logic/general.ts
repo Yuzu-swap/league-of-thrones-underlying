@@ -586,8 +586,6 @@ export class General{
 
     getTokenBuff(){
         // let tokenPriceInfo = this.tokenPriceInfo;
-        console.log('getGeneralBattleStatus tokenBuff: ', this);
-
         let tokenPriceInfo = {
             initial: {},
             current: {}
