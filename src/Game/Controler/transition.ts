@@ -775,7 +775,13 @@ export class TransitionHandler {
     const username = args.from
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
-    logic.general.addextraGeneral(args.general_ids)
+    let userScore = logic.general.getUserScore(username);
+    let vipBuffs = logic.general.getVipBuffs(userScore);
+    let generalIds = args.general_ids.concat(vipBuffs.add_general_id);
+    logic.general.addextraGeneral(generalIds)
+
+    console.log('getVipBuffs @onSetUnionId: ', username, userScore, vipBuffs, args)
+
     if(args.random_union){
       logic.city.addRandomCampGold()
     }
@@ -856,7 +862,18 @@ export class TransitionHandler {
         )
         const applyInfo = userInfos[username]
         console.log("username ",username , " applyInfo is ", applyInfo)
-        logic.general.addextraGeneral(applyInfo.general_ids)
+
+        logic.general.addUserScores({
+          username: applyInfo.wallet_value
+        });
+
+        let userScore = logic.general.getUserScore(username);
+        let vipBuffs = logic.general.getVipBuffs(userScore);
+        let generalIds = args.general_ids.concat(vipBuffs.add_general_id);
+        logic.general.addextraGeneral(generalIds);
+
+        console.log('getVipBuffs: ', username, userScore, vipBuffs, args)
+
         logic.city.addPreRegisterGold()
         if(applyInfo.random_union){
           logic.city.addRandomCampGold()

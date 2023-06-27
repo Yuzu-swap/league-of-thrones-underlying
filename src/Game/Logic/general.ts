@@ -1,10 +1,10 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale} from '../DataConfig'
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale, VipType} from '../DataConfig'
 import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
-import { GeneralConfigFromGDS , Parameter} from '../DataConfig';
+import { GeneralConfigFromGDS , Parameter, VipConfig, vipConfigFromGDS} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
 import { getRandom, getTimeStamp, parseStateId } from '../Utils';
@@ -91,12 +91,14 @@ export class General{
     state: IGeneralState
     config: GeneralConfig
     mapConfig: MapConfig
+    vipConfig: VipConfig
     map: Map
     city : City
     boost : IBoost
     constructor(state: IGeneralState, city: City) {
         this.state = state;
         this.config = GeneralConfigFromGDS;
+        this.vipConfig = vipConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
     }
@@ -475,6 +477,10 @@ export class General{
         let mapBuffList = this.boost.getMapBuff()
         let moralePercent = this.getMoralePercent()
         let tokenBuff = this.getTokenBuff()
+
+        let username =  parseStateId(this.state.getId()).username
+        let userScore = this.getUserScore(username);
+        let vipBuffs = this.getVipBuffs(userScore);
         for( let mapBuff of mapBuffList){
             const skillRow = this.getSkillInfo(mapBuff)
             if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
@@ -517,7 +523,7 @@ export class General{
                     }
                 }
             }
-            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff)
+            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff + vipBuffs[typ])
         }
         return product
     }
@@ -616,6 +622,10 @@ export class General{
     getGeneralBattleStatus(generalId : number){
         let tokenBuff = this.getTokenBuff();
 
+        let username =  parseStateId(this.state.getId()).username
+        let userScore = this.getUserScore(username);
+        let vipBuffs = this.getVipBuffs(userScore);
+
         const generalInfo = this.getGeneralState(generalId)
         if( generalId == -1 ){
             let base = {
@@ -646,9 +656,9 @@ export class General{
             [SkillType.Load]: 0
         }
         let extraPercent = {
-            [SkillType.Attack]: 1 + tokenBuff,
-            [SkillType.Defense]: 1 + tokenBuff,
-            [SkillType.Load]: 1 + tokenBuff
+            [SkillType.Attack]: 1 + tokenBuff + vipBuffs[SkillType.Attack],
+            [SkillType.Defense]: 1 + tokenBuff + vipBuffs[SkillType.Defense],
+            [SkillType.Load]: 1 + tokenBuff + vipBuffs[SkillType.Load]
         }
       
         const row = this.getGeneralQualification(generalId)
@@ -1096,6 +1106,39 @@ export class General{
                 'glory' : nowCount + count
             }
         )       
+    }
+
+    addUserScores(scores: any){
+        let userScores = this.state.userScores;
+        for(var username in scores){
+            userScores[username] = scores[username];
+        }
+        this.state.update({
+            'userScores': userScores
+        });
+    }
+
+    getUserScore(username: string){
+        let userScores = this.state.userScores || {};
+        return userScores[username] || 0;
+    }
+
+    getVipBuffs(userScore: number){
+        let scores = this.vipConfig['config'];
+        let minScore = scores[0].score;
+        let maxScore = scores[scores.length - 1].score;
+
+        if(userScore >= maxScore){
+          return scores[scores.length - 1];
+        }
+
+        let buffs: VipType;
+        for(var i=0;i<scores.length-1;i++){
+          if(userScore >= scores[i].score && userScore < scores[i+1].score){
+            buffs = scores[i];
+          }
+        }
+        return buffs;
     }
 
     addextraGeneral( ids: number[] ){

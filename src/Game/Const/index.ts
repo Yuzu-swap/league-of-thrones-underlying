@@ -160,6 +160,7 @@ export interface SetSeasonEndArgs extends StateTransitionArgs{
 }
 
 export interface StartSeasonArgs extends StateTransitionArgs{
+	general_ids: []
 	applies:{}
 	season:{
 		apply_ts: number,

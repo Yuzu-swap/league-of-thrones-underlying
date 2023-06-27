@@ -78,6 +78,7 @@ export interface IGeneralState extends IState{
   morale: ResouceInfo
   unionInit: boolean
   lastBattle: number
+  userScores: {}
 }
 
 export interface IDefenderInfoState extends IState{
