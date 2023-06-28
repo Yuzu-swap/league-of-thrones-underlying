@@ -26,7 +26,9 @@ export var InitState = {
       lastAddTestTime: -1,
       userActivity: [],
       guideStep: [],
-      firstLogin: -1
+      firstLogin: -1,
+      injuredTroops: {},
+      rewardClaimed: {}
     },
     [StateName.General]:{
         generalList: {},
