@@ -28,8 +28,12 @@ export var InitState = {
       userActivity: [],
       guideStep: [],
       firstLogin: -1,
-      injuredTroops: { a: 1},
-      rewardClaimed: { b: true}
+      injuredTroops: { 
+        updateTime: -1,
+        today: 0,
+        value: 0
+      },
+      rewardClaimed: { "username": true}
     },
     [StateName.General]:{
         generalList: {},
