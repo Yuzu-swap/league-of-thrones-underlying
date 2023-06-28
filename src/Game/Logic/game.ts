@@ -101,7 +101,7 @@ export class City {
     }
     else{
       let res = this.state.resources || {};
-      let troops = res[ResouceType.Troop] || {};
+      let troops = res[ResouceType.Troop] || { value: 0 };
       return troops.value || 0;
       // return this.state.resources[ResouceType.Troop].value
     }
