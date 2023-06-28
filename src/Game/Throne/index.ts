@@ -128,6 +128,11 @@ export interface IGeneralComponent extends IComponent {
   */
   getConstData(): {}
   /**
+   * get the vip buff of the user 
+   * @param username the address of the user
+  */
+  getUserVipBuffs(username: string): {}
+  /**
    * get the qualification of the general 
    * @param id the id of the general
   */
@@ -717,6 +722,17 @@ export class GeneralComponent implements IGeneralComponent {
     }
     return re
   }
+
+  getUserVipBuffs(username: string) {
+    let userScore = this.general.getUserScore(username);
+    let vipBuffs = this.general.getVipBuffs(userScore);
+    return {
+      address: username,
+      accountRating: userScore,
+      vipBuffs: vipBuffs
+    }
+  }
+
   getGeneralQualification(id: number) {
     return this.general.getGeneralQualification(id)
   }
@@ -1089,7 +1105,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u628"
+    this.version = "u62802"
   }
 
 

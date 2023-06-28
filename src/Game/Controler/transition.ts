@@ -775,12 +775,9 @@ export class TransitionHandler {
     const username = args.from
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
-    let userScore = logic.general.getUserScore(username);
-    let vipBuffs = logic.general.getVipBuffs(userScore);
-    let generalIds = args.general_ids.concat(vipBuffs.add_general_id);
-    logic.general.addextraGeneral(generalIds)
-
-    console.log('getVipBuffs @onSetUnionId: ', username, userScore, vipBuffs, args)
+    let general_ids = args.general_ids || [];
+    let applies = args.applies || {};
+    this.addUserScoresAndExtraGeneral('onSetUnionId', applies, general_ids);
 
     if(args.random_union){
       logic.city.addRandomCampGold()
@@ -845,41 +842,11 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
-    console.log("onStartSeason applies are ", args.applies)
-    for(let unionIdString in args.applies){
-      const unionId = parseInt(unionIdString)
-      if(unionId < 1 || unionId >4){
-        continue
-      }
-      let userInfos = args.applies[unionIdString]
-      for(let username in userInfos){
-        const logic : LogicEssential = this.genLogic(username)
-        logic.general.state.update(
-          {
-            'unionId' : unionId,
-            "unionInit" : true
-          }
-        )
-        const applyInfo = userInfos[username]
-        console.log("username ",username , " applyInfo is ", applyInfo)
+    console.log("onStartSeason args are ", args)
+    let general_ids = args.general_ids || [];
+    let applies = args.applies || {};
+    this.addUserScoresAndExtraGeneral('onSetUnionId', applies, general_ids);
 
-        logic.general.addUserScores({
-          username: applyInfo.wallet_value
-        });
-
-        let userScore = logic.general.getUserScore(username);
-        let vipBuffs = logic.general.getVipBuffs(userScore);
-        let generalIds = args.general_ids.concat(vipBuffs.add_general_id);
-        logic.general.addextraGeneral(generalIds);
-
-        console.log('getVipBuffs: ', username, userScore, vipBuffs, args)
-
-        logic.city.addPreRegisterGold()
-        if(applyInfo.random_union){
-          logic.city.addRandomCampGold()
-        }
-      }
-    }
     for(let item in args.season){
       if(args.season[item] == undefined){
         throw "start season args error"
@@ -904,6 +871,44 @@ export class TransitionHandler {
     return {
       txType: StateTransition.StartSeason,
       result: true
+    }
+  }
+
+  addUserScoresAndExtraGeneral(type: string, applies: any, general_ids: []){
+    console.log('addUserScoresAndExtraGeneral:', type, general_ids, applies);
+    for(let unionIdString in applies){
+      const unionId = parseInt(unionIdString)
+      if(unionId < 1 || unionId >4){
+        continue
+      }
+      let userInfos = applies[unionIdString]
+      for(let username in userInfos){
+        const logic : LogicEssential = this.genLogic(username)
+        logic.general.state.update(
+          {
+            'unionId' : unionId,
+            "unionInit" : true
+          }
+        )
+        const applyInfo = userInfos[username]
+        console.log("username ",username , " applyInfo is ", applyInfo)
+
+        logic.general.addUserScores({
+          username: applyInfo.wallet_value
+        });
+
+        let userScore = logic.general.getUserScore(username);
+        let vipBuffs = logic.general.getVipBuffs(userScore);
+        let generalIds = general_ids.concat(vipBuffs.add_general_id);
+        logic.general.addextraGeneral(generalIds);
+
+        console.log('getVipBuffs: ', username, userScore, vipBuffs, applies)
+
+        logic.city.addPreRegisterGold()
+        if(applyInfo.random_union){
+          logic.city.addRandomCampGold()
+        }
+      }
     }
   }
 

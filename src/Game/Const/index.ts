@@ -148,7 +148,8 @@ export interface SetUnionIdArgs extends StateTransitionArgs{
 	union_id: number
 	force: boolean
 	random_union:boolean
-	general_ids: number[]
+	general_ids: []
+	applies:{}
 }
 
 export interface SetUnionWinArgs extends StateTransitionArgs{

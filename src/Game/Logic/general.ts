@@ -1111,7 +1111,7 @@ export class General{
     addUserScores(scores: any){
         let userScores = this.state.userScores;
         for(var username in scores){
-            userScores[username] = scores[username];
+            userScores[username.toLowerCase()] = scores[username];
         }
         this.state.update({
             'userScores': userScores
@@ -1120,7 +1120,7 @@ export class General{
 
     getUserScore(username: string){
         let userScores = this.state.userScores || {};
-        return userScores[username] || 0;
+        return userScores[username.toLowerCase()] || 0;
     }
 
     getVipBuffs(userScore: number){
