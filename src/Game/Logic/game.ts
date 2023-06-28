@@ -100,7 +100,10 @@ export class City {
       return value < 0 ? 0 : value;
     }
     else{
-      return this.state.resources[ResouceType.Troop].value
+      let res = this.state.resources || {};
+      let troops = res[ResouceType.Troop] || {};
+      return troops.value || 0;
+      // return this.state.resources[ResouceType.Troop].value
     }
   }
 
