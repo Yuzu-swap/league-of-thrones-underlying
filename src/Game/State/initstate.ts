@@ -8,6 +8,7 @@ import { GeneralInfo } from '.';
 
 export var InitState = {
     [StateName.City]: {
+      id: '-1',
       facilities: { },
       resources: {
           [ResouceType.Silver]:
@@ -27,8 +28,8 @@ export var InitState = {
       userActivity: [],
       guideStep: [],
       firstLogin: -1,
-      injuredTroops: {},
-      rewardClaimed: {}
+      injuredTroops: { a: 1},
+      rewardClaimed: { b: true}
     },
     [StateName.General]:{
         generalList: {},
