@@ -1105,7 +1105,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u62802"
+    this.version = "u701"
   }
 
 
@@ -1144,23 +1144,31 @@ export class Throne implements IThrone {
     let serverTimeStamp = ( await this.mediator.query(TransitionEventType.TimeStamp, {})) as number
     setTimeOffset(serverTimeStamp - getTimeStamp(0))
     // init essensial states
+
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
+    states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState
+
+    // await Promise.all([
+    //   async () => {
+    //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
+    //   },
+    //   async () => {
+    //     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
+    //   },
+    //   async () => {
+    //     states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}` }, {}, null)) as IStrategyState
+    //   },
+    // ])
+
+    states.blocks = []
+
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
-    states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState
-    states.blocks = []
     states.activityState = (await this.mediator.queryState({ id: `${StateName.Activity}` }, {}, null)) as IActivityState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
-    // await Promise.all([
-    //   async () => {
-    //     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${TestWallet}` }, {}, null)) as ICityState
-    //   },
-    //   async () => {
-    //     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${TestWallet}` }, {}, null)) as IGeneralState
-    //   },
-    // ])
+    
     this.logicEssential = createLogicEsential(states)
     this.inited = true
     this.instanceState = InstanceStatus.Ready

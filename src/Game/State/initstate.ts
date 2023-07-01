@@ -8,7 +8,6 @@ import { GeneralInfo } from '.';
 
 export var InitState = {
     [StateName.City]: {
-      id: '-1',
       facilities: { },
       resources: {
           [ResouceType.Silver]:
@@ -33,7 +32,7 @@ export var InitState = {
         today: 0,
         value: 0
       },
-      rewardClaimed: { "username": true}
+      rewardClaimed: {}
     },
     [StateName.General]:{
         generalList: {},
@@ -140,8 +139,7 @@ var _inited = false
 export function GetInitState(){
     if (!_inited) {
         //city state
-        for(let key in CityFacility)
-        {
+        for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
             if(!isNaN(maxCount)){

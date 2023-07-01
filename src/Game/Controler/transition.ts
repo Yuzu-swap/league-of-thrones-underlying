@@ -275,16 +275,17 @@ export class TransitionHandler {
   }
 
   genLogic(id: string, x_id: number = 0, y_id: number = 0,  gStatesIn: GlobalStateEssential = null ): LogicEssential {
-    const stateId = { id: `${StateName.City}:${id}` };
-    const cityState = this.stateManger.get(stateId);
+    const cityState = this.stateManger.get({ 
+      id: `${StateName.City}:${id}` 
+    });
+
     const generalState = this.stateManger.get({
       id: `${StateName.General}:${id}`
     });
-    const strategyState = this.stateManger.get(
-      {
-        id: `${StateName.Strategy}:${id}`
-      }
-    )
+    const strategyState = this.stateManger.get({
+      id: `${StateName.Strategy}:${id}`
+    })
+    
     let gStates : GlobalStateEssential
     if(gStatesIn == null){
       gStates = this.genGlobalStateEssential(x_id, y_id)
@@ -893,8 +894,11 @@ export class TransitionHandler {
         const applyInfo = userInfos[username]
         console.log("username ",username , " applyInfo is ", applyInfo)
 
+        // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
+        let wallet_token_value = applyInfo.wallet_token_value || 0;
+        let wallet_nft_value = applyInfo.wallet_nft_value || 0;
         logic.general.addUserScores({
-          username: applyInfo.wallet_value
+          username: wallet_token_value/1 + wallet_nft_value/1
         });
 
         let userScore = logic.general.getUserScore(username);
