@@ -278,13 +278,12 @@ export class TransitionHandler {
     const cityState = this.stateManger.get({ 
       id: `${StateName.City}:${id}` 
     });
-
     const generalState = this.stateManger.get({
       id: `${StateName.General}:${id}`
     });
     const strategyState = this.stateManger.get({
       id: `${StateName.Strategy}:${id}`
-    })
+    });
     
     let gStates : GlobalStateEssential
     if(gStatesIn == null){
@@ -297,14 +296,15 @@ export class TransitionHandler {
     const states: StateEssential = {
       city: cityState as ICityState,
       general: generalState as IGeneralState,
+      strategy: strategyState as IStrategyState,
       mapGlobal: gStates.mapGlobal,
       seasonState: gStates.seasonState,
       tokenPriceInfo: gStates.tokenPriceInfo,
       rewardGlobalState: gStates.rewardGlobalState,
       blocks: gStates.blocks,
-      strategy: strategyState as IStrategyState,
       activityState: gStates.activityState
     };
+    console.log('createLogicEsential genLogic:', states);
     return createLogicEsential(states);
   }
 
