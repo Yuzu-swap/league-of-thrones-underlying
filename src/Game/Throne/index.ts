@@ -1170,7 +1170,6 @@ export class Throne implements IThrone {
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
     
     this.logicEssential = createLogicEsential(states)
-    console.log('createLogicEsential this.logicEssential', this.logicEssential, states);
 
     this.inited = true
     this.instanceState = InstanceStatus.Ready

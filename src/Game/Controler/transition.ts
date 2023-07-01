@@ -304,7 +304,6 @@ export class TransitionHandler {
       blocks: gStates.blocks,
       activityState: gStates.activityState
     };
-    console.log('createLogicEsential genLogic:', states);
     return createLogicEsential(states);
   }
 
