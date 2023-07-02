@@ -146,7 +146,7 @@ export class Activity{
         }
         let list = copyObj(this.state.activityData[id]) as ActivityData[]
         //console.log("addDataToActivity: id:", id, "list after copy:", list)
-        let sumValue = this.state.sumValue[id]
+        let sumValue = this.state.sumValue[id] || 0;
         do{
             if(list.length == 0){
                 list.push(
@@ -170,7 +170,7 @@ export class Activity{
         let data = this.state.activityData
         data[id] = list
         let sumValueList = this.state.sumValue
-        sumValueList[id] = sumValue
+        sumValueList[id] = sumValue || 0;
         this.state.update(
             {
                 'activityData' : data,

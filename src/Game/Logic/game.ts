@@ -110,7 +110,7 @@ export class City {
       this.state.update({
         [`resources.${typ}`]: {
           lastUpdate: time,
-          value: this.getResource(typ),
+          value: this.getResource(typ) || 0,
         }
       });
     }
@@ -135,11 +135,11 @@ export class City {
             'recruit': recruit ,
             [`resources.${ResouceType.Silver}`]: {
               lastUpdate: time,
-              value: nowValue,
+              value: nowValue || 0,
             },
             [`resources.${ResouceType.Troop}`]:{
               lastUpdate: time,
-              value: troop.value + troopAdd,
+              value: (troop.value + troopAdd) || 0,
             }
           }
         )
@@ -259,7 +259,7 @@ export class City {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     let silver = {
       lastUpdate: info.lastUpdate,
-      value: info.value - row.need_silver
+      value: (info.value - row.need_silver) || 0
     };
     this.state.update({
       [`facilities.${typ}`]: levelList,
@@ -385,10 +385,11 @@ export class City {
   }
 
   useSilver(amount: number): boolean {
+    amount = parseInt(amount);
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
-        [`resources.${ResouceType.Silver}.value`]: info.value - amount
+        [`resources.${ResouceType.Silver}.value`]: (info.value - amount) || 0
       });
       this.updateResource(ResouceType.Silver)
       return true;
@@ -401,7 +402,7 @@ export class City {
     if( amount <= info.value){
       this.state.update(
         {
-          [`resources.${ResouceType.Troop}.value`]: info.value - amount
+          [`resources.${ResouceType.Troop}.value`]: (info.value - amount) || 0
         }
       )
       this.updateResource(ResouceType.Silver)

@@ -1148,7 +1148,7 @@ export class Throne implements IThrone {
     states.username =  'index:' + this.username;
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
-    states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState
+    states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}` }, {}, null)) as IStrategyState
 
     // await Promise.all([
     //   async () => {
@@ -1163,11 +1163,11 @@ export class Throne implements IThrone {
     // ])
 
     states.blocks = []
-
+    
+    states.activityState = (await this.mediator.queryState({ id: `${StateName.Activity}` }, {}, null)) as IActivityState
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
-    states.activityState = (await this.mediator.queryState({ id: `${StateName.Activity}` }, {}, null)) as IActivityState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
     
     this.logicEssential = createLogicEsential(states)
