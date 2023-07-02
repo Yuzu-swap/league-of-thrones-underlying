@@ -385,7 +385,7 @@ export class City {
   }
 
   useSilver(amount: number): boolean {
-    amount = parseInt(amount);
+    amount = amount || 0;
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
