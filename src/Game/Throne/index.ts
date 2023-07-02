@@ -1163,7 +1163,7 @@ export class Throne implements IThrone {
     // ])
 
     states.blocks = []
-    
+
     states.activityState = (await this.mediator.queryState({ id: `${StateName.Activity}` }, {}, null)) as IActivityState
     states.mapGlobal = (await this.mediator.queryState({ id: `${StateName.MapGlobalInfo}` }, {}, null)) as IMapGlobalState
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState

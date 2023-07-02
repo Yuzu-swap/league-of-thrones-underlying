@@ -385,8 +385,10 @@ export class City {
   }
 
   useSilver(amount: number): boolean {
+    console.log('useSilver ', amount);
     amount = amount || 0;
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
+    console.log('useSilver ', amount, info);
     if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
         [`resources.${ResouceType.Silver}.value`]: (info.value - amount) || 0

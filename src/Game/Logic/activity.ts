@@ -171,6 +171,7 @@ export class Activity{
         data[id] = list
         let sumValueList = this.state.sumValue
         sumValueList[id] = sumValue || 0;
+        console.log('addDataToActivity ', oldValue, ' sumValueList ',sumValueList);
         this.state.update(
             {
                 'activityData' : data,
