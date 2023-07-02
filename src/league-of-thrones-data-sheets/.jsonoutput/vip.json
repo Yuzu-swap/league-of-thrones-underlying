@@ -2,6 +2,15 @@
    "Config" : [
     {
         "vip_level": 1,
+        "score": 0,
+        "recruit": 0,
+        "product": 0,
+        "load": 0,
+        "defense": 0,
+        "attack": 0
+    },
+    {
+        "vip_level": 2,
         "score": 50,
         "recruit": 0.01,
         "product": 0.01,
@@ -13,7 +22,7 @@
         ]
     },
     {
-        "vip_level": 2,
+        "vip_level": 3,
         "score": 100,
         "recruit": 0.02,
         "product": 0.02,
@@ -25,7 +34,7 @@
         ]
     },
     {
-        "vip_level": 3,
+        "vip_level": 4,
         "score": 300,
         "recruit": 0.03,
         "product": 0.03,
@@ -37,7 +46,7 @@
         ]
     },
     {
-        "vip_level": 4,
+        "vip_level": 5,
         "score": 600,
         "recruit": 0.04,
         "product": 0.04,
@@ -49,7 +58,7 @@
         ]
     },
     {
-        "vip_level": 5,
+        "vip_level": 6,
         "score": 1000,
         "recruit": 0.05,
         "product": 0.05,
@@ -57,11 +66,12 @@
         "defense": 0.05,
         "attack": 0.05,
         "add_general_id":[
-            12
+            12,
+            18
         ]
     },
     {
-        "vip_level": 6,
+        "vip_level": 7,
         "score": 2000,
         "recruit": 0.06,
         "product": 0.06,
@@ -74,7 +84,7 @@
         ]
     },
     {
-        "vip_level": 7,
+        "vip_level": 8,
         "score": 3000,
         "recruit": 0.07,
         "product": 0.07,
@@ -87,7 +97,7 @@
         ]
     },
     {
-        "vip_level": 8,
+        "vip_level": 9,
         "score": 6000,
         "recruit": 0.08,
         "product": 0.08,
@@ -100,26 +110,13 @@
         ]
     },
     {
-        "vip_level": 9,
-        "score": 8000,
+        "vip_level": 10,
+        "score": 10000,
         "recruit": 0.09,
         "product": 0.09,
         "load": 0.09,
         "defense": 0.09,
         "attack": 0.09,
-        "add_general_id":[
-            12,
-            18
-        ]
-    },
-    {
-        "vip_level": 10,
-        "score": 10000,
-        "recruit": 0.1,
-        "product": 0.1,
-        "load": 0.1,
-        "defense": 0.1,
-        "attack": 0.1,
         "add_general_id":[
             12,
             18

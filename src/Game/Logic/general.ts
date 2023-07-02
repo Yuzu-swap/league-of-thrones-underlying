@@ -1129,7 +1129,9 @@ export class General{
         let maxScore = scores[scores.length - 1].score;
 
         if(userScore >= maxScore){
-          return scores[scores.length - 1];
+            let buffs: VipType = scores[scores.length - 1];
+            console.log('vip buff: ', {userScore, buffs});
+            return buffs;
         }
 
         let buffs: VipType;
