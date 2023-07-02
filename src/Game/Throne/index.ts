@@ -1145,6 +1145,7 @@ export class Throne implements IThrone {
     setTimeOffset(serverTimeStamp - getTimeStamp(0))
     // init essensial states
 
+    states.username =  'index:' + this.username;
     states.city = (await this.mediator.queryState({ id: `${StateName.City}:${this.username}` }, {}, null)) as ICityState
     states.general = (await this.mediator.queryState({ id: `${StateName.General}:${this.username}` }, {}, null)) as IGeneralState
     states.strategy = (await this.mediator.queryState({ id: `${StateName.Strategy}:${this.username}`}, {}, null)) as IStrategyState

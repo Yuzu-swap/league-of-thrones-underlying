@@ -294,6 +294,7 @@ export class TransitionHandler {
     }
 
     const states: StateEssential = {
+      username: 'transition:' + id,
       city: cityState as ICityState,
       general: generalState as IGeneralState,
       strategy: strategyState as IStrategyState,
@@ -876,6 +877,7 @@ export class TransitionHandler {
 
   addUserScoresAndExtraGeneral(type: string, applies: any, general_ids: []){
     console.log('addUserScoresAndExtraGeneral:', type, general_ids, applies);
+    return;
     for(let unionIdString in applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){

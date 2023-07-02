@@ -20,6 +20,7 @@ export interface GlobalLogicEssential{
 	activity: Activity
 }
 export interface StateEssential {
+	username: string
 	city: ICityState
 	general: IGeneralState
 	mapGlobal: IMapGlobalState

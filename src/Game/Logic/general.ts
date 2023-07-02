@@ -615,7 +615,7 @@ export class General{
 
         let tokenBuff = (v2 - v1)/v1;
             tokenBuff = Math.min(tokenBuff, 5);
-        // console.log('getGeneralBattleStatus tokenBuff 2: ', {unionId, tokenBuff});
+        console.log('token buff: ', {unionId, tokenPriceInfo, tokenBuff});
         return tokenBuff;
     }
 
@@ -1138,6 +1138,7 @@ export class General{
             buffs = scores[i];
           }
         }
+        console.log('vip buff: ', {userScore, buffs});
         return buffs;
     }
 
