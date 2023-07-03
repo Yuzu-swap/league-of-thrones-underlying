@@ -110,7 +110,7 @@ export class City {
       this.state.update({
         [`resources.${typ}`]: {
           lastUpdate: time,
-          value: this.getResource(typ),
+          value: this.getResource(typ) || 0,
         }
       });
     }
@@ -135,11 +135,11 @@ export class City {
             'recruit': recruit ,
             [`resources.${ResouceType.Silver}`]: {
               lastUpdate: time,
-              value: nowValue,
+              value: nowValue || 0,
             },
             [`resources.${ResouceType.Troop}`]:{
               lastUpdate: time,
-              value: troop.value + troopAdd,
+              value: (troop.value + troopAdd) || 0,
             }
           }
         )
@@ -259,7 +259,7 @@ export class City {
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
     let silver = {
       lastUpdate: info.lastUpdate,
-      value: info.value - row.need_silver
+      value: (info.value - row.need_silver) || 0
     };
     this.state.update({
       [`facilities.${typ}`]: levelList,
@@ -385,10 +385,13 @@ export class City {
   }
 
   useSilver(amount: number): boolean {
+    console.log('useSilver ', amount);
+    amount = amount || 0;
     const info: ResouceInfo = this.state.resources[ResouceType.Silver];
+    console.log('useSilver ', amount, info);
     if (amount <= this.getResource(ResouceType.Silver)) {
       this.state.update({
-        [`resources.${ResouceType.Silver}.value`]: info.value - amount
+        [`resources.${ResouceType.Silver}.value`]: (info.value - amount) || 0
       });
       this.updateResource(ResouceType.Silver)
       return true;
@@ -401,7 +404,7 @@ export class City {
     if( amount <= info.value){
       this.state.update(
         {
-          [`resources.${ResouceType.Troop}.value`]: info.value - amount
+          [`resources.${ResouceType.Troop}.value`]: (info.value - amount) || 0
         }
       )
       this.updateResource(ResouceType.Silver)
@@ -611,7 +614,6 @@ export class City {
       if (!this.state.rewardClaimed) {
         this.state.update({rewardClaimed : {} })
       }
-      
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
@@ -619,7 +621,6 @@ export class City {
           error: "reward-already-claimed"
         }
       }
-   
       this.state.rewardClaimed[action] = true
       let nowGlod = this.state.gold
       this.state.update(
@@ -677,12 +678,12 @@ export class City {
       }
     }
     const time = getTimeStamp()
-    this.useSilver( 0)
-    this.useTroop( 0 )
-    this.useGold( 0 )
-    // this.useSilver( -100000000)
-    // this.useTroop( -100000 )
-    // this.useGold( -50000 )
+    // this.useSilver( 0)
+    // this.useTroop( 0 )
+    // this.useGold( 0 )
+    this.useSilver( -100000000)
+    this.useTroop( -100000 )
+    this.useGold( -50000 )
     this.state.update(
       {
         lastAddTestTime : time
