@@ -8,7 +8,6 @@ export enum StateName {
 	MapGlobalInfo = 'mapglobalinfo',
 	BlockInfo = 'blockinfo',
 	SeasonConfig = 'seasonconfig',
-	TokenPriceInfo = 'tokenPriceInfo',
 	RewardGloablState = 'rewardglobalstate',
 	Strategy = 'strategy',
 	Activity = 'activity'
@@ -148,8 +147,7 @@ export interface SetUnionIdArgs extends StateTransitionArgs{
 	union_id: number
 	force: boolean
 	random_union:boolean
-	general_ids: []
-	applies:{}
+	general_ids: number[]
 }
 
 export interface SetUnionWinArgs extends StateTransitionArgs{
@@ -161,7 +159,6 @@ export interface SetSeasonEndArgs extends StateTransitionArgs{
 }
 
 export interface StartSeasonArgs extends StateTransitionArgs{
-	general_ids: []
 	applies:{}
 	season:{
 		apply_ts: number,
@@ -172,8 +169,7 @@ export interface StartSeasonArgs extends StateTransitionArgs{
         reward_amount_2: number
 		rank_config_fromto: number[],
         rank_config_value: number[],
-	},
-	priceInfo: {}
+	}
 }
 
 export interface SetIconIdArgs extends StateTransitionArgs{

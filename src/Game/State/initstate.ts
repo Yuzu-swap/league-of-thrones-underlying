@@ -26,13 +26,7 @@ export var InitState = {
       lastAddTestTime: -1,
       userActivity: [],
       guideStep: [],
-      firstLogin: -1,
-      injuredTroops: { 
-        updateTime: -1,
-        today: 0,
-        value: 0
-      },
-      rewardClaimed: {}
+      firstLogin: -1
     },
     [StateName.General]:{
         generalList: {},
@@ -46,8 +40,7 @@ export var InitState = {
             value: 100,
         },
         unionInit: false,
-        lastBattle: -1,
-        userScores: {}
+        lastBattle: -1
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
@@ -80,11 +73,6 @@ export var InitState = {
         rankConfigValue: [],
         unionRewardValue: 0,
         rankRewardValue: 0
-    },
-    [StateName.TokenPriceInfo]:{
-        initial: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
-        current: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
-        lastUpdate: 0
     },
     [StateName.RewardGloablState]:{
         unionGloryRankInfo: [[],[],[],[]],
@@ -139,7 +127,8 @@ var _inited = false
 export function GetInitState(){
     if (!_inited) {
         //city state
-        for(let key in CityFacility){
+        for(let key in CityFacility)
+        {
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
             if(!isNaN(maxCount)){

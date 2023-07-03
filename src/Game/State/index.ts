@@ -6,13 +6,6 @@ export interface ResouceInfo {
   value: number;
 }
 
-export interface TokenPriceInfo {
-  BNB: number;
-  BTC: number;
-  ETH: number;
-  USDT: number;
-}
-
 export interface Recruit{
   amount: number;
   endtime: number;
@@ -78,7 +71,6 @@ export interface IGeneralState extends IState{
   morale: ResouceInfo
   unionInit: boolean
   lastBattle: number
-  userScores: {}
 }
 
 export interface IDefenderInfoState extends IState{
@@ -205,12 +197,6 @@ export interface IActivityState extends IState{
   activityData: ActivityData[][]
   sumValue: number[]
   haveSendReward: boolean[]
-}
-
-export interface ITokenPriceInfoState extends IState {
-  initial: TokenPriceInfo,
-  current: TokenPriceInfo,
-  lastUpdate: number
 }
 
 export * from  "./initstate"

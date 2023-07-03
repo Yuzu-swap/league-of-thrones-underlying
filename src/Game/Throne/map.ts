@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
+import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -80,34 +80,6 @@ export class MapComponent implements IMapComponent{
             ,
             callback
         )
-    }
-
-    async getTokenPriceInfo(callback: (result: any) => void): Promise<void>{ 
-        let tokenPriceInfo =  (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null)) as ITokenPriceInfoState;
-        console.log('updateTokenPriceInfo in map:', tokenPriceInfo);
-        let result = this.createTokenPriceFormat(tokenPriceInfo);
-        callback(result);
-    }
-
-    createTokenPriceFormat(tokenPriceInfo){
-        let unions = {
-            1: "BTC",
-            2: "ETH",
-            3: "USDT",
-            4: "BNB"
-        };
-        let { current, initial } = tokenPriceInfo;
-
-        let result = [];
-        for(var id=1;id<5;id++){
-            let name = unions[id];
-            let v1 = initial[name]/1 || current[name]/1;
-            let v2 = current[name]/1;
-            let changeValue = Math.min((v2 - v1)/v1, 5);
-
-            result.push({ id, name, changeValue, v1, v2});
-        }
-        return result;
     }
 
     genBlockIds(x_id: number, y_id: number):string[]{
