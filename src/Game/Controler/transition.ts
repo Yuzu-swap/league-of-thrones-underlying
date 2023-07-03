@@ -776,9 +776,8 @@ export class TransitionHandler {
     const username = args.from
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
-    let general_ids = args.general_ids || [];
     let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onSetUnionId', applies, general_ids);
+    this.addUserScoresAndExtraGeneral('onSetUnionId', applies);
 
     if(args.random_union){
       logic.city.addRandomCampGold()
@@ -844,9 +843,8 @@ export class TransitionHandler {
       }
     }
     console.log("onStartSeason args are ", args)
-    let general_ids = args.general_ids || [];
     let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onSetUnionId', applies, general_ids);
+    this.addUserScoresAndExtraGeneral('onStartSeason', applies);
 
     for(let item in args.season){
       if(args.season[item] == undefined){
@@ -875,8 +873,8 @@ export class TransitionHandler {
     }
   }
 
-  addUserScoresAndExtraGeneral(type: string, applies: any, general_ids: []){
-    console.log('addUserScoresAndExtraGeneral:', type, general_ids, applies);
+  addUserScoresAndExtraGeneral(type: string, applies: any){
+    console.log('addUserScoresAndExtraGeneral:', type, applies);
     for(let unionIdString in applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
@@ -897,12 +895,21 @@ export class TransitionHandler {
         // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
         let wallet_token_value = applyInfo.wallet_token_value || 0;
         let wallet_nft_value = applyInfo.wallet_nft_value || 0;
-        logic.general.addUserScores({
-          username: wallet_token_value/1 + wallet_nft_value/1
-        });
+
+        //test code
+        let testUsers = {
+          '0x04c535c9f175cb8980b43617fb480412c7e341e4': 400,
+          '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
+        };
+        if(!testUsers[username]){
+          testUsers[username] = wallet_token_value/1 + wallet_nft_value/1;
+        }
+        logic.general.addUserScores(testUsers);
 
         let userScore = logic.general.getUserScore(username);
         let vipBuffs = logic.general.getVipBuffs(userScore);
+
+        let general_ids = applyInfo.general_ids || [];
         let generalIds = general_ids.concat(vipBuffs.add_general_id);
         logic.general.addextraGeneral(generalIds);
 
