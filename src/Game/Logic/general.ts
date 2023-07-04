@@ -524,7 +524,7 @@ export class General{
                 }
             }
             product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff + (vipBuffs[typ] || 0))
-            console.log('product buff:', product, vipBuffs[typ]);
+            console.log('product buff:', typ, vipBuffs[typ] ,product);
         }
         return product
     }
@@ -1130,7 +1130,9 @@ export class General{
           '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
         };
         let address = username.toLowerCase();
-        return testUsers[address] || userScores[address] || 0;
+        let score = testUsers[address] || userScores[address] || 0;
+        console.log('getUserScore', address, score);
+        return score;
     }
 
     getVipBuffs(userScore: number){
@@ -1140,6 +1142,8 @@ export class General{
 
         if(userScore >= maxScore){
             let buffs: VipType = scores[scores.length - 1];
+            buffs['silver'] = buffs['product'] || 0;
+            buffs['troop'] = buffs['recruit'] || 0;
             console.log('vip buff: ', {userScore, buffs});
             return buffs;
         }
@@ -1149,7 +1153,9 @@ export class General{
           if(userScore >= scores[i].score && userScore < scores[i+1].score){
             buffs = scores[i];
           }
-        }
+        } 
+        buffs['silver'] = buffs['product'] || 0;
+        buffs['troop'] = buffs['recruit'] || 0;
         console.log('vip buff: ', {userScore, buffs});
         return buffs;
     }
