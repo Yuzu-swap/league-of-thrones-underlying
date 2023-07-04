@@ -481,6 +481,11 @@ export class General{
         let username =  parseStateId(this.state.getId()).username
         let userScore = this.getUserScore(username);
         let vipBuffs = this.getVipBuffs(userScore);
+
+        let productBuff = {
+            'silver': vipBuffs['product'] || 0,
+            'troop': vipBuffs['recruit'] || 0
+        };
         for( let mapBuff of mapBuffList){
             const skillRow = this.getSkillInfo(mapBuff)
             if((skillRow.buff_type == SkillType.Silver && typ == ResouceType.Silver) ||
@@ -523,8 +528,8 @@ export class General{
                     }
                 }
             }
-            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff + (vipBuffs[typ] || 0))
-            console.log('product buff:', typ, vipBuffs[typ] ,product);
+            product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff + (productBuff[typ] || 0))
+            console.log('product buff:', typ, productBuff[typ], { percentProduct, mapPercent, moralePercent, tokenBuff });
         }
         return product
     }
@@ -661,7 +666,7 @@ export class General{
             [SkillType.Defense]: 1 + tokenBuff + vipBuffs[SkillType.Defense],
             [SkillType.Load]: 1 + tokenBuff + vipBuffs[SkillType.Load]
         }
-        console.log('extraPercent buff:', extraPercent);
+        console.log('extraPercent buff:', { extraPercent, tokenBuff, vipBuffs });
       
         const row = this.getGeneralQualification(generalId)
         const cityStatus = this.city.getBattleStatus(row.general_type)
@@ -1142,8 +1147,6 @@ export class General{
 
         if(userScore >= maxScore){
             let buffs: VipType = scores[scores.length - 1];
-            buffs['silver'] = buffs['product'] || 0;
-            buffs['troop'] = buffs['recruit'] || 0;
             console.log('vip buff: ', {userScore, buffs});
             return buffs;
         }
@@ -1154,8 +1157,6 @@ export class General{
             buffs = scores[i];
           }
         } 
-        buffs['silver'] = buffs['product'] || 0;
-        buffs['troop'] = buffs['recruit'] || 0;
         console.log('vip buff: ', {userScore, buffs});
         return buffs;
     }
