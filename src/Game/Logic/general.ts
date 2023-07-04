@@ -524,7 +524,7 @@ export class General{
                 }
             }
             product += (baseProduct + mapBase) * (percentProduct + mapPercent + moralePercent + tokenBuff + (vipBuffs[typ] || 0))
-            console.log('product buff:', product);
+            console.log('product buff:', product, vipBuffs[typ]);
         }
         return product
     }
@@ -1118,6 +1118,7 @@ export class General{
         this.state.update({
             'userScores': userScores
         });
+        console.log('userScores 2:', this.state.userScores);
     }
 
     getUserScore(username: string){
