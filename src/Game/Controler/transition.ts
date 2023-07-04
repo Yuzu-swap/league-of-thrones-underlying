@@ -898,16 +898,6 @@ export class TransitionHandler {
 
         let userScores = {};
         userScores[username] = wallet_token_value/1 + wallet_nft_value/1;
-
-        //test code
-        let testUsers = {
-          '0x04c535c9f175cb8980b43617fb480412c7e341e4': 400,
-          '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
-        };
-        for(var address in testUsers){
-          userScores[address] = testUsers[address]
-        }
-        console.log('userScores 1:', userScores);
         logic.general.addUserScores(userScores);
 
         let userScore = logic.general.getUserScore(username);

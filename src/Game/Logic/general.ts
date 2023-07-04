@@ -1123,7 +1123,14 @@ export class General{
 
     getUserScore(username: string){
         let userScores = this.state.userScores || {};
-        return userScores[username.toLowerCase()] || 0;
+
+        //test code
+        let testUsers = {
+          '0x04c535c9f175cb8980b43617fb480412c7e341e4': 400,
+          '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
+        };
+        let address = username.toLowerCase();
+        return testUsers[address] || userScores[address] || 0;
     }
 
     getVipBuffs(userScore: number){
