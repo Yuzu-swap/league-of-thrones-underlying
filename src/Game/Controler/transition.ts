@@ -776,8 +776,7 @@ export class TransitionHandler {
     const username = args.from
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
-    let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onSetUnionId : ', applies);
+    this.addUserScoresAndExtraGeneral('onSetUnionId : ', args);
 
     if(args.random_union){
       logic.city.addRandomCampGold()
@@ -844,7 +843,19 @@ export class TransitionHandler {
     }
     console.log("onStartSeason args are ", args)
     let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onStartSeason: ', applies);
+
+    for(let unionIdString in applies){
+      const unionId = parseInt(unionIdString)
+      if(unionId < 1 || unionId >4){
+        continue
+      }
+      let userInfos = applies[unionIdString]
+      for(let username in userInfos){
+        let applyInfo = userInfos[username];
+        applyInfo[username] = username;
+        this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
+      }
+    }
 
     for(let item in args.season){
       if(args.season[item] == undefined){
@@ -873,48 +884,40 @@ export class TransitionHandler {
     }
   }
 
-  addUserScoresAndExtraGeneral(type: string, applies: any){
-    console.log('addUserScoresAndExtraGeneral:', type, applies);
-    for(let unionIdString in applies){
-      const unionId = parseInt(unionIdString)
-      if(unionId < 1 || unionId >4){
-        continue
+  addUserScoresAndExtraGeneral(type: string, applyInfo: any){
+    console.log('addUserScoresAndExtraGeneral:', type, applyInfo);
+    let username= applyInfo.username || applyInfo.from;
+    let unionId = applyInfo.union_id;
+    const logic : LogicEssential = this.genLogic(username)
+    logic.general.state.update(
+      {
+        'unionId' : unionId,
+        "unionInit" : true
       }
-      let userInfos = applies[unionIdString]
-      for(let username in userInfos){
-        const logic : LogicEssential = this.genLogic(username)
-        logic.general.state.update(
-          {
-            'unionId' : unionId,
-            "unionInit" : true
-          }
-        )
-        const applyInfo = userInfos[username]
-        console.log("username ",username , " applyInfo is ", applyInfo)
+    )
+    console.log("username ",username , " applyInfo is ", applyInfo)
 
-        // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
-        let wallet_token_value = applyInfo.wallet_token_value || 0;
-        let wallet_nft_value = applyInfo.wallet_nft_value || 0;
+    // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
+    let wallet_token_value = applyInfo.wallet_token_value || 0;
+    let wallet_nft_value = applyInfo.wallet_nft_value || 0;
 
-        let userScores = {};
-        let userScore1 = wallet_token_value/1 + wallet_nft_value/1;
-        userScores[username] = userScore1 || 0.01;
-        logic.general.addUserScores(userScores);
+    let userScores = {};
+    let userScore1 = wallet_token_value/1 + wallet_nft_value/1;
+    userScores[username] = userScore1 || 0.01;
+    logic.general.addUserScores(userScores);
 
-        let userScore2 = logic.general.getUserScore(username);
-        let vipBuffs = logic.general.getVipBuffs(userScore2);
+    let userScore2 = logic.general.getUserScore(username);
+    let vipBuffs = logic.general.getVipBuffs(userScore2);
 
-        let general_ids = applyInfo.general_ids || [];
-        let generalIds = general_ids.concat(vipBuffs.add_general_id);
-        logic.general.addextraGeneral(generalIds);
+    let general_ids = applyInfo.general_ids || [];
+    let generalIds = general_ids.concat(vipBuffs.add_general_id);
+    logic.general.addextraGeneral(generalIds);
 
-        console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
+    console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
 
-        logic.city.addPreRegisterGold()
-        if(applyInfo.random_union){
-          logic.city.addRandomCampGold()
-        }
-      }
+    logic.city.addPreRegisterGold()
+    if(applyInfo.random_union){
+      logic.city.addRandomCampGold()
     }
   }
 
