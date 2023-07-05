@@ -777,7 +777,7 @@ export class TransitionHandler {
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
     let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onSetUnionId', applies);
+    this.addUserScoresAndExtraGeneral('onSetUnionId : ', applies);
 
     if(args.random_union){
       logic.city.addRandomCampGold()
@@ -844,7 +844,7 @@ export class TransitionHandler {
     }
     console.log("onStartSeason args are ", args)
     let applies = args.applies || {};
-    this.addUserScoresAndExtraGeneral('onStartSeason', applies);
+    this.addUserScoresAndExtraGeneral('onStartSeason: ', applies);
 
     for(let item in args.season){
       if(args.season[item] == undefined){
@@ -897,17 +897,18 @@ export class TransitionHandler {
         let wallet_nft_value = applyInfo.wallet_nft_value || 0;
 
         let userScores = {};
-        userScores[username] = wallet_token_value/1 + wallet_nft_value/1;
+        let userScore1 = wallet_token_value/1 + wallet_nft_value/1;
+        userScores[username] = userScore1 || 0.01;
         logic.general.addUserScores(userScores);
 
-        let userScore = logic.general.getUserScore(username);
-        let vipBuffs = logic.general.getVipBuffs(userScore);
+        let userScore2 = logic.general.getUserScore(username);
+        let vipBuffs = logic.general.getVipBuffs(userScore2);
 
         let general_ids = applyInfo.general_ids || [];
         let generalIds = general_ids.concat(vipBuffs.add_general_id);
         logic.general.addextraGeneral(generalIds);
 
-        console.log('getVipBuffs: ', username, userScore, vipBuffs, applies)
+        console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
 
         logic.city.addPreRegisterGold()
         if(applyInfo.random_union){

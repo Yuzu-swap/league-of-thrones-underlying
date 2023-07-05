@@ -1135,7 +1135,7 @@ export class General{
           '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
         };
         let address = username.toLowerCase();
-        let score = testUsers[address] || userScores[address] || 0;
+        let score = testUsers[address] || userScores[address] || userScores['username'] || 0;
         console.log('getUserScore', address, score);
         return score;
     }

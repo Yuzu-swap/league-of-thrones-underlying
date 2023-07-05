@@ -728,7 +728,7 @@ export class GeneralComponent implements IGeneralComponent {
     let vipBuffs = this.general.getVipBuffs(userScore);
     return {
       address: username,
-      accountRating: userScore,
+      accountRating: Math.floor(userScore*100)/100,
       vipBuffs: vipBuffs
     }
   }
