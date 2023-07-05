@@ -610,9 +610,10 @@ export class General{
             return 0;
         }
 
-        let { initial, current } = tokenPriceInfo;
-        let v1 = initial[token]/1 || 0;
-        let v2 = current[token]/1 || 0;
+        let initial = tokenPriceInfo.initial || {};
+        let current = tokenPriceInfo.current || {};
+        let v1 = (initial[token] || 0)/1 || 0;
+        let v2 = (current[token] || 0)/1 || 0;
         // console.log('getGeneralBattleStatus tokenBuff 1: ', {v1, v2, unionId, token, tokenPriceInfo});
 
         if(v1 === 0 || v2 === 0){
