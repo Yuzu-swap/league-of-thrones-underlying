@@ -30,6 +30,7 @@ import trainingCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/
 import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json');
 import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import vipGDS = require('./league-of-thrones-data-sheets/.jsonoutput/vip.json')
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
@@ -55,6 +56,24 @@ export const staminaTimes = {
   gather: parameterGDS.gather_need_stamina.value,
   spy: parameterGDS.spy_need_stamina.value
 };
+
+export function getVipSilverBuff(userScore: number){
+    let scores = vipGDS['Config'];
+    let minScore = scores[0].score;
+    let maxScore = scores[scores.length - 1].score;
+
+    if(userScore >= maxScore){
+      return scores[scores.length - 1];
+    }
+
+    let buffs = {};
+    for(var i=0;i<scores.length-1;i++){
+      if(userScore >= scores[i].score && userScore < scores[i+1].score){
+        buffs = scores[i];
+      }
+    }
+    return buffs;
+}
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';

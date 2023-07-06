@@ -41,7 +41,7 @@ import {
 } from '../Const';
 
 import { City, CityConfig } from '../Logic/game';
-import { GeneralDefenseBlock, GetInitState, GloryInfo, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, IStrategyState } from '../State';
+import { GeneralDefenseBlock, GetInitState, GloryInfo, IActivityState, IBlockState, ICityState, IGeneralState, IMapGlobalState, IRewardGlobalState, ISeasonConfigState, ITokenPriceInfoState, IStrategyState } from '../State';
 import { BaseStateManager, LoadStateFunc } from './statemanger';
 import {
   StateEssential,
@@ -275,16 +275,16 @@ export class TransitionHandler {
   }
 
   genLogic(id: string, x_id: number = 0, y_id: number = 0,  gStatesIn: GlobalStateEssential = null ): LogicEssential {
-    const stateId = { id: `${StateName.City}:${id}` };
-    const cityState = this.stateManger.get(stateId);
+    const cityState = this.stateManger.get({ 
+      id: `${StateName.City}:${id}` 
+    });
     const generalState = this.stateManger.get({
       id: `${StateName.General}:${id}`
     });
-    const strategyState = this.stateManger.get(
-      {
-        id: `${StateName.Strategy}:${id}`
-      }
-    )
+    const strategyState = this.stateManger.get({
+      id: `${StateName.Strategy}:${id}`
+    });
+    
     let gStates : GlobalStateEssential
     if(gStatesIn == null){
       gStates = this.genGlobalStateEssential(x_id, y_id)
@@ -294,13 +294,15 @@ export class TransitionHandler {
     }
 
     const states: StateEssential = {
+      username: 'transition:' + id,
       city: cityState as ICityState,
       general: generalState as IGeneralState,
+      strategy: strategyState as IStrategyState,
       mapGlobal: gStates.mapGlobal,
       seasonState: gStates.seasonState,
+      tokenPriceInfo: gStates.tokenPriceInfo,
       rewardGlobalState: gStates.rewardGlobalState,
       blocks: gStates.blocks,
-      strategy: strategyState as IStrategyState,
       activityState: gStates.activityState
     };
     return createLogicEsential(states);
@@ -317,6 +319,11 @@ export class TransitionHandler {
         id: `${StateName.SeasonConfig}`
       }
     )
+    const tokenPriceInfo = this.stateManger.get(
+      {
+        id: `${StateName.TokenPriceInfo}`
+      }
+    )
     const rewardGlobalState = this.stateManger.get(
       {
         id: `${StateName.RewardGloablState}`
@@ -330,6 +337,7 @@ export class TransitionHandler {
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState : seasonState as ISeasonConfigState,
+      tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
       blocks: this.getBlockStates(x_id, y_id),
       activityState: activities as IActivityState
@@ -768,7 +776,8 @@ export class TransitionHandler {
     const username = args.from
     console.log("onSetUnionId username ",username , " applyInfo is ", args)
 
-    logic.general.addextraGeneral(args.general_ids)
+    this.addUserScoresAndExtraGeneral('onSetUnionId : ', args);
+
     if(args.random_union){
       logic.city.addRandomCampGold()
     }
@@ -832,30 +841,22 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
-    console.log("onStartSeason applies are ", args.applies)
-    for(let unionIdString in args.applies){
+    console.log("onStartSeason args are ", args)
+    let applies = args.applies || {};
+
+    for(let unionIdString in applies){
       const unionId = parseInt(unionIdString)
       if(unionId < 1 || unionId >4){
         continue
       }
-      let userInfos = args.applies[unionIdString]
+      let userInfos = applies[unionIdString]
       for(let username in userInfos){
-        const logic : LogicEssential = this.genLogic(username)
-        logic.general.state.update(
-          {
-            'unionId' : unionId,
-            "unionInit" : true
-          }
-        )
-        const applyInfo = userInfos[username]
-        console.log("username ",username , " applyInfo is ", applyInfo)
-        logic.general.addextraGeneral(applyInfo.general_ids)
-        logic.city.addPreRegisterGold()
-        if(applyInfo.random_union){
-          logic.city.addRandomCampGold()
-        }
+        let applyInfo = userInfos[username];
+        applyInfo[username] = username;
+        this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }
+
     for(let item in args.season){
       if(args.season[item] == undefined){
         throw "start season args error"
@@ -873,12 +874,64 @@ export class TransitionHandler {
         'rankConfigValue' : args.season.rank_config_value,
       }
     )
+
+    const priceInfo = args.priceInfo || {};
+    this.updateTokenPriceInfo(gLogic, 'initial', priceInfo);
+
     return {
       txType: StateTransition.StartSeason,
       result: true
     }
   }
 
+  addUserScoresAndExtraGeneral(type: string, applyInfo: any){
+    console.log('addUserScoresAndExtraGeneral:', type, applyInfo);
+    let username= applyInfo.username || applyInfo.from;
+    let unionId = applyInfo.union_id;
+    const logic : LogicEssential = this.genLogic(username)
+    logic.general.state.update(
+      {
+        'unionId' : unionId,
+        "unionInit" : true
+      }
+    )
+    console.log("username ",username , " applyInfo is ", applyInfo)
+
+    // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
+    let wallet_token_value = applyInfo.wallet_token_value || 0;
+    let wallet_nft_value = applyInfo.wallet_nft_value || 0;
+
+    let userScores = {};
+    let userScore1 = wallet_token_value/1 + wallet_nft_value/1;
+    userScores[username] = userScore1 || 0.01;
+    logic.general.addUserScores(userScores);
+
+    let userScore2 = logic.general.getUserScore(username);
+    let vipBuffs = logic.general.getVipBuffs(userScore2);
+
+    let general_ids = applyInfo.general_ids || [];
+    let generalIds = general_ids.concat(vipBuffs.add_general_id);
+    logic.general.addextraGeneral(generalIds);
+
+    console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
+
+    logic.city.addPreRegisterGold()
+    if(applyInfo.random_union){
+      logic.city.addRandomCampGold()
+    }
+  }
+
+  updateTokenPriceInfo(gLogic: GlobalLogicEssential, typ: string, priceInfo: any){
+    console.log('updateTokenPriceInfo 1:', typ, priceInfo);
+    let newTokenPriceInfo = {
+      [typ]: priceInfo,
+      lastUpdate: getTimeStamp()
+    };
+    console.log('updateTokenPriceInfo 2:', newTokenPriceInfo);
+
+    gLogic.map.tokenPriceInfo.update(newTokenPriceInfo);
+    console.log('updateTokenPriceInfo 3:', gLogic.map.tokenPriceInfo);
+  }
 
   recordEvent(typ: TransitionEventType,event: any) {
     if (this.eventRecorderFunc){
@@ -1086,6 +1139,10 @@ export class TransitionHandler {
     console.log('onRegularTask start:', seasonState, args);
 
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
+    
+    const priceInfo = args.priceInfo || {};
+    this.updateTokenPriceInfo(gLogic, 'current', priceInfo);
+
     let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
     const time = getTimeStamp()
     console.log('onRegularTask run:', time, activityList);

@@ -1,0 +1,126 @@
+{
+   "Config" : [
+    {
+        "vip_level": 1,
+        "score": 0,
+        "recruit": 0,
+        "product": 0,
+        "load": 0,
+        "defense": 0,
+        "attack": 0
+    },
+    {
+        "vip_level": 2,
+        "score": 50,
+        "recruit": 0.01,
+        "product": 0.01,
+        "load": 0.01,
+        "defense": 0.01,
+        "attack": 0.01,
+        "add_general_id":[
+            12
+        ]
+    },
+    {
+        "vip_level": 3,
+        "score": 100,
+        "recruit": 0.02,
+        "product": 0.02,
+        "load": 0.02,
+        "defense": 0.02,
+        "attack": 0.02,
+        "add_general_id":[
+            12
+        ]
+    },
+    {
+        "vip_level": 4,
+        "score": 300,
+        "recruit": 0.03,
+        "product": 0.03,
+        "load": 0.03,
+        "defense": 0.03,
+        "attack": 0.03,
+        "add_general_id":[
+            12
+        ]
+    },
+    {
+        "vip_level": 5,
+        "score": 600,
+        "recruit": 0.04,
+        "product": 0.04,
+        "load": 0.04,
+        "defense": 0.04,
+        "attack": 0.04,
+        "add_general_id":[
+            12
+        ]
+    },
+    {
+        "vip_level": 6,
+        "score": 1000,
+        "recruit": 0.05,
+        "product": 0.05,
+        "load": 0.05,
+        "defense": 0.05,
+        "attack": 0.05,
+        "add_general_id":[
+            12,
+            18
+        ]
+    },
+    {
+        "vip_level": 7,
+        "score": 2000,
+        "recruit": 0.06,
+        "product": 0.06,
+        "load": 0.06,
+        "defense": 0.06,
+        "attack": 0.06,
+        "add_general_id":[
+            12,
+            18
+        ]
+    },
+    {
+        "vip_level": 8,
+        "score": 3000,
+        "recruit": 0.07,
+        "product": 0.07,
+        "load": 0.07,
+        "defense": 0.07,
+        "attack": 0.07,
+        "add_general_id":[
+            12,
+            18
+        ]
+    },
+    {
+        "vip_level": 9,
+        "score": 6000,
+        "recruit": 0.08,
+        "product": 0.08,
+        "load": 0.08,
+        "defense": 0.08,
+        "attack": 0.08,
+        "add_general_id":[
+            12,
+            18
+        ]
+    },
+    {
+        "vip_level": 10,
+        "score": 10000,
+        "recruit": 0.09,
+        "product": 0.09,
+        "load": 0.09,
+        "defense": 0.09,
+        "attack": 0.09,
+        "add_general_id":[
+            12,
+            18
+        ]
+    }
+    ]
+}

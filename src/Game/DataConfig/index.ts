@@ -18,6 +18,8 @@ import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/seas
 import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
+import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
+
 import {
 	CityFacility,
 	StateTransition,
@@ -494,3 +496,31 @@ export class ActivityTypeConfig{
 }
 
 export var ActivityTypeConfigFromGDS = new ActivityTypeConfig(activityTypeGDS)
+
+
+export interface VipType {
+	add_general_id: [],
+	attack: number,
+    defense: number,
+    load: number,
+    product: number,
+    recruit: number,
+    score: number,
+    vip_level: number
+}
+export class VipConfig{
+	config: VipType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(type : number){
+		return this.config[type - 1]
+	}
+}
+
+export var vipConfigFromGDS = new VipConfig(vipGDS)
+
+
