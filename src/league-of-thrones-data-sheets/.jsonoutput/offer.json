@@ -1,0 +1,51 @@
+{
+   "Config" : [
+    {
+        "offer_trigger_1": 1,
+        "offer_reward_troops": 500,
+        "offer_reward_sliver": 5000000,
+        "offer_order": 1,
+        "offer_id": 1,
+        "offer_gold": 1
+    },
+    {
+        "offer_trigger_value": 10000,
+        "offer_trigger_2": 1,
+        "offer_trigger_1": 2,
+        "offer_reward_troops": 1000,
+        "offer_reward_sliver": 10000000,
+        "offer_order": 2,
+        "offer_id": 2,
+        "offer_gold": 1
+    },
+    {
+        "offer_trigger_value": 20,
+        "offer_trigger_2": 2,
+        "offer_trigger_1": 3,
+        "offer_reward_troops": 2000,
+        "offer_reward_sliver": 20000000,
+        "offer_order": 3,
+        "offer_id": 3,
+        "offer_gold": 1
+    },
+    {
+        "offer_trigger_value": 100,
+        "offer_trigger_2": 3,
+        "offer_trigger_1": 4,
+        "offer_reward_troops": 5000,
+        "offer_reward_sliver": 50000000,
+        "offer_order": 4,
+        "offer_id": 4,
+        "offer_gold": 1
+    },
+    {
+        "offer_trigger_value": 20000,
+        "offer_trigger_1": 5,
+        "offer_reward_troops": 10000,
+        "offer_reward_sliver": 100000000,
+        "offer_order": 5,
+        "offer_id": 5,
+        "offer_gold": 1
+    }
+    ]
+}
