@@ -1128,6 +1128,9 @@ export class General{
     }
 
     getUserScore(username: string){
+        if(!username){
+            return 0;
+        }
         let userScores = this.state.userScores || {};
 
         //test code
