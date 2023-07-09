@@ -41,8 +41,8 @@ import { StrategyComponent } from './Game/Throne/strategy';
 import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 
 import parameterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/parameter.json')
-
 export const randomCampReward = parameterGDS.choose_random_camp_reward;
+
 export const rewardConfig = {
   randomCamp: parameterGDS.choose_random_camp_reward || {},
   upgrade_fortress: parameterGDS.upgrade_fortress_share_activity_reward || {},

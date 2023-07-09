@@ -614,6 +614,7 @@ export class City {
       if (!this.state.rewardClaimed) {
         this.state.update({rewardClaimed : {} })
       }
+      
       if(this.state.rewardClaimed[action]){
         return {
           result : false,
@@ -621,6 +622,7 @@ export class City {
           error: "reward-already-claimed"
         }
       }
+   
       this.state.rewardClaimed[action] = true
       let nowGlod = this.state.gold
       this.state.update(
@@ -678,12 +680,12 @@ export class City {
       }
     }
     const time = getTimeStamp()
-    // this.useSilver( 0)
-    // this.useTroop( 0 )
-    // this.useGold( 0 )
-    this.useSilver( -100000000)
-    this.useTroop( -100000 )
-    this.useGold( -50000 )
+    this.useSilver( 0)
+    this.useTroop( 0 )
+    this.useGold( 0 )
+    // this.useSilver( -100000000)
+    // this.useTroop( -100000 )
+    // this.useGold( -50000 )
     this.state.update(
       {
         lastAddTestTime : time

@@ -852,7 +852,7 @@ export class TransitionHandler {
       let userInfos = applies[unionIdString]
       for(let username in userInfos){
         let applyInfo = userInfos[username];
-        applyInfo[username] = username;
+        applyInfo['username'] = username;
         this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }
