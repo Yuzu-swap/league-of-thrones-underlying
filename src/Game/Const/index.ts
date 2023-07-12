@@ -78,7 +78,8 @@ export enum StateTransition {
 	StrategyBuyProtect1,
 	FinishOutChainUserActivity,
 	HealTroops,
-	SpyEnamy
+	SpyEnamy,
+	BuyOffer
 }
 
 export function StringifyTxType() {

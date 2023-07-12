@@ -19,14 +19,15 @@ import {
   RechargeConfigFromGDS,
   RechargeConfig,
   Parameter,
-  parameterConfig
+  parameterConfig,
+  OfferConfig,
+  offerConfigFromGDS
 } from '../DataConfig';
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { Strategy, StrategyType } from './strategy';
 import { isNewExpression, NumericLiteral } from 'typescript';
-
 
 export interface CityConfig {
   facilityConfig: {
@@ -67,13 +68,15 @@ export class City {
   cityConfig: CityConfig;
   rechargeConfig: RechargeConfigs 
   boost: IBoost;
-  parameter: Parameter
+  parameter: Parameter;
+  offers: OfferConfig
 
   constructor(state: ICityState) {
     this.state = state;
     this.cityConfig = CityConfigFromGDS;
     this.rechargeConfig = RechargeConfigFromGDS;
-    this.parameter = parameterConfig
+    this.parameter = parameterConfig;
+    this.offers = offerConfigFromGDS;
   }
 
   loadState(state: {}) {
@@ -568,7 +571,6 @@ export class City {
     return config;
   }
 
-
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
@@ -694,6 +696,46 @@ export class City {
     return{
       txType: StateTransition.AddTestResource,
       result: true
+    }
+  }
+
+  getOfferList(){
+    return this.offers.config;
+  }
+
+  buyOffer(offerId){
+    let offerData = this.offers.get(offerId);
+    console.log('onBuyOffer 2:', offerId, ', offerData: ', offerData);
+
+    if(!offerData['offer_id']){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'Offer id err',
+        data: offerData
+      }
+    }
+
+    let goldCount = offerData.offer_gold;
+
+    if(!this.useGold(goldCount)){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'Gold is not enough',
+        data: offerData
+      }
+    }
+
+    let silverCount = 0 - offerData.offer_reward_sliver;
+    let troopsCount = 0 - offerData.offer_reward_troops;
+    this.useSilver(silverCount);
+    this.useTroop(troopsCount);
+
+    return{
+      txType: StateTransition.BuyOffer,
+      result: true,
+      data: offerData
     }
   }
 

@@ -19,6 +19,7 @@ import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/pa
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
 import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
+import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
 
 import {
 	CityFacility,
@@ -520,7 +521,39 @@ export class VipConfig{
 		return this.config[type - 1]
 	}
 }
-
 export var vipConfigFromGDS = new VipConfig(vipGDS)
+
+
+
+export interface OfferType {
+    offer_trigger_value: number,
+    offer_trigger_2: number,
+    offer_trigger_1: number,
+    offer_reward_troops: number,
+    offer_reward_sliver: number,
+    offer_order: number,
+    offer_id: number,
+    offer_gold: number
+}
+export class OfferConfig{
+	config: OfferType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(id : number){
+		let res: OfferType;
+		for(let item of this.config){
+			if(item['offer_id'] === id){
+				res = item;
+			}
+		}
+		return res;
+	}
+}
+
+export var offerConfigFromGDS = new OfferConfig(offerGDS)
 
 

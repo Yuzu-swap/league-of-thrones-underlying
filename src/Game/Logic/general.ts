@@ -1145,7 +1145,7 @@ export class General{
 
         if(userScore >= maxScore){
             let buffs: VipType = scores[scores.length - 1];
-            console.log('vip buff: ', {userScore, buffs});
+            console.log('vip buff 1: ', {userScore, buffs, scores});
             return buffs;
         }
 
@@ -1155,7 +1155,7 @@ export class General{
             buffs = scores[i];
           }
         } 
-        console.log('vip buff: ', {userScore, buffs});
+        console.log('vip buff 2: ', {userScore, buffs, scores});
         return buffs;
     }
 

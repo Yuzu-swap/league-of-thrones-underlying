@@ -239,6 +239,9 @@ export class TransitionHandler {
         case StateTransition.SpyEnamy:
           re = this.onSpyEnamy(arg as SpyEnamyArgs)
           return re
+        case StateTransition.BuyOffer:
+          re = this.onBuyOffer(arg as any)
+          return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
       console.log("transition before update",logic.city.state)
@@ -974,6 +977,12 @@ export class TransitionHandler {
   onAddTestResource(args: StateTransitionArgs){
     const logic : LogicEssential = this.genLogic(args.from)
     return logic.city.addTestResource()
+  }
+  onBuyOffer(args: any){
+    const logic : LogicEssential = this.genLogic(args.from);
+    const offerId = args.offerId;
+    console.log('onBuyOffer 1:', offerId);
+    return logic.city.buyOffer(offerId);
   }
   onRecoverMorale(args: RecoverMoraleArgs){
     const logic : LogicEssential = this.genLogic(args.from)

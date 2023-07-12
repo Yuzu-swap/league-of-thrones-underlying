@@ -499,6 +499,17 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
 
+  getOfferList(): [] {
+    return this.city.getOfferList() as [];
+  }
+
+  buyOffer(offerId: number, callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.BuyOffer, {
+      from: Throne.instance().username,
+      offerId: offerId
+    }, callback)
+  }
+
   onReceiveChat(channel: ChatChannel, callback: (chatData: ChatMessage) => void): void {
     this.mediator.listenChat(channel, callback)
   }
