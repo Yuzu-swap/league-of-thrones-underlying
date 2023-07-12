@@ -1132,14 +1132,8 @@ export class General{
             return 0;
         }
         let userScores = this.state.userScores || {};
-
-        //test code
-        let testUsers = {
-          '0x04c535c9f175cb8980b43617fb480412c7e341e4': 400,
-          '0x57f94f993f082030f75e55160dbec479db9b5b32': 11000
-        };
         let address = username.toLowerCase();
-        let score = testUsers[address] || userScores[address] || userScores['username'] || 0;
+        let score = userScores[address] || userScores['username'] || 0;
         console.log('getUserScore', address, score);
         return score;
     }
