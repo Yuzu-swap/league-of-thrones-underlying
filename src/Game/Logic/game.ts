@@ -707,6 +707,16 @@ export class City {
     let offerData = this.offers.get(offerId);
     console.log('onBuyOffer 2:', offerId, ', offerData: ', offerData);
 
+    let buyOfferRecords = this.state.buyOfferRecords || {};
+    if(buyOfferRecords[offerId]){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'not allow by again',
+        data: offerData
+      }
+    }
+
     if(!offerData['offer_id']){
       return{
         txType: StateTransition.BuyOffer,
@@ -732,8 +742,7 @@ export class City {
     this.useSilver(silverCount);
     this.useTroop(troopsCount);
 
-    let buyOfferRecords = this.state.buyOfferRecords;
-        buyOfferRecords[offerId] = getTimeStamp()
+    buyOfferRecords[offerId] = getTimeStamp()
     this.state.update({
       buyOfferRecords: buyOfferRecords
     });
