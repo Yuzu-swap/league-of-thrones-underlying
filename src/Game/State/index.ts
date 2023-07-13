@@ -46,6 +46,7 @@ export interface ICityState extends IState {
   injuredTroops: InjuredTroops
   firstLogin: number
   rewardClaimed: {[key: string]: boolean}
+  buyOfferRecords: {}
 }
 
 export interface GeneralStamina{

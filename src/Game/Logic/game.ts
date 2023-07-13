@@ -732,6 +732,12 @@ export class City {
     this.useSilver(silverCount);
     this.useTroop(troopsCount);
 
+    let buyOfferRecords = this.state.buyOfferRecords;
+        buyOfferRecords[offerId] = getTimeStamp()
+    this.state.update({
+      buyOfferRecords: buyOfferRecords
+    });
+
     return{
       txType: StateTransition.BuyOffer,
       result: true,

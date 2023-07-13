@@ -32,7 +32,8 @@ export var InitState = {
         today: 0,
         value: 0
       },
-      rewardClaimed: {}
+      rewardClaimed: {},
+      buyOfferRecords: {}
     },
     [StateName.General]:{
         generalList: {},

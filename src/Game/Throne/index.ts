@@ -87,8 +87,11 @@ export interface ICityComponent extends IComponent {
 
   getTestResourceCoolDownTime(): number
 
-  
   addTestResource(callback: (res: ITransResult) => void): void
+
+  getOfferList(): {}
+
+  buyOffer(offerId: number, callback: (res: ITransResult) => void): void
 
   onReceiveChat( channel: ChatChannel, callback: ( chatData: ChatMessage ) => void ) : void
 
@@ -499,8 +502,10 @@ export class CityComponent implements ICityComponent {
     }, callback)
   }
 
-  getOfferList(): [] {
-    return this.city.getOfferList() as [];
+  getOfferList(): {} {
+    let buyOfferRecords = this.city.state.buyOfferRecords;
+    let all = this.city.getOfferList() as [];
+    return { buyOfferRecords, all };
   }
 
   buyOffer(offerId: number, callback: (res: ITransResult) => void): void {
