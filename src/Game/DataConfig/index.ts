@@ -533,7 +533,9 @@ export interface OfferType {
     offer_reward_sliver: number,
     offer_order: number,
     offer_id: number,
-    offer_gold: number
+    offer_gold: number,
+    offer_icon: [],
+    offer_background: string
 }
 export class OfferConfig{
 	config: OfferType[]

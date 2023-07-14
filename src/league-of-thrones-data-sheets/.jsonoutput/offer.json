@@ -6,7 +6,13 @@
         "offer_reward_sliver": 5000000,
         "offer_order": 1,
         "offer_id": 1,
-        "offer_gold": 1
+        "offer_icon":[
+            "fortress",
+            "wall",
+            "1"
+        ],
+        "offer_gold": 1,
+        "offer_background":"silver"
     },
     {
         "offer_trigger_value": 10000,
@@ -16,7 +22,13 @@
         "offer_reward_sliver": 10000000,
         "offer_order": 2,
         "offer_id": 2,
-        "offer_gold": 1
+        "offer_icon":[
+            "fortress",
+            "wall",
+            "2"
+        ],
+        "offer_gold": 1,
+        "offer_background":"general"
     },
     {
         "offer_trigger_value": 20,
@@ -26,7 +38,13 @@
         "offer_reward_sliver": 20000000,
         "offer_order": 3,
         "offer_id": 3,
-        "offer_gold": 1
+        "offer_icon":[
+            "fortress",
+            "wall",
+            "3"
+        ],
+        "offer_gold": 1,
+        "offer_background":"troops"
     },
     {
         "offer_trigger_value": 100,
@@ -36,7 +54,13 @@
         "offer_reward_sliver": 50000000,
         "offer_order": 4,
         "offer_id": 4,
-        "offer_gold": 1
+        "offer_icon":[
+            "fortress",
+            "wall",
+            "4"
+        ],
+        "offer_gold": 1,
+        "offer_background":"silver"
     },
     {
         "offer_trigger_value": 20000,
@@ -45,7 +69,13 @@
         "offer_reward_sliver": 100000000,
         "offer_order": 5,
         "offer_id": 5,
-        "offer_gold": 1
+        "offer_icon":[
+            "fortress",
+            "wall",
+            "5"
+        ],
+        "offer_gold": 1,
+        "offer_background":"general"
     }
     ]
 }
