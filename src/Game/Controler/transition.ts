@@ -836,6 +836,7 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
+    const logic : LogicEssential = this.genLogic(args.from)
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     if(gLogic.map.seasonState.haveSet){
       return {
