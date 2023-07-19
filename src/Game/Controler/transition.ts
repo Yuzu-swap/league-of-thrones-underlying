@@ -242,6 +242,18 @@ export class TransitionHandler {
         case StateTransition.BuyOffer:
           re = this.onBuyOffer(arg as any)
           return re
+        case StateTransition.CreateCod:
+          re = this.onCreateCod(arg as any)
+          return re
+        case StateTransition.CancelCod:
+          re = this.onCancelCod(arg as any)
+          return re
+        case StateTransition.JoinCod:
+          re = this.onJoinCod(arg as any)
+          return re
+        case StateTransition.QuitCod:
+          re = this.onQuitCod(arg as any)
+          return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
       console.log("transition before update",logic.city.state)
@@ -306,7 +318,8 @@ export class TransitionHandler {
       tokenPriceInfo: gStates.tokenPriceInfo,
       rewardGlobalState: gStates.rewardGlobalState,
       blocks: gStates.blocks,
-      activityState: gStates.activityState
+      activityState: gStates.activityState,
+      codsGlobal: gStates.codsGlobal
     };
     return createLogicEsential(states);
   }
@@ -337,13 +350,19 @@ export class TransitionHandler {
         id: `${StateName.Activity}`
       }
     ) 
+    const codsGlobal = this.stateManger.get(
+      {
+        id: `${StateName.Cods}`
+      }
+    ) 
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
       seasonState : seasonState as ISeasonConfigState,
       tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
       blocks: this.getBlockStates(x_id, y_id),
-      activityState: activities as IActivityState
+      activityState: activities as IActivityState,
+      codsGlobal: codsGlobal as any
     };
     return gStates
   }
@@ -611,6 +630,49 @@ export class TransitionHandler {
 
     console.log('spyEnamy', args, re);
     return re;
+  }
+
+  onCreateCod(args: any) {
+    let username = args.from;
+    let blockInfo = args.blockInfo;
+    let generalId = args.generalId;
+
+    const logic : LogicEssential = this.genLogic(username)
+    return logic.general.createCod(blockInfo, { username, generalId });
+  }
+
+  onCancelCod(args: any) {
+    let username = args.from;
+    let codId = args.codId;
+
+    const logic : LogicEssential = this.genLogic(username);
+
+    let codDetail = logic.general.getCodDetail(codId);
+    let members = codDetail.members;
+    members.forEach(function(member){
+      let username = member['username'];
+      let logicPlayer : LogicEssential = this.genLogic(username)
+      return logicPlayer.general.quitCod(codId, { username });
+    });
+
+    return logic.general.cancelCod(codId);
+  }
+  
+  onJoinCod(args: any) {
+    let username = args.from;
+    let generalId = args.generalId;
+    let codId = args.codId;
+
+    const logic : LogicEssential = this.genLogic(username)
+    return logic.general.joinCod(codId, { username, generalId });
+  }
+
+  onQuitCod(args: any) {
+    let username = args.from;
+    let codId = args.codId;
+
+    const logic : LogicEssential = this.genLogic(username)
+    return logic.general.quitCod(codId, { username });
   }
 
   onAttackBlock(args: AttackBlockArgs){

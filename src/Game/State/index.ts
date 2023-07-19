@@ -80,6 +80,12 @@ export interface IGeneralState extends IState{
   unionInit: boolean
   lastBattle: number
   userScores: {}
+  cods: {}
+  codGeneralIds: []
+}
+
+export interface Cods extends IState{
+  cods: {}
 }
 
 export interface IDefenderInfoState extends IState{

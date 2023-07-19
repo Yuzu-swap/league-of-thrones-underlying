@@ -30,6 +30,7 @@ export interface StateEssential {
 	blocks: IBlockState[]
 	strategy: IStrategyState
 	tokenPriceInfo: ITokenPriceInfoState
+	codsGlobal: any
 }
 export interface ConfigEssential {
 	cityConf: CityConfig
@@ -43,13 +44,14 @@ export interface GlobalStateEssential{
 	activityState : IActivityState
 	blocks: IBlockState[]
 	tokenPriceInfo: ITokenPriceInfoState
+	codsGlobal: any
 }
 
 export function createLogicEsential(states: StateEssential): LogicEssential {
 	console.log('createLogicEsential', states)
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
-	var general: General = new General(states.general, city)
+	var general: General = new General(states.general, city, states.codsGlobal)
 	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState, states.tokenPriceInfo)
 	var strategy: Strategy = new Strategy(states.strategy)
 	var activity: Activity = new Activity(states.activityState)

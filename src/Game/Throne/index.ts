@@ -957,6 +957,36 @@ export class GeneralComponent implements IGeneralComponent {
     })
   }
 
+  getCodList(callback: (result: any) => void ) {
+    this.general.getCodList(callback);
+  }
+  createCod(blockInfo:any, generalId: number, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CreateCod,{
+      from: Throne.instance().username,
+      blockInfo: blockInfo,
+      generalId: generalId
+    }, callback)
+  }
+  cancelCod(codId: string, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CancelCod,{
+      from: Throne.instance().username,
+      codId: codId
+    }, callback)
+  }
+  joinCod(codId: string, generalId: number, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.JoinCod,{
+      from: Throne.instance().username,
+      codId: codId,
+      generalId: generalId
+    }, callback)
+  }
+  quitCod(codId: string, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.QuitCod,{
+      from: Throne.instance().username,
+      codId: codId
+    }, callback)
+  }
+
   async getGloryAndRank( callback: (result: any) => void ): Promise<void> {
     let rank = -1
     rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"glory":{"$gt":  this.general.state.glory}})
@@ -1185,6 +1215,7 @@ export class Throne implements IThrone {
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
+    states.codsGlobal = (await this.mediator.queryState({ id: `${StateName.Cods}` }, {}, null)) as any
     
     this.logicEssential = createLogicEsential(states)
 

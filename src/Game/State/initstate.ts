@@ -35,6 +35,9 @@ export var InitState = {
       rewardClaimed: {},
       buyOfferRecords: {}
     },
+    [StateName.Cods]: {
+        cods: {}
+    },
     [StateName.General]:{
         generalList: {},
         defense_general: -1,
@@ -48,7 +51,9 @@ export var InitState = {
         },
         unionInit: false,
         lastBattle: -1,
-        userScores: {}
+        userScores: {},
+        cods: {},
+        codGeneralIds: []
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{

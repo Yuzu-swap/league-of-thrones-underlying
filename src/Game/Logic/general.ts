@@ -89,14 +89,16 @@ export interface BattleRecordInfo{
 
 export class General{
     state: IGeneralState
+    codsGlobal: any
     config: GeneralConfig
     mapConfig: MapConfig
     vipConfig: VipConfig
     map: Map
     city : City
     boost : IBoost
-    constructor(state: IGeneralState, city: City) {
+    constructor(state: IGeneralState, city: City, codsGlobal: any) {
         this.state = state;
+        this.codsGlobal = codsGlobal;
         this.config = GeneralConfigFromGDS;
         this.vipConfig = vipConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
@@ -930,6 +932,340 @@ export class General{
         };
     }
 
+    createCod(blockInfo, userInfo){
+        let cods = this.codsGlobal.cods;
+        const unionId = this.state.unionId;
+        let { username, generalId } = userInfo;
+        username = username.toLowerCase();
+
+        const { x_id, y_id } = blockInfo;
+        const codId = x_id + '-' + y_id;
+
+        if(cods[codId]){
+            return {
+                result: false,
+                data: blockInfo,
+                error: 'only one assembly in one block',
+                txType: StateTransition.CreateCod
+            }
+        }
+
+        if(!this.map.checkIfCanAttack( x_id, y_id )){
+            return {
+                result: false,
+                data: blockInfo,
+                error: 'block cannot be attack',
+                txType: StateTransition.CreateCod
+            }
+        }
+
+        let stamina = this.config.parameter.defense_plots_need_stamina;
+        if(!(this.useGeneralStamina(generalId, stamina))){
+            return{
+                result: false,
+                data: { stamina },
+                error: 'not enough stamina',
+                txType: StateTransition.CreateCod
+            }
+        }
+
+        const time = getTimeStamp();
+        let codData = {
+          creator : username,
+          createTime: time,
+          uniond: unionId,
+          troopTotal: 9999, 
+          troopNow: 0,
+          lastTime: 3600,
+          members: [],
+          membersMap: {},
+          updateTime: -1,
+          cancelTime: -1,
+          endTime: -1,
+          blockInfo: blockInfo
+        };
+
+        cods[codId] = codData;
+        this.codsGlobal.update({
+            cods: cods
+        });
+
+        this.joinCod(codId, { username, generalId });
+
+        return {
+            result: true,
+            data: codData,
+            txType: StateTransition.CreateCod
+        }
+    }
+
+    cancelCod(codId){
+        // username = username.toLowerCase();
+        let cods = this.codsGlobal.cods;
+        if(!cods[codId]){
+            return {
+                result: false,
+                data: cods[codId],
+                error: 'codId not exist',
+                txType: StateTransition.CancelCod
+            }
+        }
+        // if(cods[codId].creator !== username){
+        //     return {
+        //         result: false,
+        //         data: cods[codId],
+        //         error: 'only creator can cancel',
+        //         txType: StateTransition.CancelCod
+        //     }
+        // }
+
+        // todo, members.quitCod
+
+        let res = this.endCod(codId);
+        return {
+            result: true,
+            data: res,
+            txType: StateTransition.CancelCod
+        }
+    }
+
+    endCod(codId){
+        let cods = this.codsGlobal.cods;
+        cods[codId] = {};
+        this.codsGlobal.update({
+            cods: cods
+        });
+        return {
+            codId: codId
+        };
+    }
+    battleCod(codItem){
+
+    }
+    codRecords(){
+
+    }
+    runCod(){
+        let t = setInterval(function(){
+            let cods = this.codsGlobal.cods;
+            cods.forEach(function(codItem){
+                let { createTime, lastTime, troopTotal, troopNow } = codItem;
+                const time = getTimeStamp();
+                if(time <= createTime + lastTime || troopTotal <= troopNow){
+                    this.battleCod(codItem);
+                }
+            });
+        }, 10*1000);
+    }
+
+    checkUserJoinedCod(codId, userInfo){
+        let unionId = this.state.unionId;
+        let cods = this.codsGlobal.cods;
+        let codItem = cods[codId];
+
+        let { username } = userInfo;
+        username = username.toLowerCase();
+        if(!codItem){
+            return {
+                result: true,
+                data: codItem,
+                error: 'not exist',
+            };
+        }
+
+        if(codItem.uniond !== unionId){
+            return {
+                result: true,
+                data: codItem,
+                error: 'not in same camp',
+            };
+        }
+
+        let members = codItem.members || [];
+        let membersObj = {};
+        let index = -1;
+        members.forEach(function(member, i){
+            membersObj[member.username] = member;
+            index = i;
+        });
+        if(membersObj[username]){
+            return {
+                result: true,
+                data: codItem,
+                index: index,
+                error: 'just allow join once',
+            };
+        }
+        return {
+            result: false,
+            joinInfo: membersObj[username] || {},
+            data: codItem
+        }
+    }
+
+    joinCod(codId, userInfo){
+        let unionId = this.state.unionId;
+        let cods = this.codsGlobal.cods;
+        let codItem = cods[codId];
+        let { username, generalId } = userInfo;
+        username = username.toLowerCase();
+
+        let isJoined = this.checkUserJoinedCod(codId, userInfo);
+        if(isJoined.result){
+            return {
+                result: isJoined.result,
+                data: isJoined.data,
+                error: isJoined.error,
+                txType: StateTransition.JoinCod
+            }
+        }
+
+        let { troopTotal, troopNow, members = [], membersMap = {}, blockInfo } = codItem;
+        let { x_id, y_id } = blockInfo;
+
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                txType: StateTransition.JoinCod,
+                error: 'generalid-error'
+            }
+        }
+        if(!this.checkDefenseBlock(generalId)){
+            return {
+                result: false,
+                txType: StateTransition.JoinCod,
+                error: 'general is undering defense or assembly'
+            }
+        }
+        let troops = this.getMaxDefenseTroop();
+        troops = Math.min(troops, troopTotal - troopNow);
+        if(troops <= 0){
+            return{
+                result: false,
+                txType: StateTransition.JoinCod,
+                error: 'troop-not-enough'
+            }
+        }
+        this.city.useTroop(troops)
+
+        let codGeneralIds:any = this.state.codGeneralIds || [];
+        codGeneralIds.push(generalId);
+        this.state.update({
+            codGeneralIds: codGeneralIds
+        });
+
+        const time = getTimeStamp();
+        members.push({
+            username: username, 
+            generalId: generalId, 
+            troops: troops, 
+            joinTime: time
+        });
+        membersMap[username] = members.length - 1;
+        
+        codItem.members = members;
+        codItem.membersMap = membersMap;
+        codItem.troopNow = codItem.troopNow + troops;
+        codItem.updateTime = time;
+
+        cods[codId] = codItem;
+        this.codsGlobal.update({
+            cods: cods
+        });
+        // todo: discount troops
+
+        return {
+            result: true,
+            data: codItem,
+            txType: StateTransition.JoinCod
+        };
+    }
+
+    quitCod(codId, userInfo){
+        let unionId = this.state.unionId;
+        let { username } = userInfo;
+        username = username.toLowerCase();
+
+        let cods = this.codsGlobal.cods;
+        let codItem = cods[codId];
+
+        let isJoined = this.checkUserJoinedCod(codId, userInfo);
+        if(!isJoined.result){
+            return {
+                result: false,
+                data: isJoined.data,
+                error: 'not in assembly',
+                txType: StateTransition.QuitCod
+            }
+        }
+
+        if(codItem.creator === username){
+            return {
+                result: false,
+                data: codItem,
+                error: 'creator now allow quit',
+                txType: StateTransition.QuitCod
+            }
+        }
+
+        let joinInfo = isJoined.joinInfo;
+        let index = isJoined.index;
+        let generalId = joinInfo.generalId;
+        let troops = joinInfo.troops;
+
+        let codGeneralIds = this.state.codGeneralIds;
+        let codGeneralIdIndex = -1;
+        codGeneralIds.forEach(function(id, i){
+            if(id === generalId){
+                codGeneralIdIndex = i;
+            }
+        })
+        if(index >= 0){
+            codGeneralIds.splice(codGeneralIdIndex, 1);            
+        }
+        this.state.update({
+            codGeneralIds: codGeneralIds
+        });
+        
+        let members = codItem.members || [];
+        members = members.splice(index, 1);
+        codItem.members = members;
+        codItem.troopNow = codItem.troopNow - troops;
+        this.city.useTroop(-1 * troops)
+
+        const time = getTimeStamp();
+        codItem.updateTime = time;
+
+        cods[codId] = codItem;
+        this.codsGlobal.update({
+            cods: cods
+        });
+
+        return {
+            result: true,
+            data: codItem,
+            txType: StateTransition.QuitCod
+        };
+    }
+
+    getCodList(callback: (result: any) => void ) {
+        let cods = this.codsGlobal.cods;
+        let codList = [];
+        let unionId = this.state.unionId;
+        for(var id in cods){
+            if(cods[id]['unionId'] === unionId){
+                codList.push(cods[id])
+            }
+        }
+        callback(codList);
+    }
+
+    getCodDetail(codId){
+        let cods = this.codsGlobal.cods;
+        return cods[codId] || {};
+    }
+
     //should trigger when defense general change
     updateDefenseInfo(){
         const defenseInfoId = this.state.id.replace(StateName.General,StateName.DefenderInfo)
@@ -967,6 +1303,11 @@ export class General{
         }
         for(let info of this.state.defenseBlockList){
             if(info.generalId == generalId){
+                return false
+            }
+        }
+        for(let codGeneralId of this.state.codGeneralIds){
+            if(codGeneralId == generalId){
                 return false
             }
         }
