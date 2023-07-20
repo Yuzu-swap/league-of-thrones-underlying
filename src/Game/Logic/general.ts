@@ -963,7 +963,7 @@ export class General{
             }
         }
 
-        // console.log('cod create checkIfCanAttack:', x_id, y_id, this.map.checkIfCanAttack( x_id, y_id ));
+        console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', this.map.checkIfCanAttack( x_id, y_id ));
 
         // if(!this.map.checkIfCanAttack( x_id, y_id )){
         //     return {
@@ -1299,7 +1299,7 @@ export class General{
         let members = codItem.members;
         let members2 = members.splice(index, 1);
         console.log('cod quit members:', members, ' members2: ', members2, ' index: ', index);
-        codItem.members = members2;
+        codItem.members = members;
 
         codItem.troopNow = codItem.troopNow - troops;
         this.city.useTroop(-1 * troops)
