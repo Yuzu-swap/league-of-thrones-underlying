@@ -1022,6 +1022,17 @@ export class General{
         }
     }
 
+    isCodCanCanel(codId, username){
+        username = username.toLowerCase();
+        let cods = this.codsGlobal.cods;
+        let codItem = cods[codId] || {};
+
+        if(codItem.creator === username){
+            return true;
+        }
+        return false;
+    }
+
     cancelCod(codId, username){
         username = username.toLowerCase();
         let cods = this.codsGlobal.cods;
@@ -1029,21 +1040,12 @@ export class General{
         console.log('cod cancel:', codId, username);
         console.log('cod cancel list:', cods);
 
-        // username = username.toLowerCase();
-        if(!codItem['creator']){
+        let isCodCanCanel = this.isCodCanCanel(codId, username);
+        if(!isCodCanCanel){
             return {
                 result: false,
                 data: codItem,
-                error: 'assembly not exist',
-                txType: StateTransition.CancelCod
-            }
-        }
-
-        if(cods[codId].creator !== username){
-            return {
-                result: false,
-                data: cods[codId],
-                error: 'only creator can cancel',
+                error: 'assembly not exist or current user not creator',
                 txType: StateTransition.CancelCod
             }
         }

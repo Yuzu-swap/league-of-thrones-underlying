@@ -649,22 +649,23 @@ export class TransitionHandler {
     const codId = args.codId;
 
     const logic : LogicEssential = this.genLogic(username);
+    const isCodCanCanel = logic.general.isCodCanCanel(codId, username);
+    if(!isCodCanCanel){
+      return {
+        result: false,
+        error: 'assembly not exist or current user not creator',
+        txType: StateTransition.CreateCod
+      };
+    }
+
     const codDetail = logic.general.getCodDetail(codId);
     const members = codDetail.members || [];
-
-    let re = logic.general.cancelCod(codId, username);
-
-    console.log('cod cancel transition:', re, ' members:', members);
-
-    if(!re.result){
-      return re;
-    }
     members.forEach(function(member){
       let username = member['username'];
       let logicPlayer : LogicEssential = _this.genLogic(username)
-      return logicPlayer.general.quitCod(codId, { username });
+      logicPlayer.general.quitCod(codId, { username });
     });
-    return re;
+    return logic.general.cancelCod(codId, username);
   }
   
   onJoinCod(args: any) {
