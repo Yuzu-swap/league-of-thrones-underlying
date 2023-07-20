@@ -954,16 +954,16 @@ export class General{
             }
         }
 
-        const generalInfo = this.getGeneralState(generalId)
-        if(!(this.checkIdAble(generalId) && generalInfo.able)){
-            return {
-                result: false,
-                txType: StateTransition.CreateCod,
-                error: 'generalid-error'
-            }
-        }
+        // const generalInfo = this.getGeneralState(generalId)
+        // if(!(this.checkIdAble(generalId) && generalInfo.able)){
+        //     return {
+        //         result: false,
+        //         txType: StateTransition.CreateCod,
+        //         error: 'generalid-error'
+        //     }
+        // }
 
-        console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', this.map.checkIfCanAttack( x_id, y_id ));
+        // console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', this.map.checkIfCanAttack( x_id, y_id ));
 
         // if(!this.map.checkIfCanAttack( x_id, y_id )){
         //     return {
@@ -1179,14 +1179,14 @@ export class General{
         let { troopTotal, troopNow, members = [], membersMap = {}, blockInfo } = codItem;
         let { x_id, y_id } = blockInfo;
 
-        const generalInfo = this.getGeneralState(generalId)
-        if(!(this.checkIdAble(generalId) && generalInfo.able)){
-            return {
-                result: false,
-                txType: StateTransition.JoinCod,
-                error: 'generalid-error'
-            }
-        }
+        // const generalInfo = this.getGeneralState(generalId)
+        // if(!(this.checkIdAble(generalId) && generalInfo.able)){
+        //     return {
+        //         result: false,
+        //         txType: StateTransition.JoinCod,
+        //         error: 'generalid-error'
+        //     }
+        // }
         // if(!this.checkDefenseBlock(generalId)){
         //     return {
         //         result: false,
