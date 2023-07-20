@@ -644,20 +644,27 @@ export class TransitionHandler {
   }
 
   onCancelCod(args: any) {
+    let _this = this;
     let username = args.from;
-    let codId = args.codId;
+    const codId = args.codId;
 
     const logic : LogicEssential = this.genLogic(username);
+    const codDetail = logic.general.getCodDetail(codId);
+    const members = codDetail.members || [];
 
-    let codDetail = logic.general.getCodDetail(codId);
-    let members = codDetail.members;
+    let re = logic.general.cancelCod(codId);
+
+    console.log('cod cancel transition:', re, ' members:', members);
+
+    if(!re.result){
+      return re;
+    }
     members.forEach(function(member){
       let username = member['username'];
-      let logicPlayer : LogicEssential = this.genLogic(username)
+      let logicPlayer : LogicEssential = _this.genLogic(username)
       return logicPlayer.general.quitCod(codId, { username });
     });
-
-    return logic.general.cancelCod(codId);
+    return re;
   }
   
   onJoinCod(args: any) {

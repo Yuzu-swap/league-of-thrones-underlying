@@ -943,7 +943,7 @@ export class General{
         let codItem = cods[codId] || {};
 
         console.log('cod create:', unionId, blockInfo, userInfo);
-        console.log('cod list:', codId, ':', codItem['creator'], codItem);
+        console.log('cod create list:', codId, ':', codItem['creator'], codItem);
 
         if(codItem['creator']){
             return {
@@ -1017,7 +1017,7 @@ export class General{
         let cods = this.codsGlobal.cods;
         let codItem = cods[codId] || {};
         console.log('cod cancel:', codId);
-        console.log('cod list cancel:', cods);
+        console.log('cod cancel list:', cods);
 
         // username = username.toLowerCase();
         if(!codItem['creator']){
@@ -1150,7 +1150,7 @@ export class General{
         username = username.toLowerCase();
 
         console.log('cod join:', unionId, codId, userInfo);
-        console.log('cod list join:', cods);
+        console.log('cod join list:', cods);
 
         let isCanJoined = this.checkUserCanJoinedCod(codId, userInfo);
 
@@ -1202,16 +1202,17 @@ export class General{
         });
 
         const time = getTimeStamp();
-        members.push({
+        let joinData = {
             username: username, 
             generalId: generalId, 
             troops: troops, 
             joinTime: time
-        });
-        // membersMap[username] = members.length - 1;
+        };
+        members.push(joinData);
+        membersMap[username] = joinData;
 
         codItem.members = members;
-        // codItem.membersMap = membersMap;
+        codItem.membersMap = membersMap;
         codItem.troopNow = codItem.troopNow + troops;
         codItem.updateTime = time;
 
@@ -1239,17 +1240,17 @@ export class General{
         let codItem = cods[codId];
 
         console.log('cod quit:', unionId, codId, username);
-        console.log('cod list quit:', cods);
+        console.log('cod quit list:', cods);
 
         let isCanJoined = this.checkUserCanJoinedCod(codId, userInfo);
 
-        console.log('cod isJoined quit:', isCanJoined, codItem);
+        console.log('cod quit isJoined:', isCanJoined, codItem);
 
         if(!isCanJoined.joined){
             return {
                 result: false,
                 data: isCanJoined.data,
-                error: 'assembly error or not in assembly',
+                error: isCanJoined.error || 'assembly error or not in assembly',
                 txType: StateTransition.QuitCod
             }
         }
@@ -1282,11 +1283,15 @@ export class General{
             codGeneralIds: codGeneralIds
         });
 
-        console.log('cod codGeneralIds quit:', codGeneralIdIndex, ':', codGeneralIds);
-        
+        console.log('cod quit codGeneralIds:', codGeneralIdIndex, ':', codGeneralIds);
+
         let members = codItem.members || [];
+
+        console.log('cod quit members:', members, ' index:', index);
+
         members = members.splice(index, 1);
         codItem.members = members;
+        
         codItem.troopNow = codItem.troopNow - troops;
         this.city.useTroop(-1 * troops)
 
@@ -1320,13 +1325,13 @@ export class General{
 
         for(var id in cods){
             let _unionId = cods[id]['unionId'] || cods[id]['uniond'];
-            console.log('cod getCodList unionId:', _unionId, unionId, cods[id])
+            // console.log('cod getCodList unionId:', _unionId, unionId, cods[id])
             if(_unionId === unionId){
                 codList.push(cods[id])
             }
         }
 
-        console.log('cod getCodList:', unionId, cods, codList);
+        // console.log('cod getCodList:', unionId, cods, codList);
         return codList;
         // callback(codList);
     }
