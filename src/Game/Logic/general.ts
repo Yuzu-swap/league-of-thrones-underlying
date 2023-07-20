@@ -953,6 +953,8 @@ export class General{
             }
         }
 
+        console.log('cod create checkIfCanAttack:', x_id, y_id, this.map.checkIfCanAttack( x_id, y_id ));
+
         if(!this.map.checkIfCanAttack( x_id, y_id )){
             return {
                 result: false,
@@ -963,7 +965,9 @@ export class General{
         }
 
         let stamina = this.config.parameter.defense_plots_need_stamina;
-        if(!(this.useGeneralStamina(generalId, stamina))){
+        let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
+        console.log('cod create stamina:', stamina, useGeneralStamina);
+        if(!useGeneralStamina){
             return{
                 result: false,
                 data: { stamina },
@@ -993,6 +997,8 @@ export class General{
         this.codsGlobal.update({
             cods: cods
         });
+
+        console.log('cod create codsGlobal:', this.codsGlobal.cods, codData);
 
         this.joinCod(codId, { username, generalId });
 
@@ -1183,6 +1189,8 @@ export class General{
         this.codsGlobal.update({
             cods: cods
         });
+
+        console.log('cod join codsGlobal:', this.codsGlobal.cods);
         // todo: discount troops
 
         return {
