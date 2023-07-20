@@ -1268,7 +1268,8 @@ export class General{
             }
         }
 
-        if(codItem.creator === username){
+        let type = userInfo.type || '';
+        if(type !== 'byCancel' && codItem.creator === username){
             return {
                 result: false,
                 data: codItem,

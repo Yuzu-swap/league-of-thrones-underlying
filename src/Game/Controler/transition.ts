@@ -662,8 +662,9 @@ export class TransitionHandler {
     const members = codDetail.members || [];
     members.forEach(function(member){
       let username = member['username'];
-      let logicPlayer : LogicEssential = _this.genLogic(username)
-      logicPlayer.general.quitCod(codId, { username });
+      let logicPlayer : LogicEssential = _this.genLogic(username);
+      let type = 'byCancel';
+      logicPlayer.general.quitCod(codId, { username, type });
     });
     return logic.general.cancelCod(codId, username);
   }
