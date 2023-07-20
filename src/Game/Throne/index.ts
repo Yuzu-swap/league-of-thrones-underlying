@@ -958,10 +958,10 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getCodGeneralIds() {
-    this.general.getCodGeneralIds();
+    return this.general.getCodGeneralIds();
   }
-  getCodList(callback: (result: any) => void ) {
-    this.general.getCodList(callback);
+  getCodList() {
+    return this.general.getCodList();
   }
   createCod(blockInfo:any, generalId: number, callback: (result: any) => void ) {
     this.mediator.sendTransaction(StateTransition.CreateCod,{

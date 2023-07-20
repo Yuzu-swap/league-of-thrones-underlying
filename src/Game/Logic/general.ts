@@ -983,7 +983,7 @@ export class General{
           codId: codId,
           creator : username,
           createTime: time,
-          uniond: unionId,
+          unionId: unionId,
           troopTotal: 9999, 
           troopNow: 0,
           lastTime: 3600,
@@ -1000,9 +1000,11 @@ export class General{
             cods: cods
         });
 
-        console.log('cod create codsGlobal:', this.codsGlobal.cods, codData);
+        console.log('cod create codsGlobal finish 1:', this.codsGlobal.cods, codData);
 
         this.joinCod(codId, { username, generalId });
+
+        console.log('cod create codsGlobal finish 2:', this.codsGlobal.cods);
 
         return {
             result: true,
@@ -1038,6 +1040,9 @@ export class General{
         // todo, members.quitCod
 
         let res = this.endCod(codId);
+
+        console.log('cod cancel codsGlobal finish 2:', res, this.codsGlobal.cods);
+
         return {
             result: true,
             data: res,
@@ -1051,6 +1056,9 @@ export class General{
         this.codsGlobal.update({
             cods: cods
         });
+
+        console.log('cod endCod:', codId, this.codsGlobal.cods);
+
         return {
             codId: codId
         };
@@ -1090,15 +1098,17 @@ export class General{
             return {
                 result: false,
                 joined: false,
+                canJoin: false,
                 data: codItem,
                 error: 'assembly not exist',
             };
         }
 
-        if(codItem.uniond !== unionId){
+        if((codItem.uniond || codItem.unionId) !== unionId){
             return {
                 result: false,
                 joined: false,
+                canJoin: false,
                 data: codItem,
                 error: 'not in same camp',
             };
@@ -1117,6 +1127,7 @@ export class General{
             return {
                 result: false,
                 joined: true,
+                canJoin: false,
                 error: 'just allow join once',
                 joinInfo: membersObj[username],
                 data: codItem,
@@ -1126,6 +1137,7 @@ export class General{
         return {
             result: true,
             joined: false,
+            canJoin: true,
             data: codItem
         }
     }
@@ -1144,7 +1156,7 @@ export class General{
 
         console.log('cod join isJoined:', isCanJoined);
 
-        if(!isCanJoined.result){
+        if(!isCanJoined.canJoin){
             return {
                 result: false,
                 data: isCanJoined.data,
@@ -1164,14 +1176,15 @@ export class General{
                 error: 'generalid-error'
             }
         }
-        if(!this.checkDefenseBlock(generalId)){
-            return {
-                result: false,
-                txType: StateTransition.JoinCod,
-                error: 'general is undering defense or assembly'
-            }
-        }
-        let troops = this.getMaxDefenseTroop();
+        // if(!this.checkDefenseBlock(generalId)){
+        //     return {
+        //         result: false,
+        //         txType: StateTransition.JoinCod,
+        //         error: 'general is undering defense or assembly'
+        //     }
+        // }
+        // let troops = this.getMaxDefenseTroop();
+        let troops = 87;
         troops = Math.min(troops, troopTotal - troopNow);
         if(troops <= 0){
             return{
@@ -1207,7 +1220,7 @@ export class General{
             cods: cods
         });
 
-        console.log('cod join codsGlobal:', this.codsGlobal.cods);
+        console.log('cod join finish:', this.codsGlobal.cods);
         // todo: discount troops
 
         return {
@@ -1236,7 +1249,7 @@ export class General{
             return {
                 result: false,
                 data: isCanJoined.data,
-                error: 'not in assembly',
+                error: 'assembly error or not in assembly',
                 txType: StateTransition.QuitCod
             }
         }
@@ -1286,7 +1299,7 @@ export class General{
         });
 
         console.log('cod quit codItem:', codItem);
-        console.log('cod list quit:', cods);
+        console.log('cod quit finish:', cods);
 
         return {
             result: true,
@@ -1300,19 +1313,22 @@ export class General{
         return codGeneralIds;
     }
 
-    getCodList(callback: (result: any) => void ) {
+    getCodList() {
         let cods = this.codsGlobal.cods;
         let codList = [];
         let unionId = this.state.unionId;
 
-        console.log('cod getCodList codItem:', unionId, cods);
-
         for(var id in cods){
-            if(cods[id]['unionId'] === unionId){
+            let _unionId = cods[id]['unionId'] || cods[id]['uniond'];
+            console.log('cod getCodList unionId:', _unionId, unionId, cods[id])
+            if(_unionId === unionId){
                 codList.push(cods[id])
             }
         }
-        callback(codList);
+
+        console.log('cod getCodList:', unionId, cods, codList);
+        return codList;
+        // callback(codList);
     }
 
     getCodDetail(codId){
