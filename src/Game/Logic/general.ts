@@ -942,14 +942,10 @@ export class General{
         const codId = 'block_' + x_id + '_' + y_id;
         let codItem = cods[codId] || {};
 
-        this.codsGlobal.update({
-            updateTime: getTimeStamp()
-        });
-
         console.log('cod create:', unionId, blockInfo, userInfo);
-        console.log('cod list:', codId, ':', !!codItem['creator'], codItem);
+        console.log('cod list:', codId, ':', codItem['creator'], codItem);
 
-        if(!!codItem['creator']){
+        if(codItem['creator']){
             return {
                 result: false,
                 data: blockInfo,
@@ -958,16 +954,16 @@ export class General{
             }
         }
 
-        console.log('cod create checkIfCanAttack:', x_id, y_id, this.map.checkIfCanAttack( x_id, y_id ));
+        // console.log('cod create checkIfCanAttack:', x_id, y_id, this.map.checkIfCanAttack( x_id, y_id ));
 
-        if(!this.map.checkIfCanAttack( x_id, y_id )){
-            return {
-                result: false,
-                data: blockInfo,
-                error: 'block cannot be attack',
-                txType: StateTransition.CreateCod
-            }
-        }
+        // if(!this.map.checkIfCanAttack( x_id, y_id )){
+        //     return {
+        //         result: false,
+        //         data: blockInfo,
+        //         error: 'block cannot be attack',
+        //         txType: StateTransition.CreateCod
+        //     }
+        // }
 
         let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
