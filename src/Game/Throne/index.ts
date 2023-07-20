@@ -957,6 +957,9 @@ export class GeneralComponent implements IGeneralComponent {
     })
   }
 
+  getCodGeneralIds() {
+    this.general.getCodGeneralIds();
+  }
   getCodList(callback: (result: any) => void ) {
     this.general.getCodList(callback);
   }

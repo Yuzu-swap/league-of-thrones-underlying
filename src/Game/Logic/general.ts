@@ -941,6 +941,9 @@ export class General{
         const { x_id, y_id } = blockInfo;
         const codId = x_id + '-' + y_id;
 
+        console.log('cod create:', unionId, blockInfo, userInfo);
+        console.log('cod list:', cods);
+
         if(cods[codId]){
             return {
                 result: false,
@@ -971,6 +974,7 @@ export class General{
 
         const time = getTimeStamp();
         let codData = {
+          codId: codId,
           creator : username,
           createTime: time,
           uniond: unionId,
@@ -1000,8 +1004,11 @@ export class General{
     }
 
     cancelCod(codId){
-        // username = username.toLowerCase();
         let cods = this.codsGlobal.cods;
+        console.log('cod cancel:', codId);
+        console.log('cod list cancel:', cods);
+
+        // username = username.toLowerCase();
         if(!cods[codId]){
             return {
                 result: false,
@@ -1110,6 +1117,9 @@ export class General{
         let { username, generalId } = userInfo;
         username = username.toLowerCase();
 
+        console.log('cod join:', unionId, codId, userInfo);
+        console.log('cod list join:', cods);
+
         let isJoined = this.checkUserJoinedCod(codId, userInfo);
         if(isJoined.result){
             return {
@@ -1163,7 +1173,7 @@ export class General{
             joinTime: time
         });
         membersMap[username] = members.length - 1;
-        
+
         codItem.members = members;
         codItem.membersMap = membersMap;
         codItem.troopNow = codItem.troopNow + troops;
@@ -1189,6 +1199,9 @@ export class General{
 
         let cods = this.codsGlobal.cods;
         let codItem = cods[codId];
+
+        console.log('cod quit:', unionId, codId, username);
+        console.log('cod list join:', cods);
 
         let isJoined = this.checkUserJoinedCod(codId, userInfo);
         if(!isJoined.result){
@@ -1247,6 +1260,11 @@ export class General{
             data: codItem,
             txType: StateTransition.QuitCod
         };
+    }
+
+    getCodGeneralIds(){
+        let codGeneralIds:any = this.state.codGeneralIds || [];
+        return codGeneralIds;
     }
 
     getCodList(callback: (result: any) => void ) {
