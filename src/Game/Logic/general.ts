@@ -954,6 +954,15 @@ export class General{
             }
         }
 
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                txType: StateTransition.CreateCod,
+                error: 'generalid-error'
+            }
+        }
+
         // console.log('cod create checkIfCanAttack:', x_id, y_id, this.map.checkIfCanAttack( x_id, y_id ));
 
         // if(!this.map.checkIfCanAttack( x_id, y_id )){
@@ -1013,10 +1022,11 @@ export class General{
         }
     }
 
-    cancelCod(codId){
+    cancelCod(codId, username){
+        username = username.toLowerCase();
         let cods = this.codsGlobal.cods;
         let codItem = cods[codId] || {};
-        console.log('cod cancel:', codId);
+        console.log('cod cancel:', codId, username);
         console.log('cod cancel list:', cods);
 
         // username = username.toLowerCase();
@@ -1028,16 +1038,17 @@ export class General{
                 txType: StateTransition.CancelCod
             }
         }
-        // if(cods[codId].creator !== username){
-        //     return {
-        //         result: false,
-        //         data: cods[codId],
-        //         error: 'only creator can cancel',
-        //         txType: StateTransition.CancelCod
-        //     }
-        // }
 
-        // todo, members.quitCod
+        if(cods[codId].creator !== username){
+            return {
+                result: false,
+                data: cods[codId],
+                error: 'only creator can cancel',
+                txType: StateTransition.CancelCod
+            }
+        }
+
+        // todo, members.quitCod in transation
 
         let res = this.endCod(codId);
 
@@ -1259,7 +1270,7 @@ export class General{
             return {
                 result: false,
                 data: codItem,
-                error: 'creator now allow quit',
+                error: 'creator not allow quit',
                 txType: StateTransition.QuitCod
             }
         }
@@ -1285,13 +1296,11 @@ export class General{
 
         console.log('cod quit codGeneralIds:', codGeneralIdIndex, ':', codGeneralIds);
 
-        let members = codItem.members || [];
+        let members = codItem.members;
+        let members2 = members.splice(index, 1);
+        console.log('cod quit members:', members, ' members2: ', members2, ' index: ', index);
+        codItem.members = members2;
 
-        console.log('cod quit members:', members, ' index:', index);
-
-        members = members.splice(index, 1);
-        codItem.members = members;
-        
         codItem.troopNow = codItem.troopNow - troops;
         this.city.useTroop(-1 * troops)
 

@@ -652,7 +652,7 @@ export class TransitionHandler {
     const codDetail = logic.general.getCodDetail(codId);
     const members = codDetail.members || [];
 
-    let re = logic.general.cancelCod(codId);
+    let re = logic.general.cancelCod(codId, username);
 
     console.log('cod cancel transition:', re, ' members:', members);
 
