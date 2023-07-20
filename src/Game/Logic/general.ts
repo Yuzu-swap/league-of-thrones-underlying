@@ -940,11 +940,12 @@ export class General{
 
         const { x_id, y_id } = blockInfo;
         const codId = x_id + '-' + y_id;
+        let codItem = cods[codId] || {};
 
         console.log('cod create:', unionId, blockInfo, userInfo);
-        console.log('cod list:', cods);
+        console.log('cod list:', codId, codItem);
 
-        if(cods[codId]){
+        if(codItem['creator']){
             return {
                 result: false,
                 data: blockInfo,
@@ -964,7 +965,7 @@ export class General{
             }
         }
 
-        let stamina = this.config.parameter.defense_plots_need_stamina;
+        let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
         console.log('cod create stamina:', stamina, useGeneralStamina);
         if(!useGeneralStamina){
