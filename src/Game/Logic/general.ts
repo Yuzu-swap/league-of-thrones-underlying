@@ -939,13 +939,17 @@ export class General{
         username = username.toLowerCase();
 
         const { x_id, y_id } = blockInfo;
-        const codId = x_id + '-' + y_id;
+        const codId = 'block_' + x_id + '_' + y_id;
         let codItem = cods[codId] || {};
 
-        console.log('cod create:', unionId, blockInfo, userInfo);
-        console.log('cod list:', codId, codItem);
+        this.codsGlobal.update({
+            updateTime: getTimeStamp()
+        });
 
-        if(codItem['creator']){
+        console.log('cod create:', unionId, blockInfo, userInfo);
+        console.log('cod list:', codId, ':', !!codItem['creator'], codItem);
+
+        if(!!codItem['creator']){
             return {
                 result: false,
                 data: blockInfo,

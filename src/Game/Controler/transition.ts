@@ -638,7 +638,9 @@ export class TransitionHandler {
     let generalId = args.generalId;
 
     const logic : LogicEssential = this.genLogic(username)
-    return logic.general.createCod(blockInfo, { username, generalId });
+    let re = logic.general.createCod(blockInfo, { username, generalId });
+    console.log('cod onCreateCod:', re);
+    return re;
   }
 
   onCancelCod(args: any) {
