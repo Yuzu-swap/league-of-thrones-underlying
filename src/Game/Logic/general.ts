@@ -968,14 +968,15 @@ export class General{
         let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
         console.log('cod create stamina:', stamina, useGeneralStamina);
-        if(!useGeneralStamina){
-            return{
-                result: false,
-                data: { stamina },
-                error: 'not enough stamina',
-                txType: StateTransition.CreateCod
-            }
-        }
+        
+        // if(!useGeneralStamina){
+        //     return{
+        //         result: false,
+        //         data: { stamina },
+        //         error: 'not enough stamina',
+        //         txType: StateTransition.CreateCod
+        //     }
+        // }
 
         const time = getTimeStamp();
         let codData = {
@@ -1076,13 +1077,18 @@ export class General{
     checkUserJoinedCod(codId, userInfo){
         let unionId = this.state.unionId;
         let cods = this.codsGlobal.cods;
-        let codItem = cods[codId];
+        let codItem = cods[codId] || {};
 
         let { username } = userInfo;
         username = username.toLowerCase();
+
+
+        console.log('cod checkUserJoinedCod:', unionId, codId, userInfo);
+        console.log('cod checkUserJoinedCod:', codItem);
+
         if(!codItem['creator']){
             return {
-                result: true,
+                result: false,
                 data: codItem,
                 error: 'assembly not exist',
             };
@@ -1090,7 +1096,7 @@ export class General{
 
         if(codItem.uniond !== unionId){
             return {
-                result: true,
+                result: false,
                 data: codItem,
                 error: 'not in same camp',
             };
@@ -1099,21 +1105,23 @@ export class General{
         let members = codItem.members || [];
         let membersObj = {};
         let index = -1;
-        members.forEach(function(member, i){
+        members.forEach(function(member, i, arr){
             membersObj[member.username] = member;
-            index = i;
+            if(member.username === username){
+                index = i;                
+            }
         });
         if(membersObj[username]){
             return {
                 result: true,
+                joinInfo: membersObj[username],
                 data: codItem,
-                index: index,
-                error: 'just allow join once',
+                index: index
             };
         }
         return {
             result: false,
-            joinInfo: membersObj[username] || {},
+            error: 'just allow join once',
             data: codItem
         }
     }
@@ -1129,11 +1137,14 @@ export class General{
         console.log('cod list join:', cods);
 
         let isJoined = this.checkUserJoinedCod(codId, userInfo);
+
+        console.log('cod join isJoined:', isJoined);
+
         if(isJoined.result){
             return {
                 result: isJoined.result,
                 data: isJoined.data,
-                error: isJoined.error,
+                error: 'just allow join once',
                 txType: StateTransition.JoinCod
             }
         }
@@ -1180,10 +1191,10 @@ export class General{
             troops: troops, 
             joinTime: time
         });
-        membersMap[username] = members.length - 1;
+        // membersMap[username] = members.length - 1;
 
         codItem.members = members;
-        codItem.membersMap = membersMap;
+        // codItem.membersMap = membersMap;
         codItem.troopNow = codItem.troopNow + troops;
         codItem.updateTime = time;
 
@@ -1211,9 +1222,12 @@ export class General{
         let codItem = cods[codId];
 
         console.log('cod quit:', unionId, codId, username);
-        console.log('cod list join:', cods);
+        console.log('cod list quit:', cods);
 
         let isJoined = this.checkUserJoinedCod(codId, userInfo);
+
+        console.log('cod isJoined quit:', isJoined, codItem);
+
         if(!isJoined.result){
             return {
                 result: false,
@@ -1244,12 +1258,14 @@ export class General{
                 codGeneralIdIndex = i;
             }
         })
-        if(index >= 0){
+        if(codGeneralIdIndex >= 0){
             codGeneralIds.splice(codGeneralIdIndex, 1);            
         }
         this.state.update({
             codGeneralIds: codGeneralIds
         });
+
+        console.log('cod codGeneralIds quit:', codGeneralIdIndex, ':', codGeneralIds);
         
         let members = codItem.members || [];
         members = members.splice(index, 1);
@@ -1264,6 +1280,9 @@ export class General{
         this.codsGlobal.update({
             cods: cods
         });
+
+        console.log('cod quit codItem:', codItem);
+        console.log('cod list quit:', cods);
 
         return {
             result: true,
