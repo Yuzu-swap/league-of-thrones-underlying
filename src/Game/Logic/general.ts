@@ -1012,15 +1012,16 @@ export class General{
 
     cancelCod(codId){
         let cods = this.codsGlobal.cods;
+        let codItem = cods[codId] || {};
         console.log('cod cancel:', codId);
         console.log('cod list cancel:', cods);
 
         // username = username.toLowerCase();
-        if(!cods[codId]){
+        if(!codItem['creator']){
             return {
                 result: false,
-                data: cods[codId],
-                error: 'codId not exist',
+                data: codItem,
+                error: 'assembly not exist',
                 txType: StateTransition.CancelCod
             }
         }
@@ -1079,11 +1080,11 @@ export class General{
 
         let { username } = userInfo;
         username = username.toLowerCase();
-        if(!codItem){
+        if(!codItem['creator']){
             return {
                 result: true,
                 data: codItem,
-                error: 'not exist',
+                error: 'assembly not exist',
             };
         }
 
