@@ -968,7 +968,7 @@ export class General{
         let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
         console.log('cod create stamina:', stamina, useGeneralStamina);
-        
+
         // if(!useGeneralStamina){
         //     return{
         //         result: false,
@@ -1074,7 +1074,7 @@ export class General{
         }, 10*1000);
     }
 
-    checkUserJoinedCod(codId, userInfo){
+    checkUserCanJoinedCod(codId, userInfo){
         let unionId = this.state.unionId;
         let cods = this.codsGlobal.cods;
         let codItem = cods[codId] || {};
@@ -1089,6 +1089,7 @@ export class General{
         if(!codItem['creator']){
             return {
                 result: false,
+                joined: false,
                 data: codItem,
                 error: 'assembly not exist',
             };
@@ -1097,6 +1098,7 @@ export class General{
         if(codItem.uniond !== unionId){
             return {
                 result: false,
+                joined: false,
                 data: codItem,
                 error: 'not in same camp',
             };
@@ -1113,15 +1115,17 @@ export class General{
         });
         if(membersObj[username]){
             return {
-                result: true,
+                result: false,
+                joined: true,
+                error: 'just allow join once',
                 joinInfo: membersObj[username],
                 data: codItem,
                 index: index
             };
         }
         return {
-            result: false,
-            error: 'just allow join once',
+            result: true,
+            joined: false,
             data: codItem
         }
     }
@@ -1136,15 +1140,15 @@ export class General{
         console.log('cod join:', unionId, codId, userInfo);
         console.log('cod list join:', cods);
 
-        let isJoined = this.checkUserJoinedCod(codId, userInfo);
+        let isCanJoined = this.checkUserCanJoinedCod(codId, userInfo);
 
-        console.log('cod join isJoined:', isJoined);
+        console.log('cod join isJoined:', isCanJoined);
 
-        if(isJoined.result){
+        if(!isCanJoined.result){
             return {
-                result: isJoined.result,
-                data: isJoined.data,
-                error: 'just allow join once',
+                result: false,
+                data: isCanJoined.data,
+                error: isCanJoined.error,
                 txType: StateTransition.JoinCod
             }
         }
@@ -1224,14 +1228,14 @@ export class General{
         console.log('cod quit:', unionId, codId, username);
         console.log('cod list quit:', cods);
 
-        let isJoined = this.checkUserJoinedCod(codId, userInfo);
+        let isCanJoined = this.checkUserCanJoinedCod(codId, userInfo);
 
-        console.log('cod isJoined quit:', isJoined, codItem);
+        console.log('cod isJoined quit:', isCanJoined, codItem);
 
-        if(!isJoined.result){
+        if(!isCanJoined.joined){
             return {
                 result: false,
-                data: isJoined.data,
+                data: isCanJoined.data,
                 error: 'not in assembly',
                 txType: StateTransition.QuitCod
             }
@@ -1246,8 +1250,8 @@ export class General{
             }
         }
 
-        let joinInfo = isJoined.joinInfo;
-        let index = isJoined.index;
+        let joinInfo = isCanJoined.joinInfo;
+        let index = isCanJoined.index;
         let generalId = joinInfo.generalId;
         let troops = joinInfo.troops;
 
@@ -1300,6 +1304,9 @@ export class General{
         let cods = this.codsGlobal.cods;
         let codList = [];
         let unionId = this.state.unionId;
+
+        console.log('cod getCodList codItem:', unionId, cods);
+
         for(var id in cods){
             if(cods[id]['unionId'] === unionId){
                 codList.push(cods[id])
