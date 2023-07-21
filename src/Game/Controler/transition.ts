@@ -712,8 +712,19 @@ export class TransitionHandler {
 
   runCodList(){
     let gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0);
-    let codList = gStates.codsGlobal.cods;
+    let cods = gStates.codsGlobal.cods;
+    let codList = [];
+    let codIds = [];
+    for(let codId in cods){
+      if(cods[codId]['creator']){
+        codList.push(cods[codId]);
+        codIds.push(codId);
+      }
+    }
+
+    console.log('cod runList ids:', codList.length, codIds);
     console.log('cod runList:', codList);
+
     codList.forEach(function(codItem){
       let username = codItem.creator;
       let logic : LogicEssential = this.genLogic(username);
