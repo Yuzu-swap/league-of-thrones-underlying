@@ -719,17 +719,18 @@ export class TransitionHandler {
       let logic : LogicEssential = this.genLogic(username);
 
       let { codId, createTime, lastTime, troopTotal, troopNow, members } = codItem;
+      console.log('cod runList item:', username, codId);
 
       let timeNow = getTimeStamp();
       let isTimeout = timeNow >= createTime + lastTime;
 
       if(isTimeout && members.length === 1){
-        console.log('cod cancel runList:', codId);
+        console.log('cod runList cancel:', codId);
         logic.general.cancelCod(codId, username);
       }
 
       if((isTimeout && members.length > 1) || troopNow >= troopTotal){
-        console.log('cod attack runList:', codId);
+        console.log('cod runList attack:', codId);
         this.startAttackCod(codItem);
       }
     });
