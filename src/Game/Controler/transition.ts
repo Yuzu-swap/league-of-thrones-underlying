@@ -659,6 +659,13 @@ export class TransitionHandler {
     }
 
     const codDetail = logic.general.getCodDetail(codId);
+    this.membersQuitCod(codDetail);
+    return logic.general.cancelCod(codId, username);
+  }
+
+  membersQuitCod(codDetail: any){
+    let _this = this;
+    const codId = codDetail.codId;
     const members = codDetail.members || [];
     members.forEach(function(member){
       let username = member['username'];
@@ -666,7 +673,6 @@ export class TransitionHandler {
       let type = 'byCancel';
       logicPlayer.general.quitCod(codId, { username, type });
     });
-    return logic.general.cancelCod(codId, username);
   }
   
   onJoinCod(args: any) {
@@ -684,6 +690,49 @@ export class TransitionHandler {
 
     const logic : LogicEssential = this.genLogic(username)
     return logic.general.quitCod(codId, { username });
+  }
+
+  startAttackCod(codItem){
+    //1. attackBlock
+    //2. +trooops to hospital
+    //3. -troops to resource
+    //4. battle record
+
+    let username = codItem.creator;
+    let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
+    let { x_id, y_id } = blockInfo;
+
+    const logic : LogicEssential = this.genLogic(username);
+
+    let re = logic.map.attackBlock(x_id, y_id, generalId, troopNow);
+    console.log('cod start attack:', codId, members, ', result:', re);
+
+    logic.general.endCod(codId);
+  }
+
+  runCodList(){
+    let gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0);
+    let codList = gStates.codsGlobal.cods;
+    console.log('cod runList:', codList);
+    codList.forEach(function(codItem){
+      let username = codItem.creator;
+      let logic : LogicEssential = this.genLogic(username);
+
+      let { codId, createTime, lastTime, troopTotal, troopNow, members } = codItem;
+
+      let timeNow = getTimeStamp();
+      let isTimeout = timeNow >= createTime + lastTime;
+
+      if(isTimeout && members.length === 1){
+        console.log('cod cancel runList:', codId);
+        logic.general.cancelCod(codId, username);
+      }
+
+      if((isTimeout && members.length > 1) || troopNow >= troopTotal){
+        console.log('cod attack runList:', codId);
+        this.startAttackCod(codItem);
+      }
+    });
   }
 
   onAttackBlock(args: AttackBlockArgs){
@@ -708,7 +757,17 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId);
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, function(){
+      const codId = 'block_' + args.x_id + '_' + args.y_id;
+      const codDetail = logic.general.getCodDetail(codId);
+      const creator = codDetail.creator;
+      const logicCreator : LogicEssential = this.genLogic(creator, args.x_id, args.y_id, gStates);
+
+      this.membersQuitCod(codDetail);
+      logicCreator.general.cancelCod(codId, creator);
+
+      console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
+    });
     console.log('attackBlocksAround result:', re);
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
@@ -1250,6 +1309,8 @@ export class TransitionHandler {
       }
     }
     console.log("sendActivity reward over all:", gLogic.activity.state.haveSendReward)
+
+    this.runCodList();
 
     return {
       txType: StateTransition.RegularTask,

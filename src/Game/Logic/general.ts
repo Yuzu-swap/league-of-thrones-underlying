@@ -949,7 +949,7 @@ export class General{
             return {
                 result: false,
                 data: blockInfo,
-                error: 'only one assembly in one block',
+                error: 'only one assembly in each block',
                 txType: StateTransition.CreateCod
             }
         }
@@ -978,14 +978,14 @@ export class General{
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
         console.log('cod create stamina:', stamina, useGeneralStamina);
 
-        // if(!useGeneralStamina){
-        //     return{
-        //         result: false,
-        //         data: { stamina },
-        //         error: 'not enough stamina',
-        //         txType: StateTransition.CreateCod
-        //     }
-        // }
+        if(!useGeneralStamina){
+            return{
+                result: false,
+                data: { stamina },
+                error: 'not enough stamina',
+                txType: StateTransition.CreateCod
+            }
+        }
 
         const time = getTimeStamp();
         let codData = {
@@ -993,9 +993,10 @@ export class General{
           creator : username,
           createTime: time,
           unionId: unionId,
-          troopTotal: 9999, 
+          troopTotal: 200, 
           troopNow: 0,
-          lastTime: 3600,
+          lastTime: 60,
+          generalId: generalId,
           members: [],
           membersMap: {},
           updateTime: -1,
@@ -1050,7 +1051,7 @@ export class General{
             }
         }
 
-        // todo, members.quitCod in transation
+        //notice: members.quitCod in transation
 
         let res = this.endCod(codId);
 
@@ -1075,24 +1076,6 @@ export class General{
         return {
             codId: codId
         };
-    }
-    battleCod(codItem){
-
-    }
-    codRecords(){
-
-    }
-    runCod(){
-        let t = setInterval(function(){
-            let cods = this.codsGlobal.cods;
-            cods.forEach(function(codItem){
-                let { createTime, lastTime, troopTotal, troopNow } = codItem;
-                const time = getTimeStamp();
-                if(time <= createTime + lastTime || troopTotal <= troopNow){
-                    this.battleCod(codItem);
-                }
-            });
-        }, 10*1000);
     }
 
     checkUserCanJoinedCod(codId, userInfo){

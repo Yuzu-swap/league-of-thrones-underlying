@@ -231,7 +231,7 @@ export class Map{
         return blockState.belong.updateTime + this.parameter.occupy_block_protect_times - time
     }
 
-    attackBlocksAround(x_id: number, y_id: number, generalId: number){
+    attackBlocksAround(x_id: number, y_id: number, generalId: number, onBelongChange: () => void){
         if(!this.checkIfCanAttack(x_id, y_id)){
             return {
                 result: false,
@@ -284,7 +284,7 @@ export class Map{
         
         let durabilityReduce = 0
         if(remainTroop > 0){
-            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId)      
+            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId, onBelongChange)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
                 lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
@@ -543,7 +543,7 @@ export class Map{
         }
     }
 
-    reduceDurability( x_id: number, y_id: number, remainTroop: number , unionId: number ){
+    reduceDurability( x_id: number, y_id: number, remainTroop: number , unionId: number, onBelongChange: () => void){
         let time = parseInt(new Date().getTime() / 1000 + '')
         let blockState = this.getBlockState(x_id, y_id)
         let row = this.getMapGDS(x_id, y_id)
@@ -562,6 +562,7 @@ export class Map{
                 }
             )
             this.changeBelongInfo(x_id, y_id, unionId, time + this.parameter.occupy_block_protect_times)
+            onBelongChange && onBelongChange();
             update = durability
         }
         else{
