@@ -1100,7 +1100,7 @@ export class General{
             };
         }
 
-        if((codItem.uniond || codItem.unionId) !== unionId){
+        if(codItem.unionId !== unionId){
             return {
                 result: false,
                 joined: false,
@@ -1319,14 +1319,14 @@ export class General{
         let unionId = this.state.unionId;
 
         for(var id in cods){
-            let _unionId = cods[id]['unionId'] || cods[id]['uniond'];
+            let _unionId = cods[id]['unionId'];
             // console.log('cod getCodList unionId:', _unionId, unionId, cods[id])
             if(_unionId === unionId){
                 codList.push(cods[id])
             }
         }
 
-        // console.log('cod getCodList:', unionId, cods, codList);
+        console.log('cod getCodList:', { unionId }, cods, codList);
         return codList;
         // callback(codList);
     }

@@ -637,7 +637,8 @@ export class TransitionHandler {
     let blockInfo = args.blockInfo;
     let generalId = args.generalId;
 
-    const logic : LogicEssential = this.genLogic(username)
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
+    const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id, gStates);
     let re = logic.general.createCod(blockInfo, { username, generalId });
     console.log('cod onCreateCod:', re);
     return re;
@@ -703,7 +704,9 @@ export class TransitionHandler {
 
     console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
 
-    let logic : LogicEssential = _this.genLogic(username);
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
+    const logic : LogicEssential = _this.genLogic(username, blockInfo.x_id, blockInfo.y_id, gStates);
+
     let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
       //belong change
     });
