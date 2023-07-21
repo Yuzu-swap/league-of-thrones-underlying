@@ -711,7 +711,8 @@ export class TransitionHandler {
   }
 
   runCodList(){
-    let gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0);
+    let _this = this;
+    let gStates: GlobalStateEssential = _this.genGlobalStateEssential(0, 0);
     let cods = gStates.codsGlobal.cods;
     let codList = [];
     let codIds = [];
@@ -727,7 +728,7 @@ export class TransitionHandler {
 
     codList.forEach(function(codItem){
       let username = codItem.creator;
-      let logic : LogicEssential = this.genLogic(username);
+      let logic : LogicEssential = _this.genLogic(username);
 
       let { codId, createTime, lastTime, troopTotal, troopNow, members } = codItem;
       console.log('cod runList item:', username, codId);
@@ -742,7 +743,7 @@ export class TransitionHandler {
 
       if((isTimeout && members.length > 1) || troopNow >= troopTotal){
         console.log('cod runList attack:', codId);
-        this.startAttackCod(codItem);
+        _this.startAttackCod(codItem);
       }
     });
   }
