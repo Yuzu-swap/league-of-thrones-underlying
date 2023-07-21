@@ -231,7 +231,7 @@ export class Map{
         return blockState.belong.updateTime + this.parameter.occupy_block_protect_times - time
     }
 
-    attackBlocksAround(x_id: number, y_id: number, generalId: number, onBelongChange: () => void){
+    attackBlocksAround(x_id: number, y_id: number, generalId: number, remainTroop: number, onBelongChange: () => void){
         if(!this.checkIfCanAttack(x_id, y_id)){
             return {
                 result: false,
@@ -254,7 +254,7 @@ export class Map{
         const unionId = centerBlockState.belong.unionId
         let records = []
         let cancelList = []
-        let remainTroop = -1
+        // let remainTroop = -1
         let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
         if(re['error']){
             return re

@@ -697,16 +697,16 @@ export class TransitionHandler {
     //2. +trooops to hospital
     //3. -troops to resource
     //4. battle record
-
+    let _this = this;
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
     let { x_id, y_id } = blockInfo;
 
     const logic : LogicEssential = this.genLogic(username);
-
-    let re = logic.map.attackBlock(x_id, y_id, generalId, troopNow);
+    let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
+      //belong change
+    });
     console.log('cod start attack:', codId, members, ', result:', re);
-
     logic.general.endCod(codId);
   }
 
@@ -737,7 +737,8 @@ export class TransitionHandler {
       let isTimeout = timeNow >= createTime + lastTime;
 
       if(isTimeout && members.length === 1){
-        console.log('cod runList cancel:', codId);
+        console.log('cod runList cancel:', codId, ' ' ,username);
+        _this.membersQuitCod(codItem);
         logic.general.cancelCod(codId, username);
       }
 
@@ -770,7 +771,7 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, function(){
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, -1, function(){
       const codId = 'block_' + args.x_id + '_' + args.y_id;
       const codDetail = logic.general.getCodDetail(codId);
       const creator = codDetail.creator;
