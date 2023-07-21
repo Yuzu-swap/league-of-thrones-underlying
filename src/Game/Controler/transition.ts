@@ -700,13 +700,14 @@ export class TransitionHandler {
     let _this = this;
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
-    let { x_id, y_id } = blockInfo;
 
-    const logic : LogicEssential = this.genLogic(username);
+    console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
+
+    let logic : LogicEssential = _this.genLogic(username);
     let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
       //belong change
     });
-    console.log('cod start attack:', codId, members, ', result:', re);
+    console.log('cod runList attack start 2:', codId, members, ', result:', re);
     logic.general.endCod(codId);
   }
 
