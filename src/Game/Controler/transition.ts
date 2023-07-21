@@ -654,7 +654,7 @@ export class TransitionHandler {
       return {
         result: false,
         error: 'assembly not exist or current user not creator',
-        txType: StateTransition.CreateCod
+        txType: StateTransition.CancelCod
       };
     }
 
