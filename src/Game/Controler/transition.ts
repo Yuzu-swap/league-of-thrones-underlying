@@ -703,21 +703,21 @@ export class TransitionHandler {
 
     console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
 
-    let args = {
-      from: username,
-      generalId: generalId,
-      x_id: blockInfo.x_id,
-      y_id: blockInfo.y_id
-    };
-    let re = this.onAttackBlock(args, troopNow);
-    console.log('cod runList attack start 2:', codId, members, ', result:', re);
+    // let args = {
+    //   from: username,
+    //   generalId: generalId,
+    //   x_id: blockInfo.x_id,
+    //   y_id: blockInfo.y_id
+    // };
+    // let re = this.onAttackBlock(args, troopNow);
+    // console.log('cod runList attack start 2:', codId, members, ', result:', re);
     // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
 
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
     //   //belong change
     // });
-    const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id);
-    logic.general.endCod(codId);
+    // const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id);
+    // logic.general.endCod(codId);
   }
 
   runCodList(){
@@ -760,11 +760,11 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
-    console.log('attackBlocksAround args 1:', args);
+    console.log('attackBlocksAround args 1:', args, remainTroops);
     let _this = this;
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
-    console.log('attackBlocksAround args 2:', gStates, logic);
+    // console.log('attackBlocksAround args 2:', gStates, logic);
 
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
@@ -788,10 +788,10 @@ export class TransitionHandler {
     }
     console.log('attackBlocksAround args 4:', remainTroops);
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
-      const codId = 'block_' + args.x_id + '_' + args.y_id;
-      const codDetail = logic.general.getCodDetail(codId);
-      const creator = codDetail.creator;
-      const logicCreator : LogicEssential = _this.genLogic(creator);
+      let codId = 'block_' + args.x_id + '_' + args.y_id;
+      let codDetail = logic.general.getCodDetail(codId);
+      let creator = codDetail.creator;
+      let logicCreator : LogicEssential = _this.genLogic(creator);
 
       _this.membersQuitCod(codDetail);
       logicCreator.general.cancelCod(codId, creator);
