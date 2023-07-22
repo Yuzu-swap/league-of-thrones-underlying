@@ -155,7 +155,7 @@ export class TransitionHandler {
           re = this.onBattle(arg as BattleArgs)
           break
         case StateTransition.AttackBlock:
-          re = this.onAttackBlock(arg as AttackBlockArgs)
+          re = this.onAttackBlock(arg as AttackBlockArgs, -1)
           break
         case StateTransition.DefenseBlock:
           re = this.onDefenseBlock(arg as AttackBlockArgs)
@@ -698,18 +698,24 @@ export class TransitionHandler {
     //2. +trooops to hospital
     //3. -troops to resource
     //4. battle record
-    let _this = this;
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
 
     console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
 
-    const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
-    const logic : LogicEssential = _this.genLogic(username, blockInfo.x_id, blockInfo.y_id, gStates);
+    let args = {
+      from: username,
+      generalId: generalId,
+      x_id: blockInfo.x_id,
+      y_id: blockInfo.y_id
+    };
+    let re = this.onAttackBlock(args, troopNow);
+    // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
+    const logic : LogicEssential = this.genLogic(username);
 
-    let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
-      //belong change
-    });
+    // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
+    //   //belong change
+    // });
     console.log('cod runList attack start 2:', codId, members, ', result:', re);
     logic.general.endCod(codId);
   }
@@ -753,7 +759,7 @@ export class TransitionHandler {
     });
   }
 
-  onAttackBlock(args: AttackBlockArgs){
+  onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     console.log('attackBlocksAround args:', args);
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
@@ -775,7 +781,8 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, -1, function(){
+    remainTroops = remainTroops || -1;
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function(){
       const codId = 'block_' + args.x_id + '_' + args.y_id;
       const codDetail = logic.general.getCodDetail(codId);
       const creator = codDetail.creator;
