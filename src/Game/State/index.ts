@@ -81,7 +81,7 @@ export interface IGeneralState extends IState{
   lastBattle: number
   userScores: {}
   cods: {}
-  codGeneralIds: []
+  codGeneralIds: {}
 }
 
 export interface Cods extends IState{

@@ -1194,8 +1194,8 @@ export class General{
         }
         this.city.useTroop(troops)
 
-        let codGeneralIds:any = this.state.codGeneralIds || [];
-        codGeneralIds.push(generalId);
+        let codGeneralIds:any = this.state.codGeneralIds || {};
+        codGeneralIds[generalId] = codItem;
         this.state.update({
             codGeneralIds: codGeneralIds
         });
@@ -1270,20 +1270,12 @@ export class General{
         let troops = joinInfo.troops;
 
         let codGeneralIds = this.state.codGeneralIds;
-        let codGeneralIdIndex = -1;
-        codGeneralIds.forEach(function(id, i){
-            if(id === generalId){
-                codGeneralIdIndex = i;
-            }
-        })
-        if(codGeneralIdIndex >= 0){
-            codGeneralIds.splice(codGeneralIdIndex, 1);            
-        }
+        delete codGeneralIds[generalId];
         this.state.update({
             codGeneralIds: codGeneralIds
         });
 
-        console.log('cod quit codGeneralIds:', codGeneralIdIndex, ':', codGeneralIds);
+        console.log('cod quit codGeneralIds:', codGeneralIds);
 
         let members = codItem.members;
         let members2 = members.splice(index, 1);
@@ -1312,7 +1304,7 @@ export class General{
     }
 
     getCodGeneralIds(){
-        let codGeneralIds:any = this.state.codGeneralIds || [];
+        let codGeneralIds:any = this.state.codGeneralIds || {};
         return codGeneralIds;
     }
 
@@ -1378,10 +1370,10 @@ export class General{
                 return false
             }
         }
-        for(let codGeneralId of this.state.codGeneralIds){
-            if(codGeneralId == generalId){
-                return false
-            }
+
+        let codGeneralIds = this.state.codGeneralIds || {};
+        if(codGeneralIds[codGeneralId]){
+            return false;
         }
         return true
     }
