@@ -960,9 +960,9 @@ export class GeneralComponent implements IGeneralComponent {
   getCodGeneralIds() {
     return this.general.getCodGeneralIds();
   }
-  getCodList() {
-    let codsGlobal = this.mediator.queryState({ id: `${StateName.Cods}` }, {}, null) as any;
-    console.log(codsGlobal);
+  async getCodList() {
+    let codsGlobal = (await this.mediator.queryState({ id: `${StateName.Cods}` }, {}, null)) as any
+    console.log('cod codsGlobal getCodList:', codsGlobal);
     return this.general.getCodList();
   }
   createCod(blockInfo:any, generalId: number, callback: (result: any) => void ) {

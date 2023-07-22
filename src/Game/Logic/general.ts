@@ -954,25 +954,26 @@ export class General{
             }
         }
 
-        // const generalInfo = this.getGeneralState(generalId)
-        // if(!(this.checkIdAble(generalId) && generalInfo.able)){
-        //     return {
-        //         result: false,
-        //         txType: StateTransition.CreateCod,
-        //         error: 'generalid-error'
-        //     }
-        // }
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                txType: StateTransition.CreateCod,
+                error: 'generalid-error'
+            }
+        }
 
-        // console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', this.map.checkIfCanAttack( x_id, y_id ));
+        let ifCanAttack = this.map.checkIfCanAttack( x_id, y_id );
+        console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', ifCanAttack);
 
-        // if(!this.map.checkIfCanAttack( x_id, y_id )){
-        //     return {
-        //         result: false,
-        //         data: blockInfo,
-        //         error: 'block cannot be attack',
-        //         txType: StateTransition.CreateCod
-        //     }
-        // }
+        if(!ifCanAttack){
+            return {
+                result: false,
+                data: blockInfo,
+                error: 'block cannot be attack',
+                txType: StateTransition.CreateCod
+            }
+        }
 
         let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
@@ -1067,6 +1068,8 @@ export class General{
     endCod(codId){
         let cods = this.codsGlobal.cods;
         cods[codId] = {};
+        delete cods[codId];
+
         this.codsGlobal.update({
             cods: cods
         });
@@ -1320,7 +1323,6 @@ export class General{
 
         for(var id in cods){
             let _unionId = cods[id]['unionId'];
-            // console.log('cod getCodList unionId:', _unionId, unionId, cods[id])
             if(_unionId === unionId){
                 codList.push(cods[id])
             }
