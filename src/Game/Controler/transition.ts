@@ -155,7 +155,7 @@ export class TransitionHandler {
           re = this.onBattle(arg as BattleArgs)
           break
         case StateTransition.AttackBlock:
-          re = this.onAttackBlock(arg as AttackBlockArgs)
+          re = this.onAttackBlock(arg as AttackBlockArgs, -1)
           break
         case StateTransition.DefenseBlock:
           re = this.onDefenseBlock(arg as AttackBlockArgs)
@@ -709,8 +709,8 @@ export class TransitionHandler {
       x_id: blockInfo.x_id,
       y_id: blockInfo.y_id
     };
-    // let re = this.onAttackBlock(args, troopNow);
-    // console.log('cod runList attack start 2:', codId, members, ', result:', re);
+    let re = this.onAttackBlock(args, troopNow);
+    console.log('cod runList attack start 2:', codId, members, ', result:', re);
     // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
 
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
@@ -759,9 +759,9 @@ export class TransitionHandler {
     });
   }
 
-  onAttackBlock(args: AttackBlockArgs){
+  onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     console.log('attackBlocksAround args 1:', args);
-
+    let _this = this;
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     console.log('attackBlocksAround args 2:', gStates, logic);
@@ -786,15 +786,14 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    let remainTroops = -1;
     console.log('attackBlocksAround args 4:', remainTroops);
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function(){
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
       const codId = 'block_' + args.x_id + '_' + args.y_id;
       const codDetail = logic.general.getCodDetail(codId);
       const creator = codDetail.creator;
-      const logicCreator : LogicEssential = this.genLogic(creator, args.x_id, args.y_id, gStates);
+      const logicCreator : LogicEssential = _this.genLogic(creator);
 
-      this.membersQuitCod(codDetail);
+      _this.membersQuitCod(codDetail);
       logicCreator.general.cancelCod(codId, creator);
 
       console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
