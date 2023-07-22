@@ -273,7 +273,6 @@ export class TransitionHandler {
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
-    console.log('getBlockState center:', { x_id, y_id }, center);
     if(!center){
       return re
     }
@@ -717,7 +716,7 @@ export class TransitionHandler {
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
     //   //belong change
     // });
-    const logic : LogicEssential = this.genLogic(username);
+    const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id);
     logic.general.endCod(codId);
   }
 
@@ -762,7 +761,7 @@ export class TransitionHandler {
 
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     console.log('attackBlocksAround args 1:', args);
-    
+
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
     console.log('attackBlocksAround args 2:', gStates, logic);
