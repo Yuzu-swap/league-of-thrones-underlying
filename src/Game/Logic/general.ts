@@ -963,17 +963,17 @@ export class General{
             }
         }
 
-        let ifCanAttack = this.map.checkIfCanAttack( x_id, y_id );
-        console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', ifCanAttack);
+        // let ifCanAttack = this.map.checkIfCanAttack( x_id, y_id );
+        // console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', ifCanAttack);
 
-        if(!ifCanAttack){
-            return {
-                result: false,
-                data: blockInfo,
-                error: 'block cannot be attack',
-                txType: StateTransition.CreateCod
-            }
-        }
+        // if(!ifCanAttack){
+        //     return {
+        //         result: false,
+        //         data: blockInfo,
+        //         error: 'block cannot be attack',
+        //         txType: StateTransition.CreateCod
+        //     }
+        // }
 
         let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
