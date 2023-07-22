@@ -273,6 +273,7 @@ export class TransitionHandler {
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
+    console.log('getBlockState center:', { x_id, y_id }, center);
     if(!center){
       return re
     }
@@ -710,13 +711,13 @@ export class TransitionHandler {
       y_id: blockInfo.y_id
     };
     let re = this.onAttackBlock(args, troopNow);
+    console.log('cod runList attack start 2:', codId, members, ', result:', re);
     // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
-    const logic : LogicEssential = this.genLogic(username);
 
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
     //   //belong change
     // });
-    console.log('cod runList attack start 2:', codId, members, ', result:', re);
+    const logic : LogicEssential = this.genLogic(username);
     logic.general.endCod(codId);
   }
 
@@ -760,9 +761,12 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
-    console.log('attackBlocksAround args:', args);
+    console.log('attackBlocksAround args 1:', args);
+    
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
+    console.log('attackBlocksAround args 2:', gStates, logic);
+
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
@@ -773,7 +777,9 @@ export class TransitionHandler {
         error: 'block-is-too-far'
       }
     }
+
     const blockGds = logic.map.mapConfig.get(args.x_id, args.y_id)
+    console.log('attackBlocksAround args 3:', blockGds);
     if(blockGds.type == 3){
       return {
         result: false,
@@ -782,6 +788,7 @@ export class TransitionHandler {
       }
     }
     remainTroops = remainTroops || -1;
+    console.log('attackBlocksAround args 4:', remainTroops);
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function(){
       const codId = 'block_' + args.x_id + '_' + args.y_id;
       const codDetail = logic.general.getCodDetail(codId);
