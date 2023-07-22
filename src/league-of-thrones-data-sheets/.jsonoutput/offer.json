@@ -3,7 +3,7 @@
     {
         "offer_trigger_value": 10000,
         "offer_trigger_2": 1,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 2,
         "offer_reward_troops": 1000,
         "offer_reward_sliver": 400000,
         "offer_order": 1,
@@ -19,7 +19,7 @@
     {
         "offer_trigger_value": 10,
         "offer_trigger_2": 2,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 3,
         "offer_reward_troops": 2000,
         "offer_reward_sliver": 600000,
         "offer_order": 2,
@@ -35,7 +35,7 @@
     {
         "offer_trigger_value": 300,
         "offer_trigger_2": 3,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 4,
         "offer_reward_troops": 3000,
         "offer_reward_sliver": 800000,
         "offer_order": 3,
@@ -51,7 +51,7 @@
     {
         "offer_trigger_value": 20000,
         "offer_trigger_2": 1,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 5,
         "offer_reward_troops": 4000,
         "offer_reward_sliver": 1000000,
         "offer_order": 4,
@@ -67,7 +67,7 @@
     {
         "offer_trigger_value": 600,
         "offer_trigger_2": 2,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 6,
         "offer_reward_troops": 5000,
         "offer_reward_sliver": 1300000,
         "offer_order": 5,
@@ -83,7 +83,7 @@
     {
         "offer_trigger_value": 30,
         "offer_trigger_2": 3,
-        "offer_trigger_1": 1,
+        "offer_trigger_1": 7,
         "offer_reward_troops": 6000,
         "offer_reward_sliver": 1500000,
         "offer_order": 6,

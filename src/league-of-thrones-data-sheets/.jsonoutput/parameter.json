@@ -72,7 +72,7 @@
         "name":"healing_troops_need_silver"
     },
     "healing_troops_need_gold":{
-        "value":"0.1",
+        "value":"0.3",
         "name":"healing_troops_need_gold"
     },
     "general_troops_coefficient":{
@@ -130,5 +130,13 @@
     "attack_player_need_stamina":{
         "value":"2",
         "name":"attack_player_need_stamina"
+    },
+    "assembly_need_stamina":{
+        "value":"2",
+        "name":"assembly_need_stamina"
+    },
+    "assemble_last_times":{
+        "value":"3600",
+        "name":"assemble_last_times"
     }
 }

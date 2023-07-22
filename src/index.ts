@@ -54,7 +54,8 @@ export const staminaTimes = {
   attackPlots: parameterGDS.attack_plots_need_stamina.value,
   defensePlots: parameterGDS.defense_plots_need_stamina.value,
   gather: parameterGDS.gather_need_stamina.value,
-  spy: parameterGDS.spy_need_stamina.value
+  spy: parameterGDS.spy_need_stamina.value,
+  assembly: parameterGDS.assembly_need_stamina.value
 };
 
 export function getVipSilverBuff(userScore: number){

@@ -1,0 +1,64 @@
+{
+   "Config" : [
+    {
+        "need_troop": 0,
+        "need_silver": 1000,
+        "level": 1,
+        "maintain_need_troop": 2000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 7000,
+        "level": 2,
+        "maintain_need_troop": 4000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 19000,
+        "level": 3,
+        "maintain_need_troop": 6000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 37000,
+        "level": 4,
+        "maintain_need_troop": 8000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 61000,
+        "level": 5,
+        "maintain_need_troop": 10000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 91000,
+        "level": 6,
+        "maintain_need_troop": 12000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 127000,
+        "level": 7,
+        "maintain_need_troop": 14000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 169000,
+        "level": 8,
+        "maintain_need_troop": 16000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 217000,
+        "level": 9,
+        "maintain_need_troop": 18000
+    },
+    {
+        "need_troop": 0,
+        "need_silver": 271000,
+        "level": 10,
+        "maintain_need_troop": 20000
+    }
+    ]
+}

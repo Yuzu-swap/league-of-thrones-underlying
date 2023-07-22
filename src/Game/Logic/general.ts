@@ -975,7 +975,7 @@ export class General{
         //     }
         // }
 
-        let stamina = this.config.parameter.defense_plots_need_stamina; //assembly_need_stamina
+        let stamina = this.config.parameter.assembly_need_stamina; 
         let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
         console.log('cod create stamina:', stamina, useGeneralStamina);
 
@@ -989,6 +989,7 @@ export class General{
         }
 
         const time = getTimeStamp();
+        const lastTime = this.config.parameter.assemble_last_times;
         let codData = {
           codId: codId,
           creator : username,
@@ -996,7 +997,7 @@ export class General{
           unionId: unionId,
           troopTotal: 200, 
           troopNow: 0,
-          lastTime: 60,
+          lastTime: 300,
           generalId: generalId,
           members: [],
           membersMap: {},
@@ -1372,7 +1373,7 @@ export class General{
         }
 
         let codGeneralIds = this.state.codGeneralIds || {};
-        if(codGeneralIds[codGeneralId]){
+        if(codGeneralIds[generalId]){
             return false;
         }
         return true
