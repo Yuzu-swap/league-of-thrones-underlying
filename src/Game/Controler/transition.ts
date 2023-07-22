@@ -155,7 +155,7 @@ export class TransitionHandler {
           re = this.onBattle(arg as BattleArgs)
           break
         case StateTransition.AttackBlock:
-          re = this.onAttackBlock(arg as AttackBlockArgs, -1)
+          re = this.onAttackBlock(arg as AttackBlockArgs)
           break
         case StateTransition.DefenseBlock:
           re = this.onDefenseBlock(arg as AttackBlockArgs)
@@ -759,7 +759,7 @@ export class TransitionHandler {
     });
   }
 
-  onAttackBlock(args: AttackBlockArgs, remainTroops: number){
+  onAttackBlock(args: AttackBlockArgs){
     console.log('attackBlocksAround args 1:', args);
 
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
@@ -786,7 +786,7 @@ export class TransitionHandler {
         error: 'cant-attack-init-block'
       }
     }
-    remainTroops = remainTroops || -1;
+    let remainTroops = -1;
     console.log('attackBlocksAround args 4:', remainTroops);
     let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function(){
       const codId = 'block_' + args.x_id + '_' + args.y_id;
