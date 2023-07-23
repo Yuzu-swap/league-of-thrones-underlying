@@ -4,7 +4,7 @@ import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, Resou
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
-import { GeneralConfigFromGDS , Parameter, VipConfig, vipConfigFromGDS} from '../DataConfig';
+import { GeneralConfigFromGDS , CityConfigFromGDS, Parameter, VipConfig, vipConfigFromGDS} from '../DataConfig';
 import { IBoost } from './boost';
 import { copyObj, State } from '../../Core/state';
 import { getRandom, getTimeStamp, parseStateId } from '../Utils';
@@ -91,6 +91,7 @@ export class General{
     state: IGeneralState
     codsGlobal: any
     config: GeneralConfig
+    cityConfig: any
     mapConfig: MapConfig
     vipConfig: VipConfig
     map: Map
@@ -100,6 +101,7 @@ export class General{
         this.state = state;
         this.codsGlobal = codsGlobal;
         this.config = GeneralConfigFromGDS;
+        this.cityConfig = CityConfigFromGDS;
         this.vipConfig = vipConfigFromGDS;
         this.mapConfig = MapConfigFromGDS
         this.city = city
@@ -988,8 +990,12 @@ export class General{
             }
         }
 
+        const assemble_last_times = this.config.parameter.assemble_last_times;
+        let assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
+        const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
+        console.log('cod create assembly gds', assemble_last_times, assemblyLevel, assemblyTroops);
+
         const time = getTimeStamp();
-        const lastTime = this.config.parameter.assemble_last_times;
         let codData = {
           codId: codId,
           creator : username,
@@ -998,6 +1004,7 @@ export class General{
           troopTotal: 200, 
           troopNow: 0,
           lastTime: 300,
+          assemble_last_times: assemble_last_times,
           generalId: generalId,
           members: [],
           membersMap: {},

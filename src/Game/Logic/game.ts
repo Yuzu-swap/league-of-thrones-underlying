@@ -13,6 +13,7 @@ import {
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
   FacilityHospitalGdsRow,
+  FacilityAssemblyGdsRow,
   CityConfigFromGDS,
   FacilityLimit,
   RechargeConfigs,
@@ -41,6 +42,7 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>;
     [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>;
     [CityFacility.Hospital]: ConfigContainer<FacilityHospitalGdsRow>;
+    [CityFacility.Assembly]: ConfigContainer<FacilityAssemblyGdsRow>;
   };
   limit: {
     [CityFacility.Fortress]: FacilityLimit;
@@ -53,6 +55,7 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
     [CityFacility.Hospital]: FacilityLimit;
+    [CityFacility.Assembly]: FacilityLimit;
   };
 }
 

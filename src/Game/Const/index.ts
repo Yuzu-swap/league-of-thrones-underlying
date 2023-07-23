@@ -25,7 +25,8 @@ export enum CityFacility {
 	ArcherCamp = 'archercamp',
 	TrainingCenter = 'trainingcenter',
 	Home = 'home',
-	Hospital = 'hospital'
+	Hospital = 'hospital',
+	Assembly = 'assembly'
 }
 
 export enum ResouceType {

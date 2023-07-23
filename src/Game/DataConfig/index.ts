@@ -8,6 +8,7 @@ import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
 import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
 import hospitalGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/hospital.json');
+import assemblyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/assembly.json');
 
 import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
@@ -228,6 +229,14 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 export interface FacilityHospitalGdsRow extends FacilityGdsRow{
 }
 
+export interface FacilityAssemblyGdsRow{
+	need_troop: number
+	need_silver: number
+	maintain_need_troop: number
+	assemble_troops: number
+	level: number
+}
+
 export interface GeneralGdsRow{
 	qualification_troop_recruit: number
 	qualification_silver_product: number
@@ -280,6 +289,9 @@ export var CityConfigFromGDS = {
 	  ),
 	  [CityFacility.Hospital]: new ConfigContainer<FacilityHospitalGdsRow>(
 		hospitalGDS.Config
+	  ),
+	  [CityFacility.Assembly]: new ConfigContainer<FacilityAssemblyGdsRow>(
+		assemblyGDS.Config
 	  )
 	},
 	limit: {
@@ -300,7 +312,8 @@ export var CityConfigFromGDS = {
 		buildingCount.trainingcenter
 	  ),
 	  [CityFacility.Home]: new FacilityLimit(buildingCount.home),
-	  [CityFacility.Hospital]: new FacilityLimit(buildingCount.hospital)
+	  [CityFacility.Hospital]: new FacilityLimit(buildingCount.hospital),
+	  [CityFacility.Assembly]: new FacilityLimit(buildingCount.assembly)
 	},
   };
 
