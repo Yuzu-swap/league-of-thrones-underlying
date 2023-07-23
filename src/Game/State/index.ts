@@ -81,11 +81,8 @@ export interface IGeneralState extends IState{
   lastBattle: number
   userScores: {}
   cods: {}
+  codGeneralIdObj: {}
   codGeneralIds: {}
-}
-
-export interface Cods extends IState{
-  cods: {}
 }
 
 export interface IDefenderInfoState extends IState{

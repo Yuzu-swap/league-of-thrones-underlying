@@ -355,7 +355,7 @@ export class TransitionHandler {
     ) 
     const codsGlobal = this.stateManger.get(
       {
-        id: `${StateName.Cods}`
+        id: `${StateName.GlobalCod}`
       }
     ) 
     const gStates : GlobalStateEssential = {
@@ -635,16 +635,6 @@ export class TransitionHandler {
     return re;
   }
 
-  syncCodsToToken(){
-    let gStates: GlobalStateEssential = this.genGlobalStateEssential(0, 0);
-    let cods = gStates.codsGlobal.cods;
-
-    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    gLogic.map.tokenPriceInfo.update({
-      cods: cods
-    });
-  }
-
   onCreateCod(args: any) {
     let username = args.from;
     let blockInfo = args.blockInfo;
@@ -654,7 +644,6 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id, gStates);
     let re = logic.general.createCod(blockInfo, { username, generalId });
     console.log('cod onCreateCod:', re);
-    this.syncCodsToToken()
     return re;
   }
 
@@ -675,7 +664,6 @@ export class TransitionHandler {
 
     const codDetail = logic.general.getCodDetail(codId);
     this.membersQuitCod(codDetail);
-    this.syncCodsToToken()
     return logic.general.cancelCod(codId, username);
   }
 
@@ -698,7 +686,6 @@ export class TransitionHandler {
 
     const logic : LogicEssential = this.genLogic(username);
     let re = logic.general.joinCod(codId, { username, generalId });
-    this.syncCodsToToken()
     return re;
   }
 
@@ -708,7 +695,6 @@ export class TransitionHandler {
 
     const logic : LogicEssential = this.genLogic(username);
     let re = logic.general.quitCod(codId, { username });
-    this.syncCodsToToken()
     return re;
   }
 
@@ -776,7 +762,6 @@ export class TransitionHandler {
         _this.startAttackCod(codItem);
       }
     });
-    this.syncCodsToToken()
   }
 
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){

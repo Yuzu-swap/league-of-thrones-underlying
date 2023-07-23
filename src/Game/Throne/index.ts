@@ -961,7 +961,7 @@ export class GeneralComponent implements IGeneralComponent {
     return this.general.getCodGeneralIds();
   }
   async getCodList() {
-    let codsGlobal = (await this.mediator.queryState({ id: `${StateName.Cods}` }, {}, null)) as any
+    let codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any
     console.log('cod codsGlobal getCodList:', codsGlobal);
     return this.general.getCodList();
   }
@@ -1220,7 +1220,7 @@ export class Throne implements IThrone {
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
-    states.codsGlobal = (await this.mediator.queryState({ id: `${StateName.Cods}` }, {}, null)) as any
+    states.codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any
     
     this.logicEssential = createLogicEsential(states)
 

@@ -12,7 +12,7 @@ export enum StateName {
 	RewardGloablState = 'rewardglobalstate',
 	Strategy = 'strategy',
 	Activity = 'activity',
-	Cods = 'cods'
+	GlobalCod = 'globalcod'
 }
 
 export enum CityFacility {
