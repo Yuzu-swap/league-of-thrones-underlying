@@ -994,7 +994,7 @@ export class General{
         const assemblyTroops = 999;
         // const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
         // const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
-        console.log('cod create assembly gds', assemble_last_times, assemblyTroops);
+        console.log('cod create assembly gds:', assemble_last_times, assemblyTroops);
 
         const time = getTimeStamp();
         let codData = {
@@ -1330,7 +1330,7 @@ export class General{
         }
 
         console.log('cod getCodList:', { unionId }, cods, codList);
-        return codList;
+        return { codList, cods };
         // callback(codList);
     }
 
