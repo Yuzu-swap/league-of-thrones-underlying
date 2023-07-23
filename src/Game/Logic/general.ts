@@ -991,9 +991,10 @@ export class General{
         }
 
         const assemble_last_times = this.config.parameter.assemble_last_times;
-        let assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
-        const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
-        console.log('cod create assembly gds', assemble_last_times, assemblyLevel, assemblyTroops);
+        const assemblyTroops = 999;
+        // const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
+        // const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
+        console.log('cod create assembly gds', assemble_last_times, assemblyTroops);
 
         const time = getTimeStamp();
         let codData = {

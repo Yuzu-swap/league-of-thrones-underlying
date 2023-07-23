@@ -168,7 +168,10 @@ export class City {
     let i = 1;
     while (true) {
       console.log(type, this.cityConfig.facilityConfig)
-      const row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
+      let row = null;
+      if(this.cityConfig.facilityConfig[type]){
+        row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
+      }
       if (row) {
         re.push(row);
       } else {
