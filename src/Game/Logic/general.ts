@@ -789,6 +789,18 @@ export class General{
         return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxAttackTroop())
     }
 
+    getMaxGeneralLevel(){
+        let generalInfos = this.state.generalList;
+        let level = 1;
+        for (let idstring in generalInfos) {
+          const generalInfo = generalInfos[idstring];
+          if(generalInfo.able){
+            level = Math.max(level, generalInfo.level);
+          }
+        }
+        return level;
+    }
+
     getMaxDefenseTroop(){
         return Math.min(this.city.getResource(ResouceType.Troop),this.city.getMaxDefenseTroop())
     }

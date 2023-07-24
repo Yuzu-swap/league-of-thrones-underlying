@@ -28,6 +28,8 @@ import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { Strategy, StrategyType } from './strategy';
+import { Map } from "./map";
+import { General } from "./general";
 import { isNewExpression, NumericLiteral } from 'typescript';
 
 export interface CityConfig {
@@ -69,10 +71,12 @@ export class City {
   readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
-  rechargeConfig: RechargeConfigs 
+  rechargeConfig: RechargeConfigs;
   boost: IBoost;
+  map: Map;
+  general: General;
   parameter: Parameter;
-  offers: OfferConfig
+  offers: OfferConfig;
 
   constructor(state: ICityState) {
     this.state = state;
@@ -87,7 +91,15 @@ export class City {
   }
 
   setBoost( boost : IBoost){
-    this.boost = boost
+    this.boost = boost;
+  }
+
+  setMap(map: Map){
+      this.map = map;
+  }
+
+  setGeneral(general: General){
+      this.general = general;
   }
 
   getResource(typ: ResouceType): number{
@@ -740,6 +752,40 @@ export class City {
         txType: StateTransition.BuyOffer,
         result: false,
         error: 'Gold is not enough',
+        data: offerData
+      }
+    }
+
+    let { offer_trigger_1, offer_trigger_2 = 0, offer_trigger_value } = offerData;
+
+    let silverProduction = this.boost.getProduction(ResouceType.Silver);
+    let troopProduction = this.boost.getProduction(ResouceType.Troop);
+    let maxGeneralLevel = this.general.getMaxGeneralLevel();
+
+    let compareVars = {
+        '1': silverProduction,
+        '2': maxGeneralLevel,
+        '3': troopProduction
+    };
+
+    const seasonState = this.map.getSeasonState();
+    const season_open = seasonState.season_open;
+    const timeNow = getTimeStamp();
+    const dayLong = 24*60*60;
+    const dayCount = Math.ceil(timeNow/dayLong) - Math.ceil(season_open/dayLong) + 1;
+
+    console.log('onBuyOffer 3:', compareVars, { season_open, dayCount });
+
+    let isCanbuy = dayCount >= offer_trigger_1;
+    if(offer_trigger_2){
+        isCanbuy = isCanbuy && compareVars[offer_trigger_2] < offer_trigger_value;
+    }
+
+    if(!isCanbuy){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'not allow buy this offer',
         data: offerData
       }
     }
