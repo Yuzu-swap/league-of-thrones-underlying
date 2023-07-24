@@ -756,30 +756,7 @@ export class City {
       }
     }
 
-    let { offer_trigger_1, offer_trigger_2 = 0, offer_trigger_value } = offerData;
-
-    let silverProduction = this.boost.getProduction(ResouceType.Silver);
-    let troopProduction = this.boost.getProduction(ResouceType.Troop);
-    let maxGeneralLevel = this.general.getMaxGeneralLevel();
-
-    let compareVars = {
-        '1': silverProduction,
-        '2': maxGeneralLevel,
-        '3': troopProduction
-    };
-
-    const seasonState = this.map.getSeasonState();
-    const season_open = seasonState.season_open;
-    const timeNow = getTimeStamp();
-    const dayLong = 24*60*60;
-    const dayCount = Math.ceil(timeNow/dayLong) - Math.ceil(season_open/dayLong) + 1;
-
-    console.log('onBuyOffer 3:', compareVars, { season_open, dayCount });
-
-    let isCanbuy = dayCount >= offer_trigger_1;
-    if(offer_trigger_2){
-        isCanbuy = isCanbuy && compareVars[offer_trigger_2] < offer_trigger_value;
-    }
+    let isCanbuy = this.isOfferCanBuy(offerData);
 
     if(!isCanbuy){
       return{
@@ -805,6 +782,35 @@ export class City {
       result: true,
       data: offerData
     }
+  }
+
+  isOfferCanBuy(offerData){
+    let { offer_trigger_1, offer_trigger_2 = 0, offer_trigger_value } = offerData;
+
+    let silverProduction = this.boost.getProduction(ResouceType.Silver);
+    let troopProduction = this.boost.getProduction(ResouceType.Troop);
+    let maxGeneralLevel = this.general.getMaxGeneralLevel();
+
+    let compareVars = {
+        '1': silverProduction,
+        '2': maxGeneralLevel,
+        '3': troopProduction
+    };
+
+    const seasonState = this.map.getSeasonState();
+    const season_open = seasonState.season_open;
+    const timeNow = getTimeStamp();
+    const dayLong = 24*60*60;
+    const dayCount = Math.ceil(timeNow/dayLong) - Math.ceil(season_open/dayLong) + 1;
+
+    console.log('onBuyOffer canbuy 1:', offerData);
+    console.log('onBuyOffer canbuy 2:', compareVars, { season_open, dayCount });
+
+    let isCanbuy = dayCount >= offer_trigger_1;
+    if(offer_trigger_2){
+        isCanbuy = isCanbuy && compareVars[offer_trigger_2] < offer_trigger_value;
+    }
+    return isCanbuy;
   }
 
   getTestResourceCoolDownTime(){

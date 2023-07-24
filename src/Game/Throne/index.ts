@@ -957,6 +957,15 @@ export class GeneralComponent implements IGeneralComponent {
     })
   }
 
+  getCodCreatorDetail(codId: string,callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CodCreatorDetail, {
+      from: Throne.instance().username,
+      codId: codId,
+    }, async function(res){
+      callback(res);
+    })
+  }
+
   getCodGeneralIds() {
     return this.general.getCodGeneralIds();
   }

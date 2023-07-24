@@ -156,6 +156,10 @@ export class General{
         return true
     }
 
+    getGeneralInfo(id : string){
+        let generalInfos = this.state.generalList;
+        return generalInfos[id];
+    }
     ableGeneral(id: number){
         this.city.updateResource(ResouceType.Silver)
         if(!this.checkIdAble(id)){
@@ -1296,6 +1300,11 @@ export class General{
         });
 
         console.log('cod quit codGeneralIds:', codGeneralIdObj);
+
+
+        let membersMap = codItem.membersMap;
+        delete membersMap[username];
+        codItem.membersMap = membersMap;
 
         let members = codItem.members;
         let members2 = members.splice(index, 1);

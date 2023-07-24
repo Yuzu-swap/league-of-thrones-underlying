@@ -253,6 +253,8 @@ export class TransitionHandler {
           return re
         case StateTransition.QuitCod:
           re = this.onQuitCod(arg as any)
+        case StateTransition.CodCreatorDetail:
+          re = this.onCodCreatorDetail(arg as any)
           return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
@@ -698,6 +700,20 @@ export class TransitionHandler {
     return re;
   }
 
+  onCodCreatorDetail(args: any) {
+    let username = args.from;
+    let codId = args.codId;
+
+    const logic : LogicEssential = this.genLogic(username);
+    const codDetail = logic.general.getCodDetail(codId);
+
+    const logicCreator : LogicEssential = this.genLogic(codDetail.creator);
+    let battleInfo = logicCreator.general.getGeneralBattleStatus(codDetail.generalId);
+    let generalInfo = logicCreator.general.getGeneralInfo(codDetail.generalId);
+    console.log('onCodCreatorDetail battleInfo:', codId, ' ', generalInfo, battleInfo);
+    return { generalInfo, battleInfo };
+  }
+
   startAttackCod(codItem){
     //1. attackBlock
     //2. +trooops to hospital
@@ -708,15 +724,15 @@ export class TransitionHandler {
 
     console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
 
-    // let args = {
-    //   from: username,
-    //   generalId: generalId,
-    //   x_id: blockInfo.x_id,
-    //   y_id: blockInfo.y_id
-    // };
-    // let re = this.onAttackBlock(args, troopNow);
-    // console.log('cod runList attack start 2:', codId, members, ', result:', re);
-    
+    let args = {
+      from: username,
+      generalId: generalId,
+      x_id: blockInfo.x_id,
+      y_id: blockInfo.y_id
+    };
+    let re = this.onAttackBlock(args, troopNow);
+    console.log('cod runList attack start 2:', codId, members, ', result:', re);
+
     // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
 
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
