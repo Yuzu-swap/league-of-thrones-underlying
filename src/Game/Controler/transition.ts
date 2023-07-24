@@ -707,11 +707,13 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(username);
     const codDetail = logic.general.getCodDetail(codId);
 
+    const generalId = codDetail.generalId;
     const logicCreator : LogicEssential = this.genLogic(codDetail.creator);
-    let battleInfo = logicCreator.general.getGeneralBattleStatus(codDetail.generalId);
-    let generalInfo = logicCreator.general.getGeneralInfo(codDetail.generalId);
-    console.log('onCodCreatorDetail battleInfo:', codId, ' ', generalInfo, battleInfo);
-    return { generalInfo, battleInfo };
+    let battleInfo = logicCreator.general.getGeneralBattleStatus(generalId);
+    let generalInfo = logicCreator.general.getGeneralInfo(generalId);
+    let qualificationInfo = logicCreator.general.getGeneralQualification(generalId);
+    console.log('onCodCreatorDetail battleInfo:', codId, ' ', generalInfo, battleInfo, qualificationInfo);
+    return { generalInfo, battleInfo, qualificationInfo };
   }
 
   startAttackCod(codItem){
