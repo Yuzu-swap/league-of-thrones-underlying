@@ -735,13 +735,10 @@ export class TransitionHandler {
     let re = this.onAttackBlock(args, troopNow);
     console.log('cod runList attack start 2:', codId, members, ', result:', re);
 
-    // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
-
-    // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){
-    //   //belong change
-    // });
-    // const logic : LogicEssential = this.genLogic(username, blockInfo.x_id, blockInfo.y_id);
-    // logic.general.endCod(codId);
+    if(re.result){
+      const logic : LogicEssential = this.genLogic(username);
+      logic.general.endCod(codId);
+    }
   }
 
   runCodList(){
@@ -823,6 +820,7 @@ export class TransitionHandler {
       console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
     });
     console.log('attackBlocksAround result:', re);
+
     if(re['result'] == undefined){
       for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
         if(cancelDefense.username != ''){
