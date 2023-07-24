@@ -716,6 +716,7 @@ export class TransitionHandler {
     // };
     // let re = this.onAttackBlock(args, troopNow);
     // console.log('cod runList attack start 2:', codId, members, ', result:', re);
+    
     // const gStates: GlobalStateEssential = this.genGlobalStateEssential(blockInfo.x_id, blockInfo.y_id);
 
     // let re = logic.map.attackBlocksAround(blockInfo.x_id, blockInfo.y_id, generalId, troopNow, function(){

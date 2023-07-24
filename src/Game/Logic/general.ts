@@ -977,18 +977,18 @@ export class General{
         //     }
         // }
 
-        let stamina = this.config.parameter.assembly_need_stamina; 
-        let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
-        console.log('cod create stamina:', stamina, useGeneralStamina);
+        // let stamina = this.config.parameter.assembly_need_stamina; 
+        // let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
+        // console.log('cod create stamina:', stamina, useGeneralStamina);
 
-        if(!useGeneralStamina){
-            return{
-                result: false,
-                data: { stamina },
-                error: 'not enough stamina',
-                txType: StateTransition.CreateCod
-            }
-        }
+        // if(!useGeneralStamina){
+        //     return{
+        //         result: false,
+        //         data: { stamina },
+        //         error: 'not enough stamina',
+        //         txType: StateTransition.CreateCod
+        //     }
+        // }
 
         const assemble_last_times = this.config.parameter.assemble_last_times;
         const assemblyTroops = 999;
@@ -1004,8 +1004,7 @@ export class General{
           unionId: unionId,
           troopTotal: 200, 
           troopNow: 0,
-          lastTime: 300,
-          assemble_last_times: assemble_last_times,
+          lastTime: assemble_last_times,
           generalId: generalId,
           members: [],
           membersMap: {},
