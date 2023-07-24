@@ -85,7 +85,8 @@ export enum StateTransition {
 	CreateCod,
 	CancelCod,
 	JoinCod,
-	QuitCod
+	QuitCod,
+	CodCreatorDetail
 }
 
 export function StringifyTxType() {
