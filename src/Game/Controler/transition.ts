@@ -717,10 +717,6 @@ export class TransitionHandler {
   }
 
   startAttackCod(codItem){
-    //1. attackBlock
-    //2. +trooops to hospital
-    //3. -troops to resource
-    //4. battle record
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
 
@@ -732,13 +728,18 @@ export class TransitionHandler {
       x_id: blockInfo.x_id,
       y_id: blockInfo.y_id
     };
-    let re = this.onAttackBlock(args, troopNow);
+    let re = this.onAttackBlockCommon(args, troopNow);
+        re['txType'] = StateTransition.CodAttackBlock;
     console.log('cod runList attack start 2:', codId, members, ', result:', re);
 
-    if(re.result){
-      const logic : LogicEssential = this.genLogic(username);
-      logic.general.endCod(codId);
-    }
+    //todo
+    //1. get troops reduce for creator
+    //2. +trooops to hospital
+    //3. -troops to resource
+    //4. battle record all as same
+
+    const logic : LogicEssential = this.genLogic(username);
+    logic.general.endCod(codId);
   }
 
   runCodList(){
@@ -781,6 +782,12 @@ export class TransitionHandler {
   }
 
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
+    let re = this.onAttackBlockCommon(args, remainTroops);
+    re['txType'] = StateTransition.AttackBlock;
+    return re;
+  }
+
+  onAttackBlockCommon(args: AttackBlockArgs, remainTroops: number){
     console.log('attackBlocksAround args 1:', args, remainTroops);
     let _this = this;
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
@@ -793,7 +800,6 @@ export class TransitionHandler {
     if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
       return{
         result: false,
-        txType: StateTransition.AttackBlock,
         error: 'block-is-too-far'
       }
     }
@@ -803,7 +809,6 @@ export class TransitionHandler {
     if(blockGds.type == 3){
       return {
         result: false,
-        txType: StateTransition.AttackBlock,
         error: 'cant-attack-init-block'
       }
     }
@@ -857,7 +862,6 @@ export class TransitionHandler {
       if(temp.length != 0){
         transRe = {
           result: true,
-          txType: StateTransition.AttackBlock,
           record: temp[temp.length - 1],
           durabilityReduce: re['durabilityReduce']
         }
@@ -873,8 +877,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
-          txType: StateTransition.AttackBlock,
-          gloryGet: gloryGet, //do fix
+          gloryGet: gloryGet, 
           durabilityReduce: re['durabilityReduce']
         }
         this.recordEvent(
