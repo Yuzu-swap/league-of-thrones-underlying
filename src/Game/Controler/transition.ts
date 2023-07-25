@@ -1134,6 +1134,7 @@ export class TransitionHandler {
   }
 
   recordEvent(typ: TransitionEventType,event: any) {
+    console.log('recordEvent:', typ, event)
     if (this.eventRecorderFunc){
       this.eventRecorderFunc(typ,event)
     }
