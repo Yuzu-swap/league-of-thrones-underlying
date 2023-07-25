@@ -53,8 +53,7 @@ export var InitState = {
         lastBattle: -1,
         userScores: {},
         cods: {},
-        codGeneralIdObj: {},
-        codGeneralIds: {}
+        codGeneralIdsMap: {}
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{

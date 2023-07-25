@@ -1322,7 +1322,7 @@ export class General{
     }
 
     getCodGeneralIds(id){
-        let codGeneralIdObj:any = this.state.codGeneralIdObj || {};
+        let codGeneralIdObj:any = this.state.codGeneralIdsMap || {};
         if(id){
             return codGeneralIdObj[id];
         }
@@ -1330,7 +1330,7 @@ export class General{
     }
 
     opCodGeneralId(generalId, typ, codItem){
-        let codGeneralIdObj = this.state.codGeneralIdObj;
+        let codGeneralIdObj:any = this.state.codGeneralIdsMap || {};
         if(typ === 'lock'){
             codGeneralIdObj[generalId] = codItem;
         }
