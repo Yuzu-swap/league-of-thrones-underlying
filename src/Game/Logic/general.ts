@@ -1025,8 +1025,6 @@ export class General{
           members: [],
           membersMap: {},
           updateTime: -1,
-          cancelTime: -1,
-          endTime: -1,
           blockInfo: blockInfo
         };
 
@@ -1077,7 +1075,6 @@ export class General{
         }
 
         //notice: members.quitCod in transation
-
         let res = this.endCod(codId);
 
         console.log('cod cancel codsGlobal finish 2:', res, this.codsGlobal.cods);
@@ -1335,23 +1332,23 @@ export class General{
     }
 
     getCodGeneralIds(id){
-        let codGeneralIdObj:any = this.state.codGeneralIdsMap || {};
+        let codGeneralIdsMap:any = this.state.codGeneralIdsMap || {};
         if(id){
-            return codGeneralIdObj[id];
+            return codGeneralIdsMap[id];
         }
-        return codGeneralIdObj;
+        return codGeneralIdsMap;
     }
 
     opCodGeneralId(generalId, typ, codItem){
-        let codGeneralIdObj:any = this.state.codGeneralIdsMap || {};
+        let codGeneralIdsMap:any = this.state.codGeneralIdsMap || {};
         if(typ === 'lock'){
-            codGeneralIdObj[generalId] = codItem;
+            codGeneralIdsMap[generalId] = codItem;
         }
         if(typ === 'release'){
-            delete codGeneralIdObj[generalId];
+            delete codGeneralIdsMap[generalId];
         }
         this.state.update({
-            codGeneralIdObj: codGeneralIdObj
+            codGeneralIdsMap: codGeneralIdsMap
         });
     }
 
