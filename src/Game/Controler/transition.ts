@@ -780,8 +780,8 @@ export class TransitionHandler {
       logic.map.addGloryAndSum(re['gloryGet'])      
     }
 
+    logic.city.useTroop(troopReduce - member['troops']);
     if(troopReduce > 0){
-      logic.city.useTroop(troopReduce);
       logic.city.updateInjuredTroops(troopReduce, 'battle');
     }
   }
