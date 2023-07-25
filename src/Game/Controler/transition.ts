@@ -745,7 +745,9 @@ export class TransitionHandler {
       let generalId = member['generalId'];
       let logicPlayer : LogicEssential = _this.genLogic(username);
       logicPlayer.general.opCodGeneralId(generalId, 'release', {});
-      _this.recordEvent(TransitionEventType.Assembly, re);
+      re['username'] = username;
+      re['bizType'] = 'assembly';
+      _this.recordEvent(TransitionEventType.Battles, re);
     });
     const logic : LogicEssential = _this.genLogic(username);
     logic.general.endCod(codId);
