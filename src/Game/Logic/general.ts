@@ -981,17 +981,17 @@ export class General{
             }
         }
 
-        // let ifCanAttack = this.map.checkIfCanAttack( x_id, y_id );
-        // console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', ifCanAttack);
+        let ifCanAttack = this.map.checkIfCanAttack( x_id, y_id );
+        console.log('cod create checkIfCanAttack:', x_id, y_id, ', result: ', ifCanAttack);
 
-        // if(!ifCanAttack){
-        //     return {
-        //         result: false,
-        //         data: blockInfo,
-        //         error: 'block cannot be attack',
-        //         txType: StateTransition.CreateCod
-        //     }
-        // }
+        if(!ifCanAttack){
+            return {
+                result: false,
+                data: blockInfo,
+                error: 'block cannot be attack',
+                txType: StateTransition.CreateCod
+            }
+        }
 
         // let stamina = this.config.parameter.assembly_need_stamina; 
         // let useGeneralStamina = this.useGeneralStamina(generalId, stamina);
@@ -1006,8 +1006,8 @@ export class General{
         //     }
         // }
 
-        const assemble_last_times = this.config.parameter.assemble_last_times;
-        const assemblyTroops = 999;
+        const assemble_last_times = this.config.parameter.assemble_last_times/10;
+        const assemblyTroops = 213;
         // const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
         // const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
         console.log('cod create assembly gds:', assemble_last_times, assemblyTroops);
@@ -1018,7 +1018,7 @@ export class General{
           creator : username,
           createTime: time,
           unionId: unionId,
-          troopTotal: 200, 
+          troopTotal: assemblyTroops, 
           troopNow: 0,
           lastTime: assemble_last_times,
           generalId: generalId,
@@ -1191,23 +1191,25 @@ export class General{
         let { troopTotal, troopNow, members = [], membersMap = {}, blockInfo } = codItem;
         let { x_id, y_id } = blockInfo;
 
-        // const generalInfo = this.getGeneralState(generalId)
-        // if(!(this.checkIdAble(generalId) && generalInfo.able)){
-        //     return {
-        //         result: false,
-        //         txType: StateTransition.JoinCod,
-        //         error: 'generalid-error'
-        //     }
-        // }
-        // if(!this.checkDefenseBlock(generalId)){
-        //     return {
-        //         result: false,
-        //         txType: StateTransition.JoinCod,
-        //         error: 'general is undering defense or assembly'
-        //     }
-        // }
-        // let troops = this.getMaxDefenseTroop();
-        let troops = 87;
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                txType: StateTransition.JoinCod,
+                error: 'generalid-error'
+            }
+        }
+
+        if(!this.checkDefenseBlock(generalId)){
+            return {
+                result: false,
+                txType: StateTransition.JoinCod,
+                error: 'general is undering defense or assembly'
+            }
+        }
+
+        let troops = this.getMaxDefenseTroop();
+        // let troops = 87;
         troops = Math.min(troops, troopTotal - troopNow);
         if(troops <= 0){
             return{
@@ -1217,12 +1219,7 @@ export class General{
             }
         }
         this.city.useTroop(troops)
-
-        let codGeneralIdObj:any = this.state.codGeneralIdObj || {};
-        codGeneralIdObj[generalId] = codItem;
-        this.state.update({
-            codGeneralIdObj: codGeneralIdObj
-        });
+        this.opCodGeneralId(generalId, 'lock', codItem);
 
         const time = getTimeStamp();
         let joinData = {
@@ -1245,7 +1242,6 @@ export class General{
         });
 
         console.log('cod join finish:', this.codsGlobal.cods);
-        // todo: discount troops
 
         return {
             result: true,
@@ -1293,14 +1289,7 @@ export class General{
         let generalId = joinInfo.generalId;
         let troops = joinInfo.troops;
 
-        let codGeneralIdObj = this.state.codGeneralIdObj;
-        delete codGeneralIdObj[generalId];
-        this.state.update({
-            codGeneralIdObj: codGeneralIdObj
-        });
-
-        console.log('cod quit codGeneralIds:', codGeneralIdObj);
-
+        this.opCodGeneralId(generalId, 'release', {});
 
         let membersMap = codItem.membersMap;
         delete membersMap[username];
@@ -1332,9 +1321,25 @@ export class General{
         };
     }
 
-    getCodGeneralIds(){
+    getCodGeneralIds(id){
         let codGeneralIdObj:any = this.state.codGeneralIdObj || {};
+        if(id){
+            return codGeneralIdObj[id];
+        }
         return codGeneralIdObj;
+    }
+
+    opCodGeneralId(generalId, typ, codItem){
+        let codGeneralIdObj = this.state.codGeneralIdObj;
+        if(typ === 'lock'){
+            codGeneralIdObj[generalId] = codItem;
+        }
+        if(typ === 'release'){
+            delete codGeneralIdObj[generalId];
+        }
+        this.state.update({
+            codGeneralIdObj: codGeneralIdObj
+        });
     }
 
     getCodList() {
@@ -1400,8 +1405,8 @@ export class General{
             }
         }
 
-        let codGeneralIdObj = this.state.codGeneralIdObj || {};
-        if(codGeneralIdObj[generalId]){
+        let generalCod = this.getCodGeneralIds(generalId);
+        if(generalCod){
             return false;
         }
         return true

@@ -967,7 +967,7 @@ export class GeneralComponent implements IGeneralComponent {
   }
 
   getCodGeneralIds() {
-    return this.general.getCodGeneralIds();
+    return this.general.getCodGeneralIds('');
   }
   async getCodList() {
     let codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any

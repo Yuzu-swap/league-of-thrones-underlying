@@ -63,6 +63,7 @@ const log = globalThis.log || function () {};
 
 export enum TransitionEventType {
   Battles = "battles",
+  Assembly = "assembly",
   TimeStamp = "timeStamp"
 }
 
@@ -717,10 +718,11 @@ export class TransitionHandler {
   }
 
   startAttackCod(codItem){
+    let _this = this;
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
 
-    console.log('cod runList attack start 1:', codId,  username, blockInfo, troopNow, generalId);
+    console.log('cod runList attack start 1:', codId, ' ', codItem);
 
     let args = {
       from: username,
@@ -730,7 +732,7 @@ export class TransitionHandler {
     };
     let re = this.onAttackBlockCommon(args, troopNow);
         re['txType'] = StateTransition.CodAttackBlock;
-    console.log('cod runList attack start 2:', codId, members, ', result:', re);
+    console.log('cod runList attack start 2:', codId, ', result:', re);
 
     //todo
     //1. get troops reduce for creator
@@ -738,7 +740,14 @@ export class TransitionHandler {
     //3. -troops to resource
     //4. battle record all as same
 
-    const logic : LogicEssential = this.genLogic(username);
+    members.forEach(function(member){
+      let username = member['username'];
+      let generalId = member['generalId'];
+      let logicPlayer : LogicEssential = _this.genLogic(username);
+      logicPlayer.general.opCodGeneralId(generalId, 'release', {});
+      _this.recordEvent(TransitionEventType.Assembly, re);
+    });
+    const logic : LogicEssential = _this.genLogic(username);
     logic.general.endCod(codId);
   }
 
