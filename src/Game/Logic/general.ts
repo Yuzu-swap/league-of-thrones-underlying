@@ -1191,6 +1191,15 @@ export class General{
         let { troopTotal, troopNow, members = [], membersMap = {}, blockInfo } = codItem;
         let { x_id, y_id } = blockInfo;
 
+        if(troopNow >= troopTotal){
+            return {
+                result: false,
+                data: codItem,
+                error: 'troops is full',
+                txType: StateTransition.JoinCod
+            }
+        }
+
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
