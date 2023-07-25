@@ -1195,6 +1195,7 @@ export class General{
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
+                data: { generalInfo },
                 txType: StateTransition.JoinCod,
                 error: 'generalid-error'
             }
@@ -1203,29 +1204,31 @@ export class General{
         if(!this.checkDefenseBlock(generalId)){
             return {
                 result: false,
+                data: { generalInfo },
                 txType: StateTransition.JoinCod,
                 error: 'general is undering defense or assembly'
             }
         }
 
-        let troops = this.getMaxDefenseTroop();
+        let attackTroops = this.getMaxAttackTroop();
         // let troops = 87;
-        troops = Math.min(troops, troopTotal - troopNow);
-        if(troops <= 0){
+        attackTroops = Math.min(attackTroops, troopTotal - troopNow);
+        if(attackTroops <= 0){
             return{
                 result: false,
+                data: { attackTroops, generalInfo },
                 txType: StateTransition.JoinCod,
                 error: 'troop-not-enough'
             }
         }
-        this.city.useTroop(troops)
+        this.city.useTroop(attackTroops)
         this.opCodGeneralId(generalId, 'lock', codItem);
 
         const time = getTimeStamp();
         let joinData = {
             username: username, 
             generalId: generalId, 
-            troops: troops, 
+            troops: attackTroops, 
             joinTime: time
         };
         members.push(joinData);
@@ -1233,7 +1236,7 @@ export class General{
 
         codItem.members = members;
         codItem.membersMap = membersMap;
-        codItem.troopNow = codItem.troopNow + troops;
+        codItem.troopNow = codItem.troopNow + attackTroops;
         codItem.updateTime = time;
 
         cods[codId] = codItem;
