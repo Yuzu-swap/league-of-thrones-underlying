@@ -761,6 +761,7 @@ export class TransitionHandler {
   }
 
   codRecords(args, member, logic, re, troopReduce){
+    console.log('cod runList attack start 4', member, troopReduce, re);
     if(re['durabilityReduce']){
       let durabilityRecord = logic.map.genDurabilityRecord(
         args.x_id, args.y_id, member.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
@@ -770,10 +771,15 @@ export class TransitionHandler {
         TransitionEventType.Battles,
         durabilityRecord
       )
-    }else{
+    }
+
+    if(re['gloryGet']){
+      logic.map.addGloryAndSum(re['gloryGet'])      
+    }
+
+    if(troopReduce > 0){
       logic.city.useTroop(troopReduce);
       logic.city.updateInjuredTroops(troopReduce, 'battle');
-      console.log('cod runList attack start 4', member, troopReduce);
     }
   }
 
@@ -906,7 +912,6 @@ export class TransitionHandler {
         }
       }else{
         let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
-        logic.map.addGloryAndSum(gloryGet)
         transRe = {
           result: true,
           gloryGet: gloryGet, 
