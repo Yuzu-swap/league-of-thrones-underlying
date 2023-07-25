@@ -742,7 +742,8 @@ export class TransitionHandler {
     //3. -troops to resource
     //4. battle record all as same
 
-    let attackInfo = re.attackInfo;
+    let records = re.records || [];
+    let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
     let troopReduce = attackInfo.troopReduce || 0;
     let troopsAll = 0;
     members.forEach(function(member){
@@ -815,7 +816,7 @@ export class TransitionHandler {
     });
   }
 
-  onAttackBlockCod(args: AttackBlockArgs, remainTroops: number){
+  onAttackBlockCod(args: AttackBlockArgs, remainTroops: number):any{
     console.log('attackBlocksAround args cod 1:', args, remainTroops);
     let _this = this;
     const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
@@ -844,10 +845,10 @@ export class TransitionHandler {
     let re = logic.map.attackBlocksAroundCod(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
       let codId = 'block_' + args.x_id + '_' + args.y_id;
       let codDetail = logic.general.getCodDetail(codId);
+      let creator = codDetail.creator;
       if(!creator){
         return;
       }
-      let creator = codDetail.creator;
       let logicCreator : LogicEssential = _this.genLogic(creator);
 
       _this.membersQuitCod(codDetail);
@@ -928,9 +929,6 @@ export class TransitionHandler {
       let records = re.records || [];
       let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
       let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
-
-      re['attackInfo'] = attackInfo;
-      re['defenseInfo'] = defenseInfo;
 
       let username = defenseInfo.username;
       let troopReduce = defenseInfo.troopReduce;
