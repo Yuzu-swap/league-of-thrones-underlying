@@ -468,6 +468,242 @@ export class Map{
         }
     }
 
+    attackBlocksAroundCod(x_id: number, y_id: number, generalId: number, remainTroop: number, onBelongChange: () => void){
+        if(!this.checkIfCanAttack(x_id, y_id)){
+            return {
+                result: false,
+                txType: StateTransition.AttackBlock,
+                error: 'block-is-be-protected'
+            }
+        }
+
+        let stamina = this.parameter.attack_plots_need_stamina;
+        if(!(this.general.useGeneralStamina(generalId, stamina))){
+            return{
+                result: false,
+                txType: StateTransition.AttackBlock,
+                error: 'general-stamina-error'
+            }
+        }
+        const xOffset = [ 0, 1, 1, 0, -1, -1]
+        const yOffset = [ 2, 1, -1, -2, -1, 1]
+        let centerBlockState = this.getBlockState(x_id, y_id)
+        const unionId = centerBlockState.belong.unionId
+        let records = []
+        let cancelList = []
+        // let remainTroop = -1
+        let re = this.attackBlockCod(x_id, y_id, generalId, remainTroop)
+        if(re['error']){
+            return re
+        }
+        cancelList = cancelList.concat(re['cancelList'])
+        records = records.concat(re['records'])
+        remainTroop = re['remainTroop']
+        if(unionId != 0){
+            for(let i = 0; i < 6; i++){
+                if(remainTroop <=0 ){
+                    break
+                }
+                let tempX = x_id + xOffset[i]
+                let tempY = y_id + yOffset[i]
+                let tempBlockState = this.getBlockState(tempX, tempY)
+                if(tempBlockState && tempBlockState.belong.unionId == unionId){
+                    let tempRe = this.attackBlockCod(tempX, tempY, generalId, remainTroop)
+                    if(tempRe['error']){
+                        return tempRe
+                    }
+                    cancelList = cancelList.concat(tempRe['cancelList'])
+                    records = records.concat(tempRe['records'])
+                    remainTroop = tempRe['remainTroop']
+                }
+            }
+        }
+        
+        let durabilityReduce = 0
+        if(remainTroop > 0){
+            durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId, onBelongChange)      
+            if(records.length != 0){
+                let lastRecord = records[records.length - 1] as BattleTransRecord
+                lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
+                lastRecord.blockInfo.durabilityReduce = durabilityReduce
+            }     
+        }
+        return {
+            txType: StateTransition.AttackBlock,
+            records: records,
+            cancelList: cancelList,
+            durabilityReduce: durabilityReduce
+        }
+    }
+    
+    attackBlockCod( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
+        let time = parseInt(new Date().getTime() / 1000 + '');
+        let blockState = this.getBlockState(x_id, y_id)
+        let defaultDefense = this.getDefenseList(x_id, y_id, true)
+        let firstBlock = false
+        let list : BattleTransRecord[] = []
+        let generalRow = this.general.getGeneralQualification(generalId)
+        if(remainTroop == -1){
+            remainTroop = this.general.getMaxAttackTroop()
+            firstBlock = true
+        }
+        if(firstBlock){
+            for(let i = 0; i < defaultDefense.length; i++){
+                let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
+                let unionId = this.general.state.unionId;
+                let unionIds = {
+                  attackUnionId: unionId, 
+                  defenseUnionId: 0
+                };
+                let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false)
+                if(!bre['result']){
+                    return bre
+                }
+                else{
+                    bre = bre as BattleResult
+                    let battleRecord : BattleTransRecord= {
+                        attackInfo : {
+                            username: parseStateId(this.general.state.getId()).username ,
+                            generalId: generalId,
+                            generalLevel: this.general.getGeneralLevel(generalId),
+                            generalType: generalRow.general_type,
+                            troopReduce: bre.attackTroopReduce,
+                            silverGet: 0,
+                            gloryGet: bre.attackGloryGet,
+                            unionId: unionId,
+                            iconId: this.general.state.iconId
+                        },
+                        defenseInfo: {
+                            username: '',
+                            generalId: info.generalId,
+                            generalLevel: info.generalLevel,
+                            generalType: info.generalType,
+                            troopReduce: bre.defenseTroopReduce,
+                            silverGet: 0,
+                            gloryGet: bre.defenseGloryGet,
+                            unionId: 0,
+                            iconId: -1
+                        },
+                        recordType: BattleRecordType.Block,
+                        timestamp: getTimeStamp(),
+                        blockInfo:{
+                            x_id: x_id,
+                            y_id: y_id,
+                            durabilityReduce: 0
+                        },
+                        txHash: getTxHash(),
+                        result: bre.win
+                    }
+                    list.push(battleRecord)
+                    if( bre.win ){
+                        defaultDefense.shift()
+                        i--
+                        remainTroop -= bre.attackTroopReduce
+                    }
+                    else{
+                        defaultDefense[i].troops -= bre.defenseTroopReduce
+                        remainTroop -= bre.attackTroopReduce
+                        break
+                    }
+                }
+            }
+            blockState.update(
+                {
+                    'defaultDefense': defaultDefense,
+                    'lastAttachTime': time
+                }
+            )
+            this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
+        }
+        if(remainTroop <= 0 ){
+            return {
+                txType: StateTransition.AttackBlock,
+                records: list,
+                cancelList: [],
+                remainTroop: remainTroop
+            }
+        }
+        let defenseInfos = this.getDefenseList(x_id, y_id, false)
+        let cancelList : innerCancelBlockDefense[] = []
+        for(let i = 0; i < defenseInfos.length; i++){
+            let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
+            let unionId = this.general.state.unionId;
+            let unionIds = {
+              attackUnionId: unionId, 
+              defenseUnionId: defenseInfos[i].unionId
+            };
+            let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false)
+            if(!bre['result']){
+                return bre
+            }
+            else{
+                bre = bre as BattleResult
+                let battleRecord : BattleTransRecord= {
+                    attackInfo : {
+                        username:  parseStateId(this.general.state.getId()).username,
+                        generalId: generalId,
+                        generalLevel: this.general.getGeneralLevel(generalId),
+                        generalType: generalRow.general_type,
+                        troopReduce: bre.attackTroopReduce,
+                        silverGet: 0,
+                        gloryGet: bre.attackGloryGet,
+                        unionId: unionId,
+                        iconId: this.general.state.iconId
+                    },
+                    defenseInfo: 
+                    {
+                        username:  defenseInfos[i].username,
+                        generalId: info.generalId,
+                        generalLevel: info.generalLevel,
+                        generalType: info.generalType,
+                        troopReduce: bre.defenseTroopReduce,
+                        silverGet: 0,
+                        gloryGet: bre.defenseGloryGet,
+                        unionId: defenseInfos[i].unionId,
+                        iconId: defenseInfos[i].iconId
+                    },
+                    recordType: BattleRecordType.Block,
+                    timestamp: getTimeStamp(),
+                    blockInfo:{
+                        x_id: x_id,
+                        y_id: y_id,
+                        durabilityReduce: 0
+                    },
+                    txHash: getTxHash(),
+                    result: bre.win
+                }
+                list.push(battleRecord)
+                if( bre.win ){
+                    cancelList.push(
+                        {
+                            generalId: defenseInfos[i].generalId,
+                            username: defenseInfos[i].username
+                        }
+                    )
+                    defenseInfos.shift()
+                    i--
+                    remainTroop -= bre.attackTroopReduce
+                }
+                else{
+                    defenseInfos[i].troops -= bre.defenseTroopReduce
+                    remainTroop -= bre.attackTroopReduce
+                    break
+                }
+            }
+        }
+        blockState.update(
+            {
+                'defenseList': defenseInfos
+            }
+        )
+        return {
+            txType: StateTransition.AttackBlock,
+            records: list,
+            cancelList: cancelList,
+            remainTroop : remainTroop
+        }
+    }
+
     genDurabilityRecord(x_id:number, y_id: number, generalId: number, gloryGet: number, durabilityReduce: number ) : BattleTransRecord{
         let generalRow = this.general.getGeneralQualification(generalId)
         let battleRecord : BattleTransRecord= {

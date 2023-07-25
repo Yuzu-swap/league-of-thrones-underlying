@@ -914,6 +914,111 @@ export class General{
         return re
     }
 
+    battleCod( generalId : number , unionIds : any, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+        const generalInfo = this.getGeneralState(generalId)
+        if(!(this.checkIdAble(generalId) && generalInfo.able)){
+            return {
+                result: false,
+                txType: StateTransition.Battle,
+                error: 'generalid-error'
+            }
+        }
+        if(useStamina){
+            let stamina = this.config.parameter.attack_player_need_stamina;
+            if(!(this.useGeneralStamina(generalId, stamina))){
+                return{
+                    result: false,
+                    txType: StateTransition.Battle,
+                    error: 'general-stamina-error'
+                }
+            }
+        }
+        const status = this.getGeneralBattleStatus(generalId)
+        const generalRow = this.getGeneralQualification(generalId)
+        const generalType = generalRow.general_type
+        let ableTroop = this.getMaxAttackTroop()
+        if(ableTroop == 0){
+            return{
+                result: false,
+                txType: StateTransition.Battle,
+                error: 'do-not-have-troop'
+            }
+        }
+        let attackInfo ={
+            attack: status.sum[SkillType.Attack],
+            defense: status.sum[SkillType.Defense],
+            load: status.sum[SkillType.Load],
+            generalType: generalType,
+            ableTroop: remainTroop != -1? remainTroop : ableTroop
+        }
+        let remainTroopA = attackInfo.ableTroop
+        let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
+        let randomA = 0.9 + getRandom() * 0.2
+        let remainTroopD = defenseInfo.defenseMaxTroop
+        let coeD = this.getGeneralTypeCoe(defenseInfo.generalType, generalType)
+        let randomD = 0.9 + getRandom() * 0.2
+        let loopTime = 0
+
+        let { attackUnionId, defenseUnionId } = unionIds;
+        console.log('battlecity:', attackUnionId, defenseUnionId);
+
+        while(true){
+            loopTime++
+            if(loopTime > 10000){
+                throw "battle data error"
+            }
+            remainTroopD -= (( attackInfo.attack * randomA / defenseInfo.defense / randomD ) * coeA * remainTroopA / 10)
+            if(remainTroopD <= 0){
+                remainTroopD = 0
+                break
+            }
+            remainTroopA -= (( defenseInfo.attack * randomD / attackInfo.defense / randomA ) * coeD * remainTroopD / 10 )
+            if(remainTroopA <= 0){
+                remainTroopA  = 0
+                break
+            }
+        }
+        let re : BattleResult = {
+            result: true,
+            win: false,
+            attackTroopReduce: 0,
+            defenseTroopReduce: 0,
+            silverGet: 0,
+            attackGloryGet: 0,
+            defenseGloryGet: 0,
+            records: [],
+            txType: StateTransition.Battle
+        }
+        re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
+        let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
+        re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
+        // re.attackGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense) *  re.defenseTroopReduce / 100 ))
+        if(attackUnionId !== defenseUnionId){
+            re.attackGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense)*  re.defenseTroopReduce)/100)            
+        }
+        // re.defenseGloryGet = Math.floor(Math.sqrt((defenseInfo.attack + defenseInfo.defense) * re.attackTroopReduce / 100 ))
+        re.defenseGloryGet = Math.floor(Math.sqrt((attackInfo.attack + attackInfo.defense)* re.attackTroopReduce)/100)
+        if(remainTroopA > 0 ){
+            re.win = true
+            re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
+        }
+        else{
+            re.win = false
+        }
+        if(re.win){
+            if(attackUnionId !== defenseUnionId){
+                re.attackGloryGet += this.config.parameter.battle_victory_get_glory
+            }
+        }
+        else{
+            re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
+        }
+        // this.city.useTroop(re.attackTroopReduce)
+        // this.city.updateInjuredTroops(re.attackTroopReduce, 'battle')
+        // console.log('updateInjuredTroops battle.attackTroopReduce', re);
+        return re
+    }
+
     healTroops(typ: string, amount: number){
         console.log('healTroops:', typ, amount);
         if(typ === 'silver'){

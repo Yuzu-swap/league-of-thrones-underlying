@@ -721,7 +721,7 @@ export class TransitionHandler {
     let _this = this;
     let username = codItem.creator;
     let { codId, blockInfo, troopTotal, troopNow, members, generalId } = codItem;
-
+    const logic : LogicEssential = _this.genLogic(username);
     console.log('cod runList attack start 1:', codId, ' ', codItem);
 
     let args = {
@@ -730,9 +730,11 @@ export class TransitionHandler {
       x_id: blockInfo.x_id,
       y_id: blockInfo.y_id
     };
-    let re = this.onAttackBlockCommon(args, troopNow);
+    let re = this.onAttackBlockCod(args, troopNow);
         re['txType'] = StateTransition.CodAttackBlock;
+
     console.log('cod runList attack start 2:', codId, ', result:', re);
+
 
     //todo
     //1. get troops reduce for creator
@@ -740,17 +742,38 @@ export class TransitionHandler {
     //3. -troops to resource
     //4. battle record all as same
 
+    let attackInfo = re.attackInfo;
+    let troopReduce = attackInfo.troopReduce || 0;
+    let troopsAll = 0;
+    members.forEach(function(member){
+      troopsAll = member['troops'];
+    });
+
     members.forEach(function(member){
       let username = member['username'];
       let generalId = member['generalId'];
       let logicPlayer : LogicEssential = _this.genLogic(username);
       logicPlayer.general.opCodGeneralId(generalId, 'release', {});
-      re['username'] = username;
-      re['bizType'] = 'assembly';
-      _this.recordEvent(TransitionEventType.Battles, re);
+      _this.codRecords(args, logicPlayer, re, member, troopReduce*member['troops']/troopsAll);
     });
-    const logic : LogicEssential = _this.genLogic(username);
     logic.general.endCod(codId);
+  }
+
+  codRecords(args, member, logic, re, troopReduce){
+    if(re['durabilityReduce']){
+      let durabilityRecord = logic.map.genDurabilityRecord(
+        args.x_id, args.y_id, member.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
+      )
+      console.log('cod runList attack start 3', member, durabilityRecord);
+      this.recordEvent(
+        TransitionEventType.Battles,
+        durabilityRecord
+      )
+    }else{
+      logic.city.useTroop(troopReduce);
+      logic.city.updateInjuredTroops(troopReduce, 'battle');
+      console.log('cod runList attack start 4', member, troopReduce);
+    }
   }
 
   runCodList(){
@@ -792,6 +815,136 @@ export class TransitionHandler {
     });
   }
 
+  onAttackBlockCod(args: AttackBlockArgs, remainTroops: number){
+    console.log('attackBlocksAround args cod 1:', args, remainTroops);
+    let _this = this;
+    const gStates: GlobalStateEssential = this.genGlobalStateEssential(args.x_id, args.y_id)
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id, gStates)
+    // console.log('attackBlocksAround args 2:', gStates, logic);
+
+    if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
+      logic.strategy.setStrategyStatus(StrategyType.Protect, false)
+    }
+    if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
+      return{
+        result: false,
+        error: 'block-is-too-far'
+      }
+    }
+
+    const blockGds = logic.map.mapConfig.get(args.x_id, args.y_id)
+    console.log('attackBlocksAround args cod 3:', blockGds);
+    if(blockGds.type == 3){
+      return {
+        result: false,
+        error: 'cant-attack-init-block'
+      }
+    }
+    console.log('attackBlocksAround args cod 4:', remainTroops);
+    let re = logic.map.attackBlocksAroundCod(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
+      let codId = 'block_' + args.x_id + '_' + args.y_id;
+      let codDetail = logic.general.getCodDetail(codId);
+      if(!creator){
+        return;
+      }
+      let creator = codDetail.creator;
+      let logicCreator : LogicEssential = _this.genLogic(creator);
+
+      _this.membersQuitCod(codDetail);
+      logicCreator.general.cancelCod(codId, creator);
+
+      console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
+    });
+    console.log('attackBlocksAround result:', re);
+
+    if(re['result'] == undefined){
+      for(let cancelDefense of re['cancelList'] as innerCancelBlockDefense[]){
+        if(cancelDefense.username != ''){
+          let tempLogic: LogicEssential = this.genLogic(cancelDefense.username, args.x_id, args.y_id, gStates)
+          tempLogic.general.cancelDefenseBlock(cancelDefense.generalId, 0)
+        }
+      }
+      let oldGlory = logic.general.state.glory
+      for(let record of re['records'] as BattleTransRecord[]){
+        let moraleAdd = record.result ? 2 : -2
+        logic.general.offsetMorale(moraleAdd)
+        logic.map.addGloryAndSum(record.attackInfo.gloryGet)
+        if(record.defenseInfo.username != ''){
+          let tempLogic: LogicEssential = this.genLogic(record.defenseInfo.username, args.x_id, args.y_id, gStates)
+          if(tempLogic){
+            let oldTempGlory = tempLogic.general.state.glory
+            tempLogic.map.addGloryAndSum(record.defenseInfo.gloryGet)
+            tempLogic.general.offsetMorale(-moraleAdd)
+            if(tempLogic.city.state.facilities[CityFacility.Fortress][0] >= 7){
+              this.updateRewardState(
+                tempLogic.map.rewardGlobalState, 
+                parseStateId(tempLogic.city.state.getId()).username, 
+                oldTempGlory,
+                tempLogic.general.state.glory,
+                tempLogic.general.state.unionId
+              )
+            }
+          }
+        }
+        this.recordEvent(TransitionEventType.Battles, record)
+      }
+      let temp = re['records'] as BattleTransRecord[]
+      let transRe = {}
+      if(temp.length != 0){
+        transRe = {
+          result: true,
+          record: temp[temp.length - 1],
+          durabilityReduce: re['durabilityReduce']
+        }
+        let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
+        let { troopReduce = 0, username = ''} = defenseInfo;
+        if(username !== ''){
+          let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+          logic2.city.updateInjuredTroops(troopReduce, 'battle')
+          console.log('updateInjuredTroops attackBlockCod defenseInfo:', defenseInfo)
+        }
+      }else{
+        let gloryGet = Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory;
+        logic.map.addGloryAndSum(gloryGet)
+        transRe = {
+          result: true,
+          gloryGet: gloryGet, 
+          durabilityReduce: re['durabilityReduce']
+        }
+      }
+      if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
+        this.updateRewardState(
+          logic.map.rewardGlobalState, 
+          parseStateId(logic.city.state.getId()).username, 
+          oldGlory,
+          logic.general.state.glory,
+          logic.general.state.unionId
+        )
+      }
+      console.log('attackBlocksAroundCod result 2:', transRe);
+      return transRe
+    }
+    else{
+      let records = re.records || [];
+      let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
+      let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
+
+      re['attackInfo'] = attackInfo;
+      re['defenseInfo'] = defenseInfo;
+
+      let username = defenseInfo.username;
+      let troopReduce = defenseInfo.troopReduce;
+      if(username !== ''){
+        let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
+        logic2.city.updateInjuredTroops(troopReduce, 'battle')
+        console.log('updateInjuredTroops attackBlockCod defenseInfo:', defenseInfo)
+      }
+
+      console.log('attackBlocksAroundCod result 1:', re);
+      return re
+    }
+  }
+
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     let re = this.onAttackBlockCommon(args, remainTroops);
     re['txType'] = StateTransition.AttackBlock;
@@ -828,6 +981,9 @@ export class TransitionHandler {
       let codId = 'block_' + args.x_id + '_' + args.y_id;
       let codDetail = logic.general.getCodDetail(codId);
       let creator = codDetail.creator;
+      if(!creator){
+        return;
+      }
       let logicCreator : LogicEssential = _this.genLogic(creator);
 
       _this.membersQuitCod(codDetail);
