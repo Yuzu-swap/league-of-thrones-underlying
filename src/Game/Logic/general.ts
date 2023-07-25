@@ -1179,7 +1179,6 @@ export class General{
             }
         }
 
-        //notice: members.quitCod in transation
         let res = this.endCod(codId);
 
         console.log('cod cancel codsGlobal finish 2:', res, this.codsGlobal.cods);

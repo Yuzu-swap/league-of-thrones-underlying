@@ -745,28 +745,31 @@ export class TransitionHandler {
     let records = re.records || [];
     let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
     let troopReduce = attackInfo.troopReduce || 0;
-    let troopsAll = 0;
+    let troopsAll = 0.01;
     members.forEach(function(member){
-      troopsAll = member['troops'];
+      troopsAll += member['troops'];
     });
 
     members.forEach(function(member){
       let username = member['username'];
       let generalId = member['generalId'];
+      let _troopReduce = troopReduce*member['troops']/troopsAll;
       let logicPlayer : LogicEssential = _this.genLogic(username);
       logicPlayer.general.opCodGeneralId(generalId, 'release', {});
-      _this.codRecords(args, logicPlayer, re, member, troopReduce*member['troops']/troopsAll);
+
+      console.log('cod runList attack start forEach:', member, _troopReduce, troopsAll);
+      _this.codRecords(args, member, logicPlayer, re, _troopReduce);
     });
     logic.general.endCod(codId);
   }
 
   codRecords(args, member, logic, re, troopReduce){
-    console.log('cod runList attack start 4', member, troopReduce, re);
+    console.log('cod runList attack start 3:', member, troopReduce, re);
     if(re['durabilityReduce']){
       let durabilityRecord = logic.map.genDurabilityRecord(
         args.x_id, args.y_id, member.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
-      console.log('cod runList attack start 3', member, durabilityRecord);
+      console.log('cod runList attack start 4:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
         durabilityRecord
