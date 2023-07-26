@@ -492,7 +492,8 @@ export class Map{
         let records = []
         let cancelList = []
         // let remainTroop = -1
-        let re = this.attackBlockCod(x_id, y_id, generalId, remainTroop)
+        let re = this.attackBlockCod(x_id, y_id, generalId, remainTroop);
+        console.log('attackBlocksAroundCod result 1:', remainTroop, re);
         if(re['error']){
             return re
         }
@@ -528,6 +529,7 @@ export class Map{
                 lastRecord.blockInfo.durabilityReduce = durabilityReduce
             }     
         }
+        console.log('attackBlocksAroundCod result 2:', durabilityReduce, ' ', records, cancelList);
         return {
             txType: StateTransition.AttackBlock,
             records: records,
@@ -543,6 +545,7 @@ export class Map{
         let firstBlock = false
         let list : BattleTransRecord[] = []
         let generalRow = this.general.getGeneralQualification(generalId)
+
         if(remainTroop == -1){
             remainTroop = this.general.getMaxAttackTroop()
             firstBlock = true
@@ -624,7 +627,8 @@ export class Map{
                 remainTroop: remainTroop
             }
         }
-        let defenseInfos = this.getDefenseList(x_id, y_id, false)
+        let defenseInfos = this.getDefenseList(x_id, y_id, true);
+        console.log('attackBlocksAroundCod attackBlockCod defenseInfos:',{x_id, y_id} , defenseInfos);
         let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){
             let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
