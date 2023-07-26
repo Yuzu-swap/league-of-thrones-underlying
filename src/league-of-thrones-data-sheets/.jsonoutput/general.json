@@ -169,7 +169,7 @@
             5
         ],
         "general_id": 11,
-        "general_from": 2
+        "general_from": 3
     },
     {
         "stamina": 6,
@@ -185,7 +185,7 @@
             5
         ],
         "general_id": 12,
-        "general_from": 4
+        "general_from": 3
     },
     {
         "stamina": 5,
@@ -262,7 +262,7 @@
             18
         ],
         "general_id": 17,
-        "general_from": 3
+        "general_from": 4
     },
     {
         "stamina": 6,
