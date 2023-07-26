@@ -787,15 +787,17 @@ export class TransitionHandler {
     }
 
     let records = re['records'] || [];
-    console.log('cod runList attack records:', records);
-    for(let record of records as BattleTransRecord[]){
-      console.log('cod runList attack record:', record);
-      let moraleAdd = record.result ? 2 : -2
+    let recordItem = records[records.length - 1] || {};
+    console.log('cod runList attack records:', recordItem);
+    if(recordItem['attackInfo']){
+      recordItem.attackInfo.username = username;
+      recordItem.attackInfo.troopReduce = _troopReduce;
+      let moraleAdd = recordItem.result ? 2 : -2
       logic.general.offsetMorale(moraleAdd);
-      logic.map.addGloryAndSum(record.attackInfo.gloryGet);
+      logic.map.addGloryAndSum(recordItem.attackInfo.gloryGet);
 
-      record.attackInfo.username = username;
-      this.recordEvent(TransitionEventType.Battles, record);
+      console.log('cod runList attack record:', recordItem);
+      this.recordEvent(TransitionEventType.Battles, recordItem);
     }
   }
 
