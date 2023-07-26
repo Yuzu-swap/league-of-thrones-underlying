@@ -740,7 +740,7 @@ export class TransitionHandler {
     let recordItem = records[records.length - 1] || {};
     let attackInfo = recordItem.attackInfo || {};
     let troopReduce = attackInfo.troopReduce || 0;
-    troopNow += 0.01;
+    troopNow += 0.00001;
 
     members.forEach(function(member){
       _this.codRecords(args, member, re, troopReduce, troopNow);
@@ -752,30 +752,34 @@ export class TransitionHandler {
     let username = member['username'];
     let generalId = member['generalId'];
     let _troopReduce = member['troops']*troopReduce/troopNow;
-    console.log('cod runList attack start 3:', _troopReduce, troopReduce, troopNow, re);
+    console.log('cod runList attack codRecords:', member, { troopReduce, troopNow }, re);
 
     //1. release assembly generals
     let logic : LogicEssential = this.genLogic(username);
     logic.general.opCodGeneralId(generalId, 'release', {});
+    console.log('cod runList attack release generalId:', generalId);
 
     //2. same glory get
     if(re['gloryGet']){
-      logic.map.addGloryAndSum(re['gloryGet'])      
+      logic.map.addGloryAndSum(re['gloryGet']);
     }
+    console.log('cod runList attack gloryGet:', re['gloryGet']);
 
     //3. remain troops to resource
-    logic.city.useTroop(_troopReduce - member['troops']);
-    if(troopReduce > 0){
+    let remainTroops = _troopReduce - member['troops'];
+    logic.city.useTroop(remainTroops);
+    if(_troopReduce > 0){
       //4. reduce trooops to hospital
       logic.city.updateInjuredTroops(_troopReduce, 'battle');
     }
+    console.log('cod runList attack remainTroops:', { remainTroops, _troopReduce});
 
     //battle record all as same
     if(re['durabilityReduce']){
       let durabilityRecord = logic.map.genDurabilityRecord(
         args.x_id, args.y_id, member.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
-      console.log('cod runList attack start 4:', durabilityRecord);
+      console.log('cod runList attack record durabilityReduce:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
         durabilityRecord
@@ -783,7 +787,9 @@ export class TransitionHandler {
     }
 
     let records = re['records'] || [];
+    console.log('cod runList attack records:', records);
     for(let record of records as BattleTransRecord[]){
+      console.log('cod runList attack record:', record);
       let moraleAdd = record.result ? 2 : -2
       logic.general.offsetMorale(moraleAdd);
       logic.map.addGloryAndSum(record.attackInfo.gloryGet);
