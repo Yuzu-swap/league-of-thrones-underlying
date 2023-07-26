@@ -752,6 +752,7 @@ export class TransitionHandler {
     let username = member['username'];
     let generalId = member['generalId'];
     let _troopReduce = member['troops']*troopReduce/troopNow;
+        _troopReduce = Math.round(_troopReduce);
     console.log('cod runList attack codRecords:', member, { troopReduce, troopNow }, re);
 
     //1. release assembly generals
