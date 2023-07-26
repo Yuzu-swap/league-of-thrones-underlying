@@ -793,6 +793,8 @@ export class TransitionHandler {
       let moraleAdd = record.result ? 2 : -2
       logic.general.offsetMorale(moraleAdd);
       logic.map.addGloryAndSum(record.attackInfo.gloryGet);
+
+      record.attackInfo.username = username;
       this.recordEvent(TransitionEventType.Battles, record);
     }
   }
