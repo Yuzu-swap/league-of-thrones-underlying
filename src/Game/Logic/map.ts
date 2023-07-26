@@ -542,13 +542,13 @@ export class Map{
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
-        let firstBlock = false
+        let firstBlock = true
         let list : BattleTransRecord[] = []
         let generalRow = this.general.getGeneralQualification(generalId)
 
         if(remainTroop == -1){
             remainTroop = this.general.getMaxAttackTroop()
-            firstBlock = true
+            // firstBlock = true
         }
         if(firstBlock){
             for(let i = 0; i < defaultDefense.length; i++){
@@ -627,7 +627,7 @@ export class Map{
                 remainTroop: remainTroop
             }
         }
-        let defenseInfos = this.getDefenseList(x_id, y_id, true);
+        let defenseInfos = this.getDefenseList(x_id, y_id, false);
         console.log('attackBlocksAroundCod attackBlockCod defenseInfos:',{x_id, y_id} , defenseInfos);
         let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){

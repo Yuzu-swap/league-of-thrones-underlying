@@ -735,10 +735,10 @@ export class TransitionHandler {
 
     console.log('cod runList attack start 2:', codId, ', result:', re);
 
-    let records = re.records || [];
-
     //1. get troops reduce for creator, 0.01 for not zero.
-    let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
+    let records = re['records'] || [];
+    let recordItem = records[records.length - 1] || {};
+    let attackInfo = recordItem.attackInfo || {};
     let troopReduce = attackInfo.troopReduce || 0;
     troopNow += 0.01;
 
@@ -751,7 +751,7 @@ export class TransitionHandler {
   codRecords(args, member, re, troopReduce, troopNow){
     let username = member['username'];
     let generalId = member['generalId'];
-    let _troopReduce = troopReduce*member['troops']/troopNow;
+    let _troopReduce = member['troops']*troopReduce/troopNow;
     console.log('cod runList attack start 3:', _troopReduce, troopReduce, troopNow, re);
 
     //1. release assembly generals
@@ -909,6 +909,7 @@ export class TransitionHandler {
         transRe = {
           result: true,
           record: temp[temp.length - 1],
+          records: [temp[temp.length - 1]],
           durabilityReduce: re['durabilityReduce']
         }
         let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
