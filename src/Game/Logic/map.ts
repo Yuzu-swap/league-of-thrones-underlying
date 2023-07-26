@@ -555,7 +555,8 @@ export class Map{
                   attackUnionId: unionId, 
                   defenseUnionId: 0
                 };
-                let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false)
+                let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false);
+                console.log('attackBlocksAroundCod attackBlockCod 1:', remainTroop, bre);
                 if(!bre['result']){
                     return bre
                 }
@@ -633,6 +634,7 @@ export class Map{
               defenseUnionId: defenseInfos[i].unionId
             };
             let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false)
+            console.log('attackBlocksAroundCod attackBlockCod 2:', remainTroop, bre);
             if(!bre['result']){
                 return bre
             }
@@ -696,6 +698,7 @@ export class Map{
                 'defenseList': defenseInfos
             }
         )
+        console.log('attackBlocksAroundCod attackBlockCod result:', remainTroop, ' records:', list);
         return {
             txType: StateTransition.AttackBlock,
             records: list,

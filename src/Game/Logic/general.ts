@@ -915,6 +915,7 @@ export class General{
     }
 
     battleCod( generalId : number , unionIds : any, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+        console.log('attackBlocksAroundCod battleCod 1:', remainTroop, unionIds);        
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
@@ -960,7 +961,7 @@ export class General{
         let loopTime = 0
 
         let { attackUnionId, defenseUnionId } = unionIds;
-        console.log('battlecity:', attackUnionId, defenseUnionId);
+        console.log('attackBlocksAroundCod battleCod battlecity:', attackUnionId, defenseUnionId);
 
         while(true){
             loopTime++
@@ -1016,6 +1017,7 @@ export class General{
         // this.city.useTroop(re.attackTroopReduce)
         // this.city.updateInjuredTroops(re.attackTroopReduce, 'battle')
         // console.log('updateInjuredTroops battle.attackTroopReduce', re);
+        console.log('attackBlocksAroundCod battleCod 2 result:', remainTroop, re);        
         return re
     }
 

@@ -86,7 +86,7 @@ export enum StateTransition {
 	CancelCod,
 	JoinCod,
 	QuitCod,
-	CodAttackBlock,
+	AttackBlockCod,
 	CodCreatorDetail
 }
 
