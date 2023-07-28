@@ -477,14 +477,15 @@ export class Map{
             }
         }
 
-        let stamina = this.parameter.attack_plots_need_stamina;
-        if(!(this.general.useGeneralStamina(generalId, stamina))){
-            return{
-                result: false,
-                txType: StateTransition.AttackBlock,
-                error: 'general-stamina-error'
-            }
-        }
+        // cod battle
+        // let stamina = this.parameter.attack_plots_need_stamina;
+        // if(!(this.general.useGeneralStamina(generalId, stamina))){
+        //     return{
+        //         result: false,
+        //         txType: StateTransition.AttackBlock,
+        //         error: 'general-stamina-error'
+        //     }
+        // }
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let centerBlockState = this.getBlockState(x_id, y_id)
