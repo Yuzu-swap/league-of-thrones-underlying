@@ -105,6 +105,8 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
+    this.runCodList();
+
     console.log("underlying_transition: sid: ", sid, " args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
@@ -707,6 +709,11 @@ export class TransitionHandler {
 
     const logic : LogicEssential = this.genLogic(username);
     const codDetail = logic.general.getCodDetail(codId);
+
+    if(!codDetail.creator){
+      console.log('onCodCreatorDetail err:', codId, ' not exist');
+      return { };
+    }
 
     const generalId = codDetail.generalId;
     const logicCreator : LogicEssential = this.genLogic(codDetail.creator);
