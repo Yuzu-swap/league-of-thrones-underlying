@@ -105,7 +105,7 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
-    this.runCodList();
+    this.runCodList('onTransition ' + sid);
 
     console.log("underlying_transition: sid: ", sid, " args:", arg)
     let re = {}
@@ -800,7 +800,6 @@ export class TransitionHandler {
         TransitionEventType.Battles,
         durabilityRecord
       )
-      return;
     }
 
     let records = re['records'] || [];
@@ -825,7 +824,7 @@ export class TransitionHandler {
     }
   }
 
-  runCodList(){
+  runCodList(from: string){
     let _this = this;
     let gStates: GlobalStateEssential = _this.genGlobalStateEssential(0, 0);
     let cods = gStates.codsGlobal.cods;
@@ -838,7 +837,7 @@ export class TransitionHandler {
       }
     }
 
-    console.log('cod runList ids:', codList.length, codIds);
+    console.log('cod runList ids:', from, codList.length, codIds);
     console.log('cod runList:', codList);
 
     codList.forEach(function(codItem){
@@ -1578,7 +1577,7 @@ export class TransitionHandler {
     }
     console.log("sendActivity reward over all:", gLogic.activity.state.haveSendReward)
 
-    this.runCodList();
+    this.runCodList('onRegularTask');
 
     return {
       txType: StateTransition.RegularTask,
