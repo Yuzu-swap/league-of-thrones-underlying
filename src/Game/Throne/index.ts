@@ -1035,8 +1035,8 @@ export class GeneralComponent implements IGeneralComponent {
     for(let record1 of re1 ?? [] ){
       trans1.push(this.general.transferTransRecord(record1))
     }
-    console.log('getBattleRecords', re1)
-    console.log('getBattleRecords', trans1)
+    console.log('getBattleRecords re 1:', re1)
+    console.log('getBattleRecords re trans 1', trans1)
 
     let re = (await this.mediator.query(TransitionEventType.Battles,
       {
@@ -1047,6 +1047,8 @@ export class GeneralComponent implements IGeneralComponent {
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
     }
+    console.log('getBattleRecords re:', re)
+    console.log('getBattleRecords re trans:', trans)
     callback(trans)
     if(trans.length != 0){
       this.battleRecordGobalTs = (trans[0] as BattleRecord).timestamp

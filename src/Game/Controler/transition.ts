@@ -790,7 +790,7 @@ export class TransitionHandler {
 
     let { generalInfo, qualificationInfo } = generalDetail;
     //battle record all as same
-    // if(re['durabilityReduce']){
+    if(re['durabilityReduce']){
       let durabilityRecord = logicCreator.map.genDurabilityRecord(
         args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
@@ -800,13 +800,12 @@ export class TransitionHandler {
         TransitionEventType.Battles,
         durabilityRecord
       )
-    // }
+    }
 
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
-    console.log('cod runList attack record 1:', recordItem);
     if(recordItem['attackInfo']){
-      this.recordEvent(TransitionEventType.Battles, recordItem);
+      // this.recordEvent(TransitionEventType.Battles, recordItem);
 
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
@@ -822,6 +821,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet);
       }
       let recordData = JSON.parse(JSON.stringify(recordItem));
+      console.log('cod runList attack record 1:', recordItem);
       console.log('cod runList attack record 2:', recordData);
       this.recordEvent(TransitionEventType.Battles, recordData);
 
