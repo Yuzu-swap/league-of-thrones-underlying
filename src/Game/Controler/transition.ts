@@ -966,6 +966,7 @@ export class TransitionHandler {
         transRe = {
           result: true,
           record: temp[temp.length - 1],
+          records: [temp[temp.length - 1]],
           durabilityReduce: re['durabilityReduce']
         }
         let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
