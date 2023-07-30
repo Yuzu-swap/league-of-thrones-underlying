@@ -791,7 +791,7 @@ export class TransitionHandler {
 
     let { generalInfo, qualificationInfo } = generalDetail;
     //battle record all as same
-    if(re['durabilityReduce']){
+    // if(re['durabilityReduce']){
       let durabilityRecord = logicCreator.map.genDurabilityRecord(
         args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
@@ -801,7 +801,7 @@ export class TransitionHandler {
         TransitionEventType.Battles,
         durabilityRecord
       )
-    }
+    // }
 
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
@@ -823,28 +823,28 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet);
       }
       let recordData = JSON.parse(JSON.stringify(recordItem));
-      console.log('cod runList attack record 2:', recordItem, recordData);
+      console.log('cod runList attack record 2:', recordData);
       this.recordEvent(TransitionEventType.Battles, recordData);
 
-      let mockRecord = {
-        attackInfo: {
-          generalId:"1", 
-          generalLevel:"1", generalType:"1", gloryGet: "198", iconId:"-1", 
-          silverGet:"0", troopReduce:"500", unionId:"2",
-          username: username + ''
-        },
-        blockInfo: {durabilityReduce:"0", x_id:"-9", y_id:"7"},
-        defenseInfo: {
-          generalId:"-1", generalLevel:"1", generalType:"1", gloryGet:"15", 
-          iconId:"-1", silverGet:"0", troopReduce:"0", unionId:"0", username:""
-        },
-        recordType: "block",
-        result: false,
-        timestamp: getTimeStamp(),
-        txHash: getTxHash()
-      };
-      console.log('cod runList attack record 3 mock:', mockRecord);
-      this.recordEvent(TransitionEventType.Battles, mockRecord);
+      // let mockRecord = {
+      //   attackInfo: {
+      //     generalId:"1", 
+      //     generalLevel:"1", generalType:"1", gloryGet: "198", iconId:"-1", 
+      //     silverGet:"0", troopReduce:"500", unionId:"2",
+      //     username: username + ''
+      //   },
+      //   blockInfo: {durabilityReduce:"0", x_id:"-9", y_id:"7"},
+      //   defenseInfo: {
+      //     generalId:"-1", generalLevel:"1", generalType:"1", gloryGet:"15", 
+      //     iconId:"-1", silverGet:"0", troopReduce:"0", unionId:"0", username:""
+      //   },
+      //   recordType: "block",
+      //   result: false,
+      //   timestamp: getTimeStamp(),
+      //   txHash: getTxHash()
+      // };
+      // console.log('cod runList attack record 3 mock:', mockRecord);
+      // this.recordEvent(TransitionEventType.Battles, mockRecord);
     }
   }
 
@@ -1360,7 +1360,7 @@ export class TransitionHandler {
   }
 
   recordEvent(typ: TransitionEventType,event: any) {
-    console.log('recordEvent:', typ, event)
+    console.log('recordEvent type:', typ, ', event:', event)
     if (this.eventRecorderFunc){
       this.eventRecorderFunc(typ,event)
     }
