@@ -805,8 +805,10 @@ export class TransitionHandler {
 
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
-    console.log('cod runList attack records:', recordItem);
+    console.log('cod runList attack record 1:', recordItem);
     if(recordItem['attackInfo']){
+      this.recordEvent(TransitionEventType.Battles, recordItem);
+
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
       recordItem.attackInfo.generalType = qualificationInfo.general_type;
@@ -821,9 +823,7 @@ export class TransitionHandler {
         logic.map.addGloryAndSum(gloryGet);
       }
       let recordData = JSON.parse(JSON.stringify(recordItem));
-      recordData.type = "attack";
-      recordData.txHash = getTxHash();
-      console.log('cod runList attack record:', recordItem, recordData);
+      console.log('cod runList attack record 2:', recordItem, recordData);
       this.recordEvent(TransitionEventType.Battles, recordData);
 
       let mockRecord = {
@@ -839,12 +839,11 @@ export class TransitionHandler {
           iconId:"-1", silverGet:"0", troopReduce:"0", unionId:"0", username:""
         },
         recordType: "block",
-        type: "attack",
         result: false,
         timestamp: getTimeStamp(),
         txHash: getTxHash()
       };
-      console.log('cod runList attack record mock:', mockRecord);
+      console.log('cod runList attack record 3 mock:', mockRecord);
       this.recordEvent(TransitionEventType.Battles, mockRecord);
     }
   }
