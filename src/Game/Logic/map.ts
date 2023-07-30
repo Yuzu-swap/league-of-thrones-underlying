@@ -726,8 +726,7 @@ export class Map{
                 unionId: this.general.state.unionId,
                 iconId: this.general.state.iconId
             },
-            defenseInfo: 
-            {
+            defenseInfo: {
                 username: '',
                 generalId: -1,
                 generalLevel: 0,

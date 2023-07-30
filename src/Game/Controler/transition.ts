@@ -795,6 +795,7 @@ export class TransitionHandler {
         args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
       durabilityRecord = JSON.parse(JSON.stringify(durabilityRecord));
+      durabilityRecord.attackInfo.username = username;
       console.log('cod runList attack record durabilityReduce:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
@@ -965,7 +966,6 @@ export class TransitionHandler {
         transRe = {
           result: true,
           record: temp[temp.length - 1],
-          records: [temp[temp.length - 1]],
           durabilityReduce: re['durabilityReduce']
         }
         let defenseInfo = temp[temp.length - 1].defenseInfo || { troopReduce: 0, username: '' };
