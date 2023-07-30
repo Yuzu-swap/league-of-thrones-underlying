@@ -828,15 +828,15 @@ export class TransitionHandler {
 
       let mockRecord = {
         attackInfo: {
-          generalId:1, 
-          generalLevel:1, generalType:1, gloryGet: 1.23, iconId:-1, 
-          silverGet:0, troopReduce:500, unionId:2,
-          username: username
+          generalId:"1", 
+          generalLevel:"1", generalType:"1", gloryGet: "198", iconId:"-1", 
+          silverGet:"0", troopReduce:"500", unionId:"2",
+          username: username + ''
         },
-        blockInfo: {durabilityReduce:0, x_id:-9, y_id:7},
+        blockInfo: {durabilityReduce:"0", x_id:"-9", y_id:"7"},
         defenseInfo: {
-          generalId:-1, generalLevel:1, generalType:1, gloryGet:15, 
-          iconId:-1, silverGet:0, troopReduce:0, unionId:0, username:""
+          generalId:"-1", generalLevel:"1", generalType:"1", gloryGet:"15", 
+          iconId:"-1", silverGet:"0", troopReduce:"0", unionId:"0", username:""
         },
         recordType: "block",
         type: "attack",
