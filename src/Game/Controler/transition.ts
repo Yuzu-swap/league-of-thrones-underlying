@@ -822,6 +822,7 @@ export class TransitionHandler {
       }
       let recordData = JSON.parse(JSON.stringify(recordItem));
       recordData.type = "attack";
+      recordData.txHash = getTxHash();
       console.log('cod runList attack record:', recordItem, recordData);
       this.recordEvent(TransitionEventType.Battles, recordData);
 
@@ -841,7 +842,7 @@ export class TransitionHandler {
         type: "attack",
         result: false,
         timestamp: getTimeStamp(),
-        txHash:"34E1786D76B0C0D8B446E06AE9120B8212A293F65881EABD55C2CE268C30D6E1"
+        txHash: getTxHash()
       };
       console.log('cod runList attack record mock:', mockRecord);
       this.recordEvent(TransitionEventType.Battles, mockRecord);
