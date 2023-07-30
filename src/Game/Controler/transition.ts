@@ -837,7 +837,7 @@ export class TransitionHandler {
       }
     }
 
-    console.log('cod runList ids:', from, codList.length, codIds);
+    console.log('cod runList ids:', from, ' codList:', codList.length, codIds);
     console.log('cod runList:', codList);
 
     codList.forEach(function(codItem){
