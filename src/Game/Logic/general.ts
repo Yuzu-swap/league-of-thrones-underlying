@@ -1625,12 +1625,13 @@ export class General{
     }
 
     transferTransRecord(record: BattleTransRecord): BattleRecord{
-        let username = parseStateId(this.state.getId()).username
+        let username = parseStateId(this.state.getId()).username;
+            username = username.toLowerCase();
         let type = BattleType.Attack
         let result = true
         let myInfo: BattleRecordInfo
         let enemyInfo: BattleRecordInfo
-        if(record.attackInfo.username == username){
+        if(record.attackInfo.username.toLowerCase() == username){
             type = BattleType.Attack
             result = record.result
             myInfo = record.attackInfo
