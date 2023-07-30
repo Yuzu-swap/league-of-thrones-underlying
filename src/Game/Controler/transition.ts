@@ -795,6 +795,7 @@ export class TransitionHandler {
       let durabilityRecord = logicCreator.map.genDurabilityRecord(
         args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
+      durabilityRecord = JSON.parse(JSON.stringify(durabilityRecord));
       console.log('cod runList attack record durabilityReduce:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
@@ -819,8 +820,9 @@ export class TransitionHandler {
       if(gloryGet > 0){
         logic.map.addGloryAndSum(gloryGet);
       }
-      console.log('cod runList attack record:', recordItem);
-      this.recordEvent(TransitionEventType.Battles, recordItem);
+      let recordData = JSON.parse(JSON.stringify(recordItem));
+      console.log('cod runList attack record:', recordItem, recordData);
+      this.recordEvent(TransitionEventType.Battles, recordData);
     }
   }
 

@@ -1125,7 +1125,7 @@ export class General{
           creator : username,
           createTime: time,
           unionId: unionId,
-          troopTotal: 800, 
+          troopTotal: assemblyTroops, 
           troopNow: 0,
           lastTime: assemble_last_times,
           generalId: generalId,
