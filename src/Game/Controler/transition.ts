@@ -63,7 +63,6 @@ const log = globalThis.log || function () {};
 
 export enum TransitionEventType {
   Battles = "battles",
-  Assembly = "assembly",
   TimeStamp = "timeStamp"
 }
 
