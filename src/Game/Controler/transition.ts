@@ -711,7 +711,11 @@ export class TransitionHandler {
 
     if(!codDetail.creator){
       console.log('onCodCreatorDetail err:', codId, ' not exist');
-      return { };
+      return { 
+        result: false,
+        error: 'assembly not exist',
+        txType: StateTransition.CodCreatorDetail
+      };
     }
 
     const generalId = codDetail.generalId;
@@ -720,7 +724,13 @@ export class TransitionHandler {
     let generalInfo = logicCreator.general.getGeneralInfo(generalId);
     let qualificationInfo = logicCreator.general.getGeneralQualification(generalId);
     console.log('onCodCreatorDetail battleInfo:', codId, ' ', generalInfo, battleInfo, qualificationInfo);
-    return { generalInfo, battleInfo, qualificationInfo };
+    return { 
+      result: true,
+      generalInfo: generalInfo,
+      battleInfo: battleInfo,
+      qualificationInfo: qualificationInfo,
+      txType: StateTransition.CodCreatorDetail
+    };
   }
 
   startAttackCod(codItem){
