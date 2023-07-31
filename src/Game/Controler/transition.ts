@@ -104,11 +104,12 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
-    this.runCodList('onTransition ' + sid);
-
     console.log("underlying_transition: sid: ", sid, " args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
+
+    this.runCodList('onTransition ' + sid);
+    
     try{
       if(checkerMapForTxArgsTypeMap[sid]){
         checkerMapForTxArgsTypeMap[sid].check(arg)
@@ -818,7 +819,7 @@ export class TransitionHandler {
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
     if(recordItem['attackInfo']){
-      this.recordEvent(TransitionEventType.Battles, recordItem);
+      // this.recordEvent(TransitionEventType.Battles, recordItem);
 
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
