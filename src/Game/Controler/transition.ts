@@ -816,7 +816,7 @@ export class TransitionHandler {
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
     if(recordItem['attackInfo']){
-      // this.recordEvent(TransitionEventType.Battles, recordItem);
+      this.recordEvent(TransitionEventType.Battles, recordItem);
 
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
