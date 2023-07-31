@@ -589,7 +589,7 @@ export class Map{
                             unionId: 0,
                             iconId: -1
                         },
-                        recordType: BattleRecordType.Block,
+                        recordType: BattleRecordType.Assembly,
                         timestamp: getTimeStamp(),
                         blockInfo:{
                             x_id: x_id,
@@ -669,7 +669,7 @@ export class Map{
                         unionId: defenseInfos[i].unionId,
                         iconId: defenseInfos[i].iconId
                     },
-                    recordType: BattleRecordType.Block,
+                    recordType: BattleRecordType.Assembly,
                     timestamp: getTimeStamp(),
                     blockInfo:{
                         x_id: x_id,

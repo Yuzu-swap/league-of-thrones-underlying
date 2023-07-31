@@ -1116,8 +1116,9 @@ export class General{
         const assemble_last_times = this.config.parameter.assemble_last_times/20;
         // const assemblyTroops = 23000;
         const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
-        const assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
-        console.log('cod create assembly gds:', { assemble_last_times, assemblyLevel, assemblyTroops });
+        let assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
+        let attackTroops = this.getMaxAttackTroop();
+        console.log('cod create assembly gds:', { assemble_last_times, assemblyLevel, assemblyTroops, attackTroops });
 
         const time = getTimeStamp();
         let codData = {
@@ -1125,7 +1126,7 @@ export class General{
           creator : username,
           createTime: time,
           unionId: unionId,
-          troopTotal: assemblyTroops, 
+          troopTotal: assemblyTroops + attackTroops, 
           troopNow: 0,
           lastTime: assemble_last_times,
           generalId: generalId,

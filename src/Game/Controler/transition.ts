@@ -71,7 +71,8 @@ export type EventRecorderFunc = (typ: TransitionEventType,event: any) => void;
 export enum BattleRecordType{
   Block = "block",
   City = "city",
-  Spy = "spy"
+  Spy = "spy",
+  Assembly = "assembly"
 }
 
 export interface BattleTransRecord{
@@ -809,6 +810,7 @@ export class TransitionHandler {
       )
       durabilityRecord = JSON.parse(JSON.stringify(durabilityRecord));
       durabilityRecord.attackInfo.username = username;
+      durabilityRecord.recordType = BattleRecordType.Assembly;
       console.log('cod runList attack record durabilityReduce:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
@@ -820,6 +822,7 @@ export class TransitionHandler {
     let recordItem = records[records.length - 1] || {};
     if(recordItem['attackInfo']){
       // this.recordEvent(TransitionEventType.Battles, recordItem);
+      recordItem.recordType = BattleRecordType.Assembly;
 
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
