@@ -710,9 +710,9 @@ export class TransitionHandler {
     const codDetail = logic.general.getCodDetail(codId);
 
     if(!codDetail.creator){
-      console.log('onCodCreatorDetail err:', codId, ' not exist');
+      console.log('onCodCreatorDetail empty:', codId, ' not exist', codDetail);
       return { 
-        result: false,
+        result: true,
         error: 'assembly not exist',
         txType: StateTransition.CodCreatorDetail
       };
@@ -723,7 +723,7 @@ export class TransitionHandler {
     let battleInfo = logicCreator.general.getGeneralBattleStatus(generalId);
     let generalInfo = logicCreator.general.getGeneralInfo(generalId);
     let qualificationInfo = logicCreator.general.getGeneralQualification(generalId);
-    console.log('onCodCreatorDetail battleInfo:', codId, ' ', generalInfo, battleInfo, qualificationInfo);
+    console.log('onCodCreatorDetail battleInfo:', codId, ' ', {generalInfo, battleInfo, qualificationInfo});
     return { 
       result: true,
       generalInfo: generalInfo,
