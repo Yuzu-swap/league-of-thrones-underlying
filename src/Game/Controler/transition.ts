@@ -713,7 +713,9 @@ export class TransitionHandler {
       console.log('onCodCreatorDetail empty:', codId, ' not exist', codDetail);
       return { 
         result: true,
-        error: 'assembly not exist',
+        generalInfo: {},
+        battleInfo: {},
+        qualificationInfo: {},
         txType: StateTransition.CodCreatorDetail
       };
     }
