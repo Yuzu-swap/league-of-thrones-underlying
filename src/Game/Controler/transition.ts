@@ -78,6 +78,7 @@ export enum BattleRecordType{
 export interface BattleTransRecord{
   attackInfo: BattleRecordInfo
   defenseInfo: BattleRecordInfo
+  leader: string
   recordType: BattleRecordType,
   blockInfo: {
     x_id: number
@@ -511,6 +512,7 @@ export class TransitionHandler {
           unionId: logic2.general.state.unionId,
           iconId: logic2.general.state.iconId
         },
+        leader: '',
         recordType: BattleRecordType.City,
         blockInfo:{
           x_id: 0,
@@ -625,6 +627,7 @@ export class TransitionHandler {
         unionId: logic2.general.state.unionId,
         iconId: logic2.general.state.iconId
       },
+      leader: '',
       recordType: BattleRecordType.Spy,
       blockInfo:{
         x_id: 0,
@@ -780,7 +783,8 @@ export class TransitionHandler {
         _troopReduce = Math.round(_troopReduce);
     console.log('cod runList attack codRecords:', member, { troopReduce, troopNow }, re);
 
-    let logicCreator : LogicEssential = this.genLogic(args.from);
+    let userCreator = args.from;
+    let logicCreator : LogicEssential = this.genLogic(userCreator);
 
     //1. release assembly generals
     let logic : LogicEssential = this.genLogic(username);
@@ -811,6 +815,7 @@ export class TransitionHandler {
       durabilityRecord = JSON.parse(JSON.stringify(durabilityRecord));
       durabilityRecord.attackInfo.username = username;
       durabilityRecord.recordType = BattleRecordType.Assembly;
+      durabilityRecord.leader = userCreator;
       console.log('cod runList attack record durabilityReduce:', durabilityRecord);
       this.recordEvent(
         TransitionEventType.Battles,
@@ -820,9 +825,9 @@ export class TransitionHandler {
 
     let records = re['records'] || [];
     let recordItem = records[records.length - 1] || {};
-    if(recordItem['attackInfo']){
-      // this.recordEvent(TransitionEventType.Battles, recordItem);
+    if(recordItem['attackInfo'] && !re['durabilityReduce']){
       recordItem.recordType = BattleRecordType.Assembly;
+      recordItem.leader = userCreator;
 
       recordItem.attackInfo.generalId = generalInfo.id;
       recordItem.attackInfo.generalLevel = generalInfo.level;
@@ -837,30 +842,10 @@ export class TransitionHandler {
       if(gloryGet > 0){
         logic.map.addGloryAndSum(gloryGet);
       }
-      let recordData = JSON.parse(JSON.stringify(recordItem));
-      console.log('cod runList attack record 1:', recordItem);
-      console.log('cod runList attack record 2:', recordData);
-      this.recordEvent(TransitionEventType.Battles, recordData);
-
-      // let mockRecord = {
-      //   attackInfo: {
-      //     generalId:"1", 
-      //     generalLevel:"1", generalType:"1", gloryGet: "198", iconId:"-1", 
-      //     silverGet:"0", troopReduce:"500", unionId:"2",
-      //     username: username + ''
-      //   },
-      //   blockInfo: {durabilityReduce:"0", x_id:"-9", y_id:"7"},
-      //   defenseInfo: {
-      //     generalId:"-1", generalLevel:"1", generalType:"1", gloryGet:"15", 
-      //     iconId:"-1", silverGet:"0", troopReduce:"0", unionId:"0", username:""
-      //   },
-      //   recordType: "block",
-      //   result: false,
-      //   timestamp: getTimeStamp(),
-      //   txHash: getTxHash()
-      // };
-      // console.log('cod runList attack record 3 mock:', mockRecord);
-      // this.recordEvent(TransitionEventType.Battles, mockRecord);
+      // let recordData = JSON.parse(JSON.stringify(recordItem));
+      // console.log('cod runList attack record 1:', recordItem);
+      console.log('cod runList attack record', recordItem);
+      this.recordEvent(TransitionEventType.Battles, recordItem);
     }
   }
 

@@ -348,6 +348,7 @@ export class Map{
                             unionId: 0,
                             iconId: -1
                         },
+                        leader: '',
                         recordType: BattleRecordType.Block,
                         timestamp: getTimeStamp(),
                         blockInfo:{
@@ -426,6 +427,7 @@ export class Map{
                         unionId: defenseInfos[i].unionId,
                         iconId: defenseInfos[i].iconId
                     },
+                    leader: '',
                     recordType: BattleRecordType.Block,
                     timestamp: getTimeStamp(),
                     blockInfo:{
@@ -589,6 +591,7 @@ export class Map{
                             unionId: 0,
                             iconId: -1
                         },
+                        leader: '',
                         recordType: BattleRecordType.Assembly,
                         timestamp: getTimeStamp(),
                         blockInfo:{
@@ -669,6 +672,7 @@ export class Map{
                         unionId: defenseInfos[i].unionId,
                         iconId: defenseInfos[i].iconId
                     },
+                    leader: '',
                     recordType: BattleRecordType.Assembly,
                     timestamp: getTimeStamp(),
                     blockInfo:{
@@ -737,6 +741,7 @@ export class Map{
                 unionId: 0,
                 iconId: -1
             },
+            leader: '',
             recordType: BattleRecordType.Block,
             timestamp: getTimeStamp(),
             blockInfo:{

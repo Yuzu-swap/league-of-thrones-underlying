@@ -69,6 +69,7 @@ export interface BattleRecord{
       type: number
       parameter: number
     }
+    leader: string
     type: BattleType
     recordType : string
     timestamp: number
@@ -1113,7 +1114,7 @@ export class General{
             }
         }
 
-        const assemble_last_times = this.config.parameter.assemble_last_times/20;
+        const assemble_last_times = this.config.parameter.assemble_last_times/10;
         // const assemblyTroops = 23000;
         const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
         let assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
@@ -1656,6 +1657,7 @@ export class General{
             myInfo: myInfo,
             enemyInfo: enemyInfo,
             blockInfo: newBlockInfo,
+            leader: record.leader,
             result : result,
             type: type,
             timestamp: record.timestamp,
