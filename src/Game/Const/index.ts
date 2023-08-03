@@ -11,7 +11,8 @@ export enum StateName {
 	TokenPriceInfo = 'tokenPriceInfo',
 	RewardGloablState = 'rewardglobalstate',
 	Strategy = 'strategy',
-	Activity = 'activity'
+	Activity = 'activity',
+	GlobalCod = 'globalcod'
 }
 
 export enum CityFacility {
@@ -24,7 +25,8 @@ export enum CityFacility {
 	ArcherCamp = 'archercamp',
 	TrainingCenter = 'trainingcenter',
 	Home = 'home',
-	Hospital = 'hospital'
+	Hospital = 'hospital',
+	Assembly = 'assembly'
 }
 
 export enum ResouceType {
@@ -78,7 +80,14 @@ export enum StateTransition {
 	StrategyBuyProtect1,
 	FinishOutChainUserActivity,
 	HealTroops,
-	SpyEnamy
+	SpyEnamy,
+	BuyOffer,
+	CreateCod,
+	CancelCod,
+	JoinCod,
+	QuitCod,
+	AttackBlockCod,
+	CodCreatorDetail
 }
 
 export function StringifyTxType() {
@@ -231,6 +240,21 @@ export interface SpyEnamyArgs extends StateTransitionArgs{
   generalId: number
 }
 
+export interface CreateCodArgs extends StateTransitionArgs{
+  blockInfo: {}
+  userInfo: {}
+}
+
+export interface CancelCodArgs extends StateTransitionArgs{
+  codId: string
+  username: string
+}
+
+export interface CodJoinArgs extends StateTransitionArgs{
+  codId: string
+  userInfo: {}
+}
+
 export enum ChatType {
 	ChatTypeText                  = 1,
 	ChatTypePos                   = 2,
@@ -300,4 +324,8 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = {
 	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,
 	[StateTransition.HealTroops]: checkMapFactory.HealTroopsArgs,
 	[StateTransition.SpyEnamy]: checkMapFactory.SpyEnamyArgs,
+	[StateTransition.CreateCod]: checkMapFactory.CreateCodArgs,
+	[StateTransition.CancelCod]: checkMapFactory.CancelCodArgs,
+	[StateTransition.JoinCod]: checkMapFactory.CodJoinArgs,
+	[StateTransition.QuitCod]: checkMapFactory.CodJoinArgs,
 }

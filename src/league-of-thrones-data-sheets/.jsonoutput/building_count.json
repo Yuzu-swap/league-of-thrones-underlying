@@ -29,6 +29,11 @@
         "max_count": 1,
         "building_name":"hospital"
     },
+    "assembly":{
+        "order": 5,
+        "max_count": 1,
+        "building_name":"assembly"
+    },
     "home":{
         "order": 9,
         "max_count": 3,

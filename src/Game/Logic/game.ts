@@ -13,20 +13,24 @@ import {
   FacilityTrainingCenterGdsRow,
   FacilityHomeGdsRow,
   FacilityHospitalGdsRow,
+  FacilityAssemblyGdsRow,
   CityConfigFromGDS,
   FacilityLimit,
   RechargeConfigs,
   RechargeConfigFromGDS,
   RechargeConfig,
   Parameter,
-  parameterConfig
+  parameterConfig,
+  OfferConfig,
+  offerConfigFromGDS
 } from '../DataConfig';
 import { IBoost } from './boost';
 import { getTimeStamp } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { Strategy, StrategyType } from './strategy';
+import { Map } from "./map";
+import { General } from "./general";
 import { isNewExpression, NumericLiteral } from 'typescript';
-
 
 export interface CityConfig {
   facilityConfig: {
@@ -40,6 +44,7 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: ConfigContainer<FacilityTrainingCenterGdsRow>;
     [CityFacility.Home]: ConfigContainer<FacilityHomeGdsRow>;
     [CityFacility.Hospital]: ConfigContainer<FacilityHospitalGdsRow>;
+    [CityFacility.Assembly]: ConfigContainer<FacilityAssemblyGdsRow>;
   };
   limit: {
     [CityFacility.Fortress]: FacilityLimit;
@@ -52,6 +57,7 @@ export interface CityConfig {
     [CityFacility.TrainingCenter]: FacilityLimit;
     [CityFacility.Home]: FacilityLimit;
     [CityFacility.Hospital]: FacilityLimit;
+    [CityFacility.Assembly]: FacilityLimit;
   };
 }
 
@@ -65,15 +71,19 @@ export class City {
   readonly state: ICityState;
   //cache
   cityConfig: CityConfig;
-  rechargeConfig: RechargeConfigs 
+  rechargeConfig: RechargeConfigs;
   boost: IBoost;
-  parameter: Parameter
+  map: Map;
+  general: General;
+  parameter: Parameter;
+  offers: OfferConfig;
 
   constructor(state: ICityState) {
     this.state = state;
     this.cityConfig = CityConfigFromGDS;
     this.rechargeConfig = RechargeConfigFromGDS;
-    this.parameter = parameterConfig
+    this.parameter = parameterConfig;
+    this.offers = offerConfigFromGDS;
   }
 
   loadState(state: {}) {
@@ -81,7 +91,15 @@ export class City {
   }
 
   setBoost( boost : IBoost){
-    this.boost = boost
+    this.boost = boost;
+  }
+
+  setMap(map: Map){
+      this.map = map;
+  }
+
+  setGeneral(general: General){
+      this.general = general;
   }
 
   getResource(typ: ResouceType): number{
@@ -161,7 +179,11 @@ export class City {
     let re: FacilityGdsRow[] = [];
     let i = 1;
     while (true) {
-      const row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
+      console.log(type, this.cityConfig.facilityConfig)
+      let row = null;
+      if(this.cityConfig.facilityConfig[type]){
+        row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
+      }
       if (row) {
         re.push(row);
       } else {
@@ -568,7 +590,6 @@ export class City {
     return config;
   }
 
-
   recharge(rechargeId: number ,amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
@@ -695,6 +716,101 @@ export class City {
       txType: StateTransition.AddTestResource,
       result: true
     }
+  }
+
+  getOfferList(){
+    return this.offers.config;
+  }
+
+  buyOffer(offerId){
+    let offerData = this.offers.get(offerId);
+    console.log('onBuyOffer 2:', offerId, ', offerData: ', offerData);
+
+    let buyOfferRecords = this.state.buyOfferRecords || {};
+    if(buyOfferRecords[offerId]){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'not allow by again',
+        data: offerData
+      }
+    }
+
+    if(!offerData['offer_id']){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'Offer id err',
+        data: offerData
+      }
+    }
+
+    let goldCount = offerData.offer_gold;
+
+    if(!this.useGold(goldCount)){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'Gold is not enough',
+        data: offerData
+      }
+    }
+
+    let isCanbuy = this.isOfferCanBuy(offerData);
+
+    if(!isCanbuy){
+      return{
+        txType: StateTransition.BuyOffer,
+        result: false,
+        error: 'not allow buy this offer',
+        data: offerData
+      }
+    }
+
+    let silverCount = 0 - offerData.offer_reward_sliver;
+    let troopsCount = 0 - offerData.offer_reward_troops;
+    this.useSilver(silverCount);
+    this.useTroop(troopsCount);
+
+    buyOfferRecords[offerId] = getTimeStamp()
+    this.state.update({
+      buyOfferRecords: buyOfferRecords
+    });
+
+    return{
+      txType: StateTransition.BuyOffer,
+      result: true,
+      data: offerData
+    }
+  }
+
+  isOfferCanBuy(offerData){
+    let { offer_trigger_1, offer_trigger_2 = 0, offer_trigger_value } = offerData;
+
+    let silverProduction = this.boost.getProduction(ResouceType.Silver);
+    let troopProduction = this.boost.getProduction(ResouceType.Troop);
+    let maxGeneralLevel = this.general.getMaxGeneralLevel();
+
+    let compareVars = {
+        '1': silverProduction,
+        '2': maxGeneralLevel,
+        '3': troopProduction
+    };
+
+    const seasonState = this.map.getSeasonState();
+    const season_open = seasonState.season_open;
+    const timeNow = getTimeStamp();
+    const dayLong = 24*60*60;
+    const dayCount = Math.ceil(timeNow/dayLong) - Math.ceil(season_open/dayLong) + 1;
+
+    console.log('onBuyOffer canbuy 1:', offerData);
+    console.log('onBuyOffer canbuy 2:', compareVars, { season_open, dayCount });
+
+    let isCanbuy = dayCount >= offer_trigger_1;
+    if(offer_trigger_2){
+        isCanbuy = isCanbuy && compareVars[offer_trigger_2] < offer_trigger_value;
+    }
+    return isCanbuy;
   }
 
   getTestResourceCoolDownTime(){

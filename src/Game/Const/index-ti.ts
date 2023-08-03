@@ -27,6 +27,7 @@ export const CityFacility = t.enumtype({
   "TrainingCenter": "trainingcenter",
   "Home": "home",
   "Hospital": "hospital",
+  "Assembly": "assembly",
 });
 
 export const ResouceType = t.enumtype({

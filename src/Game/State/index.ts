@@ -46,6 +46,7 @@ export interface ICityState extends IState {
   injuredTroops: InjuredTroops
   firstLogin: number
   rewardClaimed: {[key: string]: boolean}
+  buyOfferRecords: {}
 }
 
 export interface GeneralStamina{
@@ -79,6 +80,8 @@ export interface IGeneralState extends IState{
   unionInit: boolean
   lastBattle: number
   userScores: {}
+  cods: {}
+  codGeneralIdsMap: {}
 }
 
 export interface IDefenderInfoState extends IState{

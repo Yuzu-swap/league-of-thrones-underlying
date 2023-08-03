@@ -112,6 +112,10 @@ export class Activity{
     }
 
     getBeforeActivitiesForReward(seasonState: any){
+        let { season_open = 0 } = seasonState;
+        if(season_open === 0){
+            return [];
+        }
         let activities = this.getActivityConfig()
         let re : ActivityInfo[] = []
         for(let i = 0; i < activities.length; i++){

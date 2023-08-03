@@ -164,6 +164,7 @@ export class LocalMediator
         unionId: 1,
         iconId: -1
       },
+      leader: '',
       recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
@@ -197,6 +198,7 @@ export class LocalMediator
         unionId: 1,
        iconId: -1
       },
+      leader: '',
       recordType: BattleRecordType.City, 
       blockInfo :{
         x_id: 2,
@@ -219,6 +221,7 @@ export class LocalMediator
         unionId: 1,
         iconId: -1
       },
+      leader: '',
       recordType: BattleRecordType.City, 
       defenseInfo:{
         generalId: 2,
@@ -252,6 +255,7 @@ export class LocalMediator
         unionId: 1,
         iconId: -1
       },
+      leader: '',
       defenseInfo:{
         generalId: 2,
         generalLevel: 2,
@@ -471,6 +475,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       unionId: 1,
       iconId: -1
     },
+    leader: '',
     recordType: BattleRecordType.Block, 
     blockInfo :{
       x_id: 2,
@@ -505,6 +510,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       unionId: 1,
       iconId: -1
     },
+    leader: '',
     recordType: BattleRecordType.Block, 
     blockInfo :{
       x_id: 2,
@@ -528,6 +534,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       unionId: 1,
       iconId: -1
     },
+    leader: '',
     recordType: BattleRecordType.City, 
     defenseInfo:{
       generalId: 2,
@@ -573,6 +580,7 @@ export function GetTestBattleTransRecord(): BattleTransRecord[]{
       unionId: 1,
       iconId: -1
     },
+    leader: '',
     recordType: BattleRecordType.City, 
     timestamp: getTimeStamp(),
     blockInfo :{

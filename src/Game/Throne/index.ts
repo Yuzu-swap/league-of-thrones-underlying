@@ -87,8 +87,11 @@ export interface ICityComponent extends IComponent {
 
   getTestResourceCoolDownTime(): number
 
-  
   addTestResource(callback: (res: ITransResult) => void): void
+
+  getOfferList(): {}
+
+  buyOffer(offerId: number, callback: (res: ITransResult) => void): void
 
   onReceiveChat( channel: ChatChannel, callback: ( chatData: ChatMessage ) => void ) : void
 
@@ -496,6 +499,19 @@ export class CityComponent implements ICityComponent {
   addTestResource(callback: (res: ITransResult) => void): void {
     this.mediator.sendTransaction(StateTransition.AddTestResource, {
       from: Throne.instance().username
+    }, callback)
+  }
+
+  getOfferList(): {} {
+    let buyOfferRecords = this.city.state.buyOfferRecords;
+    let all = this.city.getOfferList() as [];
+    return { buyOfferRecords, all };
+  }
+
+  buyOffer(offerId: number, callback: (res: ITransResult) => void): void {
+    this.mediator.sendTransaction(StateTransition.BuyOffer, {
+      from: Throne.instance().username,
+      offerId: offerId
     }, callback)
   }
 
@@ -941,6 +957,58 @@ export class GeneralComponent implements IGeneralComponent {
     })
   }
 
+  getCodCreatorDetail(codId: string,callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CodCreatorDetail, {
+      from: Throne.instance().username,
+      codId: codId,
+    }, async function(res){
+      callback(res);
+    })
+  }
+
+  getCodGeneralIds() {
+    return this.general.getCodGeneralIds('');
+  }
+
+  clearCodGeneralIds(){
+    for(var i=0;i<20;i++){
+      console.log('clearCodGeneralIds', i);
+      this.general.opCodGeneralId(i, 'release', {});
+    }
+  }
+
+  async getCodList() {
+    let codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any
+    console.log('cod codsGlobal getCodList:', codsGlobal);
+    return this.general.getCodList();
+  }
+  createCod(blockInfo:any, generalId: number, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CreateCod,{
+      from: Throne.instance().username,
+      blockInfo: blockInfo,
+      generalId: generalId
+    }, callback)
+  }
+  cancelCod(codId: string, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.CancelCod,{
+      from: Throne.instance().username,
+      codId: codId
+    }, callback)
+  }
+  joinCod(codId: string, generalId: number, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.JoinCod,{
+      from: Throne.instance().username,
+      codId: codId,
+      generalId: generalId
+    }, callback)
+  }
+  quitCod(codId: string, callback: (result: any) => void ) {
+    this.mediator.sendTransaction(StateTransition.QuitCod,{
+      from: Throne.instance().username,
+      codId: codId
+    }, callback)
+  }
+
   async getGloryAndRank( callback: (result: any) => void ): Promise<void> {
     let rank = -1
     rank = await this.mediator.defaultQuery( MessageType.QueryCount, StateName.DefenderInfo, {"glory":{"$gt":  this.general.state.glory}})
@@ -1169,6 +1237,7 @@ export class Throne implements IThrone {
     states.seasonState = (await this.mediator.queryState({ id: `${StateName.SeasonConfig}` }, {}, null)) as ISeasonConfigState
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
+    states.codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any
     
     this.logicEssential = createLogicEsential(states)
 

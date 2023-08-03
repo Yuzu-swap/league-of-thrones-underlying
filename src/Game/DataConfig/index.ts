@@ -8,6 +8,7 @@ import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
 import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
 import hospitalGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/hospital.json');
+import assemblyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/assembly.json');
 
 import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
@@ -19,6 +20,7 @@ import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/pa
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
 import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
+import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
 
 import {
 	CityFacility,
@@ -70,6 +72,8 @@ export class Parameter {
 	defense_plots_need_stamina: number
 	gather_need_stamina: number
 	spy_need_stamina: number
+	assembly_need_stamina: number
+	assemble_last_times: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []
@@ -225,6 +229,14 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 export interface FacilityHospitalGdsRow extends FacilityGdsRow{
 }
 
+export interface FacilityAssemblyGdsRow{
+	need_troop: number
+	need_silver: number
+	maintain_need_troop: number
+	assemble_troops: number
+	level: number
+}
+
 export interface GeneralGdsRow{
 	qualification_troop_recruit: number
 	qualification_silver_product: number
@@ -277,6 +289,9 @@ export var CityConfigFromGDS = {
 	  ),
 	  [CityFacility.Hospital]: new ConfigContainer<FacilityHospitalGdsRow>(
 		hospitalGDS.Config
+	  ),
+	  [CityFacility.Assembly]: new ConfigContainer<FacilityAssemblyGdsRow>(
+		assemblyGDS.Config
 	  )
 	},
 	limit: {
@@ -297,7 +312,8 @@ export var CityConfigFromGDS = {
 		buildingCount.trainingcenter
 	  ),
 	  [CityFacility.Home]: new FacilityLimit(buildingCount.home),
-	  [CityFacility.Hospital]: new FacilityLimit(buildingCount.hospital)
+	  [CityFacility.Hospital]: new FacilityLimit(buildingCount.hospital),
+	  [CityFacility.Assembly]: new FacilityLimit(buildingCount.assembly)
 	},
   };
 
@@ -520,7 +536,41 @@ export class VipConfig{
 		return this.config[type - 1]
 	}
 }
-
 export var vipConfigFromGDS = new VipConfig(vipGDS)
+
+
+
+export interface OfferType {
+    offer_trigger_value: number,
+    offer_trigger_2: number,
+    offer_trigger_1: number,
+    offer_reward_troops: number,
+    offer_reward_sliver: number,
+    offer_order: number,
+    offer_id: number,
+    offer_gold: number,
+    offer_icon: [],
+    offer_background: string
+}
+export class OfferConfig{
+	config: OfferType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(id : number){
+		let res: OfferType;
+		for(let item of this.config){
+			if(item['offer_id'] === id){
+				res = item;
+			}
+		}
+		return res;
+	}
+}
+
+export var offerConfigFromGDS = new OfferConfig(offerGDS)
 
 

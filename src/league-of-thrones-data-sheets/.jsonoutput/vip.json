@@ -18,7 +18,7 @@
         "defense": 0.01,
         "attack": 0.01,
         "add_general_id":[
-            12
+            17
         ]
     },
     {
@@ -30,7 +30,7 @@
         "defense": 0.02,
         "attack": 0.02,
         "add_general_id":[
-            12
+            17
         ]
     },
     {
@@ -42,7 +42,7 @@
         "defense": 0.03,
         "attack": 0.03,
         "add_general_id":[
-            12
+            17
         ]
     },
     {
@@ -54,7 +54,7 @@
         "defense": 0.04,
         "attack": 0.04,
         "add_general_id":[
-            12
+            17
         ]
     },
     {
@@ -66,7 +66,7 @@
         "defense": 0.05,
         "attack": 0.05,
         "add_general_id":[
-            12,
+            17,
             18
         ]
     },
@@ -79,7 +79,7 @@
         "defense": 0.06,
         "attack": 0.06,
         "add_general_id":[
-            12,
+            17,
             18
         ]
     },
@@ -92,7 +92,7 @@
         "defense": 0.07,
         "attack": 0.07,
         "add_general_id":[
-            12,
+            17,
             18
         ]
     },
@@ -105,7 +105,7 @@
         "defense": 0.08,
         "attack": 0.08,
         "add_general_id":[
-            12,
+            17,
             18
         ]
     },
@@ -118,7 +118,7 @@
         "defense": 0.09,
         "attack": 0.09,
         "add_general_id":[
-            12,
+            17,
             18
         ]
     }
