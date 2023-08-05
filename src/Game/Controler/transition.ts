@@ -1567,40 +1567,18 @@ export class TransitionHandler {
   }
 
   onRegularTask(args: any){
-    const logic : LogicEssential = this.genLogic(args.from)
-    const seasonState = logic.map.seasonState;
+    const logic : LogicEssential = this.genLogic(args.from);
+    const gLogic: GlobalLogicEssential = this.genGlobalLogic();
 
+    const seasonState = logic.map.seasonState;
     console.log('onRegularTask start:', seasonState, args);
 
-    const gLogic: GlobalLogicEssential = this.genGlobalLogic()
-    
+    if(seasonState.season_open > 0){
+      this.onActivityReword(gLogic, seasonState);
+    }
+
     const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo(gLogic, 'current', priceInfo);
-
-    let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
-    const time = getTimeStamp()
-    console.log('onRegularTask run:', time, activityList);
-    for(let activity of activityList){
-      console.log('onRegularTask activityList:', time, activity);
-      if(time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
-        //send activity reward
-        console.log("sendActivity reward id:", activity.activityId)
-        let haveSendReward = gLogic.activity.state.haveSendReward
-        for(let userdata of (gLogic.activity.state.activityData[activity.activityId] || [])){
-          const tempLogic : LogicEssential = this.genLogic(userdata.username)
-          let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
-          tempLogic.city.useGold(-rank.rankReward)
-        }
-        haveSendReward[activity.activityId] = true
-        gLogic.activity.state.update(
-          {
-            'haveSendReward' : haveSendReward
-          }
-        )
-        console.log("sendActivity reward over id:", activity.activityId, haveSendReward)
-      }
-    }
-    console.log("sendActivity reward over all:", gLogic.activity.state.haveSendReward)
 
     this.runCodList('onRegularTask');
 
@@ -1608,6 +1586,31 @@ export class TransitionHandler {
       txType: StateTransition.RegularTask,
       result: true
     }
+  }
+
+  onActivityReword(gLogic, seasonState){
+    let activityList = gLogic.activity.getBeforeActivitiesForReward(seasonState);
+    const time = getTimeStamp()
+    console.log('onRegularTask activity list:', time, activityList);
+    for(let activity of activityList){
+      console.log('onRegularTask activity item:', time, activity);
+      if(activity.startTime > 1690000000 && time > activity.startTime + activity.lastTime && !gLogic.activity.state.haveSendReward[activity.activityId]){
+        //send activity reward
+        console.log("onRegularTask activity reward id:", activity.activityId)
+        let haveSendReward = gLogic.activity.state.haveSendReward
+        for(let userdata of (gLogic.activity.state.activityData[activity.activityId] || [])){
+          const tempLogic : LogicEssential = this.genLogic(userdata.username)
+          let rank = tempLogic.activity.getActivityRank(activity.activityId, userdata.username, userdata.value)
+          tempLogic.city.useGold(-rank.rankReward)
+        }
+        haveSendReward[activity.activityId] = true
+        gLogic.activity.state.update({
+          'haveSendReward' : haveSendReward
+        })
+        console.log("onRegularTask activity reward over id:", activity.activityId, haveSendReward)
+      }
+    }
+    console.log("onRegularTask activity reward over all:", gLogic.activity.state.haveSendReward)
   }
 
   onSetGuideStep( args : GuideStepArgs ){
