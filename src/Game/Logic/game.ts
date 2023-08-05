@@ -304,6 +304,8 @@ export class City {
       let index = this.cityConfig.limit[key].order - 1;
       re[index] = key;
     }
+    console.log('city.data cityConfig:', this.cityConfig);
+    console.log('city.data cityConfig re:', re);
     return re;
   }
 

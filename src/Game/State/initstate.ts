@@ -148,6 +148,7 @@ export function GetInitState(){
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
+            console.log('city.data facilities:', CityFacility, {key, CityAnyType}, buildingCountConfig, maxCount);
             if(!isNaN(maxCount)){
                 InitState[StateName.City].facilities[CityAnyType] = Array(maxCount).fill(1)
             }
