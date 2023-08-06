@@ -938,8 +938,8 @@ export class General{
         const status = this.getGeneralBattleStatus(generalId)
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
-        let ableTroop = this.getMaxAttackTroop()
-        if(ableTroop == 0){
+        // let ableTroop = this.getMaxAttackTroop()
+        if(remainTroop <= 0){
             return{
                 result: false,
                 txType: StateTransition.Battle,
@@ -951,7 +951,7 @@ export class General{
             defense: status.sum[SkillType.Defense],
             load: status.sum[SkillType.Load],
             generalType: generalType,
-            ableTroop: remainTroop != -1? remainTroop : ableTroop
+            ableTroop: remainTroop
         }
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)

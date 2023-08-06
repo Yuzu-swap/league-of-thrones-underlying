@@ -870,7 +870,7 @@ export class TransitionHandler {
       let logic : LogicEssential = _this.genLogic(username);
 
       let { codId, createTime, lastTime, troopTotal, troopNow, members } = codItem;
-      console.log('cod runList item:', username, codId);
+      console.log('cod runList item:', username, ', ', codId, ', members:', members.length, ', ', codItem);
 
       let timeNow = getTimeStamp();
       let isTimeout = timeNow >= createTime + lastTime;
