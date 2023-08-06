@@ -939,13 +939,13 @@ export class General{
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
         // let ableTroop = this.getMaxAttackTroop()
-        if(remainTroop <= 0){
-            return{
-                result: false,
-                txType: StateTransition.Battle,
-                error: 'do-not-have-troop'
-            }
-        }
+        // if(remainTroop <= 0){
+        //     return{
+        //         result: false,
+        //         txType: StateTransition.Battle,
+        //         error: 'do-not-have-troop'
+        //     }
+        // }
         let attackInfo ={
             attack: status.sum[SkillType.Attack],
             defense: status.sum[SkillType.Defense],
