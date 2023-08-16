@@ -5,12 +5,12 @@
         "building_name":"wall"
     },
     "trainingcenter":{
-        "order": 10,
+        "order": 11,
         "max_count": 3,
         "building_name":"trainingcenter"
     },
     "store":{
-        "order": 5,
+        "order": 6,
         "max_count": 1,
         "building_name":"store"
     },
@@ -20,7 +20,7 @@
         "building_name":"militarycenter"
     },
     "infantrycamp":{
-        "order": 6,
+        "order": 7,
         "max_count": 1,
         "building_name":"infantrycamp"
     },
@@ -35,7 +35,7 @@
         "building_name":"assembly"
     },
     "home":{
-        "order": 9,
+        "order": 10,
         "max_count": 3,
         "building_name":"home"
     },
@@ -45,12 +45,12 @@
         "building_name":"fortress"
     },
     "cavalrycamp":{
-        "order": 7,
+        "order": 8,
         "max_count": 1,
         "building_name":"cavalrycamp"
     },
     "archercamp":{
-        "order": 8,
+        "order": 9,
         "max_count": 1,
         "building_name":"archercamp"
     }
