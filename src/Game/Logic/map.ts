@@ -215,7 +215,13 @@ export class Map{
 
     checkIfCanAttack( x_id: number, y_id: number ){
         let blockState = this.getBlockState(x_id, y_id);
-        console.log('getBlockState:', { x_id, y_id }, blockState);
+        let blockInfo = this.getMapGDS(x_id, y_id)
+        console.log('getBlockState:', { x_id, y_id }, blockState, blockInfo);
+
+        let isMont = blockInfo.type === 6;
+        if(isMont){
+            return false
+        }
         let time = getTimeStamp();
         if(blockState.belong.updateTime == -1 || time - blockState.belong.updateTime > this.parameter.occupy_block_protect_times){
             return true
