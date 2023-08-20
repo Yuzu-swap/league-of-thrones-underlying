@@ -263,6 +263,8 @@ export class Map{
         let cancelList = []
         // let remainTroop = -1
         let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
+        console.log('attackBlocksAround block state:', {x_id, y_id}, centerBlockState)
+        console.log('attackBlocksAround result:', re)
         if(re['error']){
             return re
         }
@@ -503,6 +505,7 @@ export class Map{
         // let remainTroop = -1
         let re = this.attackBlockCod(x_id, y_id, generalId, remainTroop);
         console.log('attackBlocksAroundCod result 1:', remainTroop, re);
+        console.log('attackBlocksAroundCod block state:', {x_id, y_id}, centerBlockState)
         if(re['error']){
             return re
         }
@@ -804,6 +807,7 @@ export class Map{
         let row = this.getMapGDS(x_id, y_id)
         let durability = this.getDurability(x_id, y_id)
         let update = 0
+        console.log('reduceDurability change:', {x_id, y_id}, {durability, remainTroop, unionId});
         if(durability - remainTroop <= 0){
             let newBelong : BelongInfo ={
                 unionId : unionId,
