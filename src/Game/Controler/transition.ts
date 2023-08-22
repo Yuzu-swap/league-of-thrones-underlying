@@ -795,13 +795,26 @@ export class TransitionHandler {
     console.log('cod runList attack release generalId:', generalId);
 
     // 2. same glory get
-
     let attackInfo = recordItem['attackInfo'] || {};
     let gloryGet = re['gloryGet'] || attackInfo['gloryGet'] || 0;
     if(gloryGet > 0){
       logic.map.addGloryAndSum(gloryGet);
     }
-    console.log('cod runList attack gloryGet:', re['gloryGet'], ' attackInfo.gloryGet:' ,attackInfo['gloryGet'], ' ', username);;
+    console.log('cod runList attack gloryGet:', gloryGet, ' ', re['gloryGet'], ' attackInfo.gloryGet:' ,attackInfo['gloryGet'], ' ', username);;
+
+    //update glory rank
+    let fortressLevel = logic.city.state.facilities[CityFacility.Fortress][0];
+    if(fortressLevel >= 7){
+      this.updateRewardState(
+        logic.map.rewardGlobalState, 
+        username, 
+        -1,
+        logic.general.state.glory,
+        logic.general.state.unionId
+      )
+    }
+    console.log('cod runList attack glory rank: fortressLevel:', fortressLevel);
+    console.log('cod runList attack glory rank: glory:', logic.general.state.glory);
 
     //3. remain troops to resource
     let remainTroops = _troopReduce - member['troops'];
@@ -986,15 +999,6 @@ export class TransitionHandler {
           gloryGet: gloryGet, 
           durabilityReduce: re['durabilityReduce']
         }
-      }
-      if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
-        this.updateRewardState(
-          logic.map.rewardGlobalState, 
-          parseStateId(logic.city.state.getId()).username, 
-          oldGlory,
-          logic.general.state.glory,
-          logic.general.state.unionId
-        )
       }
       console.log('attackBlocksAroundCod result 2:', transRe);
       return transRe

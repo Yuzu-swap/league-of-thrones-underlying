@@ -53,6 +53,20 @@ export function getTimeStamp( offset : number = timeOffset) :number{
 
 
 
+function getGloryPos(list: GloryInfo[], username : string, glory: number){
+    let oldRank = -1;
+    let newRank = -1;
+    for(var i=0;i<list.length;i++){
+        if(list[i].username === username){
+            oldRank = i;
+        }
+        if(list[i].glory <= glory && newRank === -1){
+            newRank = i;
+        }
+    }
+    return { oldRank, newRank };
+}
+
 function indexOfGloryList(list: GloryInfo[], username : string, glory: number){
     let beginIndex = 0 , endIndex = list.length - 1
     let mid = 0
@@ -189,12 +203,28 @@ export function addToSortList( list: GloryInfo[], username : string, originGlory
         console.log("add new item to list", JSON.stringify(list))
         return
     }
-    let origin = indexOfGloryList(list, username, originGlory)
-    if(origin.exist){
-        list.splice(origin.index, 1)
+    // let origin = indexOfGloryList(list, username, originGlory)
+    // if(origin.exist){
+    //     list.splice(origin.index, 1)
+    // }
+    // let newInfo = indexOfGloryList(list, username, newGlory)
+    // list.splice(newInfo.index, 0, insert)
+
+    let posData = getGloryPos(list, username, newGlory);
+    console.log("before add sort list:",posData, "new rank data", {username, newGlory}, " list:"+ JSON.stringify(list));
+
+    let { oldRank, newRank } = posData;
+
+    if(newRank === -1){ 
+        newRank = list.length;
     }
-    let newInfo = indexOfGloryList(list, username, newGlory)
-    list.splice(newInfo.index, 0, insert)
+    if(oldRank > -1){
+        if(oldRank < newRank){
+            newRank = newRank - 1;
+        }
+        list.splice(oldRank, 1);
+    }
+    list.splice(newRank, 0, insert)
 }
 
 export function addToNormalSortedList( list: any[], username : string, originValue: number, newValue: number, valueKey: string){
