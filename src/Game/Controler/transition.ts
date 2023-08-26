@@ -823,7 +823,7 @@ export class TransitionHandler {
       //4. reduce trooops to hospital
       logic.city.updateInjuredTroops(_troopReduce, 'battle');
     }
-    console.log('cod runList attack remainTroops:', { remainTroops, _troopReduce});
+    console.log('cod runList attack remain troops:', { remainTroops, _troopReduce}, ' username:', username);
 
     let { generalInfo, qualificationInfo } = generalDetail;
     //battle record all as same

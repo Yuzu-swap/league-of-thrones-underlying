@@ -25,7 +25,7 @@ import {
   offerConfigFromGDS
 } from '../DataConfig';
 import { IBoost } from './boost';
-import { getTimeStamp } from '../Utils';
+import { getTimeStamp, parseStateId } from '../Utils';
 import { copyObj } from '../../Core/state';
 import { Strategy, StrategyType } from './strategy';
 import { Map } from "./map";
@@ -317,8 +317,10 @@ export class City {
   }
   
   updateInjuredTroops(amount: number, type: string) {
+    let username = parseStateId(this.general.state.getId()).username;
     let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
-    console.log('updateInjuredTroops-1: ', amount, type, injuredTroops);
+
+    console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
     let value = injuredTroops.value + amount;
     let dayMsLong = 24*60*60;
     let timeBefore = injuredTroops.updateTime;
@@ -331,8 +333,8 @@ export class City {
         today = amount;
       }
     }
-    console.log('updateInjuredTroops-2: ', today, Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong));
-    console.log('updateInjuredTroops-3: ', amount, { value , today, updateTime});
+    console.log(username, ' troops injured 2: sameday:', Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong), today);
+    console.log(username, ' troops injured 3: ', amount, { value , today, updateTime});
     
     this.state.update({
       injuredTroops: { value , today, updateTime}
@@ -426,6 +428,8 @@ export class City {
   useTroop(amount: number): boolean{
     const info: ResouceInfo = this.state.resources[ResouceType.Troop];
     if( amount <= info.value){
+      let username = parseStateId(this.general.state.getId()).username;
+      console.log(username, ' troops resources:', info.value, ' + ', amount , ' = ', (info.value - amount) || 0);
       this.state.update(
         {
           [`resources.${ResouceType.Troop}.value`]: (info.value - amount) || 0
