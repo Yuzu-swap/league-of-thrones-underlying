@@ -77,17 +77,27 @@ fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
             return;
         }
         // console.log(tplBg, tplMap);
-        mapList.forEach(function(mapItem) {
-            console.log(mapItem);
-            createMap(mapItem, tplBg, tplMap);
+        mapList.forEach(function(mapItem, index) {
+            // console.log(mapItem);
+            createMap(index, mapItem, tplBg, tplMap);
+        });
+        // console.log(mapList)
+        fs.writeFile('./maps-result/map_list.json', JSON.stringify(mapList, null, ' \t'), function(err) {
+            if (err) {
+                return console.error(err);
+            }
+            console.log("map_list 数据写入成功！");
         });
     });
 });
 
-function createMap(mapItem, tplBg, tplMap) {
+function createMap(index, mapItem, tplBg, tplMap) {
     let mapId = mapItem.map_id;
     var cols = mapItem.cols; //11
     var rows = mapItem.rows + 1;  //22;
+
+    // console.log({ mapId, cols, rows });
+
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
 
     let mapOrder = [];
@@ -129,7 +139,7 @@ function createMap(mapItem, tplBg, tplMap) {
         }
         if (item.type == 6) {
             image = item.area + '_' + types[item.type] + '_' + (item.parameter || '0');
-            mountains[blockId] = blockMap[blockId];
+            mountains[blockId] = true;
         }
         item.image = image;
 
@@ -144,16 +154,23 @@ function createMap(mapItem, tplBg, tplMap) {
     let bgIndex = [];
 
     function getIdIndex(x, y) {
+        //cols = 11, rows = 21/43;
         return {
             x_id: (x - 5) * 2 + y % 2,
-            y_id: 10 - y
+            y_id:  (rows - 2)/2 - y
         }
+        // return {
+        //     x_id: (x - 5) * 2 + y % 2,
+        //     y_id: 10 - y
+        // }
     }
 
     for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
             let r = getIdIndex(x, y);
-            // console.log(r.x_id, r.y_id, tileSetMap[r.x_id + '^' + r.y_id])
+            if(mapId !== 22 && r.y_id == -10){
+                console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
+            }
             tileSet.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
             bgIndex.push(bgMap[r.x_id + '^' + r.y_id] || 0)
         }
@@ -166,28 +183,23 @@ function createMap(mapItem, tplBg, tplMap) {
     content['dataset'] = JSON.stringify(bgIndex);
     let bgContent = subs(tplBg, content);
 
-    fs.writeFile('./maps/bg-' + mapId + '.json', bgContent, function(err) {
+    fs.writeFile('./maps-result/bg-' + mapId + '.json', bgContent, function(err) {
         if (err) {
             return console.error(err);
         }
-        console.log("数据写入成功！");
+        console.log("bg 数据写入成功！");
     });
 
     content['dataset'] = JSON.stringify(tileSet);
     let mapContent = subs(tplMap, content);
-    fs.writeFile('./maps/map-' + mapId + '.json', mapContent, function(err) {
+    fs.writeFile('./maps-result/map-' + mapId + '.json', mapContent, function(err) {
         if (err) {
             return console.error(err);
         }
-        console.log("数据写入成功！");
+        console.log("map 数据写入成功！");
     });
 
-    fs.writeFile('./maps/mountains-' + mapId + '.json', JSON.stringify(mountains, null, ' \t'), function(err) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("数据写入成功！");
-    });
+    mapList[index].mountains = mountains;
 }
 
 
