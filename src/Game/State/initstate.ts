@@ -85,7 +85,8 @@ export var InitState = {
         rankConfigFromTo: [],
         rankConfigValue: [],
         unionRewardValue: 0,
-        rankRewardValue: 0
+        rankRewardValue: 0,
+        mapId: 0
     },
     [StateName.TokenPriceInfo]:{
         initial: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},

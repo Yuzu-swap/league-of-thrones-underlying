@@ -1265,7 +1265,6 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
-    // mapId = args.mapConfigId
     const logic : LogicEssential = this.genLogic(args.from)
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     if(gLogic.map.seasonState.haveSet){
@@ -1306,6 +1305,7 @@ export class TransitionHandler {
         'rankRewardValue': args.season.reward_amount_2,
         'rankConfigFromTo': args.season.rank_config_fromto,
         'rankConfigValue' : args.season.rank_config_value,
+        'mapId': args.mapConfigId
       }
     )
 

@@ -152,7 +152,8 @@ export interface ISeasonConfigState extends IState{
   rankConfigFromTo: number[],
   rankConfigValue: number[],
   unionRewardValue: number,
-  rankRewardValue: number
+  rankRewardValue: number,
+  mapId: number
 }
 
 export interface BelongInfo{
