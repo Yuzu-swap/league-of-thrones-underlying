@@ -783,6 +783,9 @@ export class TransitionHandler {
         _troopReduce = Math.round(_troopReduce);
     console.log('cod runList attack codRecords:', member, { troopReduce, troopNow }, re);
 
+    let records = re['records'] || [];
+    let recordItem = records[records.length - 1] || {};
+
     let userCreator = args.from;
     let logicCreator : LogicEssential = this.genLogic(userCreator);
 
@@ -792,10 +795,26 @@ export class TransitionHandler {
     console.log('cod runList attack release generalId:', generalId);
 
     // 2. same glory get
-    if(re['gloryGet']){
-      logic.map.addGloryAndSum(re['gloryGet']);
+    let attackInfo = recordItem['attackInfo'] || {};
+    let gloryGet = re['gloryGet'] || attackInfo['gloryGet'] || 0;
+    if(gloryGet > 0){
+      logic.map.addGloryAndSum(gloryGet);
     }
-    console.log('cod runList attack gloryGet:', re['gloryGet']);
+    console.log('cod runList attack gloryGet:', gloryGet, ' ', re['gloryGet'], ' attackInfo.gloryGet:' ,attackInfo['gloryGet'], ' ', username);;
+
+    //update glory rank
+    let fortressLevel = logic.city.state.facilities[CityFacility.Fortress][0];
+    if(fortressLevel >= 7){
+      this.updateRewardState(
+        logic.map.rewardGlobalState, 
+        username, 
+        -1,
+        logic.general.state.glory,
+        logic.general.state.unionId
+      )
+    }
+    console.log('cod runList attack glory rank: fortressLevel:', fortressLevel);
+    console.log('cod runList attack glory rank: glory:', logic.general.state.glory);
 
     //3. remain troops to resource
     let remainTroops = _troopReduce - member['troops'];
@@ -804,11 +823,12 @@ export class TransitionHandler {
       //4. reduce trooops to hospital
       logic.city.updateInjuredTroops(_troopReduce, 'battle');
     }
-    console.log('cod runList attack remainTroops:', { remainTroops, _troopReduce});
+    console.log('cod runList attack remain troops:', { remainTroops, _troopReduce}, ' username:', username);
 
     let { generalInfo, qualificationInfo } = generalDetail;
     //battle record all as same
-    if(re['durabilityReduce']){
+
+    if(records.length === 0){
       let durabilityRecord = logicCreator.map.genDurabilityRecord(
         args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
       )
@@ -823,9 +843,7 @@ export class TransitionHandler {
       )
     }
 
-    let records = re['records'] || [];
-    let recordItem = records[records.length - 1] || {};
-    if(recordItem['attackInfo'] && !re['durabilityReduce']){
+    if(records.length > 0){
       recordItem.recordType = BattleRecordType.Assembly;
       recordItem.leader = userCreator;
 
@@ -837,11 +855,8 @@ export class TransitionHandler {
       recordItem.attackInfo.troopReduce = _troopReduce;
 
       let moraleAdd = recordItem.result ? 2 : -2;
-      let gloryGet = recordItem.attackInfo.gloryGet;
       logic.general.offsetMorale(moraleAdd);
-      if(gloryGet > 0){
-        logic.map.addGloryAndSum(gloryGet);
-      }
+
       // let recordData = JSON.parse(JSON.stringify(recordItem));
       // console.log('cod runList attack record 1:', recordItem);
       console.log('cod runList attack record', recordItem);
@@ -984,15 +999,6 @@ export class TransitionHandler {
           gloryGet: gloryGet, 
           durabilityReduce: re['durabilityReduce']
         }
-      }
-      if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
-        this.updateRewardState(
-          logic.map.rewardGlobalState, 
-          parseStateId(logic.city.state.getId()).username, 
-          oldGlory,
-          logic.general.state.glory,
-          logic.general.state.unionId
-        )
       }
       console.log('attackBlocksAroundCod result 2:', transRe);
       return transRe

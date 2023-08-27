@@ -1,0 +1,42 @@
+{
+    "compressionlevel": -1,
+    "infinite": false,
+    "layers": [{
+        "data": [5,5,5,5,5,3,3,3,3,4,3,6,5,5,5,6,3,3,3,3,4,0,5,5,5,6,5,3,3,4,3,3,3,5,5,6,5,5,3,3,4,3,3,0,6,5,5,5,5,3,3,3,4,3,3,5,5,6,5,5,3,4,3,3,3,0,5,5,5,6,5,3,3,3,4,3,3,6,5,5,6,5,3,4,3,3,4,0,6,5,5,5,5,1,4,3,3,3,3,5,5,5,5,1,1,9,9,9,9,0,5,5,5,5,5,1,9,9,9,9,9,5,5,5,5,1,1,9,9,9,9,0,8,7,7,7,8,1,9,9,9,9,10,8,7,7,7,8,9,9,10,9,9,0,7,7,7,8,7,7,9,9,9,9,9,8,7,7,8,7,9,9,9,9,10,0,7,7,8,7,7,7,9,9,9,9,9,7,7,7,7,7,9,9,10,9,9,0,7,8,7,7,8,7,9,10,9,10,10,7,8,7,7,8,9,9,9,10,9,0,7,8,7,7,7,7,9,9,9,10,9,0,0,0,0,0,0,0,0,0,0,0],
+       "id": 1,
+       "name": "map0",
+       "type": "tilelayer",
+       "visible": true,
+       "opacity": 1,
+       "width": 11,
+       "height": 21,
+       "x": 0,
+       "y": 0
+    }],
+    "hexsidelength": 0,
+    "nextlayerid": 2,
+    "nextobjectid": 1,
+    "orientation": "hexagonal",
+    "renderorder": "right-down",
+    "staggeraxis": "y",
+    "staggerindex": "odd",
+    "tiledversion": "1.4.2",
+    "tileheight": 116,
+    "tilewidth": 204,
+    "type": "map",
+    "version": 1.4,
+    "tilesets": [{
+       "columns": 10,
+       "firstgid": 1,
+       "image": "/t/public/map/bg.png",
+       "imageheight": 1280,
+       "imagewidth": 1280,
+       "margin": 0,
+       "name": "bg",
+       "spacing": 0,
+       "tilecount": 10,
+       "tileheight": 128,
+       "tilewidth": 128,
+       "transparentcolor": "#ffffff"
+    }]
+}
