@@ -6,6 +6,8 @@
 .pnp.js
 yarn.lock
 
+/maps-result
+
 # testing
 /coverage
 
