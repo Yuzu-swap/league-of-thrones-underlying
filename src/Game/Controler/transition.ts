@@ -1259,6 +1259,7 @@ export class TransitionHandler {
   }
 
   onStartSeason(args: StartSeasonArgs){
+    // mapId = args.mapConfigId
     const logic : LogicEssential = this.genLogic(args.from)
     const gLogic: GlobalLogicEssential = this.genGlobalLogic()
     if(gLogic.map.seasonState.haveSet){
