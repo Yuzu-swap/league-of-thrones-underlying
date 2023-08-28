@@ -1,6 +1,6 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale, VipType} from '../DataConfig'
-import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo} from '../State';
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, getMapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale, VipType} from '../DataConfig'
+import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo, ISeasonConfigState} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
@@ -93,18 +93,22 @@ export class General{
     codsGlobal: any
     config: GeneralConfig
     cityConfig: any
+    seasonState: ISeasonConfigState
     mapConfig: MapConfig
     vipConfig: VipConfig
     map: Map
     city : City
     boost : IBoost
-    constructor(state: IGeneralState, city: City, codsGlobal: any) {
+    constructor(state: IGeneralState, city: City, codsGlobal: any, seasonState: ISeasonConfigState) {
         this.state = state;
         this.codsGlobal = codsGlobal;
         this.config = GeneralConfigFromGDS;
         this.cityConfig = CityConfigFromGDS;
         this.vipConfig = vipConfigFromGDS;
-        this.mapConfig = MapConfigFromGDS
+
+        let mapId = seasonState.mapId;
+        this.mapConfig = getMapConfigFromGDS(mapId);
+        this.seasonState = seasonState;
         this.city = city
     }
 

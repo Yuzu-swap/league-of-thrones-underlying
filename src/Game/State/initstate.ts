@@ -1,9 +1,9 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset, MaxStrategyPoint } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { copyObj } from '../../Core/state';
-import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
+import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS } from '../DataConfig';
 import { GeneralInfo } from '.';
 
 export var InitState = {
@@ -143,7 +143,7 @@ export var validBlockIds = []
 var _inited = false
 
 
-export function GetInitState(){
+export function GetInitState(mapId: number){
     if (!_inited) {
         //city state
         for(let key in CityFacility){
@@ -190,7 +190,7 @@ export function GetInitState(){
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         InitState[StateName.MapGlobalInfo].unionWinId = 0
 
-        InitState = Object.assign(InitState, GetMapState())        
+        InitState = Object.assign(InitState, GetMapState(mapId))        
         _inited = true
     }
     return  copyObj(InitState)
@@ -198,8 +198,11 @@ export function GetInitState(){
 
 var _ginit = false
 
-export function GetMapState(){
+export function GetMapState(mapId: number){
     if(!_ginit){
+        mapId = mapId || 1;
+        const mapGDS = loadMapGDS(mapId);
+        console.log('mapId:', mapId, mapGDS);
         const time = parseInt(new Date().getTime() / 1000 + '');
         for(let block in mapGDS){
             let key = `${StateName.BlockInfo}:${block}`
@@ -222,7 +225,7 @@ export function GetMapState(){
                   },
                 defenseList: [],
                 durability: row['durability'],
-                defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
+                defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1]), mapId),
                 lastAttachTime: -1,
                 remainSilver: row['silver_total_number']
             }

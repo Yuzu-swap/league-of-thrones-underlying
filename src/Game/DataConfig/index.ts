@@ -14,13 +14,16 @@ import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_.json')
 import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
 import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
 import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
 import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
+
+import mapGDS1 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_1.json')
+import mapGDS2 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_2.json')
 
 import {
 	CityFacility,
@@ -340,9 +343,26 @@ export var GeneralConfigFromGDS = {
 	parameter: parameterConfig
 }
 
-export var MapConfigFromGDS = new MapConfig(mapGDS)
+export function loadMapGDS(mapId: number){
+	let list = {
+		1: mapGDS1,
+		2: mapGDS2
+	};
+	return list[mapId] || mapGDS1;
+}
 
-export function GenBlockDefenseTroop(x_id: number, y_id: number){
+export function getMapConfigFromGDS (mapId: number){
+	 mapId = mapId || 1;
+	const mapGDS = loadMapGDS(mapId);
+	console.log('mapId dataconfig:', mapId, mapGDS);
+	var MapConfigFromGDS = new MapConfig(mapGDS)
+	return MapConfigFromGDS;
+}
+
+// export var MapConfigFromGDS = new MapConfig(mapGDS)
+
+export function GenBlockDefenseTroop(x_id: number, y_id: number, mapId: number){
+	var MapConfigFromGDS = getMapConfigFromGDS(mapId);
 	let row = MapConfigFromGDS.get(x_id, y_id)
 	let troops = row.troops
 	let re: BlockDefenseInfo[] = []

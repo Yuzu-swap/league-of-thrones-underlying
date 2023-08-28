@@ -182,7 +182,8 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 		rank_config_fromto: number[],
         rank_config_value: number[],
 	},
-	priceInfo: {}
+	priceInfo: {},
+	mapConfigId: number
 }
 
 export interface SetIconIdArgs extends StateTransitionArgs{

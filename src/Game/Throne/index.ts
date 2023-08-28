@@ -20,7 +20,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
@@ -1173,7 +1173,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u826"
+    this.version = "u828"
   }
 
 
@@ -1204,7 +1204,8 @@ export class Throne implements IThrone {
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
-      this.mediator = new LocalMediator([this.username, 'test1'])
+      let mapId = obj['mapId'];
+      this.mediator = new LocalMediator([this.username, 'test1'], mapId)
       if(obj['unionId']){
         InitState[StateName.General].unionId = obj['unionId']
       }

@@ -22,7 +22,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
@@ -116,7 +116,9 @@ export class MapComponent implements IMapComponent{
         let re = []
         let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
         if(validBlockIds.length == 0){
-            GetInitState()
+            let seasonState = this.map.getSeasonState();
+            let mapId = seasonState.mapId;
+            GetInitState(mapId)
         }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)
