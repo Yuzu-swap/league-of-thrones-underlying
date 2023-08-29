@@ -271,22 +271,24 @@ export class Map{
         cancelList = cancelList.concat(re['cancelList'])
         records = records.concat(re['records'])
         remainTroop = re['remainTroop']
-        if(unionId != 0){
+        if(unionId != 0 && remainTroop > 0){
+            let attackTroops = remainTroop + 0;
             for(let i = 0; i < 6; i++){
-                if(remainTroop <=0 ){
+                if(attackTroops <=0 ){
                     break
                 }
                 let tempX = x_id + xOffset[i]
                 let tempY = y_id + yOffset[i]
                 let tempBlockState = this.getBlockState(tempX, tempY)
-                if(tempBlockState && tempBlockState.belong.unionId == unionId){
-                    let tempRe = this.attackBlock(tempX, tempY, generalId, remainTroop)
+                if(tempBlockState && tempBlockState.belong.unionId == unionId && attackTroops > 0){
+                    console.log('attackBlocksAround block going:', { x_id, y_id }, {unionId, tempX, tempY, generalId, attackTroops}, ' blockInfo:',  tempBlockState);
+                    let tempRe = this.attackBlock(tempX, tempY, generalId, attackTroops)
                     if(tempRe['error']){
                         return tempRe
                     }
                     cancelList = cancelList.concat(tempRe['cancelList'])
                     records = records.concat(tempRe['records'])
-                    remainTroop = tempRe['remainTroop']
+                    attackTroops = tempRe['remainTroop']
                 }
             }
         }
@@ -320,6 +322,7 @@ export class Map{
             firstBlock = true
         }
         if(firstBlock){
+            // npn troops
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
                 let unionId = this.general.state.unionId;
@@ -396,6 +399,8 @@ export class Map{
                 remainTroop: remainTroop
             }
         }
+
+        //true players
         let defenseInfos = this.getDefenseList(x_id, y_id, false)
         let cancelList : innerCancelBlockDefense[] = []
         for(let i = 0; i < defenseInfos.length; i++){
