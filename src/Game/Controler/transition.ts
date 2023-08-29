@@ -930,18 +930,18 @@ export class TransitionHandler {
     }
     console.log('attackBlocksAroundCod args cod 4:', remainTroops);
     let re = logic.map.attackBlocksAroundCod(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
-      let codId = 'block_' + args.x_id + '_' + args.y_id;
-      let codDetail = logic.general.getCodDetail(codId);
-      let creator = codDetail.creator;
-      if(!creator){
-        return;
-      }
-      let logicCreator : LogicEssential = _this.genLogic(creator);
+      // let codId = 'block_' + args.x_id + '_' + args.y_id;
+      // let codDetail = logic.general.getCodDetail(codId);
+      // let creator = codDetail.creator;
+      // if(!creator){
+      //   return;
+      // }
+      // let logicCreator : LogicEssential = _this.genLogic(creator);
 
-      _this.membersQuitCod(codDetail);
-      logicCreator.general.cancelCod(codId, creator);
+      // _this.membersQuitCod(codDetail);
+      // logicCreator.general.cancelCod(codId, creator);
 
-      console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
+      // console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
     });
     console.log('attackBlocksAroundCod result:', re);
 
