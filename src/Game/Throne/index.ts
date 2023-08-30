@@ -1173,7 +1173,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u828"
+    this.version = "u830"
   }
 
 

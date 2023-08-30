@@ -1,9 +1,9 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset, MaxStrategyPoint } from '../Const';
+import { StateName, ResouceType, CityFacility, MaxStrategyPoint } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 // import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { copyObj } from '../../Core/state';
-import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS } from '../DataConfig';
+import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS, getMapOffset } from '../DataConfig';
 import { GeneralInfo } from '.';
 
 export var InitState = {
@@ -173,10 +173,19 @@ export function GetInitState(mapId: number){
                 InitState[StateName.General].generalList[row.general_id + ""] = generalInfo
             }
         }
-        let maxlen = Math.floor((MaxSize + 1)/ 2)
+
+
+        const mapOffset = getMapOffset(mapId);
+        console.log('mapId offset GetInitState:', { mapId, mapOffset });
+
+        let { rows, cols } = mapOffset;
+        
+        // let maxSize = mapOffset.maxSize;
+        // let maxlen = Math.floor((maxSize + 1)/ 2);
+
         InitState[StateName.MapGlobalInfo].campInfo = []
-        for(let i = 0; i< MaxSize; i++){
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - i %2 ).fill(null).map(
+        for(let i = 0; i< rows; i++){
+            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(cols - i %2 ).fill(null).map(
                 ()=>{
                     return {unionId: 0,
                     attackEndTime: -1,
@@ -202,8 +211,12 @@ export function GetMapState(mapId: number){
     if(!_ginit){
         mapId = mapId || 1;
         const mapGDS = loadMapGDS(mapId);
-        console.log('mapId:', mapId, mapGDS);
+        console.log('mapId GetMapState:', { mapId, mapGDS });
         const time = parseInt(new Date().getTime() / 1000 + '');
+
+        const mapOffset = getMapOffset(mapId);
+        console.log('mapId offset GetMapState:', { mapId, mapOffset });
+
         for(let block in mapGDS){
             let key = `${StateName.BlockInfo}:${block}`
             let row = mapGDS[block]
@@ -211,8 +224,8 @@ export function GetMapState(mapId: number){
             let unionId = 0
             if( row['type'] == 3 ){
                 unionId = row['parameter']
-                let xIndex = parseInt(list[0]) + mapIdOffset;
-                let yIndex = Math.floor((parseInt(list[1]) + mapIdOffset) / 2)
+                let xIndex = parseInt(list[0]) + mapOffset.x;
+                let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
                 InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
             }
             gInitState[key]= {

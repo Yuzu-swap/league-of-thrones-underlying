@@ -22,6 +22,7 @@ import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutpu
 import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
 import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
 
+import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
 import mapGDS1 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_1.json')
 import mapGDS2 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_2.json')
 
@@ -343,6 +344,22 @@ export var GeneralConfigFromGDS = {
 	parameter: parameterConfig
 }
 
+
+
+export function getMapOffset(mapId: number){
+	let offsets = { x: 10, y : 10, rows: 21, cols: 10, maxSize: 21 };
+	for(let item of mapListGDS['Config']){
+		if(item['map_id'] === mapId){
+			offsets.x = item.cols - 1;
+			offsets.y = (item.rows - 1)/2;
+			offsets.maxSize = Math.max(item.rows, item.cols);
+			offsets.rows = item.rows;
+			offsets.cols = item.cols;
+		}
+	}
+	return offsets;
+}
+
 export function loadMapGDS(mapId: number){
 	let list = {
 		1: mapGDS1,
@@ -354,7 +371,7 @@ export function loadMapGDS(mapId: number){
 export function getMapConfigFromGDS (mapId: number){
 	 mapId = mapId || 1;
 	const mapGDS = loadMapGDS(mapId);
-	console.log('mapId dataconfig:', mapId, mapGDS);
+	// console.log('mapId dataconfig:', mapId, mapGDS);
 	var MapConfigFromGDS = new MapConfig(mapGDS)
 	return MapConfigFromGDS;
 }

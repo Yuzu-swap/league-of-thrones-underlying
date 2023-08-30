@@ -1,7 +1,7 @@
 import { copyObj } from "../../Core/state";
-import { mapIdOffset, StateName, StateTransition } from "../Const";
+import { StateName, StateTransition } from "../Const";
 import { BattleRecordType, BattleTransRecord } from "../Controler/transition";
-import { GenBlockDefenseTroop, MapConfig, getMapConfigFromGDS, MapGDS, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
+import { GenBlockDefenseTroop, MapConfig, getMapConfigFromGDS, MapGDS, getMapOffset, Parameter, parameterConfig, RankReward, SeasonConfig, SeasonConfigFromGDS } from "../DataConfig";
 import { BelongInfo, BlockDefenseInfo, CampInfo, IBlockState, IMapGlobalState, InitState, IRewardGlobalState, ISeasonConfigState, ITokenPriceInfoState, RewardResult } from "../State";
 import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, getTxHash, parseStateId } from "../Utils";
@@ -33,6 +33,7 @@ export class Map{
     parameter: Parameter
     boost: IBoost
     general: General
+    mapOffset: any
     constructor( 
         gState: IMapGlobalState, 
         seasonState: ISeasonConfigState, 
@@ -43,6 +44,7 @@ export class Map{
 
         let mapId = seasonState.mapId;
         this.mapConfig = getMapConfigFromGDS(mapId);
+        this.mapOffset = getMapOffset(mapId);
         
         this.parameter = parameterConfig
         this.seasonConfig = SeasonConfigFromGDS
@@ -80,8 +82,8 @@ export class Map{
     }
 
     getBelongInfo(x_id: number, y_id: number): number{
-        let xIndex = x_id + mapIdOffset;
-        let yIndex = Math.floor((y_id + mapIdOffset) / 2)
+        let xIndex = x_id + this.mapOffset.x;
+        let yIndex = Math.floor((y_id + this.mapOffset.y) / 2)
         if(xIndex < 0 || yIndex < 0){
             return 0
         }
@@ -95,8 +97,8 @@ export class Map{
     }
 
     getBlockBattleStatus(x_id: number, y_id: number): CampInfo {
-        let xIndex = x_id + mapIdOffset;
-        let yIndex = Math.floor((y_id + mapIdOffset) / 2)
+        let xIndex = x_id + this.mapOffset.x;
+        let yIndex = Math.floor((y_id + this.mapOffset.y) / 2)
         let defalutRe : CampInfo ={
             unionId: 0,
             attackEndTime: -1,
@@ -115,8 +117,8 @@ export class Map{
     }
 
     changeBelongInfo(x_id: number, y_id: number, unionId: number, protectEnd: number){
-        let xIndex = x_id  + mapIdOffset;
-        let yIndex = Math.floor((y_id  + mapIdOffset) / 2)
+        let xIndex = x_id  + this.mapOffset.x;
+        let yIndex = Math.floor((y_id  + this.mapOffset.y) / 2)
         let infoMap = this.gState.campInfo
         infoMap[xIndex][yIndex].unionId = unionId
         infoMap[xIndex][yIndex].protectEndTime = protectEnd
@@ -128,8 +130,8 @@ export class Map{
     }
 
     changeGlobalLastAttack( x_id: number, y_id: number, attackEnd: number){
-        let xIndex = x_id  + mapIdOffset;
-        let yIndex = Math.floor((y_id  + mapIdOffset) / 2)
+        let xIndex = x_id  + this.mapOffset.x;
+        let yIndex = Math.floor((y_id  + this.mapOffset.y) / 2)
         let infoMap = this.gState.campInfo
         infoMap[xIndex][yIndex].attackEndTime = attackEnd
         this.gState.update(
