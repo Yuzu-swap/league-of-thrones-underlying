@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
+import { GetInitState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -118,7 +118,7 @@ export class MapComponent implements IMapComponent{
         if(validBlockIds.length == 0){
             let seasonState = this.map.getSeasonState();
             let mapId = seasonState.mapId;
-            GetInitState(mapId)
+            GetInitState(mapId, 'map.genBlockIds')
         }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)

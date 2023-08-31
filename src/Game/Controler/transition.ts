@@ -1510,7 +1510,7 @@ export class TransitionHandler {
     const logic: LogicEssential = this.genLogic(args.username)
     const seasonState = logic.map.seasonState;
     const mapId = seasonState.mapId;
-    let initState = GetInitState(mapId)
+    let initState = GetInitState(mapId, 'transition.onInitUserStates')
     console.log('state used to update', initState[StateName.City],initState[StateName.General],initState[StateName.Strategy])
     logic.city.state.update(
       initState[StateName.City]
@@ -1531,7 +1531,7 @@ export class TransitionHandler {
 
   // not use in prod, test.clear call onInitGlobalStates
   onInitGlobalStates(args: StateTransitionArgs){
-    let initState = GetInitState(1)
+    let initState = GetInitState(1, 'transition.onInitGlobalStates')
     const mapGlobalState = this.stateManger.get(
       {
         id: `${StateName.MapGlobalInfo}`

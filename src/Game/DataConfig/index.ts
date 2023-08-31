@@ -347,7 +347,7 @@ export var GeneralConfigFromGDS = {
 
 
 export function getMapOffset(mapId: number){
-	let offsets = { x: 10, y : 10, rows: 21, cols: 10, maxSize: 21 };
+	let offsets = { x: 10, y : 10, rows: 21, cols: 11, maxSize: 21 };
 	for(let item of mapListGDS['Config']){
 		if(item['map_id'] === mapId){
 			offsets.x = item.cols - 1;

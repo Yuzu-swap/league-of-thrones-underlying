@@ -143,7 +143,8 @@ export var validBlockIds = []
 var _inited = false
 
 
-export function GetInitState(mapId: number){
+export function GetInitState(mapId: number, from: string){
+    console.log('GetInitState mapId args:', { mapId, from, _inited });
     if (!_inited) {
         //city state
         for(let key in CityFacility){
@@ -212,6 +213,7 @@ export function GetInitState(mapId: number){
 var _ginit = false
 
 export function GetMapState(mapId: number){
+    console.log('GetMapState mapId args:', { mapId, _ginit });
     if(!_ginit){
         mapId = mapId || 1;
         const mapGDS = loadMapGDS(mapId);
