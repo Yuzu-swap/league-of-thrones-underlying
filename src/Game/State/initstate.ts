@@ -229,7 +229,7 @@ export function GetMapState(mapId: number){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapOffset.x;
                 let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-                console.log('GetMapState block:', { xIndex, yIndex }， InitState[StateName.MapGlobalInfo].campInfo， row);
+                console.log('GetMapState block:', { xIndex, yIndex }, InitState[StateName.MapGlobalInfo].campInfo, row);
                 InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
             }
             gInitState[key]= {
