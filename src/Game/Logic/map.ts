@@ -262,9 +262,10 @@ export class Map{
         let records = []
         let cancelList = []
         // let remainTroop = -1
+        console.log('attackBlock Around args:', {x_id, y_id, generalId, remainTroop})
         let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
-        console.log('attackBlocksAround block state:', {x_id, y_id}, centerBlockState)
-        console.log('attackBlocksAround result:', re)
+        console.log('attackBlock Around block state:', {x_id, y_id}, centerBlockState)
+        console.log('attackBlock Around result:', re)
         if(re['error']){
             return re
         }
@@ -281,7 +282,7 @@ export class Map{
                 let tempY = y_id + yOffset[i]
                 let tempBlockState = this.getBlockState(tempX, tempY)
                 if(tempBlockState && tempBlockState.belong.unionId == unionId && attackTroops > 0){
-                    console.log('attackBlocksAround block going:', { x_id, y_id }, {unionId, tempX, tempY, generalId, attackTroops}, ' blockInfo:',  tempBlockState);
+                    console.log('attackBlock Around block going:', { x_id, y_id }, {unionId, tempX, tempY, generalId, attackTroops}, ' blockInfo:',  tempBlockState);
                     let tempRe = this.attackBlock(tempX, tempY, generalId, attackTroops)
                     if(tempRe['error']){
                         return tempRe
@@ -311,6 +312,7 @@ export class Map{
     }
 
     attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
+        console.log('attackBlock args:', {x_id, y_id, generalId, remainTroop})
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
@@ -389,6 +391,7 @@ export class Map{
                     'lastAttachTime': time
                 }
             )
+            console.log('attackBlock getDefenseList.true defaultDefense:', {x_id, y_id}, blockState);
             this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
         }
         if(remainTroop <= 0 ){
@@ -475,6 +478,7 @@ export class Map{
                 'defenseList': defenseInfos
             }
         )
+        console.log('attackBlock getDefenseList.false defenseList:', {x_id, y_id, blockState})
         return {
             txType: StateTransition.AttackBlock,
             records: list,
