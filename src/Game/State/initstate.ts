@@ -144,7 +144,7 @@ var _inited = false
 
 
 export function GetInitState(mapId: number){
-    // if (!_inited) {
+    if (!_inited) {
         //city state
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
@@ -192,7 +192,7 @@ export function GetInitState(mapId: number){
                     attackEndTime: -1,
                     protectEndTime: -1}
                  }
-                ))
+            ))
         }
 
         console.log('GetInitState campInfo:', InitState[StateName.MapGlobalInfo].campInfo);
@@ -205,17 +205,17 @@ export function GetInitState(mapId: number){
 
         InitState = Object.assign(InitState, GetMapState(mapId))        
         _inited = true
-    // }
+    }
     return  copyObj(InitState)
 }
 
 var _ginit = false
 
 export function GetMapState(mapId: number){
-    // if(!_ginit){
+    if(!_ginit){
         mapId = mapId || 1;
         const mapGDS = loadMapGDS(mapId);
-        console.log('GetMapState mapId:', { mapId, mapGDS });
+        console.log('GetMapState mapId:', mapId, mapGDS);
         const time = parseInt(new Date().getTime() / 1000 + '');
 
         const mapOffset = getMapOffset(mapId);
@@ -230,8 +230,13 @@ export function GetMapState(mapId: number){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapOffset.x;
                 let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-                console.log('GetMapState mapId block:', { xIndex, yIndex }, InitState[StateName.MapGlobalInfo].campInfo[xIndex], row);
-                InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
+                let yBlocks = InitState[StateName.MapGlobalInfo].campInfo[xIndex];
+                console.log('GetMapState mapId block 1:', { xIndex, yIndex }, yBlocks);
+                yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
+                yBlocks[yIndex].unionId = unionId;
+                console.log('GetMapState mapId block 2:', { xIndex, yIndex }, yBlocks);
+                // InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
+                InitState[StateName.MapGlobalInfo].campInfo[xIndex] = yBlocks;
             }
             gInitState[key]= {
                 id: key,
@@ -257,7 +262,7 @@ export function GetMapState(mapId: number){
         for(let key in gInitState){
             validBlockIds.push(key)
         }
-    // }
+    }
     console.log('GetMapState gInitState:', gInitState);
     return copyObj(gInitState)
 }
