@@ -149,7 +149,7 @@ export function GetInitState(mapId: number){
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
-            console.log('city.data facilities:', CityFacility, {key, CityAnyType}, buildingCountConfig, maxCount);
+            console.log('GetInitState city.data facilities:', CityFacility, {key, CityAnyType}, buildingCountConfig, maxCount);
             if(!isNaN(maxCount)){
                 InitState[StateName.City].facilities[CityAnyType] = Array(maxCount).fill(1)
             }
@@ -176,7 +176,7 @@ export function GetInitState(mapId: number){
 
 
         const mapOffset = getMapOffset(mapId);
-        console.log('mapId offset GetInitState:', { mapId, mapOffset });
+        console.log('GetInitState mapId offset:', { mapId, mapOffset });
 
         let { rows, cols } = mapOffset;
         
@@ -193,6 +193,9 @@ export function GetInitState(mapId: number){
                  }
                 ))
         }
+
+        console.log('GetInitState: campInfo', InitState[StateName.MapGlobalInfo].campInfo);
+
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
@@ -208,14 +211,14 @@ export function GetInitState(mapId: number){
 var _ginit = false
 
 export function GetMapState(mapId: number){
-    if(!_ginit){
+    // if(!_ginit){
         mapId = mapId || 1;
         const mapGDS = loadMapGDS(mapId);
-        console.log('mapId GetMapState:', { mapId, mapGDS });
+        console.log('GetMapState mapId:', { mapId, mapGDS });
         const time = parseInt(new Date().getTime() / 1000 + '');
 
         const mapOffset = getMapOffset(mapId);
-        console.log('mapId offset GetMapState:', { mapId, mapOffset });
+        console.log('GetMapState mapId offset:', { mapId, mapOffset });
 
         for(let block in mapGDS){
             let key = `${StateName.BlockInfo}:${block}`
@@ -226,6 +229,7 @@ export function GetMapState(mapId: number){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapOffset.x;
                 let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
+                console.log('GetMapState block:', { xIndex, yIndex }， InitState[StateName.MapGlobalInfo].campInfo， row);
                 InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
             }
             gInitState[key]= {
@@ -252,6 +256,7 @@ export function GetMapState(mapId: number){
         for(let key in gInitState){
             validBlockIds.push(key)
         }
-    }
+    // }
+    console.log('GetMapState gInitState:', gInitState);
     return copyObj(gInitState)
 }
