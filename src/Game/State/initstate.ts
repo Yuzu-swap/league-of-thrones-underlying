@@ -144,7 +144,7 @@ var _inited = false
 
 
 export function GetInitState(mapId: number){
-    if (!_inited) {
+    // if (!_inited) {
         //city state
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
@@ -185,7 +185,8 @@ export function GetInitState(mapId: number){
 
         InitState[StateName.MapGlobalInfo].campInfo = []
         for(let i = 0; i< rows; i++){
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(cols - i %2 ).fill(null).map(
+            console.log('GetInitState MapGlobalInfo:', { mapId, i, ylen: cols - i%2 });
+            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(cols - i%2).fill(null).map(
                 ()=>{
                     return {unionId: 0,
                     attackEndTime: -1,
@@ -194,7 +195,7 @@ export function GetInitState(mapId: number){
                 ))
         }
 
-        console.log('GetInitState: campInfo', InitState[StateName.MapGlobalInfo].campInfo);
+        console.log('GetInitState campInfo:', InitState[StateName.MapGlobalInfo].campInfo);
 
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
@@ -204,7 +205,7 @@ export function GetInitState(mapId: number){
 
         InitState = Object.assign(InitState, GetMapState(mapId))        
         _inited = true
-    }
+    // }
     return  copyObj(InitState)
 }
 
@@ -229,7 +230,7 @@ export function GetMapState(mapId: number){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapOffset.x;
                 let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-                console.log('GetMapState block:', { xIndex, yIndex }, InitState[StateName.MapGlobalInfo].campInfo, row);
+                console.log('GetMapState mapId block:', { xIndex, yIndex }, InitState[StateName.MapGlobalInfo].campInfo[xIndex], row);
                 InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
             }
             gInitState[key]= {
