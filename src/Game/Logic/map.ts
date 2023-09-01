@@ -316,7 +316,7 @@ export class Map{
         let time = parseInt(new Date().getTime() / 1000 + '');
         if(time - blockState.lastAttachTime < DefaultTroopRecoverTime){
             console.log('attackBlock recoveryBlockDefense fail:', time);
-            reurn;
+            return;
         }
         let defaultDefense = GenBlockDefenseTroop(x_id, y_id);
         blockState.update({
