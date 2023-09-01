@@ -318,7 +318,7 @@ export class Map{
             console.log('attackBlock recoveryBlockDefense fail:', time);
             reurn;
         }
-        let defaultDefense = this.getDefenseList(x_id, y_id, true);
+        let defaultDefense = GenBlockDefenseTroop(x_id, y_id);
         blockState.update({
             'defaultDefense': defaultDefense,
             'lastAttachTime': time
