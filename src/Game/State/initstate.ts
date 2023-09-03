@@ -1,7 +1,7 @@
 import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
 import { StateName, ResouceType, CityFacility, MaxStrategyPoint } from '../Const';
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
+import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS, getMapOffset } from '../DataConfig';
 import { GeneralInfo } from '.';
@@ -72,6 +72,10 @@ export var InitState = {
     },
     [StateName.MapGlobalInfo]:{
         campInfo:[],
+        campInfo_1:[],
+        campInfo_2:[],
+        campInfo_3:[],
+        campInfo_4:[],
         campMembers: [],
         unionWinId: 0,
         seasonEnd: false
@@ -143,8 +147,7 @@ export var validBlockIds = []
 var _inited = false
 
 
-export function GetInitState(mapId: number, from: string){
-    console.log('GetInitState mapId args:', { mapId, from, _inited });
+export function GetInitState(from: string){
     if (!_inited) {
         //city state
         for(let key in CityFacility){
@@ -175,47 +178,65 @@ export function GetInitState(mapId: number, from: string){
             }
         }
 
-
-        const mapOffset = getMapOffset(mapId);
-        console.log('GetInitState mapId offset:', { mapId, mapOffset });
-
-        let { rows, cols } = mapOffset;
-        
-        // let maxSize = mapOffset.maxSize;
-        // let maxlen = Math.floor((maxSize + 1)/ 2);
-
-        InitState[StateName.MapGlobalInfo].campInfo = []
-        for(let i = 0; i< rows; i++){
-            console.log('GetInitState MapGlobalInfo:', { mapId, i, ylen: cols - i%2 });
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(cols - i%2).fill(null).map(
-                ()=>{
-                    return {unionId: 0,
-                    attackEndTime: -1,
-                    protectEndTime: -1}
-                 }
-            ))
-        }
-
-        console.log('GetInitState campInfo:', InitState[StateName.MapGlobalInfo].campInfo);
-
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         InitState[StateName.MapGlobalInfo].unionWinId = 0
 
-        InitState = Object.assign(InitState, GetMapState(mapId))        
-        _inited = true
+        let activityLen = SeasonConfigFromGDS.get(1).activities.length
+        for(let i = 0; i < activityLen; i++){
+            InitState[StateName.Activity].activityData.push([])
+            InitState[StateName.Activity].sumValue.push(0)
+            InitState[StateName.Activity].haveSendReward.push(false)
+        }
+
+        for(let mapItem of mapListGDS['Config']){
+            let mapId = mapItem['map_id'];
+            InitState = Object.assign(InitState, GetInitStateMap(mapId, 'GetInitState'));
+        }
+       
+        _inited = true;
     }
-    return  copyObj(InitState)
+    return copyObj(InitState);
+}
+
+export function GetInitStateMap(mapId: number, from: string){
+    console.log('GetInitStateMap args:', { mapId, from });
+    mapId = mapId || 1;
+    //city state
+    const mapOffset = getMapOffset(mapId);
+    console.log('GetInitState mapId offset:', { mapId, mapOffset });
+
+    let { rows, cols } = mapOffset;
+    
+    // let maxSize = mapOffset.maxSize;
+    // let maxlen = Math.floor((maxSize + 1)/ 2);
+    let mapsArr = [];
+    for(let i = 0; i< rows; i++){
+        console.log('GetInitState MapGlobalInfo:', { mapId, i, ylen: cols - i%2 });
+        mapsArr.push( new Array(cols - i%2).fill(null).map(
+            ()=>{
+                return {unionId: 0,
+                attackEndTime: -1,
+                protectEndTime: -1}
+             }
+        ))
+    }
+    let campInfoKey = 'campInfo_' + mapId;
+    InitState[StateName.MapGlobalInfo][campInfoKey] = mapsArr;
+
+    console.log('GetInitState ', { campInfoKey }, InitState[StateName.MapGlobalInfo][campInfoKey]);
+
+    return GetMapState(mapId);
 }
 
 var _ginit = false
 
 export function GetMapState(mapId: number){
-    console.log('GetMapState mapId args:', { mapId, _ginit });
     if(!_ginit){
         mapId = mapId || 1;
+        let campInfoKey = 'campInfo_' + mapId;
         const mapGDS = loadMapGDS(mapId);
         console.log('GetMapState mapId:', mapId, mapGDS);
         const time = parseInt(new Date().getTime() / 1000 + '');
@@ -223,25 +244,22 @@ export function GetMapState(mapId: number){
         const mapOffset = getMapOffset(mapId);
         console.log('GetMapState mapId offset:', { mapId, mapOffset });
 
-        for(let block in mapGDS){
-            let key = `${StateName.BlockInfo}:${block}`
-            let row = mapGDS[block]
-            let list = block.split('^')
+        for(let blockId in mapGDS){
+            let blockGlobalUniKey = `${StateName.BlockInfo}:${mapId}:${blockId}`
+            let row = mapGDS[blockId]
+            let list = blockId.split('^')
             let unionId = 0
             if( row['type'] == 3 ){
                 unionId = row['parameter']
                 let xIndex = parseInt(list[0]) + mapOffset.x;
                 let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-                let yBlocks = InitState[StateName.MapGlobalInfo].campInfo[xIndex];
-                // console.log('GetMapState mapId block 1:', { xIndex, yIndex }, yBlocks);
+                let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][xIndex];
                 yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
                 yBlocks[yIndex].unionId = unionId;
-                // console.log('GetMapState mapId block 2:', { xIndex, yIndex }, yBlocks);
-                // InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
-                InitState[StateName.MapGlobalInfo].campInfo[xIndex] = yBlocks;
+                InitState[StateName.MapGlobalInfo][campInfoKey][xIndex] = yBlocks;
             }
-            gInitState[key]= {
-                id: key,
+            gInitState[blockGlobalUniKey]= {
+                id: blockGlobalUniKey,
                 x_id: parseInt(list[0]),
                 y_id: parseInt(list[1]),
                 belong: {
@@ -254,15 +272,7 @@ export function GetMapState(mapId: number){
                 lastAttachTime: -1,
                 remainSilver: row['silver_total_number']
             }
-        }
-        let activityLen = SeasonConfigFromGDS.get(1).activities.length
-        for(let i = 0; i < activityLen; i++){
-            InitState[StateName.Activity].activityData.push([])
-            InitState[StateName.Activity].sumValue.push(0)
-            InitState[StateName.Activity].haveSendReward.push(false)
-        }
-        for(let key in gInitState){
-            validBlockIds.push(key)
+            validBlockIds.push(blockGlobalUniKey);
         }
     }
     console.log('GetMapState gInitState:', gInitState);

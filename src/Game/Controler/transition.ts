@@ -275,12 +275,12 @@ export class TransitionHandler {
     }
   }
 
-  getBlockStates(x_id : number , y_id : number): IBlockState[]{
+  getBlockStates(mapId: number, x_id: number , y_id: number): IBlockState[]{
     let re = []
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
-    let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
-    console.log("getBlockStates center:", center)
+    let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`})
+    console.log("getBlockStates center:", { mapId, x_id, y_id }, center)
     if(!center){
       return re
     }
@@ -288,7 +288,7 @@ export class TransitionHandler {
     for( let i = 0; i < 6; i++ ){
       let newX = x_id + xOffset[i]
       let newY = y_id + yOffset[i]
-      let stateId = { id : `${StateName.BlockInfo}:${newX}^${newY}`}
+      let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
       let newState =  this.stateManger.get(stateId) as IBlockState
       if(newState){
         re.push(newState)
@@ -344,7 +344,7 @@ export class TransitionHandler {
       {
         id: `${StateName.SeasonConfig}`
       }
-    )
+    ) as ISeasonConfigState;
     const tokenPriceInfo = this.stateManger.get(
       {
         id: `${StateName.TokenPriceInfo}`
@@ -367,10 +367,10 @@ export class TransitionHandler {
     ) 
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
-      seasonState : seasonState as ISeasonConfigState,
+      seasonState : seasonState,
       tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
-      blocks: this.getBlockStates(x_id, y_id),
+      blocks: this.getBlockStates(seasonState.mapId, x_id, y_id),
       activityState: activities as IActivityState,
       codsGlobal: codsGlobal as any
     };
@@ -1509,8 +1509,7 @@ export class TransitionHandler {
   onInitUserStates(args : InitUserStatesArgs){
     const logic: LogicEssential = this.genLogic(args.username)
     const seasonState = logic.map.seasonState;
-    const mapId = seasonState.mapId;
-    let initState = GetInitState(mapId, 'transition.onInitUserStates')
+    let initState = GetInitState('transition.onInitUserStates')
     console.log('state used to update', initState[StateName.City],initState[StateName.General],initState[StateName.Strategy])
     logic.city.state.update(
       initState[StateName.City]
@@ -1531,7 +1530,7 @@ export class TransitionHandler {
 
   // not use in prod, test.clear call onInitGlobalStates
   onInitGlobalStates(args: StateTransitionArgs){
-    let initState = GetInitState(1, 'transition.onInitGlobalStates')
+    let initState = GetInitState('transition.onInitGlobalStates')
     const mapGlobalState = this.stateManger.get(
       {
         id: `${StateName.MapGlobalInfo}`
@@ -1561,7 +1560,7 @@ export class TransitionHandler {
     )
 
     for(let block in mapGDS){
-      let key = `${StateName.BlockInfo}:${block}`
+      let key = `${StateName.BlockInfo}:1:${block}`
       let blockState = this.stateManger.get( {id : key})
       blockState.update(
         initState[key]

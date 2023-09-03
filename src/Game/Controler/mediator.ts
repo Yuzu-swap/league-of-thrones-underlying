@@ -29,7 +29,7 @@ function getInitState(username:string, mapId:number, wather: IStateChangeWatcher
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
   const strategyStateId = `${StateName.Strategy}:${username}`;
-  const InitState = GetInitState(mapId, 'mediator.getInitState');
+  const InitState = GetInitState('mediator.getInitState');
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -59,7 +59,7 @@ function getGlobleState(mapId: number, wather: IStateChangeWatcher):{
   [key: string]: IState
 }{
   let re = {}
-  const InitState = GetInitState(mapId, 'mediator.getGlobleState');
+  const InitState = GetInitState('mediator.getGlobleState');
   re = Object.assign(
     re, {
       [StateName.MapGlobalInfo]: new State<IMapGlobalState>(

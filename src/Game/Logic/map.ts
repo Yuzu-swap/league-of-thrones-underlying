@@ -25,6 +25,7 @@ export interface innerCancelBlockDefense{
 export class Map{
     gState: IMapGlobalState
     blockStates:{[key: string]: IBlockState} 
+    mapId: number
     mapConfig: MapConfig
     seasonState: ISeasonConfigState
     tokenPriceInfo: ITokenPriceInfoState
@@ -43,6 +44,7 @@ export class Map{
         this.blockStates = {}
 
         let mapId = seasonState.mapId;
+        this.mapId = mapId;
         this.mapConfig = getMapConfigFromGDS(mapId);
         this.mapOffset = getMapOffset(mapId);
         
@@ -77,26 +79,29 @@ export class Map{
     }
 
     getBlockInitState(x_id: number, y_id: number){
-        const state = InitState[ `${StateName.BlockInfo}:${x_id}^${y_id}`]
+        let mapId = this.mapId;
+        const state = InitState[ `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`]
         return state
     }
 
     getBelongInfo(x_id: number, y_id: number): number{
+        let mapId = this.mapId;
+        let campInfoKey = 'campInfo_' + mapId;
         let xIndex = x_id + this.mapOffset.x;
         let yIndex = Math.floor((y_id + this.mapOffset.y) / 2)
         if(xIndex < 0 || yIndex < 0){
             return 0
         }
-        if( 
-            this.gState.campInfo.length > xIndex &&
-            this.gState.campInfo[xIndex].length > yIndex 
-        ){
-            return this.gState.campInfo[xIndex][yIndex].unionId
+        let campInfo = this.gState[campInfoKey] || [];
+        if(campInfo.length > xIndex && campInfo[xIndex].length > yIndex ){
+            return campInfo[xIndex][yIndex].unionId
         }
         return 0
     }
 
     getBlockBattleStatus(x_id: number, y_id: number): CampInfo {
+        let mapId = this.mapId;
+        let campInfoKey = 'campInfo_' + mapId;
         let xIndex = x_id + this.mapOffset.x;
         let yIndex = Math.floor((y_id + this.mapOffset.y) / 2)
         let defalutRe : CampInfo ={
@@ -107,36 +112,38 @@ export class Map{
         if(xIndex < 0 || yIndex < 0){
             return defalutRe
         }
-        if( 
-            this.gState.campInfo.length > xIndex &&
-            this.gState.campInfo[xIndex].length > yIndex 
-        ){
-            return this.gState.campInfo[xIndex][yIndex]
+        let campInfo = this.gState[campInfoKey] || [];
+        if(campInfo.length > xIndex && campInfo[xIndex].length > yIndex ){
+            return campInfo[xIndex][yIndex]
         }
         return defalutRe
     }
 
     changeBelongInfo(x_id: number, y_id: number, unionId: number, protectEnd: number){
+        let mapId = this.mapId;
+        let campInfoKey = 'campInfo_' + mapId;
         let xIndex = x_id  + this.mapOffset.x;
         let yIndex = Math.floor((y_id  + this.mapOffset.y) / 2)
-        let infoMap = this.gState.campInfo
+        let infoMap = this.gState[campInfoKey] || [];
         infoMap[xIndex][yIndex].unionId = unionId
         infoMap[xIndex][yIndex].protectEndTime = protectEnd
         this.gState.update(
             {
-                'campInfo': infoMap
+                [campInfoKey]: infoMap
             }
         )
     }
 
     changeGlobalLastAttack( x_id: number, y_id: number, attackEnd: number){
+        let mapId = this.mapId;
+        let campInfoKey = 'campInfo_' + mapId;
         let xIndex = x_id  + this.mapOffset.x;
         let yIndex = Math.floor((y_id  + this.mapOffset.y) / 2)
-        let infoMap = this.gState.campInfo
+        let infoMap = this.gState[campInfoKey] || [];
         infoMap[xIndex][yIndex].attackEndTime = attackEnd
         this.gState.update(
             {
-                'campInfo': infoMap
+                [campInfoKey]: infoMap
             }
         )
     }
@@ -192,7 +199,7 @@ export class Map{
             return []
         }
 
-        let mapId = this.seasonState.mapId;
+        let mapId = this.mapId;
         if(defaultDefense){
             if(time - blockState.lastAttachTime > DefaultTroopRecoverTime){
                 return GenBlockDefenseTroop(x_id, y_id, mapId)

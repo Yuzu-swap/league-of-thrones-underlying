@@ -616,6 +616,7 @@ export class CityComponent implements ICityComponent {
   }
 
   async initRedPoint(): Promise<void> {
+    console.log('Throne.instance()', Throne.instance())
     await this.getHistoryChatData({unionId: Throne.instance().unionId}, 
       (result)=>{
         if(result.length != 0){
@@ -642,6 +643,7 @@ export class CityComponent implements ICityComponent {
     //for(let key in ChatChannel)
     let campProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_Camp])
     if(campProfile['code'] == 0){
+      let mapId = Throne.instance().mapId;
       let campInfo = decodeChatProfile(campProfile['data'])
       this.chatReadInfo[ChatChannel.ChatChannel_Camp] = {
         id: campInfo.id,
@@ -1169,11 +1171,12 @@ export class Throne implements IThrone {
   wsUrl : string
   version: string
   seasonId: string
+  mapId: number
 
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u831"
+    this.version = "u93"
   }
 
 
@@ -1194,6 +1197,7 @@ export class Throne implements IThrone {
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test';
     this.seasonId = obj['seasonId'];
+    this.mapId = obj['mapId'];
     this.unionId = obj['unionId'] ?  obj['unionId'] : 0
     this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
     if(this.wsUrl && this.username!='test'){

@@ -112,6 +112,10 @@ export interface CampInfo{
 export interface IMapGlobalState extends IState{
   id: string
   campInfo: CampInfo[][]
+  campInfo_1: CampInfo[][]
+  campInfo_2: CampInfo[][]
+  campInfo_3: CampInfo[][]
+  campInfo_4: CampInfo[][]
   campMembers: string[][]
   updateTime: number[]
   unionWinId: number

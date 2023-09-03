@@ -114,11 +114,11 @@ export class MapComponent implements IMapComponent{
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = []
-        let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
+        let seasonState = this.map.getSeasonState();
+        let mapId = seasonState.mapId;
+        let centerid = `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`;
         if(validBlockIds.length == 0){
-            let seasonState = this.map.getSeasonState();
-            let mapId = seasonState.mapId;
-            GetInitState(mapId, 'map.genBlockIds')
+            GetInitState('map.genBlockIds')
         }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)
@@ -127,7 +127,7 @@ export class MapComponent implements IMapComponent{
             let tempX = x_id + xOffset[i]
             let tempY = y_id + yOffset[i]
             let id = tempX + "^" + tempY
-            let stateId = `${StateName.BlockInfo}:${id}`
+            let stateId = `${StateName.BlockInfo}:${mapId}:${id}`
             if(validBlockIds.indexOf(stateId) != -1){
                 re.push( stateId)
             }
@@ -137,7 +137,7 @@ export class MapComponent implements IMapComponent{
 
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
-        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} })
+        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} }) || [];
         this.map.loadBlockStates(blockStats)
     }
 
