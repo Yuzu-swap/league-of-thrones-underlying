@@ -120,6 +120,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     let mountains = {};
     let bgMap = {};
     let tileSetMap = {};
+    let inits = {};
 
     for (var blockId in blockMap) {
         //item == {"y":1,"x":1,"cmap/area":3,"type":3,"level/parameter":3},
@@ -146,6 +147,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         }
         if (item.type == 3) {
             image = 'cmap_init';
+            inits[item['parameter']] = x_id/(cols - 1) + '^' + y_id*2/(rows -2);
         }
         if (item.type == 4) {
             image = types[item.type] + '_' + (item.parameter);
@@ -218,6 +220,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     mapList[index].mountains = mountains;
     mapList[index].bgIndexs = bgIndex;
     mapList[index].mapIndexs = tileSet;
+    mapList[index].inits = inits;
 }
 
 
