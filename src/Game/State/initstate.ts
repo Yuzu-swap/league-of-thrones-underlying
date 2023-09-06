@@ -148,7 +148,7 @@ var _inited = false
 
 
 export function GetInitState(from: string){
-    // if (!_inited) {
+    if (!_inited) {
         //city state
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
@@ -197,7 +197,7 @@ export function GetInitState(from: string){
         }
        
         _inited = true;
-    // }
+    }
     return copyObj(InitState);
 }
 
@@ -234,7 +234,7 @@ export function GetInitStateMap(mapId: number, from: string){
 var _ginit = false
 
 export function GetMapState(mapId: number){
-    // if(!_ginit){
+    if(!_ginit){
         mapId = mapId || 1;
         let campInfoKey = 'campInfo_' + mapId;
         const mapGDS = loadMapGDS(mapId);
@@ -280,7 +280,7 @@ export function GetMapState(mapId: number){
             }
             validBlockIds.push(blockGlobalUniKey);
         }
-    // }
+    }
     console.log('GetMapState gInitState:', gInitState);
     return copyObj(gInitState)
 }
