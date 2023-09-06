@@ -148,7 +148,7 @@ var _inited = false
 
 
 export function GetInitState(from: string){
-    if (!_inited) {
+    // if (!_inited) {
         //city state
         for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
@@ -197,7 +197,7 @@ export function GetInitState(from: string){
         }
        
         _inited = true;
-    }
+    // }
     return copyObj(InitState);
 }
 
@@ -234,7 +234,7 @@ export function GetInitStateMap(mapId: number, from: string){
 var _ginit = false
 
 export function GetMapState(mapId: number){
-    if(!_ginit){
+    // if(!_ginit){
         mapId = mapId || 1;
         let campInfoKey = 'campInfo_' + mapId;
         const mapGDS = loadMapGDS(mapId);
@@ -251,12 +251,17 @@ export function GetMapState(mapId: number){
             let unionId = 0
             if( row['type'] == 3 ){
                 unionId = row['parameter']
-                let xIndex = parseInt(list[0]) + mapOffset.x;
-                let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
+                // let xIndex = parseInt(list[0]) + mapOffset.x;
+                // let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
+            
+                let xIndex = (mapOffset.cols - 1 + list[0] - Math.abs(list[0]%2))/2;
+                let yIndex = (mapOffset.rows - 2)/2 - list[1];
+
                 let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][xIndex];
                 yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
                 yBlocks[yIndex].unionId = unionId;
                 InitState[StateName.MapGlobalInfo][campInfoKey][xIndex] = yBlocks;
+                console.log('GetMapState gInitState init', { blockId, xIndex, yIndex, unionId });
             }
             gInitState[blockGlobalUniKey]= {
                 id: blockGlobalUniKey,
@@ -274,7 +279,7 @@ export function GetMapState(mapId: number){
             }
             validBlockIds.push(blockGlobalUniKey);
         }
-    }
+    // }
     console.log('GetMapState gInitState:', gInitState);
     return copyObj(gInitState)
 }
