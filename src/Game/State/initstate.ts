@@ -253,9 +253,10 @@ export function GetMapState(mapId: number){
                 unionId = row['parameter']
                 // let xIndex = parseInt(list[0]) + mapOffset.x;
                 // let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-            
-                let xIndex = (mapOffset.cols - 1 + list[0] - Math.abs(list[0]%2))/2;
-                let yIndex = (mapOffset.rows - 2)/2 - list[1];
+                let x_id = parseInt(list[0]);
+                let y_id = parseInt(list[1]);
+                let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
+                let yIndex = (mapOffset.rows - 2)/2 - y_id;
 
                 let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][xIndex];
                 yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
