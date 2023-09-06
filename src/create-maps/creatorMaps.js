@@ -200,6 +200,8 @@ function createMap(index, mapItem, tplBg, tplMap) {
     });
 
     mapList[index].mountains = mountains;
+    mapList[index].bgIndexs = bgIndex;
+    mapList[index].mapIndexs = tileSet;
 }
 
 

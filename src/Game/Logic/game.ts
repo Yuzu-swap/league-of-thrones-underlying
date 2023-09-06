@@ -179,7 +179,7 @@ export class City {
     let re: FacilityGdsRow[] = [];
     let i = 1;
     while (true) {
-      console.log(type, this.cityConfig.facilityConfig)
+      // console.log(type, this.cityConfig.facilityConfig)
       let row = null;
       if(this.cityConfig.facilityConfig[type]){
         row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
