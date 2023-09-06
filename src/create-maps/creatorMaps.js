@@ -100,6 +100,22 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
 
+    // for (var blockId in blockMap) {
+    //     let row = blockMap[blockId]
+    //     let list = blockId.split('^')
+    //     let unionId = 0
+    //     if( row['type'] == 3 ){
+    //         unionId = row['parameter']
+    //         let x_id = parseInt(list[0]);
+    //         let y_id = parseInt(list[1]);
+    //         let xIndex = (cols - 1 + x_id - Math.abs(x_id%2))/2;
+    //         let yIndex = (rows - 2)/2 - y_id;
+
+    //         console.log('GetMapState gInitState init', { blockId, xIndex, yIndex, unionId });
+    //     }
+    // }
+    // return;
+
     let mapOrder = [];
     let mountains = {};
     let bgMap = {};
