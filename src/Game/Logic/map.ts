@@ -348,22 +348,24 @@ export class Map{
         cancelList = cancelList.concat(re['cancelList'])
         records = records.concat(re['records'])
         remainTroop = re['remainTroop']
-        if(unionId != 0){
+        if(unionId != 0 && remainTroop > 0){
+            let attackTroops = remainTroop + 0;
             for(let i = 0; i < 6; i++){
-                if(remainTroop <=0 ){
+                if(attackTroops <=0 ){
                     break
                 }
                 let tempX = x_id + xOffset[i]
                 let tempY = y_id + yOffset[i]
                 let tempBlockState = this.getBlockState(tempX, tempY)
-                if(tempBlockState && tempBlockState.belong.unionId == unionId){
-                    let tempRe = this.attackBlock(tempX, tempY, generalId, remainTroop)
+                if(tempBlockState && tempBlockState.belong.unionId == unionId && attackTroops > 0){
+                    console.log('attackBlock Around block going:', { x_id, y_id }, {unionId, tempX, tempY, generalId, attackTroops}, ' blockInfo:',  tempBlockState);
+                    let tempRe = this.attackBlock(tempX, tempY, generalId, attackTroops)
                     if(tempRe['error']){
                         return tempRe
                     }
                     cancelList = cancelList.concat(tempRe['cancelList'])
                     records = records.concat(tempRe['records'])
-                    remainTroop = tempRe['remainTroop']
+                    attackTroops = tempRe['remainTroop']
                 }
             }
         }
@@ -385,7 +387,27 @@ export class Map{
         }
     }
 
+    recoveryBlockDefense(x_id: number, y_id: number){
+        let blockState = this.getBlockState(x_id, y_id);
+        let time = parseInt(new Date().getTime() / 1000 + '');
+        if(time - blockState.lastAttachTime < DefaultTroopRecoverTime){
+            console.log('attackBlock recoveryBlockDefense fail:', time);
+            return;
+        }
+        let mapId = this.mapId;
+        let defaultDefense = GenBlockDefenseTroop(x_id, y_id, mapId);
+        blockState.update({
+            'defaultDefense': defaultDefense,
+            'lastAttachTime': time
+        })
+        this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
+        console.log('attackBlock recoveryBlockDefense ok:', {x_id, y_id}, blockState);
+    }
+
     attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
+        console.log('attackBlock args:', {x_id, y_id, generalId, remainTroop});
+        this.recoveryBlockDefense(x_id, y_id);
+
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
@@ -463,7 +485,7 @@ export class Map{
                     'lastAttachTime': time
                 }
             )
-            this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
+            this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
         if(remainTroop <= 0 ){
             return {
@@ -707,7 +729,7 @@ export class Map{
                     'lastAttachTime': time
                 }
             )
-            this.changeGlobalLastAttack(x_id, y_id, time + DurabilityRecoverTime)
+            this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
         if(remainTroop <= 0 ){
             return {

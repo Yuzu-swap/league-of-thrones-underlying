@@ -317,36 +317,46 @@ export class City {
   }
   
   updateInjuredTroops(amount: number, type: string) {
-    let username = parseStateId(this.general.state.getId()).username;
-    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
+  let username = parseStateId(this.general.state.getId()).username;
+  let injuredTroops: InjuredTroops = this.state.injuredTroops;
 
-    console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
-    let value = injuredTroops.value + amount;
-    let dayMsLong = 24*60*60;
-    let timeBefore = injuredTroops.updateTime;
-    let updateTime = Math.floor(new Date().getTime()/1000);
-    let today = injuredTroops.today;
-    if(type === 'heal'){
-      if(Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong)){
-        today += amount;
-      }else{
-        today = amount;
-      }
+  console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
+
+  let dayMsLong = 24*60*60;
+  let updateTime = injuredTroops.updateTime;
+  let timeNow = Math.floor(new Date().getTime()/1000);
+  let isSameDay = Math.floor(updateTime/dayMsLong) === Math.floor(timeNow/dayMsLong);
+
+  let value = injuredTroops.value + amount;
+
+  let today = injuredTroops.today;
+  if(type === 'heal'){
+    updateTime = timeNow;
+
+    if(isSameDay){
+      today += amount;
+    }else{
+      today = amount;
     }
-    console.log(username, ' troops injured 2: sameday:', Math.floor(timeBefore/dayMsLong) === Math.floor(updateTime/dayMsLong), today);
-    console.log(username, ' troops injured 3: ', amount, { value , today, updateTime});
-    
-    this.state.update({
-      injuredTroops: { value , today, updateTime}
-    });
-    return { value , today, updateTime};
+  }
+  if(type === 'battle' && !isSameDay){
+    today = 0;
   }
 
-  getInjuredTroops() {
-    this.updateInjuredTroops(0, 'heal');
-    let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
-    return injuredTroops;
-  }
+  console.log(username, ' troops injured 2: sameday:', isSameDay, { today, type });
+  console.log(username, ' troops injured 3: ', { amount, type, value , today, updateTime});
+
+  this.state.update({
+    injuredTroops: { value , today, updateTime}
+  });
+  return { value , today, updateTime};
+}
+
+getInjuredTroops() {
+  return this.updateInjuredTroops(0, 'heal');
+  // let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
+  // return injuredTroops;
+}
 
   healEstimate(amount: number){
     let unit1 = this.parameter["healing_troops_need_silver"];
