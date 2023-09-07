@@ -1303,6 +1303,7 @@ export class TransitionHandler {
       for(let username in userInfos){
         let applyInfo = userInfos[username];
         applyInfo['username'] = username;
+        console.log("onStartSeason addUserScoresAndExtraGeneral ", username, applyInfo)
         this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }

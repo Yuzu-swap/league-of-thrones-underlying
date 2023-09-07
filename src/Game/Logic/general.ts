@@ -1708,6 +1708,7 @@ export class General{
 
         if(userScore >= maxScore){
             let buffs: VipType = scores[scores.length - 1];
+            buffs.add_general_id = buffs.add_general_id || [];
             console.log('vip buff 1: ', {userScore, buffs, scores});
             return buffs;
         }
@@ -1718,12 +1719,17 @@ export class General{
             buffs = scores[i];
           }
         } 
+        buffs.add_general_id = buffs.add_general_id || [];
         console.log('vip buff 2: ', {userScore, buffs, scores});
         return buffs;
     }
 
     addextraGeneral( ids: number[] ){
         console.log('addextraGeneral ', ids)
+        ids = ids || [];
+        if(ids.length === 0){
+            return;
+        }
         let generalInfos = this.state.generalList;
         const time = getTimeStamp()
         for(let id of ids){
