@@ -1303,8 +1303,8 @@ export class TransitionHandler {
       for(let username in userInfos){
         let applyInfo = userInfos[username];
         applyInfo['username'] = username;
-        console.log("onStartSeason addUserScoresAndExtraGeneral ", username, applyInfo)
-        this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
+        console.log("onStartSeason addUserScoresAndExtraGeneral ", applyInfo)
+        // this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }
 
@@ -1365,7 +1365,7 @@ export class TransitionHandler {
         "unionInit" : true
       }
     )
-    console.log("username ",username , " applyInfo is ", applyInfo)
+    console.log("addUserScoresAndExtraGeneral username ",username , " applyInfo is ", applyInfo)
 
     // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
     let wallet_token_value = applyInfo.wallet_token_value || 0;
