@@ -256,13 +256,13 @@ export function GetMapState(mapId: number){
                 let x_id = parseInt(list[0]);
                 let y_id = parseInt(list[1]);
                 let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
-                let yIndex = (mapOffset.rows - 2)/2 - y_id;
+                let yIndex = (mapOffset.rows - 1)/2 - y_id;
 
                 let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][xIndex];
                 yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
                 yBlocks[yIndex].unionId = unionId;
                 InitState[StateName.MapGlobalInfo][campInfoKey][xIndex] = yBlocks;
-                console.log('GetMapState gInitState init', { blockId, xIndex, yIndex, unionId });
+                console.log('GetMapState gInitState init:', { blockId, xIndex, yIndex, unionId });
             }
             gInitState[blockGlobalUniKey]= {
                 id: blockGlobalUniKey,
