@@ -148,6 +148,8 @@ export interface IRewardGlobalState extends IState{
 
 export interface ISeasonConfigState extends IState{
   id: string
+  seasonId: string
+  chain: string
   haveSet : boolean
   season_reservation: number,
   season_ready : number,

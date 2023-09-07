@@ -708,6 +708,15 @@ getInjuredTroops() {
   }
 
   addTestResource(){
+    const seasonState = this.map.getSeasonState();
+    const seasonId = seasonState.seasonId;
+    if(seasonId && seasonId.indexOf('test-') !== 0){
+      return{
+        result: false,
+        txType: StateTransition.AddTestResource,
+        error: 'illeagel-opration'
+      }
+    }
     const coolDown = this.getTestResourceCoolDownTime()
     if(coolDown != 0 ){
       return{
@@ -716,13 +725,12 @@ getInjuredTroops() {
         error: 'cool-down-have-not-end'
       }
     }
+    
+    this.useSilver( -100000000)
+    this.useTroop( -100000 )
+    this.useGold( -50000 )
+
     const time = getTimeStamp()
-    this.useSilver( 0)
-    this.useTroop( 0 )
-    this.useGold( 0 )
-    // this.useSilver( -100000000)
-    // this.useTroop( -100000 )
-    // this.useGold( -50000 )
     this.state.update(
       {
         lastAddTestTime : time

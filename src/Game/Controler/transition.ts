@@ -1297,6 +1297,8 @@ export class TransitionHandler {
     }
     gLogic.map.seasonState.update(
       {
+        'seasonId': args.seasonId,
+        'chain': args.season.chain,
         'season_reservation': args.season.apply_ts,
         'season_ready' : args.season.prepare_ts,
         'season_open' : args.season.start_ts,

@@ -173,6 +173,7 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 	general_ids: []
 	applies:{}
 	season:{
+		chain: string,
 		apply_ts: number,
 		prepare_ts : number,
 		start_ts : number,
@@ -182,6 +183,7 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 		rank_config_fromto: number[],
         rank_config_value: number[],
 	},
+	seasonId: string,
 	priceInfo: {},
 	mapConfigId: number
 }

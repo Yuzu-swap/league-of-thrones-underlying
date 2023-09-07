@@ -401,6 +401,8 @@ export function GenBlockDefenseTroop(x_id: number, y_id: number, mapId: number){
 }
 
 export interface Season{
+    seasonId: string
+    chain: string
 	show_season_victory_reward: SeasonReward[]
 	show_rank_reward: SeasonReward[]
 	show_occupy_reward: SeasonReward[]
@@ -440,6 +442,8 @@ export class SeasonConfig{
 		this.config = []
 		for(let seasonConf of list){
 			let season: Season = {
+		        seasonId: '',
+		        chain: '',
 				show_season_victory_reward : [],
 				show_rank_reward: [],
 				show_occupy_reward: [],
