@@ -258,10 +258,10 @@ export function GetMapState(mapId: number){
                 let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
                 let yIndex = (mapOffset.rows - 1)/2 - y_id;
 
-                let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][xIndex];
-                yBlocks[yIndex] = yBlocks[yIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
-                yBlocks[yIndex].unionId = unionId;
-                InitState[StateName.MapGlobalInfo][campInfoKey][xIndex] = yBlocks;
+                let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][yIndex];
+                yBlocks[xIndex] = yBlocks[xIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
+                yBlocks[xIndex].unionId = unionId;
+                InitState[StateName.MapGlobalInfo][campInfoKey][yIndex] = yBlocks;
                 console.log('GetMapState gInitState init:', { blockId, xIndex, yIndex, unionId });
             }
             gInitState[blockGlobalUniKey]= {
