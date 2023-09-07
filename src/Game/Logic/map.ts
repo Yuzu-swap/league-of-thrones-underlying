@@ -123,10 +123,12 @@ export class Map{
         // }
 
         let { xIndex, yIndex, campInfo } = this.getBlockBaseInfo(x_id, y_id);
-
+        if(xIndex < 0 || yIndex < 0){
+            return 0;
+        }
         if(campInfo.length > yIndex && campInfo[yIndex].length > xIndex ){
-            console.log('getBelongInfo', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
-            console.log('getBelongInfo', campInfo[yIndex][xIndex]);
+            console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
+            console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
             return campInfo[yIndex][xIndex].unionId
         }
         return 0
