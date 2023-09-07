@@ -317,40 +317,40 @@ export class City {
   }
   
   updateInjuredTroops(amount: number, type: string) {
-  let username = parseStateId(this.general.state.getId()).username;
-  let injuredTroops: InjuredTroops = this.state.injuredTroops;
+    let username = parseStateId(this.general.state.getId()).username;
+    let injuredTroops: InjuredTroops = this.state.injuredTroops;
 
-  console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
+    console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
 
-  let dayMsLong = 24*60*60;
-  let updateTime = injuredTroops.updateTime;
-  let timeNow = Math.floor(new Date().getTime()/1000);
-  let isSameDay = Math.floor(updateTime/dayMsLong) === Math.floor(timeNow/dayMsLong);
+    let dayMsLong = 24*60*60;
+    let updateTime = injuredTroops.updateTime;
+    let timeNow = Math.floor(new Date().getTime()/1000);
+    let isSameDay = Math.floor(updateTime/dayMsLong) === Math.floor(timeNow/dayMsLong);
 
-  let value = injuredTroops.value + amount;
+    let value = injuredTroops.value + amount;
 
-  let today = injuredTroops.today;
-  if(type === 'heal'){
-    updateTime = timeNow;
+    let today = injuredTroops.today;
+    if(type === 'heal'){
+      updateTime = timeNow;
 
-    if(isSameDay){
-      today += amount;
-    }else{
-      today = amount;
+      if(isSameDay){
+        today += amount;
+      }else{
+        today = amount;
+      }
     }
-  }
-  if(type === 'battle' && !isSameDay){
-    today = 0;
-  }
+    if(type === 'battle' && !isSameDay){
+      today = 0;
+    }
 
-  console.log(username, ' troops injured 2: sameday:', isSameDay, { today, type });
-  console.log(username, ' troops injured 3: ', { amount, type, value , today, updateTime});
+    console.log(username, ' troops injured 2: sameday:', isSameDay, { today, type });
+    console.log(username, ' troops injured 3: ', { amount, type, value , today, updateTime});
 
-  this.state.update({
-    injuredTroops: { value , today, updateTime}
-  });
-  return { value , today, updateTime};
-}
+    this.state.update({
+      injuredTroops: { value , today, updateTime}
+    });
+    return { value , today, updateTime};
+  }
 
 getInjuredTroops() {
   return this.updateInjuredTroops(0, 'heal');
@@ -680,6 +680,7 @@ getInjuredTroops() {
   }
 
   addPreRegisterGold(){
+    console.log('addUserScoresAndExtraGeneral addPreRegisterGold', this.state, this.parameter);
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.register_reward_gold
@@ -688,6 +689,7 @@ getInjuredTroops() {
   }
 
   addRandomCampGold(){
+    console.log('addUserScoresAndExtraGeneral addRandomCampGold', this.state, this.parameter);
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.choose_random_camp_reward

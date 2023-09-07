@@ -1372,6 +1372,7 @@ export class TransitionHandler {
     if(applyInfo.random_union){
       logic.city.addRandomCampGold()
     }
+    console.log('addUserScoresAndExtraGeneral end: ', username)
   }
 
   updateTokenPriceInfo(gLogic: GlobalLogicEssential, typ: string, priceInfo: any){
