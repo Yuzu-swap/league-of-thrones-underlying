@@ -1283,6 +1283,11 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
+    console.log("onStartSeason seasonState value ", gLogic.map.seasonState, {
+      seasonId: args.seasonId, 
+      chain: args.season.chain, 
+      mapConfigId: args.mapConfigId
+    })
     console.log("onStartSeason args are ", args)
     let applies = args.applies || {};
 
@@ -1301,11 +1306,11 @@ export class TransitionHandler {
 
     console.log("onStartSeason addUserScoresAndExtraGeneral ", applies)
     for(let item in args.season){
+      console.log("onStartSeason season item ", args.season[item] == undefined, ' ',args.season[item])
       if(args.season[item] == undefined){
         throw "start season args error"
       }
     }
-
 
     console.log("onStartSeason seasonState set ", gLogic.map.seasonState, {
       seasonId: args.seasonId, 

@@ -1696,8 +1696,8 @@ export class General{
         }
         let userScores = this.state.userScores || {};
         let address = username.toLowerCase();
-        let score = userScores[address] || userScores['username'] || 0;
-        console.log('getUserScore', address, score);
+        let score = userScores[address] || 0;
+        console.log('getUserScore: ', address, score);
         return score;
     }
 
@@ -1723,6 +1723,7 @@ export class General{
     }
 
     addextraGeneral( ids: number[] ){
+        console.log('addextraGeneral ', ids)
         let generalInfos = this.state.generalList;
         const time = getTimeStamp()
         for(let id of ids){
@@ -1743,11 +1744,13 @@ export class General{
                     lastUpdate: time
                 }
             }
+            console.log('addextraGeneral id:', id, ' generalInfo:', generalInfo)
             generalInfos[id + ""] = generalInfo
         }
         this.state.update(
             {'generalList' : generalInfos}
         )
+        console.log('addextraGeneral result ok:', this.state.generalList, generalInfos)
     }
 
     getIconId(){
