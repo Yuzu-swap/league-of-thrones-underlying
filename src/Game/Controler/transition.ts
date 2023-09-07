@@ -106,7 +106,7 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
-    console.log("underlying_transition: sid: ", sid, " args:", arg)
+    console.log("underlying_transition: sid: ", sid, ' : ',StateTransition[sid] , " args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
 
@@ -236,7 +236,6 @@ export class TransitionHandler {
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
-          console.log('FinishOutChainUserActivity re:', re);
           return re
         case StateTransition.HealTroops:
           re = this.onHealTroops(arg as HealTroopsArgs)
@@ -263,14 +262,14 @@ export class TransitionHandler {
           return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
-      console.log("transition before update",logic.city.state)
+      console.log("transition before update", logic.city.state)
       logic.general.updateDefenseInfo();
       logic.activity.updateAbleActivities();
       console.log("transition after update",logic.city.state)
-      console.log("underlying_transition result: sid:", sid, " result:", re)
+      console.log("underlying_transition result: sid:", sid, ' : ',StateTransition[sid] ," result:", re)
       return re
     }catch(err){
-      console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)
+      console.log("underlying_transition failed,  sid:", sid, ' : ',StateTransition[sid] , " args:", arg," err ",err)
       throw err
     }
   }
@@ -1300,6 +1299,7 @@ export class TransitionHandler {
       }
     }
 
+    console.log("onStartSeason addUserScoresAndExtraGeneral ", applies)
     for(let item in args.season){
       if(args.season[item] == undefined){
         throw "start season args error"
@@ -1321,8 +1321,15 @@ export class TransitionHandler {
       }
     )
 
+    console.log("onStartSeason seasonState.update ", gLogic.map.seasonState)
+
     const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo(gLogic, 'initial', priceInfo);
+
+    console.log("onStartSeason seasonState return ", {
+      txType: StateTransition.StartSeason,
+      result: true
+    })
 
     return {
       txType: StateTransition.StartSeason,

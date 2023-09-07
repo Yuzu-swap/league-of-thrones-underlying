@@ -90,6 +90,8 @@ export var InitState = {
         rankConfigValue: [],
         unionRewardValue: 0,
         rankRewardValue: 0,
+        seasonId: '',
+        chain: '',
         mapId: 0
     },
     [StateName.TokenPriceInfo]:{
