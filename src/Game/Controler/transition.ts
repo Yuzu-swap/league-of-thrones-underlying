@@ -1305,6 +1305,14 @@ export class TransitionHandler {
         throw "start season args error"
       }
     }
+
+
+    console.log("onStartSeason seasonState set ", gLogic.map.seasonState, {
+      seasonId: args.seasonId, 
+      chain: args.season.chain, 
+      mapConfigId: args.mapConfigId
+    })
+
     gLogic.map.seasonState.update(
       {
         'seasonId': args.seasonId,
@@ -1321,7 +1329,7 @@ export class TransitionHandler {
       }
     )
 
-    console.log("onStartSeason seasonState.update ", gLogic.map.seasonState)
+    console.log("onStartSeason seasonState updated ", gLogic.map.seasonState)
 
     const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo(gLogic, 'initial', priceInfo);

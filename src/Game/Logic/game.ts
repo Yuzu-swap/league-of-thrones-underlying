@@ -680,7 +680,7 @@ getInjuredTroops() {
   }
 
   addPreRegisterGold(){
-    console.log('addUserScoresAndExtraGeneral addPreRegisterGold', this.state, this.parameter);
+    console.log('addUserScoresAndExtraGeneral addPreRegisterGold:', { gold: this.state.gold, parameter: this.parameter});
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.register_reward_gold
@@ -689,7 +689,7 @@ getInjuredTroops() {
   }
 
   addRandomCampGold(){
-    console.log('addUserScoresAndExtraGeneral addRandomCampGold', this.state, this.parameter);
+    console.log('addUserScoresAndExtraGeneral addRandomCampGold:', { gold: this.state.gold, parameter: this.parameter});
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.choose_random_camp_reward
