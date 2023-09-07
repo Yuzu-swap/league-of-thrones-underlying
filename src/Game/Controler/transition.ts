@@ -275,6 +275,9 @@ export class TransitionHandler {
   }
 
   getBlockStates(mapId: number, x_id: number , y_id: number): IBlockState[]{
+    if(!mapId){
+      return [];
+    }
     let re = []
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
