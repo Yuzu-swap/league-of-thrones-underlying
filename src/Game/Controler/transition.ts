@@ -1304,7 +1304,7 @@ export class TransitionHandler {
         let applyInfo = userInfos[username];
         applyInfo['username'] = username;
         console.log("onStartSeason addUserScoresAndExtraGeneral ", applyInfo)
-        // this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
+        this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }
 
@@ -1380,7 +1380,7 @@ export class TransitionHandler {
     let vipBuffs = logic.general.getVipBuffs(userScore2);
 
     let general_ids = applyInfo.general_ids || [];
-    let generalIds = general_ids.concat(vipBuffs.add_general_id);
+    let generalIds = general_ids.concat(vipBuffs.add_general_id || []);
     logic.general.addextraGeneral(generalIds);
 
     console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
