@@ -1707,18 +1707,20 @@ export class General{
         let maxScore = scores[scores.length - 1].score;
 
         if(userScore >= maxScore){
-            let buffs: VipType = scores[scores.length - 1];
+            let _buffs: VipType = scores[scores.length - 1];
+            let buffs = {..._buffs};
             buffs.add_general_id = buffs.add_general_id || [];
             console.log('vip buff 1: ', {userScore, buffs, scores});
             return buffs;
         }
 
-        let buffs: VipType;
+        let _buffs: VipType;
         for(var i=0;i<scores.length-1;i++){
           if(userScore >= scores[i].score && userScore < scores[i+1].score){
-            buffs = scores[i];
+            _buffs = scores[i];
           }
         } 
+        let buffs = {..._buffs};
         buffs.add_general_id = buffs.add_general_id || [];
         console.log('vip buff 2: ', {userScore, buffs, scores});
         return buffs;
