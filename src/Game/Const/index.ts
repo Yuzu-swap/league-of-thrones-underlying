@@ -34,8 +34,8 @@ export enum ResouceType {
 	Troop = 'troop'
 }
 
-export const MaxSize = 21;
-export const mapIdOffset = 10;
+// export const MaxSize = 21;
+// export const mapIdOffset = 10;
 export const MaxStrategyPoint = 12
 
 export enum StateTransition {
@@ -173,6 +173,7 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 	general_ids: []
 	applies:{}
 	season:{
+		chain: string,
 		apply_ts: number,
 		prepare_ts : number,
 		start_ts : number,
@@ -182,7 +183,9 @@ export interface StartSeasonArgs extends StateTransitionArgs{
 		rank_config_fromto: number[],
         rank_config_value: number[],
 	},
-	priceInfo: {}
+	seasonId: string,
+	priceInfo: {},
+	mapConfigId: number
 }
 
 export interface SetIconIdArgs extends StateTransitionArgs{

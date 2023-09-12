@@ -51,7 +51,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 	console.log('createLogicEsential', states)
 	var boost: IBoost = new Boost()
 	var city: City = new City(states.city)
-	var general: General = new General(states.general, city, states.codsGlobal)
+	var general: General = new General(states.general, city, states.codsGlobal, states.seasonState)
 	var map: Map = new Map(states.mapGlobal, states.seasonState, states.rewardGlobalState, states.tokenPriceInfo)
 	var strategy: Strategy = new Strategy(states.strategy)
 	var activity: Activity = new Activity(states.activityState)

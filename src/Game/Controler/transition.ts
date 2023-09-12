@@ -106,7 +106,7 @@ export class TransitionHandler {
   }
 
   onTransition(sid: StateTransition, arg: {},eventRecorderFunc?:EventRecorderFunc): {} {
-    console.log("underlying_transition: sid: ", sid, " args:", arg)
+    console.log("underlying_transition: sid: ", sid, ' : ',StateTransition[sid] , " args:", arg)
     let re = {}
     this.eventRecorderFunc = eventRecorderFunc
 
@@ -236,7 +236,6 @@ export class TransitionHandler {
           return re
         case StateTransition.FinishOutChainUserActivity:
           re = this.onUserFinsishOutChainActivity(arg as OutChainUserActivityArgs)
-          console.log('FinishOutChainUserActivity re:', re);
           return re
         case StateTransition.HealTroops:
           re = this.onHealTroops(arg as HealTroopsArgs)
@@ -263,24 +262,27 @@ export class TransitionHandler {
           return re
       }
       const logic: LogicEssential = this.genLogic(arg['from']);
-      console.log("transition before update",logic.city.state)
+      console.log("transition before update", logic.city.state)
       logic.general.updateDefenseInfo();
       logic.activity.updateAbleActivities();
       console.log("transition after update",logic.city.state)
-      console.log("underlying_transition result: sid:", sid, " result:", re)
+      console.log("underlying_transition result: sid:", sid, ' : ',StateTransition[sid] ," result:", re)
       return re
     }catch(err){
-      console.log("underlying_transition failed,  sid:", sid, " args:", arg," err ",err)
+      console.log("underlying_transition failed,  sid:", sid, ' : ',StateTransition[sid] , " args:", arg," err ",err)
       throw err
     }
   }
 
-  getBlockStates(x_id : number , y_id : number): IBlockState[]{
+  getBlockStates(mapId: number, x_id: number , y_id: number): IBlockState[]{
+    if(!mapId){
+      return [];
+    }
     let re = []
     const xOffset = [ 0, 1, 1, 0, -1, -1]
     const yOffset = [ 2, 1, -1, -2, -1, 1]
-    let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${x_id}^${y_id}`})
-    console.log("getBlockStates center:", center)
+    let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`})
+    console.log("getBlockStates center:", { mapId, x_id, y_id }, center)
     if(!center){
       return re
     }
@@ -288,7 +290,7 @@ export class TransitionHandler {
     for( let i = 0; i < 6; i++ ){
       let newX = x_id + xOffset[i]
       let newY = y_id + yOffset[i]
-      let stateId = { id : `${StateName.BlockInfo}:${newX}^${newY}`}
+      let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
       let newState =  this.stateManger.get(stateId) as IBlockState
       if(newState){
         re.push(newState)
@@ -344,7 +346,7 @@ export class TransitionHandler {
       {
         id: `${StateName.SeasonConfig}`
       }
-    )
+    ) as ISeasonConfigState;
     const tokenPriceInfo = this.stateManger.get(
       {
         id: `${StateName.TokenPriceInfo}`
@@ -367,10 +369,10 @@ export class TransitionHandler {
     ) 
     const gStates : GlobalStateEssential = {
       mapGlobal: mapGlobalState as IMapGlobalState,
-      seasonState : seasonState as ISeasonConfigState,
+      seasonState : seasonState,
       tokenPriceInfo : tokenPriceInfo as ITokenPriceInfoState,
       rewardGlobalState: rewardGlobalState as IRewardGlobalState,
-      blocks: this.getBlockStates(x_id, y_id),
+      blocks: this.getBlockStates(seasonState.mapId, x_id, y_id),
       activityState: activities as IActivityState,
       codsGlobal: codsGlobal as any
     };
@@ -913,7 +915,9 @@ export class TransitionHandler {
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
-    if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
+
+    let myUnionId = logic.general.state.unionId;
+    if(!logic.map.checkBetween(myUnionId, args.x_id, args.y_id )){
       return{
         result: false,
         error: 'block-is-too-far'
@@ -1036,12 +1040,20 @@ export class TransitionHandler {
     if( logic.strategy.getStrategyStatus(StrategyType.Protect).able){
       logic.strategy.setStrategyStatus(StrategyType.Protect, false)
     }
-    if(!logic.map.checkBetween(1, args.x_id, args.y_id )){
+
+    let myUnionId = logic.general.state.unionId;
+    console.log('attackBlocksAround args can attack:', {myUnionId, result: logic.map.checkBetween(myUnionId, args.x_id, args.y_id )});
+    if(!logic.map.checkBetween(myUnionId, args.x_id, args.y_id )){
       return{
         result: false,
         error: 'block-is-too-far'
       }
     }
+
+
+    const blockGds1 = logic.map.getMapGDS(args.x_id, args.y_id);
+
+    console.log('attackBlocksAround args 2:', { blockGds1, args, remainTroops, mapConfig: logic.map.mapConfig});
 
     const blockGds = logic.map.mapConfig.get(args.x_id, args.y_id)
     console.log('attackBlocksAround args 3:', blockGds);
@@ -1274,6 +1286,11 @@ export class TransitionHandler {
         error: 'seasonHaveSet'
       }
     }
+    console.log("onStartSeason seasonState value ", gLogic.map.seasonState, {
+      seasonId: args.seasonId, 
+      chain: args.season.chain, 
+      mapConfigId: args.mapConfigId
+    })
     console.log("onStartSeason args are ", args)
     let applies = args.applies || {};
 
@@ -1286,17 +1303,29 @@ export class TransitionHandler {
       for(let username in userInfos){
         let applyInfo = userInfos[username];
         applyInfo['username'] = username;
+        console.log("onStartSeason addUserScoresAndExtraGeneral ", applyInfo)
         this.addUserScoresAndExtraGeneral('onStartSeason: ', applyInfo);
       }
     }
 
+    console.log("onStartSeason addUserScoresAndExtraGeneral ", applies)
     for(let item in args.season){
+      console.log("onStartSeason season item ", args.season[item] == undefined, ' ',args.season[item])
       if(args.season[item] == undefined){
         throw "start season args error"
       }
     }
+
+    console.log("onStartSeason seasonState set ", gLogic.map.seasonState, {
+      seasonId: args.seasonId, 
+      chain: args.season.chain, 
+      mapConfigId: args.mapConfigId
+    })
+
     gLogic.map.seasonState.update(
       {
+        'seasonId': args.seasonId,
+        'chain': args.season.chain,
         'season_reservation': args.season.apply_ts,
         'season_ready' : args.season.prepare_ts,
         'season_open' : args.season.start_ts,
@@ -1305,11 +1334,19 @@ export class TransitionHandler {
         'rankRewardValue': args.season.reward_amount_2,
         'rankConfigFromTo': args.season.rank_config_fromto,
         'rankConfigValue' : args.season.rank_config_value,
+        'mapId': args.mapConfigId
       }
     )
 
+    console.log("onStartSeason seasonState updated ", gLogic.map.seasonState)
+
     const priceInfo = args.priceInfo || {};
     this.updateTokenPriceInfo(gLogic, 'initial', priceInfo);
+
+    console.log("onStartSeason seasonState return ", {
+      txType: StateTransition.StartSeason,
+      result: true
+    })
 
     return {
       txType: StateTransition.StartSeason,
@@ -1328,7 +1365,7 @@ export class TransitionHandler {
         "unionInit" : true
       }
     )
-    console.log("username ",username , " applyInfo is ", applyInfo)
+    console.log("addUserScoresAndExtraGeneral username ",username , " applyInfo is ", applyInfo)
 
     // applyInfo.wallet_value = applyInfo.wallet_token_value + applyInfo.wallet_nft_value
     let wallet_token_value = applyInfo.wallet_token_value || 0;
@@ -1343,7 +1380,7 @@ export class TransitionHandler {
     let vipBuffs = logic.general.getVipBuffs(userScore2);
 
     let general_ids = applyInfo.general_ids || [];
-    let generalIds = general_ids.concat(vipBuffs.add_general_id);
+    let generalIds = general_ids.concat(vipBuffs.add_general_id || []);
     logic.general.addextraGeneral(generalIds);
 
     console.log('addUserScoresAndExtraGeneral getVipBuffs: ', username, ' userScore: ', { userScore1, userScore2 }, vipBuffs)
@@ -1352,6 +1389,7 @@ export class TransitionHandler {
     if(applyInfo.random_union){
       logic.city.addRandomCampGold()
     }
+    console.log('addUserScoresAndExtraGeneral end: ', username)
   }
 
   updateTokenPriceInfo(gLogic: GlobalLogicEssential, typ: string, priceInfo: any){
@@ -1504,9 +1542,11 @@ export class TransitionHandler {
     }
   }
 
+  //not use, just for clear
   onInitUserStates(args : InitUserStatesArgs){
     const logic: LogicEssential = this.genLogic(args.username)
-    let initState = GetInitState()
+    const seasonState = logic.map.seasonState;
+    let initState = GetInitState('transition.onInitUserStates')
     console.log('state used to update', initState[StateName.City],initState[StateName.General],initState[StateName.Strategy])
     logic.city.state.update(
       initState[StateName.City]
@@ -1525,8 +1565,9 @@ export class TransitionHandler {
     }
   }
 
+  // not use in prod, test.clear call onInitGlobalStates
   onInitGlobalStates(args: StateTransitionArgs){
-    let initState = GetInitState()
+    let initState = GetInitState('transition.onInitGlobalStates')
     const mapGlobalState = this.stateManger.get(
       {
         id: `${StateName.MapGlobalInfo}`
@@ -1554,8 +1595,9 @@ export class TransitionHandler {
     activityState.update(
       initState[StateName.Activity]
     )
+
     for(let block in mapGDS){
-      let key = `${StateName.BlockInfo}:${block}`
+      let key = `${StateName.BlockInfo}:1:${block}`
       let blockState = this.stateManger.get( {id : key})
       blockState.update(
         initState[key]

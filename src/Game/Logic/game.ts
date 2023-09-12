@@ -179,7 +179,7 @@ export class City {
     let re: FacilityGdsRow[] = [];
     let i = 1;
     while (true) {
-      console.log(type, this.cityConfig.facilityConfig)
+      // console.log(type, this.cityConfig.facilityConfig)
       let row = null;
       if(this.cityConfig.facilityConfig[type]){
         row = this.cityConfig.facilityConfig[type].get((i - 1).toString());
@@ -345,12 +345,13 @@ export class City {
 
     console.log(username, ' troops injured 2: sameday:', isSameDay, { today, type });
     console.log(username, ' troops injured 3: ', { amount, type, value , today, updateTime});
-  
+
     this.state.update({
       injuredTroops: { value , today, updateTime}
     });
     return { value , today, updateTime};
   }
+
 
   getInjuredTroops() {
     return this.updateInjuredTroops(0, 'heal');
@@ -680,6 +681,7 @@ export class City {
   }
 
   addPreRegisterGold(){
+    console.log('addUserScoresAndExtraGeneral addPreRegisterGold:', { gold: this.state.gold, register_reward_gold: this.parameter.register_reward_gold});
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.register_reward_gold
@@ -688,6 +690,7 @@ export class City {
   }
 
   addRandomCampGold(){
+    console.log('addUserScoresAndExtraGeneral addRandomCampGold:', { gold: this.state.gold, choose_random_camp_reward: this.parameter.choose_random_camp_reward});
     this.state.update(
       {
         gold : this.state.gold  + this.parameter.choose_random_camp_reward
@@ -708,6 +711,15 @@ export class City {
   }
 
   addTestResource(){
+    const seasonState = this.map.getSeasonState();
+    const seasonId = seasonState.seasonId;
+    if(seasonId && seasonId.indexOf('test-') !== 0){
+      return{
+        result: false,
+        txType: StateTransition.AddTestResource,
+        error: 'illeagel-opration'
+      }
+    }
     const coolDown = this.getTestResourceCoolDownTime()
     if(coolDown != 0 ){
       return{
@@ -716,13 +728,13 @@ export class City {
         error: 'cool-down-have-not-end'
       }
     }
+
     const time = getTimeStamp()
-    this.useSilver( 0)
-    this.useTroop( 0 )
-    this.useGold( 0 )
-    // this.useSilver( -100000000)
-    // this.useTroop( -100000 )
-    // this.useGold( -50000 )
+    
+    this.useSilver( -100000000)
+    this.useTroop( -100000 )
+    this.useGold( -50000 )
+
     this.state.update(
       {
         lastAddTestTime : time

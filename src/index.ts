@@ -29,7 +29,7 @@ import archerCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/arch
 import trainingCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
 import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json');
 import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import vipGDS = require('./league-of-thrones-data-sheets/.jsonoutput/vip.json')
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';

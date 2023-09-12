@@ -1,6 +1,6 @@
 import { ConfigContainer } from '../../Core/config';
-import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, MapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale, VipType} from '../DataConfig'
-import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo} from '../State';
+import { GeneralGdsRow ,BuffGdsRow, BuffTable, FacilityLimit, MapConfig, getMapConfigFromGDS, normalMorale, minMorale, moraleReduceGap, maxMorale, VipType} from '../DataConfig'
+import { BlockDefenseInfo, GeneralInfo, IDefenderInfoState, IGeneralState, ResouceInfo, ISeasonConfigState} from '../State';
 import { CityFacility, RecoverMoraleType, ResouceType, StateName, StateTransition } from '../Const';
 import { City } from './game';
 import { Map } from "./map";
@@ -93,18 +93,22 @@ export class General{
     codsGlobal: any
     config: GeneralConfig
     cityConfig: any
+    seasonState: ISeasonConfigState
     mapConfig: MapConfig
     vipConfig: VipConfig
     map: Map
     city : City
     boost : IBoost
-    constructor(state: IGeneralState, city: City, codsGlobal: any) {
+    constructor(state: IGeneralState, city: City, codsGlobal: any, seasonState: ISeasonConfigState) {
         this.state = state;
         this.codsGlobal = codsGlobal;
         this.config = GeneralConfigFromGDS;
         this.cityConfig = CityConfigFromGDS;
         this.vipConfig = vipConfigFromGDS;
-        this.mapConfig = MapConfigFromGDS
+
+        let mapId = seasonState.mapId;
+        this.mapConfig = getMapConfigFromGDS(mapId);
+        this.seasonState = seasonState;
         this.city = city
     }
 
@@ -1645,7 +1649,8 @@ export class General{
             myInfo = record.defenseInfo
             enemyInfo = record.attackInfo
         }
-        let row = this.mapConfig.get(record.blockInfo.x_id, record.blockInfo.y_id)
+        let row = this.mapConfig.get(record.blockInfo.x_id, record.blockInfo.y_id);
+         // || { x_id: -1, y_id: -1, type: -1, parameter: -1 };
         let newBlockInfo = {
             x_id: row.x_id,
             y_id: row.y_id,
@@ -1692,8 +1697,8 @@ export class General{
         }
         let userScores = this.state.userScores || {};
         let address = username.toLowerCase();
-        let score = userScores[address] || userScores['username'] || 0;
-        console.log('getUserScore', address, score);
+        let score = userScores[address] || 0;
+        console.log('getUserScore: ', address, score);
         return score;
     }
 
@@ -1703,22 +1708,31 @@ export class General{
         let maxScore = scores[scores.length - 1].score;
 
         if(userScore >= maxScore){
-            let buffs: VipType = scores[scores.length - 1];
+            let _buffs: VipType = scores[scores.length - 1];
+            let buffs = {..._buffs};
+            buffs.add_general_id = buffs.add_general_id || [];
             console.log('vip buff 1: ', {userScore, buffs, scores});
             return buffs;
         }
 
-        let buffs: VipType;
+        let _buffs: VipType;
         for(var i=0;i<scores.length-1;i++){
           if(userScore >= scores[i].score && userScore < scores[i+1].score){
-            buffs = scores[i];
+            _buffs = scores[i];
           }
         } 
+        let buffs = {..._buffs};
+        buffs.add_general_id = buffs.add_general_id || [];
         console.log('vip buff 2: ', {userScore, buffs, scores});
         return buffs;
     }
 
     addextraGeneral( ids: number[] ){
+        console.log('addextraGeneral ', ids)
+        ids = ids || [];
+        if(ids.length === 0){
+            return;
+        }
         let generalInfos = this.state.generalList;
         const time = getTimeStamp()
         for(let id of ids){
@@ -1739,11 +1753,13 @@ export class General{
                     lastUpdate: time
                 }
             }
+            console.log('addextraGeneral id:', id, ' generalInfo:', generalInfo)
             generalInfos[id + ""] = generalInfo
         }
         this.state.update(
             {'generalList' : generalInfos}
         )
+        console.log('addextraGeneral result ok:', this.state.generalList, generalInfos)
     }
 
     getIconId(){

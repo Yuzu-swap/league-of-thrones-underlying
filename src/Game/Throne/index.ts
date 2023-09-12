@@ -20,7 +20,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
@@ -616,6 +616,7 @@ export class CityComponent implements ICityComponent {
   }
 
   async initRedPoint(): Promise<void> {
+    console.log('Throne.instance()', Throne.instance())
     await this.getHistoryChatData({unionId: Throne.instance().unionId}, 
       (result)=>{
         if(result.length != 0){
@@ -642,6 +643,7 @@ export class CityComponent implements ICityComponent {
     //for(let key in ChatChannel)
     let campProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_Camp])
     if(campProfile['code'] == 0){
+      let mapId = Throne.instance().mapId;
       let campInfo = decodeChatProfile(campProfile['data'])
       this.chatReadInfo[ChatChannel.ChatChannel_Camp] = {
         id: campInfo.id,
@@ -1033,6 +1035,7 @@ export class GeneralComponent implements IGeneralComponent {
       "$or":[ {"attackInfo.username" : Throne.instance().username},{"defenseInfo.username" : Throne.instance().username} ]
       ,'$orderBy' : '-timestamp'
       })) as BattleTransRecord[]
+    console.log('getBattleRecords', re);
     let trans = []
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))
@@ -1169,11 +1172,12 @@ export class Throne implements IThrone {
   wsUrl : string
   version: string
   seasonId: string
+  mapId: number
 
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u93"
+    this.version = "u912"
   }
 
 
@@ -1194,6 +1198,7 @@ export class Throne implements IThrone {
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test';
     this.seasonId = obj['seasonId'];
+    this.mapId = obj['mapId'];
     this.unionId = obj['unionId'] ?  obj['unionId'] : 0
     this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
     if(this.wsUrl && this.username!='test'){
@@ -1204,7 +1209,8 @@ export class Throne implements IThrone {
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
-      this.mediator = new LocalMediator([this.username, 'test1'])
+      let mapId = obj['mapId'];
+      this.mediator = new LocalMediator([this.username, 'test1'], mapId)
       if(obj['unionId']){
         InitState[StateName.General].unionId = obj['unionId']
       }

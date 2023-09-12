@@ -14,13 +14,17 @@ import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/
 import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
 import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
 import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_.json')
 import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
 import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
 import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
 import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
 import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
 import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
+
+import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
+import mapGDS1 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_1.json')
+import mapGDS2 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_2.json')
 
 import {
 	CityFacility,
@@ -340,9 +344,42 @@ export var GeneralConfigFromGDS = {
 	parameter: parameterConfig
 }
 
-export var MapConfigFromGDS = new MapConfig(mapGDS)
 
-export function GenBlockDefenseTroop(x_id: number, y_id: number){
+
+export function getMapOffset(mapId: number){
+	let offsets = { x: 10, y : 10, rows: 21, cols: 11, maxSize: 21 };
+	for(let item of mapListGDS['Config']){
+		if(item['map_id'] === mapId){
+			offsets.x = item.cols - 1;
+			offsets.y = (item.rows - 1)/2;
+			offsets.maxSize = Math.max(item.rows, item.cols);
+			offsets.rows = item.rows;
+			offsets.cols = item.cols;
+		}
+	}
+	return offsets;
+}
+
+export function loadMapGDS(mapId: number){
+	let list = {
+		1: mapGDS1,
+		2: mapGDS2
+	};
+	return list[mapId] || mapGDS1;
+}
+
+export function getMapConfigFromGDS (mapId: number){
+	 mapId = mapId || 1;
+	const mapGDS = loadMapGDS(mapId);
+	// console.log('mapId dataconfig:', mapId, mapGDS);
+	var MapConfigFromGDS = new MapConfig(mapGDS)
+	return MapConfigFromGDS;
+}
+
+// export var MapConfigFromGDS = new MapConfig(mapGDS)
+
+export function GenBlockDefenseTroop(x_id: number, y_id: number, mapId: number){
+	var MapConfigFromGDS = getMapConfigFromGDS(mapId);
 	let row = MapConfigFromGDS.get(x_id, y_id)
 	let troops = row.troops
 	let re: BlockDefenseInfo[] = []
@@ -364,6 +401,8 @@ export function GenBlockDefenseTroop(x_id: number, y_id: number){
 }
 
 export interface Season{
+    seasonId: string
+    chain: string
 	show_season_victory_reward: SeasonReward[]
 	show_rank_reward: SeasonReward[]
 	show_occupy_reward: SeasonReward[]
@@ -403,6 +442,8 @@ export class SeasonConfig{
 		this.config = []
 		for(let seasonConf of list){
 			let season: Season = {
+		        seasonId: '',
+		        chain: '',
 				show_season_victory_reward : [],
 				show_rank_reward: [],
 				show_occupy_reward: [],

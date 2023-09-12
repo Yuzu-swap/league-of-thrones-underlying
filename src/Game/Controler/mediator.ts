@@ -23,13 +23,13 @@ import { BattleType } from '../Logic/general';
 import { getTimeStamp, getTxHash } from '../Utils';
 
 
-function getInitState(username:string,wather: IStateChangeWatcher): {
+function getInitState(username:string, mapId:number, wather: IStateChangeWatcher): {
   [key: string]: IState;
 } {
   const cityStateId = `${StateName.City}:${username}`;
   const generalStateId = `${StateName.General}:${username}`;
   const strategyStateId = `${StateName.Strategy}:${username}`;
-  const InitState = GetInitState();
+  const InitState = GetInitState('mediator.getInitState');
   return {
     [cityStateId]: new State<ICityState>(
       {
@@ -55,11 +55,11 @@ function getInitState(username:string,wather: IStateChangeWatcher): {
   };
 }
 
-function getGlobleState(wather: IStateChangeWatcher):{
+function getGlobleState(mapId: number, wather: IStateChangeWatcher):{
   [key: string]: IState
 }{
   let re = {}
-  const InitState = GetInitState();
+  const InitState = GetInitState('mediator.getGlobleState');
   re = Object.assign(
     re, {
       [StateName.MapGlobalInfo]: new State<IMapGlobalState>(
@@ -92,7 +92,7 @@ function getGlobleState(wather: IStateChangeWatcher):{
       ).unsderlying()
     }
   )
-  const mapState = GetMapState()
+  const mapState = GetMapState(mapId)
   for(let id in mapState){
     re[id] = new State<IBlockState>(
       mapState[id],
@@ -120,13 +120,13 @@ export class LocalMediator
   private seqNum: number;
   private username:string
   private chainBlockCallback: (msg: MessageS2C) => void
-  constructor(username: string[]) {
+  constructor(username: string[], mapId: number) {
     super();
     let obj = {}
     for(let name of username){
-      obj = Object.assign(obj, getInitState(name, this))
+      obj = Object.assign(obj, getInitState(name, mapId, this))
     }
-    obj = Object.assign(obj, getGlobleState(this))
+    obj = Object.assign(obj, getGlobleState(mapId, this))
     this.transitionHandler = new TransitionHandler(
       this,
       GenerateMemoryLoadStateFunction(obj)

@@ -112,6 +112,10 @@ export interface CampInfo{
 export interface IMapGlobalState extends IState{
   id: string
   campInfo: CampInfo[][]
+  campInfo_1: CampInfo[][]
+  campInfo_2: CampInfo[][]
+  campInfo_3: CampInfo[][]
+  campInfo_4: CampInfo[][]
   campMembers: string[][]
   updateTime: number[]
   unionWinId: number
@@ -144,6 +148,8 @@ export interface IRewardGlobalState extends IState{
 
 export interface ISeasonConfigState extends IState{
   id: string
+  seasonId: string
+  chain: string
   haveSet : boolean
   season_reservation: number,
   season_ready : number,
@@ -152,7 +158,8 @@ export interface ISeasonConfigState extends IState{
   rankConfigFromTo: number[],
   rankConfigValue: number[],
   unionRewardValue: number,
-  rankRewardValue: number
+  rankRewardValue: number,
+  mapId: number
 }
 
 export interface BelongInfo{

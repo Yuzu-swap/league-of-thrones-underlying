@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
+import { GetInitState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -22,7 +22,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
@@ -114,9 +114,11 @@ export class MapComponent implements IMapComponent{
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = []
-        let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
+        let seasonState = this.map.getSeasonState();
+        let mapId = seasonState.mapId;
+        let centerid = `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`;
         if(validBlockIds.length == 0){
-            GetInitState()
+            GetInitState('map.genBlockIds')
         }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)
@@ -125,7 +127,7 @@ export class MapComponent implements IMapComponent{
             let tempX = x_id + xOffset[i]
             let tempY = y_id + yOffset[i]
             let id = tempX + "^" + tempY
-            let stateId = `${StateName.BlockInfo}:${id}`
+            let stateId = `${StateName.BlockInfo}:${mapId}:${id}`
             if(validBlockIds.indexOf(stateId) != -1){
                 re.push( stateId)
             }
@@ -135,7 +137,7 @@ export class MapComponent implements IMapComponent{
 
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
-        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} })
+        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} }) || [];
         this.map.loadBlockStates(blockStats)
     }
 
