@@ -1035,6 +1035,7 @@ export class GeneralComponent implements IGeneralComponent {
       "$or":[ {"attackInfo.username" : Throne.instance().username},{"defenseInfo.username" : Throne.instance().username} ]
       ,'$orderBy' : '-timestamp'
       })) as BattleTransRecord[]
+    console.log('getBattleRecords', re);
     let trans = []
     for(let record of re ?? [] ){
       trans.push(this.general.transferTransRecord(record))

@@ -1649,7 +1649,8 @@ export class General{
             myInfo = record.defenseInfo
             enemyInfo = record.attackInfo
         }
-        let row = this.mapConfig.get(record.blockInfo.x_id, record.blockInfo.y_id)
+        let row = this.mapConfig.get(record.blockInfo.x_id, record.blockInfo.y_id);
+         // || { x_id: -1, y_id: -1, type: -1, parameter: -1 };
         let newBlockInfo = {
             x_id: row.x_id,
             y_id: row.y_id,
