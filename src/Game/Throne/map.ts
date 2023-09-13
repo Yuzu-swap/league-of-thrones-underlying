@@ -139,9 +139,9 @@ export class MapComponent implements IMapComponent{
 
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
-        console.log('queryBlockStates 1', idLists, { x_id, y_id });
+        // console.log('queryBlockStates 1', idLists, { x_id, y_id });
         let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} }) || [];
-        console.log('queryBlockStates 2', blockStats);
+        // console.log('queryBlockStates 2', blockStats);
         this.map.loadBlockStates(blockStats)
     }
 
