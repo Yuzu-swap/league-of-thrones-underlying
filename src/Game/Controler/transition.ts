@@ -53,6 +53,8 @@ import {
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
 import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
+
 import { addToSortList, checkNaNInObj, getTimeStamp, getTxHash, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
 import { StrategyType } from '../Logic/strategy';
@@ -1322,6 +1324,15 @@ export class TransitionHandler {
       mapConfigId: args.mapConfigId
     })
 
+    let mapConfigId = args.mapConfigId;
+    let mapList = mapListGDS['Config'];
+    let mapId = mapConfigId;
+    if(mapConfigId === 0){
+      let len = mapList.length;
+      mapId = Math.ceil(Math.random()*987654)%len + 1;
+    }
+    console.log("onStartSeason seasonState set mapId ", { mapList, mapConfigId, mapId });
+
     gLogic.map.seasonState.update(
       {
         'seasonId': args.seasonId,
@@ -1334,7 +1345,7 @@ export class TransitionHandler {
         'rankRewardValue': args.season.reward_amount_2,
         'rankConfigFromTo': args.season.rank_config_fromto,
         'rankConfigValue' : args.season.rank_config_value,
-        'mapId': args.mapConfigId
+        'mapId': mapId
       }
     )
 
