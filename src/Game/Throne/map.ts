@@ -114,11 +114,11 @@ export class MapComponent implements IMapComponent{
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = []
-        // let seasonState = this.map.getSeasonState();
-        // let mapId = seasonState.mapId;
-        let mapId = Throne.instance().mapId;
+        let seasonState = this.map.getSeasonState();
+        let mapId = seasonState.mapId;
+        // let mapId = Throne.instance().mapId;
         let centerid = `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`;
-        // console.log('queryBlockStates genBlockIds', { centerid, mapId, validBlockIds, seasonState});
+        console.log('queryBlockStates genBlockIds', { centerid, mapId, validBlockIds, seasonState});
         if(validBlockIds.length == 0){
             GetInitState('map.genBlockIds')
         }
