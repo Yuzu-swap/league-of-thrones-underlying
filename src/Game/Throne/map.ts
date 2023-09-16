@@ -118,7 +118,7 @@ export class MapComponent implements IMapComponent{
         let mapId = seasonState.mapId;
         // let mapId = Throne.instance().mapId;
         let centerid = `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`;
-        console.log('genBlockIds', seasonState, centerid, validBlockIds);
+        console.log('queryBlockStates genBlockIds', { centerid, mapId, validBlockIds, seasonState});
         if(validBlockIds.length == 0){
             GetInitState('map.genBlockIds')
         }
@@ -139,7 +139,9 @@ export class MapComponent implements IMapComponent{
 
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
+        // console.log('queryBlockStates 1', idLists, { x_id, y_id });
         let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} }) || [];
+        // console.log('queryBlockStates 2', blockStats);
         this.map.loadBlockStates(blockStats)
     }
 

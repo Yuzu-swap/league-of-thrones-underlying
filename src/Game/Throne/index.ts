@@ -643,7 +643,6 @@ export class CityComponent implements ICityComponent {
     //for(let key in ChatChannel)
     let campProfile = await this.mediator.profileQuery(this.chatProfileKey[ChatChannel.ChatChannel_Camp])
     if(campProfile['code'] == 0){
-      let mapId = Throne.instance().mapId;
       let campInfo = decodeChatProfile(campProfile['data'])
       this.chatReadInfo[ChatChannel.ChatChannel_Camp] = {
         id: campInfo.id,
@@ -1172,12 +1171,11 @@ export class Throne implements IThrone {
   wsUrl : string
   version: string
   seasonId: string
-  mapId: number
 
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u914"
+    this.version = "u916"
   }
 
 
@@ -1198,7 +1196,6 @@ export class Throne implements IThrone {
     const statesTest: StateEssential = {} as StateEssential;
     this.username = obj['username'] ? obj['username'] : 'test';
     this.seasonId = obj['seasonId'];
-    this.mapId = obj['mapId'];
     this.unionId = obj['unionId'] ?  obj['unionId'] : 0
     this.wsUrl = obj["wsurl"] ? obj["wsurl"] : `ws://test.leagueofthrones.com/ws/${this.username}`
     if(this.wsUrl && this.username!='test'){
@@ -1209,7 +1206,7 @@ export class Throne implements IThrone {
       await wsmediator.init()
       this.mediator = wsmediator
     }else{
-      let mapId = obj['mapId'];
+      let mapId = InitState[StateName.SeasonConfig].mapId;
       this.mediator = new LocalMediator([this.username, 'test1'], mapId)
       if(obj['unionId']){
         InitState[StateName.General].unionId = obj['unionId']
@@ -1256,10 +1253,12 @@ export class Throne implements IThrone {
         force: false
       }, callback)
     }else{
+      let mapId = InitState[StateName.SeasonConfig].mapId;
       callback({
         result: {
           result: true,
           unionId: states.general.unionId,
+          mapId: mapId,
           username: this.username
         }
       })
