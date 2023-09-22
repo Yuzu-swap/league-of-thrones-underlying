@@ -96,7 +96,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     var cols = mapItem.cols; //11
     var rows = mapItem.rows + 1;  //22;
 
-    // console.log({ mapId, cols, rows });
+    console.log({ mapId, cols, rows });
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
 
@@ -187,21 +187,35 @@ function createMap(index, mapItem, tplBg, tplMap) {
     }
 
 
-    const getIdIndexMobile = function(x, y, xMoble, yMobile) {
-        /*
-        0,0 -> 10,10/20
-        10,0 -> 10, -20/-10
-        10, 40/20 -> -10, -20/-10
-        0, 40/20 - > -10, 10/20
-        */
+    const getIdIndexMobile = function(x, y, xMobile, yMobile) {
         /*
         xMoble, yMobile = 11, 21
-        xMoble, yMobile = 21, 21
+        0,0 -> -10,-10
+        0,2 -> -10, -8
+        1,0 -> -9,-9
+        2,0 -> -8, 10
+        10,0 -> 10,10
+        10,2-> -8,10
+        10,4-> -6,10
+        10,20 -> 10,10
+        0,20 - > 10,-10
+
+        yId = 10 - x*2;
+
+
+        xMobile, yMobile = 21, 21
+        0,0 -> 10,20
+        10,0 -> 10,-20
+        10,40 -> -10,-20
+        0,40 - > -10,/20
+
+        x_id:  10 - yMobile,
+        y_id: -20 + x%2 + x*2
         */
-        let nums = 21;
+
         return {
-            x_id: y - 10,
-            y_id: -20 + x%2 + x*2
+            x_id: y - Math.floor(yMobile/2),
+            y_id: x*2 - (xMobile - 1) + y%2
         }
     }
 
@@ -218,11 +232,11 @@ function createMap(index, mapItem, tplBg, tplMap) {
     }
 
     //11*21， 21*21
-    let xMoble = rows/2;
+    let xMobile = rows/2;
     let yMobile = cols*2 - 1;
     for (var y = 0; y < yMobile; y++) {
-        for (var x = 0; x < xMoble; x++) {
-            let r = getIdIndexMobile(x, y, xMoble, yMobile);
+        for (var x = 0; x < xMobile; x++) {
+            let r = getIdIndexMobile(x, y, xMobile, yMobile);
             // if(mapId == 2 && y==0){
                 console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
             // }
@@ -260,8 +274,10 @@ function createMap(index, mapItem, tplBg, tplMap) {
     });
 
     // mobile
-    content.tileheight = 206;
-    content.tilewidth = 120;
+    content.tileheight = 202;
+    content.tilewidth = 116;
+    content.cols = xMobile;
+    content.rows = yMobile;
 
     content['dataset'] = JSON.stringify(bgIndexMobile);
     let bgContentMobile = subs(tplBg, content);
