@@ -21,8 +21,8 @@
     "staggeraxis": "y",
     "staggerindex": "odd",
     "tiledversion": "1.4.2",
-    "tileheight": 116,
-    "tilewidth": 204,
+    "tileheight": %{tileheight},
+    "tilewidth": %{tilewidth},
     "type": "map",
     "version": 1.4,
     "tilesets": [{

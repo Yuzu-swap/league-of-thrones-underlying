@@ -52,8 +52,8 @@ import {
   createGlobalEsential
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
+import mapGDS = require('../../gds/map_config.json')
+import mapListGDS = require('../../gds/map_list.json')
 
 import { addToSortList, checkNaNInObj, getTimeStamp, getTxHash, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';

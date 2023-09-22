@@ -1,30 +1,30 @@
-import fortressGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/fortress.json');
-import militaryCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
-import wallGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/wall.json');
-import storeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/store.json');
-import infantryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
-import cavalryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
-import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
-import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
-import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
-import hospitalGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/hospital.json');
-import assemblyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/assembly.json');
+import fortressGDS = require('../../gds/fortress.json');
+import militaryCenterGDS = require('../../gds/militarycenter.json');
+import wallGDS = require('../../gds/wall.json');
+import storeGDS = require('../../gds/store.json');
+import infantryCampGDS = require('../../gds/infantrycamp.json');
+import cavalryCampGDS = require('../../gds/cavalrycamp.json');
+import archerCampGDS = require('../../gds/archercamp.json');
+import trainingCenterGDS = require('../../gds/trainingcenter.json');
+import homeGDS = require('../../gds/home.json');
+import hospitalGDS = require('../../gds/hospital.json');
+import assemblyGDS = require('../../gds/assembly.json');
 
-import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
-import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
-// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_.json')
-import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
-import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
-import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
-import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
-import vipGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/vip.json')
-import offerGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/offer.json')
+import buildingCount = require('../../gds/building_count.json');
+import qualificationGDS = require('../../gds/general.json');
+import buffGDS = require('../../gds/buff_table.json')
+import parameterGDS = require('../../gds/parameter.json')
+// import mapGDS = require('../../gds/map_config_.json')
+import seasonGDS = require('../../gds/season.json')
+import rechargeGDS = require('../../gds/payment.json')
+import strategyBuyGDS = require('../../gds/buy_stamina_times.json')
+import activityTypeGDS = require('../../gds/activity.json')
+import vipGDS = require('../../gds/vip.json')
+import offerGDS = require('../../gds/offer.json')
 
-import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
-import mapGDS1 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_1.json')
-import mapGDS2 = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_2.json')
+import mapListGDS = require('../../gds/map_list.json')
+import mapGDS1 = require('../../gds/map_config_1.json')
+import mapGDS2 = require('../../gds/map_config_2.json')
 
 import {
 	CityFacility,

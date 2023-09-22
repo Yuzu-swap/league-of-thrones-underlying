@@ -63,7 +63,7 @@ let types = {
     66: '障碍'
 };
 
-var mapDir = '../league-of-thrones-data-sheets/.jsonoutput';
+var mapDir = '../gds';
 var mapList = require(mapDir + '/map_list.json')['Config'];
 fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
     if (err) {
@@ -170,9 +170,12 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     let tileSet = [];
     let bgIndex = [];
+    let tileSetMobile = [];
+    let bgIndexMobile = [];
 
-    function getIdIndex(x, y) {
-        //cols = 11, rows = 21/43;
+    const getIdIndex = function(x, y) {
+        //cols = 11, rows = 21/41 + 1;
+        //0,0 -> -10, 10
         return {
             x_id: (x - 5) * 2 + y % 2,
             y_id:  (rows - 2)/2 - y
@@ -183,24 +186,63 @@ function createMap(index, mapItem, tplBg, tplMap) {
         // }
     }
 
+
+    const getIdIndexMobile = function(x, y, xMoble, yMobile) {
+        /*
+        0,0 -> 10,10/20
+        10,0 -> 10, -20/-10
+        10, 40/20 -> -10, -20/-10
+        0, 40/20 - > -10, 10/20
+        */
+        /*
+        xMoble, yMobile = 11, 21
+        xMoble, yMobile = 21, 21
+        */
+        let nums = 21;
+        return {
+            x_id: y - 10,
+            y_id: -20 + x%2 + x*2
+        }
+    }
+
     for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
             let r = getIdIndex(x, y);
-            if(mapId !== 22 && r.y_id == -10){
-                console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
-            }
+            // console.log({x, y}, {cols, rows}, ' ------> ' ,r);
+            // if(mapId !== 22 && r.y_id == -10){
+                // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
+            // }
             tileSet.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
             bgIndex.push(bgMap[r.x_id + '^' + r.y_id] || 0)
         }
     }
 
+    //11*21， 21*21
+    let xMoble = rows/2;
+    let yMobile = cols*2 - 1;
+    for (var y = 0; y < yMobile; y++) {
+        for (var x = 0; x < xMoble; x++) {
+            let r = getIdIndexMobile(x, y, xMoble, yMobile);
+            // if(mapId == 2 && y==0){
+                console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
+            // }
+            // if(mapId !== 22 && r.y_id == -10){
+                // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
+            // }
+            tileSetMobile.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
+            bgIndexMobile.push(bgMap[r.x_id + '^' + r.y_id] || 0)
+        }
+    }
+
     let content = {
         cols: cols,
-        rows: rows - 1
+        rows: rows - 1,
+        tileheight: 116,
+        tilewidth: 204
     };
+
     content['dataset'] = JSON.stringify(bgIndex);
     let bgContent = subs(tplBg, content);
-
     fs.writeFile('./maps-result/bg-' + mapId + '.json', bgContent, function(err) {
         if (err) {
             return console.error(err);
@@ -217,9 +259,33 @@ function createMap(index, mapItem, tplBg, tplMap) {
         console.log("map 数据写入成功！");
     });
 
+    // mobile
+    content.tileheight = 206;
+    content.tilewidth = 120;
+
+    content['dataset'] = JSON.stringify(bgIndexMobile);
+    let bgContentMobile = subs(tplBg, content);
+    fs.writeFile('./maps-result/bg-' + mapId + '.mobile.json', bgContentMobile, function(err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("bg mobile 数据写入成功！");
+    });
+
+    content['dataset'] = JSON.stringify(tileSetMobile);
+    let mapContentMobile = subs(tplMap, content);
+    fs.writeFile('./maps-result/map-' + mapId + '.mobile.json', mapContentMobile, function(err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("map mobile 数据写入成功！");
+    });
+
     mapList[index].mountains = mountains;
     mapList[index].bgIndexs = bgIndex;
     mapList[index].mapIndexs = tileSet;
+    mapList[index].bgIndexsMobile = bgIndexMobile;
+    mapList[index].mapIndexsMobile = tileSetMobile;
     mapList[index].inits = inits;
 }
 
