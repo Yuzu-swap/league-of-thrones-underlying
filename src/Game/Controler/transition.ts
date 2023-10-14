@@ -485,7 +485,10 @@ export class TransitionHandler {
       attackUnionId: logic1.general.state.unionId, 
       defenseUnionId: logic2.general.state.unionId
     };
-    let re = logic1.general.battle(args.generalId, unionIds, defenseInfo)
+    let re = logic1.general.battle(args.generalId, unionIds, defenseInfo);
+
+    logic1.city.useTroop(re['attackTroopReduce'])
+    logic1.city.updateInjuredTroops(re['attackTroopReduce'], 'battle')
     console.log('updateInjuredTroops battle result:', re)
 
     logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
@@ -935,20 +938,8 @@ export class TransitionHandler {
       }
     }
     console.log('attackBlocksAroundCod args cod 4:', remainTroops);
-    let re = logic.map.attackBlocksAroundCod(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
-      // let codId = 'block_' + args.x_id + '_' + args.y_id;
-      // let codDetail = logic.general.getCodDetail(codId);
-      // let creator = codDetail.creator;
-      // if(!creator){
-      //   return;
-      // }
-      // let logicCreator : LogicEssential = _this.genLogic(creator);
-
-      // _this.membersQuitCod(codDetail);
-      // logicCreator.general.cancelCod(codId, creator);
-
-      // console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
-    });
+    let isCod = true;
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, isCod, function onBelongChange(){});
     console.log('attackBlocksAroundCod result:', re);
 
     if(re['result'] == undefined){
@@ -1009,7 +1000,7 @@ export class TransitionHandler {
       console.log('attackBlocksAroundCod result 2:', transRe);
       return transRe
     }else{
-      let records = re.records || [];
+      let records = re['records'] || [];
       let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
       let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
 
@@ -1066,7 +1057,8 @@ export class TransitionHandler {
       }
     }
     console.log('attackBlocksAround args 4:', remainTroops);
-    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, function onBelongChange(){
+    let isCod = false;
+    let re = logic.map.attackBlocksAround(args.x_id, args.y_id, args.generalId, remainTroops, isCod, function onBelongChange(){
       let codId = 'block_' + args.x_id + '_' + args.y_id;
       let codDetail = logic.general.getCodDetail(codId);
       let creator = codDetail.creator;
@@ -1156,7 +1148,7 @@ export class TransitionHandler {
       return transRe
     }
     else{
-      let records = re.records || [];
+      let records = re['records'] || [];
       let defenseInfo = (records[records.length - 1] || {}).defenseInfo || { troopReduce: 0, username: '' };
       let { troopReduce = 0, username = ''} = defenseInfo;
       if(username !== ''){

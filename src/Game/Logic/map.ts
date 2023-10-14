@@ -7,6 +7,7 @@ import { SeasonStatus } from "../Throne/map";
 import { getTimeStamp, getTxHash, parseStateId } from "../Utils";
 import { IBoost } from "./boost";
 import { BattleResult, BattleType, DefenseInfo, General } from "./general";
+import { City } from "./game";
 
 const DefaultTroopRecoverTime = 60 * 30
 const DurabilityRecoverTime = 60 * 30
@@ -34,6 +35,7 @@ export class Map{
     parameter: Parameter
     boost: IBoost
     general: General
+    city: City
     mapOffset: any
     constructor( 
         gState: IMapGlobalState, 
@@ -60,6 +62,10 @@ export class Map{
 
     setGeneral(general){
         this.general = general
+    }
+
+    setCity(city: City){
+        this.city = city
     }
 
     getMapGDS(x_id: number, y_id: number){
@@ -317,20 +323,18 @@ export class Map{
         return blockState.belong.updateTime + this.parameter.occupy_block_protect_times - time
     }
 
-    attackBlocksAround(x_id: number, y_id: number, generalId: number, remainTroop: number, onBelongChange: () => void){
+    attackBlocksAround(x_id: number, y_id: number, generalId: number, remainTroop: number, isCod: boolean, onBelongChange: () => void){
         if(!this.checkIfCanAttack(x_id, y_id)){
             return {
                 result: false,
-                txType: StateTransition.AttackBlock,
                 error: 'block-is-be-protected'
             }
         }
 
         let stamina = this.parameter.attack_plots_need_stamina;
-        if(!(this.general.useGeneralStamina(generalId, stamina))){
+        if(!isCod && !(this.general.useGeneralStamina(generalId, stamina))){
             return{
                 result: false,
-                txType: StateTransition.AttackBlock,
                 error: 'general-stamina-error'
             }
         }
@@ -341,9 +345,10 @@ export class Map{
         let records = []
         let cancelList = []
         // let remainTroop = -1
-        let re = this.attackBlock(x_id, y_id, generalId, remainTroop)
-        console.log('attackBlocksAround block state:', {x_id, y_id}, centerBlockState)
-        console.log('attackBlocksAround result:', re)
+        let isAttackNeighbor = false;
+        let re = this.attackBlock(x_id, y_id, generalId, remainTroop, isAttackNeighbor, isCod)
+        console.log('attackBlocksAround block state:', {x_id, y_id, isCod }, centerBlockState)
+        console.log('attackBlocksAround result:', { isCod },  re)
         if(re['error']){
             return re
         }
@@ -361,7 +366,8 @@ export class Map{
                 let tempBlockState = this.getBlockState(tempX, tempY)
                 if(tempBlockState && tempBlockState.belong.unionId == unionId && attackTroops > 0){
                     console.log('attackBlock Around block going:', { x_id, y_id }, {unionId, tempX, tempY, generalId, attackTroops}, ' blockInfo:',  tempBlockState);
-                    let tempRe = this.attackBlock(tempX, tempY, generalId, attackTroops)
+                    let isAttackNeighbor = true;
+                    let tempRe = this.attackBlock(tempX, tempY, generalId, attackTroops, isAttackNeighbor, isCod)
                     if(tempRe['error']){
                         return tempRe
                     }
@@ -382,7 +388,6 @@ export class Map{
             }     
         }
         return {
-            txType: StateTransition.AttackBlock,
             records: records,
             cancelList: cancelList,
             durabilityReduce: durabilityReduce
@@ -406,21 +411,109 @@ export class Map{
         console.log('attackBlock recoveryBlockDefense ok:', {x_id, y_id}, blockState);
     }
 
-    attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
+    attackBlock( x_id: number, y_id: number, generalId: number, remainTroop: number = -1, isAttackNeighbor: boolean, isCod: boolean){
+        //attack order: playerTroops > defaultDefense > duration
+        //isAttackNeighbor only attack playerTroops;
         console.log('attackBlock args:', {x_id, y_id, generalId, remainTroop});
         this.recoveryBlockDefense(x_id, y_id);
 
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
-        let defaultDefense = this.getDefenseList(x_id, y_id, true)
-        let firstBlock = false
         let list : BattleTransRecord[] = []
         let generalRow = this.general.getGeneralQualification(generalId)
         if(remainTroop == -1){
             remainTroop = this.general.getMaxAttackTroop()
-            firstBlock = true
         }
-        if(firstBlock){
+
+        let isDefaultDefense = false;
+        let playerDefenseTroops = this.getDefenseList(x_id, y_id, isDefaultDefense);
+        let cancelList : innerCancelBlockDefense[] = [];
+        if(playerDefenseTroops.length > 0){
+            for(let i = 0; i < playerDefenseTroops.length; i++){
+                let info = this.transBlockDefenseInfoToGeneralDefense(playerDefenseTroops[i])
+                let unionId = this.general.state.unionId;
+                let unionIds = {
+                  attackUnionId: unionId, 
+                  defenseUnionId: playerDefenseTroops[i].unionId
+                };
+                let useStamina = false;
+                let bre = this.general.battle(generalId, unionIds, info, remainTroop, useStamina)
+                if(!isCod){
+                    this.city.useTroop(bre['attackTroopReduce'])
+                    this.city.updateInjuredTroops(bre['attackTroopReduce'],'battle')   
+                }
+                console.log('updateInjuredTroops battle result:', { isCod }, bre)
+                
+                if(!bre['result']){
+                    return bre
+                }else{
+                    bre = bre as BattleResult
+                    let battleRecord : BattleTransRecord= {
+                        attackInfo : {
+                            username:  parseStateId(this.general.state.getId()).username,
+                            generalId: generalId,
+                            generalLevel: this.general.getGeneralLevel(generalId),
+                            generalType: generalRow.general_type,
+                            troopReduce: bre.attackTroopReduce,
+                            silverGet: 0,
+                            gloryGet: bre.attackGloryGet,
+                            unionId: unionId,
+                            iconId: this.general.state.iconId
+                        },
+                        defenseInfo: {
+                            username:  playerDefenseTroops[i].username,
+                            generalId: info.generalId,
+                            generalLevel: info.generalLevel,
+                            generalType: info.generalType,
+                            troopReduce: bre.defenseTroopReduce,
+                            silverGet: 0,
+                            gloryGet: bre.defenseGloryGet,
+                            unionId: playerDefenseTroops[i].unionId,
+                            iconId: playerDefenseTroops[i].iconId
+                        },
+                        leader: '',
+                        recordType: isCod ? BattleRecordType.Assembly : BattleRecordType.Block,
+                        timestamp: getTimeStamp(),
+                        blockInfo:{
+                            x_id: x_id,
+                            y_id: y_id,
+                            durabilityReduce: 0
+                        },
+                        txHash: getTxHash(),
+                        result: bre.win
+                    }
+                    list.push(battleRecord)
+                    if( bre.win ){
+                        cancelList.push({
+                            generalId: playerDefenseTroops[i].generalId,
+                            username: playerDefenseTroops[i].username
+                        })
+                        playerDefenseTroops.shift()
+                        i--
+                        remainTroop -= bre.attackTroopReduce
+                    }else{
+                        playerDefenseTroops[i].troops -= bre.defenseTroopReduce
+                        remainTroop -= bre.attackTroopReduce
+                        break
+                    }
+                }
+            }
+            blockState.update({
+                'defenseList': playerDefenseTroops
+            })
+        }
+        if(remainTroop <= 0 || isAttackNeighbor){
+            return {
+                records: list,
+                cancelList: cancelList,
+                remainTroop: remainTroop
+            }
+        }
+
+        //attack defaultDefense
+        if(!isAttackNeighbor){
+            let isDefaultDefense = true;
+            let defaultDefense = this.getDefenseList(x_id, y_id, isDefaultDefense);
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
                 let unionId = this.general.state.unionId;
@@ -428,7 +521,14 @@ export class Map{
                   attackUnionId: unionId, 
                   defenseUnionId: 0
                 };
-                let bre = this.general.battle(generalId, unionIds, info, remainTroop, false)
+                let useStamina = false;
+                let bre = this.general.battle(generalId, unionIds, info, remainTroop, useStamina);
+                if(!isCod){
+                    this.city.useTroop(bre['attackTroopReduce'])
+                    this.city.updateInjuredTroops(bre['attackTroopReduce'], 'battle')   
+                }
+                console.log('updateInjuredTroops battle result:', { isCod }, bre)
+
                 if(!bre['result']){
                     return bre
                 }
@@ -458,7 +558,7 @@ export class Map{
                             iconId: -1
                         },
                         leader: '',
-                        recordType: BattleRecordType.Block,
+                        recordType: isCod ? BattleRecordType.Assembly : BattleRecordType.Block,
                         timestamp: getTimeStamp(),
                         blockInfo:{
                             x_id: x_id,
@@ -481,105 +581,21 @@ export class Map{
                     }
                 }
             }
-            blockState.update(
-                {
-                    'defaultDefense': defaultDefense,
-                    'lastAttachTime': time
-                }
-            )
+            blockState.update({
+                'defaultDefense': defaultDefense,
+                'lastAttachTime': time
+            })
             this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
-        if(remainTroop <= 0 ){
-            return {
-                txType: StateTransition.AttackBlock,
-                records: list,
-                cancelList: [],
-                remainTroop: remainTroop
-            }
-        }
-        let defenseInfos = this.getDefenseList(x_id, y_id, false)
-        let cancelList : innerCancelBlockDefense[] = []
-        for(let i = 0; i < defenseInfos.length; i++){
-            let info = this.transBlockDefenseInfoToGeneralDefense(defenseInfos[i])
-            let unionId = this.general.state.unionId;
-            let unionIds = {
-              attackUnionId: unionId, 
-              defenseUnionId: defenseInfos[i].unionId
-            };
-            let bre = this.general.battle(generalId, unionIds, info, remainTroop, false)
-            if(!bre['result']){
-                return bre
-            }
-            else{
-                bre = bre as BattleResult
-                let battleRecord : BattleTransRecord= {
-                    attackInfo : {
-                        username:  parseStateId(this.general.state.getId()).username,
-                        generalId: generalId,
-                        generalLevel: this.general.getGeneralLevel(generalId),
-                        generalType: generalRow.general_type,
-                        troopReduce: bre.attackTroopReduce,
-                        silverGet: 0,
-                        gloryGet: bre.attackGloryGet,
-                        unionId: unionId,
-                        iconId: this.general.state.iconId
-                    },
-                    defenseInfo: 
-                    {
-                        username:  defenseInfos[i].username,
-                        generalId: info.generalId,
-                        generalLevel: info.generalLevel,
-                        generalType: info.generalType,
-                        troopReduce: bre.defenseTroopReduce,
-                        silverGet: 0,
-                        gloryGet: bre.defenseGloryGet,
-                        unionId: defenseInfos[i].unionId,
-                        iconId: defenseInfos[i].iconId
-                    },
-                    leader: '',
-                    recordType: BattleRecordType.Block,
-                    timestamp: getTimeStamp(),
-                    blockInfo:{
-                        x_id: x_id,
-                        y_id: y_id,
-                        durabilityReduce: 0
-                    },
-                    txHash: getTxHash(),
-                    result: bre.win
-                }
-                list.push(battleRecord)
-                if( bre.win ){
-                    cancelList.push(
-                        {
-                            generalId: defenseInfos[i].generalId,
-                            username: defenseInfos[i].username
-                        }
-                    )
-                    defenseInfos.shift()
-                    i--
-                    remainTroop -= bre.attackTroopReduce
-                }
-                else{
-                    defenseInfos[i].troops -= bre.defenseTroopReduce
-                    remainTroop -= bre.attackTroopReduce
-                    break
-                }
-            }
-        }
-        blockState.update(
-            {
-                'defenseList': defenseInfos
-            }
-        )
+
         return {
-            txType: StateTransition.AttackBlock,
             records: list,
             cancelList: cancelList,
             remainTroop : remainTroop
         }
     }
 
-    attackBlocksAroundCod(x_id: number, y_id: number, generalId: number, remainTroop: number, onBelongChange: () => void){
+    _attackBlocksAroundCod(x_id: number, y_id: number, generalId: number, remainTroop: number, onBelongChange: () => void){
         if(!this.checkIfCanAttack(x_id, y_id)){
             return {
                 result: false,
@@ -604,7 +620,7 @@ export class Map{
         let records = []
         let cancelList = []
         // let remainTroop = -1
-        let re = this.attackBlockCod(x_id, y_id, generalId, remainTroop);
+        let re = this._attackBlockCod(x_id, y_id, generalId, remainTroop);
         console.log('attackBlocksAroundCod result 1:', remainTroop, re);
         console.log('attackBlocksAroundCod block state:', {x_id, y_id}, centerBlockState)
         if(re['error']){
@@ -622,7 +638,7 @@ export class Map{
                 let tempY = y_id + yOffset[i]
                 let tempBlockState = this.getBlockState(tempX, tempY)
                 if(tempBlockState && tempBlockState.belong.unionId == unionId){
-                    let tempRe = this.attackBlockCod(tempX, tempY, generalId, remainTroop)
+                    let tempRe = this._attackBlockCod(tempX, tempY, generalId, remainTroop)
                     if(tempRe['error']){
                         return tempRe
                     }
@@ -651,7 +667,7 @@ export class Map{
         }
     }
     
-    attackBlockCod( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
+    _attackBlockCod( x_id: number, y_id: number, generalId: number, remainTroop: number = -1){
         let time = parseInt(new Date().getTime() / 1000 + '');
         let blockState = this.getBlockState(x_id, y_id)
         let defaultDefense = this.getDefenseList(x_id, y_id, true)
@@ -671,7 +687,7 @@ export class Map{
                   attackUnionId: unionId, 
                   defenseUnionId: 0
                 };
-                let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false);
+                let bre = this.general.battle(generalId, unionIds, info, remainTroop, false);
                 console.log('attackBlocksAroundCod attackBlockCod 1:', remainTroop, bre);
                 if(!bre['result']){
                     return bre
@@ -751,8 +767,9 @@ export class Map{
               attackUnionId: unionId, 
               defenseUnionId: defenseInfos[i].unionId
             };
-            let bre = this.general.battleCod(generalId, unionIds, info, remainTroop, false)
+            let bre = this.general.battle(generalId, unionIds, info, remainTroop, false)
             console.log('attackBlocksAroundCod attackBlockCod 2:', remainTroop, bre);
+
             if(!bre['result']){
                 return bre
             }

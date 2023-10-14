@@ -65,6 +65,7 @@ export function createLogicEsential(states: StateEssential): LogicEssential {
 
 	map.setBoost(boost)
 	map.setGeneral(general)
+	map.setCity(city)
 	map.loadBlockStates(states.blocks)
 	
 	strategy.setBoost(boost)

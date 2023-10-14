@@ -837,7 +837,7 @@ export class General{
         const generalRow = this.getGeneralQualification(generalId)
         const generalType = generalRow.general_type
         let ableTroop = this.getMaxAttackTroop()
-        if(ableTroop == 0){
+        if(remainTroop === -1 && ableTroop === 0){
             return{
                 result: false,
                 txType: StateTransition.Battle,
@@ -849,7 +849,7 @@ export class General{
             defense: status.sum[SkillType.Defense],
             load: status.sum[SkillType.Load],
             generalType: generalType,
-            ableTroop: remainTroop != -1? remainTroop : ableTroop
+            ableTroop: remainTroop != -1 ? remainTroop : ableTroop
         }
         let remainTroopA = attackInfo.ableTroop
         let coeA = this.getGeneralTypeCoe(generalType, defenseInfo.generalType)
@@ -913,13 +913,10 @@ export class General{
         else{
             re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
         }
-        this.city.useTroop(re.attackTroopReduce)
-        this.city.updateInjuredTroops(re.attackTroopReduce, 'battle')
-        console.log('updateInjuredTroops battle.attackTroopReduce', re);
         return re
     }
 
-    battleCod( generalId : number , unionIds : any, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
+    _battleCod( generalId : number , unionIds : any, defenseInfo : DefenseInfo, remainTroop: number = -1, useStamina: boolean = true){
         console.log('attackBlocksAroundCod battleCod 1:', remainTroop, unionIds);        
         const generalInfo = this.getGeneralState(generalId)
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
@@ -1118,7 +1115,7 @@ export class General{
             }
         }
 
-        const assemble_last_times = this.config.parameter.assemble_last_times;
+        const assemble_last_times = this.config.parameter.assemble_last_times/15;
         // const assemblyTroops = 23000;
         const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
         let assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;
