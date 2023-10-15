@@ -1043,7 +1043,6 @@ export class TransitionHandler {
       }
     }
 
-
     const blockGds1 = logic.map.getMapGDS(args.x_id, args.y_id);
 
     console.log('attackBlocksAround args 2:', { blockGds1, args, remainTroops, mapConfig: logic.map.mapConfig});
