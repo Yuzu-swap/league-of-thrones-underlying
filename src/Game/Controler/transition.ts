@@ -763,6 +763,7 @@ export class TransitionHandler {
     let re = this.onAttackBlockCod(args, troopNow);
         re['txType'] = StateTransition.AttackBlockCod;
 
+    this.attackBlockRecords(re, 'assembly');
     console.log('cod runList attack start 2:', codId, ', result:', re);
 
     //1. get troops reduce for creator, 0.01 for not zero.
@@ -1020,6 +1021,7 @@ export class TransitionHandler {
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     let re = this.onAttackBlockCommon(args, remainTroops);
     re['txType'] = StateTransition.AttackBlock;
+    this.attackBlockRecords(re, 'attack');
     return re;
   }
 
@@ -1158,6 +1160,10 @@ export class TransitionHandler {
       console.log('attackBlocksAround result1:', re);
       return re
     }
+  }
+
+  attackBlockRecords(battleResult: any, typ: string){
+    console.log('attackBlockRecords:', { from: typ }, battleResult);
   }
 
   onDefenseBlock(args: AttackBlockArgs){
