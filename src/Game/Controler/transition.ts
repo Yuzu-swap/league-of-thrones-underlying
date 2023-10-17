@@ -1019,7 +1019,6 @@ export class TransitionHandler {
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     let re = this.onAttackBlockCommon(args, remainTroops);
     re['txType'] = StateTransition.AttackBlock;
-    this.attackBlockRecords(args, re, 'attack');
     return re;
   }
 
@@ -1071,6 +1070,7 @@ export class TransitionHandler {
 
       console.log('cod cancel by blockbelong change:', codId, ', creator: ', creator);
     });
+    this.attackBlockRecords(args, re, 'attack');
     console.log('attackBlocksAround result:', re);
 
     if(re['result'] == undefined){
