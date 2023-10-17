@@ -763,7 +763,6 @@ export class TransitionHandler {
     let re = this.onAttackBlockCod(args, troopNow);
         re['txType'] = StateTransition.AttackBlockCod;
 
-    this.attackBlockRecords(re, 'assembly');
     console.log('cod runList attack start 2:', codId, ', result:', re);
 
     //1. get troops reduce for creator, 0.01 for not zero.
@@ -836,39 +835,38 @@ export class TransitionHandler {
     let { generalInfo, qualificationInfo } = generalDetail;
     //battle record all as same
 
-    if(records.length === 0){
-      let durabilityRecord = logicCreator.map.genDurabilityRecord(
-        args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logicCreator.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
-      )
+    if(records.length > 0){
+      let moraleAdd = recordItem.result ? 2 : -2;
+      logic.general.offsetMorale(moraleAdd);
+      console.log('cod runList attack moraleAdd:', moraleAdd);
+    }
+
+
+    for(let record of records as BattleTransRecord[]){
+      record.recordType = BattleRecordType.Assembly;
+      record.leader = userCreator;
+
+      record.attackInfo.generalId = generalInfo.id;
+      record.attackInfo.generalLevel = generalInfo.level;
+      record.attackInfo.generalType = qualificationInfo.general_type;
+
+      record.attackInfo.username = username;
+      record.attackInfo.troopReduce = _troopReduce;
+      console.log('cod runList attack record', record);
+      this.recordEvent(TransitionEventType.Battles, record);
+    }
+
+    let duraReduce = re['durabilityReduce'] || 0;
+    if(duraReduce > 0){
+      let victory_glory = logicCreator.general.config.parameter.battle_victory_get_glory;
+      let get_glory = Math.floor(duraReduce/50) + victory_glory;
+      let durabilityRecord = logicCreator.map.genDurabilityRecord(args.x_id, args.y_id, args.generalId, get_glory, duraReduce);
       durabilityRecord = JSON.parse(JSON.stringify(durabilityRecord));
       durabilityRecord.attackInfo.username = username;
       durabilityRecord.recordType = BattleRecordType.Assembly;
       durabilityRecord.leader = userCreator;
       console.log('cod runList attack record durabilityReduce:', durabilityRecord);
-      this.recordEvent(
-        TransitionEventType.Battles,
-        durabilityRecord
-      )
-    }
-
-    if(records.length > 0){
-      recordItem.recordType = BattleRecordType.Assembly;
-      recordItem.leader = userCreator;
-
-      recordItem.attackInfo.generalId = generalInfo.id;
-      recordItem.attackInfo.generalLevel = generalInfo.level;
-      recordItem.attackInfo.generalType = qualificationInfo.general_type;
-
-      recordItem.attackInfo.username = username;
-      recordItem.attackInfo.troopReduce = _troopReduce;
-
-      let moraleAdd = recordItem.result ? 2 : -2;
-      logic.general.offsetMorale(moraleAdd);
-
-      // let recordData = JSON.parse(JSON.stringify(recordItem));
-      // console.log('cod runList attack record 1:', recordItem);
-      console.log('cod runList attack record', recordItem);
-      this.recordEvent(TransitionEventType.Battles, recordItem);
+      this.recordEvent(TransitionEventType.Battles, durabilityRecord);
     }
   }
 
@@ -1021,7 +1019,7 @@ export class TransitionHandler {
   onAttackBlock(args: AttackBlockArgs, remainTroops: number){
     let re = this.onAttackBlockCommon(args, remainTroops);
     re['txType'] = StateTransition.AttackBlock;
-    this.attackBlockRecords(re, 'attack');
+    this.attackBlockRecords(args, re, 'attack');
     return re;
   }
 
@@ -1104,7 +1102,7 @@ export class TransitionHandler {
             }
           }
         }
-        this.recordEvent(TransitionEventType.Battles, record)
+        // this.recordEvent(TransitionEventType.Battles, record)
       }
       let temp = re['records'] as BattleTransRecord[]
       let transRe = {}
@@ -1129,12 +1127,12 @@ export class TransitionHandler {
           gloryGet: gloryGet, 
           durabilityReduce: re['durabilityReduce']
         }
-        this.recordEvent(
-          TransitionEventType.Battles,
-          logic.map.genDurabilityRecord(
-            args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
-          )
-        )
+        // this.recordEvent(
+        //   TransitionEventType.Battles,
+        //   logic.map.genDurabilityRecord(
+        //     args.x_id, args.y_id, args.generalId, Math.floor(re['durabilityReduce'] / 50) + logic.general.config.parameter.battle_victory_get_glory, re['durabilityReduce']
+        //   )
+        // )
       }
       if(logic.city.state.facilities[CityFacility.Fortress][0] >= 7){
         this.updateRewardState(
@@ -1162,8 +1160,22 @@ export class TransitionHandler {
     }
   }
 
-  attackBlockRecords(battleResult: any, typ: string){
-    console.log('attackBlockRecords:', { from: typ }, battleResult);
+  attackBlockRecords(args: any, battleResult: any, typ: string){
+    console.log('attackBlockRecords:', { typ, battleResult, args });
+
+    const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id);
+
+    let records = battleResult['records'] || [];
+    for(let record of records as BattleTransRecord[]){
+      this.recordEvent(TransitionEventType.Battles, record);
+    }
+
+    let duraReduce = battleResult['durabilityReduce'] || 0;
+    if(duraReduce > 0){
+      let get_glory = logic.general.config.parameter.battle_victory_get_glory;
+      let record = logic.map.genDurabilityRecord(args.x_id, args.y_id, args.generalId, Math.floor(duraReduce/50) + get_glory, duraReduce);
+      this.recordEvent(TransitionEventType.Battles, record)
+    }
   }
 
   onDefenseBlock(args: AttackBlockArgs){
