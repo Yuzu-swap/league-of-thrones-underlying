@@ -20,7 +20,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
+
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { promises } from 'dns'
 import { WebSocketMediator } from '../Controler/websocket'
@@ -1175,7 +1175,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u916"
+    this.version = "u1015"
   }
 
 

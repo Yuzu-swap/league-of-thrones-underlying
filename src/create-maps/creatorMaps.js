@@ -63,7 +63,7 @@ let types = {
     66: '障碍'
 };
 
-var mapDir = '../league-of-thrones-data-sheets/.jsonoutput';
+var mapDir = '../gds';
 var mapList = require(mapDir + '/map_list.json')['Config'];
 fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
     if (err) {
@@ -96,7 +96,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     var cols = mapItem.cols; //11
     var rows = mapItem.rows + 1;  //22;
 
-    // console.log({ mapId, cols, rows });
+    console.log({ mapId, cols, rows });
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
 
@@ -170,9 +170,12 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     let tileSet = [];
     let bgIndex = [];
+    let tileSetMobile = [];
+    let bgIndexMobile = [];
 
-    function getIdIndex(x, y) {
-        //cols = 11, rows = 21/43;
+    const getIdIndex = function(x, y) {
+        //cols = 11, rows = 21/41 + 1;
+        //0,0 -> -10, 10
         return {
             x_id: (x - 5) * 2 + y % 2,
             y_id:  (rows - 2)/2 - y
@@ -183,24 +186,77 @@ function createMap(index, mapItem, tplBg, tplMap) {
         // }
     }
 
+
+    const getIdIndexMobile = function(x, y, xMobile, yMobile) {
+        /*
+        xMoble, yMobile = 11, 21
+        0,0 -> -10,-10
+        0,2 -> -10, -8
+        1,0 -> -9,-9
+        2,0 -> -8, 10
+        10,0 -> 10,10
+        10,2-> -8,10
+        10,4-> -6,10
+        10,20 -> 10,10
+        0,20 - > 10,-10
+
+        yId = 10 - x*2;
+
+
+        xMobile, yMobile = 21, 21
+        0,0 -> 10,20
+        10,0 -> 10,-20
+        10,40 -> -10,-20
+        0,40 - > -10,/20
+
+        x_id:  10 - yMobile,
+        y_id: -20 + x%2 + x*2
+        */
+
+        return {
+            x_id: y - Math.floor(yMobile/2),
+            y_id: x*2 - (xMobile - 1) + y%2
+        }
+    }
+
     for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
             let r = getIdIndex(x, y);
-            if(mapId !== 22 && r.y_id == -10){
-                console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
-            }
+            // console.log({x, y}, {cols, rows}, ' ------> ' ,r);
+            // if(mapId !== 22 && r.y_id == -10){
+                // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
+            // }
             tileSet.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
             bgIndex.push(bgMap[r.x_id + '^' + r.y_id] || 0)
         }
     }
 
+    //11*21， 21*21
+    let xMobile = rows/2;
+    let yMobile = cols*2 - 1;
+    for (var y = 0; y < yMobile; y++) {
+        for (var x = 0; x < xMobile; x++) {
+            let r = getIdIndexMobile(x, y, xMobile, yMobile);
+            // if(mapId == 2 && y==0){
+                console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
+            // }
+            // if(mapId !== 22 && r.y_id == -10){
+                // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
+            // }
+            tileSetMobile.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
+            bgIndexMobile.push(bgMap[r.x_id + '^' + r.y_id] || 0)
+        }
+    }
+
     let content = {
         cols: cols,
-        rows: rows - 1
+        rows: rows - 1,
+        tileheight: 116,
+        tilewidth: 204
     };
+
     content['dataset'] = JSON.stringify(bgIndex);
     let bgContent = subs(tplBg, content);
-
     fs.writeFile('./maps-result/bg-' + mapId + '.json', bgContent, function(err) {
         if (err) {
             return console.error(err);
@@ -210,24 +266,42 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(tileSet);
     let mapContent = subs(tplMap, content);
-    fs.writeFile('./maps/map-' + mapId + '.json', mapContent, function(err) {
+    fs.writeFile('./maps-result/map-' + mapId + '.json', mapContent, function(err) {
         if (err) {
             return console.error(err);
         }
-        console.log("数据写入成功！");
+        console.log("map 数据写入成功！");
     });
 
-    fs.writeFile('./maps/mountains-' + mapId + '.json', JSON.stringify(mountains, null, ' \t'), function(err) {
+    // mobile
+    content.tileheight = 202;
+    content.tilewidth = 116;
+    content.cols = xMobile;
+    content.rows = yMobile;
+
+    content['dataset'] = JSON.stringify(bgIndexMobile);
+    let bgContentMobile = subs(tplBg, content);
+    fs.writeFile('./maps-result/bg-' + mapId + '.mobile.json', bgContentMobile, function(err) {
         if (err) {
             return console.error(err);
         }
-        console.log("数据写入成功！");
+        console.log("bg mobile 数据写入成功！");
     });
 
+    content['dataset'] = JSON.stringify(tileSetMobile);
+    let mapContentMobile = subs(tplMap, content);
+    fs.writeFile('./maps-result/map-' + mapId + '.mobile.json', mapContentMobile, function(err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("map mobile 数据写入成功！");
+    });
 
     mapList[index].mountains = mountains;
     mapList[index].bgIndexs = bgIndex;
     mapList[index].mapIndexs = tileSet;
+    mapList[index].bgIndexsMobile = bgIndexMobile;
+    mapList[index].mapIndexsMobile = tileSetMobile;
     mapList[index].inits = inits;
 }
 

@@ -22,7 +22,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-// import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
+
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'

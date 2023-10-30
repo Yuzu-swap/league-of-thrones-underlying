@@ -1,7 +1,7 @@
-import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
+import buildingCountConfig = require('../../gds/building_count.json');
 import { StateName, ResouceType, CityFacility, MaxStrategyPoint } from '../Const';
-import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import mapListGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_list.json')
+import qualificationGDS = require('../../gds/general.json');
+import mapListGDS = require('../../gds/map_list.json')
 import { copyObj } from '../../Core/state';
 import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS, getMapOffset } from '../DataConfig';
 import { GeneralInfo } from '.';

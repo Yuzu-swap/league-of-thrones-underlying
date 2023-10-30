@@ -19,18 +19,18 @@ import {
   FacilityHomeGdsRow
 } from './Game/DataConfig';
 
-import fortressGDS = require('./league-of-thrones-data-sheets/.jsonoutput/fortress.json');
-import militaryCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
-import wallGDS = require('./league-of-thrones-data-sheets/.jsonoutput/wall.json');
-import storeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/store.json');
-import infantryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
-import cavalryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
-import archerCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
-import trainingCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
-import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json');
-import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-// import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config_0.json')
-import vipGDS = require('./league-of-thrones-data-sheets/.jsonoutput/vip.json')
+import fortressGDS = require('./gds/fortress.json');
+import militaryCenterGDS = require('./gds/militarycenter.json');
+import wallGDS = require('./gds/wall.json');
+import storeGDS = require('./gds/store.json');
+import infantryCampGDS = require('./gds/infantrycamp.json');
+import cavalryCampGDS = require('./gds/cavalrycamp.json');
+import archerCampGDS = require('./gds/archercamp.json');
+import trainingCenterGDS = require('./gds/trainingcenter.json');
+import homeGDS = require('./gds/home.json');
+import buildingCount = require('./gds/building_count.json');
+// import mapGDS = require('./gds/map_config_0.json')
+import vipGDS = require('./gds/vip.json')
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
@@ -40,7 +40,7 @@ import { addToNormalSortedList, addToSortList, checkNaNInObj, getTimeStamp, isNu
 import { StrategyComponent } from './Game/Throne/strategy';
 import { ChainComponent, IChainComponent } from './Game/Throne/chain';
 
-import parameterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/parameter.json')
+import parameterGDS = require('./gds/parameter.json')
 export const randomCampReward = parameterGDS.choose_random_camp_reward;
 
 export const rewardConfig = {
