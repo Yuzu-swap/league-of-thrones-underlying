@@ -383,9 +383,11 @@ export class Map{
             durabilityReduce = this.reduceDurability(x_id, y_id, remainTroop, this.general.state.unionId, onBelongChange)      
             if(records.length != 0){
                 let lastRecord = records[records.length - 1] as BattleTransRecord
-                lastRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
-                lastRecord.blockInfo.durabilityReduce = durabilityReduce
-            }     
+                let newRecord = JSON.parse(JSON.stringify(lastRecord));
+                newRecord.attackInfo.gloryGet += Math.floor(durabilityReduce / 50)
+                newRecord.blockInfo.durabilityReduce = durabilityReduce;
+                records.push(newRecord);
+            }
         }
         return {
             records: records,
