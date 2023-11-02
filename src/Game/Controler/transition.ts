@@ -842,7 +842,11 @@ export class TransitionHandler {
     }
 
 
+    let duraReduceRecord = 0;
     for(let record of records as BattleTransRecord[]){
+      let blockInfo = record['blockInfo'] || {};
+      duraReduceRecord = blockInfo['durabilityReduce'] || 0;
+
       record.recordType = BattleRecordType.Assembly;
       record.leader = userCreator;
 
@@ -855,9 +859,9 @@ export class TransitionHandler {
       console.log('cod runList attack record', record);
       this.recordEvent(TransitionEventType.Battles, record);
     }
-
+    
     let duraReduce = re['durabilityReduce'] || 0;
-    if(duraReduce > 0){
+    if(duraReduce > 0 && duraReduceRecord != duraReduce){
       let victory_glory = logicCreator.general.config.parameter.battle_victory_get_glory;
       let get_glory = Math.floor(duraReduce/50) + victory_glory;
       let durabilityRecord = logicCreator.map.genDurabilityRecord(args.x_id, args.y_id, args.generalId, get_glory, duraReduce);
@@ -1166,12 +1170,15 @@ export class TransitionHandler {
     const logic : LogicEssential = this.genLogic(args.from, args.x_id, args.y_id);
 
     let records = battleResult['records'] || [];
+    let duraReduceRecord = 0;
     for(let record of records as BattleTransRecord[]){
       this.recordEvent(TransitionEventType.Battles, record);
+      let blockInfo = record['blockInfo'] || {};
+      duraReduceRecord = blockInfo['durabilityReduce'] || 0;
     }
 
     let duraReduce = battleResult['durabilityReduce'] || 0;
-    if(duraReduce > 0){
+    if(duraReduce > 0 && duraReduceRecord != duraReduce){
       let get_glory = logic.general.config.parameter.battle_victory_get_glory;
       let record = logic.map.genDurabilityRecord(args.x_id, args.y_id, args.generalId, Math.floor(duraReduce/50) + get_glory, duraReduce);
       this.recordEvent(TransitionEventType.Battles, record)
