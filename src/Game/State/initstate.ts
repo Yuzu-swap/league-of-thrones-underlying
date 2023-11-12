@@ -7,6 +7,7 @@ import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS, getMapOffset } f
 import { GeneralInfo } from '.';
 
 export var InitState = {
+    [StateName.Capitals]: {},
     [StateName.City]: {
       facilities: { },
       resources: {
@@ -246,20 +247,26 @@ export function GetMapState(mapId: number){
         const mapOffset = getMapOffset(mapId);
         console.log('GetMapState mapId offset:', { mapId, mapOffset });
 
+        let capitalsKey = 'capitals_' + mapId;
+        InitState[StateName.Capitals][capitalsKey] = InitState[StateName.Capitals][capitalsKey] || {};
         for(let blockId in mapGDS){
-            let blockGlobalUniKey = `${StateName.BlockInfo}:${mapId}:${blockId}`
-            let row = mapGDS[blockId]
-            let list = blockId.split('^')
-            let unionId = 0
-            if( row['type'] == 3 ){
-                unionId = row['parameter']
-                // let xIndex = parseInt(list[0]) + mapOffset.x;
-                // let yIndex = Math.floor((parseInt(list[1]) + mapOffset.y) / 2)
-                let x_id = parseInt(list[0]);
-                let y_id = parseInt(list[1]);
-                let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
-                let yIndex = (mapOffset.rows - 1)/2 - y_id;
+            let blockGlobalUniKey = `${StateName.BlockInfo}:${mapId}:${blockId}`;
+            let row = mapGDS[blockId];
 
+            let blockIds = blockId.split('^');
+            let x_id = parseInt(blockIds[0]);
+            let y_id = parseInt(blockIds[1]);
+            let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
+            let yIndex = (mapOffset.rows - 1)/2 - y_id;
+
+            //captital blocks
+            if( row['type'] == 8 ){
+                InitState[StateName.Capitals][capitalsKey][blockId] = row;
+            }
+
+            let unionId = 0;
+            if( row['type'] == 3 ){
+                unionId = row['parameter'];
                 let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][yIndex];
                 yBlocks[xIndex] = yBlocks[xIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
                 yBlocks[xIndex].unionId = unionId;
@@ -268,15 +275,15 @@ export function GetMapState(mapId: number){
             }
             gInitState[blockGlobalUniKey]= {
                 id: blockGlobalUniKey,
-                x_id: parseInt(list[0]),
-                y_id: parseInt(list[1]),
+                x_id: x_id,
+                y_id: y_id,
                 belong: {
                     unionId: unionId,
                     updateTime: -1
-                  },
+                },
                 defenseList: [],
                 durability: row['durability'],
-                defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1]), mapId),
+                defaultDefense: GenBlockDefenseTroop(x_id, y_id, mapId),
                 lastAttachTime: -1,
                 remainSilver: row['silver_total_number']
             }

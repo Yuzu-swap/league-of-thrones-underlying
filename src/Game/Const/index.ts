@@ -3,6 +3,7 @@ import IndexTI from "./index-ti"
 
 export enum StateName {
 	City = "city",
+	Capitals = "capitals",
 	General = "general" ,
 	DefenderInfo = "defenderinfo",
 	MapGlobalInfo = 'mapglobalinfo',

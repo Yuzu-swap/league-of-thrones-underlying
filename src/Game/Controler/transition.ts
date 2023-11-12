@@ -925,7 +925,8 @@ export class TransitionHandler {
     }
 
     let myUnionId = logic.general.state.unionId;
-    if(!logic.map.checkBetween(myUnionId, args.x_id, args.y_id )){
+    let isCanAttack = logic.map.checkBetween(myUnionId, args.x_id, args.y_id);
+    if(!isCanAttack){
       return{
         result: false,
         error: 'block-is-too-far'
@@ -1038,8 +1039,9 @@ export class TransitionHandler {
     }
 
     let myUnionId = logic.general.state.unionId;
-    console.log('attackBlocksAround args can attack:', {myUnionId, result: logic.map.checkBetween(myUnionId, args.x_id, args.y_id )});
-    if(!logic.map.checkBetween(myUnionId, args.x_id, args.y_id )){
+    let isCanAttack = logic.map.checkBetween(myUnionId, args.x_id, args.y_id);
+    console.log('attackBlocksAround args can attack:', {myUnionId, isCanAttack});
+    if(!isCanAttack){
       return{
         result: false,
         error: 'block-is-too-far'
