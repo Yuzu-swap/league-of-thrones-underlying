@@ -248,6 +248,7 @@ export function GetMapState(mapId: number){
         console.log('GetMapState mapId offset:', { mapId, mapOffset });
 
         let capitalsKey = 'capitals_' + mapId;
+        InitState[StateName.Capitals] = InitState[StateName.Capitals] || {};
         InitState[StateName.Capitals][capitalsKey] = InitState[StateName.Capitals][capitalsKey] || {};
         for(let blockId in mapGDS){
             let blockGlobalUniKey = `${StateName.BlockInfo}:${mapId}:${blockId}`;
