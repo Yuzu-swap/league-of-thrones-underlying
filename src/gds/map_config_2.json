@@ -84,9 +84,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1001,
         "area_block": 1,
@@ -366,9 +366,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1002,
         "area_block": 1,
@@ -582,9 +582,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 3,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3003,
         "area_block": 2,
@@ -609,9 +609,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 3,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3004,
         "area_block": 2,
@@ -636,9 +636,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3001,
         "area_block": 1,
@@ -663,9 +663,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 200000,
         "parameter": 2,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 2000,
         "durability": 8000,
         "buff_id": 3001,
         "area_block": 2,
@@ -690,9 +690,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3002,
         "area_block": 1,
@@ -717,9 +717,9 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 400000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 4000,
         "durability": 8000,
         "buff_id": 3002,
         "area_block": 1,
@@ -744,9 +744,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3003,
         "area_block": 1,
@@ -771,9 +771,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3004,
         "area_block": 1,
@@ -798,9 +798,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3001,
         "area_block": 1,
@@ -825,9 +825,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3002,
         "area_block": 1,
@@ -879,9 +879,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3002,
         "area_block": 1,
@@ -906,9 +906,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3001,
         "area_block": 1,
@@ -933,9 +933,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3004,
         "area_block": 1,
@@ -960,9 +960,9 @@
                 "attack": 2000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 200000,
         "parameter": 2,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 2000,
         "durability": 8000,
         "buff_id": 3004,
         "area_block": 2,
@@ -987,9 +987,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3003,
         "area_block": 1,
@@ -1014,9 +1014,9 @@
                 "attack": 5000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 400000,
         "parameter": 2,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 4000,
         "durability": 8000,
         "buff_id": 3003,
         "area_block": 2,
@@ -1041,9 +1041,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3002,
         "area_block": 1,
@@ -1068,9 +1068,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3001,
         "area_block": 1,
@@ -1095,9 +1095,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3004,
         "area_block": 1,
@@ -1122,9 +1122,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 800000,
+        "silver_total_number": 600000,
         "parameter": 4,
-        "gather_silver_speed": 8000,
+        "gather_silver_speed": 6000,
         "durability": 8000,
         "buff_id": 3003,
         "area_block": 1,
@@ -1350,9 +1350,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1007,
         "area_block": 1,
@@ -1632,9 +1632,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1008,
         "area_block": 1,
@@ -1725,9 +1725,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1005,
         "area_block": 1,
@@ -1872,9 +1872,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1003,
         "area_block": 1,
@@ -2057,9 +2057,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1006,
         "area_block": 1,
@@ -2204,9 +2204,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1004,
         "area_block": 1,
@@ -2432,9 +2432,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1011,
         "area_block": 1,
@@ -2714,9 +2714,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1012,
         "area_block": 1,
@@ -3482,9 +3482,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1006,
         "area_block": 1,
@@ -3656,9 +3656,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1005,
         "area_block": 1,
@@ -3776,9 +3776,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1007,
         "area_block": 1,
@@ -3950,9 +3950,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1008,
         "area_block": 1,
@@ -4124,9 +4124,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1009,
         "area_block": 1,
@@ -4163,9 +4163,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1001,
         "area_block": 1,
@@ -4445,9 +4445,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1010,
         "area_block": 1,
@@ -4484,9 +4484,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1002,
         "area_block": 1,
@@ -4901,9 +4901,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1011,
         "area_block": 1,
@@ -5194,9 +5194,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1012,
         "area_block": 1,
@@ -5514,9 +5514,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1003,
         "area_block": 1,
@@ -5823,9 +5823,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1004,
         "area_block": 1,
@@ -6538,9 +6538,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1003,
         "area_block": 1,
@@ -6820,9 +6820,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1004,
         "area_block": 1,
@@ -7804,9 +7804,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1005,
         "area_block": 1,
@@ -8086,9 +8086,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1006,
         "area_block": 1,
@@ -8179,9 +8179,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1007,
         "area_block": 1,
@@ -8326,9 +8326,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1001,
         "area_block": 1,
@@ -8511,9 +8511,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1008,
         "area_block": 1,
@@ -8658,9 +8658,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1002,
         "area_block": 1,
@@ -8886,9 +8886,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1009,
         "area_block": 1,
@@ -9168,9 +9168,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1010,
         "area_block": 1,
@@ -9936,9 +9936,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1006,
         "area_block": 1,
@@ -10110,9 +10110,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1005,
         "area_block": 1,
@@ -10230,9 +10230,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1007,
         "area_block": 1,
@@ -10404,9 +10404,9 @@
                 "attack": 20000
             }
         ],
-        "silver_total_number": 2600000,
+        "silver_total_number": 1800000,
         "parameter": 2,
-        "gather_silver_speed": 13000,
+        "gather_silver_speed": 18000,
         "durability": 24000,
         "buff_id": 1008,
         "area_block": 1,
@@ -10578,9 +10578,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1011,
         "area_block": 1,
@@ -10617,9 +10617,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1003,
         "area_block": 1,
@@ -10899,9 +10899,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1012,
         "area_block": 1,
@@ -10938,9 +10938,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1004,
         "area_block": 1,
@@ -11355,9 +11355,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1009,
         "area_block": 1,
@@ -11648,9 +11648,9 @@
                 "attack": 30000
             }
         ],
-        "silver_total_number": 4600000,
+        "silver_total_number": 2500000,
         "parameter": 3,
-        "gather_silver_speed": 23000,
+        "gather_silver_speed": 25000,
         "durability": 40000,
         "buff_id": 1010,
         "area_block": 1,
@@ -11968,9 +11968,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1001,
         "area_block": 1,
@@ -12277,9 +12277,9 @@
                 "attack": 8000
             }
         ],
-        "silver_total_number": 1200000,
+        "silver_total_number": 1000000,
         "parameter": 1,
-        "gather_silver_speed": 6000,
+        "gather_silver_speed": 10000,
         "durability": 12000,
         "buff_id": 1002,
         "area_block": 1,
