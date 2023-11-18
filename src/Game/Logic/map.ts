@@ -433,7 +433,7 @@ export class Map{
             'defaultDefense': defaultDefense,
             'lastAttachTime': time
         })
-        this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
+        // this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         console.log('attackBlock recoveryBlockDefense ok:', {x_id, y_id}, blockState);
     }
 
@@ -526,7 +526,8 @@ export class Map{
             }
             blockState.update({
                 'defenseList': playerDefenseTroops
-            })
+            });
+            this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
         if(remainTroop <= 0 || isAttackNeighbor){
             return {

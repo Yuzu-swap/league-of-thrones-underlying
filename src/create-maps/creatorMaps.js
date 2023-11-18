@@ -46,6 +46,8 @@ let bgIndexMap = {
     '3-2': 8,
     '4-1': 9,
     '4-2': 10,
+    '6-1': 11,
+    '6-2': 12
 };
 
 let types = {
@@ -121,6 +123,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     let bgMap = {};
     let tileSetMap = {};
     let inits = {};
+    let capitals = {};
 
     for (var blockId in blockMap) {
         //item == {"y":1,"x":1,"cmap/area":3,"type":3,"level/parameter":3},
@@ -133,10 +136,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         地块类型=6时配置相应的等级（1低级,2中级,3高级）
         */
         let item = blockMap[blockId];
-        let {
-            x_id,
-            y_id
-        } = item;
+        let { x_id, y_id, x, y } = item;
 
         let image = '';
         if (item.type == 1) {
@@ -144,10 +144,11 @@ function createMap(index, mapItem, tplBg, tplMap) {
         }
         if (item.type == 2) {
             image = 'map_center';
+            capitals[x_id + '^' + y_id] = { x_id, y_id, x, y };
         }
         if (item.type == 3) {
             image = 'cmap_init';
-            inits[item['parameter']] = x_id/(cols - 1) + '^' + y_id*2/(rows -2);
+            inits[item['parameter']] = { x_id, y_id, x, y };
         }
         if (item.type == 4) {
             image = types[item.type] + '_' + (item.parameter);
@@ -257,7 +258,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(bgIndex);
     let bgContent = subs(tplBg, content);
-    fs.writeFile('./maps-result/bg-' + mapId + '.json', bgContent, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-bg.json', bgContent, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -266,7 +267,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(tileSet);
     let mapContent = subs(tplMap, content);
-    fs.writeFile('./maps-result/map-' + mapId + '.json', mapContent, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-map.json', mapContent, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -281,7 +282,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(bgIndexMobile);
     let bgContentMobile = subs(tplBg, content);
-    fs.writeFile('./maps-result/bg-' + mapId + '.mobile.json', bgContentMobile, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-bg.mobile.json', bgContentMobile, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -290,7 +291,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(tileSetMobile);
     let mapContentMobile = subs(tplMap, content);
-    fs.writeFile('./maps-result/map-' + mapId + '.mobile.json', mapContentMobile, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-map.mobile.json', mapContentMobile, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -303,6 +304,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     mapList[index].bgIndexsMobile = bgIndexMobile;
     mapList[index].mapIndexsMobile = tileSetMobile;
     mapList[index].inits = inits;
+    mapList[index].capitals = capitals;
 }
 
 
