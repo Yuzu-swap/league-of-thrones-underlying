@@ -124,6 +124,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     let tileSetMap = {};
     let inits = {};
     let capitals = {};
+    let ports = {};
 
     for (var blockId in blockMap) {
         //item == {"y":1,"x":1,"cmap/area":3,"type":3,"level/parameter":3},
@@ -159,6 +160,9 @@ function createMap(index, mapItem, tplBg, tplMap) {
         if (item.type == 6) {
             image = item.area + '_' + types[item.type] + '_' + (item.parameter || '0');
             mountains[blockId] = true;
+        }
+        if(item.type == 8){
+            ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
         }
         item.image = image;
 
@@ -298,13 +302,14 @@ function createMap(index, mapItem, tplBg, tplMap) {
         console.log("map mobile 数据写入成功！");
     });
 
-    mapList[index].mountains = mountains;
-    mapList[index].bgIndexs = bgIndex;
-    mapList[index].mapIndexs = tileSet;
-    mapList[index].bgIndexsMobile = bgIndexMobile;
-    mapList[index].mapIndexsMobile = tileSetMobile;
-    mapList[index].inits = inits;
-    mapList[index].capitals = capitals;
+    mapList[index].mountains = JSON.stringify(mountains);
+    mapList[index].bgIndexs = JSON.stringify(bgIndex);
+    mapList[index].mapIndexs = JSON.stringify(tileSet);
+    mapList[index].bgIndexsMobile = JSON.stringify(bgIndexMobile);
+    mapList[index].mapIndexsMobile = JSON.stringify(tileSetMobile);
+    mapList[index].inits = JSON.stringify(inits);
+    mapList[index].capitals = JSON.stringify(capitals);
+    mapList[index].ports = JSON.stringify(ports);
 }
 
 
