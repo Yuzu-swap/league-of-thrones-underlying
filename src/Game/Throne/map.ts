@@ -309,7 +309,10 @@ export class MapComponent implements IMapComponent{
             'bsc' : 3
         };
         let index = chains[chainName];
-        let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
+
+        let seasonState = this.map.getSeasonState();
+        // let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
+        let rewardSum = seasonState.rankRewardValue;
         let re = {
             topInfo: [],
             myInfo: {}
