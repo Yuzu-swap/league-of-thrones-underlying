@@ -275,6 +275,11 @@ export interface IGeneralComponent extends IComponent {
   getBattleRecordRedPoint(): boolean
   updateBattleRedPoint(timestamp : number ):void
   initRedPoint():Promise<void>
+
+
+
+  getCodList():Promise<any>
+  joinCod(codId: string, generalId: number, callback: (result: any) => void ) : void
 }
 
 

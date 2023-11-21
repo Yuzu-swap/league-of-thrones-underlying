@@ -1,0 +1,1 @@
+/data/newproject/projects/go/league-of-thrones-backend/localdata/wallets.txt
