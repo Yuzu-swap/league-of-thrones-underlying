@@ -120,7 +120,7 @@ for (var y = 0; y < rows; y++) {
                 // }
             }
         });
-        if(bgIndex == 11){
+        if(bgIndex == 11 || bgIndex == 12){
             type = 6;
         }
         specialBlocks.capitals.forEach(function(item){
@@ -162,7 +162,8 @@ for (var y = 0; y < rows; y++) {
             parameter = Math.round(Math.random()*987)%3 + 1;
         }
         if(type == 6){
-            parameter = Math.round(Math.random()*987)%3 + 1;
+            //bgIndex = 11 -> 4; 12 -> 5; 
+            parameter = bgIndex - 7;
         }
 
         let durability = 0;
