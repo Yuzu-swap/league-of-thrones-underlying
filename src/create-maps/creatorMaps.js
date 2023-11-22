@@ -32,7 +32,8 @@ let imageOrderMap = {
     'gate': 28,
     '0_mountain_1': 29,
     '0_mountain_2': 30,
-    '0_mountain_3': 31
+    '0_mountain_3': 31,
+    'port': 32
 };
 
 let bgIndexMap = {
@@ -163,6 +164,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         }
         if(item.type == 8){
             ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
+            image = 'port';
         }
         item.image = image;
 

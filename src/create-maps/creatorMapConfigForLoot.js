@@ -49,12 +49,17 @@ var basePoints = [
     12,12,12,12,12,12,12,12,12,12,2
 ];
 
+/*
+capitals + iinit 手工标准
+city 来自于 city.text
+center 待定
+*/ 
 var specialBlocks  = {
     capitals: [
         { x: 6, y: 18 },
-        { x: 6, y: 11 },
-        { x: 9, y: 10 },
-        { x: 9, y: 36 },
+        { x: 6, y: 9 },
+        { x: 9, y: 9 },
+        { x: 8, y: 35 },
         { x: 9, y: 22 },
         { x: 3, y: 33 }
     ],
@@ -64,24 +69,18 @@ var specialBlocks  = {
         { x: 10, y: 0 },
         { x: 0, y: 18 }
     ],
+    center: { x: 4, y: 39 }, //todo
     city: [
-        {"x":6,"y":24,"isLittle":false},
-        {"x":6,"y":38,"isLittle":false},
-        {"x":9,"y":2,"isLittle":false},
-        {"x":7,"y":33,"isLittle":false},
-        {"x":5,"y":7,"isLittle":false},
-        {"x":8,"y":21,"isLittle":true},
-        {"x":2,"y":33,"isLittle":true},
-        {"x":10,"y":8,"isLittle":true},
-        {"x":10,"y":34,"isLittle":true},
-        {"x":3,"y":11,"isLittle":true},
-        {"x":7,"y":37,"isLittle":true},
-        {"x":7,"y":15,"isLittle":true},
-        {"x":4,"y":38,"isLittle":true},
-        {"x":10,"y":26,"isLittle":true},
-        {"x":6,"y":3,"isLittle":true},
-        {"x":10,"y":2,"isLittle":true},
-        {"x":5,"y":26,"isLittle":true}
+        {"x":6,"y":18,"isLittle":false},
+        {"x":9,"y":22,"isLittle":false},
+        {"x":6,"y":11,"isLittle":false},
+        {"x":9,"y":36,"isLittle":false},
+        {"x":9,"y":10,"isLittle":false},
+        {"x":3,"y":33,"isLittle":false},
+        {"x":1,"y":18,"isLittle":true},
+        {"x":10,"y":24,"isLittle":true},
+        {"x":7,"y":4,"isLittle":true},
+        {"x":0,"y":5,"isLittle":true}
     ]
 };
 
@@ -115,11 +114,10 @@ for (var y = 0; y < rows; y++) {
         let type = 1;
         specialBlocks.city.forEach(function(item, index){
             if(item['x'] == x && item['y'] == y){
-                if(item['isLittle']){
-                    type = 5;
-                }else{
+                // if(item['isLittle']){
+                    // type = 5;
                     type = 8;
-                }
+                // }
             }
         });
         if(bgIndex == 11){
@@ -187,13 +185,14 @@ for (var y = 0; y < rows; y++) {
         ];
         if(type !== 3 && type !== 6){
             let randomNumber = Math.round(Math.random()*9999)%12 + 2;
-            durability = 2000 * randomNumber;
-            gather_silver_speed = 2000 * (randomNumber - Math.round(Math.random()*9999)%2);
-            silver_total_number = 100 * gather_silver_speed;
+            durability = 20 * randomNumber;
+            gather_silver_speed = 20 * (randomNumber - Math.round(Math.random()*9999)%2);
+            silver_total_number = 10 * gather_silver_speed;
 
             let randomTroopsLen = Math.round(Math.random()*9999)%3 + 1;
-            for(let i = 0; i++; i< randomTroopsLen){
-                let attackValue = durability - (Math.round(Math.random()*987)%2 - 2) * 2000;
+            troops = [];
+            for(let i = 0; i< randomTroopsLen; i++){
+                let attackValue = durability - (Math.round(Math.random()*987)%2 - 2) * 20;
                 troops.push({
                     "type": i + 1,
                     "defense": attackValue,
@@ -201,6 +200,7 @@ for (var y = 0; y < rows; y++) {
                     "attack": attackValue
                 });
             }
+            console.log(randomTroopsLen, troops.length);
         }
 
         mapConfigLoot[x_id + "^" + y_id] = {
@@ -222,7 +222,7 @@ for (var y = 0; y < rows; y++) {
     }
 }
 
-fs.writeFile('./maps-result/map_config_3.json', JSON.stringify(mapConfigLoot, null, ' \t'), function(err) {
+fs.writeFile('../gds/map_config_3.json', JSON.stringify(mapConfigLoot, null, ' \t'), function(err) {
     if (err) {
         return console.error(err);
     }
