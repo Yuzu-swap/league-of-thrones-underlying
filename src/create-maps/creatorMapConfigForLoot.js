@@ -69,7 +69,7 @@ var specialBlocks  = {
         { x: 10, y: 0 },
         { x: 0, y: 18 }
     ],
-    center: { x: 4, y: 39 }, //todo
+    center: { x: 6, y: 18 },
     city: [
         {"x":6,"y":18,"isLittle":false},
         {"x":9,"y":22,"isLittle":false},
