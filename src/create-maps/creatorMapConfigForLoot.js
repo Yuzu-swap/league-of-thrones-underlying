@@ -198,14 +198,7 @@ for (var y = 0; y < rows; y++) {
                 }
             ],
             "silver_total_number": 0,
-            "gather_silver_speed": 0,
-            "victory_occupy_reward": [
-                {
-                    "type": 0,
-                    "name": "0",
-                    "count": 0
-                }
-            ]
+            "gather_silver_speed": 0
         };
         parameter = lootItem['parameter'] || parameter;
 
@@ -224,7 +217,13 @@ for (var y = 0; y < rows; y++) {
             "troops": lootItem['troops'],
             "silver_total_number": lootItem['silver_total_number'],
             "gather_silver_speed": lootItem['gather_silver_speed'],
-            "victory_occupy_reward": lootItem['victory_occupy_reward']
+            "victory_occupy_reward": [
+                {
+                    "type": 0,
+                    "name": "0",
+                    "count": 0
+                }
+            ]
         }
     }
 }

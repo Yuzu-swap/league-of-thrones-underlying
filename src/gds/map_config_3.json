@@ -230,7 +230,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^20": {
  	 	"x": 8,
@@ -253,7 +260,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^20": {
  	 	"x": 9,
@@ -262,7 +276,7 @@
  	 	"y_id": 20,
  	 	"type": 1,
  	 	"distance": 19,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -276,7 +290,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^20": {
  	 	"x": 10,
@@ -525,7 +546,7 @@
  	 	"y_id": 19,
  	 	"type": 1,
  	 	"distance": 18,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -539,7 +560,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^19": {
  	 	"x": 8,
@@ -562,7 +590,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^19": {
  	 	"x": 9,
@@ -585,7 +620,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^19": {
  	 	"x": 10,
@@ -594,7 +636,7 @@
  	 	"y_id": 19,
  	 	"type": 1,
  	 	"distance": 18,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -608,7 +650,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^18": {
  	 	"x": 0,
@@ -767,7 +816,7 @@
  	 	"y_id": 18,
  	 	"type": 1,
  	 	"distance": 17,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
@@ -781,7 +830,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^18": {
  	 	"x": 6,
@@ -816,7 +872,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^18": {
  	 	"x": 7,
@@ -899,7 +962,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^18": {
  	 	"x": 10,
@@ -922,7 +992,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^17": {
  	 	"x": 0,
@@ -945,7 +1022,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-7^17": {
  	 	"x": 1,
@@ -1118,7 +1202,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^17": {
  	 	"x": 7,
@@ -1201,7 +1292,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^17": {
  	 	"x": 10,
@@ -1224,7 +1322,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^16": {
  	 	"x": 0,
@@ -1383,7 +1488,7 @@
  	 	"y_id": 16,
  	 	"type": 1,
  	 	"distance": 15,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
@@ -1397,7 +1502,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^16": {
  	 	"x": 6,
@@ -1462,7 +1574,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^16": {
  	 	"x": 8,
@@ -1515,7 +1634,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^16": {
  	 	"x": 10,
@@ -1550,7 +1676,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^15": {
  	 	"x": 0,
@@ -1585,7 +1718,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-7^15": {
  	 	"x": 1,
@@ -1684,7 +1824,7 @@
  	 	"y_id": 15,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 3000,
@@ -1698,7 +1838,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^15": {
  	 	"x": 5,
@@ -1721,7 +1868,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^15": {
  	 	"x": 6,
@@ -1744,7 +1898,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^15": {
  	 	"x": 7,
@@ -1767,7 +1928,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^15": {
  	 	"x": 8,
@@ -1850,7 +2018,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^14": {
  	 	"x": 0,
@@ -2023,7 +2198,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^14": {
  	 	"x": 6,
@@ -2046,7 +2228,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^14": {
  	 	"x": 7,
@@ -2055,7 +2244,7 @@
  	 	"y_id": 14,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
@@ -2069,7 +2258,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^14": {
  	 	"x": 8,
@@ -2104,7 +2300,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^14": {
  	 	"x": 9,
@@ -2157,7 +2360,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^13": {
  	 	"x": 0,
@@ -2286,7 +2496,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
@@ -2300,7 +2510,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^13": {
  	 	"x": 5,
@@ -2323,7 +2540,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^13": {
  	 	"x": 6,
@@ -2332,7 +2556,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
@@ -2346,7 +2570,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^13": {
  	 	"x": 7,
@@ -2369,7 +2600,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^13": {
  	 	"x": 8,
@@ -2392,7 +2630,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^13": {
  	 	"x": 9,
@@ -2401,7 +2646,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
@@ -2415,7 +2660,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^13": {
  	 	"x": 10,
@@ -2438,7 +2690,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^12": {
  	 	"x": 0,
@@ -2611,7 +2870,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^12": {
  	 	"x": 6,
@@ -2646,7 +2912,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2100000,
- 	 	"gather_silver_speed": 10500
+ 	 	"gather_silver_speed": 10500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^12": {
  	 	"x": 7,
@@ -2669,7 +2942,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^12": {
  	 	"x": 8,
@@ -2692,7 +2972,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^12": {
  	 	"x": 9,
@@ -2715,7 +3002,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^12": {
  	 	"x": 10,
@@ -2738,7 +3032,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^11": {
  	 	"x": 0,
@@ -2881,7 +3182,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^11": {
  	 	"x": 5,
@@ -2904,7 +3212,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^11": {
  	 	"x": 6,
@@ -2939,7 +3254,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3600000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^11": {
  	 	"x": 7,
@@ -2962,7 +3284,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^11": {
  	 	"x": 8,
@@ -3027,7 +3356,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3600000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^11": {
  	 	"x": 10,
@@ -3062,7 +3398,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2100000,
- 	 	"gather_silver_speed": 10500
+ 	 	"gather_silver_speed": 10500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^10": {
  	 	"x": 0,
@@ -3205,7 +3548,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^10": {
  	 	"x": 5,
@@ -3214,7 +3564,7 @@
  	 	"y_id": 10,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
@@ -3228,7 +3578,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^10": {
  	 	"x": 6,
@@ -3267,7 +3624,7 @@
  	 	"y_id": 10,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
@@ -3281,7 +3638,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^10": {
  	 	"x": 8,
@@ -3364,7 +3728,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^9": {
  	 	"x": 0,
@@ -3463,7 +3834,7 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
@@ -3477,7 +3848,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^9": {
  	 	"x": 4,
@@ -3500,7 +3878,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^9": {
  	 	"x": 5,
@@ -3523,7 +3908,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^9": {
  	 	"x": 6,
@@ -3606,7 +3998,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^9": {
  	 	"x": 9,
@@ -3629,7 +4028,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^9": {
  	 	"x": 10,
@@ -3664,7 +4070,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3000000,
- 	 	"gather_silver_speed": 15000
+ 	 	"gather_silver_speed": 15000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^8": {
  	 	"x": 0,
@@ -3807,7 +4220,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^8": {
  	 	"x": 5,
@@ -3830,7 +4250,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^8": {
  	 	"x": 6,
@@ -3899,7 +4326,7 @@
  	 	"y_id": 8,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
@@ -3913,7 +4340,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^8": {
  	 	"x": 9,
@@ -3936,7 +4370,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^8": {
  	 	"x": 10,
@@ -3959,7 +4400,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^7": {
  	 	"x": 0,
@@ -4058,7 +4506,7 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
@@ -4072,7 +4520,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^7": {
  	 	"x": 4,
@@ -4095,7 +4550,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^7": {
  	 	"x": 5,
@@ -4134,7 +4596,7 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
@@ -4148,7 +4610,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^7": {
  	 	"x": 7,
@@ -4157,7 +4626,7 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
@@ -4171,7 +4640,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^7": {
  	 	"x": 8,
@@ -4206,7 +4682,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 4200000,
- 	 	"gather_silver_speed": 21000
+ 	 	"gather_silver_speed": 21000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^7": {
  	 	"x": 9,
@@ -4229,7 +4712,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^7": {
  	 	"x": 10,
@@ -4252,7 +4742,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^6": {
  	 	"x": 0,
@@ -4395,7 +4892,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^6": {
  	 	"x": 5,
@@ -4434,7 +4938,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
@@ -4448,7 +4952,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^6": {
  	 	"x": 7,
@@ -4471,7 +4982,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^6": {
  	 	"x": 8,
@@ -4494,7 +5012,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^6": {
  	 	"x": 9,
@@ -4503,7 +5028,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
@@ -4517,7 +5042,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^6": {
  	 	"x": 10,
@@ -4526,7 +5058,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
@@ -4540,7 +5072,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^5": {
  	 	"x": 0,
@@ -4653,7 +5192,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^5": {
  	 	"x": 4,
@@ -4688,7 +5234,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 4800000,
- 	 	"gather_silver_speed": 24000
+ 	 	"gather_silver_speed": 24000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^5": {
  	 	"x": 5,
@@ -4711,7 +5264,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^5": {
  	 	"x": 6,
@@ -4734,7 +5294,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^5": {
  	 	"x": 7,
@@ -4743,7 +5310,7 @@
  	 	"y_id": 5,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 17000,
@@ -4757,7 +5324,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^5": {
  	 	"x": 8,
@@ -4780,7 +5354,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^5": {
  	 	"x": 9,
@@ -4803,7 +5384,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^5": {
  	 	"x": 10,
@@ -4826,7 +5414,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^4": {
  	 	"x": 0,
@@ -4865,7 +5460,7 @@
  	 	"y_id": 4,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
@@ -4879,7 +5474,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-6^4": {
  	 	"x": 2,
@@ -4962,7 +5564,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^4": {
  	 	"x": 5,
@@ -5001,7 +5610,7 @@
  	 	"y_id": 4,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 18000,
@@ -5015,7 +5624,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^4": {
  	 	"x": 7,
@@ -5050,7 +5666,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 5400000,
- 	 	"gather_silver_speed": 27000
+ 	 	"gather_silver_speed": 27000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^4": {
  	 	"x": 8,
@@ -5073,7 +5696,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^4": {
  	 	"x": 9,
@@ -5082,7 +5712,7 @@
  	 	"y_id": 4,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 16000,
@@ -5096,7 +5726,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^4": {
  	 	"x": 10,
@@ -5119,7 +5756,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^3": {
  	 	"x": 0,
@@ -5142,7 +5786,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-7^3": {
  	 	"x": 1,
@@ -5165,7 +5816,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-5^3": {
  	 	"x": 2,
@@ -5218,7 +5876,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^3": {
  	 	"x": 4,
@@ -5227,7 +5892,7 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 18000,
@@ -5241,7 +5906,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^3": {
  	 	"x": 5,
@@ -5250,7 +5922,7 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 19000,
@@ -5264,7 +5936,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^3": {
  	 	"x": 6,
@@ -5287,7 +5966,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^3": {
  	 	"x": 7,
@@ -5322,7 +6008,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 5700000,
- 	 	"gather_silver_speed": 28500
+ 	 	"gather_silver_speed": 28500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^3": {
  	 	"x": 8,
@@ -5331,7 +6024,7 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 18000,
@@ -5345,7 +6038,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^3": {
  	 	"x": 9,
@@ -5368,7 +6068,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^3": {
  	 	"x": 10,
@@ -5377,7 +6084,7 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 16000,
@@ -5391,7 +6098,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^2": {
  	 	"x": 0,
@@ -5456,7 +6170,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 4200000,
- 	 	"gather_silver_speed": 21000
+ 	 	"gather_silver_speed": 21000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-6^2": {
  	 	"x": 2,
@@ -5539,7 +6260,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^2": {
  	 	"x": 5,
@@ -5604,7 +6332,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 7200000,
- 	 	"gather_silver_speed": 36000
+ 	 	"gather_silver_speed": 36000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^2": {
  	 	"x": 7,
@@ -5613,7 +6348,7 @@
  	 	"y_id": 2,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 19000,
@@ -5627,7 +6362,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^2": {
  	 	"x": 8,
@@ -5650,7 +6392,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^2": {
  	 	"x": 9,
@@ -5685,7 +6434,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 5100000,
- 	 	"gather_silver_speed": 25500
+ 	 	"gather_silver_speed": 25500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^2": {
  	 	"x": 10,
@@ -5708,7 +6464,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^1": {
  	 	"x": 0,
@@ -5717,7 +6480,7 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
@@ -5731,7 +6494,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-7^1": {
  	 	"x": 1,
@@ -5814,7 +6584,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^1": {
  	 	"x": 4,
@@ -5837,7 +6614,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^1": {
  	 	"x": 5,
@@ -5860,7 +6644,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^1": {
  	 	"x": 6,
@@ -5869,7 +6660,7 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 19000,
@@ -5883,7 +6674,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^1": {
  	 	"x": 7,
@@ -5892,7 +6690,7 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 19000,
@@ -5906,7 +6704,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^1": {
  	 	"x": 8,
@@ -5929,7 +6734,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^1": {
  	 	"x": 9,
@@ -5952,7 +6764,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^1": {
  	 	"x": 10,
@@ -5987,7 +6806,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 4800000,
- 	 	"gather_silver_speed": 24000
+ 	 	"gather_silver_speed": 24000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^0": {
  	 	"x": 0,
@@ -6100,7 +6926,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-2^0": {
  	 	"x": 4,
@@ -6109,7 +6942,7 @@
  	 	"y_id": 0,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 17000,
@@ -6123,7 +6956,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^0": {
  	 	"x": 5,
@@ -6206,7 +7046,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^0": {
  	 	"x": 8,
@@ -6215,7 +7062,7 @@
  	 	"y_id": 0,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 17000,
@@ -6229,7 +7076,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^0": {
  	 	"x": 9,
@@ -6252,7 +7106,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^0": {
  	 	"x": 10,
@@ -6365,7 +7226,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-3^-1": {
  	 	"x": 3,
@@ -6388,7 +7256,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^-1": {
  	 	"x": 4,
@@ -6411,7 +7286,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"1^-1": {
  	 	"x": 5,
@@ -6494,7 +7376,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1700000,
- 	 	"gather_silver_speed": 17000
+ 	 	"gather_silver_speed": 17000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-1": {
  	 	"x": 8,
@@ -6529,7 +7418,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 4800000,
- 	 	"gather_silver_speed": 24000
+ 	 	"gather_silver_speed": 24000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-1": {
  	 	"x": 9,
@@ -6552,7 +7448,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-1": {
  	 	"x": 10,
@@ -6561,7 +7464,7 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -6575,7 +7478,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-2": {
  	 	"x": 0,
@@ -6778,7 +7688,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-2": {
  	 	"x": 7,
@@ -6801,7 +7718,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-2": {
  	 	"x": 8,
@@ -6810,7 +7734,7 @@
  	 	"y_id": -2,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
@@ -6824,7 +7748,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
- 	 	"gather_silver_speed": 16000
+ 	 	"gather_silver_speed": 16000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-2": {
  	 	"x": 9,
@@ -6859,7 +7790,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 5200000,
- 	 	"gather_silver_speed": 26000
+ 	 	"gather_silver_speed": 26000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-2": {
  	 	"x": 10,
@@ -7062,7 +8000,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^-3": {
  	 	"x": 6,
@@ -7085,7 +8030,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-3": {
  	 	"x": 7,
@@ -7124,7 +8076,7 @@
  	 	"y_id": -3,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -7138,7 +8090,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1400000,
- 	 	"gather_silver_speed": 14000
+ 	 	"gather_silver_speed": 14000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-3": {
  	 	"x": 9,
@@ -7203,7 +8162,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3600000,
- 	 	"gather_silver_speed": 18000
+ 	 	"gather_silver_speed": 18000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-4": {
  	 	"x": 0,
@@ -7376,7 +8342,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^-4": {
  	 	"x": 6,
@@ -7399,7 +8372,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-4": {
  	 	"x": 7,
@@ -7408,7 +8388,7 @@
  	 	"y_id": -4,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
@@ -7422,7 +8402,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 12000
+ 	 	"gather_silver_speed": 12000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-4": {
  	 	"x": 8,
@@ -7517,7 +8504,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3300000,
- 	 	"gather_silver_speed": 16500
+ 	 	"gather_silver_speed": 16500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-5": {
  	 	"x": 0,
@@ -7690,7 +8684,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^-5": {
  	 	"x": 6,
@@ -7713,7 +8714,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1100000,
- 	 	"gather_silver_speed": 11000
+ 	 	"gather_silver_speed": 11000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-5": {
  	 	"x": 7,
@@ -7782,7 +8790,7 @@
  	 	"y_id": -5,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
@@ -7796,7 +8804,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-5": {
  	 	"x": 10,
@@ -7819,7 +8834,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-6": {
  	 	"x": 0,
@@ -7992,7 +9014,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^-6": {
  	 	"x": 6,
@@ -8027,7 +9056,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 3000000,
- 	 	"gather_silver_speed": 15000
+ 	 	"gather_silver_speed": 15000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-6": {
  	 	"x": 7,
@@ -8080,7 +9116,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-6": {
  	 	"x": 9,
@@ -8133,7 +9176,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-7": {
  	 	"x": 0,
@@ -8306,7 +9356,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^-7": {
  	 	"x": 6,
@@ -8345,7 +9402,7 @@
  	 	"y_id": -7,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 8000,
@@ -8359,7 +9416,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-7": {
  	 	"x": 8,
@@ -8382,7 +9446,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 800000,
- 	 	"gather_silver_speed": 8000
+ 	 	"gather_silver_speed": 8000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-7": {
  	 	"x": 9,
@@ -8435,7 +9506,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-8": {
  	 	"x": 0,
@@ -8624,7 +9702,7 @@
  	 	"y_id": -8,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 7000,
@@ -8638,7 +9716,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-8": {
  	 	"x": 7,
@@ -8661,7 +9746,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-8": {
  	 	"x": 8,
@@ -8684,7 +9776,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
- 	 	"gather_silver_speed": 7000
+ 	 	"gather_silver_speed": 7000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-8": {
  	 	"x": 9,
@@ -8719,7 +9818,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2100000,
- 	 	"gather_silver_speed": 10500
+ 	 	"gather_silver_speed": 10500,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-8": {
  	 	"x": 10,
@@ -8742,7 +9848,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-9": {
  	 	"x": 0,
@@ -8915,7 +10028,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"3^-9": {
  	 	"x": 6,
@@ -8968,7 +10088,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-9": {
  	 	"x": 8,
@@ -8991,7 +10118,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-9": {
  	 	"x": 9,
@@ -9014,7 +10148,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-9": {
  	 	"x": 10,
@@ -9023,7 +10164,7 @@
  	 	"y_id": -9,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
@@ -9037,7 +10178,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-10": {
  	 	"x": 0,
@@ -9210,7 +10358,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"2^-10": {
  	 	"x": 6,
@@ -9263,7 +10418,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-10": {
  	 	"x": 8,
@@ -9272,7 +10434,7 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
@@ -9286,7 +10448,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
- 	 	"gather_silver_speed": 4000
+ 	 	"gather_silver_speed": 4000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-10": {
  	 	"x": 9,
@@ -9321,7 +10490,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1200000,
- 	 	"gather_silver_speed": 6000
+ 	 	"gather_silver_speed": 6000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-10": {
  	 	"x": 10,
@@ -9330,7 +10506,7 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 3000,
@@ -9344,7 +10520,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-11": {
  	 	"x": 0,
@@ -9457,7 +10640,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^-11": {
  	 	"x": 4,
@@ -9556,7 +10746,7 @@
  	 	"y_id": -11,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 3000,
@@ -9570,7 +10760,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-11": {
  	 	"x": 8,
@@ -9593,7 +10790,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-11": {
  	 	"x": 9,
@@ -9616,7 +10820,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 300000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-11": {
  	 	"x": 10,
@@ -9639,7 +10850,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-12": {
  	 	"x": 0,
@@ -9782,7 +11000,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^-12": {
  	 	"x": 5,
@@ -9881,7 +11106,7 @@
  	 	"y_id": -12,
  	 	"type": 1,
  	 	"distance": 15,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -9895,7 +11120,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-12": {
  	 	"x": 9,
@@ -9918,7 +11150,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-12": {
  	 	"x": 10,
@@ -9953,7 +11192,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-13": {
  	 	"x": 0,
@@ -10036,7 +11282,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-3^-13": {
  	 	"x": 3,
@@ -10071,7 +11324,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^-13": {
  	 	"x": 4,
@@ -10140,7 +11400,7 @@
  	 	"y_id": -13,
  	 	"type": 1,
  	 	"distance": 16,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -10154,7 +11414,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-13": {
  	 	"x": 7,
@@ -10177,7 +11444,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-13": {
  	 	"x": 8,
@@ -10186,7 +11460,7 @@
  	 	"y_id": -13,
  	 	"type": 1,
  	 	"distance": 16,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -10200,7 +11474,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-13": {
  	 	"x": 9,
@@ -10223,7 +11504,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-13": {
  	 	"x": 10,
@@ -10246,7 +11534,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-14": {
  	 	"x": 0,
@@ -10359,7 +11654,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-2^-14": {
  	 	"x": 4,
@@ -10382,7 +11684,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^-14": {
  	 	"x": 5,
@@ -10447,7 +11756,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-14": {
  	 	"x": 7,
@@ -10470,7 +11786,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-14": {
  	 	"x": 8,
@@ -10493,7 +11816,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-14": {
  	 	"x": 9,
@@ -10502,7 +11832,7 @@
  	 	"y_id": -14,
  	 	"type": 1,
  	 	"distance": 17,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -10516,7 +11846,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-14": {
  	 	"x": 10,
@@ -10539,7 +11876,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-15": {
  	 	"x": 0,
@@ -10622,7 +11966,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-3^-15": {
  	 	"x": 3,
@@ -10645,7 +11996,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^-15": {
  	 	"x": 4,
@@ -10714,7 +12072,7 @@
  	 	"y_id": -15,
  	 	"type": 1,
  	 	"distance": 18,
- 	 	"parameter": 1,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -10728,7 +12086,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-15": {
  	 	"x": 7,
@@ -10737,7 +12102,7 @@
  	 	"y_id": -15,
  	 	"type": 1,
  	 	"distance": 18,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -10751,7 +12116,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-15": {
  	 	"x": 8,
@@ -10786,7 +12158,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
- 	 	"gather_silver_speed": 10000
+ 	 	"gather_silver_speed": 10000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-15": {
  	 	"x": 9,
@@ -10851,7 +12230,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-16": {
  	 	"x": 0,
@@ -10964,7 +12350,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-2^-16": {
  	 	"x": 4,
@@ -10987,7 +12380,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"0^-16": {
  	 	"x": 5,
@@ -11040,7 +12440,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-16": {
  	 	"x": 7,
@@ -11063,7 +12470,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-16": {
  	 	"x": 8,
@@ -11072,7 +12486,7 @@
  	 	"y_id": -16,
  	 	"type": 1,
  	 	"distance": 19,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -11086,7 +12500,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-16": {
  	 	"x": 9,
@@ -11139,7 +12560,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-9^-17": {
  	 	"x": 0,
@@ -11252,7 +12680,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-1^-17": {
  	 	"x": 4,
@@ -11335,7 +12770,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-17": {
  	 	"x": 7,
@@ -11344,7 +12786,7 @@
  	 	"y_id": -17,
  	 	"type": 1,
  	 	"distance": 20,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -11358,7 +12800,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"7^-17": {
  	 	"x": 8,
@@ -11423,7 +12872,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 600000,
- 	 	"gather_silver_speed": 3000
+ 	 	"gather_silver_speed": 3000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-17": {
  	 	"x": 10,
@@ -11446,7 +12902,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000
+ 	 	"gather_silver_speed": 2000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-18": {
  	 	"x": 0,
@@ -11575,7 +13038,7 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 21,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 0,
@@ -11635,7 +13098,7 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 21,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 0,
@@ -11755,7 +13218,7 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 21,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 0,
@@ -11979,7 +13442,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
- 	 	"gather_silver_speed": 20000
+ 	 	"gather_silver_speed": 20000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"5^-19": {
  	 	"x": 7,
@@ -12032,7 +13502,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
- 	 	"gather_silver_speed": 20000
+ 	 	"gather_silver_speed": 20000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"9^-19": {
  	 	"x": 9,
@@ -12067,7 +13544,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 6000000,
- 	 	"gather_silver_speed": 30000
+ 	 	"gather_silver_speed": 30000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"11^-19": {
  	 	"x": 10,
@@ -12090,7 +13574,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
- 	 	"gather_silver_speed": 20000
+ 	 	"gather_silver_speed": 20000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"-10^-20": {
  	 	"x": 0,
@@ -12293,7 +13784,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"4^-20": {
  	 	"x": 7,
@@ -12316,7 +13814,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"6^-20": {
  	 	"x": 8,
@@ -12339,7 +13844,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"8^-20": {
  	 	"x": 9,
@@ -12362,7 +13874,14 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 1900000,
- 	 	"gather_silver_speed": 19000
+ 	 	"gather_silver_speed": 19000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	},
  	"10^-20": {
  	 	"x": 10,
@@ -12727,6 +14246,13 @@
  	 	 	}
  	 	],
  	 	"silver_total_number": 5400000,
- 	 	"gather_silver_speed": 27000
+ 	 	"gather_silver_speed": 27000,
+ 	 	"victory_occupy_reward": [
+ 	 	 	{
+ 	 	 	 	"type": 0,
+ 	 	 	 	"name": "0",
+ 	 	 	 	"count": 0
+ 	 	 	}
+ 	 	]
  	}
 }
