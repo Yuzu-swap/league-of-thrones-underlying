@@ -215,6 +215,7 @@ for (var y = 0; y < rows; y++) {
             "x_id": x_id,
             "y_id": y_id,
             "type": type,
+            "distance": distance,
             "parameter": parameter,
             "area_block": area_block,
             "area": area,
