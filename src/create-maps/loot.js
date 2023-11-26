@@ -24,8 +24,8 @@ list.forEach(function(item, index){
 		let buff_ids = item.buff_id.split('|');
 		item.buff_id = buff_ids[Math.round(Math.random()*987664)%buff_ids.length]/1;
 
-		//defense|type|count|type
 		/*
+		attack|defense|type|count
 		[35000|35000|1|20000]|[35000|35000|2|20000]|[35000|35000|3|20000]
       "troops":[
          {
@@ -41,10 +41,10 @@ list.forEach(function(item, index){
 		_troops.forEach(function(_troop){
 			_troop = _troop.split('[').join('').split(']').join('').split('|');
 			troops.push({
-             "type": _troop[1]/1,
-             "defense": _troop[0]/1,
-             "count": _troop[2]/1,
-             "attack": _troop[3]/1
+             "attack": _troop[0]/1,
+             "defense": _troop[1]/1,
+             "type": _troop[2]/1,
+             "count": _troop[3]/1
           });
 		});
 		item.troops = troops;
