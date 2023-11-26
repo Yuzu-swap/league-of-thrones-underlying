@@ -236,7 +236,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 200,
+        "buff_value": 100,
         "buff_type":"product",
         "buff_target":[
             "all"
@@ -272,7 +272,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 500,
+        "buff_value": 300,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -397,6 +397,15 @@
         "buff_id": 2005
     },
     {
+        "value_type": 2,
+        "buff_value": 200,
+        "buff_type":"product",
+        "buff_target":[
+            "all"
+        ],
+        "buff_id": 3011
+    },
+    {
         "value_type": 1,
         "buff_value": 0.03,
         "buff_type":"attack",
@@ -406,13 +415,13 @@
         "buff_id": 1007
     },
     {
-        "value_type": 1,
-        "buff_value": 0.05,
-        "buff_type":"attack",
+        "value_type": 2,
+        "buff_value": 4,
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
-        "buff_id": 1015
+        "buff_id": 3012
     },
     {
         "value_type": 2,
@@ -422,6 +431,15 @@
             "all"
         ],
         "buff_id": 5041
+    },
+    {
+        "value_type": 2,
+        "buff_value": 500,
+        "buff_type":"attack",
+        "buff_target":[
+            "all"
+        ],
+        "buff_id": 3013
     },
     {
         "value_type": 2,
@@ -440,6 +458,15 @@
             "all"
         ],
         "buff_id": 5043
+    },
+    {
+        "value_type": 2,
+        "buff_value": 500,
+        "buff_type":"defense",
+        "buff_target":[
+            "all"
+        ],
+        "buff_id": 3014
     },
     {
         "value_type": 2,
@@ -550,6 +577,15 @@
         "buff_id": 5023
     },
     {
+        "value_type": 1,
+        "buff_value": 0.03,
+        "buff_type":"defense",
+        "buff_target":[
+            "all"
+        ],
+        "buff_id": 1008
+    },
+    {
         "value_type": 2,
         "buff_value": 1500,
         "buff_type":"attack",
@@ -557,15 +593,6 @@
             "all"
         ],
         "buff_id": 2011
-    },
-    {
-        "value_type": 1,
-        "buff_value": 0.03,
-        "buff_type":"recruit",
-        "buff_target":[
-            "all"
-        ],
-        "buff_id": 1006
     },
     {
         "value_type": 2,
@@ -578,12 +605,21 @@
     },
     {
         "value_type": 2,
-        "buff_value": 500,
+        "buff_value": 300,
         "buff_type":"defense",
         "buff_target":[
             "all"
         ],
         "buff_id": 3004
+    },
+    {
+        "value_type": 2,
+        "buff_value": 40000,
+        "buff_type":"attack",
+        "buff_target":[
+            "all"
+        ],
+        "buff_id": 5063
     },
     {
         "value_type": 2,
@@ -596,12 +632,12 @@
     },
     {
         "value_type": 2,
-        "buff_value": 40000,
-        "buff_type":"attack",
+        "buff_value": 6000,
+        "buff_type":"product",
         "buff_target":[
             "all"
         ],
-        "buff_id": 5063
+        "buff_id": 2009
     },
     {
         "value_type": 2,
@@ -631,13 +667,13 @@
         "buff_id": 1010
     },
     {
-        "value_type": 2,
-        "buff_value": 1500,
-        "buff_type":"defense",
+        "value_type": 1,
+        "buff_value": 0.05,
+        "buff_type":"attack",
         "buff_target":[
             "all"
         ],
-        "buff_id": 2012
+        "buff_id": 1015
     },
     {
         "value_type": 1,
@@ -650,12 +686,12 @@
     },
     {
         "value_type": 2,
-        "buff_value": 6000,
-        "buff_type":"product",
+        "buff_value": 40,
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
-        "buff_id": 2009
+        "buff_id": 2006
     },
     {
         "value_type": 2,
@@ -749,12 +785,12 @@
     },
     {
         "value_type": 2,
-        "buff_value": 40,
-        "buff_type":"recruit",
+        "buff_value": 2500,
+        "buff_type":"defense",
         "buff_target":[
             "all"
         ],
-        "buff_id": 2006
+        "buff_id": 2016
     },
     {
         "value_type": 1,
@@ -775,13 +811,13 @@
         "buff_id": 1011
     },
     {
-        "value_type": 2,
-        "buff_value": 2500,
-        "buff_type":"defense",
+        "value_type": 1,
+        "buff_value": 0.03,
+        "buff_type":"recruit",
         "buff_target":[
             "all"
         ],
-        "buff_id": 2016
+        "buff_id": 1006
     },
     {
         "value_type": 1,
@@ -793,13 +829,13 @@
         "buff_id": 5072
     },
     {
-        "value_type": 1,
-        "buff_value": 0.03,
+        "value_type": 2,
+        "buff_value": 1500,
         "buff_type":"defense",
         "buff_target":[
             "all"
         ],
-        "buff_id": 1008
+        "buff_id": 2012
     },
     {
         "value_type": 2,

@@ -176,7 +176,7 @@ for (var y = 0; y < rows; y++) {
         }
         if(type == 4){
             // console.log(4444, { type, distance})
-            parameter = Math.ceil(distance/7);
+            parameter = 4 - Math.ceil(distance/7);
         }
         if(type == 6){
             //bgIndex = 11 -> 4; 12 -> 5; 
