@@ -238,6 +238,9 @@ export class Map{
         let allMyHarbors = this.getAllMyHarbors(unionId);
         let { campInfo } = this.getBlockBaseInfo(x_id, y_id);
         let isTargetBlockIsHarbor = campInfo.type === 8;
+
+        console.log('checkBetween:', { campInfo, unionId, isTargetBlockIsHarbor });
+        console.log('checkBetween allMyHarbors:', allMyHarbors);
         
         //only attack non-occupy-harbor when own a harbor
         if(allMyHarbors.length > 0 && isTargetBlockIsHarbor && campInfo.unionId !== unionId){
