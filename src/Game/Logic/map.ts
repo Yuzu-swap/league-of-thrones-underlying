@@ -225,7 +225,9 @@ export class Map{
         let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
         for(let item of campInfo){
             for(let subItem of item){
-                if(subItem.type === 8 && subItem.unionId === unionId){
+                //harbor + capital sit by ocean + river;
+                let isHarbor = subItem['type'] === 8 || (subItem['type'] == 2 && subItem['parameter'] == 14);
+                if(isHarbor && subItem['unionId'] === unionId){
                     allMyHarbors.push(subItem);
                 }
             }
@@ -237,7 +239,8 @@ export class Map{
     checkBetween(unionId : number, x_id: number, y_id: number){
         let allMyHarbors = this.getAllMyHarbors(unionId);
         let { campInfo } = this.getBlockBaseInfo(x_id, y_id);
-        let isTargetBlockIsHarbor = campInfo.type === 8;
+        let isTargetBlockIsHarbor = campInfo['type'] === 8 || (campInfo['type'] == 2 && campInfo['parameter'] == 14);
+
 
         console.log('checkBetween:', { campInfo, unionId, isTargetBlockIsHarbor });
         console.log('checkBetween allMyHarbors:', allMyHarbors);
@@ -1088,6 +1091,9 @@ export class Map{
     }
 
     checkUnionWin(){
+        return this.checkUnionWinForSeperateCapitals();
+
+        //old
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
         let endTime = 0
