@@ -5,6 +5,8 @@ var mapDir = '../gds';
 var buffTable = require(mapDir + '/buff_table.json')['Config'];
 var lootGDS = require('./loot-gds.json');
 
+var count = 0;
+
 var basePoints = [
     12,12,12,12,12,12,12,2,2,2,2,
     12,12,12,12,12,12,12,2,2,2,2,
@@ -71,12 +73,12 @@ center 待定
 */ 
 var specialBlocks  = {
     capitals: [
-        { x: 6, y: 18 },
-        { x: 6, y: 9 },
-        { x: 9, y: 9 },
-        { x: 8, y: 35 },
-        { x: 9, y: 22 },
-        { x: 3, y: 33 }
+        { x: 6, y: 18, x_id: 2, y_id: 2, isHarbor: true },
+        { x: 6, y: 9, x_id: 3, y_id: 11, isHarbor: true },
+        { x: 9, y: 9, x_id: 9, y_id: 11, isHarbor: true },
+        { x: 8, y: 35, x_id: 7, y_id: -15, isHarbor: true },
+        { x: 9, y: 22, x_id: 8, y_id: -2, isHarbor: true },
+        { x: 3, y: 33, x_id: -3, y_id: -13, isHarbor: true }
     ],
     initCamps: [
         { x: 4, y: 39 },
@@ -102,6 +104,7 @@ var specialBlocks  = {
 let rows = 42;
 let cols = 11;
 let mapConfigLoot = {};
+let distanceAll = calDistanceAll();
 for (var y = 0; y < rows; y++) {
     for (var x = 0; x < cols; x++) {
         let { x_id, y_id } = getIdIndex(x, y);
@@ -113,7 +116,9 @@ for (var y = 0; y < rows; y++) {
         let area_block = 2 - bgIndex%2;
         let area = Math.round(bgIndex/2);
 
-        let distance = getDistance(x, y);
+        // let distance = getDistance(x_id, y_id);
+        let distance = distanceAll[x_id + '^' + y_id];
+        console.log('distance:', distance)
 
         //地块类型
         /*
@@ -139,9 +144,14 @@ for (var y = 0; y < rows; y++) {
         if(bgIndex == 11 || bgIndex == 12){
             type = 6;
         }
+
+        let isCapitalAndHarbor = false;
         specialBlocks.capitals.forEach(function(item){
             if(item['x'] == x && item['y'] == y){
                 type = 2;
+            }
+            if(item['x'] == x && item['y'] == y && item['isHarbor']){
+                isCapitalAndHarbor = true;
             }
         });
         let unionId = 0;
@@ -170,6 +180,14 @@ for (var y = 0; y < rows; y++) {
                 4: 4
             };
             parameter = randomMap[randomNumber] || 4;
+        }
+        if(type == 2){
+            parameter = 1;
+            if(isCapitalAndHarbor){
+                parameter = 14;
+            }else{
+                parameter = Math.round(Math.random()*99999999)%2 + 1;
+            }
         }
         if(type == 3){
             parameter = unionId;
@@ -235,9 +253,73 @@ fs.writeFile('../gds/map_config_3.json', JSON.stringify(mapConfigLoot, null, ' \
     console.log("map_config_3 数据写入成功！");
 });
 
-
-function getDistance(x, y){
+function calDistanceAll(){
     var centerPoint = specialBlocks['center'];
+    let centerX = centerPoint['x_id'];
+    let centerY = centerPoint['y_id'];
+    let centerIds = centerX + '^' + centerY;
+    let dMap = {
+        [centerIds]: 0
+    };
+    let distanceMax = 22;
+    for(let i =1; i<distanceMax; i++){
+        // console.log(i, dMap)
+        for(var newCenter in dMap){
+            setCirclePoints(newCenter, i);
+        }
+    }
+
+    function setCirclePoints(newCenter, distance){
+        const xOffset = [ 0, 1, 1, 0, -1, -1];
+        const yOffset = [ 2, 1, -1, -2, -1, 1];
+
+        let _centerIds = newCenter.split('^');
+        let _centerX = _centerIds[0]/1;
+        let _centerY = _centerIds[1]/1;
+
+        for(let i = 0; i < 6; i++){
+            let newXYindex = (_centerX + xOffset[i]) + '^' + (_centerY + yOffset[i]);
+            if(!dMap.hasOwnProperty(newXYindex)){
+                dMap[newXYindex] = distance;                
+            }
+        }
+    }
+    return dMap;
+}
+
+
+function getDistance(x_id1, y_id1){
+    //http://www.lvesu.com/blog/main/cms-947.html
+    
+    var centerPoint = specialBlocks['center'];
+    let centerIds = getIdIndex(centerPoint.x, centerPoint.y);
+    let x_id0 = centerIds['x_id'];
+    let y_id0 = centerIds['y_id'];
+        // y_id1 = (y_id1 - y_id1%2)/2;
+    // let d1 = Math.abs(x_id1 - x_id2) + Math.abs(Math.ceil((y_id1 - y_id2)/2));
+    let d1 = 0;
+    if(x_id1 == x_id0){
+        d1 = Math.abs(y_id1 - y_id0)/2;
+    }else if(y_id1 == y_id0){
+        d1 = Math.abs(x_id1 - x_id0);
+    }else if(Math.abs(x_id1 - x_id0) == 1 && Math.abs(y_id1 - y_id0) == 1){
+        d1 = 1;
+    }else{
+        // d1 = Math.abs(x_id1 - x_id0) + Math.ceil(Math.abs(y_id1/2 - y_id0/2)) - 1;
+        // let deltaX = Math.abs(x_id1 - x_id0) - 0.4;
+        // let deltaY = Math.abs(y_id1 - y_id0)/2;
+        // let line = Math.sqrt(Math.pow(deltaX*1.2, 2) + Math.pow(deltaY, 2));
+        d1 = Math.max( Math.abs(x_id1 - x_id0), Math.abs(y_id1/2 - x_id1/2), Math.ceil(Math.abs(1111 - y_id1)%2/2 + Math.abs(y_id1/2 - y_id0/2)));
+    }
+    //{ x_id1: 5, y_id1: 7 } { x_id0: 2, y_id0: 2 } 3
+    //{ x_id1: -1, y_id1: -3 } { x_id0: 2, y_id0: 2 } 3
+    //1=6; 2=12; 3=18;
+    if(d1 == 3){
+        count += 1;
+        // console.log(count, ': ', {x_id1, y_id1}, {x_id0, y_id0}, d1);        
+    }
+    return d1;
+
     var distanceMax = 21;
     var d = Math.sqrt(Math.pow( centerPoint.x - x, 2) + Math.pow( centerPoint.y - y, 2));
     return Math.round(d)%distanceMax + 1;

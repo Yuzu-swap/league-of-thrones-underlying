@@ -164,6 +164,9 @@ function createMap(index, mapItem, tplBg, tplMap) {
             image = item.area + '_' + types[item.type] + '_' + (item.parameter || '0');
             mountains[blockId] = true;
         }
+        if(item.type == 2 && item.parameter == 14){
+            ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
+        }
         if(item.type == 8){
             ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
             image = 'port';
