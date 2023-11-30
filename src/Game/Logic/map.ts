@@ -1014,13 +1014,17 @@ export class Map{
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
         let blockMap = InitState[StateName.Capitals][capitalsKey];
+        console.log('checkUnionWin capticals:', { mapId, capitalsKey }, blockMap);
         return blockMap;
     }
 
     checkUnionWinForSeperateCapitals(){
+        console.log('checkUnionWin start');
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
-        let endTime = 0
+        let endTime = 0;
+
+        console.log('checkUnionWin:', {time, unionWinId: this.gState.unionWinId});
         if(this.gState.unionWinId != 0){
             return {
                 unionWin: true,
@@ -1031,6 +1035,7 @@ export class Map{
         }
 
         let capticals = this.getCapitalsBlocks();
+        console.log('checkUnionWin capticals:', capticals);
 
         let unionWin = true
         let winId = 0
@@ -1038,9 +1043,10 @@ export class Map{
             let blockIds = blockId.split('^');
             let x_id = parseInt(blockIds[0]);
             let y_id = parseInt(blockIds[1]);
-            let blockState = this.getBlockState(x_id, y_id)
+            let blockState = this.getBlockState(x_id, y_id);
+            console.log('checkUnionWin blockId:', { blockId, x_id, y_id });
             if(!blockState){
-                throw "error when check unionWin"
+                throw "error blockState when check unionWin"
             }
             if( blockState.belong.unionId == 0){
                 unionWin = false
