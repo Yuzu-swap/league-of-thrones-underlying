@@ -1010,11 +1010,28 @@ export class Map{
         return list
     }
 
-    getCapitalsBlocks(){
+    _getCapitalsBlocks(){
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
         let blockMap = InitState[StateName.Capitals][capitalsKey];
         console.log('checkUnionWin capticals:', { mapId, capitalsKey }, blockMap);
+        return blockMap;
+    }
+
+
+    getCapitalsBlocks(){
+        let blockMap = {};
+        let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
+        console.log('checkUnionWin allblocks:', campInfo);
+        for(let item of campInfo){
+            for(let subItem of item){
+                let isCaptial = subItem['type'] == 2;
+                if(isCaptial){
+                    blockMap[subItem.x_id + "^" + subItem.y_id] = subItem;
+                }
+            }
+        }
+        console.log('checkUnionWin capticals:', blockMap);
         return blockMap;
     }
 
