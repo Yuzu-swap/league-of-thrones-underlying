@@ -1085,6 +1085,8 @@ export class Map{
             }
         }
 
+        console.log('checkUnionWin status:', { unionWin, status }, UnionWinStatus);
+
         if(!unionWin && status ==  UnionWinStatus.Normal){
             return {
                 unionWin : unionWin,
