@@ -7,6 +7,8 @@ var lootGDS = require('./loot-gds.json');
 
 var count = 0;
 
+var mapId = 3;
+
 var basePoints = [
     12,12,12,12,12,12,12,2,2,2,2,
     12,12,12,12,12,12,12,2,2,2,2,
@@ -246,11 +248,11 @@ for (var y = 0; y < rows; y++) {
     }
 }
 
-fs.writeFile('../gds/map_config_3.json', JSON.stringify(mapConfigLoot, null, ' \t'), function(err) {
+fs.writeFile('../gds/map_config_' + mapId + '.json', JSON.stringify(mapConfigLoot, null, ' \t'), function(err) {
     if (err) {
         return console.error(err);
     }
-    console.log("map_config_3 数据写入成功！");
+    console.log("map_config_ " + mapId + " 数据写入成功！");
 });
 
 function calDistanceAll(){
