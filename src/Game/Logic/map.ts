@@ -1051,6 +1051,9 @@ export class Map{
             }
         }
 
+        let _capticals = this._getCapitalsBlocks();
+        console.log('checkUnionWin _capticals:', _capticals);
+
         let capticals = this.getCapitalsBlocks();
         console.log('checkUnionWin capticals:', capticals);
 
