@@ -1010,19 +1010,19 @@ export class Map{
         return list
     }
 
-    _getCapitalsBlocks(){
+    getCapitalsBlocks(){
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
         let blockMap = InitState[StateName.Capitals][capitalsKey];
-        console.log('checkUnionWin capticals:', { mapId, capitalsKey }, blockMap);
+        console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
         return blockMap;
     }
 
 
-    getCapitalsBlocks(){
+    _getCapitalsBlocks(){
         let blockMap = {};
         let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
-        console.log('checkUnionWin allblocks:', campInfo);
+        console.log('checkUnionWin by allblocks:', campInfo);
         for(let item of campInfo){
             for(let subItem of item){
                 let isCaptial = subItem['type'] == 2;
@@ -1031,7 +1031,7 @@ export class Map{
                 }
             }
         }
-        console.log('checkUnionWin capticals:', blockMap);
+        console.log('checkUnionWin by allblocks:', blockMap);
         return blockMap;
     }
 
@@ -1057,8 +1057,11 @@ export class Map{
         let capticals = this.getCapitalsBlocks();
         console.log('checkUnionWin capticals:', capticals);
 
-        let unionWin = true
-        let winId = 0
+        let winId = 0;
+        let unionWin = true;
+        if(JSON.stringify(capticals) == '{}'){
+            unionWin = false;
+        }
         for(var blockId in capticals){
             let blockIds = blockId.split('^');
             let x_id = parseInt(blockIds[0]);
