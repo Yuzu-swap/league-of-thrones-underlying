@@ -133,8 +133,8 @@ export class Map{
             return 0;
         }
         if(campInfo.length > yIndex && campInfo[yIndex].length > xIndex ){
-            console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
-            console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
+            // console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
+            // console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
             return campInfo[yIndex][xIndex].unionId
         }
         return 0
@@ -1018,23 +1018,6 @@ export class Map{
         return blockMap;
     }
 
-
-    _getCapitalsBlocks(){
-        let blockMap = {};
-        let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
-        console.log('checkUnionWin by allblocks:', campInfo);
-        for(let item of campInfo){
-            for(let subItem of item){
-                let isCaptial = subItem['type'] == 2;
-                if(isCaptial){
-                    blockMap[subItem.x_id + "^" + subItem.y_id] = subItem;
-                }
-            }
-        }
-        console.log('checkUnionWin by allblocks:', blockMap);
-        return blockMap;
-    }
-
     checkUnionWinForSeperateCapitals(){
         console.log('checkUnionWin start');
         let time = getTimeStamp()
@@ -1051,11 +1034,11 @@ export class Map{
             }
         }
 
-        let _capticals = this._getCapitalsBlocks();
-        console.log('checkUnionWin _capticals:', _capticals);
-
         let capticals = this.getCapitalsBlocks();
         console.log('checkUnionWin capticals:', capticals);
+
+        let blockStates = this.blockStates;
+        console.log('checkUnionWin capticals blockStates:', blockStates);
 
         let winId = 0;
         let unionWin = true;
