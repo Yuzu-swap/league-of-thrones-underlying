@@ -88,7 +88,8 @@ var specialBlocks  = {
         { x: 10, y: 0 },
         { x: 0, y: 18 }
     ],
-    center: { x: 6, y: 18, x_id: 2, y_id: 2 },
+    center3: { x: 6, y: 18, x_id: 2, y_id: 2 },
+    center: { x: 5, y: 20, x_id: 0, y_id: 0 },
     city: [
         { "x":6, "y":18, "isLittle":false },
         { "x":9, "y":22, "isLittle":false },
