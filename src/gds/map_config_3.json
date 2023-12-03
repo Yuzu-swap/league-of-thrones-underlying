@@ -220,7 +220,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -276,11 +276,11 @@
  	 	"y_id": 20,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -550,7 +550,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -610,7 +610,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -640,7 +640,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -820,7 +820,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -850,7 +850,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -948,7 +948,7 @@
  	 	"y_id": 18,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -978,11 +978,11 @@
  	 	"y_id": 18,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 1,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1188,11 +1188,11 @@
  	 	"y_id": 17,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1312,7 +1312,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1492,7 +1492,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -1552,7 +1552,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1620,11 +1620,11 @@
  	 	"y_id": 16,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1654,7 +1654,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1696,7 +1696,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1002,
+ 	 	"buff_id": 1004,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1824,11 +1824,11 @@
  	 	"y_id": 15,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -1858,7 +1858,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -1888,7 +1888,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -1918,7 +1918,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2184,7 +2184,7 @@
  	 	"y_id": 14,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -2214,11 +2214,11 @@
  	 	"y_id": 14,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -2248,7 +2248,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -2278,7 +2278,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2350,7 +2350,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2496,7 +2496,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -2526,7 +2526,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -2560,7 +2560,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -2586,11 +2586,11 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -2620,7 +2620,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2646,11 +2646,11 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2676,11 +2676,11 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2856,11 +2856,11 @@
  	 	"y_id": 12,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -2890,7 +2890,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 11000,
@@ -2928,11 +2928,11 @@
  	 	"y_id": 12,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -2958,11 +2958,11 @@
  	 	"y_id": 12,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -2988,11 +2988,11 @@
  	 	"y_id": 12,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3022,7 +3022,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3172,7 +3172,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -3198,11 +3198,11 @@
  	 	"y_id": 11,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -3232,7 +3232,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 24000,
- 	 	"buff_id": 1014,
+ 	 	"buff_id": 1015,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -3274,7 +3274,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -3376,7 +3376,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3538,7 +3538,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -3568,7 +3568,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -3718,7 +3718,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3838,7 +3838,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -3868,7 +3868,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -3894,11 +3894,11 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -3988,7 +3988,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -4018,7 +4018,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -4048,7 +4048,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -4206,11 +4206,11 @@
  	 	"y_id": 8,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4360,7 +4360,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -4390,7 +4390,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -4506,11 +4506,11 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4596,11 +4596,11 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4626,11 +4626,11 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -4660,7 +4660,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 16000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 11000,
@@ -4702,7 +4702,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -4732,7 +4732,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -4878,7 +4878,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 1,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
@@ -4938,7 +4938,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
@@ -4972,7 +4972,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -5002,7 +5002,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -5032,7 +5032,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -5062,7 +5062,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -5212,7 +5212,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 32000,
- 	 	"buff_id": 1010,
+ 	 	"buff_id": 1012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -5250,11 +5250,11 @@
  	 	"y_id": 5,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -5314,7 +5314,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -5340,7 +5340,7 @@
  	 	"y_id": 5,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -5374,7 +5374,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -5400,11 +5400,11 @@
  	 	"y_id": 5,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -5464,7 +5464,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -5550,11 +5550,11 @@
  	 	"y_id": 4,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -5614,7 +5614,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -5644,7 +5644,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 28000,
- 	 	"buff_id": 1009,
+ 	 	"buff_id": 1010,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 20000,
@@ -5686,7 +5686,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -5716,7 +5716,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -5746,7 +5746,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -5772,11 +5772,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -5866,7 +5866,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -5896,7 +5896,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -5922,11 +5922,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -5952,11 +5952,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -6024,7 +6024,7 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -6058,7 +6058,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -6084,11 +6084,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -6148,7 +6148,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -6246,11 +6246,11 @@
  	 	"y_id": 2,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -6326,7 +6326,7 @@
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 32000,
- 	 	 	 	"defense": 31000,
+ 	 	 	 	"defense": 32000,
  	 	 	 	"type": 3,
  	 	 	 	"count": 18000
  	 	 	}
@@ -6348,7 +6348,7 @@
  	 	"y_id": 2,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -6378,11 +6378,11 @@
  	 	"y_id": 2,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -6412,7 +6412,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1006,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -6454,7 +6454,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -6480,11 +6480,11 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -6574,7 +6574,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -6600,11 +6600,11 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 1,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 20000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -6630,11 +6630,11 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 1,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 20000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -6664,7 +6664,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -6694,7 +6694,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -6754,7 +6754,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -6784,7 +6784,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -6912,7 +6912,7 @@
  	 	"y_id": 0,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 14000,
@@ -6946,7 +6946,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -7066,7 +7066,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -7096,7 +7096,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -7212,11 +7212,11 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -7246,7 +7246,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -7272,11 +7272,11 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 1,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 20000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -7366,7 +7366,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -7396,7 +7396,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 11000,
@@ -7434,11 +7434,11 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -7468,7 +7468,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -7678,7 +7678,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -7704,7 +7704,7 @@
  	 	"y_id": -2,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -7738,7 +7738,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -7768,7 +7768,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 21000,
- 	 	"buff_id": 1013,
+ 	 	"buff_id": 1014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -7986,11 +7986,11 @@
  	 	"y_id": -3,
  	 	"type": 1,
  	 	"distance": 2,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -8016,11 +8016,11 @@
  	 	"y_id": -3,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8140,7 +8140,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -8332,7 +8332,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 18000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -8362,7 +8362,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8388,7 +8388,7 @@
  	 	"y_id": -4,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 1,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -8482,7 +8482,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -8674,7 +8674,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8700,7 +8700,7 @@
  	 	"y_id": -5,
  	 	"type": 1,
  	 	"distance": 4,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
@@ -8790,11 +8790,11 @@
  	 	"y_id": -5,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -8824,7 +8824,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9000,11 +9000,11 @@
  	 	"y_id": -6,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -9034,7 +9034,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 28000,
- 	 	"buff_id": 1009,
+ 	 	"buff_id": 1010,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 20000,
@@ -9106,7 +9106,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -9166,7 +9166,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9406,7 +9406,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -9496,7 +9496,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9706,7 +9706,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9736,7 +9736,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -9796,7 +9796,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 14000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1006,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -9838,7 +9838,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10018,7 +10018,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -10108,7 +10108,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -10138,7 +10138,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10164,11 +10164,11 @@
  	 	"y_id": -9,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10344,11 +10344,11 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -10404,7 +10404,7 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -10434,11 +10434,11 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -10506,11 +10506,11 @@
  	 	"y_id": -10,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10746,11 +10746,11 @@
  	 	"y_id": -11,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -10780,7 +10780,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10806,11 +10806,11 @@
  	 	"y_id": -11,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10840,7 +10840,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10986,7 +10986,7 @@
  	 	"y_id": -12,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 8000,
@@ -11110,7 +11110,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11136,11 +11136,11 @@
  	 	"y_id": -12,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11170,7 +11170,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11272,7 +11272,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11302,7 +11302,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 21000,
- 	 	"buff_id": 1013,
+ 	 	"buff_id": 1014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
@@ -11404,7 +11404,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -11434,7 +11434,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11464,7 +11464,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11494,7 +11494,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11520,11 +11520,11 @@
  	 	"y_id": -13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11644,7 +11644,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11674,7 +11674,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 6000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -11734,7 +11734,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1006,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
@@ -11772,11 +11772,11 @@
  	 	"y_id": -14,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11802,11 +11802,11 @@
  	 	"y_id": -14,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11836,7 +11836,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11862,11 +11862,11 @@
  	 	"y_id": -14,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11956,7 +11956,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11982,11 +11982,11 @@
  	 	"y_id": -15,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12072,11 +12072,11 @@
  	 	"y_id": -15,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12102,11 +12102,11 @@
  	 	"y_id": -15,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12208,7 +12208,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12340,7 +12340,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12370,7 +12370,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12426,11 +12426,11 @@
  	 	"y_id": -16,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12460,7 +12460,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12490,7 +12490,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12546,7 +12546,7 @@
  	 	"y_id": -16,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -12666,11 +12666,11 @@
  	 	"y_id": -17,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12756,11 +12756,11 @@
  	 	"y_id": -17,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12790,7 +12790,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12850,7 +12850,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12888,11 +12888,11 @@
  	 	"y_id": -17,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13038,11 +13038,11 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13102,7 +13102,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13128,11 +13128,11 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13188,7 +13188,7 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -13218,11 +13218,11 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13432,7 +13432,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13488,7 +13488,7 @@
  	 	"y_id": -19,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -13522,7 +13522,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13560,11 +13560,11 @@
  	 	"y_id": -19,
  	 	"type": 1,
  	 	"distance": 15,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13774,7 +13774,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13804,7 +13804,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13830,7 +13830,7 @@
  	 	"y_id": -20,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -13864,7 +13864,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -14224,7 +14224,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1003,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
