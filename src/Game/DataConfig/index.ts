@@ -370,7 +370,7 @@ export function loadMapGDS(mapId: number){
 	return list[mapId] || mapGDS1;
 }
 
-export function getMapConfigFromGDS (mapId: number){
+export function getMapConfigFromGDS(mapId: number){
 	 mapId = mapId || 1;
 	const mapGDS = loadMapGDS(mapId);
 	// console.log('mapId dataconfig:', mapId, mapGDS);

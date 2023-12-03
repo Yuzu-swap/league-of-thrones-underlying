@@ -1067,8 +1067,7 @@ export class Map{
                 }
                 let tempEndTime = blockState.belong.updateTime + this.parameter.victory_need_occupy_times
                 endTime = tempEndTime > endTime ? tempEndTime : endTime
-            }
-            else{
+            }else{
                 unionWin = false
                 status = UnionWinStatus.Normal
                 break

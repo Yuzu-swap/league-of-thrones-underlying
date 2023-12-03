@@ -52,8 +52,10 @@ import {
   createGlobalEsential
 } from '../Logic/creator';
 import { BattleRecordInfo } from '../Logic/general';
-import mapGDS = require('../../gds/map_config.json')
-import mapListGDS = require('../../gds/map_list.json')
+
+import mapGDS = require('../../gds/map_config.json');
+import mapListGDS = require('../../gds/map_list.json');
+import { getMapConfigFromGDS } from '../DataConfig';
 
 import { addToSortList, checkNaNInObj, getTimeStamp, getTxHash, parseStateId } from '../Utils';
 import { innerCancelBlockDefense } from '../Logic/map';
@@ -280,9 +282,30 @@ export class TransitionHandler {
     if(!mapId){
       return [];
     }
-    let re = []
-    const xOffset = [ 0, 1, 1, 0, -1, -1]
-    const yOffset = [ 2, 1, -1, -2, -1, 1]
+    let re = [];
+
+    if(mapId >= 3){
+      let mapConfig = getMapConfigFromGDS(mapId);
+      for(var blockId in mapConfig['config']){
+        let blockInfo = mapConfig['config'][blockId];
+        //get capticals form gds
+        if(blockInfo.type === 2){
+          let newX = blockInfo.x_id;
+          let newY = blockInfo.y_id;
+          let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
+          let newState =  this.stateManger.get(stateId) as IBlockState
+          if(newState){
+            re.push(newState)
+            console.log("getBlockStates newState mapId >= 3:", newState)
+          }
+        }
+      }
+      return re
+    }
+
+    //get capticals form hardcode points; only mapID=1,2
+    const xOffset = [ 0, 1, 1, 0, -1, -1];
+    const yOffset = [ 2, 1, -1, -2, -1, 1];
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`})
     console.log("getBlockStates center:", { mapId, x_id, y_id }, center)
     if(!center){
