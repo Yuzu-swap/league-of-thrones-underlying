@@ -1050,7 +1050,8 @@ export class Map{
             let x_id = parseInt(blockIds[0]);
             let y_id = parseInt(blockIds[1]);
             let blockState = this.getBlockState(x_id, y_id);
-            console.log('checkUnionWin blockId:', { blockId, x_id, y_id });
+            let ownerId = this.getBelongInfo(x_id, y_id);
+            console.log('checkUnionWin blockId:', { blockId, x_id, y_id, ownerId });
             if(!blockState){
                 throw "error blockState when check unionWin"
             }
