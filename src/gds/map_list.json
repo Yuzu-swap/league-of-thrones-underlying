@@ -3,17 +3,26 @@
     {
         "rows": 21,
         "map_id": 1,
-        "cols": 11
+        "cols": 11,
+        "capitalType": "togather"
     },
     {
         "rows": 41,
         "map_id": 2,
-        "cols": 11
+        "cols": 11,
+        "capitalType": "togather"
     },
     {
         "rows": 41,
         "map_id": 3,
-        "cols": 11
+        "cols": 11,
+        "capitalType": "seperate"
+    },
+    {
+        "rows": 41,
+        "map_id": 4,
+        "cols": 11,
+        "capitalType": "seperate"
     }
     ]
 }
