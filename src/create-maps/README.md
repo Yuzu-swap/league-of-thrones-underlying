@@ -14,3 +14,10 @@ https://github.com/shuise/lot-data 生成
 
 1. 配置放入 front/public/map-config
 2. 修改 front/src/map/map_list.json
+
+
+## 特殊逻辑
+bg.json map.json 中 [i*22-1] == 0
+
+## get image
+let a = new Image(); a.src=document.querySelector('.App-seaon-map-canvas canvas').toDataURL(); document.appendChild(a);

@@ -70,6 +70,7 @@ let types = {
 
 var mapDir = '../gds';
 var mapList = require(mapDir + '/map_list.json')['Config'];
+console.log(mapList);
 fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
     if (err) {
         console.error(err);
@@ -100,26 +101,11 @@ function createMap(index, mapItem, tplBg, tplMap) {
     let mapId = mapItem.map_id;
     var cols = mapItem.cols; //11
     var rows = mapItem.rows + 1;  //22;
+    var capitalType = mapItem.capitalType;
 
     console.log({ mapId, cols, rows });
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
-
-    // for (var blockId in blockMap) {
-    //     let row = blockMap[blockId]
-    //     let list = blockId.split('^')
-    //     let unionId = 0
-    //     if( row['type'] == 3 ){
-    //         unionId = row['parameter']
-    //         let x_id = parseInt(list[0]);
-    //         let y_id = parseInt(list[1]);
-    //         let xIndex = (cols - 1 + x_id - Math.abs(x_id%2))/2;
-    //         let yIndex = (rows - 2)/2 - y_id;
-
-    //         console.log('GetMapState gInitState init', { blockId, xIndex, yIndex, unionId });
-    //     }
-    // }
-    // return;
 
     let mapOrder = [];
     let mountains = {};
@@ -176,7 +162,11 @@ function createMap(index, mapItem, tplBg, tplMap) {
         let tileIndex = imageOrderMap[image] || 0;
         tileSetMap[blockId] = tileIndex;
         mapOrder.push(item);
-        bgMap[blockId] = bgIndexMap[item.area + '-' + item.area_block] || 0;
+        if(item.area == 6){
+            bgMap[blockId] = bgIndexMap[item.area + '-' + item.parameter] || 0;
+        }else{
+            bgMap[blockId] = bgIndexMap[item.area + '-' + item.area_block] || 0;            
+        }
     }
 
 
@@ -267,7 +257,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         tilewidth: 204
     };
 
-    content['dataset'] = JSON.stringify(bgIndex);
+    content['dataset'] = adjuestTileData(bgIndex);
     let bgContent = subs(tplBg, content);
     fs.writeFile('./maps-result/' + mapId + '-bg.json', bgContent, function(err) {
         if (err) {
@@ -276,7 +266,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         console.log("bg 数据写入成功！");
     });
 
-    content['dataset'] = JSON.stringify(tileSet);
+    content['dataset'] = adjuestTileData(tileSet);
     let mapContent = subs(tplMap, content);
     fs.writeFile('./maps-result/' + mapId + '-map.json', mapContent, function(err) {
         if (err) {
@@ -310,13 +300,37 @@ function createMap(index, mapItem, tplBg, tplMap) {
     });
 
     mapList[index].mountains = JSON.stringify(mountains);
-    mapList[index].bgIndexs = JSON.stringify(bgIndex);
-    mapList[index].mapIndexs = JSON.stringify(tileSet);
+    mapList[index].bgIndexs = adjuestTileData(bgIndex);
+    mapList[index].mapIndexs = adjuestTileData(tileSet);
     mapList[index].bgIndexsMobile = JSON.stringify(bgIndexMobile);
     mapList[index].mapIndexsMobile = JSON.stringify(tileSetMobile);
     mapList[index].inits = JSON.stringify(inits);
     mapList[index].capitals = JSON.stringify(capitals);
     mapList[index].ports = JSON.stringify(ports);
+    mapList[index].capitalType = capitalType;
+
+    function adjuestTileData(ids){
+        for(var i = 1; i < 21; i++){
+            ids[i*22 - 1] = 0;
+            console.log('adjuestTileData', ids[i*22 - 1]);
+        }
+        let result = JSON.stringify(ids);
+        // result = result.split('"[').join('[');
+        // result = result.split(']"').join(']');
+            console.log('adjuestTileData', result);
+        return result;
+    }
+
+    function resetJsonString(data){
+        let result = JSON.stringify(data);
+        result = result.split('\"').join('"');
+        result = result.split('"[').join('[');
+        result = result.split(']"').join(']');
+        result = result.split('"{').join('{');
+        result = result.split('}"').join('}');
+        console.log('resetJsonString', data, result);
+        return result;
+    }
 }
 
 
