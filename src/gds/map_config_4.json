@@ -186,11 +186,11 @@
  	 	"y_id": 20,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -276,7 +276,7 @@
  	 	"y_id": 20,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -516,11 +516,11 @@
  	 	"y_id": 19,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -616,19 +616,19 @@
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -862,7 +862,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -892,25 +892,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1002,
+ 	 	"buff_id": 1003,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -990,7 +990,7 @@
  	 	"y_id": 18,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
@@ -1084,7 +1084,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1174,7 +1174,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -1200,11 +1200,11 @@
  	 	"y_id": 17,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1290,7 +1290,7 @@
  	 	"y_id": 17,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
@@ -1444,25 +1444,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -1516,25 +1516,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -1554,11 +1554,11 @@
  	 	"y_id": 16,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -1618,25 +1618,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1002,
+ 	 	"buff_id": 1003,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -1750,7 +1750,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1780,7 +1780,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -1866,7 +1866,7 @@
  	 	"y_id": 15,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
@@ -1900,7 +1900,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -1930,25 +1930,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -2092,25 +2092,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 1004,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -2254,25 +2254,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 14000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -2326,7 +2326,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2352,11 +2352,11 @@
  	 	"y_id": 14,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2386,7 +2386,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2446,7 +2446,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2592,7 +2592,7 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 6000,
@@ -2626,7 +2626,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -2652,11 +2652,11 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2682,11 +2682,11 @@
  	 	"y_id": 13,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -2716,25 +2716,25 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 10000,
- 	 	"buff_id": 1004,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -2874,7 +2874,7 @@
  	 	"y_id": 12,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -2998,7 +2998,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -3028,7 +3028,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3324,29 +3324,29 @@
  	 	"y_id": 11,
  	 	"type": 4,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
@@ -3366,11 +3366,11 @@
  	 	"y_id": 11,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3400,7 +3400,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3546,7 +3546,7 @@
  	 	"y_id": 10,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
@@ -3700,7 +3700,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -3726,11 +3726,11 @@
  	 	"y_id": 10,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -3846,7 +3846,7 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
@@ -3880,7 +3880,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -3940,25 +3940,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 20000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
@@ -3978,7 +3978,7 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -4008,7 +4008,7 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
@@ -4038,11 +4038,11 @@
  	 	"y_id": 9,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -4072,7 +4072,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -4222,7 +4222,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4252,7 +4252,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 42000,
- 	 	"buff_id": 1013,
+ 	 	"buff_id": 1016,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -4350,7 +4350,7 @@
  	 	"y_id": 8,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -4410,29 +4410,29 @@
  	 	"y_id": 8,
  	 	"type": 4,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1008,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -4546,7 +4546,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4636,7 +4636,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -4662,7 +4662,7 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
@@ -4692,7 +4692,7 @@
  	 	"y_id": 7,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 8000,
@@ -4726,7 +4726,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -4756,7 +4756,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -4936,7 +4936,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -4992,29 +4992,29 @@
  	 	"y_id": 6,
  	 	"type": 4,
  	 	"distance": 5,
- 	 	"parameter": 3,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 24000,
- 	 	"buff_id": 1010,
+ 	 	"buff_id": 1009,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
@@ -5034,7 +5034,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
@@ -5064,7 +5064,7 @@
  	 	"y_id": 6,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
@@ -5188,7 +5188,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -5338,7 +5338,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -5398,7 +5398,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 18000,
- 	 	"buff_id": 1014,
+ 	 	"buff_id": 1015,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 12000,
@@ -5440,7 +5440,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -5526,7 +5526,7 @@
  	 	"y_id": 4,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
@@ -5566,19 +5566,19 @@
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
@@ -5692,25 +5692,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 28000,
- 	 	"buff_id": 1011,
+ 	 	"buff_id": 1010,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
@@ -5824,7 +5824,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -5880,11 +5880,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -5914,7 +5914,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -6034,7 +6034,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -6064,25 +6064,25 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1008,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1300000,
@@ -6106,7 +6106,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -6132,11 +6132,11 @@
  	 	"y_id": 3,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -6312,11 +6312,11 @@
  	 	"y_id": 2,
  	 	"type": 1,
  	 	"distance": 1,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 20000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -6466,25 +6466,25 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -6504,29 +6504,29 @@
  	 	"y_id": 1,
  	 	"type": 4,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
@@ -6636,11 +6636,11 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 1,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 20000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -6670,7 +6670,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 20000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -6756,7 +6756,7 @@
  	 	"y_id": 1,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 8000,
@@ -6790,7 +6790,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -6820,7 +6820,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -6876,7 +6876,7 @@
  	 	"y_id": 0,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
@@ -7000,7 +7000,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 20000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -7116,7 +7116,7 @@
  	 	"y_id": 0,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 6000,
@@ -7146,29 +7146,29 @@
  	 	"y_id": 0,
  	 	"type": 4,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1008,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -7222,7 +7222,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 24000,
- 	 	"buff_id": 1015,
+ 	 	"buff_id": 1013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -7324,7 +7324,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 20000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -7354,7 +7354,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 20000,
- 	 	"buff_id": 3014,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 30000,
@@ -7380,11 +7380,11 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -7440,7 +7440,7 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -7474,7 +7474,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -7500,11 +7500,11 @@
  	 	"y_id": -1,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -7690,19 +7690,19 @@
  	 	 	 	"attack": 30000,
  	 	 	 	"defense": 30000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 10000
+ 	 	 	 	"count": 20000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 30000,
  	 	 	 	"defense": 30000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 10000
+ 	 	 	 	"count": 20000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 30000,
  	 	 	 	"defense": 30000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 10000
+ 	 	 	 	"count": 20000
  	 	 	}
  	 	],
  	 	"silver_total_number": 3000000,
@@ -7812,7 +7812,7 @@
  	 	"y_id": -2,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 2,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
@@ -7936,25 +7936,25 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 24000,
- 	 	"buff_id": 1011,
+ 	 	"buff_id": 1012,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 17000,
  	 	 	 	"defense": 17000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 6000
+ 	 	 	 	"count": 12000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1800000,
@@ -7978,7 +7978,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8068,7 +8068,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8124,7 +8124,7 @@
  	 	"y_id": -3,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -8154,29 +8154,29 @@
  	 	"y_id": -3,
  	 	"type": 4,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
@@ -8200,7 +8200,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -8286,7 +8286,7 @@
  	 	"y_id": -4,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 1,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 10000,
@@ -8346,11 +8346,11 @@
  	 	"y_id": -4,
  	 	"type": 1,
  	 	"distance": 3,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8410,7 +8410,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8470,7 +8470,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 30000,
- 	 	"buff_id": 1015,
+ 	 	"buff_id": 1014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 20000,
@@ -8512,25 +8512,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 14000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -8550,11 +8550,11 @@
  	 	"y_id": -4,
  	 	"type": 1,
  	 	"distance": 10,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -8610,7 +8610,7 @@
  	 	"y_id": -5,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 8000,
@@ -8644,7 +8644,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -8734,7 +8734,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -8854,7 +8854,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -8880,11 +8880,11 @@
  	 	"y_id": -5,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -8974,25 +8974,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 20000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
@@ -9016,7 +9016,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9076,7 +9076,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 16000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 23000,
@@ -9136,7 +9136,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9226,7 +9226,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9286,25 +9286,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 16000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1008,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 11000,
  	 	 	 	"defense": 11000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 4000
+ 	 	 	 	"count": 8000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1300000,
@@ -9324,7 +9324,7 @@
  	 	"y_id": -7,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
@@ -9358,7 +9358,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9394,19 +9394,19 @@
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 20000,
  	 	 	 	"defense": 20000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 7000
+ 	 	 	 	"count": 14000
  	 	 	}
  	 	],
  	 	"silver_total_number": 2000000,
@@ -9460,7 +9460,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9546,11 +9546,11 @@
  	 	"y_id": -7,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -9580,7 +9580,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9760,7 +9760,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 42000,
- 	 	"buff_id": 1013,
+ 	 	"buff_id": 1016,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 26000,
@@ -9798,11 +9798,11 @@
  	 	"y_id": -8,
  	 	"type": 1,
  	 	"distance": 5,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 12000,
- 	 	"buff_id": 3012,
+ 	 	"buff_id": 3013,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 17000,
@@ -9832,25 +9832,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 20000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 14000,
  	 	 	 	"defense": 14000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 5000
+ 	 	 	 	"count": 10000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1600000,
@@ -9900,7 +9900,7 @@
  	 	"y_id": -8,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 6000,
@@ -9934,7 +9934,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -9964,7 +9964,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10050,7 +10050,7 @@
  	 	"y_id": -9,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 10000,
@@ -10170,7 +10170,7 @@
  	 	"y_id": -9,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 8000,
@@ -10234,7 +10234,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10260,11 +10260,11 @@
  	 	"y_id": -9,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10320,29 +10320,29 @@
  	 	"y_id": -10,
  	 	"type": 4,
  	 	"distance": 9,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 12000,
- 	 	"buff_id": 1008,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 5000,
  	 	 	 	"defense": 5000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 2000
+ 	 	 	 	"count": 6000
  	 	 	}
  	 	],
  	 	"silver_total_number": 700000,
@@ -10576,7 +10576,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10606,7 +10606,7 @@
  	 	"area_block": 2,
  	 	"area": 4,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10636,7 +10636,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10666,7 +10666,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -10906,7 +10906,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10936,7 +10936,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -10992,29 +10992,29 @@
  	 	"y_id": -12,
  	 	"type": 4,
  	 	"distance": 10,
- 	 	"parameter": 2,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1007,
+ 	 	"buff_id": 1008,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -11038,7 +11038,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 18000,
- 	 	"buff_id": 1014,
+ 	 	"buff_id": 1015,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 12000,
@@ -11106,7 +11106,7 @@
  	 	"y_id": -12,
  	 	"type": 1,
  	 	"distance": 7,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 8000,
@@ -11136,7 +11136,7 @@
  	 	"y_id": -12,
  	 	"type": 1,
  	 	"distance": 6,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 10000,
@@ -11224,23 +11224,23 @@
  	 	"y": 32,
  	 	"x_id": 6,
  	 	"y_id": -12,
- 	 	"type": 3,
+ 	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 4,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 2,
- 	 	"durability": 0,
- 	 	"buff_id": 1006,
+ 	 	"durability": 4000,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
- 	 	 	 	"type": 1,
- 	 	 	 	"defense": 0,
- 	 	 	 	"count": 0,
- 	 	 	 	"attack": 0
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 2000
  	 	 	}
  	 	],
- 	 	"silver_total_number": 0,
- 	 	"gather_silver_speed": 0,
+ 	 	"silver_total_number": 400000,
+ 	 	"gather_silver_speed": 4000,
  	 	"victory_occupy_reward": [
  	 	 	{
  	 	 	 	"type": 0,
@@ -11290,7 +11290,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11316,11 +11316,11 @@
  	 	"y_id": -13,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11350,7 +11350,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11410,25 +11410,25 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 14000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -11512,25 +11512,25 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 14000,
- 	 	"buff_id": 1005,
+ 	 	"buff_id": 1007,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -11584,7 +11584,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11640,11 +11640,11 @@
  	 	"y_id": -13,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11674,7 +11674,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11704,7 +11704,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11734,7 +11734,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -11854,25 +11854,25 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 14000,
- 	 	"buff_id": 1006,
+ 	 	"buff_id": 1005,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 8000,
  	 	 	 	"defense": 8000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 3000
+ 	 	 	 	"count": 7000
  	 	 	}
  	 	],
  	 	"silver_total_number": 1000000,
@@ -11896,7 +11896,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -11956,25 +11956,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 1004,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -12028,7 +12028,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12058,7 +12058,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12088,7 +12088,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12208,7 +12208,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12238,7 +12238,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12268,25 +12268,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 1002,
+ 	 	"buff_id": 1003,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -12400,7 +12400,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12430,7 +12430,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12490,7 +12490,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12516,7 +12516,7 @@
  	 	"y_id": -16,
  	 	"type": 1,
  	 	"distance": 8,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 6000,
@@ -12550,7 +12550,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12580,7 +12580,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12610,7 +12610,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12640,7 +12640,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12670,25 +12670,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 1001,
+ 	 	"buff_id": 1003,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -12708,7 +12708,7 @@
  	 	"y_id": -17,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -12742,7 +12742,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12772,7 +12772,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12832,7 +12832,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12862,7 +12862,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -12892,7 +12892,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12922,7 +12922,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -12952,7 +12952,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13018,19 +13018,19 @@
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -13114,7 +13114,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13144,25 +13144,25 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 10000,
- 	 	"buff_id": 1004,
+ 	 	"buff_id": 1001,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -13186,7 +13186,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13212,11 +13212,11 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 9,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 4000,
- 	 	"buff_id": 3011,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 5000,
@@ -13246,7 +13246,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13272,11 +13272,11 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13306,7 +13306,7 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13332,7 +13332,7 @@
  	 	"y_id": -18,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
@@ -13372,19 +13372,19 @@
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -13468,7 +13468,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13528,7 +13528,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13558,7 +13558,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13584,11 +13584,11 @@
  	 	"y_id": -19,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13614,11 +13614,11 @@
  	 	"y_id": -19,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 3,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13708,25 +13708,25 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 10000,
- 	 	"buff_id": 1001,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -13806,7 +13806,7 @@
  	 	"y_id": -20,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 1,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
@@ -13840,7 +13840,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13870,7 +13870,7 @@
  	 	"area_block": 2,
  	 	"area": 1,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13900,7 +13900,7 @@
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13926,11 +13926,11 @@
  	 	"y_id": -20,
  	 	"type": 1,
  	 	"distance": 11,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 3,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -13954,23 +13954,23 @@
  	 	"y": 40,
  	 	"x_id": 4,
  	 	"y_id": -20,
- 	 	"type": 1,
+ 	 	"type": 3,
  	 	"distance": 12,
  	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
- 	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"durability": 0,
+ 	 	"buff_id": 1006,
  	 	"troops": [
  	 	 	{
- 	 	 	 	"attack": 2000,
- 	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"defense": 0,
+ 	 	 	 	"count": 0,
+ 	 	 	 	"attack": 0
  	 	 	}
  	 	],
- 	 	"silver_total_number": 200000,
- 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 0,
+ 	 	"gather_silver_speed": 0,
  	 	"victory_occupy_reward": [
  	 	 	{
  	 	 	 	"type": 0,
@@ -13986,7 +13986,7 @@
  	 	"y_id": -20,
  	 	"type": 1,
  	 	"distance": 13,
- 	 	"parameter": 2,
+ 	 	"parameter": 4,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
@@ -14016,7 +14016,7 @@
  	 	"y_id": -20,
  	 	"type": 1,
  	 	"distance": 14,
- 	 	"parameter": 4,
+ 	 	"parameter": 3,
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 2000,
@@ -14050,25 +14050,25 @@
  	 	"area_block": 2,
  	 	"area": 2,
  	 	"durability": 10000,
- 	 	"buff_id": 1001,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -14178,11 +14178,11 @@
  	 	"y_id": -21,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 3,
+ 	 	"parameter": 1,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -14212,7 +14212,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -14242,7 +14242,7 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3011,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -14268,11 +14268,11 @@
  	 	"y_id": -21,
  	 	"type": 1,
  	 	"distance": 12,
- 	 	"parameter": 4,
+ 	 	"parameter": 2,
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 2000,
- 	 	"buff_id": 3013,
+ 	 	"buff_id": 3014,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
@@ -14362,25 +14362,25 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 10000,
- 	 	"buff_id": 1001,
+ 	 	"buff_id": 1002,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,
@@ -14404,25 +14404,25 @@
  	 	"area_block": 2,
  	 	"area": 0,
  	 	"durability": 10000,
- 	 	"buff_id": 1001,
+ 	 	"buff_id": 1003,
  	 	"troops": [
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 1,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 2,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	},
  	 	 	{
  	 	 	 	"attack": 2000,
  	 	 	 	"defense": 2000,
  	 	 	 	"type": 3,
- 	 	 	 	"count": 1000
+ 	 	 	 	"count": 5000
  	 	 	}
  	 	],
  	 	"silver_total_number": 400000,

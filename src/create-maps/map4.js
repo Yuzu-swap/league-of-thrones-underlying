@@ -4228,7 +4228,7 @@ var specialBlocks  = {
         { x: 5, y: 1 },
         { x: 10, y: 8 },
         { x: 0, y: 30 },
-        { x: 8, y: 32 }
+        { x: 7, y: 40 }
     ],
     center: { x: 5, y: 20, x_id: 0, y_id: 0 }
 };
