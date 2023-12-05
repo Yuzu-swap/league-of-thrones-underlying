@@ -70,7 +70,7 @@ let types = {
 
 var mapDir = '../gds';
 var mapList = require(mapDir + '/map_list.json')['Config'];
-console.log(mapList);
+// console.log(mapList);
 fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
     if (err) {
         console.error(err);
@@ -103,7 +103,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
     var rows = mapItem.rows + 1;  //22;
     var capitalType = mapItem.capitalType;
 
-    console.log({ mapId, cols, rows });
+    // console.log({ mapId, cols, rows });
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
 
@@ -228,6 +228,9 @@ function createMap(index, mapItem, tplBg, tplMap) {
             // if(mapId !== 22 && r.y_id == -10){
                 // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
             // }
+            if(x == 7){
+                console.log({x, y}, tileSetMap[r.x_id + '^' + r.y_id] || 0, bgMap[r.x_id + '^' + r.y_id] || 0);
+            }
             tileSet.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
             bgIndex.push(bgMap[r.x_id + '^' + r.y_id] || 0)
         }
@@ -240,7 +243,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         for (var x = 0; x < xMobile; x++) {
             let r = getIdIndexMobile(x, y, xMobile, yMobile);
             // if(mapId == 2 && y==0){
-                console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
+                // console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
             // }
             // if(mapId !== 22 && r.y_id == -10){
                 // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
@@ -312,12 +315,12 @@ function createMap(index, mapItem, tplBg, tplMap) {
     function adjuestTileData(ids){
         for(var i = 1; i < 21; i++){
             ids[i*22 - 1] = 0;
-            console.log('adjuestTileData', ids[i*22 - 1]);
+            // console.log('adjuestTileData', ids[i*22 - 1]);
         }
         let result = JSON.stringify(ids);
         // result = result.split('"[').join('[');
         // result = result.split(']"').join(']');
-            console.log('adjuestTileData', result);
+            // console.log('adjuestTileData', result);
         return result;
     }
 
@@ -328,7 +331,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         result = result.split(']"').join(']');
         result = result.split('"{').join('{');
         result = result.split('}"').join('}');
-        console.log('resetJsonString', data, result);
+        // console.log('resetJsonString', data, result);
         return result;
     }
 }
