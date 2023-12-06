@@ -86,7 +86,7 @@ export class Map{
 
     getBlockInitState(x_id: number, y_id: number){
         let mapId = this.mapId;
-        const state = InitState[ `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`]
+        const state = InitState[`${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`]
         return state
     }
 
@@ -133,8 +133,8 @@ export class Map{
             return 0;
         }
         if(campInfo.length > yIndex && campInfo[yIndex].length > xIndex ){
-            console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
-            console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
+            // console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
+            // console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
             return campInfo[yIndex][xIndex].unionId
         }
         return 0
@@ -219,7 +219,37 @@ export class Map{
         )
     }
 
+    getAllMyHarbors(unionId){
+        //get data base on 
+        let allMyHarbors = [];
+        let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
+        for(let item of campInfo){
+            for(let subItem of item){
+                //harbor + capital sit by ocean + river;
+                let isHarbor = subItem['type'] === 8 || (subItem['type'] == 2 && subItem['parameter'] == 14);
+                if(isHarbor && subItem['unionId'] === unionId){
+                    allMyHarbors.push(subItem);
+                }
+            }
+        }
+
+        return allMyHarbors;
+    }
+
     checkBetween(unionId : number, x_id: number, y_id: number){
+        let allMyHarbors = this.getAllMyHarbors(unionId);
+        let { campInfo } = this.getBlockBaseInfo(x_id, y_id);
+        let isTargetBlockIsHarbor = campInfo['type'] === 8 || (campInfo['type'] == 2 && campInfo['parameter'] == 14);
+
+
+        console.log('checkBetween:', { campInfo, unionId, isTargetBlockIsHarbor });
+        console.log('checkBetween allMyHarbors:', allMyHarbors);
+        
+        //only attack non-occupy-harbor when own a harbor
+        if(allMyHarbors.length > 0 && isTargetBlockIsHarbor && campInfo.unionId !== unionId){
+            return true;
+        }
+
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = false
@@ -503,7 +533,7 @@ export class Map{
             }
             blockState.update({
                 'defenseList': playerDefenseTroops
-            })
+            });
             this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
         if(remainTroop <= 0 || isAttackNeighbor){
@@ -982,7 +1012,104 @@ export class Map{
         return list
     }
 
+    getCapitalsBlocks(){
+        let mapId = this.mapId;
+        let capitalsKey = 'capitals_' + mapId;
+        let blockMap = InitState[StateName.Capitals][capitalsKey];
+        console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
+        return blockMap;
+    }
+
+    checkUnionWinForSeperateCapitals(){
+        console.log('checkUnionWin start');
+        let time = getTimeStamp()
+        let status = UnionWinStatus.WaitToWin
+        let endTime = 0;
+
+        console.log('checkUnionWin:', {time, unionWinId: this.gState.unionWinId});
+        if(this.gState.unionWinId != 0){
+            return {
+                unionWin: true,
+                unionId: this.gState.unionWinId,
+                status: UnionWinStatus.HaveWin,
+                remainTime: 0
+            }
+        }
+
+        let capticals = this.getCapitalsBlocks();
+        console.log('checkUnionWin capticals:', capticals);
+
+        let blockStates = this.blockStates;
+        console.log('checkUnionWin capticals blockStates:', blockStates);
+
+        let winId = 0;
+        let unionWin = true;
+        if(JSON.stringify(capticals) == '{}'){
+            unionWin = false;
+        }
+        for(var blockId in capticals){
+            let blockIds = blockId.split('^');
+            let x_id = parseInt(blockIds[0]);
+            let y_id = parseInt(blockIds[1]);
+            let blockState = this.getBlockState(x_id, y_id);
+            let ownerId = this.getBelongInfo(x_id, y_id);
+            console.log('checkUnionWin blockId:', { blockId, x_id, y_id, ownerId });
+            if(!blockState){
+                throw "error blockState when check unionWin"
+            }
+            if( blockState.belong.unionId == 0){
+                unionWin = false
+                status = UnionWinStatus.Normal
+                break
+            }
+            if( winId == 0 || blockState.belong.unionId == winId){
+                winId = blockState.belong.unionId
+                if(time - blockState.belong.updateTime < this.parameter.victory_need_occupy_times){
+                    unionWin = false
+                }
+                let tempEndTime = blockState.belong.updateTime + this.parameter.victory_need_occupy_times
+                endTime = tempEndTime > endTime ? tempEndTime : endTime
+            }else{
+                unionWin = false
+                status = UnionWinStatus.Normal
+                break
+            }
+        }
+
+        console.log('checkUnionWin status:', { unionWin, status }, UnionWinStatus);
+
+        if(!unionWin && status ==  UnionWinStatus.Normal){
+            return {
+                unionWin : unionWin,
+                unionId : 0,
+                status : UnionWinStatus.Normal,
+                remainTime : 0
+            }
+        }
+
+        if(!unionWin && status ==  UnionWinStatus.WaitToWin){
+            return {
+                unionWin : unionWin,
+                unionId : winId,
+                status : UnionWinStatus.WaitToWin,
+                remainTime : endTime - time
+            }
+        }
+
+        if(unionWin){
+            return {
+                unionWin : unionWin,
+                unionId : winId,
+                status : UnionWinStatus.HaveWin,
+                remainTime : 0
+            }
+        }
+    }
+
     checkUnionWin(){
+        return this.checkUnionWinForSeperateCapitals();
+
+        //old
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
         let endTime = 0
@@ -1006,6 +1133,9 @@ export class Map{
             xList.push(centerX + xOffset[i])
             yList.push(centerY + yOffset[i])
         }
+        
+        //xList, yList get by gds(maybe not neighbors,buy seperate ones)
+
         let unionWin = true
         let winId = 0
         for(let i = 0; i < 7; i++){
@@ -1203,7 +1333,6 @@ export class Map{
         }
     }
 
-
     genRankResultList(){
         let re : RankReward[] = []
         if( this.seasonState.rankConfigValue.length * 2 != this.seasonState.rankConfigFromTo.length){
@@ -1232,6 +1361,5 @@ export class Map{
                 unionGlorySumRuntime: glorySum
             }
         )
-    }
-    
+    } 
 }

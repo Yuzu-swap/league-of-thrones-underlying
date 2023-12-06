@@ -25,6 +25,8 @@ import offerGDS = require('../../gds/offer.json')
 import mapListGDS = require('../../gds/map_list.json')
 import mapGDS1 = require('../../gds/map_config_1.json')
 import mapGDS2 = require('../../gds/map_config_2.json')
+import mapGDS3 = require('../../gds/map_config_3.json')
+import mapGDS4 = require('../../gds/map_config_4.json')
 
 import {
 	CityFacility,
@@ -363,12 +365,14 @@ export function getMapOffset(mapId: number){
 export function loadMapGDS(mapId: number){
 	let list = {
 		1: mapGDS1,
-		2: mapGDS2
+		2: mapGDS2,
+		3: mapGDS3,
+		4: mapGDS4
 	};
 	return list[mapId] || mapGDS1;
 }
 
-export function getMapConfigFromGDS (mapId: number){
+export function getMapConfigFromGDS(mapId: number){
 	 mapId = mapId || 1;
 	const mapGDS = loadMapGDS(mapId);
 	// console.log('mapId dataconfig:', mapId, mapGDS);

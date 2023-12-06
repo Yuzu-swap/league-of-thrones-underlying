@@ -1,0 +1,5764 @@
+{
+ 	"1-0": {
+ 	 	"type": 1,
+ 	 	"distance": 0,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 20000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-1": {
+ 	 	"type": 1,
+ 	 	"distance": 1,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 20000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-2": {
+ 	 	"type": 1,
+ 	 	"distance": 2,
+ 	 	"gather_silver_speed": 18000,
+ 	 	"silver_total_number": 1800000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 9000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 18000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-3": {
+ 	 	"type": 1,
+ 	 	"distance": 3,
+ 	 	"gather_silver_speed": 16000,
+ 	 	"silver_total_number": 1600000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 8000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 16000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-4": {
+ 	 	"type": 1,
+ 	 	"distance": 4,
+ 	 	"gather_silver_speed": 14000,
+ 	 	"silver_total_number": 1400000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 7000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 14000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-5": {
+ 	 	"type": 1,
+ 	 	"distance": 5,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 6000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 12000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-6": {
+ 	 	"type": 1,
+ 	 	"distance": 6,
+ 	 	"gather_silver_speed": 10000,
+ 	 	"silver_total_number": 1000000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-7": {
+ 	 	"type": 1,
+ 	 	"distance": 7,
+ 	 	"gather_silver_speed": 8000,
+ 	 	"silver_total_number": 800000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 4000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 8000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-8": {
+ 	 	"type": 1,
+ 	 	"distance": 8,
+ 	 	"gather_silver_speed": 6000,
+ 	 	"silver_total_number": 600000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 3000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 6000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-9": {
+ 	 	"type": 1,
+ 	 	"distance": 9,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 2000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 4000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-10": {
+ 	 	"type": 1,
+ 	 	"distance": 10,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-11": {
+ 	 	"type": 1,
+ 	 	"distance": 11,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-12": {
+ 	 	"type": 1,
+ 	 	"distance": 12,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-13": {
+ 	 	"type": 1,
+ 	 	"distance": 13,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-14": {
+ 	 	"type": 1,
+ 	 	"distance": 14,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-15": {
+ 	 	"type": 1,
+ 	 	"distance": 15,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-16": {
+ 	 	"type": 1,
+ 	 	"distance": 16,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-17": {
+ 	 	"type": 1,
+ 	 	"distance": 17,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-18": {
+ 	 	"type": 1,
+ 	 	"distance": 18,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-19": {
+ 	 	"type": 1,
+ 	 	"distance": 19,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-20": {
+ 	 	"type": 1,
+ 	 	"distance": 20,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-21": {
+ 	 	"type": 1,
+ 	 	"distance": 21,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-22": {
+ 	 	"type": 1,
+ 	 	"distance": 22,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-23": {
+ 	 	"type": 1,
+ 	 	"distance": 23,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-24": {
+ 	 	"type": 1,
+ 	 	"distance": 24,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-25": {
+ 	 	"type": 1,
+ 	 	"distance": 25,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-26": {
+ 	 	"type": 1,
+ 	 	"distance": 26,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-27": {
+ 	 	"type": 1,
+ 	 	"distance": 27,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-28": {
+ 	 	"type": 1,
+ 	 	"distance": 28,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-29": {
+ 	 	"type": 1,
+ 	 	"distance": 29,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-30": {
+ 	 	"type": 1,
+ 	 	"distance": 30,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-31": {
+ 	 	"type": 1,
+ 	 	"distance": 31,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-32": {
+ 	 	"type": 1,
+ 	 	"distance": 32,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-33": {
+ 	 	"type": 1,
+ 	 	"distance": 33,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-34": {
+ 	 	"type": 1,
+ 	 	"distance": 34,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-35": {
+ 	 	"type": 1,
+ 	 	"distance": 35,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-36": {
+ 	 	"type": 1,
+ 	 	"distance": 36,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-37": {
+ 	 	"type": 1,
+ 	 	"distance": 37,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-38": {
+ 	 	"type": 1,
+ 	 	"distance": 38,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-39": {
+ 	 	"type": 1,
+ 	 	"distance": 39,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-40": {
+ 	 	"type": 1,
+ 	 	"distance": 40,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-41": {
+ 	 	"type": 1,
+ 	 	"distance": 41,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"1-42": {
+ 	 	"type": 1,
+ 	 	"distance": 42,
+ 	 	"gather_silver_speed": 2000,
+ 	 	"silver_total_number": 200000,
+ 	 	"buff_id": 3012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 1000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 2000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-0": {
+ 	 	"type": 2,
+ 	 	"distance": 0,
+ 	 	"gather_silver_speed": 35000,
+ 	 	"silver_total_number": 3500000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 60000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-1": {
+ 	 	"type": 2,
+ 	 	"distance": 1,
+ 	 	"gather_silver_speed": 35000,
+ 	 	"silver_total_number": 3500000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 35000,
+ 	 	 	 	"defense": 35000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 60000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-2": {
+ 	 	"type": 2,
+ 	 	"distance": 2,
+ 	 	"gather_silver_speed": 32000,
+ 	 	"silver_total_number": 3200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 32000,
+ 	 	 	 	"defense": 32000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 32000,
+ 	 	 	 	"defense": 32000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 32000,
+ 	 	 	 	"defense": 32000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 18000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 54000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-3": {
+ 	 	"type": 2,
+ 	 	"distance": 3,
+ 	 	"gather_silver_speed": 29000,
+ 	 	"silver_total_number": 2900000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 29000,
+ 	 	 	 	"defense": 29000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 29000,
+ 	 	 	 	"defense": 29000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 27000,
+ 	 	 	 	"defense": 27000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 16000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 48000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-4": {
+ 	 	"type": 2,
+ 	 	"distance": 4,
+ 	 	"gather_silver_speed": 26000,
+ 	 	"silver_total_number": 2600000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 14000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 42000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-5": {
+ 	 	"type": 2,
+ 	 	"distance": 5,
+ 	 	"gather_silver_speed": 23000,
+ 	 	"silver_total_number": 2300000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 12000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 36000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-6": {
+ 	 	"type": 2,
+ 	 	"distance": 6,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 30000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-7": {
+ 	 	"type": 2,
+ 	 	"distance": 7,
+ 	 	"gather_silver_speed": 18000,
+ 	 	"silver_total_number": 1800000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 8000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 24000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-8": {
+ 	 	"type": 2,
+ 	 	"distance": 8,
+ 	 	"gather_silver_speed": 16000,
+ 	 	"silver_total_number": 1600000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 7000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 21000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-9": {
+ 	 	"type": 2,
+ 	 	"distance": 9,
+ 	 	"gather_silver_speed": 14000,
+ 	 	"silver_total_number": 1400000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 12000,
+ 	 	 	 	"defense": 12000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 12000,
+ 	 	 	 	"defense": 12000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 12000,
+ 	 	 	 	"defense": 12000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 6000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 18000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-10": {
+ 	 	"type": 2,
+ 	 	"distance": 10,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-11": {
+ 	 	"type": 2,
+ 	 	"distance": 11,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-12": {
+ 	 	"type": 2,
+ 	 	"distance": 12,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-13": {
+ 	 	"type": 2,
+ 	 	"distance": 13,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-14": {
+ 	 	"type": 2,
+ 	 	"distance": 14,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-15": {
+ 	 	"type": 2,
+ 	 	"distance": 15,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-16": {
+ 	 	"type": 2,
+ 	 	"distance": 16,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-17": {
+ 	 	"type": 2,
+ 	 	"distance": 17,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-18": {
+ 	 	"type": 2,
+ 	 	"distance": 18,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-19": {
+ 	 	"type": 2,
+ 	 	"distance": 19,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-20": {
+ 	 	"type": 2,
+ 	 	"distance": 20,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-21": {
+ 	 	"type": 2,
+ 	 	"distance": 21,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-22": {
+ 	 	"type": 2,
+ 	 	"distance": 22,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-23": {
+ 	 	"type": 2,
+ 	 	"distance": 23,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-24": {
+ 	 	"type": 2,
+ 	 	"distance": 24,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-25": {
+ 	 	"type": 2,
+ 	 	"distance": 25,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-26": {
+ 	 	"type": 2,
+ 	 	"distance": 26,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-27": {
+ 	 	"type": 2,
+ 	 	"distance": 27,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-28": {
+ 	 	"type": 2,
+ 	 	"distance": 28,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-29": {
+ 	 	"type": 2,
+ 	 	"distance": 29,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-30": {
+ 	 	"type": 2,
+ 	 	"distance": 30,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-31": {
+ 	 	"type": 2,
+ 	 	"distance": 31,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1014,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-32": {
+ 	 	"type": 2,
+ 	 	"distance": 32,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-33": {
+ 	 	"type": 2,
+ 	 	"distance": 33,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-34": {
+ 	 	"type": 2,
+ 	 	"distance": 34,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-35": {
+ 	 	"type": 2,
+ 	 	"distance": 35,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-36": {
+ 	 	"type": 2,
+ 	 	"distance": 36,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-37": {
+ 	 	"type": 2,
+ 	 	"distance": 37,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-38": {
+ 	 	"type": 2,
+ 	 	"distance": 38,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-39": {
+ 	 	"type": 2,
+ 	 	"distance": 39,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-40": {
+ 	 	"type": 2,
+ 	 	"distance": 40,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1016,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-41": {
+ 	 	"type": 2,
+ 	 	"distance": 41,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1015,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"2-42": {
+ 	 	"type": 2,
+ 	 	"distance": 42,
+ 	 	"gather_silver_speed": 12000,
+ 	 	"silver_total_number": 1200000,
+ 	 	"buff_id": 1013,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 10000,
+ 	 	 	 	"defense": 10000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-0": {
+ 	 	"type": 4,
+ 	 	"distance": 0,
+ 	 	"parameter": 3,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 40000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-1": {
+ 	 	"type": 4,
+ 	 	"distance": 1,
+ 	 	"parameter": 3,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 40000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-2": {
+ 	 	"type": 4,
+ 	 	"distance": 2,
+ 	 	"parameter": 3,
+ 	 	"gather_silver_speed": 26000,
+ 	 	"silver_total_number": 2600000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 18000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 36000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-3": {
+ 	 	"type": 4,
+ 	 	"distance": 3,
+ 	 	"parameter": 3,
+ 	 	"gather_silver_speed": 23000,
+ 	 	"silver_total_number": 2300000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 16000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 32000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-4": {
+ 	 	"type": 4,
+ 	 	"distance": 4,
+ 	 	"parameter": 3,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 14000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 28000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-5": {
+ 	 	"type": 4,
+ 	 	"distance": 5,
+ 	 	"parameter": 2,
+ 	 	"gather_silver_speed": 18000,
+ 	 	"silver_total_number": 1800000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 12000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 24000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-6": {
+ 	 	"type": 4,
+ 	 	"distance": 6,
+ 	 	"parameter": 2,
+ 	 	"gather_silver_speed": 16000,
+ 	 	"silver_total_number": 1600000,
+ 	 	"buff_id": 1007,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 20000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-7": {
+ 	 	"type": 4,
+ 	 	"distance": 7,
+ 	 	"parameter": 2,
+ 	 	"gather_silver_speed": 13000,
+ 	 	"silver_total_number": 1300000,
+ 	 	"buff_id": 1008,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 8000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 16000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-8": {
+ 	 	"type": 4,
+ 	 	"distance": 8,
+ 	 	"parameter": 2,
+ 	 	"gather_silver_speed": 10000,
+ 	 	"silver_total_number": 1000000,
+ 	 	"buff_id": 1005,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 7000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 14000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-9": {
+ 	 	"type": 4,
+ 	 	"distance": 9,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 7000,
+ 	 	"silver_total_number": 700000,
+ 	 	"buff_id": 1007,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 6000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 12000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-10": {
+ 	 	"type": 4,
+ 	 	"distance": 10,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1008,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-11": {
+ 	 	"type": 4,
+ 	 	"distance": 11,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-12": {
+ 	 	"type": 4,
+ 	 	"distance": 12,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-13": {
+ 	 	"type": 4,
+ 	 	"distance": 13,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-14": {
+ 	 	"type": 4,
+ 	 	"distance": 14,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-15": {
+ 	 	"type": 4,
+ 	 	"distance": 15,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-16": {
+ 	 	"type": 4,
+ 	 	"distance": 16,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-17": {
+ 	 	"type": 4,
+ 	 	"distance": 17,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-18": {
+ 	 	"type": 4,
+ 	 	"distance": 18,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-19": {
+ 	 	"type": 4,
+ 	 	"distance": 19,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-20": {
+ 	 	"type": 4,
+ 	 	"distance": 20,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-21": {
+ 	 	"type": 4,
+ 	 	"distance": 21,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-22": {
+ 	 	"type": 4,
+ 	 	"distance": 22,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-23": {
+ 	 	"type": 4,
+ 	 	"distance": 23,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-24": {
+ 	 	"type": 4,
+ 	 	"distance": 24,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-25": {
+ 	 	"type": 4,
+ 	 	"distance": 25,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-26": {
+ 	 	"type": 4,
+ 	 	"distance": 26,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-27": {
+ 	 	"type": 4,
+ 	 	"distance": 27,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-28": {
+ 	 	"type": 4,
+ 	 	"distance": 28,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-29": {
+ 	 	"type": 4,
+ 	 	"distance": 29,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-30": {
+ 	 	"type": 4,
+ 	 	"distance": 30,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-31": {
+ 	 	"type": 4,
+ 	 	"distance": 31,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-32": {
+ 	 	"type": 4,
+ 	 	"distance": 32,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-33": {
+ 	 	"type": 4,
+ 	 	"distance": 33,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-34": {
+ 	 	"type": 4,
+ 	 	"distance": 34,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-35": {
+ 	 	"type": 4,
+ 	 	"distance": 35,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-36": {
+ 	 	"type": 4,
+ 	 	"distance": 36,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-37": {
+ 	 	"type": 4,
+ 	 	"distance": 37,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-38": {
+ 	 	"type": 4,
+ 	 	"distance": 38,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-39": {
+ 	 	"type": 4,
+ 	 	"distance": 39,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-40": {
+ 	 	"type": 4,
+ 	 	"distance": 40,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-41": {
+ 	 	"type": 4,
+ 	 	"distance": 41,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"4-42": {
+ 	 	"type": 4,
+ 	 	"distance": 42,
+ 	 	"parameter": 1,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-0": {
+ 	 	"type": 5,
+ 	 	"distance": 0,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 60000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-1": {
+ 	 	"type": 5,
+ 	 	"distance": 1,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 60000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-2": {
+ 	 	"type": 5,
+ 	 	"distance": 2,
+ 	 	"gather_silver_speed": 26000,
+ 	 	"silver_total_number": 2600000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 18000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 54000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-3": {
+ 	 	"type": 5,
+ 	 	"distance": 3,
+ 	 	"gather_silver_speed": 23000,
+ 	 	"silver_total_number": 2300000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 16000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 48000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-4": {
+ 	 	"type": 5,
+ 	 	"distance": 4,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 14000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 42000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-5": {
+ 	 	"type": 5,
+ 	 	"distance": 5,
+ 	 	"gather_silver_speed": 18000,
+ 	 	"silver_total_number": 1800000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 12000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 36000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-6": {
+ 	 	"type": 5,
+ 	 	"distance": 6,
+ 	 	"gather_silver_speed": 16000,
+ 	 	"silver_total_number": 1600000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 30000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-7": {
+ 	 	"type": 5,
+ 	 	"distance": 7,
+ 	 	"gather_silver_speed": 13000,
+ 	 	"silver_total_number": 1300000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 8000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 24000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-8": {
+ 	 	"type": 5,
+ 	 	"distance": 8,
+ 	 	"gather_silver_speed": 10000,
+ 	 	"silver_total_number": 1000000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 7000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 21000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-9": {
+ 	 	"type": 5,
+ 	 	"distance": 9,
+ 	 	"gather_silver_speed": 7000,
+ 	 	"silver_total_number": 700000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 6000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 18000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-10": {
+ 	 	"type": 5,
+ 	 	"distance": 10,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-11": {
+ 	 	"type": 5,
+ 	 	"distance": 11,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-12": {
+ 	 	"type": 5,
+ 	 	"distance": 12,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-13": {
+ 	 	"type": 5,
+ 	 	"distance": 13,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-14": {
+ 	 	"type": 5,
+ 	 	"distance": 14,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-15": {
+ 	 	"type": 5,
+ 	 	"distance": 15,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-16": {
+ 	 	"type": 5,
+ 	 	"distance": 16,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-17": {
+ 	 	"type": 5,
+ 	 	"distance": 17,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-18": {
+ 	 	"type": 5,
+ 	 	"distance": 18,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-19": {
+ 	 	"type": 5,
+ 	 	"distance": 19,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-20": {
+ 	 	"type": 5,
+ 	 	"distance": 20,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-21": {
+ 	 	"type": 5,
+ 	 	"distance": 21,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-22": {
+ 	 	"type": 5,
+ 	 	"distance": 22,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-23": {
+ 	 	"type": 5,
+ 	 	"distance": 23,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-24": {
+ 	 	"type": 5,
+ 	 	"distance": 24,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-25": {
+ 	 	"type": 5,
+ 	 	"distance": 25,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-26": {
+ 	 	"type": 5,
+ 	 	"distance": 26,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-27": {
+ 	 	"type": 5,
+ 	 	"distance": 27,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-28": {
+ 	 	"type": 5,
+ 	 	"distance": 28,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-29": {
+ 	 	"type": 5,
+ 	 	"distance": 29,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-30": {
+ 	 	"type": 5,
+ 	 	"distance": 30,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-31": {
+ 	 	"type": 5,
+ 	 	"distance": 31,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-32": {
+ 	 	"type": 5,
+ 	 	"distance": 32,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-33": {
+ 	 	"type": 5,
+ 	 	"distance": 33,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-34": {
+ 	 	"type": 5,
+ 	 	"distance": 34,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-35": {
+ 	 	"type": 5,
+ 	 	"distance": 35,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-36": {
+ 	 	"type": 5,
+ 	 	"distance": 36,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-37": {
+ 	 	"type": 5,
+ 	 	"distance": 37,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-38": {
+ 	 	"type": 5,
+ 	 	"distance": 38,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-39": {
+ 	 	"type": 5,
+ 	 	"distance": 39,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-40": {
+ 	 	"type": 5,
+ 	 	"distance": 40,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1009,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-41": {
+ 	 	"type": 5,
+ 	 	"distance": 41,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"5-42": {
+ 	 	"type": 5,
+ 	 	"distance": 42,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 15000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-0": {
+ 	 	"type": 8,
+ 	 	"distance": 0,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 40000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-1": {
+ 	 	"type": 8,
+ 	 	"distance": 1,
+ 	 	"gather_silver_speed": 30000,
+ 	 	"silver_total_number": 3000000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 20000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 30000,
+ 	 	 	 	"defense": 30000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 20000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 40000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-2": {
+ 	 	"type": 8,
+ 	 	"distance": 2,
+ 	 	"gather_silver_speed": 26000,
+ 	 	"silver_total_number": 2600000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 18000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 26000,
+ 	 	 	 	"defense": 26000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 18000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 36000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-3": {
+ 	 	"type": 8,
+ 	 	"distance": 3,
+ 	 	"gather_silver_speed": 23000,
+ 	 	"silver_total_number": 2300000,
+ 	 	"buff_id": 1011,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 16000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 23000,
+ 	 	 	 	"defense": 23000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 16000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 32000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-4": {
+ 	 	"type": 8,
+ 	 	"distance": 4,
+ 	 	"gather_silver_speed": 20000,
+ 	 	"silver_total_number": 2000000,
+ 	 	"buff_id": 1010,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 14000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 20000,
+ 	 	 	 	"defense": 20000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 14000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 28000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-5": {
+ 	 	"type": 8,
+ 	 	"distance": 5,
+ 	 	"gather_silver_speed": 18000,
+ 	 	"silver_total_number": 1800000,
+ 	 	"buff_id": 1012,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 12000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 17000,
+ 	 	 	 	"defense": 17000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 12000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 24000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-6": {
+ 	 	"type": 8,
+ 	 	"distance": 6,
+ 	 	"gather_silver_speed": 16000,
+ 	 	"silver_total_number": 1600000,
+ 	 	"buff_id": 1008,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 10000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 14000,
+ 	 	 	 	"defense": 14000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 10000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 20000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-7": {
+ 	 	"type": 8,
+ 	 	"distance": 7,
+ 	 	"gather_silver_speed": 13000,
+ 	 	"silver_total_number": 1300000,
+ 	 	"buff_id": 1008,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 8000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 11000,
+ 	 	 	 	"defense": 11000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 8000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 16000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-8": {
+ 	 	"type": 8,
+ 	 	"distance": 8,
+ 	 	"gather_silver_speed": 10000,
+ 	 	"silver_total_number": 1000000,
+ 	 	"buff_id": 1007,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 7000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 8000,
+ 	 	 	 	"defense": 8000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 7000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 14000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-9": {
+ 	 	"type": 8,
+ 	 	"distance": 9,
+ 	 	"gather_silver_speed": 7000,
+ 	 	"silver_total_number": 700000,
+ 	 	"buff_id": 1006,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 6000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 5000,
+ 	 	 	 	"defense": 5000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 6000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 12000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-10": {
+ 	 	"type": 8,
+ 	 	"distance": 10,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1007,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-11": {
+ 	 	"type": 8,
+ 	 	"distance": 11,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-12": {
+ 	 	"type": 8,
+ 	 	"distance": 12,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-13": {
+ 	 	"type": 8,
+ 	 	"distance": 13,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-14": {
+ 	 	"type": 8,
+ 	 	"distance": 14,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-15": {
+ 	 	"type": 8,
+ 	 	"distance": 15,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-16": {
+ 	 	"type": 8,
+ 	 	"distance": 16,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-17": {
+ 	 	"type": 8,
+ 	 	"distance": 17,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-18": {
+ 	 	"type": 8,
+ 	 	"distance": 18,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-19": {
+ 	 	"type": 8,
+ 	 	"distance": 19,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-20": {
+ 	 	"type": 8,
+ 	 	"distance": 20,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-21": {
+ 	 	"type": 8,
+ 	 	"distance": 21,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-22": {
+ 	 	"type": 8,
+ 	 	"distance": 22,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-23": {
+ 	 	"type": 8,
+ 	 	"distance": 23,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-24": {
+ 	 	"type": 8,
+ 	 	"distance": 24,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1002,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-25": {
+ 	 	"type": 8,
+ 	 	"distance": 25,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-26": {
+ 	 	"type": 8,
+ 	 	"distance": 26,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-27": {
+ 	 	"type": 8,
+ 	 	"distance": 27,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-28": {
+ 	 	"type": 8,
+ 	 	"distance": 28,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-29": {
+ 	 	"type": 8,
+ 	 	"distance": 29,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-30": {
+ 	 	"type": 8,
+ 	 	"distance": 30,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-31": {
+ 	 	"type": 8,
+ 	 	"distance": 31,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-32": {
+ 	 	"type": 8,
+ 	 	"distance": 32,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-33": {
+ 	 	"type": 8,
+ 	 	"distance": 33,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-34": {
+ 	 	"type": 8,
+ 	 	"distance": 34,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-35": {
+ 	 	"type": 8,
+ 	 	"distance": 35,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-36": {
+ 	 	"type": 8,
+ 	 	"distance": 36,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-37": {
+ 	 	"type": 8,
+ 	 	"distance": 37,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-38": {
+ 	 	"type": 8,
+ 	 	"distance": 38,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1003,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-39": {
+ 	 	"type": 8,
+ 	 	"distance": 39,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-40": {
+ 	 	"type": 8,
+ 	 	"distance": 40,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-41": {
+ 	 	"type": 8,
+ 	 	"distance": 41,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1004,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	},
+ 	"8-42": {
+ 	 	"type": 8,
+ 	 	"distance": 42,
+ 	 	"gather_silver_speed": 4000,
+ 	 	"silver_total_number": 400000,
+ 	 	"buff_id": 1001,
+ 	 	"troops": [
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 1,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 2,
+ 	 	 	 	"count": 5000
+ 	 	 	},
+ 	 	 	{
+ 	 	 	 	"attack": 2000,
+ 	 	 	 	"defense": 2000,
+ 	 	 	 	"type": 3,
+ 	 	 	 	"count": 5000
+ 	 	 	}
+ 	 	],
+ 	 	"durability": 10000,
+ 	 	"key": "type-distance"
+ 	}
+}

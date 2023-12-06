@@ -32,7 +32,8 @@ let imageOrderMap = {
     'gate': 28,
     '0_mountain_1': 29,
     '0_mountain_2': 30,
-    '0_mountain_3': 31
+    '0_mountain_3': 31,
+    'port': 32
 };
 
 let bgIndexMap = {
@@ -46,6 +47,10 @@ let bgIndexMap = {
     '3-2': 8,
     '4-1': 9,
     '4-2': 10,
+    '6-1': 11,
+    '6-2': 12,
+    '6-4': 11,
+    '6-5': 12
 };
 
 let types = {
@@ -65,6 +70,7 @@ let types = {
 
 var mapDir = '../gds';
 var mapList = require(mapDir + '/map_list.json')['Config'];
+// console.log(mapList);
 fs.readFile('./tpl-bg', 'utf8', (err, tplBg) => {
     if (err) {
         console.error(err);
@@ -95,32 +101,19 @@ function createMap(index, mapItem, tplBg, tplMap) {
     let mapId = mapItem.map_id;
     var cols = mapItem.cols; //11
     var rows = mapItem.rows + 1;  //22;
+    var capitalType = mapItem.capitalType;
 
-    console.log({ mapId, cols, rows });
+    // console.log({ mapId, cols, rows });
 
     var blockMap = require(mapDir + '/map_config_' + mapId + '.json');
-
-    // for (var blockId in blockMap) {
-    //     let row = blockMap[blockId]
-    //     let list = blockId.split('^')
-    //     let unionId = 0
-    //     if( row['type'] == 3 ){
-    //         unionId = row['parameter']
-    //         let x_id = parseInt(list[0]);
-    //         let y_id = parseInt(list[1]);
-    //         let xIndex = (cols - 1 + x_id - Math.abs(x_id%2))/2;
-    //         let yIndex = (rows - 2)/2 - y_id;
-
-    //         console.log('GetMapState gInitState init', { blockId, xIndex, yIndex, unionId });
-    //     }
-    // }
-    // return;
 
     let mapOrder = [];
     let mountains = {};
     let bgMap = {};
     let tileSetMap = {};
     let inits = {};
+    let capitals = {};
+    let ports = {};
 
     for (var blockId in blockMap) {
         //item == {"y":1,"x":1,"cmap/area":3,"type":3,"level/parameter":3},
@@ -133,10 +126,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         地块类型=6时配置相应的等级（1低级,2中级,3高级）
         */
         let item = blockMap[blockId];
-        let {
-            x_id,
-            y_id
-        } = item;
+        let { x_id, y_id, x, y } = item;
 
         let image = '';
         if (item.type == 1) {
@@ -144,10 +134,11 @@ function createMap(index, mapItem, tplBg, tplMap) {
         }
         if (item.type == 2) {
             image = 'map_center';
+            capitals[x_id + '^' + y_id] = { x_id, y_id, x, y };
         }
         if (item.type == 3) {
             image = 'cmap_init';
-            inits[item['parameter']] = x_id/(cols - 1) + '^' + y_id*2/(rows -2);
+            inits[item['parameter']] = { x_id, y_id, x, y };
         }
         if (item.type == 4) {
             image = types[item.type] + '_' + (item.parameter);
@@ -159,12 +150,23 @@ function createMap(index, mapItem, tplBg, tplMap) {
             image = item.area + '_' + types[item.type] + '_' + (item.parameter || '0');
             mountains[blockId] = true;
         }
+        if(item.type == 2 && item.parameter == 14){
+            ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
+        }
+        if(item.type == 8){
+            ports[x_id + '^' + y_id] = { x_id, y_id, x, y };
+            image = 'port';
+        }
         item.image = image;
 
         let tileIndex = imageOrderMap[image] || 0;
         tileSetMap[blockId] = tileIndex;
         mapOrder.push(item);
-        bgMap[blockId] = bgIndexMap[item.area + '-' + item.area_block] || 0;
+        if(item.area == 6){
+            bgMap[blockId] = bgIndexMap[item.area + '-' + item.parameter] || 0;
+        }else{
+            bgMap[blockId] = bgIndexMap[item.area + '-' + item.area_block] || 0;            
+        }
     }
 
 
@@ -226,6 +228,9 @@ function createMap(index, mapItem, tplBg, tplMap) {
             // if(mapId !== 22 && r.y_id == -10){
                 // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
             // }
+            if(x == 7){
+                console.log({x, y}, tileSetMap[r.x_id + '^' + r.y_id] || 0, bgMap[r.x_id + '^' + r.y_id] || 0);
+            }
             tileSet.push(tileSetMap[r.x_id + '^' + r.y_id] || 0);
             bgIndex.push(bgMap[r.x_id + '^' + r.y_id] || 0)
         }
@@ -238,7 +243,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         for (var x = 0; x < xMobile; x++) {
             let r = getIdIndexMobile(x, y, xMobile, yMobile);
             // if(mapId == 2 && y==0){
-                console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
+                // console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
             // }
             // if(mapId !== 22 && r.y_id == -10){
                 // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
@@ -255,18 +260,18 @@ function createMap(index, mapItem, tplBg, tplMap) {
         tilewidth: 204
     };
 
-    content['dataset'] = JSON.stringify(bgIndex);
+    content['dataset'] = adjuestTileData(bgIndex);
     let bgContent = subs(tplBg, content);
-    fs.writeFile('./maps-result/bg-' + mapId + '.json', bgContent, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-bg.json', bgContent, function(err) {
         if (err) {
             return console.error(err);
         }
         console.log("bg 数据写入成功！");
     });
 
-    content['dataset'] = JSON.stringify(tileSet);
+    content['dataset'] = adjuestTileData(tileSet);
     let mapContent = subs(tplMap, content);
-    fs.writeFile('./maps-result/map-' + mapId + '.json', mapContent, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-map.json', mapContent, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -281,7 +286,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(bgIndexMobile);
     let bgContentMobile = subs(tplBg, content);
-    fs.writeFile('./maps-result/bg-' + mapId + '.mobile.json', bgContentMobile, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-bg.mobile.json', bgContentMobile, function(err) {
         if (err) {
             return console.error(err);
         }
@@ -290,19 +295,45 @@ function createMap(index, mapItem, tplBg, tplMap) {
 
     content['dataset'] = JSON.stringify(tileSetMobile);
     let mapContentMobile = subs(tplMap, content);
-    fs.writeFile('./maps-result/map-' + mapId + '.mobile.json', mapContentMobile, function(err) {
+    fs.writeFile('./maps-result/' + mapId + '-map.mobile.json', mapContentMobile, function(err) {
         if (err) {
             return console.error(err);
         }
         console.log("map mobile 数据写入成功！");
     });
 
-    mapList[index].mountains = mountains;
-    mapList[index].bgIndexs = bgIndex;
-    mapList[index].mapIndexs = tileSet;
-    mapList[index].bgIndexsMobile = bgIndexMobile;
-    mapList[index].mapIndexsMobile = tileSetMobile;
-    mapList[index].inits = inits;
+    mapList[index].mountains = JSON.stringify(mountains);
+    mapList[index].bgIndexs = adjuestTileData(bgIndex);
+    mapList[index].mapIndexs = adjuestTileData(tileSet);
+    mapList[index].bgIndexsMobile = JSON.stringify(bgIndexMobile);
+    mapList[index].mapIndexsMobile = JSON.stringify(tileSetMobile);
+    mapList[index].inits = JSON.stringify(inits);
+    mapList[index].capitals = JSON.stringify(capitals);
+    mapList[index].ports = JSON.stringify(ports);
+    mapList[index].capitalType = capitalType;
+
+    function adjuestTileData(ids){
+        for(var i = 1; i < 21; i++){
+            ids[i*22 - 1] = 0;
+            // console.log('adjuestTileData', ids[i*22 - 1]);
+        }
+        let result = JSON.stringify(ids);
+        // result = result.split('"[').join('[');
+        // result = result.split(']"').join(']');
+            // console.log('adjuestTileData', result);
+        return result;
+    }
+
+    function resetJsonString(data){
+        let result = JSON.stringify(data);
+        result = result.split('\"').join('"');
+        result = result.split('"[').join('[');
+        result = result.split(']"').join(']');
+        result = result.split('"{').join('{');
+        result = result.split('}"').join('}');
+        // console.log('resetJsonString', data, result);
+        return result;
+    }
 }
 
 
