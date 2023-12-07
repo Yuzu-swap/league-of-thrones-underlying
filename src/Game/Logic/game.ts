@@ -712,14 +712,14 @@ export class City {
 
   addTestResource(){
     const seasonState = this.map.getSeasonState();
-    const seasonId = seasonState.seasonId;
-    if(seasonId && seasonId.indexOf('test-') !== 0){
-      return{
-        result: false,
-        txType: StateTransition.AddTestResource,
-        error: 'illeagel-opration'
-      }
-    }
+    // const seasonId = seasonState.seasonId;
+    // if(seasonId && seasonId.indexOf('test-') !== 0){
+    //   return{
+    //     result: false,
+    //     txType: StateTransition.AddTestResource,
+    //     error: 'illeagel-opration'
+    //   }
+    // }
     const coolDown = this.getTestResourceCoolDownTime()
     if(coolDown != 0 ){
       return{
