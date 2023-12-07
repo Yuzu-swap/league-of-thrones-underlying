@@ -147,7 +147,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
             image = 'gate';
         }
         if (item.type == 6) {
-            image = item.area + '_' + types[item.type] + '_' + (item.parameter || '0');
+            image = item.area + '_' + types[item.type] + '_' + (item.parameter || '1');
             mountains[blockId] = true;
         }
         if(item.type == 2 && item.parameter == 14){
