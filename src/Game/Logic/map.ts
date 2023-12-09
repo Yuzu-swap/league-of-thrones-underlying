@@ -1014,7 +1014,7 @@ export class Map{
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
         let blockMap = InitState[StateName.Capitals][capitalsKey];
-        console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
+        // console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
         return blockMap;
     }
 
@@ -1023,8 +1023,9 @@ export class Map{
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
         let endTime = 0;
+        let mapId = this.mapId;
 
-        console.log('checkUnionWin:', {time, unionWinId: this.gState.unionWinId});
+        console.log('checkUnionWin:', {mapId, time, unionWinId: this.gState.unionWinId});
         if(this.gState.unionWinId != 0){
             return {
                 unionWin: true,
@@ -1035,10 +1036,10 @@ export class Map{
         }
 
         let capticals = this.getCapitalsBlocks();
-        console.log('checkUnionWin capticals:', capticals);
+        console.log('checkUnionWin capticals:', { mapId }, capticals);
 
         let blockStates = this.blockStates;
-        console.log('checkUnionWin capticals blockStates:', blockStates);
+        console.log('checkUnionWin capticals blockStates:', { mapId }, blockStates);
 
         let winId = 0;
         let unionWin = true;
@@ -1050,8 +1051,9 @@ export class Map{
             let x_id = parseInt(blockIds[0]);
             let y_id = parseInt(blockIds[1]);
             let blockState = this.getBlockState(x_id, y_id);
-            let ownerId = this.getBelongInfo(x_id, y_id);
-            console.log('checkUnionWin blockId:', { blockId, x_id, y_id, ownerId });
+            // let ownerId = this.getBelongInfo(x_id, y_id);
+            // console.log('checkUnionWin blockId:', { blockId, x_id, y_id, ownerId });
+            console.log('checkUnionWin blockId:', { blockId, x_id, y_id, mapId }, blockState);
             if(!blockState){
                 throw "error blockState when check unionWin"
             }
