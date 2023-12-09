@@ -319,7 +319,7 @@ export class TransitionHandler {
       let newState =  this.stateManger.get(stateId) as IBlockState
       if(newState){
         re.push(newState)
-        console.log("getBlockStates newState around:", newState)
+        console.log("getBlockStates newState around:", { mapId, newX, newY }, newState)
       }
     }
 
@@ -334,7 +334,7 @@ export class TransitionHandler {
         let newState =  this.stateManger.get(stateId) as IBlockState
         if(newState){
           re.push(newState)
-          console.log("getBlockStates newState capital:", newState)
+          console.log("getBlockStates newState capital:", { blockId, blockInfo }, newState)
         }
       }
     }
