@@ -301,8 +301,9 @@ export class TransitionHandler {
     //   }
     //   return re
     // }
-    //get capticals form hardcode points; only mapID=1,2
 
+
+    //get blocks for args
     const xOffset = [ 0, 1, 1, 0, -1, -1];
     const yOffset = [ 2, 1, -1, -2, -1, 1];
     let center = this.stateManger.get( {id : `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`})
@@ -318,9 +319,26 @@ export class TransitionHandler {
       let newState =  this.stateManger.get(stateId) as IBlockState
       if(newState){
         re.push(newState)
-        console.log("getBlockStates newState:", newState)
+        console.log("getBlockStates newState around:", newState)
       }
     }
+
+    //get capital blocks
+    let mapConfig = getMapConfigFromGDS(mapId);
+    for(var blockId in mapConfig['config']){
+      let blockInfo = mapConfig['config'][blockId];
+      if(blockInfo.type === 2){
+        let newX = blockInfo.x_id;
+        let newY = blockInfo.y_id;
+        let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
+        let newState =  this.stateManger.get(stateId) as IBlockState
+        if(newState){
+          re.push(newState)
+          console.log("getBlockStates newState capital:", newState)
+        }
+      }
+    }
+
     console.log("getBlockStates return:", re)
     return re
   }
