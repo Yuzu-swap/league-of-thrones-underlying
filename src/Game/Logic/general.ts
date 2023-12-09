@@ -1082,6 +1082,7 @@ export class General{
         }
 
         const generalInfo = this.getGeneralState(generalId)
+        console.log('cod create generalInfo:', generalInfo);
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
