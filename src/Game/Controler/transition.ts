@@ -323,22 +323,6 @@ export class TransitionHandler {
       }
     }
 
-    //get capital blocks
-    let mapConfig = getMapConfigFromGDS(mapId);
-    for(var blockId in mapConfig['config']){
-      let blockInfo = mapConfig['config'][blockId];
-      if(blockInfo.type === 2){
-        let newX = blockInfo.x_id;
-        let newY = blockInfo.y_id;
-        let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
-        let newState =  this.stateManger.get(stateId) as IBlockState
-        if(newState){
-          re.push(newState)
-          console.log("getBlockStates newState capital:", { blockId, blockInfo }, newState)
-        }
-      }
-    }
-
     console.log("getBlockStates return:", re)
     return re
   }
