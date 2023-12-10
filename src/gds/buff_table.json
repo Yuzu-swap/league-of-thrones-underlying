@@ -434,7 +434,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 500,
+        "buff_value": 300,
         "buff_type":"attack",
         "buff_target":[
             "all"
@@ -461,7 +461,7 @@
     },
     {
         "value_type": 2,
-        "buff_value": 500,
+        "buff_value": 300,
         "buff_type":"defense",
         "buff_target":[
             "all"
