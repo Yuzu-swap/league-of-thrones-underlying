@@ -134,6 +134,16 @@ export class MapComponent implements IMapComponent{
                 re.push( stateId)
             }
         }
+
+        let capitals = this.map.getCapitalsBlocks();
+        for(var blockId in capitals){
+            let stateId = `${StateName.BlockInfo}:${mapId}:${blockId}`
+            if(validBlockIds.indexOf(stateId) != -1){
+                re.push(stateId)
+            }
+        }
+        console.log('genBlockIds genBlockIds', re);
+
         return re
     }
 
