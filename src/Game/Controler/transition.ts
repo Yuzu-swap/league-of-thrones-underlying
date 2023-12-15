@@ -284,25 +284,6 @@ export class TransitionHandler {
     }
     let re = [];
 
-    // if(mapId >= 3){
-    //   let mapConfig = getMapConfigFromGDS(mapId);
-    //   for(var blockId in mapConfig['config']){
-    //     let blockInfo = mapConfig['config'][blockId];
-    //     if(blockInfo.type === 2){
-    //       let newX = blockInfo.x_id;
-    //       let newY = blockInfo.y_id;
-    //       let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
-    //       let newState =  this.stateManger.get(stateId) as IBlockState
-    //       if(newState){
-    //         re.push(newState)
-    //         console.log("getBlockStates newState mapId >= 3:", newState)
-    //       }
-    //     }
-    //   }
-    //   return re
-    // }
-
-
     //get blocks for args
     const xOffset = [ 0, 1, 1, 0, -1, -1];
     const yOffset = [ 2, 1, -1, -2, -1, 1];
@@ -319,22 +300,23 @@ export class TransitionHandler {
       let newState =  this.stateManger.get(stateId) as IBlockState
       if(newState){
         re.push(newState)
-        console.log("getBlockStates newState around:", newState)
+        console.log("getBlockStates newState around:", { mapId, newX, newY }, newState)
       }
     }
 
-    //get capital blocks
-    let mapConfig = getMapConfigFromGDS(mapId);
-    for(var blockId in mapConfig['config']){
-      let blockInfo = mapConfig['config'][blockId];
-      if(blockInfo.type === 2){
-        let newX = blockInfo.x_id;
-        let newY = blockInfo.y_id;
-        let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
-        let newState =  this.stateManger.get(stateId) as IBlockState
-        if(newState){
-          re.push(newState)
-          console.log("getBlockStates newState capital:", newState)
+    if(mapId >= 3){
+      let mapConfig = getMapConfigFromGDS(mapId);
+      for(var blockId in mapConfig['config']){
+        let blockInfo = mapConfig['config'][blockId];
+        if(blockInfo.type === 2){
+          let newX = blockInfo.x_id;
+          let newY = blockInfo.y_id;
+          let stateId = { id : `${StateName.BlockInfo}:${mapId}:${newX}^${newY}`}
+          let newState =  this.stateManger.get(stateId) as IBlockState
+          if(newState){
+            re.push(newState)
+            console.log("getBlockStates newState mapId >= 3:", newState)
+          }
         }
       }
     }

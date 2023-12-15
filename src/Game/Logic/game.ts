@@ -352,11 +352,12 @@ export class City {
     return { value , today, updateTime};
   }
 
-getInjuredTroops() {
-  return this.updateInjuredTroops(0, 'heal');
-  // let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
-  // return injuredTroops;
-}
+
+  getInjuredTroops() {
+    return this.updateInjuredTroops(0, 'heal');
+    // let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
+    // return injuredTroops;
+  }
 
   healEstimate(amount: number){
     let unit1 = this.parameter["healing_troops_need_silver"];
@@ -711,14 +712,14 @@ getInjuredTroops() {
 
   addTestResource(){
     const seasonState = this.map.getSeasonState();
-    const seasonId = seasonState.seasonId;
-    if(seasonId && seasonId.indexOf('test-') !== 0){
-      return{
-        result: false,
-        txType: StateTransition.AddTestResource,
-        error: 'illeagel-opration'
-      }
-    }
+    // const seasonId = seasonState.seasonId;
+    // if(seasonId && seasonId.indexOf('test-') !== 0){
+    //   return{
+    //     result: false,
+    //     txType: StateTransition.AddTestResource,
+    //     error: 'illeagel-opration'
+    //   }
+    // }
     const coolDown = this.getTestResourceCoolDownTime()
     if(coolDown != 0 ){
       return{
@@ -727,12 +728,13 @@ getInjuredTroops() {
         error: 'cool-down-have-not-end'
       }
     }
+
+    const time = getTimeStamp()
     
     this.useSilver( -100000000)
     this.useTroop( -100000 )
     this.useGold( -50000 )
 
-    const time = getTimeStamp()
     this.state.update(
       {
         lastAddTestTime : time

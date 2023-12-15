@@ -460,6 +460,7 @@ export class Map{
         let isDefaultDefense = false;
         let playerDefenseTroops = this.getDefenseList(x_id, y_id, isDefaultDefense);
         let cancelList : innerCancelBlockDefense[] = [];
+        console.log('attackBlock playerDefenseTroops:', { isAttackNeighbor, hasPlayerDefense: playerDefenseTroops.length > 0 });
         if(playerDefenseTroops.length > 0){
             for(let i = 0; i < playerDefenseTroops.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(playerDefenseTroops[i])
@@ -547,6 +548,7 @@ export class Map{
         if(!isAttackNeighbor){
             let isDefaultDefense = true;
             let defaultDefense = this.getDefenseList(x_id, y_id, isDefaultDefense);
+            console.log('attackBlock defaultDefense:', { isAttackNeighbor, hasDefaultDefense: defaultDefense.length > 0 });
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
                 let unionId = this.general.state.unionId;

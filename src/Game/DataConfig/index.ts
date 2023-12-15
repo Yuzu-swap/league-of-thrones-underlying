@@ -14,7 +14,6 @@ import buildingCount = require('../../gds/building_count.json');
 import qualificationGDS = require('../../gds/general.json');
 import buffGDS = require('../../gds/buff_table.json')
 import parameterGDS = require('../../gds/parameter.json')
-// import mapGDS = require('../../gds/map_config_.json')
 import seasonGDS = require('../../gds/season.json')
 import rechargeGDS = require('../../gds/payment.json')
 import strategyBuyGDS = require('../../gds/buy_stamina_times.json')

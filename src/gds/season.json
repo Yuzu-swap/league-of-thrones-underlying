@@ -617,14 +617,14 @@
             {
                 "type": 1,
                 "name":"usd",
-                "count": 50000000
+                "count": 25000000
             }
         ],
         "show_rank_reward":[
             {
                 "type": 1,
                 "name":"usd",
-                "count": 50000000
+                "count": 25000000
             }
         ],
         "rank_reward":[
