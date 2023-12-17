@@ -10,6 +10,7 @@ export interface TokenPriceInfo {
   BNB: number;
   BTC: number;
   ETH: number;
+  ZETA: number;
   USDT: number;
 }
 

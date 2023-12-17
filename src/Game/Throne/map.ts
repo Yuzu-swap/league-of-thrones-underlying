@@ -92,7 +92,7 @@ export class MapComponent implements IMapComponent{
     createTokenPriceFormat(tokenPriceInfo){
         let unions = {
             1: "BTC",
-            2: "ETH",
+            2: "ZETA",
             3: "USDT",
             4: "BNB"
         };

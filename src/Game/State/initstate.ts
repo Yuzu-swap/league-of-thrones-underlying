@@ -96,8 +96,8 @@ export var InitState = {
         mapId: 0
     },
     [StateName.TokenPriceInfo]:{
-        initial: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
-        current: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
+        initial: {"ZETA":0,"USDT":0,"BTC":0,"BNB":0},
+        current: {"ZETA":0,"USDT":0,"BTC":0,"BNB":0},
         lastUpdate: 0
     },
     [StateName.RewardGloablState]:{
