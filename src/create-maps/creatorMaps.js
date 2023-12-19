@@ -209,7 +209,7 @@ function createMap(index, mapItem, tplBg, tplMap) {
         0,0 -> 10,20
         10,0 -> 10,-20
         10,40 -> -10,-20
-        0,40 - > -10,/20
+        0,40 - > -10,20
 
         x_id:  10 - yMobile,
         y_id: -20 + x%2 + x*2
@@ -242,8 +242,8 @@ function createMap(index, mapItem, tplBg, tplMap) {
     for (var y = 0; y < yMobile; y++) {
         for (var x = 0; x < xMobile; x++) {
             let r = getIdIndexMobile(x, y, xMobile, yMobile);
-            // if(mapId == 2 && y==0){
-                // console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
+            // if(mapId == 3 && y==0){
+            //     console.log({x, y}, {cols, rows}, ' ------> ' ,r);                
             // }
             // if(mapId !== 22 && r.y_id == -10){
                 // console.log({mapId, cols, rows }, '  ', r.x_id + '^' + r.y_id, bgMap[r.x_id + '^' + r.y_id], tileSetMap[r.x_id + '^' + r.y_id])                
