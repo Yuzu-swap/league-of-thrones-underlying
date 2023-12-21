@@ -313,12 +313,12 @@ export class MapComponent implements IMapComponent{
     async getExpectUnionReward(chainName: string, callback: (result: any) => void): Promise<void> {
         let unionId = Throne.instance().unionId
         let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1];
-        let chains = {
-            'emerald' : 1,
-            'bsctest' : 2,
-            'bsc' : 3
-        };
-        let index = chains[chainName];
+        // let chains = {
+        //     'emerald' : 1,
+        //     'bsctest' : 2,
+        //     'bsc' : 3
+        // };
+        // let index = chains[chainName];
 
         let seasonState = this.map.getSeasonState();
         // let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
@@ -340,10 +340,11 @@ export class MapComponent implements IMapComponent{
                     unionId: unionId,
                     glory: unionList[i].glory,
                     rank: parseInt(i) + 1,
-                    reward:  unionList[i].glory / unionSum * rewardSum
+                    reward: rewardSum * unionList[i].glory / unionSum
                 }
                 re.topInfo.push(item)
             }
+            console.log('conquest rank: ', { unionSum, rewardSum }, unionList);
             re.myInfo = {
                 username: Throne.instance().username,
                 unionId: unionId,
