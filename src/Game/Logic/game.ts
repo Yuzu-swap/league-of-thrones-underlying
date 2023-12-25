@@ -108,17 +108,17 @@ export class City {
       if (!this.state.resources[typ]) {
         return 0;
       }
-      let value = 0;
       const info = this.state.resources[typ];
-      value = info.value;
-      if (info.lastUpdate != -1) {
-        const hour = (time - info.lastUpdate) / 3600;
-        value = hour * this.boost.getProduction(typ) + info.value;
+      let value = info['value'] || 0;
+      if (info['lastUpdate'] != -1) {
+        const hour = (time - info['lastUpdate']) / 3600;
+        value = hour * this.boost.getProduction(typ) + value;
       }
-      return value < 0 ? 0 : value;
+      return Math.max(0, value);
     }
     else{
-      return this.state.resources[ResouceType.Troop].value
+      let troops = this.state.resources[ResouceType.Troop] || {};
+      return troops['value'] || 0;
     }
   }
 
