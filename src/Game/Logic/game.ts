@@ -117,7 +117,8 @@ export class City {
       return Math.max(0, value);
     }
     else{
-      let troops = this.state.resources[ResouceType.Troop] || {};
+      let resources = this.state.resources || {};
+      let troops = resources[ResouceType.Troop] || {};
       return troops['value'] || 0;
     }
   }

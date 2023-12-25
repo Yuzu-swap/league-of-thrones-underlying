@@ -11,13 +11,11 @@ export var InitState = {
     [StateName.City]: {
       facilities: { },
       resources: {
-          [ResouceType.Silver]:
-          {
+          [ResouceType.Silver]: {
               lastUpdate: -1,
               value: 10000,
           },
-          [ResouceType.Troop]:
-          {
+          [ResouceType.Troop]: {
               lastUpdate: -1,
               value: 1000,
           }
