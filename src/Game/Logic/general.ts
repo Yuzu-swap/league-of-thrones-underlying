@@ -613,7 +613,7 @@ export class General{
         let tokenPriceInfo = this.map.tokenPriceInfo;
         let unions = {
             1: "BTC",
-            2: "ZETA",
+            2: "ETH",
             3: "USDT",
             4: "BNB"
         };
