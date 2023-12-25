@@ -507,13 +507,16 @@ export class TransitionHandler {
       defenseUnionId: logic2.general.state.unionId
     };
     let re = logic1.general.battle(args.generalId, unionIds, defenseInfo);
+    console.log('updateInjuredTroops battle result:', re);
 
-    logic1.city.useTroop(re['attackTroopReduce'])
-    logic1.city.updateInjuredTroops(re['attackTroopReduce'], 'battle')
-    console.log('updateInjuredTroops battle result:', re)
+    if(re['attackTroopReduce']){
+      logic1.city.useTroop(re['attackTroopReduce'])
+      logic1.city.updateInjuredTroops(re['attackTroopReduce'], 'battle')
+    }
 
-    logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
-    console.log('updateInjuredTroops defenseTroopReduce:', re)
+    if(re['defenseTroopReduce']){
+      logic2.city.updateInjuredTroops(re['defenseTroopReduce'], 'battle')
+    }
 
     if(re.result == true){
       (re as any).silverGet = logic2.city.robSilver((re as any).silverGet as number)
