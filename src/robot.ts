@@ -17,6 +17,10 @@ import { MapGDS } from './Game/DataConfig';
 
 
 
+
+
+
+
 const logger = createLogger({
   format: format.combine(
     format.colorize(),  // This adds colors
@@ -25,6 +29,23 @@ const logger = createLogger({
   transports: [new transports.Console()],
 });
 
+
+function initGuidBook() {
+    console.log("here")
+    const guideBookStr = fs.readFileSync("src/BotLogic/BotJS/data/guide.json", 'utf8');
+    const guideBooks = JSON.parse(guideBookStr) as any;
+    const guideBookByTemplate = {}
+
+    guideBooks.forEach((item:any)=>{
+        if(!guideBookByTemplate[item.tempalte]){
+            guideBookByTemplate[item.tempalte] = []
+        }
+
+        guideBookByTemplate[item.tempalte].push(item)
+    })
+
+    return guideBookByTemplate
+}
 
 
 
@@ -311,9 +332,11 @@ class StrategyTroop implements Strategy{
 class StrategyGlory implements Strategy{
     playerState: PlayerState
     occupiedBlocks: {[key:string]:number} = {}
+    attacktor:boolean
     
-    constructor(playerState: PlayerState){
+    constructor(playerState: PlayerState,tempalteType:TemplateType){
         this.playerState = playerState
+        this.attacktor = tempalteType == TemplateType.PayedAttacktor || tempalteType == TemplateType.NonePayAttacktor
     }
 
 
@@ -333,7 +356,7 @@ class StrategyGlory implements Strategy{
 
     async runStep(){
         const {city,general,map} = this.playerState
-        logger.info("StrategyGlory runStep ",{unionId: Throne.instance().unionId,username : Throne.instance().username})
+        logger.info("StrategyGlory runStep ",{unionId: Throne.instance().unionId,username : Throne.instance().username,attacktor:this.attacktor})
         //pick general
         const glist = general.getGeneralList()
         let attackGeneralId = ""
@@ -353,6 +376,45 @@ class StrategyGlory implements Strategy{
         }else{
             logger.info("general stamina ",{"general": attackGeneralId, "stamina":glist[attackGeneralId].stamina })
         }
+
+        
+        if (this.attacktor){
+            //rank list
+
+            const wrapGetAllBattleStatuses = async function(){
+                return new Promise((resolve, reject) => {
+                    general.getAllBattleStatuses((result)=>{
+                        resolve(result);
+                    })
+                });
+            }
+
+            const battleStatuses = await wrapGetAllBattleStatuses() as any
+            logger.info("battleStatuses ",{battleStatuses})
+            const generalBattleInfo : any =  general.getGeneralBattleInfo(parseInt(attackGeneralId))
+            const myPower = general.getAttackTroop() * (generalBattleInfo.sum[SkillType.Attack] + generalBattleInfo.sum[SkillType.Defense])
+
+            battleStatuses.sort((a :any,b:any)=>{
+                return a.silver > b.silver
+            })
+            logger.info("battleStatuses after sort",{battleStatuses})
+
+            for(let i = 0; i < battleStatuses.length; i++){
+                const bunit = battleStatuses[i]
+                if (!bunit.isProtected){
+                    const unitPower =  bunit.troop * (bunit.attack + bunit.defense)
+                    if (myPower > unitPower * 1.5){
+                        logger.info("start attack  player ",{bunit})
+                        general.battle(parseInt(attackGeneralId),bunit.username,(res:ITransResult)=>{
+                            logger.info("battle player result is ",{res})
+                        })
+                        return
+                    }
+                }
+            }
+        }
+
+
 
         //sync occuipied
         const belongsInfo = map.getBlocksBelongInfo() //{"-10^-10":{"attackEndTime":-1,"protectEndTime":-1,"unionId":3},
@@ -456,130 +518,10 @@ class StrategyGuideBook implements Strategy{
 
 
 
-    constructor(playerState: PlayerState){
+    constructor(playerState: PlayerState, guideBook: GuideCommand[] ){
         this.playerState = playerState
-        this.guideStr = `upgradebuilding	fortress	3	
-recruitgeneral	5		
-recruitgeneral	3		
-recruitgeneral	4		
-upgradebuilding	home	4	
-upgradebuilding	home	4	
-upgradebuilding	home	4	
-upgradegeneral	5	10	
-upgradegeneralskill	5	0	2
-upgradegeneralskill	5	1	2
-upgradegeneralskill	5	2	2
-upgradegeneral	3	10	
-upgradegeneralskill	3	0	2
-upgradegeneralskill	3	1	2
-upgradegeneral	4	10	
-upgradegeneralskill	4	0	2
-upgradegeneralskill	4	1	2
-upgradegeneralskill	4	2	2
-upgradebuilding	trainingcenter	3	
-upgradebuilding	trainingcenter	3	
-upgradebuilding	trainingcenter	3	
-upgradebuilding	fortress	4	
-recruitgeneral	1		
-upgradegeneral	1	10	
-upgradebuilding	home	5	
-upgradebuilding	home	5	
-upgradebuilding	home	5	
-upgradebuilding	trainingcenter	4	
-upgradebuilding	trainingcenter	4	
-upgradebuilding	trainingcenter	4	
-upgradebuilding	cavalrycamp	4	
-upgradebuilding	militarycenter	4	
-upgradebuilding	hospital	4	
-upgradegeneral	5	30	
-upgradegeneralskill	5	0	6
-upgradegeneralskill	5	1	6
-upgradegeneralskill	5	2	6
-upgradegeneral	3	20	
-upgradegeneralskill	3	0	4
-upgradegeneral	4	20	
-upgradegeneralskill	4	0	4
-upgradegeneralskill	4	1	4
-upgradegeneralskill	4	2	4
-upgradebuilding	fortress	5	
-recruitgeneral	2		
-upgradegeneral	2	10	
-upgradebuilding	home	6	
-upgradebuilding	home	6	
-upgradebuilding	home	6	
-upgradebuilding	trainingcenter	5	
-upgradebuilding	trainingcenter	5	
-upgradebuilding	trainingcenter	5	
-upgradebuilding	cavalrycamp	5	
-upgradebuilding	militarycenter	5	
-upgradebuilding	fortress	6	
-recruitgeneral	6		
-upgradegeneral	6	10	
-upgradegeneral	5	40	
-upgradegeneralskill	5	0	8
-upgradegeneralskill	5	1	8
-upgradegeneralskill	5	2	8
-upgradebuilding	home	7	
-upgradebuilding	home	7	
-upgradebuilding	home	7	
-upgradebuilding	trainingcenter	6	
-upgradebuilding	trainingcenter	6	
-upgradebuilding	trainingcenter	6	
-upgradebuilding	cavalrycamp	6	
-upgradebuilding	militarycenter	6	
-upgradegeneral	5	50	
-upgradegeneralskill	5	0	10
-upgradegeneralskill	5	1	10
-upgradegeneralskill	5	2	10
-upgradebuilding	home	8	
-upgradebuilding	home	8	
-upgradebuilding	home	8	
-upgradebuilding	trainingcenter	7	
-upgradebuilding	trainingcenter	7	
-upgradebuilding	trainingcenter	7	
-upgradebuilding	cavalrycamp	7	
-upgradebuilding	militarycenter	7	
-upgradegeneral	5	60	
-upgradegeneralskill	5	0	12
-upgradegeneralskill	5	1	12
-upgradegeneralskill	5	2	12
-upgradegeneral	5	70	
-upgradegeneralskill	5	0	14
-upgradegeneralskill	5	1	14
-upgradegeneralskill	5	2	14
-upgradebuilding	cavalrycamp	8	
-upgradebuilding	militarycenter	8	
-upgradebuilding	fortress	7	
-upgradegeneral	5	80	
-upgradegeneralskill	5	0	16
-upgradegeneralskill	5	1	16
-upgradegeneralskill	5	2	16
-upgradebuilding	cavalrycamp	9	
-upgradebuilding	militarycenter	9	
-upgradegeneral	5	90	
-upgradegeneralskill	5	0	18
-upgradegeneralskill	5	1	18
-upgradegeneralskill	5	2	18
-upgradebuilding	cavalrycamp	9	
-upgradebuilding	militarycenter	9	
-upgradegeneral	5	100	
-upgradegeneralskill	5	0	20
-upgradegeneralskill	5	1	20
-upgradegeneralskill	5	2	20
-upgradebuilding	cavalrycamp	10	
-upgradebuilding	militarycenter	10`
-
-
-
-        this.guideCommandList = [
-        ]
-
-        this.guideStr.split("\n").forEach((line)=>{
-            const [cmd,arg1,arg2,arg3] = line.split("\t")
-            this.guideCommandList.push({cmd : (cmd as GuideCommandType) ,arg1,arg2,arg3})
-        })
+        this.guideCommandList = guideBook
         this.guideCommandIndex = 0
-
 
         logger.info("StrategyGuideBook init ",{guideCommandList:this.guideCommandList})
     }
@@ -823,11 +765,54 @@ class StrategyCord implements Strategy{
 
     async runStep(){
         logger.info("StrategyCord runStep")
-        const general = this.playerState.general
+        const {city,general,map} = this.playerState
 
         const cordList = await general.getCodList()
         logger.info("codList is ",cordList)
+        //codList is  {"codList":[{"blockInfo":{"x_id":-8,"y_id":-8},"codId":"block_-8_-8","createTime":1703427073,"creator":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37","generalId":3,"lastTime":3600,"members":[{"generalId":3,"joinTime":1703427073,"troops":500,"username":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37"}],"membersMap":{"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37":{"generalId":3,"joinTime":1703427073,"troops":500,"username":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37"}},"troopNow":500,"troopTotal":1000,"unionId":3,"updateTime":1703427073}],"cods":{"block_-8_-8":{"blockInfo":{"x_id":-8,"y_id":-8},"codId":"block_-8_-8","createTime":1703427073,"creator":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37","generalId":3,"lastTime":3600,"members":[{"generalId":3,"joinTime":1703427073,"troops":500,"username":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37"}],"membersMap":{"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37":{"generalId":3,"joinTime":1703427073,"troops":500,"username":"0x24e05291ebff19eb7cc503fa8a6bb262d7ca2e37"}},"troopNow":500,"troopTotal":1000,"unionId":3,"updateTime":1703427073}}
         // {"codList":[],"cods":{}}
+        if(cordList && cordList.codList){
+            const glist = general.getGeneralList()
+            for(let i  in cordList.codList){
+                if (cordList.codList[i].unionId == Throne.instance().unionId){
+                    const x = cordList.codList[i].blockInfo.x_id
+                    const y = cordList.codList[i].blockInfo.y_id
+
+                    const wrapWithPromise = async function(){
+                        return new Promise((resolve, reject) => {
+                            map.getDefenseList(parseInt(x),parseInt(y),(result)=>{
+                                resolve(result);
+                            })
+                        });
+                    }
+                    const blockInfos :BlockDefenseInfo[]= await wrapWithPromise() as BlockDefenseInfo[]
+                    const blockPower = blockInfos.reduce((sum,info)=>{return sum + (info.attack + info.defense )* info.troops},0)
+                    logger.info("check blockInfo ",{blockInfos,x,y,blockPower} )
+                    if( cordList.codList[i].troopNow >= cordList.codList[i].troopTotal * 0.5 &&  cordList.codList[i].troopNow <= cordList.codList[i].troopTotal * 0.9 ) {
+                        let attackGeneralId = ""
+                        for (const generalId in glist){
+                            if (glist[generalId].able){
+                                if (glist[generalId].stamina > 0){
+                                    attackGeneralId = generalId
+                                }
+                            }
+                        }
+                
+                        if( attackGeneralId == ""){
+                                logger.info("no general has energy ",{glist})
+                                return 
+                        }else{
+                            logger.info("general stamina ",{"general": attackGeneralId, "stamina":glist[attackGeneralId].stamina })
+                            general.joinCod(cordList.codList[i].codId,parseInt(attackGeneralId),(res:ITransResult)=>{
+                                logger.info("join cord res is ",{ res,cord : cordList.codList[i] ,general: glist[attackGeneralId]})
+                            })
+                            return 
+                        }
+
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -846,7 +831,6 @@ class StrategyAttack implements Strategy{
         const general = this.playerState.general
 
         const cordList = await general.getCodList()
-        logger.info("codList is ",cordList)
         // {"codList":[],"cods":{}}
     }
 }
@@ -857,13 +841,13 @@ async function start(args:BotStartArgs){
     var playerState = StrategyExecutor.getInstance().playerState
 
 
-//    StrategyExecutor.getInstance().addStrategy(new StrategyGuideBook(playerState))
+    StrategyExecutor.getInstance().addStrategy(new StrategyGuideBook(playerState, args.guideBook))
 //    StrategyExecutor.getInstance().addStrategy(new StrategyBuiding(playerState))
 //   StrategyExecutor.getInstance().addStrategy(new StrategyGeneral(playerState))
- //   StrategyExecutor.getInstance().addStrategy(new StrategyTroop(playerState))
-  //  StrategyExecutor.getInstance().addStrategy(new StrategyGlory(playerState))
+    StrategyExecutor.getInstance().addStrategy(new StrategyTroop(playerState))
+    StrategyExecutor.getInstance().addStrategy(new StrategyGlory(playerState,args.templateType))
+    //StrategyExecutor.getInstance().addStrategy(new StrategyAttack(playerState))
     StrategyExecutor.getInstance().addStrategy(new StrategyCord(playerState))
-    StrategyExecutor.getInstance().addStrategy(new StrategyAttack(playerState))
 
 
     const loginInfo = {
@@ -881,6 +865,7 @@ async function start(args:BotStartArgs){
     })
 
    const res =  await Throne.instance().init(loginInfo)
+   logger.info("login res is ",res , " login Info is ",loginInfo)
     Throne.instance().initComponent(ComponentType.City, (city:ICityComponent) => {
         playerState.city = city
         playerState.notify(StateUpdatedEvent.City, city)
@@ -922,6 +907,8 @@ interface BotStartArgs {
     env: string;
     address?: string 
     wsUrl?: string 
+    guideBook:  GuideCommand[] 
+    templateType: TemplateType
 }
 
 async function startBot(args:BotStartArgs) {
@@ -950,7 +937,9 @@ async function testmain() {
     const args : BotStartArgs = {
         seasonId: "test-oasis-2023-08-09-1",
         privateKey: process.env.PRIVATE_KEY,
-        env: "test"
+        env: "test",
+        guideBook: initGuidBook()[TemplateType.PayedPeace],
+        templateType:TemplateType.PayedPeace,
     }
 
     await startBot(args)
@@ -981,18 +970,54 @@ function loadWallets() {
     })
     return wallets
 }
+
+
+enum TemplateType {
+    NonePayPeace = 1,
+    NonePayAttacktor = 2,
+    PayedPeace = 3,
+    PayedAttacktor = 4,
+}
+
+function getTemplateIdByIndex(walletIndex:number) :TemplateType{
+    walletIndex = walletIndex%40
+    if( walletIndex < 20) {
+        return TemplateType.NonePayAttacktor
+    }else{
+        return TemplateType.NonePayPeace
+    }
+
+    if( walletIndex < 4) {
+        return TemplateType.PayedPeace
+    } else if( walletIndex < 8) {
+        return TemplateType.PayedAttacktor
+    } else if (walletIndex < 14) {
+        return TemplateType.NonePayPeace
+    } else{
+        return TemplateType.NonePayAttacktor
+    }
+}
+
 async function main() {
-    logger.info("here")
-    console.log("here2")
     const targetWallets = loadWallets()
+    const guideBookByTemplate = initGuidBook()
     const wallet = targetWallets[parseInt(process.env.WALLET_INDEX)]
+    const seasonId = process.env.SEASON_ID
+    const env = process.env.ENV || "prod"
+
+    logger.info("start main ",{wallet,seasonId,env})
+
+    const templateType = getTemplateIdByIndex(parseInt(process.env.WALLET_INDEX))
+    const guideBook = guideBookByTemplate[templateType]
+
     const args : BotStartArgs = {
-        seasonId: "prod-bsc-2023-11-4-1-1",
+        seasonId: seasonId,
         privateKey: decrypt(wallet.privateKey),
-        env: "prod"
+        env: env,
+        guideBook: guideBook,
+        templateType:templateType,
     }
     startBot(args)
 }
 
-throw "here"
 main()

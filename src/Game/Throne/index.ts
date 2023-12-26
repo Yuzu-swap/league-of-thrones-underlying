@@ -280,6 +280,8 @@ export interface IGeneralComponent extends IComponent {
 
   getCodList():Promise<any>
   joinCod(codId: string, generalId: number, callback: (result: any) => void ) : void
+
+  getAllBattleStatuses( callback: (result: any) => void ) : Promise<void>
 }
 
 
