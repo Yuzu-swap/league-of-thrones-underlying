@@ -15,9 +15,10 @@ class StateChangeWatcher implements IStateChangeWatcher {
 }
 
 function LoadStateFromRemoteAPI (sid: IStateIdentity) :IState {
+    const seasonId = "prod-bsc-2023-12-25-1-2"
     const  stateCheckUrl = "https://app.leagueofthrones.com/web/state/" 
     const options = {
-        url: stateCheckUrl + sid.id,
+        url: stateCheckUrl + sid.id + "/" + seasonId,
         headers: {
           'User-Agent': 'my-app'
         }
@@ -44,7 +45,7 @@ async function debug(){
 
     const th = new TransitionHandler(stateWatcher,loadLoadStateFunc)
 
-    const logic: LogicEssential = th.genLogic("0x8129158d9604819f9c34f016be433319fbff24a0".toLocaleLowerCase())
+    const logic: LogicEssential = th.genLogic("0x04C535c9F175cB8980B43617fB480412c7E341E4".toLocaleLowerCase())
     const defenderInfo = logic.general.getDefenseInfo()
     console.log("defenderInfo is ", defenderInfo)
 

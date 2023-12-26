@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "@types/websocket": "^1.0.5",
-    "sync-request": "^6.1.0",
     "node": "^20.1.0",
+    "sync-request": "^6.1.0",
     "ts-interface-checker": "^1.0.2",
     "ts-node": "^10.9.1",
     "websocket": "^1.0.34"
