@@ -581,9 +581,11 @@ export class City {
   }
 
   getMaintainNeedTroop(){
-    let troop = 0
-    for(let key in CityFacility)
-    {
+    let troop = 0;
+    let facilities = this.state.facilities;
+    console.log('getMaintainNeedTroop facilities:', facilities);
+    console.log('getMaintainNeedTroop facilities facilityConfig:', this.cityConfig.facilityConfig);
+    for(let key in CityFacility){
       let type: CityFacility = CityFacility[key];
       const levelList = this.state.facilities[type] || [];
       // console.log('getMaintainNeedTroop', this.state.facilities, type, levelList);

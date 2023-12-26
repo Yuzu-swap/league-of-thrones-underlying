@@ -1175,7 +1175,7 @@ export class Throne implements IThrone {
   constructor() {
     this.inited = false
     this.instanceState = InstanceStatus.Null
-    this.version = "u122602"
+    this.version = "u1227"
   }
 
 
@@ -1241,7 +1241,8 @@ export class Throne implements IThrone {
     states.rewardGlobalState = (await this.mediator.queryState({ id: `${StateName.RewardGloablState}` }, {}, null)) as IRewardGlobalState
     states.tokenPriceInfo = (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}` }, {}, null)) as ITokenPriceInfoState
     states.codsGlobal = (await this.mediator.queryState({ id: `${StateName.GlobalCod}` }, {}, null)) as any
-    
+    console.log('createLogicEsential', states)
+    console.log('createLogicEsential city', states.city)
     this.logicEssential = createLogicEsential(states)
 
     this.inited = true

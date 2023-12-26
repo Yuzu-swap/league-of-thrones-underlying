@@ -836,6 +836,7 @@ export class TransitionHandler {
     console.log('cod runList attack gloryGet:', gloryGet, ' ', re['gloryGet'], ' attackInfo.gloryGet:' ,attackInfo['gloryGet'], ' ', username);;
 
     //update glory rank
+    console.log('cod runList city.state facilities:', logic.city.state);
     let fortressLevel = logic.city.state.facilities[CityFacility.Fortress][0];
     if(fortressLevel >= 7){
       this.updateRewardState(
