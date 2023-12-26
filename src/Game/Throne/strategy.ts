@@ -54,15 +54,16 @@ export class StrategyComponent implements IStrategyComponent{
         re['strategyPoint'] = this.strategy.getStrategyPonit()
         re['maxStrategyPoint'] = MaxStrategyPoint
         re['buyTimes'] = this.strategy.getBuyStrategyTimes()
+        re['buyTimesLastUpdate'] = this.strategy.getBuyStrategyTimesLastUpdate()
         re['maxBuyTimes'] = this.strategy.strategyBuyConfig.getMaxTimes()
         return re
     }
 
     getStrategiesInfo():{} {
         let re = {}
-        re['buyTroopCount'] = this.strategy.getOpenDayCount() * 50
+        re['buyTroopCount'] = this.strategy.getOpenDayCount() * 70
         re['buySilverCount'] = this.strategy.getOpenDayCount() * 10000
-        re['buyMoraleCount'] = 2
+        re['buyMoraleCount'] = 3
         re['protect1'] = {
             able : this.strategy.getStrategyStatus(StrategyType.Protect1).able,
             remainTime: this.strategy.getStrategyStatusRemainTime(StrategyType.Protect1),

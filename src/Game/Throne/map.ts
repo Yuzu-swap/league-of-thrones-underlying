@@ -7,7 +7,7 @@ import { StateTransition, CityFacility, ResouceType, StateName } from '../Const'
 import { BaseMediator, IStateMediator, StateCallback } from '../../Core/mediator'
 import { State, IState, IStateIdentity, copyObj } from '../../Core/state'
 import { ConfigContainer } from '../../Core/config'
-import { GetInitState, GetMapState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds } from '../State'
+import { GetInitState, IBlockState, ICityState, IDefenderInfoState, IGeneralState, IMapGlobalState, ResouceInfo, validBlockIds, ITokenPriceInfoState } from '../State'
 import {
   FacilityFortressGdsRow,
   FacilityMilitaryCenterGdsRow,
@@ -22,7 +22,7 @@ import {
   GeneralGdsRow,
   BuffGdsRow
 } from '../DataConfig';
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+
 import { LogicEssential, createLogicEsential, StateEssential, ConfigEssential } from '../Logic/creator'
 import { WebSocketMediator } from '../Controler/websocket'
 import { callbackify } from 'util'
@@ -43,7 +43,7 @@ export interface IMapComponent extends IComponent{
     getSeasonConfig():{}
     getSeasonRankResult(callback: (result: any) => void) :  Promise<void>
     getUnionWinInfo(callback: (result: any) => void): Promise<void>
-    getExpectUnionReward(callback: (result: any) => void): Promise<void>
+    getExpectUnionReward(chainName: string, callback: (result: any) => void): Promise<void>
     getUnionOverView(callback: (result: any) => void): Promise<void>
 }
 
@@ -82,13 +82,45 @@ export class MapComponent implements IMapComponent{
         )
     }
 
+    async getTokenPriceInfo(callback: (result: any) => void): Promise<void>{ 
+        let tokenPriceInfo =  (await this.mediator.queryState({ id: `${StateName.TokenPriceInfo}`}, { }, null)) as ITokenPriceInfoState;
+        console.log('updateTokenPriceInfo in map:', tokenPriceInfo);
+        let result = this.createTokenPriceFormat(tokenPriceInfo);
+        callback(result);
+    }
+
+    createTokenPriceFormat(tokenPriceInfo){
+        let unions = {
+            1: "BTC",
+            2: "ETH",
+            3: "USDT",
+            4: "BNB"
+        };
+        let { current, initial } = tokenPriceInfo;
+
+        let result = [];
+        for(var id=1;id<5;id++){
+            let name = unions[id];
+            let v1 = initial[name]/1 || current[name]/1;
+            let v2 = current[name]/1;
+            let changeValue = Math.min((v2 - v1)/v1, 5);
+
+            result.push({ id, name, changeValue, v1, v2});
+        }
+        return result;
+    }
+
     genBlockIds(x_id: number, y_id: number):string[]{
         const xOffset = [ 0, 1, 1, 0, -1, -1]
         const yOffset = [ 2, 1, -1, -2, -1, 1]
         let re = []
-        let centerid = `${StateName.BlockInfo}:${x_id}^${y_id}`
+        let seasonState = this.map.getSeasonState();
+        let mapId = seasonState.mapId;
+        // let mapId = Throne.instance().mapId;
+        let centerid = `${StateName.BlockInfo}:${mapId}:${x_id}^${y_id}`;
+        console.log('queryBlockStates genBlockIds', { centerid, mapId, validBlockIds, seasonState});
         if(validBlockIds.length == 0){
-            GetInitState()
+            GetInitState('map.genBlockIds')
         }
         if(validBlockIds.indexOf(centerid) != -1){
             re.push(centerid)
@@ -97,17 +129,29 @@ export class MapComponent implements IMapComponent{
             let tempX = x_id + xOffset[i]
             let tempY = y_id + yOffset[i]
             let id = tempX + "^" + tempY
-            let stateId = `${StateName.BlockInfo}:${id}`
+            let stateId = `${StateName.BlockInfo}:${mapId}:${id}`
             if(validBlockIds.indexOf(stateId) != -1){
                 re.push( stateId)
             }
         }
+
+        let capitals = this.map.getCapitalsBlocks();
+        for(var blockId in capitals){
+            let stateId = `${StateName.BlockInfo}:${mapId}:${blockId}`
+            if(validBlockIds.indexOf(stateId) != -1){
+                re.push(stateId)
+            }
+        }
+        console.log('genBlockIds genBlockIds', re);
+
         return re
     }
 
     async queryBlockStates(x_id : number , y_id : number){
         let idLists = this.genBlockIds(x_id, y_id)
-        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} })
+        // console.log('queryBlockStates 1', idLists, { x_id, y_id });
+        let blockStats =  await this.mediator.query(StateName.BlockInfo, { 'id' : {"$in":idLists} }) || [];
+        // console.log('queryBlockStates 2', blockStats);
         this.map.loadBlockStates(blockStats)
     }
 
@@ -226,8 +270,8 @@ export class MapComponent implements IMapComponent{
         callback(re)
     }
     getSeasonConfig(): {} {
-        let config = this.map.seasonConfig.get(1)
-        return copyObj(config)
+        let seasonState = this.map.getSeasonState()
+        return seasonState;
     }   
 
     async getUnionWinInfo(callback: (result: any) => void): Promise<void>{
@@ -266,10 +310,19 @@ export class MapComponent implements IMapComponent{
         )
     }
 
-    async getExpectUnionReward(callback: (result: any) => void): Promise<void> {
+    async getExpectUnionReward(chainName: string, callback: (result: any) => void): Promise<void> {
         let unionId = Throne.instance().unionId
-        let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1]
-        let rewardSum = this.map.seasonConfig.get(1).show_season_victory_reward[0].count
+        let unionSum = this.map.rewardGlobalState.unionGlorySumRuntime[unionId - 1];
+        // let chains = {
+        //     'emerald' : 1,
+        //     'bsctest' : 2,
+        //     'bsc' : 3
+        // };
+        // let index = chains[chainName];
+
+        let seasonState = this.map.getSeasonState();
+        // let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
+        let rewardSum = seasonState.rankRewardValue;
         let re = {
             topInfo: [],
             myInfo: {}
@@ -287,10 +340,11 @@ export class MapComponent implements IMapComponent{
                     unionId: unionId,
                     glory: unionList[i].glory,
                     rank: parseInt(i) + 1,
-                    reward:  unionList[i].glory / unionSum * rewardSum
+                    reward: rewardSum * unionList[i].glory / unionSum
                 }
                 re.topInfo.push(item)
             }
+            console.log('conquest rank: ', { unionSum, rewardSum }, unionList);
             re.myInfo = {
                 username: Throne.instance().username,
                 unionId: unionId,

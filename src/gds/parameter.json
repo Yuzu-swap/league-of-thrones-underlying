@@ -8,11 +8,19 @@
         "name":"upgrade_fortress_share_activity_reward"
     },
     "troops_base_load":{
-        "value":"5",
+        "value":"1",
         "name":"troops_base_load"
     },
+    "stamina_share_activity_reward":{
+        "value":"1",
+        "name":"stamina_share_activity_reward"
+    },
+    "spy_need_stamina":{
+        "value":"1",
+        "name":"spy_need_stamina"
+    },
     "register_reward_gold":{
-        "value":"200",
+        "value":"100",
         "name":"register_reward_gold"
     },
     "recovery_one_morale_need_gold":{
@@ -27,13 +35,13 @@
         "value":"28800",
         "name":"order_protect_times"
     },
-    "order_protect_1hour_times":{
-        "value":"3600",
-        "name":"order_protect_1hour_times"
-    },
     "order_protect_need":{
         "value":"8",
         "name":"order_protect_need"
+    },
+    "order_protect_1hour_times":{
+        "value":"3600",
+        "name":"order_protect_1hour_times"
     },
     "order_protect_1hour_need":{
         "value":"2",
@@ -59,6 +67,14 @@
         "value":"86400",
         "name":"new_player_protect_times"
     },
+    "healing_troops_need_silver":{
+        "value":"100",
+        "name":"healing_troops_need_silver"
+    },
+    "healing_troops_need_gold":{
+        "value":"0.3",
+        "name":"healing_troops_need_gold"
+    },
     "general_troops_coefficient":{
         "value":"1.2",
         "name":"general_troops_coefficient"
@@ -75,6 +91,10 @@
         "value":"100",
         "name":"general_max_level"
     },
+    "gather_need_stamina":{
+        "value":"1",
+        "name":"gather_need_stamina"
+    },
     "gather_need_general_stamina":{
         "value":"1",
         "name":"gather_need_general_stamina"
@@ -82,6 +102,10 @@
     "gather_get_silver_parameter":{
         "value":"0.5",
         "name":"gather_get_silver_parameter"
+    },
+    "defense_plots_need_stamina":{
+        "value":"1",
+        "name":"defense_plots_need_stamina"
     },
     "default_defense_general":{
         "value":"100|100|100|1",
@@ -98,5 +122,21 @@
     "attack_territory_share_activity_reward":{
         "value":"100",
         "name":"attack_territory_share_activity_reward"
+    },
+    "attack_plots_need_stamina":{
+        "value":"1",
+        "name":"attack_plots_need_stamina"
+    },
+    "attack_player_need_stamina":{
+        "value":"2",
+        "name":"attack_player_need_stamina"
+    },
+    "assembly_need_stamina":{
+        "value":"2",
+        "name":"assembly_need_stamina"
+    },
+    "assemble_last_times":{
+        "value":"3600",
+        "name":"assemble_last_times"
     }
 }

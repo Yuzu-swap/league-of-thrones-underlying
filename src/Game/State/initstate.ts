@@ -1,24 +1,23 @@
-import buildingCountConfig = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import { StateName, ResouceType, CityFacility, MaxSize, mapIdOffset, MaxStrategyPoint } from '../Const';
-import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import buildingCountConfig = require('../../gds/building_count.json');
+import { StateName, ResouceType, CityFacility, MaxStrategyPoint } from '../Const';
+import qualificationGDS = require('../../gds/general.json');
+import mapListGDS = require('../../gds/map_list.json')
 import { copyObj } from '../../Core/state';
-import { GenBlockDefenseTroop, SeasonConfigFromGDS } from '../DataConfig';
+import { GenBlockDefenseTroop, SeasonConfigFromGDS, loadMapGDS, getMapOffset } from '../DataConfig';
 import { GeneralInfo } from '.';
 
 export var InitState = {
+    [StateName.Capitals]: {},
     [StateName.City]: {
       facilities: { },
       resources: {
-          [ResouceType.Silver]:
-          {
+          [ResouceType.Silver]: {
               lastUpdate: -1,
-              value: 1000000,
+              value: 10000,
           },
-          [ResouceType.Troop]:
-          {
+          [ResouceType.Troop]: {
               lastUpdate: -1,
-              value: 100000,
+              value: 1000,
           }
       },
       recruit:[],
@@ -26,7 +25,17 @@ export var InitState = {
       lastAddTestTime: -1,
       userActivity: [],
       guideStep: [],
-      firstLogin: -1
+      firstLogin: -1,
+      injuredTroops: { 
+        updateTime: -1,
+        today: 0,
+        value: 0
+      },
+      rewardClaimed: {},
+      buyOfferRecords: {}
+    },
+    [StateName.GlobalCod]: {
+        cods: {}
     },
     [StateName.General]:{
         generalList: {},
@@ -40,7 +49,10 @@ export var InitState = {
             value: 100,
         },
         unionInit: false,
-        lastBattle: -1
+        lastBattle: -1,
+        userScores: {},
+        cods: {},
+        codGeneralIdsMap: {}
     },
     //TODO: add default defender info
     [StateName.DefenderInfo]:{
@@ -59,6 +71,10 @@ export var InitState = {
     },
     [StateName.MapGlobalInfo]:{
         campInfo:[],
+        campInfo_1:[],
+        campInfo_2:[],
+        campInfo_3:[],
+        campInfo_4:[],
         campMembers: [],
         unionWinId: 0,
         seasonEnd: false
@@ -72,7 +88,15 @@ export var InitState = {
         rankConfigFromTo: [],
         rankConfigValue: [],
         unionRewardValue: 0,
-        rankRewardValue: 0
+        rankRewardValue: 0,
+        seasonId: '',
+        chain: '',
+        mapId: 0
+    },
+    [StateName.TokenPriceInfo]:{
+        initial: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
+        current: {"ETH":0,"USDT":0,"BTC":0,"BNB":0},
+        lastUpdate: 0
     },
     [StateName.RewardGloablState]:{
         unionGloryRankInfo: [[],[],[],[]],
@@ -124,13 +148,13 @@ export var validBlockIds = []
 var _inited = false
 
 
-export function GetInitState(){
+export function GetInitState(from: string){
     if (!_inited) {
         //city state
-        for(let key in CityFacility)
-        {
+        for(let key in CityFacility){
             let CityAnyType:any = CityFacility[key];
             let maxCount = buildingCountConfig[CityAnyType]['max_count']
+            console.log('GetInitState city.data facilities:', CityFacility, {key, CityAnyType}, buildingCountConfig, maxCount);
             if(!isNaN(maxCount)){
                 InitState[StateName.City].facilities[CityAnyType] = Array(maxCount).fill(1)
             }
@@ -154,69 +178,117 @@ export function GetInitState(){
                 InitState[StateName.General].generalList[row.general_id + ""] = generalInfo
             }
         }
-        let maxlen = Math.floor((MaxSize + 1)/ 2)
-        InitState[StateName.MapGlobalInfo].campInfo = []
-        for(let i = 0; i< MaxSize; i++){
-            InitState[StateName.MapGlobalInfo].campInfo.push( new Array(maxlen - i %2 ).fill(null).map(
-                ()=>{
-                    return {unionId: 0,
-                    attackEndTime: -1,
-                    protectEndTime: -1}
-                 }
-                ))
-        }
+
         for(let i = 0; i< 4; i++){
             InitState[StateName.MapGlobalInfo].campMembers.push([])
         }
         InitState[StateName.MapGlobalInfo].campMembers[0].push('test')
         InitState[StateName.MapGlobalInfo].unionWinId = 0
 
-        InitState = Object.assign(InitState, GetMapState())        
-        _inited = true
-    }
-    return  copyObj(InitState)
-}
-
-var _ginit = false
-
-export function GetMapState(){
-    if(!_ginit){
-        const time = parseInt(new Date().getTime() / 1000 + '');
-        for(let block in mapGDS){
-            let key = `${StateName.BlockInfo}:${block}`
-            let row = mapGDS[block]
-            let list = block.split('^')
-            let unionId = 0
-            if( row['type'] == 3 ){
-                unionId = row['parameter']
-                let xIndex = parseInt(list[0]) + mapIdOffset;
-                let yIndex = Math.floor((parseInt(list[1]) + mapIdOffset) / 2)
-                InitState[StateName.MapGlobalInfo].campInfo[xIndex][yIndex].unionId = unionId
-            }
-            gInitState[key]= {
-                id: key,
-                x_id: parseInt(list[0]),
-                y_id: parseInt(list[1]),
-                belong: {
-                    unionId: unionId,
-                    updateTime: -1
-                  },
-                defenseList: [],
-                durability: row['durability'],
-                defaultDefense: GenBlockDefenseTroop(parseInt(list[0]),parseInt(list[1])),
-                lastAttachTime: -1,
-                remainSilver: row['silver_total_number']
-            }
-        }
         let activityLen = SeasonConfigFromGDS.get(1).activities.length
         for(let i = 0; i < activityLen; i++){
             InitState[StateName.Activity].activityData.push([])
             InitState[StateName.Activity].sumValue.push(0)
             InitState[StateName.Activity].haveSendReward.push(false)
         }
-        for(let key in gInitState){
-            validBlockIds.push(key)
+
+        for(let mapItem of mapListGDS['Config']){
+            let mapId = mapItem['map_id'];
+            InitState = Object.assign(InitState, GetInitStateMap(mapId, 'GetInitState'));
+        }
+       
+        _inited = true;
+    }
+    return copyObj(InitState);
+}
+
+export function GetInitStateMap(mapId: number, from: string){
+    console.log('GetInitStateMap args:', { mapId, from });
+    mapId = mapId || 1;
+    //city state
+    const mapOffset = getMapOffset(mapId);
+    console.log('GetInitState mapId offset:', { mapId, mapOffset });
+
+    let { rows, cols } = mapOffset;
+    
+    // let maxSize = mapOffset.maxSize;
+    // let maxlen = Math.floor((maxSize + 1)/ 2);
+    let mapsArr = [];
+    for(let i = 0; i< rows; i++){
+        console.log('GetInitState MapGlobalInfo:', { mapId, i, ylen: cols - i%2 });
+        mapsArr.push( new Array(cols - i%2).fill(null).map(
+            ()=>{
+                return {unionId: 0,
+                attackEndTime: -1,
+                protectEndTime: -1}
+             }
+        ))
+    }
+    let campInfoKey = 'campInfo_' + mapId;
+    InitState[StateName.MapGlobalInfo][campInfoKey] = mapsArr;
+
+    console.log('GetInitState ', { campInfoKey }, InitState[StateName.MapGlobalInfo][campInfoKey]);
+
+    return GetMapState(mapId);
+}
+
+var _ginit = false
+
+export function GetMapState(mapId: number){
+    if(!_ginit){
+        mapId = mapId || 1;
+        let campInfoKey = 'campInfo_' + mapId;
+        const mapGDS = loadMapGDS(mapId);
+        console.log('GetMapState mapId:', mapId, mapGDS);
+        const time = parseInt(new Date().getTime() / 1000 + '');
+
+        const mapOffset = getMapOffset(mapId);
+        console.log('GetMapState mapId offset:', { mapId, mapOffset });
+
+        let capitalsKey = 'capitals_' + mapId;
+        InitState[StateName.Capitals] = InitState[StateName.Capitals] || {};
+        InitState[StateName.Capitals][capitalsKey] = InitState[StateName.Capitals][capitalsKey] || {};
+        for(let blockId in mapGDS){
+            let blockGlobalUniKey = `${StateName.BlockInfo}:${mapId}:${blockId}`;
+            let row = mapGDS[blockId];
+
+            let blockIds = blockId.split('^');
+            let x_id = parseInt(blockIds[0]);
+            let y_id = parseInt(blockIds[1]);
+            let xIndex = (mapOffset.cols - 1 + x_id - Math.abs(x_id%2))/2;
+            let yIndex = (mapOffset.rows - 1)/2 - y_id;
+
+            //captital blocks
+            if( row['type'] == 2 ){
+                InitState[StateName.Capitals][capitalsKey][blockId] = row;
+            }
+
+            let unionId = 0;
+            if( row['type'] == 3 ){
+                unionId = row['parameter'];
+                let yBlocks = InitState[StateName.MapGlobalInfo][campInfoKey][yIndex];
+                yBlocks[xIndex] = yBlocks[xIndex] || {unionId: 0, attackEndTime: -1, protectEndTime: -1};
+                yBlocks[xIndex].unionId = unionId;
+                InitState[StateName.MapGlobalInfo][campInfoKey][yIndex] = yBlocks;
+                console.log('GetMapState gInitState init:', { blockId, xIndex, yIndex, unionId });
+            }
+            gInitState[blockGlobalUniKey]= {
+                id: blockGlobalUniKey,
+                x_id: x_id,
+                y_id: y_id,
+                belong: {
+                    unionId: unionId,
+                    updateTime: -1
+                },
+                defenseList: [],
+                durability: row['durability'],
+                defaultDefense: GenBlockDefenseTroop(x_id, y_id, mapId),
+                lastAttachTime: -1,
+                remainSilver: row['silver_total_number']
+            }
+            validBlockIds.push(blockGlobalUniKey);
         }
     }
+    console.log('GetMapState gInitState:', gInitState);
     return copyObj(gInitState)
 }

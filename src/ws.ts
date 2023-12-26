@@ -2,15 +2,16 @@ import { StateName, StateTransition, CityFacility } from "./Game/Const";
 import { WebSocketMediator } from "./Game/Controler/websocket";
 import { ICityState } from "./Game/State";
 
-async function testws(uname) {
+async function testws(uname, seasonId) {
     const ws: WebSocketMediator = new WebSocketMediator(
-      'ws://test-ws.leagueofthrones.com/ws/' + uname
+      'ws://test-ws.leagueofthrones.com/ws/' + uname,
+      {}
     );
   
     await ws.init();
     const city = (await ws.queryState(
       { id: `${StateName.City}:${uname}` },
-      {},
+      { seasonId: seasonId },
       null
     )) as ICityState;
   
@@ -40,7 +41,9 @@ async function testws(uname) {
 
     const cities = (await ws.query(
       `${StateName.City}`,
-      {},
+      {
+        seasonId: seasonId
+      },
     ))
 //    console.log("cities are ",cities)
 
@@ -60,5 +63,5 @@ async function testws(uname) {
     */
   }
   
-  testws('ccc5');
+  testws('ccc5', 'ssss');
   

@@ -3,14 +3,17 @@ import IndexTI from "./index-ti"
 
 export enum StateName {
 	City = "city",
+	Capitals = "capitals",
 	General = "general" ,
 	DefenderInfo = "defenderinfo",
 	MapGlobalInfo = 'mapglobalinfo',
 	BlockInfo = 'blockinfo',
 	SeasonConfig = 'seasonconfig',
+	TokenPriceInfo = 'tokenPriceInfo',
 	RewardGloablState = 'rewardglobalstate',
 	Strategy = 'strategy',
-	Activity = 'activity'
+	Activity = 'activity',
+	GlobalCod = 'globalcod'
 }
 
 export enum CityFacility {
@@ -23,6 +26,8 @@ export enum CityFacility {
 	ArcherCamp = 'archercamp',
 	TrainingCenter = 'trainingcenter',
 	Home = 'home',
+	Hospital = 'hospital',
+	Assembly = 'assembly'
 }
 
 export enum ResouceType {
@@ -30,8 +35,8 @@ export enum ResouceType {
 	Troop = 'troop'
 }
 
-export const MaxSize = 21;
-export const mapIdOffset = 10;
+// export const MaxSize = 21;
+// export const mapIdOffset = 10;
 export const MaxStrategyPoint = 12
 
 export enum StateTransition {
@@ -65,7 +70,6 @@ export enum StateTransition {
 	StrategyBuyTroop,
 	StrategyBuyMorale,
 	StrategyBuyProtect,
-	StrategyBuyProtect1,
 	StrategyBuyStore,
 	MiningBlock,
 	InitUserStates,
@@ -74,7 +78,17 @@ export enum StateTransition {
 	RegularTask,
 	SetGuideStep,
 	FirstLogin,
+	StrategyBuyProtect1,
 	FinishOutChainUserActivity,
+	HealTroops,
+	SpyEnamy,
+	BuyOffer,
+	CreateCod,
+	CancelCod,
+	JoinCod,
+	QuitCod,
+	AttackBlockCod,
+	CodCreatorDetail
 }
 
 export function StringifyTxType() {
@@ -141,8 +155,11 @@ export interface AttackBlockArgs extends StateTransitionArgs{
 }
 
 export interface SetUnionIdArgs extends StateTransitionArgs{
-	unionId: number
+	union_id: number
 	force: boolean
+	random_union:boolean
+	general_ids: []
+	applies:{}
 }
 
 export interface SetUnionWinArgs extends StateTransitionArgs{
@@ -154,8 +171,10 @@ export interface SetSeasonEndArgs extends StateTransitionArgs{
 }
 
 export interface StartSeasonArgs extends StateTransitionArgs{
+	general_ids: []
 	applies:{}
 	season:{
+		chain: string,
 		apply_ts: number,
 		prepare_ts : number,
 		start_ts : number,
@@ -164,7 +183,10 @@ export interface StartSeasonArgs extends StateTransitionArgs{
         reward_amount_2: number
 		rank_config_fromto: number[],
         rank_config_value: number[],
-	}
+	},
+	seasonId: string,
+	priceInfo: {},
+	mapConfigId: number
 }
 
 export interface SetIconIdArgs extends StateTransitionArgs{
@@ -172,9 +194,10 @@ export interface SetIconIdArgs extends StateTransitionArgs{
 }
 
 export interface RechargeArgs extends StateTransitionArgs{
-	username: string,
+	username: string
 	rechargeId: number
 	amount: number
+	chain: string
 }
 
 export enum RecoverMoraleType{
@@ -211,6 +234,31 @@ export interface OutChainUserActivityArgs extends StateTransitionArgs{
 	action: string
 }
 
+export interface HealTroopsArgs extends StateTransitionArgs{
+  typ: string
+  amount: number
+}
+
+export interface SpyEnamyArgs extends StateTransitionArgs{
+  username: string
+  generalId: number
+}
+
+export interface CreateCodArgs extends StateTransitionArgs{
+  blockInfo: {}
+  userInfo: {}
+}
+
+export interface CancelCodArgs extends StateTransitionArgs{
+  codId: string
+  username: string
+}
+
+export interface CodJoinArgs extends StateTransitionArgs{
+  codId: string
+  userInfo: {}
+}
+
 export enum ChatType {
 	ChatTypeText                  = 1,
 	ChatTypePos                   = 2,
@@ -234,6 +282,7 @@ export enum ProfileTransId {
 }
 
 export interface ChatMessage {
+	seasonId: string
 	id: string
 	type: ChatType
 	channel: ChatChannel
@@ -244,12 +293,9 @@ export interface ChatMessage {
 	ts :number
 }
 
-
-
 const checkMapFactory = createCheckers(IndexTI)
 
-export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = 
-{
+export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } = {
 	[StateTransition.UpgradeFacility] : checkMapFactory.UpgradeFacilityArgs,
 	[StateTransition.Recruit]: checkMapFactory.RecruitArgs,
 	[StateTransition.AbleGeneral]: checkMapFactory.AbleGeneralArgs,
@@ -280,4 +326,10 @@ export const checkerMapForTxArgsTypeMap : {[key in StateTransition]?: any } =
 	[StateTransition.SetSeasonEnd]: checkMapFactory.SetSeasonEndArgs,
 	[StateTransition.StartSeason]: checkMapFactory.StartSeasonArgs,
 	[StateTransition.Recharge]: checkMapFactory.RechargeArgs,
+	[StateTransition.HealTroops]: checkMapFactory.HealTroopsArgs,
+	[StateTransition.SpyEnamy]: checkMapFactory.SpyEnamyArgs,
+	[StateTransition.CreateCod]: checkMapFactory.CreateCodArgs,
+	[StateTransition.CancelCod]: checkMapFactory.CancelCodArgs,
+	[StateTransition.JoinCod]: checkMapFactory.CodJoinArgs,
+	[StateTransition.QuitCod]: checkMapFactory.CodJoinArgs,
 }

@@ -19,17 +19,18 @@ import {
   FacilityHomeGdsRow
 } from './Game/DataConfig';
 
-import fortressGDS = require('./league-of-thrones-data-sheets/.jsonoutput/fortress.json');
-import militaryCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
-import wallGDS = require('./league-of-thrones-data-sheets/.jsonoutput/wall.json');
-import storeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/store.json');
-import infantryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
-import cavalryCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
-import archerCampGDS = require('./league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
-import trainingCenterGDS = require('./league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
-import homeGDS = require('./league-of-thrones-data-sheets/.jsonoutput/home.json');
-import buildingCount = require('./league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import mapGDS = require('./league-of-thrones-data-sheets/.jsonoutput/map_config.json')
+import fortressGDS = require('./gds/fortress.json');
+import militaryCenterGDS = require('./gds/militarycenter.json');
+import wallGDS = require('./gds/wall.json');
+import storeGDS = require('./gds/store.json');
+import infantryCampGDS = require('./gds/infantrycamp.json');
+import cavalryCampGDS = require('./gds/cavalrycamp.json');
+import archerCampGDS = require('./gds/archercamp.json');
+import trainingCenterGDS = require('./gds/trainingcenter.json');
+import homeGDS = require('./gds/home.json');
+import buildingCount = require('./gds/building_count.json');
+// import mapGDS = require('./gds/map_config_0.json')
+import vipGDS = require('./gds/vip.json')
 import { LocalMediator } from './Game/Controler/mediator';
 import { IState, State } from './Core/state';
 import {Throne, ICityComponent, IGeneralComponent, GeneralComponent , ComponentType, CityComponent} from './Game/Throne';
@@ -38,6 +39,42 @@ import { IMapComponent } from './Game/Throne/map';
 import { addToNormalSortedList, addToSortList, checkNaNInObj, getTimeStamp, isNumber } from './Game/Utils';
 import { StrategyComponent } from './Game/Throne/strategy';
 import { ChainComponent, IChainComponent } from './Game/Throne/chain';
+
+import parameterGDS = require('./gds/parameter.json')
+export const randomCampReward = parameterGDS.choose_random_camp_reward;
+
+export const rewardConfig = {
+  randomCamp: parameterGDS.choose_random_camp_reward || {},
+  upgrade_fortress: parameterGDS.upgrade_fortress_share_activity_reward || {},
+  attack: parameterGDS.attack_territory_share_activity_reward || {},
+  stamina_share: parameterGDS.stamina_share_activity_reward || {}
+};
+export const staminaTimes = {
+  attackPlayer: parameterGDS.attack_player_need_stamina.value,
+  attackPlots: parameterGDS.attack_plots_need_stamina.value,
+  defensePlots: parameterGDS.defense_plots_need_stamina.value,
+  gather: parameterGDS.gather_need_stamina.value,
+  spy: parameterGDS.spy_need_stamina.value,
+  assembly: parameterGDS.assembly_need_stamina.value
+};
+
+export function getVipSilverBuff(userScore: number){
+    let scores = vipGDS['Config'];
+    let minScore = scores[0].score;
+    let maxScore = scores[scores.length - 1].score;
+
+    if(userScore >= maxScore){
+      return scores[scores.length - 1];
+    }
+
+    let buffs = {};
+    for(var i=0;i<scores.length-1;i++){
+      if(userScore >= scores[i].score && userScore < scores[i+1].score){
+        buffs = scores[i];
+      }
+    }
+    return buffs;
+}
 
 export const GameName = 'league of thrones';
 export * from './Game/Controler/mediator';
@@ -216,7 +253,7 @@ function example() {
         })
         console.log(city.getRecruitState())
 
-        console.log( JSON.stringify(city.getRechargeConfigs()))
+        console.log( JSON.stringify(city.getRechargeConfigs('oasis')))
 
         Throne.instance().mediator.sendTransaction(StateTransition.Recharge,
           {
@@ -252,7 +289,7 @@ function example() {
         
         //update
 
-        console.log(city.getAbleActivityInfo())
+        console.log(city.getAbleActivityInfo(1))
 
         city.donateSilver(1, 100, 
           (result)=>{

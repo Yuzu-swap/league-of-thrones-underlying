@@ -1,21 +1,32 @@
-import fortressGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/fortress.json');
-import militaryCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/militarycenter.json');
-import wallGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/wall.json');
-import storeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/store.json');
-import infantryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/infantrycamp.json');
-import cavalryCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/cavalrycamp.json');
-import archerCampGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/archercamp.json');
-import trainingCenterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/trainingcenter.json');
-import homeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/home.json');
-import buildingCount = require('../../league-of-thrones-data-sheets/.jsonoutput/building_count.json');
-import qualificationGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/general.json');
-import buffGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buff_table.json')
-import parameterGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/parameter.json')
-import mapGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/map_config.json')
-import seasonGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/season.json')
-import rechargeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/payment.json')
-import strategyBuyGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/buy_stamina_times.json')
-import activityTypeGDS = require('../../league-of-thrones-data-sheets/.jsonoutput/activity.json')
+import fortressGDS = require('../../gds/fortress.json');
+import militaryCenterGDS = require('../../gds/militarycenter.json');
+import wallGDS = require('../../gds/wall.json');
+import storeGDS = require('../../gds/store.json');
+import infantryCampGDS = require('../../gds/infantrycamp.json');
+import cavalryCampGDS = require('../../gds/cavalrycamp.json');
+import archerCampGDS = require('../../gds/archercamp.json');
+import trainingCenterGDS = require('../../gds/trainingcenter.json');
+import homeGDS = require('../../gds/home.json');
+import hospitalGDS = require('../../gds/hospital.json');
+import assemblyGDS = require('../../gds/assembly.json');
+
+import buildingCount = require('../../gds/building_count.json');
+import qualificationGDS = require('../../gds/general.json');
+import buffGDS = require('../../gds/buff_table.json')
+import parameterGDS = require('../../gds/parameter.json')
+import seasonGDS = require('../../gds/season.json')
+import rechargeGDS = require('../../gds/payment.json')
+import strategyBuyGDS = require('../../gds/buy_stamina_times.json')
+import activityTypeGDS = require('../../gds/activity.json')
+import vipGDS = require('../../gds/vip.json')
+import offerGDS = require('../../gds/offer.json')
+
+import mapListGDS = require('../../gds/map_list.json')
+import mapGDS1 = require('../../gds/map_config_1.json')
+import mapGDS2 = require('../../gds/map_config_2.json')
+import mapGDS3 = require('../../gds/map_config_3.json')
+import mapGDS4 = require('../../gds/map_config_4.json')
+
 import {
 	CityFacility,
 	StateTransition,
@@ -60,6 +71,14 @@ export class Parameter {
 	gather_get_silver_parameter: number
 	new_player_protect_times: number
 	choose_random_camp_reward: number
+	register_reward_gold: number
+	attack_player_need_stamina: number
+	attack_plots_need_stamina: number
+	defense_plots_need_stamina: number
+	gather_need_stamina: number
+	spy_need_stamina: number
+	assembly_need_stamina: number
+	assemble_last_times: number
   
     constructor(obj: {}) {
 		this.default_defense_general = []
@@ -212,6 +231,17 @@ export interface FacilityHomeGdsRow extends FacilityGdsRow{
 	product_silver: number
 }
 
+export interface FacilityHospitalGdsRow extends FacilityGdsRow{
+}
+
+export interface FacilityAssemblyGdsRow{
+	need_troop: number
+	need_silver: number
+	maintain_need_troop: number
+	assemble_troops: number
+	level: number
+}
+
 export interface GeneralGdsRow{
 	qualification_troop_recruit: number
 	qualification_silver_product: number
@@ -261,6 +291,12 @@ export var CityConfigFromGDS = {
 		),
 	  [CityFacility.Home]: new ConfigContainer<FacilityHomeGdsRow>(
 		homeGDS.Config
+	  ),
+	  [CityFacility.Hospital]: new ConfigContainer<FacilityHospitalGdsRow>(
+		hospitalGDS.Config
+	  ),
+	  [CityFacility.Assembly]: new ConfigContainer<FacilityAssemblyGdsRow>(
+		assemblyGDS.Config
 	  )
 	},
 	limit: {
@@ -280,7 +316,9 @@ export var CityConfigFromGDS = {
 	  [CityFacility.TrainingCenter]: new FacilityLimit(
 		buildingCount.trainingcenter
 	  ),
-	  [CityFacility.Home]: new FacilityLimit(buildingCount.home)
+	  [CityFacility.Home]: new FacilityLimit(buildingCount.home),
+	  [CityFacility.Hospital]: new FacilityLimit(buildingCount.hospital),
+	  [CityFacility.Assembly]: new FacilityLimit(buildingCount.assembly)
 	},
   };
 
@@ -307,9 +345,44 @@ export var GeneralConfigFromGDS = {
 	parameter: parameterConfig
 }
 
-export var MapConfigFromGDS = new MapConfig(mapGDS)
 
-export function GenBlockDefenseTroop(x_id: number, y_id: number){
+
+export function getMapOffset(mapId: number){
+	let offsets = { x: 10, y : 10, rows: 21, cols: 11, maxSize: 21 };
+	for(let item of mapListGDS['Config']){
+		if(item['map_id'] === mapId){
+			offsets.x = item.cols - 1;
+			offsets.y = (item.rows - 1)/2;
+			offsets.maxSize = Math.max(item.rows, item.cols);
+			offsets.rows = item.rows;
+			offsets.cols = item.cols;
+		}
+	}
+	return offsets;
+}
+
+export function loadMapGDS(mapId: number){
+	let list = {
+		1: mapGDS1,
+		2: mapGDS2,
+		3: mapGDS3,
+		4: mapGDS4
+	};
+	return list[mapId] || mapGDS1;
+}
+
+export function getMapConfigFromGDS(mapId: number){
+	 mapId = mapId || 1;
+	const mapGDS = loadMapGDS(mapId);
+	// console.log('mapId dataconfig:', mapId, mapGDS);
+	var MapConfigFromGDS = new MapConfig(mapGDS)
+	return MapConfigFromGDS;
+}
+
+// export var MapConfigFromGDS = new MapConfig(mapGDS)
+
+export function GenBlockDefenseTroop(x_id: number, y_id: number, mapId: number){
+	var MapConfigFromGDS = getMapConfigFromGDS(mapId);
 	let row = MapConfigFromGDS.get(x_id, y_id)
 	let troops = row.troops
 	let re: BlockDefenseInfo[] = []
@@ -331,6 +404,8 @@ export function GenBlockDefenseTroop(x_id: number, y_id: number){
 }
 
 export interface Season{
+    seasonId: string
+    chain: string
 	show_season_victory_reward: SeasonReward[]
 	show_rank_reward: SeasonReward[]
 	show_occupy_reward: SeasonReward[]
@@ -344,6 +419,7 @@ export interface Season{
 }
 
 export interface ActivityConf{
+	relativeTime: string
 	startTime: number
 	type: number
 }
@@ -369,23 +445,27 @@ export class SeasonConfig{
 		this.config = []
 		for(let seasonConf of list){
 			let season: Season = {
+		        seasonId: '',
+		        chain: '',
 				show_season_victory_reward : [],
 				show_rank_reward: [],
 				show_occupy_reward: [],
-				season_reservation : transDateToTimeStamp(seasonConf['season_reservation']),
-				season_ready: transDateToTimeStamp(seasonConf['season_ready']),
-				season_open: transDateToTimeStamp(seasonConf['season_open']),
-				season_end: transDateToTimeStamp(seasonConf['season_end']),
+				season_reservation : 0,
+				season_ready: 0,
+				season_open: 0,
+				season_end: 0,
 				rank_reward: [],
 				activities: [],
 				id: seasonConf['id']
 			}
 			for(let item of (seasonConf['dailyactivity'] || []) as []){
 				let actConf : ActivityConf = {
-					startTime: transDateToTimeStamp(item['day']),
+					relativeTime: item['day'],
+					startTime: 0,
 					type: item['activity']
 				}
 				season.activities.push(actConf)
+				// console.log('season.activities', season.activities);
 			}
 			for(let item of seasonConf['show_season_victory_reward'] as []){
 				season.show_season_victory_reward.push( item as SeasonReward)
@@ -419,7 +499,7 @@ export class RechargeConfigs{
 	config : RechargeConfig[]
 	constructor(obj : {}){
 		this.config = []
-		for(let item of obj['Config']){
+		for(let item of (obj['Config'] || [])){
 			this.config.push(item as RechargeConfig)
 		}
 	}
@@ -476,3 +556,65 @@ export class ActivityTypeConfig{
 }
 
 export var ActivityTypeConfigFromGDS = new ActivityTypeConfig(activityTypeGDS)
+
+
+export interface VipType {
+	add_general_id: [],
+	attack: number,
+    defense: number,
+    load: number,
+    product: number,
+    recruit: number,
+    score: number,
+    vip_level: number
+}
+export class VipConfig{
+	config: VipType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(type : number){
+		return this.config[type - 1]
+	}
+}
+export var vipConfigFromGDS = new VipConfig(vipGDS)
+
+
+
+export interface OfferType {
+    offer_trigger_value: number,
+    offer_trigger_2: number,
+    offer_trigger_1: number,
+    offer_reward_troops: number,
+    offer_reward_sliver: number,
+    offer_order: number,
+    offer_id: number,
+    offer_gold: number,
+    offer_icon: [],
+    offer_background: string
+}
+export class OfferConfig{
+	config: OfferType[]
+	constructor(obj:{}){
+		this.config = []
+		for(let item of obj['Config']){
+			this.config.push(item)
+		}
+	}
+	get(id : number){
+		let res: OfferType;
+		for(let item of this.config){
+			if(item['offer_id'] === id){
+				res = item;
+			}
+		}
+		return res;
+	}
+}
+
+export var offerConfigFromGDS = new OfferConfig(offerGDS)
+
+

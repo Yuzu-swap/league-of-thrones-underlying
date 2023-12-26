@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+yarn.lock
+maps-result
+
+maps-result
 
 # testing
 /coverage

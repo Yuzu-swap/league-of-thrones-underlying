@@ -1,0 +1,922 @@
+{
+   "Config" : [
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "count": 50000000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "count": 50000000
+            }
+        ],
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 1,
+                "end": 1,
+                "count": 2000000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 2,
+                "end": 2,
+                "count": 1500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 3,
+                "end": 3,
+                "count": 1100000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 4,
+                "end": 4,
+                "count": 900000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 5,
+                "end": 5,
+                "count": 700000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 6,
+                "end": 6,
+                "count": 600000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 7,
+                "end": 7,
+                "count": 500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 8,
+                "end": 8,
+                "count": 400000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 9,
+                "end": 9,
+                "count": 350000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 10,
+                "end": 10,
+                "count": 300000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 11,
+                "end": 11,
+                "count": 270000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 12,
+                "end": 12,
+                "count": 240000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 13,
+                "end": 13,
+                "count": 210000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 14,
+                "end": 14,
+                "count": 180000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 15,
+                "end": 15,
+                "count": 150000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 16,
+                "end": 16,
+                "count": 140000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 17,
+                "end": 17,
+                "count": 130000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 18,
+                "end": 18,
+                "count": 120000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 19,
+                "end": 19,
+                "count": 110000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 20,
+                "end": 20,
+                "count": 100000000
+            }
+        ],
+        "id": 1,
+        "dailyactivity":[
+            {
+                "day":"1_0",
+                "activity": 1
+            },
+            {
+                "day":"1_0",
+                "activity": 2
+            },
+            {
+                "day":"1_0",
+                "activity": 3
+            },
+            {
+                "day":"2_0",
+                "activity": 1
+            },
+            {
+                "day":"2_0",
+                "activity": 2
+            },
+            {
+                "day":"2_0",
+                "activity": 3
+            },
+            {
+                "day":"3_0",
+                "activity": 1
+            },
+            {
+                "day":"3_0",
+                "activity": 2
+            },
+            {
+                "day":"3_0",
+                "activity": 3
+            },
+            {
+                "day":"4_0",
+                "activity": 1
+            },
+            {
+                "day":"4_0",
+                "activity": 2
+            },
+            {
+                "day":"4_0",
+                "activity": 3
+            },
+            {
+                "day":"5_0",
+                "activity": 1
+            },
+            {
+                "day":"5_0",
+                "activity": 2
+            },
+            {
+                "day":"5_0",
+                "activity": 3
+            },
+            {
+                "day":"6_0",
+                "activity": 1
+            },
+            {
+                "day":"6_0",
+                "activity": 2
+            },
+            {
+                "day":"6_0",
+                "activity": 3
+            },
+            {
+                "day":"7_0",
+                "activity": 1
+            },
+            {
+                "day":"7_0",
+                "activity": 2
+            },
+            {
+                "day":"7_0",
+                "activity": 3
+            },
+            {
+                "day":"8_0",
+                "activity": 1
+            },
+            {
+                "day":"8_0",
+                "activity": 2
+            },
+            {
+                "day":"8_0",
+                "activity": 3
+            },
+            {
+                "day":"9_0",
+                "activity": 1
+            },
+            {
+                "day":"9_0",
+                "activity": 2
+            },
+            {
+                "day":"9_0",
+                "activity": 3
+            },
+            {
+                "day":"10_0",
+                "activity": 1
+            },
+            {
+                "day":"10_0",
+                "activity": 2
+            },
+            {
+                "day":"10_0",
+                "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
+                "activity": 3
+            }
+        ],
+        "chain":"emerald"
+    },
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 50000000
+            }
+        ],
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 1,
+                "end": 1,
+                "count": 2000000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 2,
+                "end": 2,
+                "count": 1500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 3,
+                "end": 3,
+                "count": 1100000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 4,
+                "end": 4,
+                "count": 900000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 5,
+                "end": 5,
+                "count": 700000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 6,
+                "end": 6,
+                "count": 600000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 7,
+                "end": 7,
+                "count": 500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 8,
+                "end": 8,
+                "count": 400000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 9,
+                "end": 9,
+                "count": 350000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 10,
+                "end": 10,
+                "count": 300000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 11,
+                "end": 11,
+                "count": 270000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 12,
+                "end": 12,
+                "count": 240000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 13,
+                "end": 13,
+                "count": 210000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 14,
+                "end": 14,
+                "count": 180000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 15,
+                "end": 15,
+                "count": 150000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 16,
+                "end": 16,
+                "count": 140000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 17,
+                "end": 17,
+                "count": 130000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 18,
+                "end": 18,
+                "count": 120000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 19,
+                "end": 19,
+                "count": 110000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 20,
+                "end": 20,
+                "count": 100000000
+            }
+        ],
+        "id": 2,
+        "dailyactivity":[
+            {
+                "day":"1_0",
+                "activity": 1
+            },
+            {
+                "day":"1_0",
+                "activity": 2
+            },
+            {
+                "day":"1_0",
+                "activity": 3
+            },
+            {
+                "day":"2_0",
+                "activity": 1
+            },
+            {
+                "day":"2_0",
+                "activity": 2
+            },
+            {
+                "day":"2_0",
+                "activity": 3
+            },
+            {
+                "day":"3_0",
+                "activity": 1
+            },
+            {
+                "day":"3_0",
+                "activity": 2
+            },
+            {
+                "day":"3_0",
+                "activity": 3
+            },
+            {
+                "day":"4_0",
+                "activity": 1
+            },
+            {
+                "day":"4_0",
+                "activity": 2
+            },
+            {
+                "day":"4_0",
+                "activity": 3
+            },
+            {
+                "day":"5_0",
+                "activity": 1
+            },
+            {
+                "day":"5_0",
+                "activity": 2
+            },
+            {
+                "day":"5_0",
+                "activity": 3
+            },
+            {
+                "day":"6_0",
+                "activity": 1
+            },
+            {
+                "day":"6_0",
+                "activity": 2
+            },
+            {
+                "day":"6_0",
+                "activity": 3
+            },
+            {
+                "day":"7_0",
+                "activity": 1
+            },
+            {
+                "day":"7_0",
+                "activity": 2
+            },
+            {
+                "day":"7_0",
+                "activity": 3
+            },
+            {
+                "day":"8_0",
+                "activity": 1
+            },
+            {
+                "day":"8_0",
+                "activity": 2
+            },
+            {
+                "day":"8_0",
+                "activity": 3
+            },
+            {
+                "day":"9_0",
+                "activity": 1
+            },
+            {
+                "day":"9_0",
+                "activity": 2
+            },
+            {
+                "day":"9_0",
+                "activity": 3
+            },
+            {
+                "day":"10_0",
+                "activity": 1
+            },
+            {
+                "day":"10_0",
+                "activity": 2
+            },
+            {
+                "day":"10_0",
+                "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
+                "activity": 3
+            }
+        ],
+        "chain":"bsctest"
+    },
+    {
+        "show_season_victory_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 25000000
+            }
+        ],
+        "show_rank_reward":[
+            {
+                "type": 1,
+                "name":"usd",
+                "count": 25000000
+            }
+        ],
+        "rank_reward":[
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 1,
+                "end": 1,
+                "count": 2000000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 2,
+                "end": 2,
+                "count": 1500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 3,
+                "end": 3,
+                "count": 1100000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 4,
+                "end": 4,
+                "count": 900000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 5,
+                "end": 5,
+                "count": 700000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 6,
+                "end": 6,
+                "count": 600000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 7,
+                "end": 7,
+                "count": 500000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 8,
+                "end": 8,
+                "count": 400000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 9,
+                "end": 9,
+                "count": 350000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 10,
+                "end": 10,
+                "count": 300000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 11,
+                "end": 11,
+                "count": 270000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 12,
+                "end": 12,
+                "count": 240000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 13,
+                "end": 13,
+                "count": 210000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 14,
+                "end": 14,
+                "count": 180000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 15,
+                "end": 15,
+                "count": 150000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 16,
+                "end": 16,
+                "count": 140000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 17,
+                "end": 17,
+                "count": 130000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 18,
+                "end": 18,
+                "count": 120000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 19,
+                "end": 19,
+                "count": 110000000
+            },
+            {
+                "type": 1,
+                "name":"rose",
+                "from": 20,
+                "end": 20,
+                "count": 100000000
+            }
+        ],
+        "id": 3,
+        "dailyactivity":[
+            {
+                "day":"1_0",
+                "activity": 1
+            },
+            {
+                "day":"1_0",
+                "activity": 2
+            },
+            {
+                "day":"1_0",
+                "activity": 3
+            },
+            {
+                "day":"2_0",
+                "activity": 1
+            },
+            {
+                "day":"2_0",
+                "activity": 2
+            },
+            {
+                "day":"2_0",
+                "activity": 3
+            },
+            {
+                "day":"3_0",
+                "activity": 1
+            },
+            {
+                "day":"3_0",
+                "activity": 2
+            },
+            {
+                "day":"3_0",
+                "activity": 3
+            },
+            {
+                "day":"4_0",
+                "activity": 1
+            },
+            {
+                "day":"4_0",
+                "activity": 2
+            },
+            {
+                "day":"4_0",
+                "activity": 3
+            },
+            {
+                "day":"5_0",
+                "activity": 1
+            },
+            {
+                "day":"5_0",
+                "activity": 2
+            },
+            {
+                "day":"5_0",
+                "activity": 3
+            },
+            {
+                "day":"6_0",
+                "activity": 1
+            },
+            {
+                "day":"6_0",
+                "activity": 2
+            },
+            {
+                "day":"6_0",
+                "activity": 3
+            },
+            {
+                "day":"7_0",
+                "activity": 1
+            },
+            {
+                "day":"7_0",
+                "activity": 2
+            },
+            {
+                "day":"7_0",
+                "activity": 3
+            },
+            {
+                "day":"8_0",
+                "activity": 1
+            },
+            {
+                "day":"8_0",
+                "activity": 2
+            },
+            {
+                "day":"8_0",
+                "activity": 3
+            },
+            {
+                "day":"9_0",
+                "activity": 1
+            },
+            {
+                "day":"9_0",
+                "activity": 2
+            },
+            {
+                "day":"9_0",
+                "activity": 3
+            },
+            {
+                "day":"10_0",
+                "activity": 1
+            },
+            {
+                "day":"10_0",
+                "activity": 2
+            },
+            {
+                "day":"10_0",
+                "activity": 3
+            },
+            {
+                "day":"11_0",
+                "activity": 1
+            },
+            {
+                "day":"11_0",
+                "activity": 2
+            },
+            {
+                "day":"11_0",
+                "activity": 3
+            },
+            {
+                "day":"12_0",
+                "activity": 1
+            },
+            {
+                "day":"12_0",
+                "activity": 2
+            },
+            {
+                "day":"12_0",
+                "activity": 3
+            }
+        ],
+        "chain":"bsc"
+    }
+    ]
+}
