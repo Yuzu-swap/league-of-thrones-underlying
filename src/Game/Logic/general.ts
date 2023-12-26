@@ -1082,6 +1082,7 @@ export class General{
         }
 
         const generalInfo = this.getGeneralState(generalId)
+        console.log('cod create generalInfo:', generalInfo);
         if(!(this.checkIdAble(generalId) && generalInfo.able)){
             return {
                 result: false,
@@ -1115,7 +1116,7 @@ export class General{
             }
         }
 
-        const assemble_last_times = this.config.parameter.assemble_last_times/6;
+        const assemble_last_times = this.config.parameter.assemble_last_times;
         // const assemblyTroops = 23000;
         const assemblyLevel = this.city.state.facilities[CityFacility.Assembly][0];
         let assemblyTroops = this.cityConfig.facilityConfig[CityFacility.Assembly].get(assemblyLevel - 1 + '').assemble_troops;

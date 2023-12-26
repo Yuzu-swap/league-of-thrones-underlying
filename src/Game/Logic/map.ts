@@ -133,8 +133,8 @@ export class Map{
             return 0;
         }
         if(campInfo.length > yIndex && campInfo[yIndex].length > xIndex ){
-            console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
-            console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
+            // console.log('getBelongInfo ', campInfo[yIndex], {x_id, y_id }, {yIndex, xIndex});
+            // console.log('getBelongInfo ', campInfo[yIndex][xIndex]);
             return campInfo[yIndex][xIndex].unionId
         }
         return 0
@@ -225,7 +225,9 @@ export class Map{
         let { xIndex, yIndex, campInfoKey, campInfo } = this.getBlockBaseInfo(1, 1);
         for(let item of campInfo){
             for(let subItem of item){
-                if(subItem.type === 8 && subItem.unionId === unionId){
+                //harbor + capital sit by ocean + river;
+                let isHarbor = subItem['type'] === 8 || (subItem['type'] == 2 && subItem['parameter'] == 14);
+                if(isHarbor && subItem['unionId'] === unionId){
                     allMyHarbors.push(subItem);
                 }
             }
@@ -237,7 +239,11 @@ export class Map{
     checkBetween(unionId : number, x_id: number, y_id: number){
         let allMyHarbors = this.getAllMyHarbors(unionId);
         let { campInfo } = this.getBlockBaseInfo(x_id, y_id);
-        let isTargetBlockIsHarbor = campInfo.type === 8;
+        let isTargetBlockIsHarbor = campInfo['type'] === 8 || (campInfo['type'] == 2 && campInfo['parameter'] == 14);
+
+
+        console.log('checkBetween:', { campInfo, unionId, isTargetBlockIsHarbor });
+        console.log('checkBetween allMyHarbors:', allMyHarbors);
         
         //only attack non-occupy-harbor when own a harbor
         if(allMyHarbors.length > 0 && isTargetBlockIsHarbor && campInfo.unionId !== unionId){
@@ -433,7 +439,7 @@ export class Map{
             'defaultDefense': defaultDefense,
             'lastAttachTime': time
         })
-        this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
+        // this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         console.log('attackBlock recoveryBlockDefense ok:', {x_id, y_id}, blockState);
     }
 
@@ -454,6 +460,7 @@ export class Map{
         let isDefaultDefense = false;
         let playerDefenseTroops = this.getDefenseList(x_id, y_id, isDefaultDefense);
         let cancelList : innerCancelBlockDefense[] = [];
+        console.log('attackBlock playerDefenseTroops:', { isAttackNeighbor, hasPlayerDefense: playerDefenseTroops.length > 0 });
         if(playerDefenseTroops.length > 0){
             for(let i = 0; i < playerDefenseTroops.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(playerDefenseTroops[i])
@@ -526,7 +533,8 @@ export class Map{
             }
             blockState.update({
                 'defenseList': playerDefenseTroops
-            })
+            });
+            this.changeGlobalLastAttack(x_id, y_id, time + DefaultTroopRecoverTime)
         }
         if(remainTroop <= 0 || isAttackNeighbor){
             return {
@@ -540,6 +548,7 @@ export class Map{
         if(!isAttackNeighbor){
             let isDefaultDefense = true;
             let defaultDefense = this.getDefenseList(x_id, y_id, isDefaultDefense);
+            console.log('attackBlock defaultDefense:', { isAttackNeighbor, hasDefaultDefense: defaultDefense.length > 0 });
             for(let i = 0; i < defaultDefense.length; i++){
                 let info = this.transBlockDefenseInfoToGeneralDefense(defaultDefense[i])
                 let unionId = this.general.state.unionId;
@@ -1007,13 +1016,18 @@ export class Map{
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
         let blockMap = InitState[StateName.Capitals][capitalsKey];
+        // console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
         return blockMap;
     }
 
     checkUnionWinForSeperateCapitals(){
+        console.log('checkUnionWin start');
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
-        let endTime = 0
+        let endTime = 0;
+        let mapId = this.mapId;
+
+        console.log('checkUnionWin:', {mapId, time, unionWinId: this.gState.unionWinId});
         if(this.gState.unionWinId != 0){
             return {
                 unionWin: true,
@@ -1024,16 +1038,26 @@ export class Map{
         }
 
         let capticals = this.getCapitalsBlocks();
+        console.log('checkUnionWin capticals:', { mapId }, capticals);
 
-        let unionWin = true
-        let winId = 0
+        let blockStates = this.blockStates;
+        console.log('checkUnionWin capticals blockStates:', { mapId }, blockStates);
+
+        let winId = 0;
+        let unionWin = true;
+        if(JSON.stringify(capticals) == '{}'){
+            unionWin = false;
+        }
         for(var blockId in capticals){
             let blockIds = blockId.split('^');
             let x_id = parseInt(blockIds[0]);
             let y_id = parseInt(blockIds[1]);
-            let blockState = this.getBlockState(x_id, y_id)
+            let blockState = this.getBlockState(x_id, y_id);
+            // let ownerId = this.getBelongInfo(x_id, y_id);
+            // console.log('checkUnionWin blockId:', { blockId, x_id, y_id, ownerId });
+            console.log('checkUnionWin blockId:', { blockId, x_id, y_id, mapId }, blockState);
             if(!blockState){
-                throw "error when check unionWin"
+                throw "error blockState when check unionWin"
             }
             if( blockState.belong.unionId == 0){
                 unionWin = false
@@ -1047,13 +1071,14 @@ export class Map{
                 }
                 let tempEndTime = blockState.belong.updateTime + this.parameter.victory_need_occupy_times
                 endTime = tempEndTime > endTime ? tempEndTime : endTime
-            }
-            else{
+            }else{
                 unionWin = false
                 status = UnionWinStatus.Normal
                 break
             }
         }
+
+        console.log('checkUnionWin status:', { unionWin, status }, UnionWinStatus);
 
         if(!unionWin && status ==  UnionWinStatus.Normal){
             return {
@@ -1084,6 +1109,9 @@ export class Map{
     }
 
     checkUnionWin(){
+        return this.checkUnionWinForSeperateCapitals();
+
+        //old
         let time = getTimeStamp()
         let status = UnionWinStatus.WaitToWin
         let endTime = 0

@@ -134,6 +134,16 @@ export class MapComponent implements IMapComponent{
                 re.push( stateId)
             }
         }
+
+        let capitals = this.map.getCapitalsBlocks();
+        for(var blockId in capitals){
+            let stateId = `${StateName.BlockInfo}:${mapId}:${blockId}`
+            if(validBlockIds.indexOf(stateId) != -1){
+                re.push(stateId)
+            }
+        }
+        console.log('genBlockIds genBlockIds', re);
+
         return re
     }
 
@@ -309,7 +319,10 @@ export class MapComponent implements IMapComponent{
             'bsc' : 3
         };
         let index = chains[chainName];
-        let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
+
+        let seasonState = this.map.getSeasonState();
+        // let rewardSum = this.map.seasonConfig.get(index).show_season_victory_reward[0].count;
+        let rewardSum = seasonState.rankRewardValue;
         let re = {
             topInfo: [],
             myInfo: {}

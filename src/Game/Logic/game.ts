@@ -108,17 +108,17 @@ export class City {
       if (!this.state.resources[typ]) {
         return 0;
       }
-      let value = 0;
       const info = this.state.resources[typ];
-      value = info.value;
-      if (info.lastUpdate != -1) {
-        const hour = (time - info.lastUpdate) / 3600;
-        value = hour * this.boost.getProduction(typ) + info.value;
+      let value = info['value'] || 0;
+      if (info['lastUpdate'] != -1) {
+        const hour = (time - info['lastUpdate']) / 3600;
+        value = hour * this.boost.getProduction(typ) + value;
       }
-      return value < 0 ? 0 : value;
+      return Math.max(0, value);
     }
     else{
-      return this.state.resources[ResouceType.Troop].value
+      let troops = this.state.resources[ResouceType.Troop] || {};
+      return troops['value'] || 0;
     }
   }
 
@@ -352,11 +352,12 @@ export class City {
     return { value , today, updateTime};
   }
 
-getInjuredTroops() {
-  return this.updateInjuredTroops(0, 'heal');
-  // let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
-  // return injuredTroops;
-}
+
+  getInjuredTroops() {
+    return this.updateInjuredTroops(0, 'heal');
+    // let injuredTroops: InjuredTroops = this.state.injuredTroops || { updateTime: 0, today: 0, value : 0};
+    // return injuredTroops;
+  }
 
   healEstimate(amount: number){
     let unit1 = this.parameter["healing_troops_need_silver"];
@@ -727,12 +728,13 @@ getInjuredTroops() {
         error: 'cool-down-have-not-end'
       }
     }
+
+    const time = getTimeStamp()
     
     this.useSilver( -100000000)
     this.useTroop( -100000 )
     this.useGold( -50000 )
 
-    const time = getTimeStamp()
     this.state.update(
       {
         lastAddTestTime : time

@@ -261,7 +261,7 @@ export function GetMapState(mapId: number){
             let yIndex = (mapOffset.rows - 1)/2 - y_id;
 
             //captital blocks
-            if( row['type'] == 8 ){
+            if( row['type'] == 2 ){
                 InitState[StateName.Capitals][capitalsKey][blockId] = row;
             }
 
