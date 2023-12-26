@@ -472,8 +472,9 @@ export class Map{
                 let useStamina = false;
                 let bre = this.general.battle(generalId, unionIds, info, remainTroop, useStamina)
                 if(!isCod){
-                    this.city.useTroop(bre['attackTroopReduce'])
-                    this.city.updateInjuredTroops(bre['attackTroopReduce'],'battle')   
+                    let attackTroopReduce = bre['attackTroopReduce'] || 0;
+                    this.city.useTroop(attackTroopReduce)
+                    this.city.updateInjuredTroops(attackTroopReduce,'battle')   
                 }
                 console.log('updateInjuredTroops battle result:', { isCod }, bre)
                 
@@ -559,8 +560,9 @@ export class Map{
                 let useStamina = false;
                 let bre = this.general.battle(generalId, unionIds, info, remainTroop, useStamina);
                 if(!isCod){
-                    this.city.useTroop(bre['attackTroopReduce'])
-                    this.city.updateInjuredTroops(bre['attackTroopReduce'], 'battle')   
+                    let attackTroopReduce = bre['attackTroopReduce'] || 0;
+                    this.city.useTroop(attackTroopReduce)
+                    this.city.updateInjuredTroops(attackTroopReduce,'battle')  
                 }
                 console.log('updateInjuredTroops battle result:', { isCod }, bre)
 

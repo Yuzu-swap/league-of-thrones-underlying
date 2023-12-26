@@ -1036,7 +1036,7 @@ export class TransitionHandler {
       let attackInfo = (records[records.length - 1] || {}).attackInfo || { troopReduce: 0, username: '' };
 
       let username = defenseInfo.username;
-      let troopReduce = defenseInfo.troopReduce;
+      let troopReduce = defenseInfo.troopReduce || 0;
       if(username !== ''){
         let logic2: LogicEssential = this.genLogic(username.replace("defenderinfo:", ""), args.x_id, args.y_id, gStates)
         logic2.city.updateInjuredTroops(troopReduce, 'battle')

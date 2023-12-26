@@ -324,12 +324,14 @@ export class City {
 
     console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
 
+    amount = amount || 0;
+
     let dayMsLong = 24*60*60;
     let updateTime = injuredTroops.updateTime;
     let timeNow = Math.floor(new Date().getTime()/1000);
     let isSameDay = Math.floor(updateTime/dayMsLong) === Math.floor(timeNow/dayMsLong);
 
-    let value = injuredTroops.value + amount;
+    let value = (injuredTroops.value || 0) + amount;
 
     let today = injuredTroops.today;
     if(type === 'heal'){
