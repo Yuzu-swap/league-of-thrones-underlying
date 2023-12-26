@@ -79,6 +79,7 @@ export class City {
   offers: OfferConfig;
 
   constructor(state: ICityState) {
+    console.log('city constructor facilities:', state);
     this.state = state;
     this.cityConfig = CityConfigFromGDS;
     this.rechargeConfig = RechargeConfigFromGDS;
@@ -583,6 +584,7 @@ export class City {
   getMaintainNeedTroop(){
     let troop = 0;
     let facilities = this.state.facilities;
+    console.log('getMaintainNeedTroop state facilities:', this.state);
     console.log('getMaintainNeedTroop facilities:', facilities);
     console.log('getMaintainNeedTroop facilities facilityConfig:', this.cityConfig.facilityConfig);
     for(let key in CityFacility){
