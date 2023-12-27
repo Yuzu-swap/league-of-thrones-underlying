@@ -1208,7 +1208,7 @@ export class Map{
         if (config.seasonId == "prod-bsc-2023-12-25-1-2"){
             config.season_end = 1704636000
         }else if(config.seasonId == "prod-bsc-2023-12-22-2-1"){
-            config.season_end = 1704046920
+            config.season_end = 1704204000
         }
 
         if( time < config.season_ready ){
