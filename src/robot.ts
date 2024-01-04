@@ -10,7 +10,7 @@ import { RecruitStatus } from './Game/Logic/game';
 import {decrypt} from './BotLogic/utils/walletmgr';
 import * as fs  from 'fs';
 import { BlockDefenseInfo } from './Game/State';
-import { SkillType } from '../dist/Game/Logic/general';
+import { SkillType } from './Game/Logic/general';
 import { log } from 'console';
 import { MapGDS } from './Game/DataConfig';
 

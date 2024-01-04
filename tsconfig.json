@@ -6,6 +6,7 @@
         "sourceMap": false,     
         "rootDir":"src",      
         "outDir":"dist",
+        "esModuleInterop": true,
         "resolveJsonModule": true,
         "watch":false ,
         "typeRoots": ["src/types/index.d.ts", "src/global.d.ts" ],
