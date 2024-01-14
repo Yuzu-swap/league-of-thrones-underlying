@@ -203,6 +203,13 @@ export class Activity{
     }
 
     donateSilver(id: number, amount: number){
+        if(amount <= 0){
+            return{
+                result: false,
+                txType: StateTransition.DonateSilver,
+                error: "amount-error" 
+            }
+        }
         if(!this.checkActivityAble(id)){
             return {
                 result: false,
