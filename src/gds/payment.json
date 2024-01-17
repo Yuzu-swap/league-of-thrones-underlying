@@ -164,7 +164,7 @@
     },
     {
         "token": 4,
-        "price": 1000000000,
+        "price": 1000000,
         "internal_id": 19,
         "internal_icon": 0,
         "gold": 500,
@@ -173,7 +173,7 @@
     },
     {
         "token": 4,
-        "price": 2000000000,
+        "price": 2000000,
         "internal_id": 20,
         "internal_icon": 1,
         "gold": 1000,
@@ -182,7 +182,7 @@
     },
     {
         "token": 4,
-        "price": 5000000000,
+        "price": 5000000,
         "internal_id": 21,
         "internal_icon": 1,
         "gold": 2500,
@@ -191,7 +191,7 @@
     },
     {
         "token": 4,
-        "price": 10000000000,
+        "price": 10000000,
         "internal_id": 22,
         "internal_icon": 1,
         "gold": 5000,
@@ -200,7 +200,7 @@
     },
     {
         "token": 4,
-        "price": 20000000000,
+        "price": 20000000,
         "internal_id": 23,
         "internal_icon": 1,
         "gold": 10000,
@@ -209,7 +209,7 @@
     },
     {
         "token": 4,
-        "price": 50000000000,
+        "price": 50000000,
         "internal_id": 24,
         "internal_icon": 1,
         "gold": 25000,
