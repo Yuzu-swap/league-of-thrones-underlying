@@ -889,6 +889,8 @@ export class General{
             records: [],
             txType: StateTransition.Battle
         }
+        console.log('updateInjuredTroops battle ids:', { attackUnionId, defenseUnionId, realDefenseTroop, remainTroopA, remainTroopD });
+        console.log('updateInjuredTroops battle info:', { attackInfo, defenseInfo });
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
         re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
