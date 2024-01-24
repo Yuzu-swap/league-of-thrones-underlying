@@ -890,7 +890,7 @@ export class General{
             records: [],
             txType: StateTransition.Battle
         }
-        console.log('updateInjuredTroops battle ids:', { attackUnionId, defenseUnionId, realDefenseTroop, remainTroopA, remainTroopD });
+        console.log('updateInjuredTroops battle ids:', { attackUnionId, defenseUnionId, remainTroopA, remainTroopD });
         re.attackTroopReduce = Math.floor(attackInfo.ableTroop - remainTroopA)
         let realDefenseTroop = defenseInfo.defenseMaxTroop > defenseInfo.troop? defenseInfo.troop : defenseInfo.defenseMaxTroop
         re.defenseTroopReduce = Math.floor(realDefenseTroop - remainTroopD)
@@ -903,16 +903,14 @@ export class General{
         if(remainTroopA > 0 ){
             re.win = true
             re.silverGet = attackInfo.load + Math.floor(remainTroopA) * this.config.parameter.troops_base_load
-        }
-        else{
+        }else{
             re.win = false
         }
         if(re.win){
             if(attackUnionId !== defenseUnionId){
                 re.attackGloryGet += this.config.parameter.battle_victory_get_glory
             }
-        }
-        else{
+        }else{
             re.defenseGloryGet += this.config.parameter.battle_victory_get_glory
         }
         return re
