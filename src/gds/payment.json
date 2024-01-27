@@ -2,7 +2,7 @@
    "Config" : [
     {
         "token": 1,
-        "price": 10000000,
+        "price": 6000000,
         "internal_id": 1,
         "internal_icon": 0,
         "gold": 500,
@@ -11,7 +11,7 @@
     },
     {
         "token": 1,
-        "price": 20000000,
+        "price": 12000000,
         "internal_id": 2,
         "internal_icon": 1,
         "gold": 1000,
@@ -20,7 +20,7 @@
     },
     {
         "token": 1,
-        "price": 50000000,
+        "price": 30000000,
         "internal_id": 3,
         "internal_icon": 1,
         "gold": 2500,
@@ -29,7 +29,7 @@
     },
     {
         "token": 1,
-        "price": 100000000,
+        "price": 60000000,
         "internal_id": 4,
         "internal_icon": 1,
         "gold": 5000,
@@ -38,7 +38,7 @@
     },
     {
         "token": 1,
-        "price": 200000000,
+        "price": 120000000,
         "internal_id": 5,
         "internal_icon": 1,
         "gold": 10000,
@@ -47,7 +47,7 @@
     },
     {
         "token": 1,
-        "price": 500000000,
+        "price": 300000000,
         "internal_id": 6,
         "internal_icon": 1,
         "gold": 25000,
@@ -215,6 +215,114 @@
         "gold": 25000,
         "extra_gold": 5000,
         "chain":"zetatest"
+    },
+    {
+        "token": 5,
+        "price": 3500000,
+        "internal_id": 25,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 5,
+        "price": 7000000,
+        "internal_id": 26,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 5,
+        "price": 17500000,
+        "internal_id": 27,
+        "internal_icon": 1,
+        "gold": 2500,
+        "extra_gold": 250,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 5,
+        "price": 35000000,
+        "internal_id": 28,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 750,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 5,
+        "price": 70000000,
+        "internal_id": 29,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 1500,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 5,
+        "price": 175000000,
+        "internal_id": 30,
+        "internal_icon": 1,
+        "gold": 25000,
+        "extra_gold": 5000,
+        "chain":"goerlitest"
+    },
+    {
+        "token": 6,
+        "price": 700000,
+        "internal_id": 31,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0,
+        "chain":"mumbaitest"
+    },
+    {
+        "token": 6,
+        "price": 1400000,
+        "internal_id": 32,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"mumbaitest"
+    },
+    {
+        "token": 6,
+        "price": 3500000,
+        "internal_id": 33,
+        "internal_icon": 1,
+        "gold": 2500,
+        "extra_gold": 250,
+        "chain":"mumbaitest"
+    },
+    {
+        "token": 6,
+        "price": 7000000,
+        "internal_id": 34,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 750,
+        "chain":"mumbaitest"
+    },
+    {
+        "token": 6,
+        "price": 14000000,
+        "internal_id": 35,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 1500,
+        "chain":"mumbaitest"
+    },
+    {
+        "token": 6,
+        "price": 35000000,
+        "internal_id": 36,
+        "internal_icon": 1,
+        "gold": 25000,
+        "extra_gold": 5000,
+        "chain":"mumbaitest"
     }
     ]
 }
