@@ -614,7 +614,7 @@ export class City {
     if(
       !tempConfig
       ||(tempConfig as RechargeConfig).internal_id != rechargeId
-      ||(tempConfig as RechargeConfig).price != (amount * 1e6)
+      ||(tempConfig as RechargeConfig).price <= (amount * 1e6)
     ){
       return {
         result: false,

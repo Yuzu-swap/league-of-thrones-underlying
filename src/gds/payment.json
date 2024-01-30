@@ -323,6 +323,60 @@
         "gold": 25000,
         "extra_gold": 5000,
         "chain":"mumbaitest"
+    },
+    {
+        "token": 7,
+        "price": 1000000,
+        "internal_id": 37,
+        "internal_icon": 0,
+        "gold": 500,
+        "extra_gold": 0,
+        "chain":"zeta"
+    },
+    {
+        "token": 7,
+        "price": 2000000,
+        "internal_id": 38,
+        "internal_icon": 1,
+        "gold": 1000,
+        "extra_gold": 100,
+        "chain":"zeta"
+    },
+    {
+        "token": 7,
+        "price": 5000000,
+        "internal_id": 39,
+        "internal_icon": 1,
+        "gold": 2500,
+        "extra_gold": 250,
+        "chain":"zeta"
+    },
+    {
+        "token": 7,
+        "price": 10000000,
+        "internal_id": 40,
+        "internal_icon": 1,
+        "gold": 5000,
+        "extra_gold": 750,
+        "chain":"zeta"
+    },
+    {
+        "token": 7,
+        "price": 20000000,
+        "internal_id": 41,
+        "internal_icon": 1,
+        "gold": 10000,
+        "extra_gold": 1500,
+        "chain":"zeta"
+    },
+    {
+        "token": 7,
+        "price": 50000000,
+        "internal_id": 42,
+        "internal_icon": 1,
+        "gold": 25000,
+        "extra_gold": 5000,
+        "chain":"zeta"
     }
     ]
 }
