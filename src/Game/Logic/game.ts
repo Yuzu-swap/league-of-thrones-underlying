@@ -760,6 +760,9 @@ export class City {
     console.log('onBuyOffer 2:', offerId, ', offerData: ', offerData);
 
     let buyOfferRecords = this.state.buyOfferRecords || {};
+    
+    console.log('onBuyOffer buyOfferRecords:', buyOfferRecords);
+
     if(buyOfferRecords[offerId]){
       return{
         txType: StateTransition.BuyOffer,

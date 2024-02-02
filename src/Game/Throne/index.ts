@@ -512,6 +512,9 @@ export class CityComponent implements ICityComponent {
   getOfferList(): {} {
     let buyOfferRecords = this.city.state.buyOfferRecords;
     let all = this.city.getOfferList() as [];
+    
+    console.log('onBuyOffer getOfferList:', buyOfferRecords, all);
+
     return { buyOfferRecords, all };
   }
 
