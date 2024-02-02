@@ -321,13 +321,15 @@ export class City {
     let injuredTroops: InjuredTroops = this.state.injuredTroops;
 
     console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
+    
+    amount = amount || 0;
 
     let dayMsLong = 24*60*60;
     let updateTime = injuredTroops.updateTime;
     let timeNow = Math.floor(new Date().getTime()/1000);
     let isSameDay = Math.floor(updateTime/dayMsLong) === Math.floor(timeNow/dayMsLong);
 
-    let value = injuredTroops.value + amount;
+    let value = (injuredTroops.value || 0) + amount;
 
     let today = injuredTroops.today;
     if(type === 'heal'){
@@ -370,10 +372,10 @@ export class City {
 
   healTroopsBySilver(amount: number){
     let injuredTroops = this.getInjuredTroops();
-    if(injuredTroops.value < amount){
+    if(amount <= 0 || injuredTroops.value < amount){
       return {
         txType: StateTransition.HealTroops,
-        err: 'heal count big the injury.'
+        err: 'heal amount err.'
       }
     }
 
@@ -396,10 +398,10 @@ export class City {
 
   healTroopsByGold(amount: number){
     let injuredTroops = this.getInjuredTroops();
-    if(injuredTroops.value < amount){
+    if(amount <= 0 || injuredTroops.value < amount){
       return {
         txType: StateTransition.HealTroops,
-        err: 'heal count big the injury.'
+        err: 'heal count err.'
       }
     }
 
@@ -464,6 +466,13 @@ export class City {
 
   recruit( amount: number ){
     const cost = this.getRecruitNeed(amount)
+    if( amount <= 0){
+      return {
+        result: false, 
+        txType: StateTransition.Recruit,
+        error: 'amount-err'
+      }
+    }
     if( cost > this.getResource(ResouceType.Silver)){
       return {
         result: false, 
@@ -607,7 +616,7 @@ export class City {
     return config;
   }
 
-  recharge(rechargeId: number ,amount: number){
+  recharge(rechargeId: number, amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
     console.log("recharge config ",tempConfig," rechargeId ",rechargeId," amount ",amount*1e6)
