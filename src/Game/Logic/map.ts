@@ -948,6 +948,7 @@ export class Map{
         let time = parseInt(new Date().getTime() / 1000 + '')
         let blockState = this.getBlockState(x_id, y_id)
         let row = this.getMapGDS(x_id, y_id)
+        console.log('getDurability time diff:', { x_id, y_id, time }, blockState);
         if(time - blockState.lastAttachTime > DurabilityRecoverTime){
             return row.durability
         }
