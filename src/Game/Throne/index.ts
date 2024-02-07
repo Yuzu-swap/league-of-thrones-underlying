@@ -275,6 +275,13 @@ export interface IGeneralComponent extends IComponent {
   getBattleRecordRedPoint(): boolean
   updateBattleRedPoint(timestamp : number ):void
   initRedPoint():Promise<void>
+
+
+
+  getCodList():Promise<any>
+  joinCod(codId: string, generalId: number, callback: (result: any) => void ) : void
+
+  getAllBattleStatuses( callback: (result: any) => void ) : Promise<void>
 }
 
 
@@ -505,6 +512,9 @@ export class CityComponent implements ICityComponent {
   getOfferList(): {} {
     let buyOfferRecords = this.city.state.buyOfferRecords;
     let all = this.city.getOfferList() as [];
+    
+    console.log('onBuyOffer getOfferList:', buyOfferRecords, all);
+
     return { buyOfferRecords, all };
   }
 

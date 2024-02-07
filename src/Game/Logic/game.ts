@@ -323,6 +323,8 @@ export class City {
     let injuredTroops: InjuredTroops = this.state.injuredTroops;
 
     console.log(username, ' troops injured 1: ', {amount, type, injuredTroops});
+    
+    amount = amount || 0;
 
     amount = amount || 0;
 
@@ -402,7 +404,7 @@ export class City {
     if(amount <= 0 || injuredTroops.value < amount){
       return {
         txType: StateTransition.HealTroops,
-        err: 'heal amount err.'
+        err: 'heal count err.'
       }
     }
 
@@ -623,12 +625,8 @@ export class City {
   recharge(rechargeId: number, amount: number){
     let tempConfig = undefined
     tempConfig = this.rechargeConfig.get(rechargeId) as RechargeConfig
-    console.log("recharge config ",tempConfig," rechargeId ",rechargeId,"amount ",amount*1e6)
-    if(
-      !tempConfig
-      ||(tempConfig as RechargeConfig).internal_id != rechargeId
-      ||(tempConfig as RechargeConfig).price != (amount * 1e6)
-    ){
+    console.log("recharge config ",tempConfig," rechargeId ",rechargeId," amount ",amount*1e6)
+    if(!tempConfig || (tempConfig as RechargeConfig).internal_id != rechargeId){
       return {
         result: false,
         txType: StateTransition.Recharge,
@@ -768,6 +766,9 @@ export class City {
     console.log('onBuyOffer 2:', offerId, ', offerData: ', offerData);
 
     let buyOfferRecords = this.state.buyOfferRecords || {};
+    
+    console.log('onBuyOffer buyOfferRecords:', buyOfferRecords);
+
     if(buyOfferRecords[offerId]){
       return{
         txType: StateTransition.BuyOffer,

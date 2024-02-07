@@ -4,7 +4,8 @@ export enum MessageType {
   Query = 'query', //normal query won't trigger any  stae callback
   Chat = 'chat',
   QueryCount = 'query_count',
-  Profile =  'profile'
+  Profile =  'profile',
+  SyncBlockchain =  'sync_blockchain'
 }
 
 export interface BaseMessage {
