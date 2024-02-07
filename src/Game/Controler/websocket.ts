@@ -52,7 +52,7 @@ export class WebSocketMediator
         const msg: MessageS2C = JSON.parse(message.data) as MessageS2C;
         this.ctx = msg;
         
-        if(msg.Type == MessageType.Transition && this.chainBlockCallback){
+        if((msg.Type == MessageType.Transition || msg.Type == MessageType.SyncBlockchain) && this.chainBlockCallback){
           this.chainBlockCallback(msg)
         }
         console.log('client receive msg is ', JSON.stringify(msg));
