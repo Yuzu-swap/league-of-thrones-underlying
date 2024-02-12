@@ -26,6 +26,7 @@ import mapGDS1 = require('../../gds/map_config_1.json')
 import mapGDS2 = require('../../gds/map_config_2.json')
 import mapGDS3 = require('../../gds/map_config_3.json')
 import mapGDS4 = require('../../gds/map_config_4.json')
+import mapGDS5 = require('../../gds/map_config_5.json')
 
 import {
 	CityFacility,
@@ -366,7 +367,8 @@ export function loadMapGDS(mapId: number){
 		1: mapGDS1,
 		2: mapGDS2,
 		3: mapGDS3,
-		4: mapGDS4
+		4: mapGDS4,
+		5: mapGDS5
 	};
 	return list[mapId] || mapGDS1;
 }
