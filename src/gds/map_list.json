@@ -29,6 +29,12 @@
         "map_id": 5,
         "cols": 11,
         "capitalType": "togather"
+    },
+    {
+        "rows": 41,
+        "map_id": 6,
+        "cols": 11,
+        "capitalType": "togather"
     }
     ]
 }
