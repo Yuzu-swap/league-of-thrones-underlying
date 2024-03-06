@@ -1019,8 +1019,8 @@ export class Map{
     getCapitalsBlocks(){
         let mapId = this.mapId;
         let capitalsKey = 'capitals_' + mapId;
-        let blockMap = InitState[StateName.Capitals][capitalsKey];
-        // console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
+        let blockMap = InitState[StateName.Capitals][capitalsKey] || {};
+        console.log('checkUnionWin by capitalsKey:', { mapId, capitalsKey }, blockMap);
         return blockMap;
     }
 
@@ -1049,7 +1049,7 @@ export class Map{
 
         let winId = 0;
         let unionWin = true;
-        if(JSON.stringify(capticals) == '{}'){
+        if(!capticals || JSON.stringify(capticals) == '{}'){
             unionWin = false;
         }
         for(var blockId in capticals){
